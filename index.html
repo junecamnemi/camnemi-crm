@@ -3512,7 +3512,7 @@ function syncUniv() {
       // write through to localStorage so it persists offline
       try { localStorage.setItem(DB_KEY, JSON.stringify(db)); } catch(e){}
       applyDbToState(db);
-      return true;
+      return (db.customers && db.customers.length > 0);  // true only if real data came back
     } catch(e) { console.warn('Backend pull failed', e); return false; }
     finally { __syncing = false; }
   }
