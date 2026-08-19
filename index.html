@@ -3476,6 +3476,51 @@ function syncUniv() {
       park.appendChild(card);
     });
   }
+  // ======= GOOGLE DRIVE BACKEND SYNC =======
+  // Set via the Data & Google Sheets → Backend settings (stored in localStorage).
+  // Or paste your Apps Script Web App URL directly here:
+  function backendUrl() { return localStorage.getItem('camnemi_backend_url') || 'https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec'; }
+  let __syncing = false;
+  // Pull data from the Drive backend (Apps Script). Falls back to localStorage.
+  async function syncPull() {
+    if (!backendUrl()) return false;
+    try {
+      __syncing = true;
+      const res = await fetch(backendUrl(), { method:'GET', cache:'no-store' });
+      if (!res.ok) throw new Error('HTTP '+res.status);
+      const text = await res.text();
+      const db = JSON.parse(text);
+      if (!db || !Array.isArray(db.customers)) throw new Error('Bad data shape');
+      // write through to localStorage so it persists offline
+      try { localStorage.setItem(DB_KEY, JSON.stringify(db)); } catch(e){}
+      applyDbToState(db);
+      return true;
+    } catch(e) { console.warn('Backend pull failed', e); return false; }
+    finally { __syncing = false; }
+  }
+  // Push all current data to the Drive backend.
+  async function syncPush() {
+    if (!backendUrl()) return false;
+    if (__syncing) return false;
+    try {
+      __syncing = true;
+      const payload = exportAllData();
+      const res = await fetch(backendUrl(), {
+        method:'POST',
+        mode:'cors',
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({ data: payload })
+      });
+      return res.ok;
+    } catch(e) { console.warn('Backend push failed', e); return false; }
+    finally { __syncing = false; }
+  }
+  // Debounced push (called after any data change)
+  let __pushTimer = null;
+  function scheduleSyncPush() {
+    clearTimeout(__pushTimer);
+    __pushTimer = setTimeout(() => { syncPush(); }, 800);
+  }
   // ======= DATABASE (localStorage persistence) + GOOGLE SHEETS EXPORT =======
   const DB_KEY = 'camnemi_db_v1';
   // Serialize all app data into a plain object
@@ -3514,6 +3559,7 @@ function syncUniv() {
     try {
       localStorage.setItem(DB_KEY, JSON.stringify(exportAllData()));
     } catch(e) { console.warn('DB save failed', e); }
+    scheduleSyncPush();  // push to Google Drive backend (if configured)
   }
   // Load data from localStorage (returns true if data was loaded)
   function loadDatabase() {
@@ -3539,6 +3585,16 @@ function syncUniv() {
       window.__RESTORE_CUSTOMERS__ = db.customers;
       return true;
     } catch(e) { console.warn('DB load failed', e); return false; }
+  }
+  // Apply a backend-fetched db into app state (arrays) and mark for restore
+  function applyDbToState(db) {
+    if (Array.isArray(db.agencies)) AGENCIES = db.agencies;
+    if (Array.isArray(db.fees)) FEES = db.fees;
+    if (Array.isArray(db.partners)) PARTNERS = db.partners;
+    if (Array.isArray(db.tasks)) TASKS = db.tasks;
+    if (Array.isArray(db.transactions)) TRANS = db.transactions;
+    if (Array.isArray(db.recs)) RECS = db.recs;
+    if (Array.isArray(db.customers)) window.__RESTORE_CUSTOMERS__ = db.customers;
   }
   // Rebuild customer cards from serialized data (call after renderPipeline + seed)
   function restoreCustomers() {
@@ -3695,10 +3751,22 @@ function syncUniv() {
           <div style="font-size:.78rem;font-weight:700;color:#111827;margin-top:.5rem;">🗑 Danger</div>
           ${btn('🧹 Clear all saved data & reset','clearDatabase()','#dc2626')}
         </div>
+        <div style="font-size:.78rem;font-weight:700;color:#111827;margin-top:.5rem;">☁️ Google Drive Backend</div>
+        <div style="font-size:.72rem;color:#64748b;margin-bottom:.3rem;">Paste your Apps Script Web App URL to sync all data to Google Drive (shared by everyone).</div>
+        <input id="backend-url-input" type="text" placeholder="https://script.google.com/macros/s/..." value="${backendUrl()}" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.78rem;margin-bottom:.4rem;box-sizing:border-box;">
+        <button class="btn btn-save" onclick="saveBackendUrl()" style="width:100%;margin-bottom:.3rem;">💾 Save & Sync</button>
+        <div style="font-size:.72rem;color:#94a3b8;">Status: ${backendUrl() ? 'Backend configured. Data will sync on save.' : 'No backend yet — data stays in this browser only.'}</div>
         <div style="margin-top:1rem;font-size:.72rem;color:#94a3b8;">Tip: Open the CSV in Google Sheets → File → Import → Upload to sync to Sheets.</div>
       </div>`;
     document.body.appendChild(overlay);
     setTimeout(()=>overlay.style.opacity='1',10);
+  }
+  function saveBackendUrl(){
+    const inp=document.getElementById('backend-url-input'); if(!inp) return;
+    localStorage.setItem('camnemi_backend_url', inp.value.trim());
+    alert(inp.value.trim() ? 'Backend URL saved. Syncing data now...' : 'Backend URL cleared. Data stays local.');
+    closeModal();
+    setTimeout(()=>{ syncPush(); setTimeout(syncPull, 500); }, 100);
   }
   function downloadBackup(){
     const d=exportAllData();
@@ -3710,13 +3778,13 @@ function syncUniv() {
     location.reload();
   }
   // ======= INIT =======
-  document.addEventListener('DOMContentLoaded', () => {
+  async function bootApp() {
     const hasDB = loadDatabase();  // load persisted data if it exists
     syncAgencies();
     syncFees();
     initPartners();
     syncPartners();
-    if (!hasDB) seedTasks();       // only seed if no saved data
+    if (!hasDB) seedTasks();
     syncTasks();
     if (!hasDB) seedRecs();
     syncRecommendation();
@@ -3724,18 +3792,29 @@ function syncUniv() {
     syncProfit();
     syncUniv();
     renderPipeline();  // build columns first
-    if (hasDB) { restoreCustomers(); }  // restore saved cards
-    else { seed(); }                     // else seed defaults
-    seedKoreaStudents();                 // seed Korea students (all in Stay)
+
+    // Prefer the Google Drive backend if configured + reachable
+    const synced = await syncPull();
+    if (synced) {
+      restoreCustomers();          // restore backend data (cards)
+      syncAgencies(); syncFees(); syncPartners(); syncTasks(); syncRecommendation(); syncProfit();
+    } else if (hasDB) {
+      restoreCustomers();          // restore saved local cards
+    } else {
+      seed();                      // else seed defaults
+      seedKoreaStudents();
+    }
     refreshCounts();
     setTimeout(rebuildFilterBar, 50);  // populate Agency + School pills from databases
+
     // auto-save on window unload (belt & suspenders)
     window.addEventListener('beforeunload', saveDatabase);
-    // MutationObserver: auto-save whenever customer cards change (add/edit/delete/drag)
+    // MutationObserver: auto-save whenever customer cards change
     const obs = new MutationObserver(() => { setTimeout(saveDatabase, 200); });
     const kanban = document.getElementById('kanban-view');
     if (kanban) obs.observe(kanban, { childList: true, subtree: true });
-  });
+  }
+  document.addEventListener('DOMContentLoaded', () => { bootApp(); });
   // Auto-save after any data mutation
   function markDirty(){ setTimeout(saveDatabase, 0); }
 </script>
