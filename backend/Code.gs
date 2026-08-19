@@ -45,6 +45,14 @@ function handle(e, isPost) {
     if (body.action === 'upload') {
       return uploadGuide(body);
     }
+    // ACTION: create a per-customer document folder (called when customer reaches Registration)
+    if (body.action === 'createFolder') {
+      return createCustomerFolder(body);
+    }
+    // ACTION: upload a file into a customer's folder
+    if (body.action === 'uploadCustomerFile') {
+      return uploadCustomerFile(body);
+    }
 
     var data = getDataFile().getBlob().getDataAsString('UTF-8');
     if (isPost && body.data !== undefined) {
@@ -166,6 +174,61 @@ function uploadGuide(body) {
   return jsonOut({ ok:true, fileId:file.getId(), name:file.getName(),
     link:'https://drive.google.com/uc?export=download&id='+file.getId(),
     viewLink:'https://drive.google.com/file/d/'+file.getId()+'/view', size:blob.getBytes().length });
+}
+
+/** ============ CUSTOMER DOCUMENT FOLDERS ============ */
+
+// Root folder in Drive that holds all customer document folders.
+var CUSTOMER_ROOT_NAME = 'Camnemi Customer Docs';
+var CUSTOMER_ROOT_KEY = 'CAMNEMI_CUSTOMER_ROOT_ID';
+
+function getCustomerRoot() {
+  var props = PropertiesService.getScriptProperties();
+  var id = props.getProperty(CUSTOMER_ROOT_KEY);
+  var folder = null;
+  if (id) { try { folder = DriveApp.getFolderById(id); } catch(err){ folder=null; } }
+  if (!folder) {
+    var files = DriveApp.getFoldersByName(CUSTOMER_ROOT_NAME);
+    if (files.hasNext()) folder = files.next();
+  }
+  if (!folder) { folder = DriveApp.createFolder(CUSTOMER_ROOT_NAME); props.setProperty(CUSTOMER_ROOT_KEY, folder.getId()); }
+  return folder;
+}
+
+/**
+ * Create a folder for one customer.
+ * POST: { action:'createFolder', name:'CHEA MONTHANRONGRATH', month:'202503', school:'Jeonbuk' }
+ * Folder name is just the student's name (month/school ignored).
+ */
+function createCustomerFolder(body) {
+  var name = String(body.name || '').trim();
+  if (!name) return jsonOut({ error: 'Missing name' });
+  var label = name.replace(/[\\/:*?"<>|]/g, '').trim();  // sanitize
+
+  var root = getCustomerRoot();
+  // avoid duplicates: find existing folder with same name under root
+  var existing = root.getFoldersByName(label);
+  var folder = existing.hasNext() ? existing.next() : root.createFolder(label);
+  return jsonOut({
+    ok: true, folderId: folder.getId(), name: folder.getName(),
+    folderUrl: 'https://drive.google.com/drive/folders/' + folder.getId()
+  });
+}
+
+/**
+ * Upload a file into a customer's folder.
+ * POST: { action:'uploadCustomerFile', folderId:'...', filename:'...', contentBase64:'...', mime:'application/pdf' }
+ */
+function uploadCustomerFile(body) {
+  var folderId = body.folderId, filename = body.filename, b64 = body.contentBase64;
+  if (!folderId || !filename || !b64) return jsonOut({ error: 'Missing folderId/filename/contentBase64' });
+  var folder = DriveApp.getFolderById(folderId);
+  var mime = body.mime || 'application/octet-stream';
+  var blob = Utilities.newBlob(Utilities.base64Decode(b64, Utilities.Charset.UTF_8), mime, filename);
+  var file = folder.createFile(blob);
+  file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+  return jsonOut({ ok:true, fileId:file.getId(), name:file.getName(), size:blob.getBytes().length,
+    viewLink:'https://drive.google.com/file/d/'+file.getId()+'/view' });
 }
 
 /** ============ HELPERS ============ */

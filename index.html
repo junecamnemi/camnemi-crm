@@ -698,6 +698,7 @@
           changeCount(cFrom, -1);
           changeCount(to, +1);
           refreshCardBody(card);
+          if (to === 'registration') ensureCustomerFolder(card);
           applyCardBorder(card);
           const cb = card.querySelector('.card-select');
           if (cb) cb.checked = false;
@@ -2749,6 +2750,20 @@ function syncUniv() {
             </div>
             <input type="file" id="e-docfile" multiple style="display:none;">
           </div>
+          <div style="margin-top:.8rem;padding-top:.8rem;border-top:1px dashed #eef0f4;">
+            <div style="font-size:.8rem;font-weight:700;color:#111827;margin-bottom:.4rem;">📁 Google Drive Documents</div>
+            <div id="e-drive-docs" style="font-size:.75rem;color:#6b7280;">
+              ${card.dataset.folderId
+                ? `<div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+                     <a href="${card.dataset.folderUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .8rem;background:#e0f2fe;color:#0c4a6e;border-radius:.5rem;font-size:.78rem;font-weight:600;text-decoration:none;">📁 Open folder</a>
+                     <button class="btn btn-save" onclick="uploadCustomerDoc(overlay._card)">⬆ Upload files</button>
+                   </div>`
+                : `<div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+                     <button class="btn btn-save" onclick="ensureCustomerFolder(overlay._card).then(()=>{refreshDriveDocs(overlay._card);})">📁 Create folder & upload</button>
+                     <span>Folder auto-created when customer reaches Registration.</span>
+                   </div>`}
+            </div>
+          </div>
         </div>
         </div><!-- /modal-scroll -->
 
@@ -3102,6 +3117,7 @@ function syncUniv() {
       refreshCardBody(card);
       changeCount(from, -1);
       changeCount(targetStage, +1);
+      if (targetStage === 'registration') ensureCustomerFolder(card);
       applyCardBorder(card);
       const cb = card.querySelector('.card-select');
       if (cb) cb.checked = false;
@@ -3559,6 +3575,70 @@ function syncUniv() {
         document.body.appendChild(o); setTimeout(()=>o.style.opacity='1',10);
       } else alert('Could not find the sheet.');
     } catch(e){ alert('Failed: '+e.message); }
+  }
+  // ======= CUSTOMER DOCUMENT FOLDERS =======
+  // When a customer reaches Registration, ensure they have a Drive folder.
+  async function ensureCustomerFolder(card) {
+    if (!backendUrl()) return;
+    if (card.dataset.folderId) return;  // already created
+    const name = card.dataset.name || (card.querySelector('h4')?card.querySelector('h4').textContent:'');
+    if (!name) return;
+    try {
+      const res = await fetch(backendUrl(), {
+        method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({ action:'createFolder', name:name, month:card.dataset.appdate||'', school:card.dataset.school||'' })
+      });
+      const info = JSON.parse(await res.text());
+      if (info.folderId) {
+        card.dataset.folderId = info.folderId;
+        card.dataset.folderUrl = info.folderUrl;
+        saveDatabase();
+      }
+    } catch(e){ console.warn('createFolder failed', e); }
+  }
+  // Upload a file into a customer's Drive folder.
+  function uploadCustomerDoc(card) {
+    const input = document.createElement('input');
+    input.type = 'file'; input.multiple = true;
+    input.onchange = async () => {
+      if (!card.dataset.folderId) { await ensureCustomerFolder(card); }
+      if (!card.dataset.folderId) { alert('Could not create folder. Check backend.'); return; }
+      for (const file of Array.from(input.files)) {
+        const b64 = await fileToBase64(file);
+        const mime = file.type || 'application/octet-stream';
+        try {
+          const res = await fetch(backendUrl(), {
+            method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+            body: JSON.stringify({ action:'uploadCustomerFile', folderId:card.dataset.folderId, filename:file.name, contentBase64:b64, mime:mime })
+          });
+          const info = JSON.parse(await res.text());
+          if (info.ok) alert('Uploaded: '+info.name);
+          else alert('Upload failed: '+(info.error||'?'));
+        } catch(e){ alert('Upload error: '+e.message); }
+      }
+    };
+    input.click();
+  }
+  function refreshDriveDocs(card) {
+    const el = document.getElementById('e-drive-docs');
+    if (!el) return;
+    el.innerHTML = card.dataset.folderId
+      ? `<div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+           <a href="${card.dataset.folderUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .8rem;background:#e0f2fe;color:#0c4a6e;border-radius:.5rem;font-size:.78rem;font-weight:600;text-decoration:none;">📁 Open folder</a>
+           <button class="btn btn-save" onclick="uploadCustomerDoc(document.getElementById('${card.id}'))">⬆ Upload files</button>
+         </div>`
+      : `<div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+           <button class="btn btn-save" onclick="ensureCustomerFolder(document.getElementById('${card.id}'))">📁 Create folder</button>
+           <span>Folder auto-created when customer reaches Registration.</span>
+         </div>`;
+  }
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(String(r.result).split(',')[1] || '');
+      r.onerror = reject;
+      r.readAsDataURL(file);
+    });
   }
   // Debounced push (called after any data change)
   let __pushTimer = null;
