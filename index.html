@@ -3503,7 +3503,7 @@ function syncUniv() {
     if (!backendUrl()) return false;
     try {
       __syncing = true;
-      const res = await fetch(backendUrl() + '?t=' + Date.now(), { method:'GET', cache:'no-store' });
+      const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({ action:'readSheet' }) });
       if (!res.ok) throw new Error('HTTP '+res.status);
       const text = await res.text();
       const db = JSON.parse(text);
