@@ -3538,6 +3538,28 @@ function syncUniv() {
       alert('Synced from Google Sheet: '+db.customers.length+' customers loaded.');
     } catch(e) { console.warn(e); alert('Sheet sync failed: '+e.message); }
   }
+  // Show the direct Google Sheet link so the user can open/edit it.
+  async function getSheetLink() {
+    if (!backendUrl()) { alert('Backend not configured.'); return; }
+    try {
+      const res = await fetch(backendUrl(), {
+        method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({ action:'getSheetInfo' })
+      });
+      const info = JSON.parse(await res.text());
+      if (info.sheetUrl) {
+        const o=document.createElement('div'); o.className='modal-overlay';
+        o.innerHTML = `<div class="modal" style="max-width:520px;">
+          <h2>📊 Your Google Sheet</h2>
+          <div style="font-size:.85rem;color:#374151;margin:.8rem 0;">Open and edit your data in Google Sheets:</div>
+          <a href="${info.sheetUrl}" target="_blank" rel="noopener" style="display:block;padding:.8rem;background:#e0f2fe;color:#0c4a6e;border-radius:.5rem;font-weight:600;text-decoration:none;word-break:break-all;">📊 ${info.name} — open in Sheets</a>
+          <div style="font-size:.75rem;color:#64748b;margin-top:.6rem;">Edit cells, then click <b>Pull from Google Sheet</b> in the app to load changes.</div>
+          <div class="actions" style="margin-top:1rem;"><button class="btn btn-save" onclick="closeModal()">OK</button></div>
+        </div>`;
+        document.body.appendChild(o); setTimeout(()=>o.style.opacity='1',10);
+      } else alert('Could not find the sheet.');
+    } catch(e){ alert('Failed: '+e.message); }
+  }
   // Debounced push (called after any data change)
   let __pushTimer = null;
   function scheduleSyncPush() {
@@ -3779,6 +3801,7 @@ function syncUniv() {
         <input id="backend-url-input" type="text" placeholder="https://script.google.com/macros/s/..." value="${backendUrl()}" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.78rem;margin-bottom:.4rem;box-sizing:border-box;">
         <button class="btn btn-save" onclick="saveBackendUrl()" style="width:100%;margin-bottom:.3rem;">💾 Save & Sync</button>
         <div style="font-size:.72rem;color:#94a3b8;">Status: ${backendUrl() ? 'Backend configured. Data will sync on save.' : 'No backend yet — data stays in this browser only.'}</div>
+        <button class="btn btn-note" onclick="getSheetLink()" style="width:100%;margin-bottom:.3rem;">🔗 Open / find my Google Sheet</button>
         <button class="btn btn-note" onclick="syncFromSheet()" style="width:100%;margin-bottom:.3rem;">📊 Pull from Google Sheet (load edits)</button>
         <div style="margin-top:1rem;font-size:.72rem;color:#94a3b8;">Tip: Edit the "Camnemi CRM" spreadsheet in your Drive, then click <b>Pull from Google Sheet</b> to load your edits. App changes also write back to the Sheet automatically.</div>
       </div>`;

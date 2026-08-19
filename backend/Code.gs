@@ -36,6 +36,11 @@ function handle(e, isPost) {
     if (body.action === 'readSheet') {
       return jsonOut(readSheetToData());
     }
+    // ACTION: return the Google Sheet URL + ID (so the user can open/edit it)
+    if (body.action === 'getSheetInfo') {
+      var ss = getSheet();
+      return jsonOut({ sheetUrl: 'https://docs.google.com/spreadsheets/d/' + ss.getId() + '/edit', sheetId: ss.getId(), name: ss.getName() });
+    }
     // ACTION: upload a guide PDF to a Drive folder
     if (body.action === 'upload') {
       return uploadGuide(body);
@@ -189,3 +194,18 @@ function jsonOut(obj) {
 }
 
 function seedData(jsonString) { saveData(jsonString); return 'Seeded.'; }
+
+/**
+ * RUN THIS in the Apps Script editor (no arguments) to create the Sheet
+ * and trigger the Google Sheets permission grant.
+ * Select this function in the toolbar dropdown, then press Run → Allow.
+ */
+function createSheetManual() {
+  var ss = getSheet();
+  writeSheetFromData({ version:1, customers:[], agencies:[], partners:[], tasks:[], transactions:[], recs:[] });
+  return 'Sheet created: https://docs.google.com/spreadsheets/d/' + ss.getId() + '/edit';
+}
+
+function testSheet() {
+  return createSheetManual();
+}
