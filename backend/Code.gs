@@ -1,20 +1,24 @@
 /**
- * Camnemi CRM — Google Drive Backend
- * ===================================
- * A Google Apps Script web app that stores the CRM's data in a single
- * JSON file in the owner's Google Drive, AND hosts university admission
- * guide PDFs uploaded to a specified Drive folder.
+ * Camnemi CRM — Google Drive Backend + Google Sheet Mirror
+ * =========================================================
+ * Stores CRM data in a JSON file AND mirrors it into a Google Sheet
+ * so you can edit data directly in a spreadsheet (much friendlier
+ * than raw JSON). Two-way:
+ *   - App pushes data  -> backend saves JSON + updates the Sheet
+ *   - You edit the Sheet -> app can pull via ?action=readSheet
  *
  * DEPLOY:
  *   1. https://script.google.com → New project
- *   2. Paste this whole file into Code.gs
+ *   2. Paste this file into Code.gs
  *   3. Save → Deploy → New deployment → Web app
  *   4. Execute as: Me ; Who has access: Anyone
- *   5. Copy the Web app URL → paste into the app's Backend settings.
+ *   5. Approve the Google Drive + Sheets permissions.
  */
 
 var FILE_NAME = 'camnemi_crm_data.json';
 var FILE_ID_KEY = 'CAMNEMI_DRIVE_FILE_ID';
+var SHEET_NAME = 'Camnemi CRM';
+var SHEET_ID_KEY = 'CAMNEMI_SHEET_ID';
 
 function doGet(e) {
   return handle(e, false);
@@ -25,95 +29,163 @@ function doPost(e) {
 
 function handle(e, isPost) {
   try {
-    var output = ContentService.createTextOutput();
     var body = {};
-    if (isPost) {
-      var raw = e.postData.contents;
-      body = JSON.parse(raw);
-    }
+    if (isPost) body = JSON.parse(e.postData.contents);
 
-    // --- ACTION: upload a PDF to a Drive folder ---
+    // ACTION: pull data back from the Sheet (after manual edits)
+    if (body.action === 'readSheet') {
+      return jsonOut(readSheetToData());
+    }
+    // ACTION: upload a guide PDF to a Drive folder
     if (body.action === 'upload') {
       return uploadGuide(body);
     }
 
-    // --- DATA get/set ---
     var data = getDataFile().getBlob().getDataAsString('UTF-8');
     if (isPost && body.data !== undefined) {
-      saveToFile(JSON.stringify(body.data, null, 2));
+      saveData(JSON.stringify(body.data, null, 2));
       data = JSON.stringify(body.data);
     }
-    output.setContent(data);
-    output.setMimeType(ContentService.MimeType.JSON);
-    return output;
+    return jsonOut(JSON.parse(data));
   } catch (err) {
-    return ContentService.createTextOutput(JSON.stringify({ error: String(err) }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return jsonOut({ error: String(err) });
   }
 }
 
-/**
- * Upload a single guide PDF to the target Drive folder.
- * POST body: { action:'upload', folderId:'...', filename:'...', contentBase64:'...' }
- * Returns: { ok:true, fileId, name, link, viewLink }
- */
-function uploadGuide(body) {
-  var folderId = body.folderId;
-  var filename = body.filename;
-  var b64 = body.contentBase64;
-  if (!folderId || !filename || !b64) {
-    return jsonOut({ error: 'Missing folderId/filename/contentBase64' });
+/** Save data to JSON file AND update the mirror Sheet. */
+function saveData(jsonString) {
+  var data = JSON.parse(jsonString);
+  getDataFile().setContent(jsonString);
+  writeSheetFromData(data);
+  return true;
+}
+
+/** ============ GOOGLE SHEET MIRROR ============ */
+
+function getSheet() {
+  var props = PropertiesService.getScriptProperties();
+  var id = props.getProperty(SHEET_ID_KEY);
+  var ss = null;
+  if (id) { try { ss = SpreadsheetApp.openById(id); } catch (err) { ss = null; } }
+  if (!ss) {
+    var files = DriveApp.getFilesByName(SHEET_NAME);
+    while (files.hasNext()) {
+      var c = files.next();
+      if (c.getMimeType() === 'application/vnd.google-apps.spreadsheet') { ss = SpreadsheetApp.open(c); break; }
+    }
   }
-  var folder = DriveApp.getFolderById(folderId);
-  var bytes = Utilities.base64Decode(b64, Utilities.Charset.UTF_8);
-  // Create with the correct MIME so Drive renders it as a PDF
-  var blob = Utilities.newBlob(bytes, 'application/pdf', filename);
-  var file = folder.createFile(blob);
-  // Make anyone-with-link readable (so the public site can open it)
-  file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-  file.setDescription('Camnemi admission guide');
-  return jsonOut({
-    ok: true,
-    fileId: file.getId(),
-    name: file.getName(),
-    link: 'https://drive.google.com/uc?export=download&id=' + file.getId(),
-    viewLink: 'https://drive.google.com/file/d/' + file.getId() + '/view',
-    size: bytes.length
+  if (!ss) {
+    ss = SpreadsheetApp.create(SHEET_NAME);
+    props.setProperty(SHEET_ID_KEY, ss.getId());
+  }
+  return ss;
+}
+
+/** Write all data arrays into the Sheet tabs. */
+function writeSheetFromData(data) {
+  var ss = getSheet();
+  var tabs = [
+    { name: 'Customers', cols: ['id','pipe','stage','name','age','agency','program','school','appdate','contact','email','loan','topik','ielts','notes','birthdate'], rows: data.customers || [] },
+    { name: 'Agencies',  cols: ['name','commission','policy'], rows: data.agencies || [] },
+    { name: 'Partners',  cols: ['name','note'], rows: (data.partners||[]).map(p => [p.name, p.note||p.policy||'']) },
+    { name: 'Tasks',     cols: ['date','type','title','note'], rows: data.tasks || [] },
+    { name: 'Transactions', cols: ['date','type','category','amount','note'], rows: (data.transactions||[]).map(t => [t.date, t.type, t.cat, t.amount, t.note]) },
+    { name: 'Recs',      cols: ['col','title','note'], rows: (data.recs||[]).map(r => [r.col, r.title, r.note]) }
+  ];
+  tabs.forEach(function(t) {
+    var sh = ss.getSheetByName(t.name);
+    if (!sh) sh = ss.insertSheet(t.name);
+    sh.clear();
+    // header
+    sh.getRange(1,1,1,t.cols.length).setValues([t.cols]).setFontWeight('bold').setBackground('#1E293B').setFontColor('#FFFFFF');
+    // rows
+    var values = t.rows.map(function(r){
+      if (Array.isArray(r)) return r.map(cellStr);
+      return t.cols.map(function(c){ return cellStr(r[c]); });
+    });
+    if (values.length) sh.getRange(2,1,values.length,t.cols.length).setValues(values);
+    sh.autoResizeColumns(1, t.cols.length);
   });
+  return true;
 }
 
-function jsonOut(obj) {
-  return ContentService.createTextOutput(JSON.stringify(obj))
-    .setMimeType(ContentService.MimeType.JSON);
+/** Read data back from the Sheet (source of truth when user edits). */
+function readSheetToData() {
+  var ss = getSheet();
+  var data = { version:1, customers:[], agencies:[], partners:[], tasks:[], transactions:[], recs:[] };
+  function readTab(name, cols, mapRow) {
+    var sh = ss.getSheetByName(name); if (!sh) return [];
+    var last = sh.getLastRow(); if (last < 2) return [];
+    var width = cols.length;
+    var vals = sh.getRange(2,1,last-1,width).getValues();
+    var out = [];
+    for (var i=0;i<vals.length;i++) {
+      var row = vals[i];
+      if (!row[0] && !row[1]) continue;  // skip blank
+      var obj = {};
+      cols.forEach(function(c,idx){ obj[c] = row[idx]; });
+      out.push(mapRow ? mapRow(obj) : obj);
+    }
+    return out;
+  }
+  data.customers = readTab('Customers', ['id','pipe','stage','name','age','agency','program','school','appdate','contact','email','loan','topik','ielts','notes','birthdate'], function(o){
+    var notes = [];
+    try { if (o.notes) notes = JSON.parse(o.notes); } catch(e){ if(o.notes) notes=[{text:String(o.notes),time:''}]; }
+    return {
+      id: String(o.id||('c'+Date.now())), pipe: String(o.pipe||'new'), stage: String(o.stage||'contact'),
+      name: String(o.name||''), age: String(o.age||''), agency: String(o.agency||''),
+      program: String(o.program||''), school: String(o.school||''), appdate: String(o.appdate||''),
+      contact: String(o.contact||''), email: String(o.email||''), loan: String(o.loan||''),
+      topik: String(o.topik||''), ielts: String(o.ielts||''), notes: notes, birthdate: String(o.birthdate||'')
+    };
+  });
+  data.agencies = readTab('Agencies', ['name','commission','policy']);
+  data.partners = readTab('Partners', ['name','note'], function(o){ return {name:o.name, note:o.note}; });
+  data.tasks = readTab('Tasks', ['date','type','title','note']);
+  data.transactions = readTab('Transactions', ['date','type','category','amount','note'], function(o){
+    return { date:String(o.date||''), type:String(o.type||''), cat:String(o.category||''), amount:Number(o.amount)||0, note:String(o.note||'') };
+  });
+  data.recs = readTab('Recs', ['col','title','note'], function(o){ return { col:String(o.col||'problems'), title:String(o.title||''), note:String(o.note||'') }; });
+  return data;
 }
 
-/** Get (or create) the JSON data file in Drive. */
+/** ============ GUIDE PDF UPLOAD ============ */
+
+function uploadGuide(body) {
+  var folderId = body.folderId, filename = body.filename, b64 = body.contentBase64;
+  if (!folderId || !filename || !b64) return jsonOut({ error: 'Missing folderId/filename/contentBase64' });
+  var folder = DriveApp.getFolderById(folderId);
+  var blob = Utilities.newBlob(Utilities.base64Decode(b64, Utilities.Charset.UTF_8), 'application/pdf', filename);
+  var file = folder.createFile(blob);
+  file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+  return jsonOut({ ok:true, fileId:file.getId(), name:file.getName(),
+    link:'https://drive.google.com/uc?export=download&id='+file.getId(),
+    viewLink:'https://drive.google.com/file/d/'+file.getId()+'/view', size:blob.getBytes().length });
+}
+
+/** ============ HELPERS ============ */
+
+function cellStr(v) {
+  if (v === null || v === undefined) return '';
+  if (typeof v === 'object') return JSON.stringify(v);
+  return String(v);
+}
+
 function getDataFile() {
   var props = PropertiesService.getScriptProperties();
   var id = props.getProperty(FILE_ID_KEY);
   var file = null;
-  if (id) {
-    try { file = DriveApp.getFileById(id); } catch (err) { file = null; }
-  }
+  if (id) { try { file = DriveApp.getFileById(id); } catch(err){ file=null; } }
   if (!file) {
     var files = DriveApp.getFilesByName(FILE_NAME);
-    while (files.hasNext()) {
-      var candidate = files.next();
-      if (candidate.getMimeType() === 'application/json') { file = candidate; break; }
-    }
+    while (files.hasNext()) { var c=files.next(); if(c.getMimeType()==='application/json'){ file=c; break; } }
   }
-  if (!file) {
-    file = DriveApp.createFile(FILE_NAME, '{}', 'application/json');
-    props.setProperty(FILE_ID_KEY, file.getId());
-  }
+  if (!file) { file = DriveApp.createFile(FILE_NAME, '{}', 'application/json'); props.setProperty(FILE_ID_KEY, file.getId()); }
   return file;
 }
 
-function saveToFile(json) {
-  getDataFile().setContent(json);
+function jsonOut(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
 }
 
-function seedData(jsonString) {
-  saveToFile(jsonString);
-  return 'Seeded.';
-}
+function seedData(jsonString) { saveData(jsonString); return 'Seeded.'; }

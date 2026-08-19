@@ -3515,6 +3515,29 @@ function syncUniv() {
     } catch(e) { console.warn('Backend push failed', e); return false; }
     finally { __syncing = false; }
   }
+  // Pull data that was edited in the Google Sheet back into the app.
+  async function syncFromSheet() {
+    if (!backendUrl()) { alert('Backend not configured.'); return; }
+    try {
+      const url = backendUrl();
+      const res = await fetch(url, {
+        method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({ action:'readSheet' })
+      });
+      if (!res.ok) throw new Error('HTTP '+res.status);
+      const text = await res.text();
+      const db = JSON.parse(text);
+      if (!db || !Array.isArray(db.customers)) throw new Error('Bad data');
+      // apply + persist locally
+      try { localStorage.setItem(DB_KEY, JSON.stringify(db)); } catch(e){}
+      applyDbToState(db);
+      renderPipeline();
+      restoreCustomers();
+      syncAgencies(); syncFees(); syncPartners(); syncTasks(); syncRecommendation(); syncProfit();
+      refreshCounts();
+      alert('Synced from Google Sheet: '+db.customers.length+' customers loaded.');
+    } catch(e) { console.warn(e); alert('Sheet sync failed: '+e.message); }
+  }
   // Debounced push (called after any data change)
   let __pushTimer = null;
   function scheduleSyncPush() {
@@ -3756,7 +3779,8 @@ function syncUniv() {
         <input id="backend-url-input" type="text" placeholder="https://script.google.com/macros/s/..." value="${backendUrl()}" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.78rem;margin-bottom:.4rem;box-sizing:border-box;">
         <button class="btn btn-save" onclick="saveBackendUrl()" style="width:100%;margin-bottom:.3rem;">💾 Save & Sync</button>
         <div style="font-size:.72rem;color:#94a3b8;">Status: ${backendUrl() ? 'Backend configured. Data will sync on save.' : 'No backend yet — data stays in this browser only.'}</div>
-        <div style="margin-top:1rem;font-size:.72rem;color:#94a3b8;">Tip: Open the CSV in Google Sheets → File → Import → Upload to sync to Sheets.</div>
+        <button class="btn btn-note" onclick="syncFromSheet()" style="width:100%;margin-bottom:.3rem;">📊 Pull from Google Sheet (load edits)</button>
+        <div style="margin-top:1rem;font-size:.72rem;color:#94a3b8;">Tip: Edit the "Camnemi CRM" spreadsheet in your Drive, then click <b>Pull from Google Sheet</b> to load your edits. App changes also write back to the Sheet automatically.</div>
       </div>`;
     document.body.appendChild(overlay);
     setTimeout(()=>overlay.style.opacity='1',10);
