@@ -3497,6 +3497,7 @@ function syncUniv() {
   // Or paste your Apps Script Web App URL directly here:
   function backendUrl() { return localStorage.getItem('camnemi_backend_url') || 'https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec'; }
   let __syncing = false;
+  let __bootDone = false;  // suppress auto-push until initial sync completes
   // Pull data from the Drive backend (Apps Script). Falls back to localStorage.
   async function syncPull() {
     if (!backendUrl()) return false;
@@ -3517,6 +3518,7 @@ function syncUniv() {
   // Push all current data to the Drive backend.
   async function syncPush() {
     if (!backendUrl()) return false;
+    if (!__bootDone) return false;  // don't push seeded/empty state during boot
     if (__syncing) return false;
     try {
       __syncing = true;
@@ -3933,6 +3935,7 @@ function syncUniv() {
     }
     refreshCounts();
     setTimeout(rebuildFilterBar, 50);  // populate Agency + School pills from databases
+    __bootDone = true;  // now allow pushes
 
     // auto-save on window unload (belt & suspenders)
     window.addEventListener('beforeunload', saveDatabase);
