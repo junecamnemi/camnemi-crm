@@ -3498,6 +3498,7 @@ function syncUniv() {
   function backendUrl() { return localStorage.getItem('camnemi_backend_url') || 'https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec'; }
   let __syncing = false;
   let __bootDone = false;  // suppress auto-push until initial sync completes
+  let __suppressSave = false;  // suppress ALL saves during initial boot render
   // Pull data from the Drive backend (Apps Script). Falls back to localStorage.
   async function syncPull() {
     if (!backendUrl()) return false;
@@ -3683,6 +3684,7 @@ function syncUniv() {
   }
   // Save all data to localStorage
   function saveDatabase() {
+    if (__suppressSave) return;  // don't persist during initial boot render
     try {
       localStorage.setItem(DB_KEY, JSON.stringify(exportAllData()));
     } catch(e) { console.warn('DB save failed', e); }
@@ -3908,6 +3910,7 @@ function syncUniv() {
   }
   // ======= INIT =======
   async function bootApp() {
+    __suppressSave = true;  // hold saves during boot
     const hasDB = loadDatabase();  // load persisted data if it exists
     syncAgencies();
     syncFees();
@@ -3936,6 +3939,7 @@ function syncUniv() {
     refreshCounts();
     setTimeout(rebuildFilterBar, 50);  // populate Agency + School pills from databases
     __bootDone = true;  // now allow pushes
+    __suppressSave = false;  // release the boot hold after everything is rendered
 
     // auto-save on window unload (belt & suspenders)
     window.addEventListener('beforeunload', saveDatabase);
