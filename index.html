@@ -314,6 +314,13 @@
         <button class="active" id="toggle-kanban" onclick="setView('kanban')">📋 Kanban</button>
         <button id="toggle-list" onclick="setView('list')">📄 List View</button>
       </div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:.5rem;">
+        <span id="auth-badge" style="display:none;align-items:center;gap:.45rem;background:#fff;border:1px solid #e2e8f0;border-radius:999px;padding:.35rem .7rem;font-size:.75rem;font-weight:600;color:#334155;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;"></span>
+          <span id="auth-badge-name">@camnemi.com</span>
+        </span>
+        <button id="auth-signout" onclick="signOut()" style="display:none;background:none;border:none;color:#94a3b8;font-size:.72rem;cursor:pointer;">Sign out</button>
+      </div>
     </div>
 
     <!-- Filters -->
@@ -787,7 +794,10 @@
   function setNotes(card, arr) {
     card.dataset.notes = JSON.stringify(arr);
     const noteEl = card.querySelector('.note');
-    if (noteEl) noteEl.textContent = arr.length ? arr[arr.length - 1].text : 'No notes yet.';
+    if (noteEl) {
+      const last = arr.length ? arr[arr.length-1] : null;
+      noteEl.textContent = last ? (last.text + (last.by ? '  ·  ✍️ '+last.by : '')) : 'No notes yet.';
+    }
   }
   function escapeHtml(str) {
     return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -1926,7 +1936,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     overlay.innerHTML = `
       <div class="modal">
         <h2>💬 Add reply</h2>
-        <div class="field"><label>Your name</label><input id="wr-name" value="${escapeHtml(localStorage.getItem('camnemi_user')||'Team')}"></div>
+        <div class="field"><label>Your name</label><input id="wr-name" value="${escapeHtml(currentUserName())}"></div>
         <div class="field"><label>Reply</label><textarea id="wr-text" rows="4" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;box-sizing:border-box;" placeholder="Type your reply..."></textarea></div>
         <div class="modal-actions">
           <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
@@ -1938,7 +1948,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   function saveWikiReply(noteId){
     const o=document.querySelector('.modal-overlay');
     const text=o.querySelector('#wr-text').value.trim();
-    const author=o.querySelector('#wr-name').value.trim()||'Team';
+    const author=o.querySelector('#wr-name').value.trim()||currentUserName();
     if(!text){ alert('Reply cannot be empty.'); return; }
     localStorage.setItem('camnemi_user', author);
     const n=WIKI_NOTES.find(x=>x.id===noteId); if(n){ (n.replies=n.replies||[]).push({ id:'r'+Date.now(), text:text, author:author, time:nowStr() }); n.updated=nowStr(); }
@@ -2551,7 +2561,7 @@ function syncUniv() {
     if (!name || !contact) { alert('Please fill Name and Contact.'); return; }
     const stage = 'contact';
     let notesArr = [];
-    if (note) notesArr.push({ text: note, time: nowStr() });
+    if (note) notesArr.push({ text: note, time: nowStr(), by: currentUserName() });
     const card = document.createElement('div');
     card.className = 'customer-card';
     card.id = 'c' + Date.now() + Math.floor(Math.random()*1000);
@@ -2601,7 +2611,7 @@ function syncUniv() {
     if (!name || !contact || !age) { alert('Please fill Name, Contact and Age.'); return; }
 
     let notesArr = [];
-    if (note) notesArr.push({ text: note, time: nowStr() });
+    if (note) notesArr.push({ text: note, time: nowStr(), by: currentUserName() });
 
     const card = document.createElement('div');
     card.className = 'customer-card';
@@ -2651,7 +2661,9 @@ function syncUniv() {
     const name = card.dataset.name || (card.querySelector('h4') ? card.querySelector('h4').textContent : '');
     const program = card.dataset.program||'', school = card.dataset.school||'', topik=card.dataset.topik||'', ielts=card.dataset.ielts||'', agency=card.dataset.agency||'';
     let note='';
-    try { const n=JSON.parse(card.dataset.notes||'[]'); if(n[0]) note=n[0].text; } catch(e){ note=card.dataset.notes||''; }
+    let noteBy='';
+    try { const n=JSON.parse(card.dataset.notes||'[]'); if(n[0]){ note=n[0].text; noteBy=n[0].by||''; } } catch(e){ note=card.dataset.notes||''; }
+    const noteDisplay = note ? (note + (noteBy ? '  ·  ✍️ '+noteBy : '')) : 'No notes yet.';
     // Korea pipeline: card same as New Customer (Name/School/Program/Agency badges) + note
     if (card.dataset.pipe === 'korea') {
       const agency=card.dataset.agency||'';
@@ -2665,7 +2677,7 @@ function syncUniv() {
           ${progShort ? `<span class="tag tag-program">🎓 ${escapeHtml(progShort)}</span>` : ''}
           ${schEn ? `<span class="tag tag-school">🏫 ${escapeHtml(schEn)}</span>` : ''}
         </div>
-        <div class="note">${note ? escapeHtml(note) : 'No notes yet.'}</div>`;
+        <div class="note">${escapeHtml(noteDisplay)}</div>`;
       card.querySelector('h4').textContent = name;
       card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#3b82f6';
       return;
@@ -2683,7 +2695,7 @@ function syncUniv() {
         ${card.dataset.noqr==='true' ? `<span class="tag tag-noqr">🔳 NO QR</span>` : ''}
         ${card.dataset.illegal==='true' ? `<span class="tag tag-illegal">⚠️ Illegal Parent</span>` : ''}
       </div>
-      <div class="note">${note ? escapeHtml(note) : 'No notes yet.'}</div>`;
+      <div class="note">${escapeHtml(noteDisplay)}</div>`;
     card.querySelector('h4').textContent = name;
   }
   // Toggle a korea card between compact preview and full 8-field editor
@@ -2820,7 +2832,7 @@ function syncUniv() {
     card.dataset.agency=overlay.querySelector('#k-agency').value;
     card.dataset.loan=overlay.querySelector('#k-loan').value.trim();
     const nv=overlay.querySelector('#k-note').value.trim();
-    card.dataset.notes=JSON.stringify(nv?[{text:nv,time:nowStr()}]:[]);
+    card.dataset.notes=JSON.stringify(nv?[{text:nv,time:nowStr(),by:currentUserName()}]:[]);
     const oldStage=card.dataset.stage;
     const newStage=overlay.querySelector('#k-stage').value;
     if(newStage!==oldStage){
@@ -2880,7 +2892,7 @@ function syncUniv() {
     card.dataset.agency=pickedValue('c-agency')||'CAMNEMI';
     card.dataset.program=pickedValue('c-program')||'';
     const nv=overlay.querySelector('#c-note').value.trim();
-    card.dataset.notes=JSON.stringify(nv?[{text:nv,time:nowStr()}]:[]);
+    card.dataset.notes=JSON.stringify(nv?[{text:nv,time:nowStr(),by:currentUserName()}]:[]);
     refreshCardBody(card);
     saveDatabase();
     refreshCounts();
@@ -4281,11 +4293,38 @@ function syncUniv() {
   function hideLogin(){
     const o=document.getElementById('login-overlay'); if(o){ o.style.display='none'; }
     if (authUser) localStorage.setItem('camnemi_user', authUser.name||authUser.email);
+    updateAuthBadge();
     // Boot the app now that we are authenticated
     if (typeof bootApp === 'function' && !window.__bootStarted) {
       window.__bootStarted = true;
       bootApp();
     }
+  }
+  // Current logged-in user (email + display name) for attributing changes
+  function currentUser() {
+    if (authUser && authUser.email) return authUser;
+    try { const s=JSON.parse(localStorage.getItem('camnemi_auth')||'null'); if(s&&s.email) return s; } catch(e){}
+    return { email:'', name:'Guest' };
+  }
+  function currentUserName() {
+    const u = currentUser();
+    return (u.name && u.name!=='Guest') ? u.name : (u.email ? u.email.split('@')[0] : 'Guest');
+  }
+  // Update the top-bar badge with the signed-in account
+  function updateAuthBadge() {
+    const b = document.getElementById('auth-badge');
+    const n = document.getElementById('auth-badge-name');
+    const so = document.getElementById('auth-signout');
+    const u = currentUser();
+    if (u.email && b && n) {
+      b.style.display = 'inline-flex';
+      n.textContent = u.name || u.email;
+      if (so) so.style.display = '';
+    }
+  }
+  function signOut() {
+    localStorage.removeItem('camnemi_auth');
+    location.reload();
   }
   // Restore an existing session on load; otherwise keep the login overlay up
   function initAuth() {
