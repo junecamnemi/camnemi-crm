@@ -289,15 +289,15 @@
     </div>
 
     <div class="sidebar-section-label">Our Policy</div>
-    <div class="pipe-item" onclick="openAgencies()">
+    <div class="pipe-item" id="nav-agencies" onclick="openAgencies()">
       <span class="pipe-name">🏢 Agencies</span>
       <span class="pipe-count" id="side-count-agencies">0</span>
     </div>
-    <div class="pipe-item" onclick="openServiceFees()">
+    <div class="pipe-item" id="nav-servicefees" onclick="openServiceFees()">
       <span class="pipe-name">💰 Service Fee</span>
       <span class="pipe-count" id="side-count-fees">0</span>
     </div>
-    <div class="pipe-item" onclick="openPartners()">
+    <div class="pipe-item" id="nav-partners" onclick="openPartners()">
       <span class="pipe-name">🤝 Partner Schools</span>
       <span class="pipe-count" id="side-count-partners">0</span>
     </div>
@@ -411,6 +411,9 @@
     <!-- Universities knowledge view (full panel, not a modal) -->
     <div id="univ-view" style="display:none;"></div>
     <div id="wiki-view" style="display:none;"></div>
+    <div id="agencies-view" style="display:none;"></div>
+    <div id="fees-view" style="display:none;"></div>
+    <div id="partners-view" style="display:none;"></div>
     <div id="gks-view" style="display:none;"></div>
     <div id="marketing-view" style="display:none;"></div>
     <div id="koreaLife-view" style="display:none;"></div>
@@ -812,20 +815,18 @@
     { name: 'Direct (no agency)', commission: '—', policy: 'Direct applications, no commission.' }
   ];
   function openAgencies() {
-    renderAgencies();
+    showKnowledgePanel('agencies-view','nav-agencies', renderAgencies);
+    setKnowledgeTopbar('🏢 Our Policy · Agencies');
   }
   function renderAgencies() {
-    closeModal();
-    const overlay = document.createElement('div');
-    overlay.className = 'modal-overlay';
-    overlay.id = 'agencies-modal';
-    overlay.innerHTML = `
-      <div class="modal" style="max-width:600px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
-          <h2 style="margin:0;">🏢 Our Policy · Agencies</h2>
-          <button onclick="closeModal()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;">✕</button>
+    const v = document.getElementById('agencies-view');
+    v.innerHTML = `
+      <div class="wiki-content" style="max-width:900px;padding:1.5rem 2rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;">
+          <div style="font-size:1.1rem;font-weight:700;color:#111827;">🏢 Agencies (${AGENCIES.length})</div>
+          <button class="btn btn-add" onclick="openAgencyForm()">+ Add Agency</button>
         </div>
-        <table class="list-table" style="font-size:.85rem;">
+        <table class="list-table" style="font-size:.85rem;background:#fff;border:1px solid #eef0f4;border-radius:.6rem;overflow:hidden;">
           <thead><tr><th>Agency</th><th>Commission</th><th>Policy</th><th></th></tr></thead>
           <tbody id="agencies-body">
             ${AGENCIES.map((a, i) => `<tr>
@@ -839,13 +840,7 @@
             </tr>`).join('') || '<tr><td colspan="4" style="color:#94a3b8;text-align:center;">No agencies yet.</td></tr>'}
           </tbody>
         </table>
-        <div style="margin-top:1rem;display:flex;justify-content:space-between;align-items:center;">
-          <button class="btn btn-add" onclick="openAgencyForm()">+ Add Agency</button>
-          <button class="btn btn-cancel" onclick="closeModal()">Close</button>
-        </div>
       </div>`;
-    document.body.appendChild(overlay);
-    setTimeout(() => overlay.style.opacity = '1', 10);
     refreshCounts();
   }
 
@@ -861,7 +856,7 @@
         <div class="field"><label>Commission</label><input id="a-commission" value="${escapeHtml(existing.commission)}" placeholder="e.g. 10%"></div>
         <div class="field"><label>Policy</label><textarea id="a-policy" placeholder="Describe the policy...">${escapeHtml(existing.policy)}</textarea></div>
         <div class="actions">
-          <button class="btn btn-cancel" onclick="renderAgencies()">Cancel</button>
+          <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
           <button class="btn btn-save" onclick="saveAgency(${idx})">Save</button>
         </div>
       </div>`;
@@ -894,6 +889,7 @@
     } else {
       AGENCIES.push(obj);
     }
+    closeModal();
     renderAgencies();
     syncAgencies();
     applyFilter();
@@ -974,20 +970,18 @@
     { name: 'Admin / Service Charge', amount: 'USD 150', policy: 'General administration and support.' }
   ];
   function openServiceFees() {
-    renderFees();
+    showKnowledgePanel('fees-view','nav-servicefees', renderFees);
+    setKnowledgeTopbar('💰 Our Policy · Service Fee');
   }
   function renderFees() {
-    closeModal();
-    const overlay = document.createElement('div');
-    overlay.className = 'modal-overlay';
-    overlay.id = 'fees-modal';
-    overlay.innerHTML = `
-      <div class="modal" style="max-width:600px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
-          <h2 style="margin:0;">💰 Our Policy · Service Fee</h2>
-          <button onclick="closeModal()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;">✕</button>
+    const v = document.getElementById('fees-view');
+    v.innerHTML = `
+      <div class="wiki-content" style="max-width:900px;padding:1.5rem 2rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;">
+          <div style="font-size:1.1rem;font-weight:700;color:#111827;">💰 Service Fees (${FEES.length})</div>
+          <button class="btn btn-add" onclick="openFeeForm()">+ Add Fee</button>
         </div>
-        <table class="list-table" style="font-size:.85rem;">
+        <table class="list-table" style="font-size:.85rem;background:#fff;border:1px solid #eef0f4;border-radius:.6rem;overflow:hidden;">
           <thead><tr><th>Fee Item</th><th>Amount</th><th>Policy</th><th></th></tr></thead>
           <tbody id="fees-body">
             ${FEES.map((f, i) => `<tr>
@@ -1001,13 +995,7 @@
             </tr>`).join('') || '<tr><td colspan="4" style="color:#94a3b8;text-align:center;">No fees yet.</td></tr>'}
           </tbody>
         </table>
-        <div style="margin-top:1rem;display:flex;justify-content:space-between;align-items:center;">
-          <button class="btn btn-add" onclick="openFeeForm()">+ Add Fee</button>
-          <button class="btn btn-cancel" onclick="closeModal()">Close</button>
-        </div>
       </div>`;
-    document.body.appendChild(overlay);
-    setTimeout(() => overlay.style.opacity = '1', 10);
     refreshCounts();
   }
   function openFeeForm(idx) {
@@ -1022,7 +1010,7 @@
         <div class="field"><label>Amount</label><input id="f-amount" value="${escapeHtml(existing.amount)}" placeholder="e.g. USD 500"></div>
         <div class="field"><label>Policy</label><textarea id="f-policy" placeholder="Describe the policy...">${escapeHtml(existing.policy)}</textarea></div>
         <div class="actions">
-          <button class="btn btn-cancel" onclick="renderFees()">Cancel</button>
+          <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
           <button class="btn btn-save" onclick="saveFee(${idx})">Save</button>
         </div>
       </div>`;
@@ -1043,7 +1031,7 @@
     } else {
       FEES.push(obj);
     }
-    renderFees(); markDirty();
+    closeModal(); renderFees(); markDirty();
   }
   function deleteFee(idx) {
     if (!confirm('Delete this fee?')) return;
@@ -1071,20 +1059,18 @@
   }
   function openPartners() {
     initPartners();
-    renderPartners();
+    showKnowledgePanel('partners-view','nav-partners', renderPartners);
+    setKnowledgeTopbar('🤝 Our Policy · Partner Schools');
   }
   function renderPartners() {
-    closeModal();
-    const overlay = document.createElement('div');
-    overlay.className = 'modal-overlay';
-    overlay.id = 'partners-modal';
-    overlay.innerHTML = `
-      <div class="modal" style="max-width:680px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
-          <h2 style="margin:0;">🤝 Our Policy · Partner Schools</h2>
-          <button onclick="closeModal()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;">✕</button>
+    const v = document.getElementById('partners-view');
+    v.innerHTML = `
+      <div class="wiki-content" style="max-width:900px;padding:1.5rem 2rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;">
+          <div style="font-size:1.1rem;font-weight:700;color:#111827;">🤝 Partner Schools (${PARTNERS.length})</div>
+          <button class="btn btn-add" onclick="openPartnerForm()">+ Add Partner</button>
         </div>
-        <table class="list-table" style="font-size:.85rem;">
+        <table class="list-table" style="font-size:.85rem;background:#fff;border:1px solid #eef0f4;border-radius:.6rem;overflow:hidden;">
           <thead><tr><th>School</th><th>Type</th><th>English</th><th>Status</th><th>Note</th><th></th></tr></thead>
           <tbody id="partners-body">
             ${PARTNERS.map((p,i) => `<tr>
@@ -1100,13 +1086,7 @@
             </tr>`).join('') || '<tr><td colspan="6" style="color:#94a3b8;text-align:center;">No partner schools yet.</td></tr>'}
           </tbody>
         </table>
-        <div style="margin-top:1rem;display:flex;justify-content:space-between;align-items:center;">
-          <button class="btn btn-add" onclick="openPartnerForm()">+ Add Partner</button>
-          <button class="btn btn-cancel" onclick="closeModal()">Close</button>
-        </div>
       </div>`;
-    document.body.appendChild(overlay);
-    setTimeout(() => overlay.style.opacity = '1', 10);
     refreshCounts();
   }
   function openPartnerForm(idx) {
@@ -1130,7 +1110,7 @@
         </div>
         <div class="field"><label>Note</label><textarea id="p-note" placeholder="Agreement, commission, contact...">${escapeHtml(existing.note)}</textarea></div>
         <div class="actions">
-          <button class="btn btn-cancel" onclick="renderPartners()">Cancel</button>
+          <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
           <button class="btn btn-save" onclick="savePartner(${idx})">Save</button>
         </div>
       </div>`;
@@ -1153,7 +1133,7 @@
     const obj = { name, en:finalEn, status, note, type: u ? (u.type||'univ') : 'univ' };
     if (idx !== undefined && PARTNERS[idx]) PARTNERS[idx] = obj;
     else PARTNERS.push(obj);
-    renderPartners(); markDirty();
+    closeModal(); renderPartners(); markDirty();
   }
   function deletePartner(idx) {
     if (!confirm('Remove this partner university?')) return;
@@ -1235,8 +1215,17 @@ const UNIV_GUIDES = {"가야대학교": {"ba": "https://drive.google.com/file/d/
     document.getElementById('list-view').style.display='none';
     document.getElementById('univ-view').style.display='none';
     document.getElementById('wiki-view').style.display='none';
+    document.getElementById('agencies-view').style.display='none';
+    document.getElementById('fees-view').style.display='none';
+    document.getElementById('partners-view').style.display='none';
+    document.getElementById('agencies-view').style.display='none';
+    document.getElementById('fees-view').style.display='none';
+    document.getElementById('partners-view').style.display='none';
     document.getElementById('gks-view').style.display='none';
     document.getElementById('marketing-view').style.display='none';
+    document.getElementById('agencies-view').style.display='none';
+    document.getElementById('fees-view').style.display='none';
+    document.getElementById('partners-view').style.display='none';
     document.getElementById('koreaLife-view').style.display='none';
     document.getElementById('tasks-view').style.display='none';
     document.getElementById('recommendation-view').style.display='none';
@@ -1266,6 +1255,9 @@ const UNIV_GUIDES = {"가야대학교": {"ba": "https://drive.google.com/file/d/
     document.getElementById('univ-view').style.display='none';
     document.getElementById('gks-view').style.display='none';
     document.getElementById('marketing-view').style.display='none';
+    document.getElementById('agencies-view').style.display='none';
+    document.getElementById('fees-view').style.display='none';
+    document.getElementById('partners-view').style.display='none';
     document.getElementById('koreaLife-view').style.display='none';
     document.getElementById('recommendation-view').style.display='none';
     document.getElementById('profit-view').style.display='none';
@@ -1491,6 +1483,9 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     document.getElementById('univ-view').style.display='none';
     document.getElementById('gks-view').style.display='none';
     document.getElementById('marketing-view').style.display='none';
+    document.getElementById('agencies-view').style.display='none';
+    document.getElementById('fees-view').style.display='none';
+    document.getElementById('partners-view').style.display='none';
     document.getElementById('koreaLife-view').style.display='none';
     document.getElementById('tasks-view').style.display='none';
     const fb=document.querySelector('.filter-bar'); if(fb) fb.style.display='none';
@@ -1640,6 +1635,9 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     document.getElementById('univ-view').style.display='none';
     document.getElementById('gks-view').style.display='none';
     document.getElementById('marketing-view').style.display='none';
+    document.getElementById('agencies-view').style.display='none';
+    document.getElementById('fees-view').style.display='none';
+    document.getElementById('partners-view').style.display='none';
     document.getElementById('koreaLife-view').style.display='none';
     document.getElementById('tasks-view').style.display='none';
     document.getElementById('recommendation-view').style.display='none';
