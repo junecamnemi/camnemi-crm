@@ -16,6 +16,7 @@
     .pipe-item:hover { background: rgba(255,255,255,.1); }
     .pipe-item.active { background: #3b82f6; }
     .pipe-item .pipe-name { font-weight: 600; font-size: .95rem; }
+    .pipe-flag { width: 18px; height: 13px; border-radius: 2px; vertical-align: -2px; margin-right: 5px; box-shadow: 0 1px 2px rgba(0,0,0,.25); object-fit: cover; }
     .pipe-item .pipe-count { background: rgba(255,255,255,.2); padding: .1rem .55rem; border-radius: 999px; font-size: .75rem; font-weight: 600; }
     .pipe-add { width: 26px; height: 26px; border: none; border-radius: 6px; background: rgba(255,255,255,.25); color: #fff; font-size: 1.1rem; font-weight: 700; cursor: pointer; line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
     .pipe-add:hover { background: rgba(255,255,255,.45); }
@@ -208,11 +209,11 @@
 
     <div class="sidebar-section-label">Students</div>
     <div class="pipe-item active" data-pipe="new" onclick="switchPipeline('new')">
-      <span class="pipe-name">🇰🇭 Students in Process</span>
+      <span class="pipe-name"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAyMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjEzIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjRTAwMDI1Ii8+CjxyZWN0IHdpZHRoPSIzMCIgaGVpZ2h0PSI1IiBmaWxsPSIjMDMyRUExIi8+CjxyZWN0IHk9IjE1IiB3aWR0aD0iMzAiIGhlaWdodD0iNSIgZmlsbD0iIzAzMkVBMSIvPgo8ZyBmaWxsPSIjRkZGIj4KICA8cmVjdCB4PSIxMC41IiB5PSI2LjgiIHdpZHRoPSI5IiBoZWlnaHQ9IjEuNSIvPgogIDxyZWN0IHg9IjEyIiB5PSI4LjMiIHdpZHRoPSI2IiBoZWlnaHQ9IjQuNCIgcng9IjAuNiIvPgogIDxwYXRoIGQ9Ik0xMiA4LjMgaDYgdjIuNiBxLTMgMS42IC02IDAgWiIvPgo8L2c+Cjwvc3ZnPg==" class="pipe-flag" alt="Cambodia"> Students in Process</span>
       <span class="pipe-count" id="side-count-new">6</span>
     </div>
     <div class="pipe-item" data-pipe="korea" onclick="switchPipeline('korea')">
-      <span class="pipe-name">🇰🇷 Students in Korea</span>
+      <span class="pipe-name"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAyMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjEzIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjRkZGIi8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1LDEwKSI+CiAgPGNpcmNsZSByPSI2IiBmaWxsPSIjQ0QyRTNBIi8+CiAgPHBhdGggZD0iTTAsLTYgQTMsMyAwIDAgMCAwLDYgQTYsNiAwIDAgMSAwLC02IFoiIGZpbGw9IiMwMDQ3QTAiLz4KICA8cGF0aCBkPSJNMCwtNiBBNiw2IDAgMCAxIDAsNiBBMywzIDAgMCAwIDAsLTYgWiIgZmlsbD0iI0ZGRiIvPgo8L2c+CjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIj4KICA8cGF0aCBkPSJNNCwzIGgzIE00LDUgaDMgTTQsNyBoMyIvPgogIDxwYXRoIGQ9Ik0yNiwxMyBoLTMgTTI2LDE1IGgtMyBNMjYsMTcgaC0zIi8+CjwvZz4KPC9zdmc+" class="pipe-flag" alt="Korea"> Students in Korea</span>
       <span class="pipe-count" id="side-count-korea">0</span>
     </div>
 
@@ -407,6 +408,8 @@
     restoreBoardTopbar(PIPELINES[pipe].name);
     const fbar = document.querySelector('.filter-bar'); if (fbar) fbar.style.display='';
     const sb=document.getElementById('filter-search'); if(sb) sb.value='';
+    // Students in Korea defaults to list view; others default to kanban
+    setView(pipe === 'korea' ? 'list' : 'kanban');
     // leave the universities view and restore the pipeline views
     hideUniversities();
     const sv = document.getElementById('stats-row'); if (sv) sv.style.display='';
