@@ -4475,6 +4475,8 @@ function syncUniv() {
   };
   // Set the hash for a route without triggering navigation loop
   function goHash(key) {
+    // Don't let boot's default rendering overwrite the user's URL route
+    if (window.__bootStarted && !__bootDone) return;
     const target = '#/' + key;
     if (location.hash !== target) location.hash = target;
   }
@@ -4486,7 +4488,7 @@ function syncUniv() {
     }
   }
   function onHashChange() {
-    if (window.__bootDone) routeFromHash();
+    if (__bootDone) routeFromHash();
   }
   // ======= INIT =======
   async function bootApp() {
@@ -4516,6 +4518,8 @@ function syncUniv() {
       }
       return;  // stop boot until signed in
     }
+    // Capture the target route from the URL before boot's default rendering
+    const __initialRoute = (location.hash||'').replace(/^#\//,'');
     __suppressSave = true;  // hold saves during boot
     const hasDB = loadDatabase();  // load persisted data if it exists
     normalizeAgencyData();
@@ -4549,7 +4553,16 @@ function syncUniv() {
 
     // Hash routing: on load, open the section from the URL hash (e.g. #/universities)
     window.addEventListener('hashchange', onHashChange);
-    setTimeout(routeFromHash, 50);
+    setTimeout(() => {
+      if (__initialRoute && ROUTES[__initialRoute]) {
+        // restore the intended hash (boot may have overwritten it) then route
+        const target = '#/' + __initialRoute;
+        if (location.hash !== target) location.hash = target;
+        try { ROUTES[__initialRoute](); } catch(e){}
+      } else {
+        routeFromHash();
+      }
+    }, 80);
 
     // BACKGROUND SYNC: pull the Google Drive backend in the background and refresh
     // (does NOT block first paint — cards already shown)
