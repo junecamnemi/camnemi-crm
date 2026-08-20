@@ -3681,7 +3681,11 @@ function syncUniv() {
         <td class="note-cell">${escapeHtml(lastNote)}</td>`;
       tr._card = card;
       tr.style.cursor = 'pointer';
-      tr.addEventListener('click', () => openEditModal(card));
+      tr.addEventListener('click', () => {
+        if (card.dataset.pipe === 'korea') openKoreaEditModal(card);
+        else if (card.dataset.pipe === 'new' && card.dataset.stage === 'contact') openContactEditModal(card);
+        else openEditModal(card);
+      });
       body.appendChild(tr);
     });
   }
