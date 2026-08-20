@@ -1783,6 +1783,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   function openWiki() {
     wikiSel = wikiSel || (WIKI_NOTES[0] ? WIKI_NOTES[0].id : '');
     showKnowledgePanel('wiki-view','nav-wiki', renderWiki);
+    setKnowledgeTopbar('📚 Wiki');  // title in the top bar, like Universities
   }
   function renderWiki() {
     const v = document.getElementById('wiki-view');
