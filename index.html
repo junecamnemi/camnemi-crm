@@ -229,7 +229,18 @@
 </head>
 <body>
   <!-- Google Identity Services for sign-in -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    // Immediately hide the login overlay if already authenticated (no flash, faster load)
+    (function(){
+      try {
+        const s = JSON.parse(localStorage.getItem('camnemi_auth') || 'null');
+        if (s && s.email && s.email.endsWith('@camnemi.com')) {
+          const o = document.getElementById('login-overlay');
+          if (o) o.style.display = 'none';
+        }
+      } catch(e){}
+    })();
+  </script>
   <!-- Login overlay: gates the whole app behind @camnemi.com Google sign-in -->
   <div id="login-overlay" style="position:fixed;inset:0;background:#0f172a;z-index:99999;display:flex;align-items:center;justify-content:center;">
     <div style="background:#fff;border-radius:1.2rem;padding:2.5rem 2.8rem;width:360px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4);">
@@ -4423,6 +4434,13 @@ function syncUniv() {
     if (window.__bootStarted) return; window.__bootStarted = true;
     // Auth gate: if not signed in with @camnemi.com, block and show login
     if (!initAuth()) {
+      // Load the Google Identity Services script on demand (only when login is needed)
+      if (!window.google || !google.accounts) {
+        const gs = document.createElement('script');
+        gs.src = 'https://accounts.google.com/gsi/client';
+        gs.async = true; gs.defer = true;
+        document.head.appendChild(gs);
+      }
       // Render the Google sign-in button once GIS is ready
       const tryRender = () => {
         if (window.google && google.accounts) {
