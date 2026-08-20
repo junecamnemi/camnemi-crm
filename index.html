@@ -4003,7 +4003,11 @@ function syncUniv() {
       });
       const merged = (db.customers||[]).slice();
       const cloudIds = new Set(merged.map(c=>c.id));
-      // add local-only customers (new adds / moves not yet in cloud)
+      const localById = {};
+      localCustomers.forEach(lc => { localById[lc.id] = lc; });
+      // for same-ID cards, prefer the LOCAL version (the user's freshest edits/moves)
+      merged = merged.map(cc => localById[cc.id] ? localById[cc.id] : cc);
+      // add local-only customers (new adds not yet in cloud)
       localCustomers.forEach(lc => { if (!cloudIds.has(lc.id)) merged.push(lc); });
       db.customers = merged;
       try { localStorage.setItem(DB_KEY, JSON.stringify(db)); } catch(e){}
@@ -4591,6 +4595,9 @@ function syncUniv() {
     // (does NOT block first paint — cards already shown)
     setTimeout(async () => {
       try {
+        // PUSH local state to cloud FIRST so moved/edited/new cards are persisted
+        // before any stale cloud data is pulled back. This fixes reload reverting moves.
+        await syncPush();
         const synced = await syncPull();
         if (synced) {
           restoreCustomers();
