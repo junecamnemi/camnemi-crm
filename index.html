@@ -105,6 +105,9 @@
     /* ===== Modals ===== */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; z-index: 99999; }
     .modal { background: #fff; border-radius: 1rem; padding: 1.5rem; max-width: 460px; width: 92%; box-shadow: 0 20px 50px rgba(0,0,0,.3); max-height: 90vh; display: flex; flex-direction: column; }
+    .m-close { position: absolute; top: .6rem; right: .6rem; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: #f1f5f9; color: #475569; font-size: 1rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; transition: background .15s, color .15s; }
+    .m-close:hover { background: #fee2e2; color: #dc2626; }
+    .modal { position: relative; }
     .modal-scroll { overflow-y: auto; flex: 1 1 auto; min-height: 0; }
     .modal-actions { flex: 0 0 auto; display: flex; gap: .5rem; justify-content: flex-end; padding-top: .9rem; margin-top: .4rem; border-top: 1px solid #eef0f4; background: #fff; }
     .modal h2 { font-size: 1.2rem; color: #111827; margin-bottom: 1rem; text-transform: uppercase; }
@@ -3046,6 +3049,32 @@ function syncUniv() {
     if (currentView === 'list') renderList();
   }
   function closeModal() { const m = document.querySelector('.modal-overlay'); if (m) m.remove(); }
+  // Add a visible ✕ close button to any modal box (positioned top-right of the modal)
+  function ensureModalCloseBtn(overlay) {
+    const box = overlay.querySelector('.modal');
+    if (!box || box.querySelector('.m-close')) return;
+    const x = document.createElement('button');
+    x.className = 'm-close';
+    x.textContent = '✕';
+    x.setAttribute('aria-label', 'Close');
+    x.onclick = function(ev){ ev.stopPropagation(); overlay.remove(); };
+    box.appendChild(x);
+  }
+  // Auto-inject the ✕ button whenever a new modal is added to the DOM
+  const __modalObs = new MutationObserver(function(muts){
+    for (const m of muts) {
+      for (const node of m.addedNodes) {
+        if (node.nodeType === 1 && node.classList && node.classList.contains('modal-overlay')) {
+          ensureModalCloseBtn(node);
+        } else if (node.nodeType === 1 && node.querySelector) {
+          node.querySelectorAll('.modal-overlay').forEach(ensureModalCloseBtn);
+        }
+      }
+    }
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    __modalObs.observe(document.body, { childList: true, subtree: true });
+  });
   // Close any open modal with the ESC key
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') {
