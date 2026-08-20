@@ -199,7 +199,32 @@
     }
     .archive-stage { height: 150px; min-height: 150px; }
     .archive-stage .cards { max-height: 100px; }
-  </style>
+  
+    /* ===== Wiki (Notion-style) ===== */
+    .wiki-layout { display:flex; min-height: calc(100vh - 60px); background:#fff; }
+    .wiki-sidebar { width:260px; flex-shrink:0; background:#fbfbfa; border-right:1px solid #eef0f4; padding:.9rem .7rem; overflow-y:auto; }
+    .wiki-sidebar-head { font-weight:800; color:#111827; font-size:.95rem; padding:.2rem .4rem .6rem; }
+    .wiki-new-btn { width:100%; padding:.5rem; margin-bottom:.7rem; border:1px dashed #cbd5e1; border-radius:.5rem; background:#fff; color:#475569; font-size:.8rem; font-weight:600; cursor:pointer; }
+    .wiki-new-btn:hover { border-color:#3b82f6; color:#2563eb; }
+    .wiki-cat { font-size:.72rem; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:.04em; padding:.6rem .4rem .3rem; }
+    .wiki-tree-item { padding:.42rem .5rem; border-radius:.4rem; font-size:.82rem; color:#374151; cursor:pointer; display:flex; align-items:center; gap:.3rem; }
+    .wiki-tree-item:hover { background:#f1f5f9; }
+    .wiki-tree-item-active { background:#e0f2fe; color:#0c4a6e; font-weight:600; }
+    .wiki-rp { background:#3b82f6; color:#fff; font-size:.62rem; border-radius:999px; padding:.05rem .4rem; margin-left:auto; }
+    .wiki-tree-empty { font-size:.75rem; color:#cbd5e1; padding:.2rem .5rem; }
+    .wiki-content { flex:1; padding:2rem 2.5rem; overflow-y:auto; max-width:860px; }
+    .wiki-page-head { display:flex; justify-content:space-between; align-items:center; gap:.5rem; margin-bottom:.5rem; }
+    .wiki-page-cat { font-size:.72rem; font-weight:700; color:#3b82f6; }
+    .wiki-page-actions { display:flex; gap:.3rem; }
+    .wiki-page-title { font-size:1.9rem; font-weight:800; color:#111827; outline:none; padding:.3rem 0; line-height:1.2; }
+    .wiki-page-body { font-size:.95rem; color:#374151; line-height:1.7; outline:none; padding:.4rem 0; white-space:pre-wrap; }
+    .wiki-page-title:focus, .wiki-page-body:focus { border-radius:.4rem; box-shadow:0 0 0 2px #3b82f6; }
+    .wiki-replies-head { font-size:.8rem; font-weight:700; color:#334155; margin:.6rem 0 .4rem; padding-top:.8rem; border-top:1px solid #eef0f4; }
+    .wiki-reply { background:#f8fafc; border-radius:.5rem; padding:.5rem .7rem; margin-bottom:.4rem; }
+    .wiki-reply-text { font-size:.82rem; color:#334155; }
+    .wiki-reply-meta { font-size:.68rem; color:#94a3b8; margin-top:.25rem; }
+    .wiki-doc { display:flex; justify-content:space-between; align-items:center; background:#f8fafc; border-radius:.4rem; padding:.4rem .7rem; margin-bottom:.3rem; font-size:.8rem; color:#334155; }
+</style>
 </head>
 <body>
   <!-- Google Identity Services for sign-in -->
@@ -1710,15 +1735,17 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
 
 
   // ---- GKS / Scholarships ----
-  // ======= WIKI (shared notes with replies + documents) =======
+  // ======= WIKI — Notion-style (page tree + full-page editor + replies) =======
   let WIKI_NOTES = [];
   let WIKI_DOCS = [];
+  let wikiSel = '';   // currently open note id
   function seedWiki() {
     if (WIKI_NOTES.length) return;
+    const now = nowStr();
     WIKI_NOTES = [
-      { id:'w1', cat:'docs', subj:'Required documents to apply to school', body:'1. Application form\n2. Passport copy\n3. High school diploma + transcript\n4. Bank statement (proof of funds)\n5. Study plan / letter of intent\n6. Recommendation letter\n7. Passport photos (3x4)\n8. Family book / birth certificate', replies:[] },
-      { id:'w2', cat:'visa', subj:'Required documents to apply for D-4 / D-2 visa', body:'1. Visa application form\n2. Valid passport\n3. Certificate of Admission from school\n4. Bank balance certificate (KRW ~10M)\n5. Passport photos (3x4, white bg)\n6. Proof of accommodation\n7. Invitation letter\n8. Health checkup certificate (if required)', replies:[] },
-      { id:'w3', cat:'notice', subj:'How to submit documents to the school office', body:'Submit the completed application package to the international office at least 2 weeks before the deadline. Bring the original documents for verification.', replies:[] }
+      { id:'w1', cat:'docs', subj:'Required documents to apply to school', body:'1. Application form\n2. Passport copy\n3. High school diploma + transcript\n4. Bank statement (proof of funds)\n5. Study plan / letter of intent\n6. Recommendation letter\n7. Passport photos (3x4)\n8. Family book / birth certificate', replies:[], updated:now },
+      { id:'w2', cat:'visa', subj:'Required documents to apply for D-4 / D-2 visa', body:'1. Visa application form\n2. Valid passport\n3. Certificate of Admission from school\n4. Bank balance certificate (KRW ~10M)\n5. Passport photos (3x4, white bg)\n6. Proof of accommodation\n7. Invitation letter\n8. Health checkup certificate (if required)', replies:[], updated:now },
+      { id:'w3', cat:'notice', subj:'How to submit documents to the school office', body:'Submit the completed application package to the international office at least 2 weeks before the deadline. Bring the original documents for verification.', replies:[], updated:now }
     ];
   }
   function syncWiki() {
@@ -1732,7 +1759,10 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     } catch(e){}
     if (!WIKI_NOTES.length) seedWiki();
   }
-  function openWiki() { showKnowledgePanel('wiki-view','nav-wiki', renderWiki); }
+  function openWiki() {
+    wikiSel = wikiSel || (WIKI_NOTES[0] ? WIKI_NOTES[0].id : '');
+    showKnowledgePanel('wiki-view','nav-wiki', renderWiki);
+  }
   function renderWiki() {
     const v = document.getElementById('wiki-view');
     const cats = [
@@ -1740,59 +1770,87 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
       { id:'notice', icon:'🏫', title:'Special Notice of School' },
       { id:'visa', icon:'🛂', title:'VISA Application' }
     ];
-    let html = `
-      <div style="padding:1.5rem 2rem;">
-        <h1 style="margin:0 0 .2rem;">📚 Wiki — Shared Notes & Documents</h1>
-        <div style="font-size:.85rem;color:#64748b;margin-bottom:1.2rem;">Shared notes, school notices and visa info. Each note supports replies.</div>
-        <div style="display:flex;gap:1rem;margin-bottom:1.2rem;flex-wrap:wrap;">
-          <button class="btn btn-add" onclick="openWikiNoteForm()">➕ Add Note</button>
-          <button class="btn btn-save" onclick="openWikiDocUpload()">⬆ Upload Document</button>
-        </div>`;
+    // Notion-style: left sidebar (page tree) + right content pane
+    let sidebar = `
+      <div class="wiki-sidebar">
+        <div class="wiki-sidebar-head">📚 Wiki</div>
+        <button class="wiki-new-btn" onclick="openWikiNoteForm()">➕ New page</button>
+        <div class="wiki-tree">
+    `;
     for (const c of cats) {
       const notes = WIKI_NOTES.filter(n => n.cat === c.id);
-      const docs = WIKI_DOCS.filter(d => d.cat === c.id);
-      const replTotal = notes.reduce((s,n)=> s + (n.replies||[]).length, 0);
-      html += `
-        <div class="modal-section" style="margin-bottom:1rem;">
-          <div class="modal-section-title">${c.icon} ${c.title} <span style="color:#94a3b8;font-weight:400;">(${notes.length} notes · ${replTotal} replies · ${docs.length} docs)</span></div>
-          <div class="modal-section-body">
-            ${notes.length ? notes.map(n => renderWikiNote(n)).join('') : `<div style="font-size:.8rem;color:#94a3b8;">No notes yet. Add one with the button above.</div>`}
-            ${docs.length ? `<div style="margin-top:.6rem;font-size:.75rem;font-weight:600;color:#6b7280;">📎 Documents:</div>` + docs.map(d => `
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;background:#f8fafc;border-radius:.4rem;margin-top:.3rem;">
-                <span style="font-size:.8rem;color:#334155;">📄 ${escapeHtml(d.name)}</span>
-                <span style="display:flex;gap:.3rem;">
-                  <a href="${d.link}" target="_blank" rel="noopener" class="btn btn-note" style="text-decoration:none;font-size:.72rem;padding:.25rem .6rem;">⬇ Download</a>
-                  <button class="btn btn-danger" onclick="deleteWikiDoc('${d.id}')" style="font-size:.72rem;padding:.25rem .6rem;">🗑</button>
-                </span>
-              </div>
-            `).join('') : ''}
+      sidebar += `<div class="wiki-cat">${c.icon} ${c.title}</div>`;
+      if (!notes.length) sidebar += `<div class="wiki-tree-empty">No pages</div>`;
+      notes.forEach(n => {
+        const active = n.id === wikiSel ? ' wiki-tree-item-active' : '';
+        sidebar += `<div class="wiki-tree-item${active}" onclick="openWikiPage('${n.id}')">${escapeHtml(n.subj)}${(n.replies||[]).length?` <span class="wiki-rp">${(n.replies||[]).length}</span>`:''}</div>`;
+      });
+    }
+    sidebar += `</div></div>`;
+
+    // Content pane: the selected note as a full page
+    const note = WIKI_NOTES.find(n => n.id === wikiSel) || null;
+    let content;
+    if (!note) {
+      content = `
+        <div class="wiki-content">
+          <div style="color:#94a3b8;text-align:center;padding:4rem 2rem;">
+            <div style="font-size:3rem;">📄</div>
+            <div style="font-size:1.1rem;color:#64748b;margin-top:.5rem;">Select a page from the sidebar, or create a new one.</div>
           </div>
         </div>`;
+    } else {
+      const replies = note.replies || [];
+      const catMeta = cats.find(c=>c.id===note.cat);
+      const docs = WIKI_DOCS.filter(d => d.noteId === note.id || (d.cat && d.cat === note.cat));
+      content = `
+        <div class="wiki-content">
+          <div class="wiki-page-head">
+            <span class="wiki-page-cat">${catMeta?catMeta.icon+' '+catMeta.title:''}</span>
+            <span class="wiki-page-actions">
+              <button class="btn btn-note" onclick="openWikiReply('${note.id}')" style="font-size:.72rem;padding:.3rem .7rem;">💬 Reply</button>
+              <button class="btn btn-note" onclick="editWikiNote('${note.id}')" style="font-size:.72rem;padding:.3rem .7rem;">✏️ Edit</button>
+              <button class="btn btn-danger" onclick="deleteWikiNote('${note.id}')" style="font-size:.72rem;padding:.3rem .7rem;">🗑 Delete</button>
+            </span>
+          </div>
+          <div class="wiki-page-title" contenteditable="true" onblur="wikiInlineSave('${note.id}','subj',this.innerText)">${escapeHtml(note.subj)}</div>
+          <div class="wiki-page-body" contenteditable="true" onblur="wikiInlineSave('${note.id}','body',this.innerText)">${escapeHtml(note.body)}</div>
+          <div style="font-size:.7rem;color:#94a3b8;margin:.2rem 0 1rem;">Edited ${escapeHtml(note.updated||'')} · Click title or body to edit inline</div>
+
+          <div class="wiki-replies-head">💬 Replies (${replies.length})</div>
+          <button class="btn btn-note" onclick="openWikiReply('${note.id}')" style="font-size:.72rem;padding:.3rem .8rem;margin-bottom:.6rem;">＋ Add reply</button>
+          ${replies.length ? replies.map(r => `
+            <div class="wiki-reply">
+              <div class="wiki-reply-text">${escapeHtml(r.text)}</div>
+              <div class="wiki-reply-meta">${escapeHtml(r.author||'Team')} · ${escapeHtml(r.time||'')}
+                <button class="btn btn-danger" onclick="deleteWikiReply('${note.id}','${r.id}')" style="font-size:.6rem;padding:.1rem .4rem;margin-left:.4rem;">✕</button>
+              </div>
+            </div>
+          `).join('') : `<div style="font-size:.78rem;color:#94a3b8;">No replies yet.</div>`}
+
+          <div class="wiki-replies-head" style="margin-top:1.4rem;">📎 Attached Documents (${docs.length})</div>
+          <button class="btn btn-save" onclick="openWikiDocUpload('${note.id}')" style="font-size:.72rem;padding:.3rem .8rem;margin-bottom:.6rem;">⬆ Upload</button>
+          ${docs.length ? docs.map(d => `
+            <div class="wiki-doc">
+              <span>📄 ${escapeHtml(d.name)}</span>
+              <span>
+                <a href="${d.link}" target="_blank" rel="noopener" class="btn btn-note" style="text-decoration:none;font-size:.68rem;padding:.2rem .6rem;">⬇ Download</a>
+                <button class="btn btn-danger" onclick="deleteWikiDoc('${d.id}')" style="font-size:.68rem;padding:.2rem .6rem;">🗑</button>
+              </span>
+            </div>
+          `).join('') : `<div style="font-size:.78rem;color:#94a3b8;">No documents attached.</div>`}
+        </div>`;
     }
-    html += `</div>`;
-    v.innerHTML = html;
+
+    v.innerHTML = `<div class="wiki-layout">${sidebar}${content}</div>`;
   }
-  function renderWikiNote(n) {
-    const replies = n.replies || [];
-    return `
-      <div style="background:#fff;border:1px solid #eef0f4;border-radius:.6rem;padding:.8rem;margin-bottom:.6rem;">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;">
-          <div style="font-weight:700;color:#111827;font-size:.88rem;">${escapeHtml(n.subj)}</div>
-          <div style="display:flex;gap:.3rem;flex-shrink:0;">
-            <button class="btn btn-note" onclick="openWikiReply('${n.id}')" style="font-size:.72rem;padding:.25rem .6rem;">💬 Reply</button>
-            <button class="btn btn-note" onclick="editWikiNote('${n.id}')" style="font-size:.72rem;padding:.25rem .6rem;">✏️</button>
-            <button class="btn btn-danger" onclick="deleteWikiNote('${n.id}')" style="font-size:.72rem;padding:.25rem .6rem;">🗑</button>
-          </div>
-        </div>
-        <div style="white-space:pre-wrap;font-size:.8rem;color:#475569;margin-top:.4rem;line-height:1.5;">${escapeHtml(n.body)}</div>
-        ${replies.length ? `<div style="margin-top:.6rem;border-top:1px dashed #eef0f4;padding-top:.5rem;">` + replies.map(r => `
-          <div style="display:flex;gap:.4rem;align-items:flex-start;margin-top:.3rem;">
-            <span style="font-size:.72rem;color:#0ea5e9;font-weight:600;flex-shrink:0;">▸</span>
-            <div style="flex:1;background:#f8fafc;border-radius:.4rem;padding:.35rem .5rem;font-size:.78rem;color:#334155;">${escapeHtml(r.text)}<div style="font-size:.66rem;color:#94a3b8;margin-top:.15rem;">${escapeHtml(r.author||'Team')} · ${escapeHtml(r.time||'')}</div></div>
-            <button class="btn btn-danger" onclick="deleteWikiReply('${n.id}','${r.id}')" style="font-size:.66rem;padding:.15rem .4rem;">✕</button>
-          </div>
-        `).join('') + `</div>` : ''}
-      </div>`;
+  function openWikiPage(id){ wikiSel = id; renderWiki(); }
+  function wikiInlineSave(id, field, val){
+    const n = WIKI_NOTES.find(x=>x.id===id); if(!n) return;
+    n[field] = val.trim();
+    n.updated = nowStr();
+    syncWiki();
+    if (field === 'subj') renderWiki();
   }
   function openWikiNoteForm(existing) {
     const isEdit = !!existing;
@@ -1800,7 +1858,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     const overlay = document.createElement('div'); overlay.className='modal-overlay';
     overlay.innerHTML = `
       <div class="modal">
-        <h2>${isEdit?'✏️ Edit Note':'➕ Add Note'}</h2>
+        <h2>${isEdit?'✏️ Edit Page':'➕ New Page'}</h2>
         <div class="field"><label>Category</label>
           <select id="wn-cat">
             <option value="docs" ${n.cat==='docs'?'selected':''}>📄 Documents</option>
@@ -1808,8 +1866,8 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
             <option value="visa" ${n.cat==='visa'?'selected':''}>🛂 VISA Application</option>
           </select>
         </div>
-        <div class="field"><label>Subject</label><input id="wn-subj" value="${escapeHtml(n.subj)}" placeholder="e.g. Required documents for D-4"></div>
-        <div class="field"><label>Note</label><textarea id="wn-body" rows="8" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;box-sizing:border-box;">${escapeHtml(n.body)}</textarea></div>
+        <div class="field"><label>Page title</label><input id="wn-subj" value="${escapeHtml(n.subj)}" placeholder="e.g. Required documents for D-4"></div>
+        <div class="field"><label>Content</label><textarea id="wn-body" rows="9" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;box-sizing:border-box;">${escapeHtml(n.body)}</textarea></div>
         <div class="modal-actions">
           <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
           <button class="btn btn-save" onclick="saveWikiNote('${isEdit?n.id:''}')">Save</button>
@@ -1821,17 +1879,21 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   function saveWikiNote(id){
     const o=document.querySelector('.modal-overlay');
     const cat=o.querySelector('#wn-cat').value, subj=o.querySelector('#wn-subj').value.trim(), body=o.querySelector('#wn-body').value;
-    if(!subj){ alert('Subject is required.'); return; }
-    if(id){ const n=WIKI_NOTES.find(x=>x.id===id); if(n){ n.cat=cat; n.subj=subj; n.body=body; } }
-    else { WIKI_NOTES.push({ id:'wn'+Date.now(), cat:cat, subj:subj, body:body, replies:[] }); }
+    if(!subj){ alert('Page title is required.'); return; }
+    if(id){ const n=WIKI_NOTES.find(x=>x.id===id); if(n){ n.cat=cat; n.subj=subj; n.body=body; n.updated=nowStr(); } }
+    else { const nn={ id:'wn'+Date.now(), cat:cat, subj:subj, body:body, replies:[], updated:nowStr() }; WIKI_NOTES.push(nn); wikiSel=nn.id; }
     syncWiki(); closeModal(); renderWiki();
   }
-  function deleteWikiNote(id){ WIKI_NOTES = WIKI_NOTES.filter(x=>x.id!==id); syncWiki(); renderWiki(); }
+  function deleteWikiNote(id){
+    WIKI_NOTES = WIKI_NOTES.filter(x=>x.id!==id);
+    if (wikiSel===id) wikiSel = WIKI_NOTES[0]?WIKI_NOTES[0].id:'';
+    syncWiki(); renderWiki();
+  }
   function openWikiReply(noteId){
     const overlay = document.createElement('div'); overlay.className='modal-overlay';
     overlay.innerHTML = `
       <div class="modal">
-        <h2>💬 Reply to note</h2>
+        <h2>💬 Add reply</h2>
         <div class="field"><label>Your name</label><input id="wr-name" value="${escapeHtml(localStorage.getItem('camnemi_user')||'Team')}"></div>
         <div class="field"><label>Reply</label><textarea id="wr-text" rows="4" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;box-sizing:border-box;" placeholder="Type your reply..."></textarea></div>
         <div class="modal-actions">
@@ -1847,28 +1909,26 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     const author=o.querySelector('#wr-name').value.trim()||'Team';
     if(!text){ alert('Reply cannot be empty.'); return; }
     localStorage.setItem('camnemi_user', author);
-    const n=WIKI_NOTES.find(x=>x.id===noteId); if(n){ (n.replies=n.replies||[]).push({ id:'r'+Date.now(), text:text, author:author, time:nowStr() }); }
+    const n=WIKI_NOTES.find(x=>x.id===noteId); if(n){ (n.replies=n.replies||[]).push({ id:'r'+Date.now(), text:text, author:author, time:nowStr() }); n.updated=nowStr(); }
     syncWiki(); closeModal(); renderWiki();
   }
   function deleteWikiReply(noteId, replyId){
     const n=WIKI_NOTES.find(x=>x.id===noteId); if(n){ n.replies=(n.replies||[]).filter(r=>r.id!==replyId); }
     syncWiki(); renderWiki();
   }
-  function openWikiDocUpload(){
+  function openWikiDocUpload(noteId){
     const input=document.createElement('input'); input.type='file'; input.multiple=true;
     input.onchange=async ()=>{
-      const cat = prompt('Upload to which category? (1 = Documents, 2 = Special Notice of School, 3 = VISA Application)') ;
-      const catId = cat==='2'?'notice' : (cat==='3'?'visa':'docs');
       for(const f of Array.from(input.files)){
-        if(!backendUrl()){ WIKI_DOCS.push({id:'wd'+Date.now()+Math.random().toString(16).slice(2,6), cat:catId, name:f.name, link:'', local:true}); }
+        if(!backendUrl()){ WIKI_DOCS.push({id:'wd'+Date.now()+Math.random().toString(16).slice(2,6), noteId:noteId, name:f.name, link:'', local:true}); }
         else {
           const b64 = await fileToBase64(f);
           try{
             const folderId = await getWikiFolder();
-            if(!folderId){ WIKI_DOCS.push({id:'wd'+Date.now(), cat:catId, name:f.name, link:'', local:true}); continue; }
+            if(!folderId){ WIKI_DOCS.push({id:'wd'+Date.now(), noteId:noteId, name:f.name, link:'', local:true}); continue; }
             const res = await fetch(backendUrl(), {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({action:'uploadCustomerFile', folderId: folderId, filename:f.name, contentBase64:b64, mime:f.type||'application/octet-stream'})});
             const info = JSON.parse(await res.text());
-            if(info.ok){ WIKI_DOCS.push({id:'wd'+Date.now(), cat:catId, name:f.name, link:info.viewLink}); }
+            if(info.ok){ WIKI_DOCS.push({id:'wd'+Date.now(), noteId:noteId, name:f.name, link:info.viewLink}); }
             else alert('Upload failed: '+(info.error||'?'));
           }catch(e){ alert('Upload error: '+e.message); }
         }
@@ -1877,7 +1937,6 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     };
     input.click();
   }
-  // Get (or create) the shared Wiki document folder in Drive (cached in memory)
   let __wikiFolder = '';
   async function getWikiFolder(){
     if (__wikiFolder) return __wikiFolder;
