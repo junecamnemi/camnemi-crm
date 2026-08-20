@@ -777,7 +777,7 @@
         drag.classList.remove('dragging');
         updateBatchBar();
         if (currentView === 'list') renderList();
-        markDirty();
+        saveNow();
       } else {
         // single card move (with reorder support)
         const below = el && el.closest('.customer-card') && el.closest('.customer-card') !== drag
@@ -793,7 +793,7 @@
         if (from !== to) { changeCount(from, -1); changeCount(to, +1); }
         refreshCardBody(drag);
         if (currentView === 'list') renderList();
-        markDirty();  // persist the move
+        saveNow();  // persist the move immediately (real-time save)
       }
     } else { drag.classList.remove('dragging'); }
     drag = null;
@@ -2688,7 +2688,7 @@ function syncUniv() {
     attachCard(card);
     closeModal();
     refreshCounts();
-    saveDatabase();
+    saveNow();
   }
   function saveNewCustomer() {
     const overlay = document.querySelector('.modal-overlay');
@@ -2940,7 +2940,7 @@ function syncUniv() {
       changeCount(from,-1); changeCount(to,+1);
     }
     refreshCardBody(card);
-    saveDatabase();
+    saveNow();
     refreshCounts();
     if(currentView==='list') renderList();
     closeModal();
@@ -2990,7 +2990,7 @@ function syncUniv() {
     const nv=overlay.querySelector('#c-note').value.trim();
     card.dataset.notes=JSON.stringify(nv?[{text:nv,time:nowStr(),by:currentUserName()}]:[]);
     refreshCardBody(card);
-    saveDatabase();
+    saveNow();
     refreshCounts();
     if(currentView==='list') renderList();
     closeModal();
@@ -3453,7 +3453,7 @@ function syncUniv() {
     if (newNote) { const notes = getNotes(card); notes.push({ text: newNote, time: nowStr() }); setNotes(card, notes); }
 
     refreshCardBody(card);
-    saveDatabase();
+    saveNow();
     closeModal();
     if (currentView === 'list') renderList();
   }
@@ -4592,6 +4592,15 @@ function syncUniv() {
   document.addEventListener('DOMContentLoaded', () => { bootApp(); });
   // Auto-save after any data mutation
   function markDirty(){ setTimeout(saveDatabase, 0); }
+  // Immediate save: write localStorage + push to cloud right away (real-time)
+  function saveNow() {
+    if (__suppressSave) return;
+    try { localStorage.setItem(DB_KEY, JSON.stringify(exportAllData())); } catch(e){}
+    if (backendUrl() && __bootDone && !__syncing) {
+      clearTimeout(__pushTimer);
+      syncPush();
+    }
+  }
 </script>
 </body>
 </html>
