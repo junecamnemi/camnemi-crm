@@ -206,9 +206,14 @@
     .wiki-new-btn:hover { border-color:#3b82f6; color:#2563eb; }
     .wiki-cat { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:.4rem .55rem; border-radius:.45rem; margin:.5rem .1rem .25rem; }
     .wiki-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:7px; flex-shrink:0; }
+    .wiki-search { width:100%; box-sizing:border-box; padding:.45rem .6rem; border:1px solid #e2e8f0; border-radius:.5rem; font-size:.8rem; margin:.3rem 0; }
+    .wiki-search:focus { outline:none; border-color:#3b82f6; box-shadow:0 0 0 2px rgba(59,130,246,.15); }
+    .wiki-cat button { font-size:.55rem; padding:0 .15rem; }
+    .wiki-cat-new { padding:.3rem .5rem; margin:.1rem 0 .4rem 1rem; font-size:.78rem; color:#3b82f6; cursor:pointer; border-radius:.4rem; }
+    .wiki-cat-new:hover { background:#eff6ff; color:#2563eb; }
     .wiki-tree-item { padding:.42rem .5rem; border-radius:.4rem; font-size:.82rem; color:#374151; cursor:pointer; display:flex; align-items:center; gap:.3rem; }
     .wiki-tree-item:hover { background:#f1f5f9; }
-    .wiki-tree-item-active { background:#e0f2fe; color:#0c4a6e; font-weight:600; }
+    .wiki-tree-item-active { background:transparent; color:#111827; font-weight:800; }
     .wiki-rp { background:#3b82f6; color:#fff; font-size:.62rem; border-radius:999px; padding:.05rem .4rem; margin-left:auto; }
     .wiki-tree-empty { font-size:.75rem; color:#cbd5e1; padding:.2rem .5rem; }
     .wiki-content { flex:1; padding:2rem 2.5rem; overflow-y:auto; max-width:860px; }
@@ -223,6 +228,12 @@
     .wiki-reply-text { font-size:.82rem; color:#334155; }
     .wiki-reply-meta { font-size:.68rem; color:#94a3b8; margin-top:.25rem; }
     .wiki-doc { display:flex; justify-content:space-between; align-items:center; background:#f8fafc; border-radius:.4rem; padding:.4rem .7rem; margin-bottom:.3rem; font-size:.8rem; color:#334155; }
+
+    /* Activity Log slide-in panel */
+    .activity-panel { position: fixed; top: 0; right: 0; width: 340px; max-width: 90vw; height: 100vh; background: #fff; box-shadow: -4px 0 20px rgba(0,0,0,.12); z-index: 100000; flex-direction: column; }
+    .activity-panel-head { display: flex; justify-content: space-between; align-items: center; padding: .8rem 1rem; border-bottom: 1px solid #eef0f4; }
+    .activity-panel-list { flex: 1; overflow-y: auto; padding: .6rem; }
+    .activity-item { border: 1px solid #eef0f4; border-radius: .5rem; padding: .5rem .7rem; margin-bottom: .5rem; background: #fbfbfd; }
 </style>
 </head>
 <body>
@@ -324,6 +335,7 @@
         <button id="toggle-list" onclick="setView('list')">📄 List View</button>
       </div>
       <div style="margin-left:auto;display:flex;align-items:center;gap:.5rem;">
+        <button id="view-log-btn" class="btn btn-note" onclick="toggleActivityPanel()" style="font-size:.75rem;padding:.35rem .7rem;white-space:nowrap;">📜 View Log</button>
         <span id="auth-badge" style="display:none;align-items:center;gap:.45rem;background:#fff;border:1px solid #e2e8f0;border-radius:999px;padding:.35rem .7rem;font-size:.75rem;font-weight:600;color:#334155;">
           <span style="width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;"></span>
           <span id="auth-badge-name">@camnemi.com</span>
@@ -382,7 +394,6 @@
     </div>
 
     <!-- Stats (built by JS per pipeline) -->
-    <div class="stats-row" id="stats-row"></div>
 
     <!-- Kanban (built by JS per pipeline) -->
     <div class="pipeline" id="kanban-view"></div>
@@ -459,9 +470,12 @@
 
   let currentPipe = 'new';
   let currentView = 'kanban';
+  let currentSection = 'student';  // student | wiki | univ | other
 
   // ======= PIPELINE RENDERING =======
   function switchPipeline(pipe) {
+    currentSection = 'student';
+    updateLogButton();
     goHash('pipeline-' + pipe);
     currentPipe = pipe;
     document.querySelectorAll('.pipe-item').forEach(el => el.classList.toggle('active', el.dataset.pipe === pipe));
@@ -528,9 +542,6 @@
     if (!park) { park = document.createElement('div'); park.id = 'hidden-cards'; park.style.display = 'none'; document.body.appendChild(park); }
     document.querySelectorAll('.customer-card').forEach(card => park.appendChild(card));
 
-    // stats row (only main stages)
-    document.getElementById('stats-row').innerHTML =
-      pipe.stages.map(s => `<div class="stat"><div class="num" data-stat="${s}">0</div><div class="lbl">${STAGE_LABELS[s]}</div></div>`).join('');
     // kanban columns (only main stages)
     document.getElementById('kanban-view').innerHTML = pipe.stages.map(s => buildStage(currentPipe, s)).join('');
     // rebuild archive boxes for this pipeline
@@ -793,6 +804,7 @@
         if (from !== to) { changeCount(from, -1); changeCount(to, +1); }
         refreshCardBody(drag);
         if (currentView === 'list') renderList();
+        if (from !== to) logAction(logStudentName(drag), 'Move card: ' + from + ' → ' + to);
         saveNow();  // persist the move immediately (real-time save)
       }
     } else { drag.classList.remove('dragging'); }
@@ -827,6 +839,7 @@
     { name: 'Direct (no agency)', commission: '—', policy: 'Direct applications, no commission.' }
   ];
   function openAgencies() {
+    currentSection='other'; updateLogButton();
     goHash('agencies');
     showKnowledgePanel('agencies-view','nav-agencies', renderAgencies);
     setKnowledgeTopbar('🏢 Our Policy · Agencies');
@@ -1042,6 +1055,7 @@
     { name: 'Admin / Service Charge', amount: 'USD 150', policy: 'General administration and support.' }
   ];
   function openServiceFees() {
+    currentSection='other'; updateLogButton();
     goHash('fees');
     showKnowledgePanel('fees-view','nav-servicefees', renderFees);
     setKnowledgeTopbar('💰 Our Policy · Service Fee');
@@ -1131,6 +1145,7 @@
     });
   }
   function openPartners() {
+    currentSection='other'; updateLogButton();
     goHash('partners');
     initPartners();
     showKnowledgePanel('partners-view','nav-partners', renderPartners);
@@ -1226,6 +1241,8 @@ let UNIV_KNOWLEDGE = [];
   // ======= UNIVERSITIES KNOWLEDGE (inline view, not modal) =======
   let univSort = { key:'n', dir:1 };
   function openUniversities() {
+    currentSection = 'univ';
+    updateLogButton();
     goHash('universities');
     loadDataFile();  // ensure university data is loaded
     // highlight Universities nav, de-highlight all Students pipelines
@@ -1233,7 +1250,7 @@ let UNIV_KNOWLEDGE = [];
     const nu = document.getElementById('nav-universities');
     if (nu) nu.classList.add('active');
     // switch main area to the universities view
-    document.getElementById('stats-row').style.display='none';
+    (document.getElementById('stats-row')||{style:{}}).style.display='none';
     document.getElementById('kanban-view').style.display='none';
     document.getElementById('archive-section').style.display='none';
     document.getElementById('list-view').style.display='none';
@@ -1284,7 +1301,7 @@ let UNIV_KNOWLEDGE = [];
     document.querySelectorAll('.pipe-item').forEach(el => el.classList.remove('active'));
     const nu = document.getElementById(navId);
     if (nu) nu.classList.add('active');
-    document.getElementById('stats-row').style.display='none';
+    (document.getElementById('stats-row')||{style:{}}).style.display='none';
     document.getElementById('kanban-view').style.display='none';
     document.getElementById('archive-section').style.display='none';
     document.getElementById('list-view').style.display='none';
@@ -1317,6 +1334,7 @@ let UNIV_KNOWLEDGE = [];
   let TASKS_YEAR = new Date().getFullYear();
   let TASKS_FILTER = 'all'; // all | todo | events | issues
   function openTasks(type) {
+    currentSection='other'; updateLogButton();
     goHash('tasks');
     TASKS_FILTER = type;
     // highlight nav
@@ -1324,7 +1342,7 @@ let UNIV_KNOWLEDGE = [];
     ['nav-todo','nav-recommendation','nav-profit'].forEach(id=>{const el=document.getElementById(id); if(el) el.classList.remove('active');});
     const el = document.getElementById('nav-todo'); if (el) el.classList.add('active');
     // switch main area
-    document.getElementById('stats-row').style.display='none';
+    (document.getElementById('stats-row')||{style:{}}).style.display='none';
     document.getElementById('kanban-view').style.display='none';
     document.getElementById('archive-section').style.display='none';
     document.getElementById('list-view').style.display='none';
@@ -1548,12 +1566,13 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     ];
   }
   function openRecommendation() {
+    currentSection='other'; updateLogButton();
     goHash('recommendation');
     seedRecs();
     document.querySelectorAll('.pipe-item').forEach(el => el.classList.remove('active'));
     const nu=document.getElementById('nav-recommendation'); if(nu) nu.classList.add('active');
     ['nav-todo','nav-events','nav-issues','nav-gks','nav-marketing','nav-koreaLife','nav-universities'].forEach(id=>{const el=document.getElementById(id); if(el) el.classList.remove('active');});
-    document.getElementById('stats-row').style.display='none';
+    (document.getElementById('stats-row')||{style:{}}).style.display='none';
     document.getElementById('kanban-view').style.display='none';
     document.getElementById('archive-section').style.display='none';
     document.getElementById('list-view').style.display='none';
@@ -1701,12 +1720,13 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     ];
   }
   function openProfit() {
+    currentSection='other'; updateLogButton();
     goHash('profit');
     seedTrans();
     document.querySelectorAll('.pipe-item').forEach(el => el.classList.remove('active'));
     const nu=document.getElementById('nav-profit'); if(nu) nu.classList.add('active');
     ['nav-todo','nav-recommendation','nav-gks','nav-marketing','nav-koreaLife','nav-universities'].forEach(id=>{const el=document.getElementById(id); if(el) el.classList.remove('active');});
-    document.getElementById('stats-row').style.display='none';
+    (document.getElementById('stats-row')||{style:{}}).style.display='none';
     document.getElementById('kanban-view').style.display='none';
     document.getElementById('archive-section').style.display='none';
     document.getElementById('list-view').style.display='none';
@@ -1867,6 +1887,8 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     if (!WIKI_CATS.length) WIKI_CATS = defaultWikiCats();
   }
   function openWiki() {
+    currentSection = 'wiki';
+    updateLogButton();
     goHash('wiki');
     wikiSel = wikiSel || (WIKI_NOTES[0] ? WIKI_NOTES[0].id : '');
     showKnowledgePanel('wiki-view','nav-wiki', renderWiki);
@@ -1876,22 +1898,35 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     const v = document.getElementById('wiki-view');
     const cats = WIKI_CATS.length ? WIKI_CATS : defaultWikiCats();
     // Notion-style: left sidebar (page tree) + right content pane
+    const wikiQuery = (window.__wikiQuery || '').toLowerCase();
     let sidebar = `
       <div class="wiki-sidebar">
         <div class="wiki-sidebar-head">📚 Wiki</div>
-        <button class="wiki-new-btn" onclick="openWikiNoteForm()">➕ New page</button>
+        <input class="wiki-search" placeholder="🔍 Search notes..." value="${escapeHtml(window.__wikiQuery||'')}" oninput="window.__wikiQuery=this.value;wikiSearchDebounced()">
+        <button class="wiki-new-btn" onclick="openWikiCatForm()">➕ New category</button>
         <div class="wiki-tree">
     `;
     for (const c of cats) {
-      const notes = WIKI_NOTES.filter(n => n.cat === c.id);
+      const notes = WIKI_NOTES.filter(n => n.cat === c.id && (!wikiQuery || (n.subj||'').toLowerCase().includes(wikiQuery) || (n.body||'').toLowerCase().includes(wikiQuery)));
       const catIdx = cats.findIndex(x=>x.id===c.id);
       const catColor = WIKI_CAT_COLORS[catIdx % WIKI_CAT_COLORS.length];
-      sidebar += `<div class="wiki-cat" style="background:${catColor.bg};color:${catColor.fg};">${c.icon} ${c.title}</div>`;
+      const folded = (c.folded ? ' wiki-cat-folded' : '');
+      sidebar += `<div class="wiki-cat${folded}" style="background:${catColor.bg};color:${catColor.fg};display:flex;justify-content:space-between;align-items:center;cursor:pointer;" onclick="toggleWikiCatFold('${c.id}')">
+          <span style="display:flex;align-items:center;gap:.3rem;">${c.folded?'▶':'▼'} ${c.icon} ${c.title} (${notes.length})</span>
+          <span style="display:flex;gap:.2rem;">
+            <button onclick="event.stopPropagation();editWikiCat('${c.id}')" title="Rename category" style="background:none;border:none;cursor:pointer;font-size:.6rem;color:inherit;opacity:.75;">✏️</button>
+            <button onclick="event.stopPropagation();deleteWikiCat('${c.id}')" title="Delete category" style="background:none;border:none;cursor:pointer;font-size:.6rem;color:inherit;opacity:.75;">🗑</button>
+          </span>
+        </div>`;
+      sidebar += `<div class="wiki-cat-body" style="${c.folded?'display:none':''}">`;
       if (!notes.length) sidebar += `<div class="wiki-tree-empty">No pages</div>`;
       notes.forEach(n => {
         const active = n.id === wikiSel ? ' wiki-tree-item-active' : '';
         sidebar += `<div class="wiki-tree-item${active}" onclick="openWikiPage('${n.id}')"><span class="wiki-dot" style="background:${WIKI_CAT_COLORS[catIdx % WIKI_CAT_COLORS.length].fg};"></span>${escapeHtml(n.subj)}${(n.replies||[]).length?` <span class="wiki-rp">${(n.replies||[]).length}</span>`:''}</div>`;
       });
+      // "+ new page" button under the last note of this category
+      sidebar += `<div class="wiki-cat-new" onclick="openWikiNewNote('${c.id}')">+ New page</div>`;
+      sidebar += `</div>`;
     }
     sidebar += `</div></div>`;
 
@@ -1921,7 +1956,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
             </span>
           </div>
           <div class="wiki-page-title" contenteditable="true" onblur="wikiInlineSave('${note.id}','subj',this.innerText)">${escapeHtml(note.subj)}</div>
-          <div class="wiki-page-body" contenteditable="true" onblur="wikiInlineSave('${note.id}','body',this.innerText)">${escapeHtml(note.body)}</div>
+          <div class="wiki-page-body" contenteditable="true" onpaste="wikiPasteImage(event)" onblur="wikiInlineSave('${note.id}','body',this.innerHTML)">${note.body||''}</div>
           <div style="font-size:.7rem;color:#94a3b8;margin:.2rem 0 1rem;">Edited ${escapeHtml(note.updated||'')} · Click title or body to edit inline</div>
 
           <div class="wiki-replies-head">💬 Replies (${replies.length})</div>
@@ -1952,12 +1987,103 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     v.innerHTML = `<div class="wiki-layout">${sidebar}${content}</div>`;
   }
   function openWikiPage(id){ wikiSel = id; renderWiki(); }
+  // Paste images into the wiki note body (Ctrl+V)
+  function wikiPasteImage(e){
+    const items = e.clipboardData && e.clipboardData.items;
+    if(!items) return; // let default handle text
+    let hasImage = false;
+    for(const it of items){
+      if (it.type && it.type.startsWith('image/')) {
+        hasImage = true;
+        const file = it.getAsFile();
+        if (!file) continue;
+        e.preventDefault();
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          const img = `<img src="${ev.target.result}" style="max-width:100%;max-height:280px;border-radius:.4rem;margin:.4rem 0;display:block;">`;
+          // insert at cursor
+          const sel = window.getSelection();
+          if (sel && sel.rangeCount) {
+            const range = sel.getRangeAt(0);
+            range.deleteContents();
+            const div = document.createElement('div');
+            div.innerHTML = img;
+            const node = div.firstChild;
+            range.insertNode(node);
+            range.setStartAfter(node);
+            range.collapse(true);
+            sel.removeAllRanges(); sel.addRange(range);
+          } else {
+            e.target.innerHTML += img;
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+    if(hasImage) e.preventDefault();
+  }
   function wikiInlineSave(id, field, val){
     const n = WIKI_NOTES.find(x=>x.id===id); if(!n) return;
     n[field] = val.trim();
     n.updated = nowStr();
     syncWiki();
     if (field === 'subj') renderWiki();
+    logAction(n.subj||'wiki note', 'Revise', 'wiki');
+  }
+  // Rename / delete a wiki category
+  function editWikiCat(catId){
+    const c = WIKI_CATS.find(x=>x.id===catId); if(!c) return;
+    const name = prompt('Rename category to:', c.title);
+    if (name && name.trim()) { c.title = name.trim(); syncWiki(); renderWiki(); }
+  }
+  function deleteWikiCat(catId){
+    const count = WIKI_NOTES.filter(n=>n.cat===catId).length;
+    if(!confirm('Delete this category'+(count?` and its ${count} page(s)`:'')+'?')) return;
+    WIKI_CATS = WIKI_CATS.filter(x=>x.id!==catId);
+    // remove the category's notes too
+    WIKI_NOTES = WIKI_NOTES.filter(n=>n.cat!==catId);
+    if(wikiSel && !WIKI_NOTES.find(n=>n.id===wikiSel)) wikiSel = WIKI_NOTES[0]?WIKI_NOTES[0].id:'';
+    syncWiki(); renderWiki(); logAction('category', 'delete: '+catId, 'wiki');
+  }
+  let __wikiSearchTimer = null;
+  function wikiSearchDebounced(){
+    // update the query but only re-render the TREE (not the whole wiki) after a short debounce,
+    // and preserve focus on the search box
+    clearTimeout(__wikiSearchTimer);
+    __wikiSearchTimer = setTimeout(() => {
+      const s = document.querySelector('.wiki-search');
+      const q = s ? s.value : (window.__wikiQuery||'');
+      window.__wikiQuery = q;
+      renderWiki();
+      // restore focus + put the caret at the END of the search text
+      const s2 = document.querySelector('.wiki-search');
+      if (s2) {
+        s2.focus();
+        try { s2.setSelectionRange(s2.value.length, s2.value.length); } catch(e){}
+      }
+    }, 250);
+  }
+  function toggleWikiCatFold(catId){
+    const c = WIKI_CATS.find(x=>x.id===catId); if(!c) return;
+    c.folded = !c.folded;
+    syncWiki(); renderWiki();
+  }
+  function openWikiCatForm(){
+    const name = prompt('New category name:');
+    if (name && name.trim()) {
+      WIKI_CATS.push({ id:'wc'+Date.now(), icon:'📁', title:name.trim(), folded:false });
+      syncWiki(); renderWiki();
+    }
+  }
+  // Open a NEW note inline in the content pane (no modal) — Notion-style blank page
+  function openWikiNewNote(catId){
+    const nn = { id:'wn'+Date.now(), cat:catId||'docs', subj:'Untitled', body:'', replies:[], updated:nowStr() };
+    WIKI_NOTES.push(nn);
+    wikiSel = nn.id;
+    syncWiki(); renderWiki();
+  }
+  function openWikiNoteInCat(catId){
+    openWikiNoteForm({ cat: catId, subj:'', body:'' });
   }
   function openWikiNoteForm(existing) {
     const isEdit = !!existing;
@@ -2002,11 +2128,13 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     if(id){ const n=WIKI_NOTES.find(x=>x.id===id); if(n){ n.cat=cat; n.subj=subj; n.body=body; n.updated=nowStr(); } }
     else { const nn={ id:'wn'+Date.now(), cat:cat, subj:subj, body:body, replies:[], updated:nowStr() }; WIKI_NOTES.push(nn); wikiSel=nn.id; }
     syncWiki(); closeModal(); renderWiki();
+    logAction(subj||'wiki note', (id && n)? 'Revise' : 'Make a Note', 'wiki');
   }
   function deleteWikiNote(id){
     WIKI_NOTES = WIKI_NOTES.filter(x=>x.id!==id);
     if (wikiSel===id) wikiSel = WIKI_NOTES[0]?WIKI_NOTES[0].id:'';
     syncWiki(); renderWiki();
+    logAction('wiki note', 'delete', 'wiki');
   }
   function openWikiReply(noteId){
     const overlay = document.createElement('div'); overlay.className='modal-overlay';
@@ -2030,10 +2158,12 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     localStorage.setItem('camnemi_user', author);
     const n=WIKI_NOTES.find(x=>x.id===noteId); if(n){ (n.replies=n.replies||[]).push({ id:'r'+Date.now(), text:text, author:author, time:nowStr() }); n.updated=nowStr(); }
     syncWiki(); closeModal(); renderWiki();
+    logAction('wiki reply', 'Reply', 'wiki');
   }
   function deleteWikiReply(noteId, replyId){
     const n=WIKI_NOTES.find(x=>x.id===noteId); if(n){ n.replies=(n.replies||[]).filter(r=>r.id!==replyId); }
     syncWiki(); renderWiki();
+    logAction('wiki reply', 'delete', 'wiki');
   }
   function openWikiDocUpload(noteId){
     const input=document.createElement('input'); input.type='file'; input.multiple=true;
@@ -2047,7 +2177,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
             if(!folderId){ WIKI_DOCS.push({id:'wd'+Date.now(), noteId:noteId, name:f.name, link:'', local:true}); continue; }
             const res = await fetch(backendUrl(), {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({action:'uploadCustomerFile', folderId: folderId, filename:f.name, contentBase64:b64, mime:f.type||'application/octet-stream'})});
             const info = JSON.parse(await res.text());
-            if(info.ok){ WIKI_DOCS.push({id:'wd'+Date.now(), noteId:noteId, name:f.name, link:info.viewLink}); }
+            if(info.ok){ WIKI_DOCS.push({id:'wd'+Date.now(), noteId:noteId, name:f.name, link:info.viewLink}); logAction('wiki file', 'Upload: '+f.name, 'wiki'); }
             else alert('Upload failed: '+(info.error||'?'));
           }catch(e){ alert('Upload error: '+e.message); }
         }
@@ -2067,9 +2197,10 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
       return __wikiFolder;
     } catch(e){ console.warn('getWikiFolder failed', e); return ''; }
   }
-  function deleteWikiDoc(id){ WIKI_DOCS = WIKI_DOCS.filter(x=>x.id!==id); syncWiki(); renderWiki(); }
+  function deleteWikiDoc(id){ WIKI_DOCS = WIKI_DOCS.filter(x=>x.id!==id); syncWiki(); renderWiki(); logAction('wiki file', 'delete', 'wiki'); }
 
-  function openGKS() { goHash('gks'); showKnowledgePanel('gks-view','nav-gks', renderGKS); }
+  function openGKS() {
+    currentSection='other'; updateLogButton(); goHash('gks'); showKnowledgePanel('gks-view','nav-gks', renderGKS); }
   function renderGKS() {
     const univs = UNIV_KNOWLEDGE.filter(u => (u.type||'univ')!=='junior' && u.scholarships && u.scholarships.length);
     const v = document.getElementById('gks-view');
@@ -2162,7 +2293,8 @@ function renderGKSRows(q){
     }).join('') || '<tr><td colspan="4" style="color:#94a3b8;text-align:center;padding:.8rem">No matching universities.</td></tr>';
   }
   // ---- Marketing ----
-  function openMarketing() { goHash('marketing'); showKnowledgePanel('marketing-view','nav-marketing', renderMarketing); }
+  function openMarketing() {
+    currentSection='other'; updateLogButton(); goHash('marketing'); showKnowledgePanel('marketing-view','nav-marketing', renderMarketing); }
   function renderMarketing() {
     const v = document.getElementById('marketing-view');
     v.innerHTML = `
@@ -2180,7 +2312,8 @@ function renderGKSRows(q){
       </div>`;
   }
   // ---- Korea Life ----
-  function openKoreaLife() { goHash('koreaLife'); showKnowledgePanel('koreaLife-view','nav-koreaLife', renderKoreaLife); }
+  function openKoreaLife() {
+    currentSection='other'; updateLogButton(); goHash('koreaLife'); showKnowledgePanel('koreaLife-view','nav-koreaLife', renderKoreaLife); }
   function renderKoreaLife() {
     const v = document.getElementById('koreaLife-view');
     v.innerHTML = `
@@ -2530,6 +2663,8 @@ function syncUniv() {
       if (window.UNIV_GUIDES) window.__UNIV_GUIDES__ = window.UNIV_GUIDES;
       syncUniv();
       try { rebuildFilterBar(); } catch(e){}
+      // Re-render all customer cards so Korea school names show in English
+      try { document.querySelectorAll('.customer-card').forEach(c=>refreshCardBody(c)); } catch(e){}
       if (cb) cb();
     };
     s.onerror = () => console.warn('data.js failed to load');
@@ -2688,6 +2823,7 @@ function syncUniv() {
     attachCard(card);
     closeModal();
     refreshCounts();
+    logAction(name, 'Add card');
     saveNow();
   }
   function saveNewCustomer() {
@@ -2765,6 +2901,7 @@ function syncUniv() {
     if (card.dataset.pipe === 'korea') {
       const agency=card.dataset.agency||'';
       const schEn = koreaSchoolEn(school);
+      const schLogo = koreaSchoolLogo(school);
       const progShort = koreaProgramShort(program);
       card.innerHTML = `
         <input type="checkbox" class="card-select" onclick="onCardSelect(this, event)">
@@ -2772,7 +2909,7 @@ function syncUniv() {
         <div class="tag-row">
           ${agency ? `<span class="tag tag-agency">🏢 ${escapeHtml(agency)}</span>` : ''}
           ${progShort ? `<span class="tag tag-program">🎓 ${escapeHtml(progShort)}</span>` : ''}
-          ${schEn ? `<span class="tag tag-school">🏫 ${escapeHtml(schEn)}</span>` : ''}
+          ${schEn ? `<span class="tag tag-school">${schLogo?`<img src="${escapeHtml(schLogo)}" onerror="this.style.display='none'" style="width:14px;height:14px;object-fit:contain;border-radius:3px;background:#fff;vertical-align:middle;margin-right:3px;">`:''}${escapeHtml(schEn)}</span>` : ''}
         </div>
         <div class="note">${escapeHtml(noteDisplay)}</div>`;
       card.querySelector('h4').textContent = name;
@@ -2809,6 +2946,12 @@ function syncUniv() {
     const u = UNIV_KNOWLEDGE.find(x => x.n === kr || x.ek === kr || x.en === kr);
     if (u && u.en) return u.en;
     return kr;
+  }
+  function koreaSchoolLogo(kr) {
+    if (!kr) return '';
+    const u = UNIV_KNOWLEDGE.find(x => x.n === kr || x.ek === kr || x.en === kr);
+    if (u && u.logo) return u.logo;
+    return '';
   }
   // Map a korea card's program to a short label (BA/MA/D4/Online)
   function koreaProgramShort(p) {
@@ -2941,6 +3084,8 @@ function syncUniv() {
       changeCount(from,-1); changeCount(to,+1);
     }
     refreshCardBody(card);
+    if(newStage!==oldStage) logAction(name, 'Move card: ' + oldStage + ' → ' + newStage);
+    if(nv) logAction(name, 'Note');
     saveNow();
     refreshCounts();
     if(currentView==='list') renderList();
@@ -2991,6 +3136,8 @@ function syncUniv() {
     const nv=overlay.querySelector('#c-note').value.trim();
     card.dataset.notes=JSON.stringify(nv?[{text:nv,time:nowStr(),by:currentUserName()}]:[]);
     refreshCardBody(card);
+    if(nv) logAction(name, 'Note');
+    logAction(name, 'Revise input');
     saveNow();
     refreshCounts();
     if(currentView==='list') renderList();
@@ -3454,6 +3601,10 @@ function syncUniv() {
     if (newNote) { const notes = getNotes(card); notes.push({ text: newNote, time: nowStr() }); setNotes(card, notes); }
 
     refreshCardBody(card);
+    const newNoteVal = overlay.querySelector('#e-note') ? overlay.querySelector('#e-note').value.trim() : '';
+    if (stage && stage !== oldStage) logAction(name, 'Move card: ' + oldStage + ' → ' + stage);
+    if (newPipe && newPipe !== oldPipe) logAction(name, 'Move card: pipeline ' + oldPipe + ' → ' + newPipe);
+    if (newNoteVal) logAction(name, 'Note');
     saveNow();
     closeModal();
     if (currentView === 'list') renderList();
@@ -4128,7 +4279,7 @@ function syncUniv() {
             body: JSON.stringify({ action:'uploadCustomerFile', folderId:card.dataset.folderId, filename:file.name, contentBase64:b64, mime:mime })
           });
           const info = JSON.parse(await res.text());
-          if (info.ok) alert('Uploaded: '+info.name);
+          if (info.ok) { logAction(logStudentName(card), 'Upload file: '+file.name); alert('Uploaded: '+info.name); }
           else alert('Upload failed: '+(info.error||'?'));
         } catch(e){ alert('Upload error: '+e.message); }
       }
@@ -4165,6 +4316,102 @@ function syncUniv() {
   // ======= DATABASE (localStorage persistence) + GOOGLE SHEETS EXPORT =======
   const DB_KEY = 'camnemi_db_v1';
   // Serialize all app data into a plain object
+  // ======= ACTIVITY LOG (backup: who did what to which student) =======
+  let ACTIVITY_LOG = [];
+  const ACTIVITY_KEY = 'camnemi_activity_log';
+  function loadActivityLog(){
+    try { const r = localStorage.getItem(ACTIVITY_KEY); if(r) ACTIVITY_LOG = JSON.parse(r); } catch(e){}
+    if(!Array.isArray(ACTIVITY_LOG)) ACTIVITY_LOG = [];
+  }
+  function logAction(student, action, section){
+    const u = currentUserName();
+    ACTIVITY_LOG.push({ id:'l'+Date.now()+Math.floor(Math.random()*1000), time:new Date().toISOString(), user:u, student:student||'', action:action||'', section:section||'student' });
+    // keep last 2000 for performance
+    if (ACTIVITY_LOG.length > 2000) ACTIVITY_LOG = ACTIVITY_LOG.slice(-2000);
+    try { localStorage.setItem(ACTIVITY_KEY, JSON.stringify(ACTIVITY_LOG)); } catch(e){}
+  }
+  function logStudentName(card){
+    return card.dataset.name || (card.querySelector('h4')?card.querySelector('h4').textContent:'') || '';
+  }
+  function renderActivityLog(){
+    // simple modal listing the log newest first
+    const rows = ACTIVITY_LOG.slice().reverse().map(l=>`
+      <tr>
+        <td style="font-weight:600;white-space:nowrap;font-size:.85rem;">${escapeHtml(l.time.slice(0,16).replace('T',' '))}</td>
+        <td style="white-space:nowrap;font-size:1rem;font-weight:700;">${escapeHtml(l.user)}</td>
+        <td style="white-space:nowrap;font-size:.95rem;font-weight:600;color:#1d4ed8;">${escapeHtml(l.student)}</td>
+        <td style="font-size:.9rem;">${escapeHtml(l.action)}</td>
+      </tr>`).join('') || '<tr><td colspan="4" style="color:#94a3b8;text-align:center;">No activity yet.</td></tr>';
+    const overlay = document.createElement('div'); overlay.className='modal-overlay'; overlay.id='activity-log-modal';
+    overlay.innerHTML = `
+      <div class="modal" style="max-width:760px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;">
+          <h2 style="margin:0;">📜 Activity Log (${ACTIVITY_LOG.length})</h2>
+          <button class="btn btn-danger" onclick="clearActivityLog()" style="font-size:.72rem;padding:.3rem .6rem;">Clear</button>
+        </div>
+        <div style="font-size:.75rem;color:#64748b;margin-bottom:.6rem;">Who did what to which student — used as a backup record. Stored locally + synced to Google Drive.</div>
+        <div style="max-height:60vh;overflow:auto;border:1px solid #eef0f4;border-radius:.5rem;">
+          <table class="list-table" style="font-size:.9rem;">
+            <thead><tr><th>Time</th><th>User</th><th>Student</th><th>Action</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+        <div class="modal-actions"><button class="btn btn-save" onclick="closeModal()">OK</button></div>
+      </div>`;
+    document.body.appendChild(overlay); setTimeout(()=>overlay.style.opacity='1',10);
+  }
+  // ---- Right-side slide-in log panel (available on every section) ----
+  function toggleActivityPanel(){
+    const p = document.getElementById('activity-panel');
+    if(!p) return;
+    if (p.style.display === 'none') {
+      if (currentSection === 'univ') { p.style.display = 'none'; return; } // no log for universities
+      renderActivityPanel();
+      p.style.display = 'flex';
+    } else { p.style.display = 'none'; }
+  }
+  function updateLogButton(){
+    const b = document.getElementById('view-log-btn');
+    if(!b) return;
+    // Hide on Universities; show elsewhere (Students/Wiki/other). Other shows notice when clicked.
+    b.style.display = (currentSection === 'univ') ? 'none' : '';
+  }
+  function renderActivityPanel(){
+    const list = document.getElementById('activity-panel-list');
+    if(!list) return;
+    // Other sections (not student/wiki): show the "coming soon" notice
+    if (currentSection !== 'student' && currentSection !== 'wiki') {
+      list.innerHTML = '<div style="padding:1rem;color:#475569;font-size:.95rem;line-height:1.6;">Log available in <b>Students</b> / <b>Wiki</b> section.<br>Other sections will be provided.</div>';
+      return;
+    }
+    const sectionLabel = currentSection === 'wiki' ? 'Wiki' : 'Students';
+    const filtered = ACTIVITY_LOG.filter(l=> (l.section||'student') === (currentSection==='wiki'?'wiki':'student'));
+    const items = filtered.slice().reverse().map(l=>`
+      <div class="activity-item">
+        <div style="font-size:.8rem;color:#94a3b8;margin-bottom:.15rem;">${escapeHtml((l.time||'').slice(0,16).replace('T',' '))}</div>
+        <div style="font-size:1.05rem;font-weight:700;color:#111827;margin:.15rem 0;">${escapeHtml(l.user)}</div>
+        <div style="font-size:1rem;font-weight:600;color:#1d4ed8;margin:.1rem 0;">${escapeHtml(l.student)}</div>
+        <div style="font-size:.9rem;color:#374151;margin-top:.2rem;">${escapeHtml(l.action)}</div>
+      </div>`).join('') || '<div style="padding:.8rem;color:#94a3b8;font-size:.9rem;">No activity yet.</div>';
+    list.innerHTML = `<div style="font-size:.72rem;color:#64748b;margin-bottom:.4rem;padding:0 .2rem;">${sectionLabel} activity (${filtered.length})</div>` + items;
+  }
+  function clearActivityLogPanel(){
+    if(!confirm('Clear the activity log?')) return;
+    ACTIVITY_LOG = [];
+    try { localStorage.removeItem(ACTIVITY_KEY); } catch(e){}
+    renderActivityPanel();
+  }
+  function clearActivityLog(){
+    if(!confirm('Clear the activity log?')) return;
+    ACTIVITY_LOG = [];
+    try { localStorage.removeItem(ACTIVITY_KEY); } catch(e){}
+    closeModal(); renderActivityLog();
+  }
+  function exportActivityLogCSV(){
+    let csv = '\ufefftime,user,student,action\n';
+    ACTIVITY_LOG.forEach(l=>{ csv += [l.time,l.user,l.student,l.action].map(csvEscape).join(',')+'\n'; });
+    downloadFile('camnemi_activity_log.csv', csv);
+  }
   function exportAllData() {
     // customers: serialize DOM cards
     const customers = [];
@@ -4194,6 +4441,7 @@ function syncUniv() {
       recs: RECS,
       wikiNotes: WIKI_NOTES,
       wikiDocs: WIKI_DOCS,
+      activityLog: ACTIVITY_LOG,
       savedAt: new Date().toISOString()
     };
   }
@@ -4378,6 +4626,7 @@ function syncUniv() {
 
   // ---- Data Tools (Save / Google Sheets Export / Import) ----
   function openDataTools(){
+    currentSection='other'; updateLogButton();
     goHash('data');
     const d=exportAllData();
     const btn=(label,fn,color)=>`<button onclick="${fn}" style="width:100%;padding:.7rem;background:${color};color:#fff;border:none;border-radius:.6rem;font-weight:600;cursor:pointer;text-align:left;">${label}</button>`;
@@ -4396,6 +4645,9 @@ function syncUniv() {
           ${btn('💸 Transactions ('+d.transactions.length+') → CSV','exportTransactionsCSV()','#2563eb')}
           ${btn('📅 Tasks ('+d.tasks.length+') → CSV','exportTasksCSV()','#2563eb')}
           ${btn('📦 Export ALL Tables (multiple files)','exportAllCSV()','#2563eb')}
+          <div style="font-size:.78rem;font-weight:700;color:#111827;margin-top:.5rem;">📜 Activity Log (${ACTIVITY_LOG.length})</div>
+          ${btn('👁 View activity log (who did what)','renderActivityLog()','#059669')}
+          ${btn('⬇ Export activity log (CSV)','exportActivityLogCSV()','#059669')}
           <div style="font-size:.78rem;font-weight:700;color:#111827;margin-top:.5rem;">💾 Backup / Restore</div>
           ${btn('⬇ Download full backup (JSON)','downloadBackup()','#059669')}
           ${btn('⬆ Import customers from CSV','document.getElementById("import-csv-input").click()','#059669')}
@@ -4567,6 +4819,7 @@ function syncUniv() {
     const __initialRoute = (location.hash||'').replace(/^#\//,'');
     __suppressSave = true;  // hold saves during boot
     const hasDB = loadDatabase();  // load persisted data if it exists
+    loadActivityLog();
     normalizeAgencyData();
     loadWiki();
     syncAgencies();
@@ -4650,5 +4903,17 @@ function syncUniv() {
     }
   }
 </script>
+  <!-- Activity Log slide-in panel -->
+  <div id="activity-panel" class="activity-panel" style="display:none;">
+    <div class="activity-panel-head">
+      <div style="font-weight:700;color:#111827;">📜 Activity Log</div>
+      <div style="display:flex;gap:.3rem;">
+        <button class="btn btn-danger" onclick="clearActivityLogPanel()" style="font-size:.7rem;padding:.25rem .5rem;">Clear</button>
+        <button class="btn btn-note" onclick="exportActivityLogCSV()" style="font-size:.7rem;padding:.25rem .5rem;">⬇ CSV</button>
+        <button onclick="toggleActivityPanel()" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:#475569;">✕</button>
+      </div>
+    </div>
+    <div id="activity-panel-list" class="activity-panel-list"></div>
+  </div>
 </body>
 </html>
