@@ -206,7 +206,8 @@
     .wiki-sidebar-head { font-weight:800; color:#111827; font-size:.95rem; padding:.2rem .4rem .6rem; }
     .wiki-new-btn { width:100%; padding:.5rem; margin-bottom:.7rem; border:1px dashed #cbd5e1; border-radius:.5rem; background:#fff; color:#475569; font-size:.8rem; font-weight:600; cursor:pointer; }
     .wiki-new-btn:hover { border-color:#3b82f6; color:#2563eb; }
-    .wiki-cat { font-size:.72rem; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:.04em; padding:.6rem .4rem .3rem; }
+    .wiki-cat { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:.4rem .55rem; border-radius:.45rem; margin:.5rem .1rem .25rem; }
+    .wiki-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:7px; flex-shrink:0; }
     .wiki-tree-item { padding:.42rem .5rem; border-radius:.4rem; font-size:.82rem; color:#374151; cursor:pointer; display:flex; align-items:center; gap:.3rem; }
     .wiki-tree-item:hover { background:#f1f5f9; }
     .wiki-tree-item-active { background:#e0f2fe; color:#0c4a6e; font-weight:600; }
@@ -1740,6 +1741,16 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   let WIKI_DOCS = [];
   let WIKI_CATS = [];  // dynamic categories
   let wikiSel = '';   // currently open note id
+  // Category background color palette (rotates through categories)
+  const WIKI_CAT_COLORS = [
+    { bg:'#dbeafe', fg:'#1d4ed8' },   // blue
+    { bg:'#fef3c7', fg:'#b45309' },   // amber
+    { bg:'#dcfce7', fg:'#15803d' },   // green
+    { bg:'#fce7f3', fg:'#be185d' },   // pink
+    { bg:'#ede9fe', fg:'#6d28d9' },   // violet
+    { bg:'#cffafe', fg:'#0e7490' },   // cyan
+    { bg:'#fee2e2', fg:'#b91c1c' }    // red
+  ];
   function defaultWikiCats(){
     return [
       { id:'docs', icon:'📄', title:'Documents' },
@@ -1785,11 +1796,13 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     `;
     for (const c of cats) {
       const notes = WIKI_NOTES.filter(n => n.cat === c.id);
-      sidebar += `<div class="wiki-cat">${c.icon} ${c.title}</div>`;
+      const catIdx = cats.findIndex(x=>x.id===c.id);
+      const catColor = WIKI_CAT_COLORS[catIdx % WIKI_CAT_COLORS.length];
+      sidebar += `<div class="wiki-cat" style="background:${catColor.bg};color:${catColor.fg};">${c.icon} ${c.title}</div>`;
       if (!notes.length) sidebar += `<div class="wiki-tree-empty">No pages</div>`;
       notes.forEach(n => {
         const active = n.id === wikiSel ? ' wiki-tree-item-active' : '';
-        sidebar += `<div class="wiki-tree-item${active}" onclick="openWikiPage('${n.id}')">${escapeHtml(n.subj)}${(n.replies||[]).length?` <span class="wiki-rp">${(n.replies||[]).length}</span>`:''}</div>`;
+        sidebar += `<div class="wiki-tree-item${active}" onclick="openWikiPage('${n.id}')"><span class="wiki-dot" style="background:${WIKI_CAT_COLORS[catIdx % WIKI_CAT_COLORS.length].fg};"></span>${escapeHtml(n.subj)}${(n.replies||[]).length?` <span class="wiki-rp">${(n.replies||[]).length}</span>`:''}</div>`;
       });
     }
     sidebar += `</div></div>`;
