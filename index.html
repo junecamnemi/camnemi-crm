@@ -472,8 +472,8 @@
     restoreBoardTopbar(PIPELINES[pipe].name);
     const fbar = document.querySelector('.filter-bar'); if (fbar) fbar.style.display='';
     const sb=document.getElementById('filter-search'); if(sb) sb.value='';
-    // Students in Korea defaults to list view; others default to kanban
-    setView(pipe === 'korea' ? 'list' : 'kanban');
+    // Both pipelines default to kanban view
+    setView('kanban');
     // leave the universities view and restore the pipeline views
     hideUniversities();
     const sv = document.getElementById('stats-row'); if (sv) sv.style.display='';
