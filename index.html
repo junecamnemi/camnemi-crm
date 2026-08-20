@@ -208,7 +208,7 @@
 
     <div class="sidebar-section-label">Students</div>
     <div class="pipe-item active" data-pipe="new" onclick="switchPipeline('new')">
-      <span class="pipe-name">🆕 Students in Process</span>
+      <span class="pipe-name">🇰🇭 Students in Process</span>
       <span class="pipe-count" id="side-count-new">6</span>
     </div>
     <div class="pipe-item" data-pipe="korea" onclick="switchPipeline('korea')">
@@ -2461,6 +2461,7 @@ function syncUniv() {
     const name = card.dataset.name || '';
     const school = card.dataset.school || '';
     const program = card.dataset.program || '';
+    const appdate = card.dataset.appdate || '';
     const contact = card.dataset.contact || '';
     const email = card.dataset.email || '';
     const agency = card.dataset.agency || '';
@@ -2471,6 +2472,21 @@ function syncUniv() {
     const stageOpts = pipe.stages.map(s => `<option value="${s}" ${card.dataset.stage===s?'selected':''}>${STAGE_LABELS[s]}</option>`).join('');
     const agencyOpts = AGENCIES.map(a=>`<option value="${escapeHtml(a.name)}" ${a.name===agency?'selected':''}>${escapeHtml(a.name)}</option>`).join('');
     const req = (v)=> v ? '' : 'border:1.5px solid #dc2626;background:#fef2f2;';
+    // Entered Korea month options: years 2025-2027 + current value
+    let enterOpts = '<option value="">— Entered Korea (YYYYMM) —</option>';
+    const enterYears = [2025, 2026, 2027];
+    const curYear = parseInt(appdate.slice(0,4),10);
+    if (curYear && !enterYears.includes(curYear)) enterYears.push(curYear);
+    enterYears.sort((a,b)=>a-b);
+    for (const y of enterYears) {
+      for (let mo=1; mo<=12; mo++) {
+        const v = '' + y + String(mo).padStart(2,'0');
+        enterOpts += `<option value="${v}" ${appdate===v?'selected':''}>${y}-${String(mo).padStart(2,'0')}</option>`;
+      }
+    }
+    if (appdate && !enterOpts.includes('value="'+appdate+'"')) {
+      enterOpts += `<option value="${appdate}" selected>${appdate.slice(0,4)}-${appdate.slice(4)}</option>`;
+    }
     const overlay = document.createElement('div');
     overlay.className='modal-overlay'; overlay.id='korea-edit-modal'; overlay._card=card;
     overlay.innerHTML = `
@@ -2479,6 +2495,7 @@ function syncUniv() {
         <div class="field"><label>Name *</label><input id="k-name" value="${escapeHtml(name)}" style="${req(name)}"></div>
         <div class="field"><label>School *</label><input id="k-school" value="${escapeHtml(school)}" style="${req(school)}"></div>
         <div class="field"><label>Program *</label><input id="k-program" value="${escapeHtml(program)}" style="${req(program)}"></div>
+        <div class="field"><label>Entered Korea</label><select id="k-appdate">${enterOpts}</select></div>
         <div class="field"><label>Contact</label><input id="k-contact" value="${escapeHtml(contact)}"></div>
         <div class="field"><label>Email</label><input id="k-email" value="${escapeHtml(email)}"></div>
         <div class="field"><label>Agency</label><select id="k-agency"><option value="">— Agency —</option>${agencyOpts}</select></div>
@@ -2503,6 +2520,7 @@ function syncUniv() {
     card.dataset.name=name;
     card.dataset.school=school;
     card.dataset.program=program;
+    const appEl=overlay.querySelector('#k-appdate'); if(appEl) card.dataset.appdate=appEl.value;
     card.dataset.contact=overlay.querySelector('#k-contact').value.trim();
     card.dataset.email=overlay.querySelector('#k-email').value.trim();
     card.dataset.agency=overlay.querySelector('#k-agency').value;
