@@ -262,7 +262,7 @@
       <span class="pipe-count" id="side-count-new">6</span>
     </div>
     <div class="pipe-item" data-pipe="korea" onclick="switchPipeline('korea')">
-      <span class="pipe-name"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAyMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjEzIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjRkZGIi8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1LDEwKSI+CiAgPGNpcmNsZSByPSI2IiBmaWxsPSIjQ0QyRTNBIi8+CiAgPHBhdGggZD0iTTAsLTYgQTMsMyAwIDAgMCAwLDYgQTYsNiAwIDAgMSAwLC02IFoiIGZpbGw9IiMwMDQ3QTAiLz4KICA8cGF0aCBkPSJNMCwtNiBBNiw2IDAgMCAxIDAsNiBBMywzIDAgMCAwIDAsLTYgWiIgZmlsbD0iI0ZGRiIvPgo8L2c+CjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIj4KICA8cGF0aCBkPSJNNCwzIGgzIE00LDUgaDMgTTQsNyBoMyIvPgogIDxwYXRoIGQ9Ik0yNiwxMyBoLTMgTTI2LDE1IGgtMyBNMjYsMTcgaC0zIi8+CjwvZz4KPC9zdmc+" class="pipe-flag" alt="Korea"> Students in Korea</span>
+      <span class="pipe-name"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAyMCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjE1Ij4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjRkZGIi8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1LDEwKSI+CiAgPGNpcmNsZSByPSI3IiBmaWxsPSIjQ0QyRTNBIi8+CiAgPHBhdGggZD0iTTAsLTcgQTMuNSwzLjUgMCAwIDAgMCw3IEE3LDcgMCAwIDEgMCwtNyBaIiBmaWxsPSIjMDA0N0EwIi8+CiAgPHBhdGggZD0iTTAsLTcgQTcsNyAwIDAgMSAwLDcgQTMuNSwzLjUgMCAwIDAgMCwtNyBaIiBmaWxsPSIjRkZGIi8+CjwvZz4KPGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3LDQpIj48bGluZSB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMS42Ii8+PGxpbmUgeDE9IjAiIHkxPSIyLjQiIHgyPSIwIiB5Mj0iNC4wIi8+PGxpbmUgeDE9IjAiIHkxPSI0LjgiIHgyPSIwIiB5Mj0iNi40Ii8+PC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIzLDE2KSI+PGxpbmUgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEuNiIvPjxsaW5lIHgxPSIwIiB5MT0iMi40IiB4Mj0iMCIgeTI9IjQuMCIvPjxsaW5lIHgxPSIwIiB5MT0iNC44IiB4Mj0iMCIgeTI9IjYuNCIvPjwvZz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMyw0KSI+PGxpbmUgeDE9Ii0wLjgiIHkxPSIwIiB4Mj0iMC44IiB5Mj0iMCIvPjxsaW5lIHgxPSItMC44IiB5MT0iMiIgeDI9IjAuOCIgeTI9IjIiLz48bGluZSB4MT0iLTAuOCIgeTE9IjQiIHgyPSIwLjgiIHkyPSI0Ii8+PC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcsMTYpIj48bGluZSB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMS42Ii8+PGxpbmUgeDE9IjAiIHkxPSIyLjQiIHgyPSIwIiB5Mj0iNC4wIi8+PC9nPgo8L2c+Cjwvc3ZnPg==" class="pipe-flag" alt="Korea"> Students in Korea</span>
       <span class="pipe-count" id="side-count-korea">0</span>
     </div>
 
@@ -3992,7 +3992,9 @@ function syncUniv() {
     if (!backendUrl()) return false;
     try {
       __syncing = true;
-      const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({ action:'readSheet' }) });
+      // cache-buster: Apps Script caches responses; a query param forces a fresh read
+      const cb = '?t=' + Date.now();
+      const res = await fetch(backendUrl() + cb, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({ action:'readSheet' }) });
       if (!res.ok) throw new Error('HTTP '+res.status);
       const text = await res.text();
       const db = JSON.parse(text);
