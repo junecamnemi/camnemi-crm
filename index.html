@@ -202,6 +202,20 @@
   </style>
 </head>
 <body>
+  <!-- Google Identity Services for sign-in -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <!-- Login overlay: gates the whole app behind @camnemi.com Google sign-in -->
+  <div id="login-overlay" style="position:fixed;inset:0;background:#0f172a;z-index:99999;display:flex;align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:1.2rem;padding:2.5rem 2.8rem;width:360px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4);">
+      <div style="font-size:2.6rem;">🔐</div>
+      <h1 style="margin:.6rem 0 .2rem;font-size:1.4rem;color:#111827;">Camnemi CRM</h1>
+      <div style="font-size:.85rem;color:#64748b;margin-bottom:1.6rem;">Sign in with your <b>@camnemi.com</b> Google account to continue.</div>
+      <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID" data-callback="handleGoogleCredential" data-auto_prompt="false" style="display:none;"></div>
+      <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left" style="margin:0 auto;width:220px;"></div>
+      <div id="login-error" style="font-size:.78rem;color:#dc2626;margin-top:1rem;display:none;">Access denied — only @camnemi.com accounts allowed.</div>
+      <div style="font-size:.68rem;color:#94a3b8;margin-top:1.4rem;">Only authorized Camnemi staff can access this system.</div>
+    </div>
+  </div>
 
   <!-- Sidebar: two pipeline sections -->
   <div class="service-sidebar">
@@ -4148,8 +4162,67 @@ function syncUniv() {
     localStorage.removeItem(DB_KEY);
     location.reload();
   }
+  // ======= AUTHENTICATION (Google sign-in, @camnemi.com only) =======
+  const AUTH_DOMAIN = 'camnemi.com';
+  let authUser = null;
+  // Decode the JWT payload (id_token) client-side to read email + hosted domain
+  function decodeJwtPayload(token) {
+    try {
+      const parts = token.split('.');
+      const payload = JSON.parse(atob(parts[1].replace(/-/g,'+').replace(/_/g,'/')));
+      return payload;
+    } catch(e){ return null; }
+  }
+  // Called by Google Identity Services after the user signs in
+  function handleGoogleCredential(response) {
+    const cred = response && response.credential ? response.credential : null;
+    if (!cred) { showLoginError(); return; }
+    const payload = decodeJwtPayload(cred);
+    const email = payload ? (payload.email || '') : '';
+    const hd = payload ? (payload.hd || '') : '';   // hosted domain (only for Google Workspace)
+    const allowed = email.endsWith('@' + AUTH_DOMAIN) || hd === AUTH_DOMAIN;
+    if (!allowed) { showLoginError(); return; }
+    authUser = { email: email, name: payload.name || email, hd: hd };
+    localStorage.setItem('camnemi_auth', JSON.stringify({ email: email, name: payload.name||'', hd: hd, t: Date.now() }));
+    hideLogin();
+  }
+  function showLoginError(){ const e=document.getElementById('login-error'); if(e){ e.style.display='block'; } }
+  function hideLogin(){
+    const o=document.getElementById('login-overlay'); if(o){ o.style.display='none'; }
+    if (authUser) localStorage.setItem('camnemi_user', authUser.name||authUser.email);
+    // Boot the app now that we are authenticated
+    if (typeof bootApp === 'function' && !window.__bootStarted) {
+      window.__bootStarted = true;
+      bootApp();
+    }
+  }
+  // Restore an existing session on load; otherwise keep the login overlay up
+  function initAuth() {
+    try {
+      const s = JSON.parse(localStorage.getItem('camnemi_auth') || 'null');
+      if (s && s.email && s.email.endsWith('@'+AUTH_DOMAIN)) { authUser=s; hideLogin(); return true; }
+    } catch(e){}
+    return false;  // keep login screen shown
+  }
+
   // ======= INIT =======
   async function bootApp() {
+    if (window.__bootStarted) return; window.__bootStarted = true;
+    // Auth gate: if not signed in with @camnemi.com, block and show login
+    if (!initAuth()) {
+      // Render the Google sign-in button once GIS is ready
+      const tryRender = () => {
+        if (window.google && google.accounts) {
+          try { google.accounts.id.renderButton(document.querySelector('.g_id_signin'), {type:'standard',shape:'rectangular',theme:'outline',text:'signin_with',size:'large',logo_alignment:'left'}); } catch(e){}
+          return true;
+        }
+        return false;
+      };
+      if (!tryRender()) {
+        setTimeout(function(){ if(!tryRender()) setTimeout(tryRender, 500); }, 300);
+      }
+      return;  // stop boot until signed in
+    }
     __suppressSave = true;  // hold saves during boot
     const hasDB = loadDatabase();  // load persisted data if it exists
     loadWiki();
@@ -4166,24 +4239,33 @@ function syncUniv() {
     syncUniv();
     renderPipeline();  // build columns first
 
-    // Prefer the Google Drive backend if configured + reachable
-    const synced = await syncPull();
-    if (synced) {
-      restoreCustomers();          // restore backend data (cards)
-      syncAgencies(); syncFees(); syncPartners(); syncTasks(); syncRecommendation(); syncProfit();
-    } else if (hasDB) {
+    // FAST PATH: show cards instantly from saved/local data (no waiting on backend)
+    if (hasDB) {
       restoreCustomers();          // restore saved local cards
     } else {
       seed();                      // else seed defaults
     }
     // Always ensure the Students in Korea pipeline is populated from our built-in list
-    // (fixes leftover empty localStorage from earlier testing that blocks the seed)
     const koreaCards = document.querySelectorAll('.customer-card[data-pipe="korea"]').length;
     if (koreaCards === 0) seedKoreaStudents();
     refreshCounts();
     setTimeout(rebuildFilterBar, 50);  // populate Agency + School pills from databases
     __bootDone = true;  // now allow pushes
     __suppressSave = false;  // release the boot hold after everything is rendered
+
+    // BACKGROUND SYNC: pull the Google Drive backend in the background and refresh
+    // (does NOT block first paint — cards already shown)
+    setTimeout(async () => {
+      try {
+        const synced = await syncPull();
+        if (synced) {
+          restoreCustomers();
+          syncAgencies(); syncFees(); syncPartners(); syncTasks(); syncRecommendation(); syncProfit();
+          refreshCounts();
+          setTimeout(rebuildFilterBar, 50);
+        }
+      } catch(e){ console.warn('background sync failed', e); }
+    }, 100);
 
     // auto-save on window unload (belt & suspenders)
     window.addEventListener('beforeunload', saveDatabase);
