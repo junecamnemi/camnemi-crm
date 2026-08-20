@@ -3986,7 +3986,26 @@ function syncUniv() {
       const text = await res.text();
       const db = JSON.parse(text);
       if (!db || !Array.isArray(db.customers)) throw new Error('Bad data shape');
-      // write through to localStorage so it persists offline
+      // MERGE cloud data with current local DOM data (by card id) so local
+      // edits/adds/moves are never lost to a stale cloud snapshot.
+      const localCustomers = [];
+      document.querySelectorAll('.customer-card').forEach(card => {
+        localCustomers.push({
+          id: card.id, pipe: card.dataset.pipe, stage: card.dataset.stage,
+          name: card.dataset.name || (card.querySelector('h4')?card.querySelector('h4').textContent:''),
+          age: card.dataset.age, agency: card.dataset.agency, program: card.dataset.program,
+          school: card.dataset.school, appdate: card.dataset.appdate, contact: card.dataset.contact,
+          email: card.dataset.email, loan: card.dataset.loan, birthdate: card.dataset.birthdate,
+          topik: card.dataset.topik, ielts: card.dataset.ielts, noqr: card.dataset.noqr, illegal: card.dataset.illegal,
+          notes: card.dataset.notes ? JSON.parse(card.dataset.notes) : [],
+          folderId: card.dataset.folderId||'', folderUrl: card.dataset.folderUrl||''
+        });
+      });
+      const merged = (db.customers||[]).slice();
+      const cloudIds = new Set(merged.map(c=>c.id));
+      // add local-only customers (new adds / moves not yet in cloud)
+      localCustomers.forEach(lc => { if (!cloudIds.has(lc.id)) merged.push(lc); });
+      db.customers = merged;
       try { localStorage.setItem(DB_KEY, JSON.stringify(db)); } catch(e){}
       applyDbToState(db);
       return (db.customers && db.customers.length > 0);  // true only if real data came back
