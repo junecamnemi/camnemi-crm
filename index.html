@@ -3939,9 +3939,19 @@ function syncUniv() {
     {name:'TRY LONGNY',bd:'2007-04-13',passport:'N03096357',month:'202606',school:'전북대학교',prog:'D4'}
   ]
   function seedKoreaStudents() {
-    // only seed if korea pipeline has no cards yet (avoid duplicates)
+    // only seed if korea pipeline has no cards yet. Count ALL korea cards
+    // (including those parked in #hidden-cards on reload) to avoid re-seeding
+    // and wiping the user's moves.
     const existing = document.querySelectorAll('.customer-card[data-pipe="korea"]');
-    if (existing.length) return;
+    const parked = document.getElementById('hidden-cards');
+    const parkedCount = parked ? parked.querySelectorAll('.customer-card[data-pipe="korea"]').length : 0;
+    // Also count korea cards already persisted in localStorage (restored on reload)
+    let savedKorea = 0;
+    try {
+      const db = JSON.parse(localStorage.getItem(DB_KEY) || 'null');
+      if (db && Array.isArray(db.customers)) savedKorea = db.customers.filter(c=>c.pipe==='korea').length;
+    } catch(e){}
+    if (existing.length + parkedCount + savedKorea) return;
     KOREA_STUDENTS.forEach(s => {
       const card = document.createElement('div');
       card.className = 'customer-card';
@@ -4262,7 +4272,12 @@ function syncUniv() {
       // place into correct stage container
       const container = document.querySelector('.cards[data-cards="'+c.stage+'"]');
       if (container) container.appendChild(card);
-      else { const park = document.getElementById('parking'); if(park) park.appendChild(card); }
+      else {
+        // Park in #hidden-cards so renderPipeline can place them when their pipeline is viewed
+        let hp = document.getElementById('hidden-cards');
+        if (!hp) { hp = document.createElement('div'); hp.id='hidden-cards'; hp.style.display='none'; document.body.appendChild(hp); }
+        hp.appendChild(card);
+      }
       refreshCardBody(card);
       attachCard(card);
     });
