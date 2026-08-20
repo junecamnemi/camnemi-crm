@@ -1738,7 +1738,15 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   // ======= WIKI — Notion-style (page tree + full-page editor + replies) =======
   let WIKI_NOTES = [];
   let WIKI_DOCS = [];
+  let WIKI_CATS = [];  // dynamic categories
   let wikiSel = '';   // currently open note id
+  function defaultWikiCats(){
+    return [
+      { id:'docs', icon:'📄', title:'Documents' },
+      { id:'notice', icon:'🏫', title:'Special Notice of School' },
+      { id:'visa', icon:'🛂', title:'VISA Application' }
+    ];
+  }
   function seedWiki() {
     if (WIKI_NOTES.length) return;
     const now = nowStr();
@@ -1749,15 +1757,17 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     ];
   }
   function syncWiki() {
-    try { localStorage.setItem('camnemi_wiki', JSON.stringify({notes:WIKI_NOTES, docs:WIKI_DOCS})); } catch(e){}
+    try { localStorage.setItem('camnemi_wiki', JSON.stringify({notes:WIKI_NOTES, docs:WIKI_DOCS, cats:WIKI_CATS})); } catch(e){}
   }
   function loadWiki() {
     try {
       const d = JSON.parse(localStorage.getItem('camnemi_wiki') || 'null');
       if (d && Array.isArray(d.notes)) WIKI_NOTES = d.notes;
       if (d && Array.isArray(d.docs)) WIKI_DOCS = d.docs;
+      if (d && Array.isArray(d.cats) && d.cats.length) WIKI_CATS = d.cats;
     } catch(e){}
     if (!WIKI_NOTES.length) seedWiki();
+    if (!WIKI_CATS.length) WIKI_CATS = defaultWikiCats();
   }
   function openWiki() {
     wikiSel = wikiSel || (WIKI_NOTES[0] ? WIKI_NOTES[0].id : '');
@@ -1765,11 +1775,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   }
   function renderWiki() {
     const v = document.getElementById('wiki-view');
-    const cats = [
-      { id:'docs', icon:'📄', title:'Documents' },
-      { id:'notice', icon:'🏫', title:'Special Notice of School' },
-      { id:'visa', icon:'🛂', title:'VISA Application' }
-    ];
+    const cats = WIKI_CATS.length ? WIKI_CATS : defaultWikiCats();
     // Notion-style: left sidebar (page tree) + right content pane
     let sidebar = `
       <div class="wiki-sidebar">
@@ -1855,17 +1861,15 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   function openWikiNoteForm(existing) {
     const isEdit = !!existing;
     const n = existing || { cat:'docs', subj:'', body:'' };
+    const catOpts = (WIKI_CATS.length?WIKI_CATS:defaultWikiCats()).map(c => `<option value="${c.id}" ${n.cat===c.id?'selected':''}>${c.icon} ${escapeHtml(c.title)}</option>`).join('');
     const overlay = document.createElement('div'); overlay.className='modal-overlay';
     overlay.innerHTML = `
       <div class="modal">
         <h2>${isEdit?'✏️ Edit Page':'➕ New Page'}</h2>
         <div class="field"><label>Category</label>
-          <select id="wn-cat">
-            <option value="docs" ${n.cat==='docs'?'selected':''}>📄 Documents</option>
-            <option value="notice" ${n.cat==='notice'?'selected':''}>🏫 Special Notice of School</option>
-            <option value="visa" ${n.cat==='visa'?'selected':''}>🛂 VISA Application</option>
-          </select>
+          <select id="wn-cat" onchange="wikiCatToggle(this.value)">${catOpts}<option value="__new__">＋ New category…</option></select>
         </div>
+        <div class="field" id="wn-newcat-wrap" style="display:none;"><label>New category name</label><input id="wn-newcat" placeholder="e.g. Accommodation"></div>
         <div class="field"><label>Page title</label><input id="wn-subj" value="${escapeHtml(n.subj)}" placeholder="e.g. Required documents for D-4"></div>
         <div class="field"><label>Content</label><textarea id="wn-body" rows="9" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;box-sizing:border-box;">${escapeHtml(n.body)}</textarea></div>
         <div class="modal-actions">
@@ -1876,9 +1880,23 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     document.body.appendChild(overlay); setTimeout(()=>overlay.style.opacity='1',10);
   }
   function editWikiNote(id){ const n=WIKI_NOTES.find(x=>x.id===id); if(n) openWikiNoteForm(n); }
+  function wikiCatToggle(v){ const w=document.getElementById('wn-newcat-wrap'); if(w) w.style.display = (v==='__new__') ? 'block' : 'none'; }
+  // Return a category id for a selected value; create the category if "new"
+  function wikiResolveCat(val){
+    if (val && val !== '__new__') return val;
+    const o=document.querySelector('.modal-overlay');
+    const name=(o.querySelector('#wn-newcat')?o.querySelector('#wn-newcat').value:'').trim();
+    if(!name){ alert('Enter a name for the new category.'); return null; }
+    const id='cat'+Date.now();
+    WIKI_CATS.push({ id:id, icon:'📁', title:name });
+    return id;
+  }
   function saveWikiNote(id){
     const o=document.querySelector('.modal-overlay');
-    const cat=o.querySelector('#wn-cat').value, subj=o.querySelector('#wn-subj').value.trim(), body=o.querySelector('#wn-body').value;
+    const catVal=o.querySelector('#wn-cat').value;
+    let cat=wikiResolveCat(catVal);
+    if(!cat) return;
+    const subj=o.querySelector('#wn-subj').value.trim(), body=o.querySelector('#wn-body').value;
     if(!subj){ alert('Page title is required.'); return; }
     if(id){ const n=WIKI_NOTES.find(x=>x.id===id); if(n){ n.cat=cat; n.subj=subj; n.body=body; n.updated=nowStr(); } }
     else { const nn={ id:'wn'+Date.now(), cat:cat, subj:subj, body:body, replies:[], updated:nowStr() }; WIKI_NOTES.push(nn); wikiSel=nn.id; }
