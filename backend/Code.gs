@@ -45,6 +45,10 @@ function handle(e, isPost) {
     if (body.action === 'upload') {
       return uploadGuide(body);
     }
+    // ACTION: get/create the shared Wiki document folder
+    if (body.action === 'getWikiFolder') {
+      return getWikiFolderBackend();
+    }
     // ACTION: create a per-customer document folder (called when customer reaches Registration)
     if (body.action === 'createFolder') {
       return createCustomerFolder(body);
@@ -174,6 +178,21 @@ function uploadGuide(body) {
   return jsonOut({ ok:true, fileId:file.getId(), name:file.getName(),
     link:'https://drive.google.com/uc?export=download&id='+file.getId(),
     viewLink:'https://drive.google.com/file/d/'+file.getId()+'/view', size:blob.getBytes().length });
+}
+
+/** ============ WIKI DOCUMENT FOLDER ============ */
+var WIKI_FOLDER_KEY = 'CAMNEMI_WIKI_FOLDER_ID';
+function getWikiFolderBackend() {
+  var props = PropertiesService.getScriptProperties();
+  var id = props.getProperty(WIKI_FOLDER_KEY);
+  var folder = null;
+  if (id) { try { folder = DriveApp.getFolderById(id); } catch(err){ folder=null; } }
+  if (!folder) {
+    var files = DriveApp.getFoldersByName('Camnemi Wiki Documents');
+    if (files.hasNext()) folder = files.next();
+  }
+  if (!folder) { folder = DriveApp.createFolder('Camnemi Wiki Documents'); props.setProperty(WIKI_FOLDER_KEY, folder.getId()); }
+  return jsonOut({ ok:true, folderId:folder.getId(), folderUrl:'https://drive.google.com/drive/folders/'+folder.getId() });
 }
 
 /** ============ CUSTOMER DOCUMENT FOLDERS ============ */
