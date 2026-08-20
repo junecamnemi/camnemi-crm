@@ -4285,7 +4285,9 @@ function syncUniv() {
   // ======= GOOGLE DRIVE BACKEND SYNC =======
   // Set via the Data & Google Sheets → Backend settings (stored in localStorage).
   // Or paste your Apps Script Web App URL directly here:
-  function backendUrl() { return localStorage.getItem('camnemi_backend_url') || ''; }
+  function backendUrl() {
+    return localStorage.getItem('camnemi_backend_url') || 'https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec';
+  }
   let __syncing = false;
   let __bootDone = false;  // suppress auto-push until initial sync completes
   let __suppressSave = false;  // suppress ALL saves during initial boot render
@@ -4338,7 +4340,35 @@ function syncUniv() {
     if (__syncing) return false;
     try {
       __syncing = true;
-      const payload = exportAllData();
+      let payload = exportAllData();
+      // MERGE with existing backend data instead of replacing, so that
+      // an agency (or any client) with a partial local copy cannot wipe
+      // the shared customers. New local customers are added; existing ones kept.
+      try {
+        const gurl = backendUrl() + '?cb=' + Date.now();
+        const gres = await fetch(gurl, {
+          method:'POST', mode:'cors',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ action:'get' })
+        });
+        if (gres.ok) {
+          const gtxt = await gres.text();
+          const g = JSON.parse(gtxt);
+          const remoteCust = Array.isArray(g.customers) ? g.customers : (Array.isArray(g.data) ? g.data : (g.data && Array.isArray(g.data.customers) ? g.data.customers : []));
+          if (Array.isArray(remoteCust) && remoteCust.length) {
+            const local = payload.customers || [];
+            const localIds = new Set(local.map(c=>c.id));
+            // keep remote customers that aren't in local (i.e., from other clients)
+            const extras = remoteCust.filter(c=>!localIds.has(c.id));
+            // if local is essentially empty (fresh agency browser), prefer remote
+            if (local.length === 0 && extras.length) {
+              payload.customers = remoteCust;
+            } else {
+              payload.customers = local.concat(extras);
+            }
+          }
+        }
+      } catch(e){ /* merge best-effort; push local if remote unavailable */ }
       const res = await fetch(backendUrl(), {
         method:'POST',
         mode:'cors',
@@ -5029,6 +5059,8 @@ function syncUniv() {
     // FAST PATH: show cards instantly from saved/local data (no waiting on backend)
     if (hasDB) {
       restoreCustomers();          // restore saved local cards
+    } else if (agencyMode) {
+      // Agency share-link: no demo seed, just keep empty (they only submit)
     } else {
       seed();                      // else seed defaults
     }
