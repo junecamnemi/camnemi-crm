@@ -820,32 +820,55 @@
   }
   function renderAgencies() {
     const v = document.getElementById('agencies-view');
+    // Count students per agency across both pipelines
+    const countFor = (an, pipe) => {
+      let n = 0;
+      document.querySelectorAll('.customer-card' + (pipe?`[data-pipe="${pipe}"]`:'')).forEach(c=>{
+        if ((c.dataset.agency || 'CAMNEMI') === an) n++;
+      });
+      return n;
+    };
+    const cards = AGENCIES.map((a, i) => {
+      const an = a.name;
+      const inProcess = countFor(an, 'new');
+      const inKorea = countFor(an, 'korea');
+      const total = inProcess + inKorea;
+      return `
+        <div style="background:#fff;border:1px solid #eef0f4;border-radius:.7rem;padding:.9rem 1rem;margin-bottom:.6rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap;">
+            <div style="font-weight:700;color:#111827;font-size:.92rem;">🏢 ${escapeHtml(an)}</div>
+            <div style="display:flex;gap:.3rem;">
+              <button class="btn btn-note" onclick="editAgency(${i})" style="font-size:.72rem;padding:.25rem .6rem;">✏️</button>
+              <button class="btn btn-danger" onclick="deleteAgency(${i})" style="font-size:.72rem;padding:.25rem .6rem;">🗑</button>
+            </div>
+          </div>
+          <div style="display:flex;gap:.5rem;margin-top:.4rem;flex-wrap:wrap;">
+            ${a.commission?`<span class="tag tag-program">💵 ${escapeHtml(a.commission)}</span>`:''}
+            <span class="tag tag-school" style="background:#eef2ff;color:#4338ca;">🇰🇭 ${inProcess} in Process</span>
+            <span class="tag tag-school" style="background:#ecfdf5;color:#047857;">🇰🇷 ${inKorea} in Korea</span>
+            <span class="tag tag-topik" style="background:#fef3c7;color:#b45309;">Σ ${total} total</span>
+          </div>
+          ${a.policy?`<div style="font-size:.8rem;color:#475569;margin-top:.5rem;">${escapeHtml(a.policy)}</div>`:''}
+          <div style="font-size:.78rem;color:#6b7280;margin-top:.5rem;border-top:1px dashed #eef0f4;padding-top:.5rem;">📝 Note: <span contenteditable="true" data-agency="${i}" onblur="saveAgencyNote(this)">${escapeHtml(a.note||'')}</span></div>
+        </div>`;
+    }).join('') || '<div style="color:#94a3b8;text-align:center;padding:1rem;">No agencies yet.</div>';
     v.innerHTML = `
       <div class="wiki-content" style="max-width:900px;padding:1.5rem 2rem;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;">
           <div style="font-size:1.1rem;font-weight:700;color:#111827;">🏢 Agencies (${AGENCIES.length})</div>
           <button class="btn btn-add" onclick="openAgencyForm()">+ Add Agency</button>
         </div>
-        <table class="list-table" style="font-size:.85rem;background:#fff;border:1px solid #eef0f4;border-radius:.6rem;overflow:hidden;">
-          <thead><tr><th>Agency</th><th>Commission</th><th>Policy</th><th></th></tr></thead>
-          <tbody id="agencies-body">
-            ${AGENCIES.map((a, i) => `<tr>
-              <td style="font-weight:600">${escapeHtml(a.name)}</td>
-              <td>${escapeHtml(a.commission)}</td>
-              <td style="color:#6b7280">${escapeHtml(a.policy)}</td>
-              <td style="white-space:nowrap;">
-                <button class="btn btn-note" onclick="editAgency(${i})">✏️</button>
-                <button class="btn btn-danger" onclick="deleteAgency(${i})">🗑</button>
-              </td>
-            </tr>`).join('') || '<tr><td colspan="4" style="color:#94a3b8;text-align:center;">No agencies yet.</td></tr>'}
-          </tbody>
-        </table>
+        ${cards}
       </div>`;
     refreshCounts();
   }
+  function saveAgencyNote(el){
+    const i = parseInt(el.dataset.agency,10);
+    if (AGENCIES[i]) { AGENCIES[i].note = el.innerText.trim(); syncAgencies(); saveDatabase(); }
+  }
 
   function openAgencyForm(idx) {
-    const existing = (idx !== undefined && AGENCIES[idx]) ? AGENCIES[idx] : { name: '', commission: '', policy: '' };
+    const existing = (idx !== undefined && AGENCIES[idx]) ? AGENCIES[idx] : { name: '', commission: '', policy: '', note: '' };
     const overlay = document.createElement('div');
     overlay.className = 'modal-overlay';
     overlay.id = 'agency-form-modal';
@@ -855,6 +878,7 @@
         <div class="field"><label>Agency Name</label><input id="a-name" value="${escapeHtml(existing.name)}"></div>
         <div class="field"><label>Commission</label><input id="a-commission" value="${escapeHtml(existing.commission)}" placeholder="e.g. 10%"></div>
         <div class="field"><label>Policy</label><textarea id="a-policy" placeholder="Describe the policy...">${escapeHtml(existing.policy)}</textarea></div>
+        <div class="field"><label>Note</label><textarea id="a-note" placeholder="Notes about this agency...">${escapeHtml(existing.note||'')}</textarea></div>
         <div class="actions">
           <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
           <button class="btn btn-save" onclick="saveAgency(${idx})">Save</button>
@@ -871,8 +895,9 @@
     const name = overlay.querySelector('#a-name').value.trim();
     const commission = overlay.querySelector('#a-commission').value.trim();
     const policy = overlay.querySelector('#a-policy').value.trim();
+    const note = overlay.querySelector('#a-note').value.trim();
     if (!name) { alert('Agency name is required.'); return; }
-    const obj = { name, commission, policy };
+    const obj = { name, commission, policy, note };
     if (idx !== undefined && AGENCIES[idx]) {
       const oldName = AGENCIES[idx].name;
       AGENCIES[idx] = obj;
@@ -4391,6 +4416,8 @@ function syncUniv() {
         const synced = await syncPull();
         if (synced) {
           restoreCustomers();
+          // Re-seed Korea students if the backend restore left none (protects against data gaps)
+          if (document.querySelectorAll('.customer-card[data-pipe="korea"]').length === 0) seedKoreaStudents();
           syncAgencies(); syncFees(); syncPartners(); syncTasks(); syncRecommendation(); syncProfit();
           refreshCounts();
           setTimeout(rebuildFilterBar, 50);
