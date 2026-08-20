@@ -462,6 +462,7 @@
 
   // ======= PIPELINE RENDERING =======
   function switchPipeline(pipe) {
+    goHash('pipeline-' + pipe);
     currentPipe = pipe;
     document.querySelectorAll('.pipe-item').forEach(el => el.classList.toggle('active', el.dataset.pipe === pipe));
     const nu = document.getElementById('nav-universities');
@@ -826,6 +827,7 @@
     { name: 'Direct (no agency)', commission: '—', policy: 'Direct applications, no commission.' }
   ];
   function openAgencies() {
+    goHash('agencies');
     showKnowledgePanel('agencies-view','nav-agencies', renderAgencies);
     setKnowledgeTopbar('🏢 Our Policy · Agencies');
   }
@@ -1040,6 +1042,7 @@
     { name: 'Admin / Service Charge', amount: 'USD 150', policy: 'General administration and support.' }
   ];
   function openServiceFees() {
+    goHash('fees');
     showKnowledgePanel('fees-view','nav-servicefees', renderFees);
     setKnowledgeTopbar('💰 Our Policy · Service Fee');
   }
@@ -1128,6 +1131,7 @@
     });
   }
   function openPartners() {
+    goHash('partners');
     initPartners();
     showKnowledgePanel('partners-view','nav-partners', renderPartners);
     setKnowledgeTopbar('🤝 Our Policy · Partner Schools');
@@ -1222,6 +1226,7 @@ let UNIV_KNOWLEDGE = [];
   // ======= UNIVERSITIES KNOWLEDGE (inline view, not modal) =======
   let univSort = { key:'n', dir:1 };
   function openUniversities() {
+    goHash('universities');
     loadDataFile();  // ensure university data is loaded
     // highlight Universities nav, de-highlight all Students pipelines
     document.querySelectorAll('.pipe-item').forEach(el => el.classList.remove('active'));
@@ -1312,6 +1317,7 @@ let UNIV_KNOWLEDGE = [];
   let TASKS_YEAR = new Date().getFullYear();
   let TASKS_FILTER = 'all'; // all | todo | events | issues
   function openTasks(type) {
+    goHash('tasks');
     TASKS_FILTER = type;
     // highlight nav
     document.querySelectorAll('.pipe-item').forEach(el => el.classList.remove('active'));
@@ -1542,6 +1548,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     ];
   }
   function openRecommendation() {
+    goHash('recommendation');
     seedRecs();
     document.querySelectorAll('.pipe-item').forEach(el => el.classList.remove('active'));
     const nu=document.getElementById('nav-recommendation'); if(nu) nu.classList.add('active');
@@ -1694,6 +1701,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     ];
   }
   function openProfit() {
+    goHash('profit');
     seedTrans();
     document.querySelectorAll('.pipe-item').forEach(el => el.classList.remove('active'));
     const nu=document.getElementById('nav-profit'); if(nu) nu.classList.add('active');
@@ -1859,6 +1867,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     if (!WIKI_CATS.length) WIKI_CATS = defaultWikiCats();
   }
   function openWiki() {
+    goHash('wiki');
     wikiSel = wikiSel || (WIKI_NOTES[0] ? WIKI_NOTES[0].id : '');
     showKnowledgePanel('wiki-view','nav-wiki', renderWiki);
     setKnowledgeTopbar('📚 Wiki');  // title in the top bar, like Universities
@@ -2060,7 +2069,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   }
   function deleteWikiDoc(id){ WIKI_DOCS = WIKI_DOCS.filter(x=>x.id!==id); syncWiki(); renderWiki(); }
 
-  function openGKS() { showKnowledgePanel('gks-view','nav-gks', renderGKS); }
+  function openGKS() { goHash('gks'); showKnowledgePanel('gks-view','nav-gks', renderGKS); }
   function renderGKS() {
     const univs = UNIV_KNOWLEDGE.filter(u => (u.type||'univ')!=='junior' && u.scholarships && u.scholarships.length);
     const v = document.getElementById('gks-view');
@@ -2153,7 +2162,7 @@ function renderGKSRows(q){
     }).join('') || '<tr><td colspan="4" style="color:#94a3b8;text-align:center;padding:.8rem">No matching universities.</td></tr>';
   }
   // ---- Marketing ----
-  function openMarketing() { showKnowledgePanel('marketing-view','nav-marketing', renderMarketing); }
+  function openMarketing() { goHash('marketing'); showKnowledgePanel('marketing-view','nav-marketing', renderMarketing); }
   function renderMarketing() {
     const v = document.getElementById('marketing-view');
     v.innerHTML = `
@@ -2171,7 +2180,7 @@ function renderGKSRows(q){
       </div>`;
   }
   // ---- Korea Life ----
-  function openKoreaLife() { showKnowledgePanel('koreaLife-view','nav-koreaLife', renderKoreaLife); }
+  function openKoreaLife() { goHash('koreaLife'); showKnowledgePanel('koreaLife-view','nav-koreaLife', renderKoreaLife); }
   function renderKoreaLife() {
     const v = document.getElementById('koreaLife-view');
     v.innerHTML = `
@@ -4324,6 +4333,7 @@ function syncUniv() {
 
   // ---- Data Tools (Save / Google Sheets Export / Import) ----
   function openDataTools(){
+    goHash('data');
     const d=exportAllData();
     const btn=(label,fn,color)=>`<button onclick="${fn}" style="width:100%;padding:.7rem;background:${color};color:#fff;border:none;border-radius:.6rem;font-weight:600;cursor:pointer;text-align:left;">${label}</button>`;
     const overlay=document.createElement('div');
@@ -4446,6 +4456,38 @@ function syncUniv() {
     return false;  // keep login screen shown
   }
 
+  // ======= HASH ROUTING =======
+  const ROUTES = {
+    'pipeline-new':   () => switchPipeline('new'),
+    'pipeline-korea': () => switchPipeline('korea'),
+    'universities':   () => openUniversities(),
+    'wiki':           () => openWiki(),
+    'gks':            () => openGKS(),
+    'marketing':      () => openMarketing(),
+    'koreaLife':      () => openKoreaLife(),
+    'tasks':          () => openTasks('todo'),
+    'profit':         () => openProfit(),
+    'agencies':       () => openAgencies(),
+    'fees':           () => openServiceFees(),
+    'partners':       () => openPartners(),
+    'recommendation': () => openRecommendation(),
+    'data':           () => openDataTools()
+  };
+  // Set the hash for a route without triggering navigation loop
+  function goHash(key) {
+    const target = '#/' + key;
+    if (location.hash !== target) location.hash = target;
+  }
+  function routeFromHash() {
+    const h = (location.hash || '').replace(/^#\//, '');
+    if (h && ROUTES[h]) {
+      // called after boot; route to the section
+      try { ROUTES[h](); } catch(e){}
+    }
+  }
+  function onHashChange() {
+    if (window.__bootDone) routeFromHash();
+  }
   // ======= INIT =======
   async function bootApp() {
     if (window.__bootStarted) return; window.__bootStarted = true;
@@ -4504,6 +4546,10 @@ function syncUniv() {
     setTimeout(rebuildFilterBar, 50);  // populate Agency + School pills from databases
     __bootDone = true;  // now allow pushes
     __suppressSave = false;  // release the boot hold after everything is rendered
+
+    // Hash routing: on load, open the section from the URL hash (e.g. #/universities)
+    window.addEventListener('hashchange', onHashChange);
+    setTimeout(routeFromHash, 50);
 
     // BACKGROUND SYNC: pull the Google Drive backend in the background and refresh
     // (does NOT block first paint — cards already shown)
