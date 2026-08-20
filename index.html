@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Pipeline — New Customers / Students in Korea</title>
+  <title>Customer Pipeline — Students in Process / Students in Korea</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', -apple-system, sans-serif; background: #eef2f7; min-height: 100vh; color: #374151; }
@@ -208,7 +208,7 @@
 
     <div class="sidebar-section-label">Students</div>
     <div class="pipe-item active" data-pipe="new" onclick="switchPipeline('new')">
-      <span class="pipe-name">🆕 New Customers</span>
+      <span class="pipe-name">🆕 Students in Process</span>
       <span class="pipe-count" id="side-count-new">6</span>
     </div>
     <div class="pipe-item" data-pipe="korea" onclick="switchPipeline('korea')">
@@ -265,7 +265,7 @@
 
   <main class="main-content">
     <div class="topbar">
-      <h1 id="main-title">New Customers</h1>
+      <h1 id="main-title">Students in Process</h1>
       <div class="view-toggle">
         <button class="active" id="toggle-kanban" onclick="setView('kanban')">📋 Kanban</button>
         <button id="toggle-list" onclick="setView('list')">📄 List View</button>
@@ -372,7 +372,7 @@
   // archived & canceled live in a separate section below the pipeline, not as columns
   const PIPELINES = {
     new: {
-      name: 'New Customers',
+      name: 'Students in Process',
       stages: ['contact','potential','registration','application','admission','visa']
     },
     korea: {
