@@ -41,6 +41,10 @@ function handle(e, isPost) {
       var ss = getSheet();
       return jsonOut({ sheetUrl: 'https://docs.google.com/spreadsheets/d/' + ss.getId() + '/edit', sheetId: ss.getId(), name: ss.getName() });
     }
+    // ACTION: add an agency-submitted contact directly to the Sheet (reliable cross-browser)
+    if (body.action === 'addAgencyContact') {
+      return addAgencyContact(body);
+    }
     // ACTION: upload a guide PDF to a Drive folder
     if (body.action === 'upload') {
       return uploadGuide(body);
@@ -99,6 +103,30 @@ function getSheet() {
 }
 
 /** Write all data arrays into the Sheet tabs. */
+function addAgencyContact(body) {
+  // body.student = { id, pipe, stage, name, agency, program, contact, school, appdate, notes }
+  var s = body.student || {};
+  if (!s.name || !s.id) return { ok:false, error:'name and id required' };
+  var ss = getSheet();
+  // Read current customers from the Sheet (stable, no cache issue)
+  var data = readSheetToData();
+  var customers = data.customers || [];
+  // dedupe by id
+  customers = customers.filter(function(c){ return c.id !== s.id; });
+  customers.push({
+    id: s.id, pipe: s.pipe || 'new', stage: s.stage || 'contact',
+    name: s.name, age: s.age || '', agency: s.agency || 'CAMNEMI',
+    program: s.program || 'Not Yet', school: s.school || 'Not Yet Specified',
+    appdate: s.appdate || 'Not Specified', contact: s.contact || '',
+    email: s.email || '', loan: s.loan || '', topik: s.topik || '', ielts: s.ielts || '',
+    notes: s.notes || [], birthdate: s.birthdate || ''
+  });
+  data.customers = customers;
+  // write back to the JSON file (which saveData also mirrors to Sheet)
+  saveData(JSON.stringify(data));
+  return { ok:true, total: customers.length, added: s.name };
+}
+
 function writeSheetFromData(data) {
   var ss = getSheet();
   var tabs = [

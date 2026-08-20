@@ -960,6 +960,25 @@
     if (typeof attachCard==='function') attachCard(card);
     logAction(name, 'Add card (agency '+agency+')');
     saveNow(); saveDatabase();
+    // Reliable cross-browser push: write directly to the Google Sheet backend
+    // (avoids the Apps Script read-cache race that caused submissions to be lost).
+    try {
+      const url = backendUrl();
+      if (url) {
+        fetch(url + '?cb=' + Date.now(), { method:'POST', mode:'cors',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ action:'addAgencyContact', student:{
+            id, name:name.toUpperCase(), pipe:'new', stage:'contact', agency, program, contact,
+            school:'Not Yet Specified', appdate:'Not Specified', notes: JSON.parse(card.dataset.notes || '[]')
+          }})
+        }).then(r=>r.json()).then(res=>{
+          if (res && res.ok) {
+            const st2 = document.getElementById('ap-status');
+            if (st2) st2.textContent = '✅ ' + name.toUpperCase() + ' was saved to Camnemi. Thank you!';
+          }
+        }).catch(()=>{});
+      }
+    } catch(e){}
     // success message
     const st = document.getElementById('ap-status');
     if (st) { st.style.display='block'; st.textContent='✅ ' + name.toUpperCase() + ' was added to our Contact list. Thank you!'; }
