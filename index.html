@@ -3934,8 +3934,11 @@ function syncUniv() {
       restoreCustomers();          // restore saved local cards
     } else {
       seed();                      // else seed defaults
-      seedKoreaStudents();
     }
+    // Always ensure the Students in Korea pipeline is populated from our built-in list
+    // (fixes leftover empty localStorage from earlier testing that blocks the seed)
+    const koreaCards = document.querySelectorAll('.customer-card[data-pipe="korea"]').length;
+    if (koreaCards === 0) seedKoreaStudents();
     refreshCounts();
     setTimeout(rebuildFilterBar, 50);  // populate Agency + School pills from databases
     __bootDone = true;  // now allow pushes
