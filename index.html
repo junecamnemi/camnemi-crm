@@ -929,6 +929,40 @@
 
   // AGENCIES is the single reference:
   // repopulates the filter dropdown + add/edit form dropdowns, and updates cards.
+  // Normalize an agency name to a canonical key (case-insensitive). Merges CAMNEMI/Camnemi/etc.
+  function normalizeAgency(name) {
+    const s = String(name||'').trim();
+    if (!s) return '';
+    const lower = s.toLowerCase();
+    if (lower === 'camnemi') return 'CAMNEMI';          // canonical in-house
+    // match against known agencies case-insensitively
+    const known = AGENCIES.find(a => a.name.toLowerCase() === lower);
+    if (known) return known.name;
+    return s;
+  }
+  // Migrate: normalize all customer agency values to canonical names (merges CAMNEMI/Camnemi)
+  function normalizeAgencyData() {
+    document.querySelectorAll('.customer-card').forEach(card => {
+      if (card.dataset.agency) card.dataset.agency = normalizeAgency(card.dataset.agency);
+    });
+    // Also normalize AGENCIES list itself
+    const seen = new Set();
+    AGENCIES = AGENCIES.map(a => { const n = normalizeAgency(a.name); return n ? { ...a, name:n } : null; })
+      .filter(a => a && !seen.has(a.name) && seen.add(a.name));
+    // ensure canonical CAMNEMI exists as default
+    if (!AGENCIES.some(a => a.name === 'CAMNEMI')) {
+      AGENCIES.unshift({ name:'CAMNEMI', commission:'—', policy:'In-house / direct (no external agency). Default.', note:'' });
+    }
+  }
+  // Return the agency as it should appear in the DB (used when adding/picking)
+  function canonicalAgencyName(name){
+    const s = normalizeAgency(name);
+    // ensure it exists in AGENCIES
+    if (s && !AGENCIES.some(a => a.name === s)) {
+      AGENCIES.push({ name: s, commission:'', policy:'', note:'' });
+    }
+    return s;
+  }
   function agencyOptions() {
     return AGENCIES.map(a => `<option value="${escapeHtml(a.name)}">${escapeHtml(a.name)}</option>`).join('');
   }
@@ -951,7 +985,7 @@
     // --- Agency pills: CAMNEMI + AGENCIES ---
     const agPills = document.getElementById('filter-agency-pills');
     if (agPills) {
-      const agencies = ['CAMNEMI'].concat(AGENCIES.map(a=>a.name)).filter((v,i,s)=>s.indexOf(v)===i);
+      const agencies = AGENCIES.map(a=>normalizeAgency(a.name)).filter((v,i,s)=>v && s.indexOf(v)===i);
       const pills = agencies.map(a=>`<span class="click-filter" data-ftype="agency" data-fval="${escapeHtml(a)}" onclick="toggleClickFilter(this)">${escapeHtml(a)}</span>`).join('');
       agPills.innerHTML = `<span class="click-filter active" data-ftype="agency" data-fval="" onclick="toggleClickFilter(this)">Any</span>` + pills;
     }
@@ -2591,7 +2625,7 @@ function syncUniv() {
     card.dataset.pipe = 'new';
     card.dataset.stage = stage;
     card.dataset.age = '';
-    card.dataset.agency = agency || '';
+    card.dataset.agency = normalizeAgency(agency);
     card.dataset.program = program;
     card.dataset.topik = '';
     card.dataset.ielts = '';
@@ -2642,7 +2676,7 @@ function syncUniv() {
     card.dataset.pipe = overlay.dataset.pipe || currentPipe;
     card.dataset.stage = stage;
     card.dataset.age = age;
-    card.dataset.agency = agency || '';
+    card.dataset.agency = normalizeAgency(agency);
     card.dataset.program = program || '';
     card.dataset.topik = topik || '';
     card.dataset.ielts = ielts || '';
@@ -2852,7 +2886,7 @@ function syncUniv() {
     const appEl=overlay.querySelector('#k-appdate'); if(appEl) card.dataset.appdate=appEl.value;
     card.dataset.contact=overlay.querySelector('#k-contact').value.trim();
     card.dataset.email=overlay.querySelector('#k-email').value.trim();
-    card.dataset.agency=overlay.querySelector('#k-agency').value;
+    card.dataset.agency=normalizeAgency(overlay.querySelector('#k-agency').value);
     card.dataset.loan=overlay.querySelector('#k-loan').value.trim();
     const nv=overlay.querySelector('#k-note').value.trim();
     card.dataset.notes=JSON.stringify(nv?[{text:nv,time:nowStr(),by:currentUserName()}]:[]);
@@ -2912,7 +2946,7 @@ function syncUniv() {
     if(!name||!contact){ alert('Name and Contact are required.'); return; }
     card.dataset.name=name;
     card.dataset.contact=contact;
-    card.dataset.agency=pickedValue('c-agency')||'CAMNEMI';
+    card.dataset.agency=normalizeAgency(pickedValue('c-agency')||'CAMNEMI');
     card.dataset.program=pickedValue('c-program')||'';
     const nv=overlay.querySelector('#c-note').value.trim();
     card.dataset.notes=JSON.stringify(nv?[{text:nv,time:nowStr(),by:currentUserName()}]:[]);
@@ -3304,7 +3338,7 @@ function syncUniv() {
     if (age) { card.dataset.age = age; const ap = card.querySelector('.age-pill'); if (ap) ap.textContent = age; }
     card.dataset.contact = contact;
     const cl = card.querySelector('.contact-line'); if (cl) cl.innerHTML = '📞 ' + escapeHtml(contact);
-    card.dataset.agency = agency;
+    card.dataset.agency = normalizeAgency(agency);
     card.dataset.program = program;
     card.dataset.topik = topik || '';
     card.dataset.ielts = ielts || '';
@@ -4381,6 +4415,7 @@ function syncUniv() {
     }
     __suppressSave = true;  // hold saves during boot
     const hasDB = loadDatabase();  // load persisted data if it exists
+    normalizeAgencyData();
     loadWiki();
     syncAgencies();
     syncFees();
