@@ -781,7 +781,9 @@
         drag.classList.remove('dragging');
         applyCardBorder(drag);
         if (from !== to) { changeCount(from, -1); changeCount(to, +1); }
+        refreshCardBody(drag);
         if (currentView === 'list') renderList();
+        markDirty();  // persist the move
       }
     } else { drag.classList.remove('dragging'); }
     drag = null;
@@ -2969,7 +2971,9 @@ function syncUniv() {
     const school = card.dataset.school || 'Not Yet Specified';
     const appdate = card.dataset.appdate || 'Not Specified';
     const notes = getNotes(card);
-    const pipe = PIPELINES[card.dataset.pipe];
+    const cardPipe = card.dataset.pipe || 'new';
+    const pipeOpts = Object.keys(PIPELINES).map(pk => `<option value="${pk}" ${pk===cardPipe?'selected':''}>${PIPELINES[pk].name}</option>`).join('');
+    const pipe = PIPELINES[cardPipe];
     const stageOpts = pipe.stages.map(s => `<option value="${s}">${STAGE_LABELS[s]}</option>`).join('')
       + `<option value="archived">🗄️ Archived</option><option value="canceled">⛔ Canceled</option>`;
 
@@ -3049,7 +3053,8 @@ function syncUniv() {
                 <option value="partial">◐ Partial</option>
               </select>
             </div>
-            <div class="field"><label>Stage</label><select id="e-stage">${stageOpts}</select></div>
+            <div class="field"><label>Pipeline</label><select id="e-pipe" onchange="onEditPipeChange(this)">${pipeOpts}</select></div>
+        <div class="field"><label>Stage</label><select id="e-stage">${stageOpts}</select></div>
           </div>
         </div>
 
@@ -3314,6 +3319,15 @@ function syncUniv() {
     renderDocZones(overlay);
   }
 
+  function onEditPipeChange(sel){
+    const pk = sel.value;
+    const p = PIPELINES[pk];
+    if (!p) return;
+    const st = document.getElementById('e-stage');
+    if (st) {
+      st.innerHTML = p.stages.map(s=>`<option value="${s}">${STAGE_LABELS[s]}</option>`).join('') + `<option value="archived">🗄️ Archived</option><option value="canceled">⛔ Canceled</option>`;
+    }
+  }
   function saveEdit() {
     const overlay = document.querySelector('.modal-overlay');
     if (!overlay || !overlay._card) return;
@@ -3329,6 +3343,8 @@ function syncUniv() {
     const school = overlay.querySelector('#e-school').value.trim() || 'Not Yet Specified';
     const appdate = overlay.querySelector('#e-appdate').value || 'Not Specified';
     const stage = overlay.querySelector('#e-stage').value;
+    const newPipeEl = overlay.querySelector('#e-pipe');
+    const newPipe = newPipeEl ? newPipeEl.value : (card.dataset.pipe||'new');
     const payment = overlay.querySelector('#e-payment').value;
     let loan = parseInt(overlay.querySelector('#e-loan').value) || 0;
     loan = Math.max(0, Math.min(10000, loan)); // clamp 0..10000
@@ -3375,6 +3391,11 @@ function syncUniv() {
       if (card.dataset.illegal === 'true') tagRow.innerHTML += `<span class="tag tag-illegal">⚠️ Illegal Parent</span>`;
     }
 
+    // Pipeline change (move between Students in Process / Students in Korea)
+    const oldPipe = card.dataset.pipe || 'new';
+    if (newPipe && newPipe !== oldPipe) {
+      card.dataset.pipe = newPipe;
+    }
     // Stage change (move to the correct column)
     if (stage && stage !== oldStage) {
       card.dataset.stage = stage;
@@ -3383,6 +3404,11 @@ function syncUniv() {
       if (target) target.appendChild(card);
       changeCount(oldStage, -1);
       changeCount(stage, +1);
+    }
+    // If pipeline changed, re-render card for the new pipeline's format
+    if (newPipe && newPipe !== oldPipe) {
+      refreshCardBody(card);
+      refreshCounts();
     }
     // registration payment requirement → red border if not paid
     applyCardBorder(card);
