@@ -2652,7 +2652,7 @@ function syncUniv() {
     const name = caps(overlay.querySelector('#q-name').value.trim());
     const contact = overlay.querySelector('#q-contact').value.trim();
     const agency = pickedValue('q-agency') || 'CAMNEMI';
-    const program = pickedValue('q-program') || '';
+    const program = pickedValue('q-program') || 'Not Yet';
     const note = overlay.querySelector('#q-note').value.trim();
     if (!name || !contact) { alert('Please fill Name and Contact.'); return; }
     const stage = 'contact';
@@ -2756,6 +2756,7 @@ function syncUniv() {
   function renderCardBody(card) {
     const name = card.dataset.name || (card.querySelector('h4') ? card.querySelector('h4').textContent : '');
     const program = card.dataset.program||'', school = card.dataset.school||'', topik=card.dataset.topik||'', ielts=card.dataset.ielts||'', agency=card.dataset.agency||'';
+    const progDisplayStd = program || 'Not Yet';
     let note='';
     let noteBy='';
     try { const n=JSON.parse(card.dataset.notes||'[]'); if(n[0]){ note=n[0].text; noteBy=n[0].by||''; } } catch(e){ note=card.dataset.notes||''; }
@@ -2784,7 +2785,7 @@ function syncUniv() {
       <div class="name-row"><h4></h4></div>
       <div class="tag-row">
         ${agency ? `<span class="tag tag-agency">🏢 ${escapeHtml(agency)}</span>` : ''}
-        ${program ? `<span class="tag tag-program">🎓 ${escapeHtml(program)}</span>` : ''}
+        <span class="tag tag-program">🎓 ${escapeHtml(progDisplayStd)}</span>
         ${school ? `<span class="tag tag-school">🏫 ${escapeHtml(school)}</span>` : ''}
         ${topik ? `<span class="tag tag-topik">🇰🇷 ${escapeHtml(topik)}</span>` : ''}
         ${ielts ? `<span class="tag tag-ielts">🇬🇧 ${escapeHtml(ielts)}</span>` : ''}
@@ -2915,7 +2916,7 @@ function syncUniv() {
   function saveKoreaEdit() {
     const overlay=document.getElementById('korea-edit-modal'); if(!overlay||!overlay._card) return;
     const card=overlay._card;
-    const name=overlay.querySelector('#k-name').value.trim();
+    const name=caps(overlay.querySelector('#k-name').value.trim());
     const school=overlay.querySelector('#k-school').value.trim();
     const program=overlay.querySelector('#k-program').value.trim();
     if(!name||!school||!program){ alert('Name, School and Program are required.'); return; }
@@ -2980,7 +2981,7 @@ function syncUniv() {
   function saveContactEdit() {
     const overlay=document.getElementById('contact-edit-modal'); if(!overlay||!overlay._card) return;
     const card=overlay._card;
-    const name=overlay.querySelector('#c-name').value.trim();
+    const name=caps(overlay.querySelector('#c-name').value.trim());
     const contact=overlay.querySelector('#c-contact').value.trim();
     if(!name||!contact){ alert('Name and Contact are required.'); return; }
     card.dataset.name=name;
@@ -4259,7 +4260,7 @@ function syncUniv() {
         <input type="checkbox" class="card-select" onclick="onCardSelect(this, event)">
         <div class="name-row"><h4></h4></div>
         <div class="tag-row">
-          ${c.program ? `<span class="tag tag-program">🎓 ${escapeHtml(c.program)}</span>` : ''}
+          <span class="tag tag-program">🎓 ${escapeHtml(c.program||'Not Yet')}</span>
           ${c.school ? `<span class="tag tag-school">🏫 ${escapeHtml(c.school)}</span>` : ''}
           ${c.topik ? `<span class="tag tag-topik">🇰🇷 ${escapeHtml(c.topik)}</span>` : ''}
           ${c.ielts ? `<span class="tag tag-ielts">🇬🇧 ${escapeHtml(c.ielts)}</span>` : ''}
