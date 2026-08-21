@@ -205,27 +205,30 @@ function readSheetToData() {
 
 /** ============ AGENCY SUBMISSIONS SPREADSHEET ============ */
 var AGENCY_SHEET_ID_KEY = 'AGENCY_SUBMISSIONS_SHEET_ID';
+var AGENCY_SHEET_ID = '17sY2zMI9L30_0gQWrwFCnUEXc3H79IwtsSrYBGfj4dE';  // user's Agency Submissions sheet
 var AGENCY_SHEET_NAME = 'Camnemi Agency Submissions';
 var AGENCY_COLS = ['name','contact','agency','program','note','date'];
 
-// Get (or create) the dedicated agency submissions spreadsheet.
+// Get the dedicated agency submissions spreadsheet (uses the user's sheet).
 function getAgencySheet() {
   var props = PropertiesService.getScriptProperties();
-  var id = props.getProperty(AGENCY_SHEET_ID_KEY);
+  var id = props.getProperty(AGENCY_SHEET_ID_KEY) || AGENCY_SHEET_ID;
   var ss = null;
   if (id) { try { ss = SpreadsheetApp.openById(id); } catch(err){ ss=null; } }
   if (!ss) {
-    var files = DriveApp.getFilesByName(AGENCY_SHEET_NAME);
-    while (files.hasNext()) { var c = files.next(); if (c.getMimeType()==='application/vnd.google-apps.spreadsheet'){ ss=SpreadsheetApp.open(c); break; } }
-  }
-  if (!ss) {
+    // fall back to creating a new one with the right headers + sharing
     ss = SpreadsheetApp.create(AGENCY_SHEET_NAME);
     props.setProperty(AGENCY_SHEET_ID_KEY, ss.getId());
-    var sh = ss.getSheetByName('Sheet1'); if (!sh) sh = ss.insertSheet('Agency Submissions');
-    sh.getRange(1,1,1,AGENCY_COLS.length).setValues([AGENCY_COLS]).setFontWeight('bold').setBackground('#1E293B').setFontColor('#FFFFFF');
-    sh.autoResizeColumns(1, AGENCY_COLS.length);
-    // share with anyone with the link (editor) so agencies can add rows
+    var sh = ss.getSheetByName('Sheet1'); if (sh) sh.setName('Agency Submissions');
+    var sh2 = ss.getSheetByName('Agency Submissions'); if(!sh2) sh2 = ss.insertSheet('Agency Submissions');
+    sh2.getRange(1,1,1,AGENCY_COLS.length).setValues([AGENCY_COLS]).setFontWeight('bold').setBackground('#1E293B').setFontColor('#FFFFFF');
+    sh2.autoResizeColumns(1, AGENCY_COLS.length);
     ss.getViewers().forEach(function(u){ try{ ss.addEditor(u); }catch(e){} });
+  }
+  // make sure the 'Agency Submissions' tab has headers
+  var sh = ss.getSheetByName('Agency Submissions');
+  if (sh && sh.getLastRow() < 1) {
+    sh.getRange(1,1,1,AGENCY_COLS.length).setValues([AGENCY_COLS]).setFontWeight('bold').setBackground('#1E293B').setFontColor('#FFFFFF');
   }
   return ss;
 }
