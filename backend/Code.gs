@@ -307,9 +307,10 @@ function getCustomerRoot() {
   var props = PropertiesService.getScriptProperties();
   var id = props.getProperty(CUSTOMER_ROOT_KEY);
   var folder = null;
-  // Prefer the user's real students-files root folder
+  // Prefer the user's real students-files root folder (1FB40aQQ...)
   if (CUSTOMER_ROOT_FIXED_ID) { try { folder = DriveApp.getFolderById(CUSTOMER_ROOT_FIXED_ID); } catch(err){ folder=null; } }
-  if (id) { try { folder = DriveApp.getFolderById(id); } catch(err){ folder=null; } }
+  // Only fall back to the saved property if the fixed root is not usable
+  if (!folder && id) { try { folder = DriveApp.getFolderById(id); } catch(err){ folder=null; } }
   if (!folder) {
     var files = DriveApp.getFoldersByName(CUSTOMER_ROOT_NAME);
     if (files.hasNext()) folder = files.next();
