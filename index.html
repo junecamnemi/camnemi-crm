@@ -3156,7 +3156,7 @@ function syncUniv() {
     const loan = card.dataset.loan || '';
     let notesArr=[];
     try { notesArr = JSON.parse(card.dataset.notes||'[]'); if(!Array.isArray(notesArr)) notesArr=[]; } catch(e){ notesArr = card.dataset.notes ? [{text:String(card.dataset.notes),time:''}] : []; }
-    const notesHtml = notesArr.length ? notesArr.map((n,i)=>`<div class="knote" style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:.4rem;margin-bottom:.35rem;background:#f8fafc;"><div style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
+    const notesHtml = notesArr.length ? notesArr.map((n,i)=>`<div class="knote" style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:.4rem;margin-bottom:.35rem;background:#f8fafc;"><div style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><div style="display:flex;align-items:center;gap:.25rem;flex:none;"><button onclick="editKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#6b7280;font-size:.72rem;" title="Edit note">✏️</button><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button></div><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
     const pipe = PIPELINES['korea'];
     const stageOpts = pipe.stages.map(s => `<option value="${s}" ${card.dataset.stage===s?'selected':''}>${STAGE_LABELS[s]}</option>`).join('');
     const agencyOpts = AGENCIES.map(a=>`<option value="${escapeHtml(a.name)}" ${a.name===agency?'selected':''}>${escapeHtml(a.name)}</option>`).join('');
@@ -4524,6 +4524,20 @@ function syncUniv() {
     input.value='';
     renderKoreaNotes(overlay, notes);
   }
+  function editKoreaNote(idx){
+    const overlay = document.getElementById('korea-edit-modal');
+    if(!overlay) return;
+    const card = overlay._card;
+    let notes = [];
+    try { notes = JSON.parse(card.dataset.notes||'[]'); if(!Array.isArray(notes)) notes=[]; } catch(e){ notes=[]; }
+    if(idx>=notes.length) return;
+    const newText = prompt('Edit note:', notes[idx].text);
+    if(newText===null) return;
+    notes[idx].text = newText.trim();
+    notes[idx].time = nowStr();
+    card.dataset.notes = JSON.stringify(notes);
+    renderKoreaNotes(overlay, notes);
+  }
   function deleteKoreaNote(idx){
     const overlay = document.getElementById('korea-edit-modal');
     if(!overlay) return;
@@ -4537,7 +4551,7 @@ function syncUniv() {
   function renderKoreaNotes(overlay, notes){
     const listEl = overlay.querySelector('#k-notes-list');
     if(!listEl) return;
-    listEl.innerHTML = notes.length ? notes.map((n,i)=>`<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:.4rem;margin-bottom:.35rem;background:#f8fafc;"><div style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
+    listEl.innerHTML = notes.length ? notes.map((n,i)=>`<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:.4rem;margin-bottom:.35rem;background:#f8fafc;"><div style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><div style="display:flex;align-items:center;gap:.25rem;flex:none;"><button onclick="editKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#6b7280;font-size:.72rem;" title="Edit note">✏️</button><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button></div><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
   }
 
   // Searchable school picker for the korea modal
