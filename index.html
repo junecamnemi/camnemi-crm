@@ -4410,6 +4410,12 @@ function syncUniv() {
       merged = merged.map(cc => localById[cc.id] ? localById[cc.id] : cc);
       // add local-only customers (new adds not yet in cloud)
       localCustomers.forEach(lc => { if (!cloudIds.has(lc.id)) merged.push(lc); });
+      // remove known demo/pollution students (never real data)
+      const DEMO_NAMES = new Set(['JAMES SMITH','SARAH JOHNSON','OLIVIA BROWN','LIAM JOHNSON','SOPHIA GARCIA','NOAH MILLER','ISABELLA DAVIS','ETHAN WILSON','MIA MOORE','LUCAS TAYLOR','AMELIA ANDERSON','MASON THOMAS','HARPER JACKSON','ELIJAH WHITE','EVELYN HARRIS','BENJAMIN MARTIN','AVA THOMPSON','HENRY LEE','CHARLOTTE WALKER','ALEXANDER HALL','EMILY ALLEN','DANIEL YOUNG','GRACE KING','MATTHEW WRIGHT','CHLOE SCOTT','SAMUEL GREEN','ZOE BAKER','JOHN ADAMS','LILY NELSON','RYAN HILL','NORA CARTER','EMMA RODRIGUEZ','MICHAEL CHEN','DAVID KIM','MARIA GARCIA','YUSUF AHMED','AISHA KHAN','ㄴㄴㅇ','코스타']);
+      merged = merged.filter(c => {
+        const nm = String(c.name || '').trim().toUpperCase();
+        return !DEMO_NAMES.has(nm);
+      });
       // dedupe by name (uppercase) so duplicates never persist
       const seenName = new Set();
       const deduped = [];
@@ -4462,6 +4468,11 @@ function syncUniv() {
           }
         }
       } catch(e){ /* merge best-effort; push local if remote unavailable */ }
+      // remove known demo/pollution students before pushing
+      if (Array.isArray(payload.customers)) {
+        const DEMO_NAMES = new Set(['JAMES SMITH','SARAH JOHNSON','OLIVIA BROWN','LIAM JOHNSON','SOPHIA GARCIA','NOAH MILLER','ISABELLA DAVIS','ETHAN WILSON','MIA MOORE','LUCAS TAYLOR','AMELIA ANDERSON','MASON THOMAS','HARPER JACKSON','ELIJAH WHITE','EVELYN HARRIS','BENJAMIN MARTIN','AVA THOMPSON','HENRY LEE','CHARLOTTE WALKER','ALEXANDER HALL','EMILY ALLEN','DANIEL YOUNG','GRACE KING','MATTHEW WRIGHT','CHLOE SCOTT','SAMUEL GREEN','ZOE BAKER','JOHN ADAMS','LILY NELSON','RYAN HILL','NORA CARTER','EMMA RODRIGUEZ','MICHAEL CHEN','DAVID KIM','MARIA GARCIA','YUSUF AHMED','AISHA KHAN','ㄴㄴㅇ','코스타']);
+        payload.customers = payload.customers.filter(c => !DEMO_NAMES.has(String(c.name || '').trim().toUpperCase()));
+      }
       // dedupe by name before pushing so the backend never accumulates duplicates
       if (Array.isArray(payload.customers)) {
         const seenNm = new Set();
