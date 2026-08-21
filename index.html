@@ -55,8 +55,13 @@
 
     /* ===== Kanban ===== */
     .pipeline { display: flex; gap: 1rem; overflow-x: scroll; padding-bottom: 1rem; align-items: stretch; }
-    .stage { flex: 0 0 290px; background: #e4e9f0; border-radius: .75rem; padding: .75rem; display: flex; flex-direction: column; height: calc(100vh - 380px); min-height: 320px; position: relative; }
-    .stage-header { display: flex; justify-content: space-between; align-items: center; padding: .5rem .5rem .75rem; font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: #475569; }
+    .stage { flex: 0 0 185px; background: #e4e9f0; border-radius: .75rem; padding: .6rem .5rem; display: flex; flex-direction: column; height: calc(100vh - 380px); min-height: 320px; position: relative; }
+    .stage-header { display: flex; justify-content: center; align-items: center; flex-direction: column; gap: .35rem; padding: .35rem .2rem .6rem; font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: #475569; cursor:pointer; }
+    .stage-name { font-size: .72rem; }
+    .stage.stage-empty { opacity: .45; }
+    .stage.stage-collapsed { flex: 0 0 42px; min-height: 0; height: calc(100vh - 380px); cursor: pointer; }
+    .stage.stage-collapsed .cards, .stage.stage-collapsed .stage-count { display: none; }
+    .stage.stage-collapsed .stage-header { writing-mode: horizontal-tb; transform: none; font-size: .72rem; padding: .6rem .2rem; }
     .stage-count { background: #3b82f6; color: #fff; padding: .15rem .6rem; border-radius: 999px; font-size: .75rem; font-weight: 600; }
     .stage .cards { flex: 1; overflow-y: auto; }
     .contact-add-fab { position: absolute; bottom: 12px; left: 12px; right: 12px; width: auto; padding: .7rem 1.2rem; background: linear-gradient(135deg,#3b82f6,#2563eb); color: #fff; border: none; border-radius: .9rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .4rem; box-shadow: 0 4px 14px rgba(59,130,246,.4); transition: transform .15s, box-shadow .15s; z-index: 40; }
@@ -524,6 +529,26 @@
     rebuildFilterBar();  // refresh School + Korea Enter pills for this pipeline
   }
 
+  // Toggle a stage column collapsed/expanded (manual)
+  function toggleStageCollapse(stageKey){
+    const stage = document.querySelector(`.stage[data-stage="${stageKey}"]`);
+    if(!stage) return;
+    stage.classList.toggle('stage-collapsed');
+    if(stage.classList.contains('stage-collapsed')) stage.classList.remove('stage-expanded');
+    else stage.classList.add('stage-expanded');
+  }
+  // Auto-collapse empty stages (0 cards). Collapsed stages can be clicked to expand.
+  function applyStageCollapse(){
+    document.querySelectorAll('.stage[data-stage]').forEach(stage=>{
+      const key = stage.dataset.stage;
+      const count = stage.querySelectorAll('.customer-card').length;
+      // don't override manual expand
+      if(stage.classList.contains('stage-expanded')) return;
+      if(count===0 && !stage.classList.contains('stage-collapsed')) stage.classList.add('stage-collapsed');
+      else if(count>0 && stage.classList.contains('stage-collapsed')) stage.classList.remove('stage-collapsed');
+    });
+  }
+
   function buildStage(pipe, stageKey) {
     // floating + quick-add button on the Contact column of New Customers pipeline
     const quickAdd = (pipe==='new' && stageKey==='contact') ? `
@@ -533,7 +558,7 @@
       </button>` : '';
     return `
       <div class="stage" data-stage="${stageKey}">
-        <div class="stage-header"><span>${STAGE_LABELS[stageKey]}</span><span class="stage-count" data-count="${stageKey}">0</span></div>
+        <div class="stage-header" onclick="toggleStageCollapse('${stageKey}')" title="Click to collapse/expand"><span class="stage-name">${STAGE_LABELS[stageKey]}</span><span class="stage-count" data-count="${stageKey}">0</span></div>
         <div class="cards" data-cards="${stageKey}"></div>
         ${quickAdd}
       </div>`;
@@ -561,6 +586,7 @@
     });
     // park the rest (other pipelines) stays in hidden container
 
+    applyStageCollapse();
     refreshCounts();
     if (currentView === 'list') renderList();
     applyFilter();
@@ -595,6 +621,7 @@
     // agencies count (number of distinct agencies in use + fixed list)
     const ag = document.getElementById('side-count-agencies');
     if (ag) ag.textContent = AGENCIES ? AGENCIES.length : 0;
+    applyStageCollapse();
   }
 
   function changeCount(stage, delta) {
