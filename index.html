@@ -3040,6 +3040,8 @@ function syncUniv() {
           ${progShort ? `<span class="tag tag-program">🎓 ${escapeHtml(progShort)}</span>` : ''}
           ${schEn ? `<span class="tag tag-school">${schLogo?`<img src="${escapeHtml(schLogo)}" onerror="this.style.display='none'" style="width:14px;height:14px;object-fit:contain;border-radius:3px;background:#fff;vertical-align:middle;margin-right:3px;">`:''}${escapeHtml(schEn)}</span>` : ''}
           ${monthsInKorea ? `<span class="tag tag-months">🗓 ${escapeHtml(monthsInKorea)}</span>` : ''}
+          ${card.dataset.noqr === 'true' ? `<span class="tag tag-noqr">🔳 NO QR</span>` : ''}
+          ${card.dataset.illegal === 'true' ? `<span class="tag tag-illegal">⚠️ Illegal Parent</span>` : ''}
         </div>
         <div class="note">${escapeHtml(noteDisplay)}</div>`;
       card.querySelector('h4').textContent = name;
@@ -3154,6 +3156,8 @@ function syncUniv() {
     const email = card.dataset.email || '';
     const agency = card.dataset.agency || '';
     const loan = card.dataset.loan || '';
+    const noqr = card.dataset.noqr === 'true';
+    const illegal = card.dataset.illegal === 'true';
     let notesArr=[];
     try { notesArr = JSON.parse(card.dataset.notes||'[]'); if(!Array.isArray(notesArr)) notesArr=[]; } catch(e){ notesArr = card.dataset.notes ? [{text:String(card.dataset.notes),time:''}] : []; }
     const notesHtml = notesArr.length ? notesArr.map((n,i)=>`<div class="knote" style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:.4rem;margin-bottom:.35rem;background:#f8fafc;"><div class="knote-text" style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><div style="display:flex;align-items:center;gap:.25rem;flex:none;"><button onclick="editKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#6b7280;font-size:.72rem;" title="Edit note">✏️</button><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button></div><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
@@ -3204,6 +3208,12 @@ function syncUniv() {
         <div class="field"><label>Email</label><input id="k-email" value="${escapeHtml(email)}"></div>
         <div class="field"><label>Agency</label><select id="k-agency"><option value="">— Agency —</option>${agencyOpts}</select></div>
         <div class="field"><label>Loan (USD)</label><input id="k-loan" value="${escapeHtml(loan)}"></div>
+        <div class="field"><label>Flags</label>
+          <div style="display:flex;gap:1.2rem;flex-wrap:wrap;">
+            <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-noqr" ${noqr?'checked':''} style="accent-color:#dc2626;width:16px;height:16px;"> 🔳 No QR</label>
+            <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-illegal" ${illegal?'checked':''} style="accent-color:#7f1d1d;width:16px;height:16px;"> ⚠️ Illegal Parent</label>
+          </div>
+        </div>
         <div class="field"><label>📝 Notes</label>
           <div id="k-notes-list" style="max-height:140px;overflow:auto;">${notesHtml}</div>
           <div style="display:flex;gap:.4rem;margin-top:.4rem;">
@@ -3246,6 +3256,8 @@ function syncUniv() {
     card.dataset.email=overlay.querySelector('#k-email').value.trim();
     card.dataset.agency=normalizeAgency(overlay.querySelector('#k-agency').value);
     card.dataset.loan=overlay.querySelector('#k-loan').value.trim();
+    const noqrEl=overlay.querySelector('#k-noqr'); if(noqrEl) card.dataset.noqr = noqrEl.checked ? 'true' : '';
+    const illegalEl=overlay.querySelector('#k-illegal'); if(illegalEl) card.dataset.illegal = illegalEl.checked ? 'true' : '';
     const nv=overlay.querySelector('#k-note').value.trim();
     // preserve existing notes, append new one only if typed
     let allNotes = [];
