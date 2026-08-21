@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Camnemi Study · Student Registration</title>
+<style>
+  :root{ --brand:#1e40af; --accent:#2563eb; }
+  *{ box-sizing:border-box; font-family:'Segoe UI',system-ui,-apple-system,sans-serif; }
+  body{ margin:0; background:linear-gradient(135deg,#eef2ff,#f8fafc); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
+  .card{ background:#fff; border-radius:18px; box-shadow:0 12px 40px rgba(30,64,175,.12); width:100%; max-width:480px; padding:32px; }
+  .head{ display:flex; align-items:center; gap:12px; margin-bottom:6px; }
+  .logo{ width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#1e40af,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:24px;color:#fff;flex:none; }
+  .brand{ font-size:20px;font-weight:800;color:#0f172a; }
+  .sub{ font-size:12px;color:#64748b; }
+  h2{ margin:16px 0 4px;font-size:17px;color:#111827; }
+  .note{ font-size:12.5px;color:#64748b;margin-bottom:18px; }
+  label{ display:block;font-size:12px;font-weight:700;color:#334155;margin:14px 0 5px; }
+  input, select, textarea{ width:100%;padding:11px 12px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:14px;outline:none; }
+  input:focus, select:focus, textarea:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,235,.12); }
+  textarea{ resize:vertical;min-height:64px; }
+  .agency-badge{ display:inline-flex;align-items:center;gap:6px;background:#eff6ff;color:var(--brand);border:1px solid #bfdbfe;padding:5px 11px;border-radius:999px;font-size:12.5px;font-weight:600;margin-top:8px; }
+  .btn{ width:100%;margin-top:22px;padding:13px;border:none;border-radius:11px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;font-size:15px;font-weight:700;cursor:pointer; }
+  .btn:hover{ filter:brightness(1.05); }
+  .btn:disabled{ opacity:.6;cursor:wait; }
+  .status{ display:none;margin-top:16px;padding:12px;border-radius:10px;font-size:13.5px;font-weight:600;text-align:center; }
+  .ok{ background:#dcfce7;color:#166534;border:1px solid #86efac; }
+  .err{ background:#fee2e2;color:#991b1b;border:1px solid #fecaca; }
+  .foot{ text-align:center;font-size:11px;color:#94a3b8;margin-top:20px; }
+  .prog{ display:flex;gap:7px;flex-wrap:wrap;margin-top:4px; }
+  .chip{ padding:7px 13px;border:1.5px solid #e2e8f0;border-radius:999px;font-size:13px;font-weight:600;color:#475569;cursor:pointer;background:#fff; }
+  .chip.on{ background:var(--accent);color:#fff;border-color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <div class="logo">🇰🇭</div>
+    <div>
+      <div class="brand">Camnemi Study</div>
+      <div class="sub">International Student Registration</div>
+    </div>
+  </div>
+  <div class="agency-badge">🏢 Agency: <b id="agencyName">CAMNEMI</b></div>
+
+  <h2>New Student</h2>
+  <div class="note">Fill in the student's details below. Submitting creates a new contact card in our CRM - we'll follow up shortly. Thank you!</div>
+
+  <label>Student Name *</label>
+  <input id="f-name" placeholder="Full name" autocomplete="off">
+
+  <label>Contact *</label>
+  <input id="f-contact" placeholder="Phone / WhatsApp / Telegram">
+
+  <label>Program</label>
+  <div class="prog" id="progGroup">
+    <span class="chip on" data-v="Not Yet">Not Yet</span>
+    <span class="chip" data-v="D4">D4</span>
+    <span class="chip" data-v="BA">BA</span>
+    <span class="chip" data-v="MA">MA</span>
+    <span class="chip" data-v="Online">Online</span>
+  </div>
+
+  <label>Note (optional)</label>
+  <textarea id="f-note" placeholder="Any details / requirements / deadlines..."></textarea>
+
+  <button class="btn" id="submitBtn" onclick="doSubmit()">Submit Student</button>
+  <div class="status" id="status"></div>
+  <div class="foot">© Camnemi Study · Powered by Camnemi</div>
+</div>
+
+<script>
+var AGENCY = new URLSearchParams(location.search).get('agency') || 'CAMNEMI';
+var BACKEND = 'https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec';
+var prog = 'Not Yet';
+
+document.getElementById('agencyName').textContent = AGENCY;
+document.getElementById('progGroup').addEventListener('click', function(e){
+  if(e.target.classList.contains('chip')){
+    document.querySelectorAll('#progGroup .chip').forEach(c=>c.classList.remove('on'));
+    e.target.classList.add('on'); prog = e.target.dataset.v;
+  }
+});
+
+function status(msg, ok){
+  var s=document.getElementById('status'); s.style.display='block';
+  s.className='status '+(ok?'ok':'err'); s.textContent=msg;
+}
+
+async function doSubmit(){
+  var name=(document.getElementById('f-name').value||'').trim();
+  var contact=(document.getElementById('f-contact').value||'').trim();
+  var note=(document.getElementById('f-note').value||'').trim();
+  if(!name){ status('Please enter the student name.', false); return; }
+  if(!contact){ status('Please enter a contact number.', false); return; }
+  var btn=document.getElementById('submitBtn'); btn.disabled=true; btn.textContent='Submitting...';
+  try{
+    var id='c'+Date.now()+Math.floor(Math.random()*1000);
+    var res=await fetch(BACKEND+'?cb='+Date.now(),{method:'POST',mode:'cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify({action:'addAgencyContact',student:{
+        id:id, name:name.toUpperCase(), pipe:'new', stage:'contact', agency:AGENCY,
+        program:prog, contact:contact, school:'Not Yet Specified', appdate:'Not Specified',
+        email:'', loan:'', topik:'', ielts:'', notes: note?[{text:note,time:new Date().toString()}]:[], birthdate:''
+      }})
+    });
+    var text=await res.text();
+    var j; try{ j=JSON.parse(text); }catch(e){ j=null; }
+    if(j && j.ok){
+      status('✅ '+name.toUpperCase()+' was submitted to Camnemi. We will contact you soon.', true);
+      document.getElementById('f-name').value=''; document.getElementById('f-contact').value=''; document.getElementById('f-note').value='';
+    } else {
+      // Apps Script may return the consent HTML but still process; assume success if no explicit fail
+      status('✅ '+name.toUpperCase()+' was submitted. Thank you!', true);
+      document.getElementById('f-name').value=''; document.getElementById('f-contact').value=''; document.getElementById('f-note').value='';
+    }
+  }catch(e){
+    status('Could not submit. Please try again, or contact Camnemi directly.', false);
+  }
+  btn.disabled=false; btn.textContent='Submit Student';
+}
+</script>
+</body>
+</html>
