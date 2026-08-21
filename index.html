@@ -3987,22 +3987,19 @@ function syncUniv() {
   function batchArchive() { batchMove('archived'); }
   // Delete all selected cards (permanent)
   function batchDelete() {
+    // HIDE selected cards instead of deleting (kept in the data/backend, just not shown)
     const sel = Array.from(document.querySelectorAll('.customer-card.selected'));
     if(!sel.length) return;
-    if(!confirm('Delete ' + sel.length + ' selected student(s)? This cannot be undone.')) return;
-    // count per stage to update counts
-    const perStage = {};
+    if(!confirm('Hide ' + sel.length + ' selected student(s)? They will be hidden (not deleted).')) return;
+    let hp = document.getElementById('hidden-cards');
+    if(!hp){ hp = document.createElement('div'); hp.id='hidden-cards'; hp.style.display='none'; document.body.appendChild(hp); }
     sel.forEach(card => {
       const st = card.dataset.stage;
-      perStage[st] = (perStage[st]||0)+1;
-    });
-    sel.forEach(card => {
-      const st = card.dataset.stage;
-      logAction(card.dataset.name||'Student', 'Delete card');
+      card.dataset.hidden = 'true';
       if(card.parentElement) card.parentElement.removeChild(card);
+      hp.appendChild(card);
       changeCount(st, -1);
     });
-    // remove from localStorage/backend via save
     saveNow();
     updateBatchBar();
     refreshCounts();
@@ -5136,7 +5133,8 @@ function syncUniv() {
         folderId: card.dataset.folderId || '',
         folderUrl: card.dataset.folderUrl || '',
         denied: card.dataset.denied || '',
-        payments: card.dataset.payments || ''
+        payments: card.dataset.payments || '',
+        hidden: card.dataset.hidden || ''
       });
     });
     return {
@@ -5214,7 +5212,7 @@ function syncUniv() {
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments'].forEach(k=>{
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
       card.dataset.name = c.name||'';
@@ -5233,6 +5231,12 @@ function syncUniv() {
         <div class="note">${(c.notes&&c.notes[0])?escapeHtml(c.notes[0].text):'No notes yet.'}</div>`;
       card.style.borderLeftColor = STAGE_COLORS[c.stage] || '#94a3b8';
       applyCardBorder(card);
+      // hidden cards are parked (not shown) but kept in data
+      if(c.hidden === 'true'){
+        let hpd = document.getElementById('hidden-cards');
+        if(!hpd){ hpd=document.createElement('div'); hpd.id='hidden-cards'; hpd.style.display='none'; document.body.appendChild(hpd); }
+        hpd.appendChild(card);
+      } else {
       // place into correct stage container
       const container = document.querySelector('.cards[data-cards="'+c.stage+'"]');
       if (container) container.appendChild(card);
@@ -5241,6 +5245,7 @@ function syncUniv() {
         let hp = document.getElementById('hidden-cards');
         if (!hp) { hp = document.createElement('div'); hp.id='hidden-cards'; hp.style.display='none'; document.body.appendChild(hp); }
         hp.appendChild(card);
+      }
       }
       refreshCardBody(card);
       attachCard(card);
