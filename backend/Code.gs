@@ -348,12 +348,16 @@ function listStudentFolderFiles(body) {
   if (!name) return jsonOut({ ok:false, error:'Missing name' });
   var label = name.replace(/[\\/:*?"<>|]/g, '').trim().toLowerCase();
   var root = getCustomerRoot();
-  // case-insensitive search over all folders under root
+  // recursive search: student folders are nested inside batch folders (e.g. 202503_JBNU_D4)
   var folder = null;
+  var stack = [];
   var it = root.getFolders();
-  while (it.hasNext()) {
-    var f = it.next();
+  while (it.hasNext()) stack.push(it.next());
+  while (stack.length > 0) {
+    var f = stack.pop();
     if (f.getName().replace(/[\\/:*?"<>|]/g, '').trim().toLowerCase() === label) { folder = f; break; }
+    var sub = f.getFolders();
+    while (sub.hasNext()) stack.push(sub.next());
   }
   if (!folder) return jsonOut({ ok:true, found:false, files:[] });  // no folder yet
   var files = [];
