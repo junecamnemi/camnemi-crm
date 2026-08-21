@@ -1367,7 +1367,7 @@ let UNIV_KNOWLEDGE = [];
     // switch main area to the universities view
     (document.getElementById('stats-row')||{style:{}}).style.display='none';
     document.getElementById('kanban-view').style.display='none';
-    document.getElementById('archive-section').style.display='none';
+    const _arc = document.getElementById('archive-section'); if (_arc) _arc.style.display='none';
     document.getElementById('list-view').style.display='none';
     const uv = document.getElementById('univ-view');
     uv.style.display='block';
@@ -1418,7 +1418,7 @@ let UNIV_KNOWLEDGE = [];
     if (nu) nu.classList.add('active');
     (document.getElementById('stats-row')||{style:{}}).style.display='none';
     document.getElementById('kanban-view').style.display='none';
-    document.getElementById('archive-section').style.display='none';
+    const _arc = document.getElementById('archive-section'); if (_arc) _arc.style.display='none';
     document.getElementById('list-view').style.display='none';
     document.getElementById('univ-view').style.display='none';
     document.getElementById('wiki-view').style.display='none';
@@ -1459,7 +1459,7 @@ let UNIV_KNOWLEDGE = [];
     // switch main area
     (document.getElementById('stats-row')||{style:{}}).style.display='none';
     document.getElementById('kanban-view').style.display='none';
-    document.getElementById('archive-section').style.display='none';
+    const _arc = document.getElementById('archive-section'); if (_arc) _arc.style.display='none';
     document.getElementById('list-view').style.display='none';
     document.getElementById('univ-view').style.display='none';
     document.getElementById('gks-view').style.display='none';
@@ -1689,7 +1689,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     ['nav-todo','nav-events','nav-issues','nav-gks','nav-marketing','nav-koreaLife','nav-universities'].forEach(id=>{const el=document.getElementById(id); if(el) el.classList.remove('active');});
     (document.getElementById('stats-row')||{style:{}}).style.display='none';
     document.getElementById('kanban-view').style.display='none';
-    document.getElementById('archive-section').style.display='none';
+    const _arc = document.getElementById('archive-section'); if (_arc) _arc.style.display='none';
     document.getElementById('list-view').style.display='none';
     document.getElementById('univ-view').style.display='none';
     document.getElementById('gks-view').style.display='none';
@@ -1843,7 +1843,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     ['nav-todo','nav-recommendation','nav-gks','nav-marketing','nav-koreaLife','nav-universities'].forEach(id=>{const el=document.getElementById(id); if(el) el.classList.remove('active');});
     (document.getElementById('stats-row')||{style:{}}).style.display='none';
     document.getElementById('kanban-view').style.display='none';
-    document.getElementById('archive-section').style.display='none';
+    const _arc = document.getElementById('archive-section'); if (_arc) _arc.style.display='none';
     document.getElementById('list-view').style.display='none';
     document.getElementById('univ-view').style.display='none';
     document.getElementById('gks-view').style.display='none';
@@ -4410,6 +4410,15 @@ function syncUniv() {
       merged = merged.map(cc => localById[cc.id] ? localById[cc.id] : cc);
       // add local-only customers (new adds not yet in cloud)
       localCustomers.forEach(lc => { if (!cloudIds.has(lc.id)) merged.push(lc); });
+      // dedupe by name (uppercase) so duplicates never persist
+      const seenName = new Set();
+      const deduped = [];
+      merged.forEach(c => {
+        const nm = String(c.name || (c.dataset && c.dataset.name) || '').trim().toUpperCase();
+        if(!nm) { deduped.push(c); return; }
+        if(!seenName.has(nm)){ seenName.add(nm); deduped.push(c); }
+      });
+      merged = deduped;
       db.customers = merged;
       try { localStorage.setItem(DB_KEY, JSON.stringify(db)); } catch(e){}
       applyDbToState(db);
@@ -4453,6 +4462,16 @@ function syncUniv() {
           }
         }
       } catch(e){ /* merge best-effort; push local if remote unavailable */ }
+      // dedupe by name before pushing so the backend never accumulates duplicates
+      if (Array.isArray(payload.customers)) {
+        const seenNm = new Set();
+        payload.customers = payload.customers.filter(c => {
+          const nm = String(c.name || '').trim().toUpperCase();
+          if(!nm) return true;
+          if(seenNm.has(nm)) return false;
+          seenNm.add(nm); return true;
+        });
+      }
       const res = await fetch(backendUrl(), {
         method:'POST',
         mode:'cors',
