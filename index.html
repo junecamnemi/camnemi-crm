@@ -375,6 +375,7 @@
       <div class="view-toggle">
         <button class="active" id="toggle-kanban" onclick="setView('kanban')">📋 Kanban</button>
         <button id="toggle-list" onclick="setView('list')">📄 List View</button>
+        <button onclick="openListSettings()" title="Column settings (hide, order, add)" style="background:#eef2ff;color:#4f46e5;border:1px solid #c7d2fe;border-radius:.5rem;padding:.4rem .6rem;cursor:pointer;font-size:.85rem;">⚙ Columns</button>
       </div>
       <div style="margin-left:auto;display:flex;align-items:center;gap:.5rem;">
         <button id="view-log-btn" class="btn btn-note" onclick="toggleActivityPanel()" style="font-size:.75rem;padding:.35rem .7rem;white-space:nowrap;">📜 View Log</button>
@@ -4066,9 +4067,10 @@ function syncUniv() {
     const name = prompt('New column name (e.g. Passport, Region, Deposit):');
     if(!name) return;
     const col = name.trim();
-    if(!LIST_CUSTOM_COLS.includes(col)) LIST_CUSTOM_COLS.push(col);
+    if(!LIST_CUSTOM_COLS.includes(col)){ LIST_CUSTOM_COLS.push(col); LIST_COL_ORDER.push('custom:'+col); }
     saveDatabase();
     renderList();
+    renderListSettings();
   }
   // value of a custom column for a card (reads card.dataset.<col> or stored extra fields)
   function listCustomValue(card, col){
@@ -4101,6 +4103,8 @@ function syncUniv() {
     {key:'illegal', label:'Illegal'}, {key:'denied', label:'Denied'}, {key:'payments', label:'Payments'},
     {key:'recent', label:'Updated'}, {key:'folderId', label:'Folder'}, {key:'note', label:'Note'}
   ];
+  // Column order (drag in settings panel updates this). Starts as default order.
+  let LIST_COL_ORDER = LIST_BASE_COLS.map(c=>c.key);
 
   // Double-click a custom list field to edit it (persists to card + backend)
   function editListField(td){
@@ -4143,6 +4147,80 @@ function syncUniv() {
     renderList();
   }
 
+  // Open the column settings panel (hide/unhide, reorder, add field)
+  function openListSettings(){
+    let m = document.getElementById('list-settings-modal');
+    if(!m){
+      m = document.createElement('div');
+      m.id='list-settings-modal';
+      m.className='modal-overlay';
+      m.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:99999;';
+      document.body.appendChild(m);
+    }
+    m.style.display='flex';
+    m.innerHTML = `<div class="modal" style="max-width:520px;width:92%;max-height:85vh;display:flex;flex-direction:column;overflow:hidden;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;border-bottom:1px solid #eef0f4;">
+        <h3 style="font-size:1.05rem;color:#111827;">⚙ Column Settings</h3>
+        <button onclick="closeListSettings()" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:#94a3b8;line-height:1;">✕</button>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:.8rem 1.2rem;">
+        <div style="font-size:.8rem;color:#64748b;margin-bottom:.5rem;">Drag to reorder · Check to show · Uncheck to hide</div>
+        <div id="list-settings-cols"></div>
+      </div>
+      <div style="padding:.8rem 1.2rem;border-top:1px solid #eef0f4;display:flex;gap:.5rem;">
+        <button onclick="addListColumn()" style="flex:1;padding:.5rem;background:#e0e7ff;color:#3730a3;border:none;border-radius:.5rem;font-weight:600;cursor:pointer;">➕ Add field</button>
+        <button onclick="closeListSettings()" style="flex:1;padding:.5rem;background:#f3f4f6;color:#374151;border:none;border-radius:.5rem;font-weight:600;cursor:pointer;">Done</button>
+      </div>
+    </div>`;
+    renderListSettings();
+  }
+  function closeListSettings(){
+    const m = document.getElementById('list-settings-modal');
+    if(m) m.style.display='none';
+  }
+  // Build the draggable column list in the settings panel
+  function renderListSettings(){
+    const wrap = document.getElementById('list-settings-cols');
+    if(!wrap) return;
+    let html = '';
+    // build ordered list of all columns (base + custom)
+    const all = LIST_COL_ORDER.slice();
+    LIST_BASE_COLS.forEach(c=>{ if(!all.includes(c.key)) all.push(c.key); });
+    LIST_CUSTOM_COLS.forEach(c=>{ if(!all.includes('custom:'+c)) all.push('custom:'+c); });
+    all.forEach(key=>{
+      const isBase = !key.startsWith('custom:');
+      const label = isBase ? (LIST_BASE_COLS.find(c=>c.key===key)||{}).label || key : key.replace('custom:','');
+      const hidden = HIDDEN_LIST_COLS.includes(key);
+      html += `<div draggable="true" ondragstart="listColDragStart(this)" ondragover="event.preventDefault()" ondrop="listColDrop(this)" data-colkey="${key}" style="display:flex;align-items:center;gap:.5rem;padding:.45rem .5rem;border:1px solid #eef0f4;border-radius:.5rem;margin-bottom:.35rem;background:#f8fafc;cursor:grab;">
+        <span style="color:#94a3b8;">⠿</span>
+        <label style="display:flex;align-items:center;gap:.4rem;flex:1;cursor:pointer;">
+          <input type="checkbox" ${hidden?'':'checked'} onchange="listColCheck('${key}', this.checked)" style="accent-color:#4f46e5;width:15px;height:15px;">
+          <span style="font-size:.82rem;color:#334155;">${label}</span>
+        </label>
+      </div>`;
+    });
+    wrap.innerHTML = html;
+  }
+  let __dragColKey = null;
+  function listColDragStart(el){ __dragColKey = el.dataset.colkey; }
+  function listColDrop(el){
+    if(!__dragColKey || __dragColKey===el.dataset.colkey) return;
+    const from = LIST_COL_ORDER.indexOf(__dragColKey);
+    const to = LIST_COL_ORDER.indexOf(el.dataset.colkey);
+    if(from<0 || to<0) return;
+    LIST_COL_ORDER.splice(from,1);
+    LIST_COL_ORDER.splice(to,0,__dragColKey);
+    saveDatabase();
+    renderListSettings();
+    renderList();
+  }
+  function listColCheck(key, checked){
+    if(checked){ const i=HIDDEN_LIST_COLS.indexOf(key); if(i>=0) HIDDEN_LIST_COLS.splice(i,1); }
+    else if(!HIDDEN_LIST_COLS.includes(key)) HIDDEN_LIST_COLS.push(key);
+    saveDatabase();
+    renderList();
+  }
+
   function renderList() {
     const body = document.getElementById('list-body');
     body.innerHTML = '';
@@ -4152,25 +4230,23 @@ function syncUniv() {
     if(headerRow){
       headerRow.innerHTML = '';
       let html = '';
-      // base columns in defined order
-      LIST_BASE_COLS.forEach(col=>{
-        if(HIDDEN_LIST_COLS.includes(col.key)) return;
-        html += `<th data-listcol="${col.key}" style="position:relative;">${col.label}
-          <button onclick="event.stopPropagation();sortList('${col.key}')" title="Sort" style="background:#eef2ff;color:#4f46e5;border:none;border-radius:.3rem;cursor:pointer;font-size:.7rem;margin-left:3px;padding:.05rem .3rem;">↕</button>
-          <button onclick="event.stopPropagation();toggleListCol(this,'${col.key}')" title="Hide column" style="background:#fef2f2;color:#b91c1c;border:none;border-radius:.3rem;cursor:pointer;font-size:.7rem;margin-left:2px;padding:.05rem .3rem;">👁</button>
-        </th>`;
+      // base columns in defined order (sortable header, hide managed via settings panel)
+      const sortedBase = LIST_COL_ORDER.filter(k => LIST_BASE_COLS.some(c=>c.key===k));
+      const visibleBase = sortedBase.length ? sortedBase : LIST_BASE_COLS.map(c=>c.key);
+      visibleBase.forEach(key=>{
+        const col = LIST_BASE_COLS.find(c=>c.key===key);
+        if(!col || HIDDEN_LIST_COLS.includes(key)) return;
+        html += `<th data-listcol="${key}" onclick="sortList('${key}')" style="position:relative;cursor:pointer;" title="Click to sort">${col.label}</th>`;
       });
-      // custom columns
-      LIST_CUSTOM_COLS.forEach(col=>{
-        if(HIDDEN_LIST_COLS.includes('custom:'+col)) return;
-        html += `<th data-listcol="custom:${col}" style="position:relative;">${col}
-          <button onclick="event.stopPropagation();sortList('${col}')" title="Sort" style="background:#eef2ff;color:#4f46e5;border:none;border-radius:.3rem;cursor:pointer;font-size:.7rem;margin-left:3px;padding:.05rem .3rem;">↕</button>
-          <button onclick="event.stopPropagation();toggleListCol(this,'custom:${col}')" title="Hide column" style="background:#fef2f2;color:#b91c1c;border:none;border-radius:.3rem;cursor:pointer;font-size:.7rem;margin-left:2px;padding:.05rem .3rem;">👁</button>
-        </th>`;
+      const sortedCustom = LIST_COL_ORDER.filter(k => k.startsWith('custom:'));
+      const visibleCustom = sortedCustom.length ? sortedCustom : LIST_CUSTOM_COLS.map(c=>'custom:'+c);
+      visibleCustom.forEach(key=>{
+        const col = key.replace('custom:','');
+        if(HIDDEN_LIST_COLS.includes(key)) return;
+        html += `<th data-listcol="${key}" onclick="sortList('${col}')" style="position:relative;cursor:pointer;" title="Click to sort">${col}</th>`;
       });
       // keep the + button as the last header
-      headerRow.innerHTML = html + `<th style="width:70px;text-align:center;"><button onclick="showHiddenListCols()" title="Show hidden columns" style="background:#fef9c3;color:#a16207;border:none;border-radius:.3rem;cursor:pointer;font-size:.65rem;padding:.1rem .35rem;">⇄ Show hidden</button></th>
-      <th id="list-custom-head" style="width:40px;text-align:center;"><button onclick="addListColumn()" title="Add a column (backend field)" style="background:#e0e7ff;color:#3730a3;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:1rem;font-weight:700;line-height:1;">+</button></th>`;
+      headerRow.innerHTML = html + `<th style="width:40px;text-align:center;"><button onclick="openListSettings()" title="Column settings" style="background:#eef2ff;color:#4f46e5;border:none;border-radius:.3rem;cursor:pointer;font-size:.8rem;padding:.15rem .4rem;">⚙</button></th>`;
     }
     const { stage, program, school, agency, appdate } = filterState;
     const arrMatch=(a,v)=>((!Array.isArray(a)||a.length===0)||a.includes(v));
@@ -5292,6 +5368,7 @@ function syncUniv() {
       activityLog: ACTIVITY_LOG,
       listCustomCols: LIST_CUSTOM_COLS,
       hiddenListCols: HIDDEN_LIST_COLS,
+      listColOrder: LIST_COL_ORDER,
       savedAt: new Date().toISOString()
     };
   }
@@ -5325,6 +5402,7 @@ function syncUniv() {
       if (Array.isArray(db.recs)) RECS = db.recs;
       if (Array.isArray(db.listCustomCols)) LIST_CUSTOM_COLS = db.listCustomCols;
       if (Array.isArray(db.hiddenListCols)) HIDDEN_LIST_COLS = db.hiddenListCols;
+      if (Array.isArray(db.listColOrder)) LIST_COL_ORDER = db.listColOrder;
       // restore customers: rebuild cards after renderPipeline (merge registration/application)
       db.customers.forEach(c => { if (c.pipe==='new' && c.stage==='application') c.stage='registration'; });
       window.__RESTORE_CUSTOMERS__ = db.customers;
