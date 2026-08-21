@@ -3063,7 +3063,8 @@ function syncUniv() {
         </div>
         <div class="note">${escapeHtml(noteDisplay)}</div>
         ${cardPaymentTotal(card) ? `<div style="font-size:.7rem;color:#0f766e;font-weight:700;margin-top:.3rem;">💰 Paid: $${cardPaymentTotal(card).toLocaleString('en-US')}</div>` : ''}
-        <button onclick="event.stopPropagation();openFlagModal(this.closest('.customer-card'))" title="Set flags" style="margin-top:.4rem;background:#f0f9ff;color:#0369a1;border:1px solid #bae6fd;border-radius:.4rem;padding:.15rem .5rem;font-size:.68rem;cursor:pointer;">🚩 Flag</button>`;
+        <button onclick="event.stopPropagation();openFlagModal(this.closest('.customer-card'))" title="Set flags" style="margin-top:.4rem;background:#f0f9ff;color:#0369a1;border:1px solid #bae6fd;border-radius:.4rem;padding:.15rem .5rem;font-size:.68rem;cursor:pointer;">🚩 Flag</button>
+        <div class="card-resize"></div>`;
       card.querySelector('h4').textContent = name;
       card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#3b82f6';
       return;
@@ -4507,7 +4508,8 @@ function syncUniv() {
           ${card.dataset.noqr === 'true' ? `<span class="tag tag-noqr">🔳 NO QR</span>` : ''}
           ${card.dataset.illegal === 'true' ? `<span class="tag tag-illegal">⚠️ Illegal</span>` : ''}${card.dataset.denied === 'true' ? `<span class="tag tag-denied">❌ Denied</span>` : ''}
         </div>
-        <div class="note">${escapeHtml(note)}</div>`;
+        <div class="note">${escapeHtml(note)}</div>
+        <div class="card-resize"></div>`;
       card.style.borderLeftColor = STAGE_COLORS[stage];
       applyCardBorder(card);
       card.dataset.name = name;
