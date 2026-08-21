@@ -3048,6 +3048,7 @@ function syncUniv() {
         <div class="note">${escapeHtml(noteDisplay)}</div>
         <div style="margin-top:.4rem;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;">
           <button class="btn btn-note" onclick="event.stopPropagation();uploadCustomerDoc(this.closest('.customer-card'))" style="font-size:.68rem;padding:.2rem .5rem;" title="Upload file to this student's Drive folder">📎 Upload</button>
+          <button class="btn btn-note" onclick="event.stopPropagation();copyStudentDocsApp(this.closest('.customer-card'))" style="font-size:.68rem;padding:.2rem .5rem;" title="Find & copy this student's docs into their folder">📋 Copy Docs</button>
         </div>
         <div class="korea-files" style="margin-top:.4rem;max-height:110px;overflow:auto;border-top:1px dashed #eef0f4;padding-top:.3rem;font-size:.7rem;color:#475569;">
           ${card.dataset.folderFiles ? renderFolderFiles(card.dataset.folderFiles) : '<div class="kf-loading" style="color:#94a3b8;">📁 Loading folder...</div>'}
@@ -4457,6 +4458,46 @@ function syncUniv() {
         }
       }
     } catch(e){ const el=card.querySelector('.korea-files'); if(el) el.innerHTML=''; }
+  }
+
+  // Copy a student's docs (from nested batch folder) into their clean folder, then refresh card
+  async function copyStudentDocsApp(card){
+    if(!card || !backendUrl()) return;
+    const name = card.dataset.name || (card.querySelector('h4')?card.querySelector('h4').textContent:'');
+    if(!name){ alert('No student name.'); return; }
+    try {
+      const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({ action:'copyStudentDocs', name:name }) });
+      const info = JSON.parse(await res.text());
+      if(info.ok){
+        card.dataset.folderId = info.folderId;
+        card.dataset.folderUrl = info.folderUrl;
+        alert('Copied '+info.copied+' file(s) for '+name+(info.already?' ('+info.already+' already there)':''));
+        saveDatabase();
+        refreshCardBody(card);
+        loadKoreaFolderFiles(card);
+      } else { alert('Could not copy: '+(info.error||'not found')); }
+    } catch(e){ alert('Error: '+e); }
+  }
+
+  // Bulk: copy docs for ALL korea students
+  async function copyAllKoreaDocs(){
+    const cards = Array.from(document.querySelectorAll('.customer-card[data-pipe="korea"]'));
+    if(!cards.length){ alert('No Korea students.'); return; }
+    if(!confirm('Copy docs for all '+cards.length+' Korea students? This may take a while.')) return;
+    let ok=0, fail=0; const fails=[];
+    for(const c of cards){
+      const name = c.dataset.name || '';
+      try {
+        const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+          body: JSON.stringify({ action:'copyStudentDocs', name:name }) });
+        const info = JSON.parse(await res.text());
+        if(info.ok){ ok++; c.dataset.folderId=info.folderId; c.dataset.folderUrl=info.folderUrl; }
+        else { fail++; if(fails.length<5) fails.push(name); }
+      } catch(e){ fail++; }
+    }
+    saveDatabase(); renderPipeline();
+    alert('Done. Copied for '+ok+' student(s)'+(fail?' ('+fail+' failed: '+fails.join(', ')+')':''));
   }
 
   // Find (or create) a student's Drive folder and re-render the card with the link
