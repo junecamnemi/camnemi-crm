@@ -45,6 +45,10 @@ function handle(e, isPost) {
     if (body.action === 'listStudentFolderFiles') {
       return listStudentFolderFiles(body);
     }
+    // ACTION: find a student's docs (recursive) and copy them into a clean per-student folder
+    if (body.action === 'copyStudentDocs') {
+      return copyStudentDocs(body);
+    }
     // ACTION: get/create the shared Agency Submissions spreadsheet
     if (body.action === 'getAgencySubmissions') {
       return getAgencySubmissions();
@@ -367,6 +371,45 @@ function listStudentFolderFiles(body) {
     files.push({ name: f.getName(), mime: f.getMimeType(), size: f.getSize(), url: f.getUrl() });
   }
   return jsonOut({ ok:true, found:true, folderId: folder.getId(), folderUrl: folder.getUrl(), files: files });
+}
+
+/** Find a student's folder recursively, copy all its files into a clean per-student folder, return the new link. */
+function copyStudentDocs(body) {
+  var name = String(body.name || '').trim();
+  if (!name) return jsonOut({ ok:false, error:'Missing name' });
+  var label = name.replace(/[\\/:*?"<>|]/g, '').trim().toLowerCase();
+
+  var root = getCustomerRoot();
+  // 1. find the student's source folder recursively
+  var stack = []; var it = root.getFolders(); while (it.hasNext()) stack.push(it.next());
+  var src = null;
+  while (stack.length) {
+    var f = stack.pop();
+    if (f.getName().replace(/[\\/:*?"<>|]/g,'').trim().toLowerCase() === label) { src = f; break; }
+    var sub = f.getFolders(); while (sub.hasNext()) stack.push(sub.next());
+  }
+  if (!src) return jsonOut({ ok:false, error:'Source folder not found for ' + name });
+
+  // 2. destination: per-student folder directly under root (clean)
+  var dest = null;
+  var dit = root.getFolders();
+  while (dit.hasNext()) { var df = dit.next(); if (df.getName().trim().toLowerCase() === label) { dest = df; break; } }
+  if (!dest) dest = root.createFolder(name);
+
+  // 3. copy all files from source to dest (skip files already there by name)
+  var copied = 0; var already = 0; var total = 0;
+  var fit = src.getFiles();
+  while (fit.hasNext()) {
+    var file = fit.next();
+    total++;
+    // skip if dest already has a file with same name
+    var existing = dest.getFilesByName(file.getName());
+    if (existing.hasNext()) { already++; continue; }
+    file.makeCopy(file.getName(), dest);
+    copied++;
+  }
+  return jsonOut({ ok:true, found:true, copied:copied, already:already, total:total,
+    folderId: dest.getId(), folderUrl: 'https://drive.google.com/drive/folders/' + dest.getId() });
 }
 
 /**
