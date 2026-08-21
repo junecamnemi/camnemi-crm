@@ -390,27 +390,34 @@
 
     <!-- Filters -->
     <div class="filter-bar">
-            <!-- Filter pills: one row with Stage, School, Program, App Date, Agency -->
-      <div class="filter-scroll" style="max-height:60px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;margin-bottom:.5rem;border:1px solid #eef0f4;border-radius:.6rem;padding:.5rem .6rem;">
-        <div class="filter-row" style="display:flex;align-items:center;gap:.4rem;flex-wrap:nowrap;">
+                  <!-- Filter pills: each filter on its own row (Stage, School, Program, App Date, Agency) -->
+      <div class="filter-scroll" style="max-height:200px;overflow-y:auto;padding-right:4px;margin-bottom:.5rem;border:1px solid #eef0f4;border-radius:.6rem;padding:.5rem .6rem;">
+        <div class="filter-row">
           <span class="filter-label">📋 Stage</span>
-          <span id="filter-stage-pills" class="filter-pills" style="display:inline-flex;"></span>
-          <span class="filter-label" style="margin-left:1rem;">🏫 School</span>
-          <span id="filter-school-pills" class="filter-pills" style="display:inline-flex;"></span>
-          <span class="filter-label" style="margin-left:1rem;">🎓 Program</span>
+          <span id="filter-stage-pills" class="filter-pills"></span>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">🏫 School</span>
+          <span id="filter-school-pills" class="filter-pills"></span>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">🎓 Program</span>
           <span class="click-filter active" data-ftype="program" data-fval="" onclick="toggleClickFilter(this)">Any</span>
           <span class="click-filter" data-ftype="program" data-fval="D4" onclick="toggleClickFilter(this)">D4</span>
           <span class="click-filter" data-ftype="program" data-fval="BA" onclick="toggleClickFilter(this)">BA</span>
           <span class="click-filter" data-ftype="program" data-fval="MA" onclick="toggleClickFilter(this)">MA</span>
           <span class="click-filter" data-ftype="program" data-fval="Online" onclick="toggleClickFilter(this)">Online</span>
-          <span class="filter-label" style="margin-left:1rem;">📅 App Date</span>
-          <span id="filter-appdate-pills" style="display:inline-flex;"></span>
-          <span class="filter-label" style="margin-left:1rem;">🏢 Agency</span>
-          <span id="filter-agency-pills" class="filter-pills" style="display:inline-flex;"></span>
-          <button class="filter-clear" onclick="clearFilter()" style="margin-left:1rem;">✕ Clear All</button>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label" id="filter-appdate-label">📅 App Date</span>
+          <span id="filter-appdate-pills"></span>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">🏢 Agency</span>
+          <span id="filter-agency-pills" class="filter-pills"></span>
         </div>
       </div>
-      <!-- Flags: all flags in one dropdown row (Any, Loan, SiemReap, No QR, Illegal, Denied) -->
+<!-- Flags: all flags in one dropdown row (Any, Loan, SiemReap, No QR, Illegal, Denied) -->
       <div class="filter-row" style="display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;">
         <span class="filter-label">🚩 Flags</span>
         <select id="flag-filter" onchange="toggleFlagFilter(this.value)" style="padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;background:#fff;">
