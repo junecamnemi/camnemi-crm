@@ -315,10 +315,6 @@
       <span class="pipe-count" id="side-count-korea">0</span>
     </div>
 
-    <div class="sidebar-section-label" style="margin-top:.6rem;">Agency Sheet</div>
-    <button onclick="getAgencySheetLink()" style="width:100%;padding:.55rem;background:#e0f2fe;color:#0c4a6e;border:1px solid #bae6fd;border-radius:.75rem;font-weight:600;cursor:pointer;margin-bottom:.3rem;font-size:.78rem;">🔗 Get agency share sheet</button>
-    <button onclick="pullAgencySubmissionsApp()" style="width:100%;padding:.55rem;background:#dcfce7;color:#166534;border:1px solid #86efac;border-radius:.75rem;font-weight:600;cursor:pointer;font-size:.78rem;">📥 Pull submissions → Contact</button>
-
     <div class="sidebar-section-label">Our Knowledge</div>
     <div class="pipe-item" id="nav-universities" onclick="openUniversities()">
       <span class="pipe-name">🏛️ Universities</span>
@@ -3163,6 +3159,12 @@ function syncUniv() {
     const pipe = PIPELINES['korea'];
     const stageOpts = pipe.stages.map(s => `<option value="${s}" ${card.dataset.stage===s?'selected':''}>${STAGE_LABELS[s]}</option>`).join('');
     const agencyOpts = AGENCIES.map(a=>`<option value="${escapeHtml(a.name)}" ${a.name===agency?'selected':''}>${escapeHtml(a.name)}</option>`).join('');
+    // School dropdown from UNIV_KNOWLEDGE (Korean names) + current value
+    const univList = (typeof UNIV_KNOWLEDGE !== 'undefined' && Array.isArray(UNIV_KNOWLEDGE)) ? UNIV_KNOWLEDGE : [];
+    const schoolOpts = '<option value="">— Select school —</option>' + univList.map(u=>`<option value="${escapeHtml(u.n||'')}" ${(u.n===school)?'selected':''}>${escapeHtml(u.n||'')}${u.es?' ('+escapeHtml(u.es)+')':''}</option>`).join('') + (school && !univList.some(u=>u.n===school) ? `<option value="${escapeHtml(school)}" selected>${escapeHtml(school)}</option>` : '');
+    // Program dropdown
+    const PROG_OPTIONS = ['Not Yet','D4','BA','MA','Online'];
+    const programOpts = PROG_OPTIONS.map(p=>`<option value="${escapeHtml(p)}" ${p===program?'selected':''}>${escapeHtml(p)}</option>`).join('');
     const req = (v)=> v ? '' : 'border:1.5px solid #dc2626;background:#fef2f2;';
     // Entered Korea month options: years 2025-2027 + current value
     enterOpts = '<option value="">— Entered Korea —</option>';
@@ -3188,8 +3190,8 @@ function syncUniv() {
       <div class="modal">
         <h2>🇰🇷 Edit Student (in Korea)</h2>
         <div class="field"><label>Name *</label><input id="k-name" value="${escapeHtml(name)}" style="${req(name)}"></div>
-        <div class="field"><label>School *</label><input id="k-school" value="${escapeHtml(school)}" style="${req(school)}"></div>
-        <div class="field"><label>Program *</label><input id="k-program" value="${escapeHtml(program)}" style="${req(program)}"></div>
+        <div class="field"><label>School *</label><select id="k-school">${schoolOpts}</select></div>
+        <div class="field"><label>Program *</label><select id="k-program">${programOpts}</select></div>
         <div class="field"><label>Entered Korea</label><select id="k-appdate">${enterOpts}</select></div>
         <div class="field"><label>Contact</label><input id="k-contact" value="${escapeHtml(contact)}"></div>
         <div class="field"><label>Email</label><input id="k-email" value="${escapeHtml(email)}"></div>
