@@ -418,17 +418,15 @@
         </div>
       </div>
 <!-- Flags: all flags in one dropdown row (Any, Loan, SiemReap, No QR, Illegal, Denied) -->
-      <div class="filter-row" style="display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;">
+      <div class="filter-row" style="display:flex;align-items:center;gap:.45rem;margin-bottom:.5rem;">
         <span class="filter-label">🚩 Flags</span>
-        <select id="flag-filter" onchange="toggleFlagFilter(this.value)" style="padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;background:#fff;">
-          <option value="">Any</option>
-          <option value="loan">💰 With Loan</option>
-          <option value="noloan">No Loan</option>
-          <option value="siemreap">📍 SiemReap</option>
-          <option value="noqr">🔳 No QR</option>
-          <option value="illegal">⚠️ Illegal</option>
-          <option value="denied">❌ Denied</option>
-        </select>
+        <span class="click-filter active" data-ftype="flag" data-fval="" onclick="toggleClickFilter(this)">Any</span>
+        <span class="click-filter" data-ftype="flag" data-fval="loan" onclick="toggleClickFilter(this)">💰 With Loan</span>
+        <span class="click-filter" data-ftype="flag" data-fval="noloan" onclick="toggleClickFilter(this)">No Loan</span>
+        <span class="click-filter" data-ftype="flag" data-fval="siemreap" onclick="toggleClickFilter(this)">📍 SiemReap</span>
+        <span class="click-filter" data-ftype="flag" data-fval="noqr" onclick="toggleClickFilter(this)">🔳 No QR</span>
+        <span class="click-filter" data-ftype="flag" data-fval="illegal" onclick="toggleClickFilter(this)">⚠️ Illegal</span>
+        <span class="click-filter" data-ftype="flag" data-fval="denied" onclick="toggleClickFilter(this)">❌ Denied</span>
       </div>
 <!-- Name search moved to the bottom -->
       <div class="filter-row" style="border-top:1px dashed #eef0f4;margin-top:.4rem;padding-top:.6rem;">
@@ -524,7 +522,6 @@
     restoreBoardTopbar(PIPELINES[pipe].name);
     const fbar = document.querySelector('.filter-bar'); if (fbar) fbar.style.display='';
     const sb=document.getElementById('filter-search'); if(sb) sb.value='';
-    const ff=document.getElementById('flag-filter'); if(ff) ff.value='';
     // Both pipelines default to kanban view
     setView('kanban');
     // leave the universities view and restore the pipeline views
@@ -4022,7 +4019,7 @@ function syncUniv() {
   function batchCancel() { batchMove('canceled'); }
 
   // ======= FILTER (click pills: stage / program / school / agency / appdate) =======
-  let filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[], flag:'' };
+  let filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[], flag:[] };
   // click a pill to set that value; click "Any" (fval='') or same pill again to clear
   function toggleClickFilter(el) {
     const ftype = el.dataset.ftype;
@@ -4056,15 +4053,16 @@ function syncUniv() {
       const hasLoan = !!(card.dataset.loan && card.dataset.loan.trim());
       const matchLoan = (!Array.isArray(fs.loan) || fs.loan.length===0) || fs.loan.some(l => l==='yes' ? hasLoan : !hasLoan);
       const matchFlag = (()=>{
-        const f = fs.flag;
-        if(!f) return true;
-        if(f==='loan') return hasLoan;
-        if(f==='noloan') return !hasLoan;
-        if(f==='siemreap') return card.dataset.siemreap === 'true';
-        if(f==='noqr') return card.dataset.noqr === 'true';
-        if(f==='illegal') return card.dataset.illegal === 'true';
-        if(f==='denied') return card.dataset.denied === 'true';
-        return true;
+        const fl = fs.flag;
+        if(!Array.isArray(fl) || fl.length===0) return true;
+        const cardFlags = {
+          loan: hasLoan, noloan: !hasLoan,
+          siemreap: card.dataset.siemreap === 'true',
+          noqr: card.dataset.noqr === 'true',
+          illegal: card.dataset.illegal === 'true',
+          denied: card.dataset.denied === 'true'
+        };
+        return fl.some(f => cardFlags[f] === true);
       })();
       const h4 = card.querySelector('h4');
       const nm = (card.dataset.name || (h4 ? h4.textContent : '')).toLowerCase();
@@ -4075,14 +4073,9 @@ function syncUniv() {
     if (currentView === 'list') renderList();
   }
   function clearFilter() {
-    filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[], flag:'' };
+    filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[], flag:[] };
     document.querySelectorAll('.click-filter').forEach(p => p.classList.remove('active'));
     const sb=document.getElementById('filter-search'); if(sb) sb.value='';
-    applyFilter();
-  }
-
-  function toggleFlagFilter(val){
-    filterState.flag = val;
     applyFilter();
   }
 
