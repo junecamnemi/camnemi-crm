@@ -3043,7 +3043,8 @@ function syncUniv() {
           ${card.dataset.loanFlag === 'true' ? `<span class="tag tag-loanflag">💰 Loan</span>` : ''}
           ${card.dataset.denied === 'true' ? `<span class="tag tag-denied">❌ Denied</span>` : ''}
         </div>
-        <div class="note">${escapeHtml(noteDisplay)}</div>`;
+        <div class="note">${escapeHtml(noteDisplay)}</div>
+        ${cardPaymentTotal(card) ? `<div style="font-size:.7rem;color:#0f766e;font-weight:700;margin-top:.3rem;">💰 Paid: $${cardPaymentTotal(card).toLocaleString('en-US')}</div>` : ''}`;
       card.querySelector('h4').textContent = name;
       card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#3b82f6';
       return;
@@ -3248,6 +3249,14 @@ function syncUniv() {
             <button class="btn" onclick="visaApproved()" style="width:100%;padding:.7rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(22,163,74,.35);transition:transform .12s, box-shadow .12s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 16px rgba(22,163,74,.45)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 12px rgba(22,163,74,.35)';" onmousedown="this.style.transform='translateY(0)';">✅ VISA Approved — Move to Korea 🇰🇷</button>
             <button class="btn" onclick="visaDenied()" style="width:100%;margin-top:.5rem;padding:.7rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(220,38,38,.35);transition:transform .12s, box-shadow .12s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 16px rgba(220,38,38,.45)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 12px rgba(220,38,38,.35)';" onmousedown="this.style.transform='translateY(0)';">❌ VISA Denied — Archive</button>
           </div>` : ''}
+        </div>
+        <div class="field"><label>💰 Payments</label>
+          <div id="k-payments" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:120px;overflow:auto;font-size:.78rem;background:#f8fafc;margin-bottom:.4rem;">${renderPaymentsList(card.dataset.payments)}</div>
+          <div style="display:flex;gap:.4rem;align-items:center;">
+            <input id="k-pay-amount" placeholder="Amount ($)" style="flex:1;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
+            <input id="k-pay-date" placeholder="Date" value="${escapeHtml(todayStr())}" style="width:110px;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
+            <button class="btn btn-note" onclick="addKPayment()" style="font-size:.75rem;padding:.3rem .7rem;">➕ Add</button>
+          </div>
         </div>
         <div class="field"><label>📁 Documents</label>
           <div id="k-docs" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:160px;overflow:auto;font-size:.78rem;background:#f8fafc;color:#94a3b8;">Loading documents...</div>
@@ -4685,6 +4694,62 @@ function syncUniv() {
     flagEl.checked = loanInput.value.trim() !== '';
   }
 
+  function cardPaymentTotal(card){
+    let arr=[];
+    try{ arr = JSON.parse(card.dataset.payments||'[]'); if(!Array.isArray(arr)) arr=[]; }catch(e){ arr=[]; }
+    let total=0;
+    arr.forEach(p=>{ total += (parseFloat(p.amount)||0); });
+    return total || 0;
+  }
+  function todayStr(){
+    const d = new Date();
+    return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  }
+  // Render the payments array (JSON string) into HTML
+  function renderPaymentsList(paymentsJson){
+    let arr=[];
+    try{ arr = JSON.parse(paymentsJson||'[]'); if(!Array.isArray(arr)) arr=[]; }catch(e){ arr=[]; }
+    if(!arr.length) return '<span style="color:#94a3b8;">No payments yet</span>';
+    let total=0;
+    const rows = arr.map((p,i)=>{
+      const amt = parseFloat(p.amount)||0;
+      total += amt;
+      return `<div style="display:flex;justify-content:space-between;align-items:center;padding:.25rem 0;border-bottom:1px dashed #eef0f4;">
+        <span style="color:#334155;">💰 $${amt.toLocaleString('en-US')}</span>
+        <span style="color:#94a3b8;font-size:.7rem;">${escapeHtml(p.date||'')}</span>
+        <button onclick="deleteKPayment(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.72rem;">🗑</button>
+      </div>`;
+    }).join('');
+    return rows + `<div style="padding-top:.35rem;font-weight:700;color:#0f766e;">Total: $${total.toLocaleString('en-US')}</div>`;
+  }
+  // Add a payment to the current korea modal card
+  function addKPayment(){
+    const overlay = document.getElementById('korea-edit-modal');
+    if(!overlay || !overlay._card) return;
+    const amount = document.getElementById('k-pay-amount').value.trim();
+    const date = document.getElementById('k-pay-date').value.trim() || todayStr();
+    if(!amount || isNaN(parseFloat(amount))){ alert('Enter a valid payment amount.'); return; }
+    const card = overlay._card;
+    let arr=[];
+    try{ arr = JSON.parse(card.dataset.payments||'[]'); if(!Array.isArray(arr)) arr=[]; }catch(e){ arr=[]; }
+    arr.push({ amount: parseFloat(amount), date: date });
+    card.dataset.payments = JSON.stringify(arr);
+    document.getElementById('k-pay-amount').value='';
+    const listEl = document.getElementById('k-payments');
+    if(listEl) listEl.innerHTML = renderPaymentsList(card.dataset.payments);
+  }
+  function deleteKPayment(idx){
+    const overlay = document.getElementById('korea-edit-modal');
+    if(!overlay || !overlay._card) return;
+    const card = overlay._card;
+    let arr=[];
+    try{ arr = JSON.parse(card.dataset.payments||'[]'); if(!Array.isArray(arr)) arr=[]; }catch(e){ arr=[]; }
+    arr.splice(idx,1);
+    card.dataset.payments = JSON.stringify(arr);
+    const listEl = document.getElementById('k-payments');
+    if(listEl) listEl.innerHTML = renderPaymentsList(card.dataset.payments);
+  }
+
   // Add a note to the korea modal's note list immediately (with timestamp)
   function addKoreaNote(){
     const overlay = document.getElementById('korea-edit-modal');
@@ -5070,7 +5135,8 @@ function syncUniv() {
         recent: card.dataset.recent || '',
         folderId: card.dataset.folderId || '',
         folderUrl: card.dataset.folderUrl || '',
-        denied: card.dataset.denied || ''
+        denied: card.dataset.denied || '',
+        payments: card.dataset.payments || ''
       });
     });
     return {
@@ -5148,7 +5214,7 @@ function syncUniv() {
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied'].forEach(k=>{
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
       card.dataset.name = c.name||'';
