@@ -214,7 +214,7 @@ function addAgencyContact(body) {
 function writeSheetFromData(data) {
   var ss = getSheet();
   var tabs = [
-    { name: 'Customers', cols: ['id','pipe','stage','name','age','agency','program','school','appdate','contact','email','loan','topik','ielts','notes','birthdate'], rows: data.customers || [] },
+    { name: 'Customers', cols: ['id','pipe','stage','name','age','agency','program','school','appdate','contact','email','loan','topik','ielts','notes','birthdate','noqr','illegal','denied','loanFlag','payments','recent','folderId','folderUrl'], rows: data.customers || [] },
     { name: 'Agencies',  cols: ['name','commission','policy'], rows: data.agencies || [] },
     { name: 'Partners',  cols: ['name','note'], rows: (data.partners||[]).map(p => [p.name, p.note||p.policy||'']) },
     { name: 'Tasks',     cols: ['date','type','title','note'], rows: data.tasks || [] },
@@ -257,15 +257,20 @@ function readSheetToData() {
     }
     return out;
   }
-  data.customers = readTab('Customers', ['id','pipe','stage','name','age','agency','program','school','appdate','contact','email','loan','topik','ielts','notes','birthdate'], function(o){
+  data.customers = readTab('Customers', ['id','pipe','stage','name','age','agency','program','school','appdate','contact','email','loan','topik','ielts','notes','birthdate','noqr','illegal','denied','loanFlag','payments','recent','folderId','folderUrl'], function(o){
     var notes = [];
     try { if (o.notes) notes = JSON.parse(o.notes); } catch(e){ if(o.notes) notes=[{text:String(o.notes),time:''}]; }
+    var payments = [];
+    try { if (o.payments) payments = JSON.parse(o.payments); } catch(e){}
     return {
       id: String(o.id||('c'+Date.now())), pipe: String(o.pipe||'new'), stage: String(o.stage||'contact'),
       name: String(o.name||''), age: String(o.age||''), agency: String(o.agency||''),
       program: String(o.program||''), school: String(o.school||''), appdate: String(o.appdate||''),
       contact: String(o.contact||''), email: String(o.email||''), loan: String(o.loan||''),
-      topik: String(o.topik||''), ielts: String(o.ielts||''), notes: notes, birthdate: String(o.birthdate||'')
+      topik: String(o.topik||''), ielts: String(o.ielts||''), notes: notes, birthdate: String(o.birthdate||''),
+      noqr: String(o.noqr||''), illegal: String(o.illegal||''), denied: String(o.denied||''),
+      loanFlag: String(o.loanFlag||''), payments: payments, recent: String(o.recent||''),
+      folderId: String(o.folderId||''), folderUrl: String(o.folderUrl||'')
     };
   });
   data.agencies = readTab('Agencies', ['name','commission','policy']);
