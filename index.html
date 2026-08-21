@@ -3045,7 +3045,11 @@ function syncUniv() {
           ${schEn ? `<span class="tag tag-school">${schLogo?`<img src="${escapeHtml(schLogo)}" onerror="this.style.display='none'" style="width:14px;height:14px;object-fit:contain;border-radius:3px;background:#fff;vertical-align:middle;margin-right:3px;">`:''}${escapeHtml(schEn)}</span>` : ''}
           ${monthsInKorea ? `<span class="tag tag-months">🗓 ${escapeHtml(monthsInKorea)}</span>` : ''}
         </div>
-        <div class="note">${escapeHtml(noteDisplay)}</div>`;
+        <div class="note">${escapeHtml(noteDisplay)}</div>
+        <div style="margin-top:.4rem;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;">
+          <button class="btn btn-note" onclick="event.stopPropagation();uploadCustomerDoc(this.closest('.customer-card'))" style="font-size:.68rem;padding:.2rem .5rem;" title="Upload file to this student's Drive folder">📎 Upload</button>
+          ${card.dataset.folderUrl ? `<a href="${escapeHtml(card.dataset.folderUrl)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="font-size:.68rem;color:#2563eb;font-weight:600;text-decoration:none;">📁 Open Folder</a>` : `<button class="btn btn-note" onclick="event.stopPropagation();linkKoreaFolder(this.closest('.customer-card'))" style="font-size:.68rem;padding:.2rem .5rem;" title="Find this student's Drive folder">🔗 Find Folder</button>`}
+        </div>`;
       card.querySelector('h4').textContent = name;
       card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#3b82f6';
       return;
@@ -4430,6 +4434,25 @@ function syncUniv() {
       }
     } catch(e){ console.warn('createFolder failed', e); }
   }
+  // Find (or create) a student's Drive folder and re-render the card with the link
+  async function linkKoreaFolder(card){
+    if(!card || !backendUrl()) return;
+    const name = card.dataset.name || (card.querySelector('h4')?card.querySelector('h4').textContent:'');
+    if(!name){ alert('No student name.'); return; }
+    try {
+      const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({ action:'createFolder', name:name, month:card.dataset.appdate||'', school:card.dataset.school||'' }) });
+      const info = JSON.parse(await res.text());
+      if(info.folderUrl){
+        card.dataset.folderId = info.folderId;
+        card.dataset.folderUrl = info.folderUrl;
+        saveDatabase();
+        refreshCardBody(card);
+        alert('Folder for ' + name + ': ' + info.folderUrl);
+      } else { alert('Could not find/create folder.'); }
+    } catch(e){ alert('Error: '+e); }
+  }
+
   // Upload a file into a customer's Drive folder.
   function uploadCustomerDoc(card) {
     const input = document.createElement('input');
@@ -4595,7 +4618,9 @@ function syncUniv() {
         noqr: card.dataset.noqr, illegal: card.dataset.illegal,
         notes: card.dataset.notes ? JSON.parse(card.dataset.notes) : [],
         stage_order: card.parentElement ? card.parentElement.getAttribute('data-cards') : card.dataset.stage,
-        recent: card.dataset.recent || ''
+        recent: card.dataset.recent || '',
+        folderId: card.dataset.folderId || '',
+        folderUrl: card.dataset.folderUrl || ''
       });
     });
     return {
@@ -4673,7 +4698,7 @@ function syncUniv() {
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent'].forEach(k=>{
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
       card.dataset.name = c.name||'';
