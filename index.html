@@ -453,6 +453,9 @@
             <th class="sortable" onclick="sortList('appdate')">App. Date <span class="sort-ic" data-sort="appdate"></span></th>
             <th class="sortable" onclick="sortList('stage')">Stage <span class="sort-ic" data-sort="stage"></span></th>
             <th>Note</th>
+            <th id="list-custom-head" style="width:40px;text-align:center;">
+              <button onclick="addListColumn()" title="Add a column (backend field)" style="background:#e0e7ff;color:#3730a3;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:1rem;font-weight:700;line-height:1;">+</button>
+            </th>
           </tr>
         </thead>
         <tbody id="list-body"></tbody>
@@ -4056,9 +4059,39 @@ function syncUniv() {
     document.querySelectorAll('.sort-ic').forEach(ic=>{ ic.textContent = (ic.dataset.sort===field) ? (listSort.dir>0?' ▲':' ▼') : ''; });
     renderList();
   }
+  // Custom backend columns added via the + button in list view
+  let LIST_CUSTOM_COLS = [];
+  function addListColumn(){
+    const name = prompt('New column name (e.g. Passport, Region, Deposit):');
+    if(!name) return;
+    const col = name.trim();
+    if(!LIST_CUSTOM_COLS.includes(col)) LIST_CUSTOM_COLS.push(col);
+    saveDatabase();
+    renderList();
+  }
+  // value of a custom column for a card (reads card.dataset.<col> or stored extra fields)
+  function listCustomValue(card, col){
+    const key = col.replace(/[^a-z0-9]/gi,'').toLowerCase();
+    const v = card.dataset ? (card.dataset[key] || card.dataset[col] || '') : '';
+    if(v) return v;
+    // check stored extras on the card (payments etc.)
+    return '';
+  }
+
   function renderList() {
     const body = document.getElementById('list-body');
     body.innerHTML = '';
+    // inject custom column headers before the + button
+    const customHead = document.getElementById('list-custom-head');
+    if(customHead){
+      const prev = customHead.previousElementSibling;
+      let cur = customHead;
+      LIST_CUSTOM_COLS.forEach(col=>{
+        const th = document.createElement('th');
+        th.textContent = col;
+        cur.parentNode.insertBefore(th, cur);
+      });
+    }
     const { stage, program, school, agency, appdate } = filterState;
     const rows = [];
     document.querySelectorAll('.customer-card[data-pipe="' + currentPipe + '"]').forEach(card => {
@@ -4111,7 +4144,8 @@ function syncUniv() {
         <td>${escapeHtml(r.school)}</td>
         <td>${escapeHtml(r.appdate)}</td>
         <td class="lst-stage"><span style="background:${r.stageBg}">${STAGE_LABELS[r.stage] || r.stage}</span></td>
-        <td class="note-cell">${escapeHtml(r.note)}</td>`;
+        <td class="note-cell">${escapeHtml(r.note)}</td>
+        ${LIST_CUSTOM_COLS.map(c=>`<td>${escapeHtml(listCustomValue(r.card, c))}</td>`).join('')}`;
       tr._card = r.card;
       tr.style.cursor = 'pointer';
       tr.addEventListener('click', () => {
@@ -5190,6 +5224,7 @@ function syncUniv() {
       if (Array.isArray(db.tasks)) TASKS = db.tasks;
       if (Array.isArray(db.transactions)) TRANS = db.transactions;
       if (Array.isArray(db.recs)) RECS = db.recs;
+      if (Array.isArray(db.listCustomCols)) LIST_CUSTOM_COLS = db.listCustomCols;
       // restore customers: rebuild cards after renderPipeline (merge registration/application)
       db.customers.forEach(c => { if (c.pipe==='new' && c.stage==='application') c.stage='registration'; });
       window.__RESTORE_CUSTOMERS__ = db.customers;
