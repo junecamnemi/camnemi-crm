@@ -410,21 +410,20 @@
           <span class="filter-label" style="margin-left:1.2rem;" id="filter-appdate-label">📅 App Date</span>
           <span id="filter-appdate-pills" style="display:inline-flex;"></span>
         </div>
-        <div class="filter-row">
+        <div class="filter-row" style="flex-wrap:wrap;">
           <span class="filter-label">🏢 Agency</span>
           <span id="filter-agency-pills" class="filter-pills"></span>
+          <span class="filter-label" style="margin-left:1.2rem;">🚩 Flags</span>
+          <span class="click-filter" data-ftype="flag" data-fval="loan" onclick="toggleClickFilter(this)">💰 Loan</span>
+          <span class="click-filter" data-ftype="flag" data-fval="siemreap" onclick="toggleClickFilter(this)">📍 SiemReap</span>
+          <span class="click-filter" data-ftype="flag" data-fval="noqr" onclick="toggleClickFilter(this)">🔳 No QR</span>
+          <span class="click-filter" data-ftype="flag" data-fval="illegal" onclick="toggleClickFilter(this)">⚠️ Illegal</span>
         </div>
       </div>
       <!-- Name search + Flags in one row -->
       <div class="filter-row" style="display:flex;align-items:center;gap:.45rem;margin-bottom:.5rem;flex-wrap:wrap;">
         <span class="filter-label">🔍 Name</span>
         <input id="filter-search" type="text" placeholder="Search by student name..." style="flex:1;min-width:180px;padding:.45rem .8rem;border:1.5px solid #e2e8f0;border-radius:.6rem;font-size:.82rem;outline:none;" oninput="applyFilter()">
-        <span class="filter-label" style="margin-left:1.2rem;">🚩 Flags</span>
-        <span class="click-filter active" data-ftype="flag" data-fval="" onclick="toggleClickFilter(this)">Any</span>
-        <span class="click-filter" data-ftype="flag" data-fval="loan" onclick="toggleClickFilter(this)">💰 Loan</span>
-        <span class="click-filter" data-ftype="flag" data-fval="siemreap" onclick="toggleClickFilter(this)">📍 SiemReap</span>
-        <span class="click-filter" data-ftype="flag" data-fval="noqr" onclick="toggleClickFilter(this)">🔳 No QR</span>
-        <span class="click-filter" data-ftype="flag" data-fval="illegal" onclick="toggleClickFilter(this)">⚠️ Illegal</span>
       </div>
 <!-- Batch action bar (appears when cards are selected) -->
     <div id="batch-bar" style="display:none;background:#fff;border:1px solid #bfdbfe;border-radius:12px;padding:.7rem 1rem;margin-bottom:1rem;box-shadow:0 2px 10px rgba(37,99,235,.1);align-items:center;gap:.75rem;flex-wrap:wrap;">
