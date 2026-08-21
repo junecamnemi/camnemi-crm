@@ -4387,8 +4387,9 @@ function syncUniv() {
       const text = await res.text();
       const db = JSON.parse(text);
       if (!db || !Array.isArray(db.customers)) throw new Error('Bad data shape');
-      // MERGE cloud data with current local DOM data (by card id) so local
-      // edits/adds/moves are never lost to a stale cloud snapshot.
+      // BACKEND IS THE SOURCE OF TRUTH: use cloud data as-is (no local merge),
+      // so local demo/pollution can never re-enter. Local-only new cards added
+      // by THIS user (non-demo) are appended after the cloud list.
       const localCustomers = [];
       document.querySelectorAll('.customer-card').forEach(card => {
         localCustomers.push({
@@ -4404,12 +4405,12 @@ function syncUniv() {
       });
       let merged = (db.customers||[]).slice();
       const cloudIds = new Set(merged.map(c=>c.id));
-      const localById = {};
-      localCustomers.forEach(lc => { localById[lc.id] = lc; });
-      // for same-ID cards, prefer the LOCAL version (the user's freshest edits/moves)
-      merged = merged.map(cc => localById[cc.id] ? localById[cc.id] : cc);
-      // add local-only customers (new adds not yet in cloud)
-      localCustomers.forEach(lc => { if (!cloudIds.has(lc.id)) merged.push(lc); });
+      // append local-only cards that are NOT demo and NOT already in cloud (real new adds by this user)
+      const DEMO_NAMES_LOCAL = new Set(['JAMES SMITH','SARAH JOHNSON','OLIVIA BROWN','LIAM JOHNSON','SOPHIA GARCIA','NOAH MILLER','ISABELLA DAVIS','ETHAN WILSON','MIA MOORE','LUCAS TAYLOR','AMELIA ANDERSON','MASON THOMAS','HARPER JACKSON','ELIJAH WHITE','EVELYN HARRIS','BENJAMIN MARTIN','AVA THOMPSON','HENRY LEE','CHARLOTTE WALKER','ALEXANDER HALL','EMILY ALLEN','DANIEL YOUNG','GRACE KING','MATTHEW WRIGHT','CHLOE SCOTT','SAMUEL GREEN','ZOE BAKER','JOHN ADAMS','LILY NELSON','RYAN HILL','NORA CARTER','EMMA RODRIGUEZ','MICHAEL CHEN','DAVID KIM','MARIA GARCIA','YUSUF AHMED','AISHA KHAN','ㄴㄴㅇ','코스타']);
+      localCustomers.forEach(lc => {
+        const nm = String(lc.name||'').trim().toUpperCase();
+        if(!cloudIds.has(lc.id) && !DEMO_NAMES_LOCAL.has(nm)) merged.push(lc);
+      });
       // remove known demo/pollution students (never real data)
       const DEMO_NAMES = new Set(['JAMES SMITH','SARAH JOHNSON','OLIVIA BROWN','LIAM JOHNSON','SOPHIA GARCIA','NOAH MILLER','ISABELLA DAVIS','ETHAN WILSON','MIA MOORE','LUCAS TAYLOR','AMELIA ANDERSON','MASON THOMAS','HARPER JACKSON','ELIJAH WHITE','EVELYN HARRIS','BENJAMIN MARTIN','AVA THOMPSON','HENRY LEE','CHARLOTTE WALKER','ALEXANDER HALL','EMILY ALLEN','DANIEL YOUNG','GRACE KING','MATTHEW WRIGHT','CHLOE SCOTT','SAMUEL GREEN','ZOE BAKER','JOHN ADAMS','LILY NELSON','RYAN HILL','NORA CARTER','EMMA RODRIGUEZ','MICHAEL CHEN','DAVID KIM','MARIA GARCIA','YUSUF AHMED','AISHA KHAN','ㄴㄴㅇ','코스타']);
       merged = merged.filter(c => {
