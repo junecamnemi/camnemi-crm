@@ -711,7 +711,7 @@
     const ll = card.querySelector('.loan-line');
     if (ll) {
       const loan = parseInt(card.dataset.loan) || 0;
-      ll.textContent = '💰 Loan: ' + loan.toLocaleString();
+      ll.textContent = '💰 Loan: $' + loan.toLocaleString('en-US');
     }
     // passport line
     const ppl = card.querySelector('.passport-line');
@@ -3203,7 +3203,7 @@ function syncUniv() {
         <div class="field"><label>Contact</label><input id="k-contact" value="${escapeHtml(contact)}"></div>
         <div class="field"><label>Email</label><input id="k-email" value="${escapeHtml(email)}"></div>
         <div class="field"><label>Agency</label><select id="k-agency"><option value="">— Agency —</option>${agencyOpts}</select></div>
-        <div class="field"><label>Loan (KRW)</label><input id="k-loan" value="${escapeHtml(loan)}"></div>
+        <div class="field"><label>Loan (USD)</label><input id="k-loan" value="${escapeHtml(loan)}"></div>
         <div class="field"><label>📝 Notes</label>
           <div id="k-notes-list" style="max-height:140px;overflow:auto;">${notesHtml}</div>
           <div style="display:flex;gap:.4rem;margin-top:.4rem;">
