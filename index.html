@@ -3154,8 +3154,9 @@ function syncUniv() {
     const email = card.dataset.email || '';
     const agency = card.dataset.agency || '';
     const loan = card.dataset.loan || '';
-    let note='';
-    try { const n=JSON.parse(card.dataset.notes||'[]'); if(n[0]) note=n[0].text; } catch(e){ note=card.dataset.notes||''; }
+    let notesArr=[];
+    try { notesArr = JSON.parse(card.dataset.notes||'[]'); if(!Array.isArray(notesArr)) notesArr=[]; } catch(e){ notesArr = card.dataset.notes ? [{text:String(card.dataset.notes),time:''}] : []; }
+    const notesHtml = notesArr.length ? notesArr.map((n,i)=>`<div class="knote" style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:.4rem;margin-bottom:.35rem;background:#f8fafc;"><div style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
     const pipe = PIPELINES['korea'];
     const stageOpts = pipe.stages.map(s => `<option value="${s}" ${card.dataset.stage===s?'selected':''}>${STAGE_LABELS[s]}</option>`).join('');
     const agencyOpts = AGENCIES.map(a=>`<option value="${escapeHtml(a.name)}" ${a.name===agency?'selected':''}>${escapeHtml(a.name)}</option>`).join('');
@@ -3203,7 +3204,13 @@ function syncUniv() {
         <div class="field"><label>Email</label><input id="k-email" value="${escapeHtml(email)}"></div>
         <div class="field"><label>Agency</label><select id="k-agency"><option value="">— Agency —</option>${agencyOpts}</select></div>
         <div class="field"><label>Loan (KRW)</label><input id="k-loan" value="${escapeHtml(loan)}"></div>
-        <div class="field"><label>Note</label><textarea id="k-note" rows="3">${escapeHtml(note)}</textarea></div>
+        <div class="field"><label>📝 Notes</label>
+          <div id="k-notes-list" style="max-height:140px;overflow:auto;">${notesHtml}</div>
+          <div style="display:flex;gap:.4rem;margin-top:.4rem;">
+            <input id="k-note" placeholder="Add a note..." onkeydown="if(event.key==='Enter'){event.preventDefault();addKoreaNote();}" style="flex:1;padding:.45rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
+            <button class="btn btn-note" onclick="addKoreaNote()" style="font-size:.75rem;padding:.3rem .7rem;">➕ Add</button>
+          </div>
+        </div>
         <div class="field"><label>Stage</label><select id="k-stage">${stageOpts}<option value="archived" ${card.dataset.stage==='archived'?'selected':''}>🗄️ Archived</option><option value="canceled" ${card.dataset.stage==='canceled'?'selected':''}>⛔ Canceled</option></select></div>
         <div class="field"><label>📁 Documents</label>
           <div id="k-docs" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:160px;overflow:auto;font-size:.78rem;background:#f8fafc;color:#94a3b8;">Loading documents...</div>
@@ -3240,7 +3247,11 @@ function syncUniv() {
     card.dataset.agency=normalizeAgency(overlay.querySelector('#k-agency').value);
     card.dataset.loan=overlay.querySelector('#k-loan').value.trim();
     const nv=overlay.querySelector('#k-note').value.trim();
-    card.dataset.notes=JSON.stringify(nv?[{text:nv,time:nowStr(),by:currentUserName()}]:[]);
+    // preserve existing notes, append new one only if typed
+    let allNotes = [];
+    try { allNotes = JSON.parse(card.dataset.notes||'[]'); if(!Array.isArray(allNotes)) allNotes=[]; } catch(e){ allNotes=[]; }
+    if(nv){ allNotes.push({text:nv, time:nowStr(), by:currentUserName()}); }
+    card.dataset.notes=JSON.stringify(allNotes);
     const oldStage=card.dataset.stage;
     const newStage=overlay.querySelector('#k-stage').value;
     if(newStage!==oldStage){
@@ -4495,6 +4506,38 @@ function syncUniv() {
       if(info && info.ok && info.renamed) refreshKoreaDocs();
       else alert('Could not rename file.');
     } catch(e){ alert('Error: '+e); }
+  }
+
+  // Add a note to the korea modal's note list immediately (with timestamp)
+  function addKoreaNote(){
+    const overlay = document.getElementById('korea-edit-modal');
+    const input = document.getElementById('k-note');
+    if(!overlay || !input) return;
+    const text = input.value.trim();
+    if(!text){ return; }
+    const card = overlay._card;
+    let notes = [];
+    try { notes = JSON.parse(card.dataset.notes||'[]'); if(!Array.isArray(notes)) notes=[]; } catch(e){ notes=[]; }
+    const entry = { text:text, time: nowStr(), by: currentUserName() };
+    notes.push(entry);
+    card.dataset.notes = JSON.stringify(notes);
+    input.value='';
+    renderKoreaNotes(overlay, notes);
+  }
+  function deleteKoreaNote(idx){
+    const overlay = document.getElementById('korea-edit-modal');
+    if(!overlay) return;
+    const card = overlay._card;
+    let notes = [];
+    try { notes = JSON.parse(card.dataset.notes||'[]'); if(!Array.isArray(notes)) notes=[]; } catch(e){ notes=[]; }
+    notes.splice(idx,1);
+    card.dataset.notes = JSON.stringify(notes);
+    renderKoreaNotes(overlay, notes);
+  }
+  function renderKoreaNotes(overlay, notes){
+    const listEl = overlay.querySelector('#k-notes-list');
+    if(!listEl) return;
+    listEl.innerHTML = notes.length ? notes.map((n,i)=>`<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:.4rem;margin-bottom:.35rem;background:#f8fafc;"><div style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
   }
 
   // Searchable school picker for the korea modal
