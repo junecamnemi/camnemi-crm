@@ -84,6 +84,7 @@
     .tag-school { background: #fef3c7; color: #92400e; }
     .tag-months { background: #e0e7ff; color: #3730a3; }
     .tag-loanflag { background: #ccfbf1; color: #0f766e; }
+    .tag-siemreap { background: #cffafe; color: #0e7490; }
     .tag-denied { background: #fee2e2; color: #b91c1c; font-weight: 700; }
     .tag-topik { background: #fee2e2; color: #991b1b; }
     .tag-ielts { background: #e0f2fe; color: #0c4a6e; }
@@ -3037,10 +3038,12 @@ function syncUniv() {
           ${card.dataset.noqr === 'true' ? `<span class="tag tag-noqr">🔳 NO QR</span>` : ''}
           ${card.dataset.illegal === 'true' ? `<span class="tag tag-illegal">⚠️ Illegal</span>` : ''}${card.dataset.denied === 'true' ? `<span class="tag tag-denied">❌ Denied</span>` : ''}
           ${card.dataset.loanFlag === 'true' ? `<span class="tag tag-loanflag">💰 Loan</span>` : ''}
+          ${card.dataset.siemreap === 'true' ? `<span class="tag tag-siemreap">📍 SiemReap</span>` : ''}
           ${card.dataset.denied === 'true' ? `<span class="tag tag-denied">❌ Denied</span>` : ''}
         </div>
         <div class="note">${escapeHtml(noteDisplay)}</div>
-        ${cardPaymentTotal(card) ? `<div style="font-size:.7rem;color:#0f766e;font-weight:700;margin-top:.3rem;">💰 Paid: $${cardPaymentTotal(card).toLocaleString('en-US')}</div>` : ''}`;
+        ${cardPaymentTotal(card) ? `<div style="font-size:.7rem;color:#0f766e;font-weight:700;margin-top:.3rem;">💰 Paid: $${cardPaymentTotal(card).toLocaleString('en-US')}</div>` : ''}
+        <button onclick="event.stopPropagation();openFlagModal(this.closest('.customer-card'))" title="Set flags" style="margin-top:.4rem;background:#f0f9ff;color:#0369a1;border:1px solid #bae6fd;border-radius:.4rem;padding:.15rem .5rem;font-size:.68rem;cursor:pointer;">🚩 Flag</button>`;
       card.querySelector('h4').textContent = name;
       card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#3b82f6';
       return;
@@ -3165,6 +3168,7 @@ function syncUniv() {
     const loan = card.dataset.loan || '';
     const noqr = card.dataset.noqr === 'true';
     const illegal = card.dataset.illegal === 'true';
+    const siemreap = card.dataset.siemreap === 'true';
     let notesArr=[];
     try { notesArr = JSON.parse(card.dataset.notes||'[]'); if(!Array.isArray(notesArr)) notesArr=[]; } catch(e){ notesArr = card.dataset.notes ? [{text:String(card.dataset.notes),time:''}] : []; }
     const notesHtml = notesArr.length ? notesArr.map((n,i)=>`<div class="knote" style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:.4rem;margin-bottom:.35rem;background:#f8fafc;"><div class="knote-text" style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><div style="display:flex;align-items:center;gap:.25rem;flex:none;"><button onclick="editKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#6b7280;font-size:.72rem;" title="Edit note">✏️</button><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button></div><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
@@ -3228,6 +3232,7 @@ function syncUniv() {
             <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-noqr" ${noqr?'checked':''} style="accent-color:#dc2626;width:16px;height:16px;"> 🔳 No QR</label>
             <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-illegal" ${illegal?'checked':''} style="accent-color:#7f1d1d;width:16px;height:16px;"> ⚠️ Illegal</label>
             <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-loan-flag" ${loan?'checked':''} style="accent-color:#0d9488;width:16px;height:16px;"> 💰 Loan</label>
+            <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-siemreap" ${siemreap?'checked':''} style="accent-color:#0891b2;width:16px;height:16px;"> 📍 SiemReap</label>
           </div>
         </div>
         <div class="field"><label>📝 Notes</label>
@@ -3291,6 +3296,7 @@ function syncUniv() {
     const loanFlagEl=overlay.querySelector('#k-loan-flag'); if(loanFlagEl){ card.dataset.loanFlag = loanFlagEl.checked ? 'true' : ''; }
     const noqrEl=overlay.querySelector('#k-noqr'); if(noqrEl) card.dataset.noqr = noqrEl.checked ? 'true' : '';
     const illegalEl=overlay.querySelector('#k-illegal'); if(illegalEl) card.dataset.illegal = illegalEl.checked ? 'true' : '';
+    const siemEl=overlay.querySelector('#k-siemreap'); if(siemEl) card.dataset.siemreap = siemEl.checked ? 'true' : '';
     const nv=overlay.querySelector('#k-note').value.trim();
     // preserve existing notes, append new one only if typed
     let allNotes = [];
@@ -4963,6 +4969,55 @@ function syncUniv() {
     if(listEl) listEl.innerHTML = renderPaymentsList(card.dataset.payments);
   }
 
+  // Open the flag modal for a student card
+  function openFlagModal(card){
+    if(!card) return;
+    let m = document.getElementById('flag-modal');
+    if(!m){
+      m = document.createElement('div');
+      m.id='flag-modal';
+      m.className='modal-overlay';
+      m.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:99999;';
+      m.onclick = function(e){ if(e.target===m) m.style.display='none'; };
+      document.body.appendChild(m);
+    }
+    m.style.display='flex';
+    const f = k => card.dataset[k] === 'true';
+    const ck = (k,checked)=> checked ? (card.dataset[k]='true') : (card.dataset[k]='');
+    m.innerHTML = `<div class="modal" style="max-width:420px;width:90%;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;border-bottom:1px solid #eef0f4;">
+        <h3 style="font-size:1.05rem;color:#111827;">🚩 Flags — ${escapeHtml(card.dataset.name||'')}</h3>
+        <button onclick="this.closest('.modal-overlay').style.display='none'" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:#94a3b8;">✕</button>
+      </div>
+      <div style="padding:1rem 1.2rem;display:flex;flex-direction:column;gap:.6rem;">
+        <label style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:#334155;cursor:pointer;"><input type="checkbox" id="f-siemreap" ${f('siemreap')?'checked':''} style="accent-color:#0891b2;width:18px;height:18px;"> 📍 SiemReap</label>
+        <label style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:#334155;cursor:pointer;"><input type="checkbox" id="f-noqr" ${f('noqr')?'checked':''} style="accent-color:#dc2626;width:18px;height:18px;"> 🔳 No QR</label>
+        <label style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:#334155;cursor:pointer;"><input type="checkbox" id="f-illegal" ${f('illegal')?'checked':''} style="accent-color:#7f1d1d;width:18px;height:18px;"> ⚠️ Illegal</label>
+        <label style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:#334155;cursor:pointer;"><input type="checkbox" id="f-loan" ${f('loanFlag')?'checked':''} style="accent-color:#0d9488;width:18px;height:18px;"> 💰 Loan</label>
+        <label style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:#334155;cursor:pointer;"><input type="checkbox" id="f-denied" ${f('denied')?'checked':''} style="accent-color:#dc2626;width:18px;height:18px;"> ❌ Denied</label>
+      </div>
+      <div style="padding:1rem 1.2rem;border-top:1px solid #eef0f4;display:flex;gap:.5rem;">
+        <button onclick="saveFlagModal(this.closest('.modal').querySelector('#flag-modal')||this.closest('.modal'))" style="flex:1;padding:.5rem;background:#4f46e5;color:#fff;border:none;border-radius:.5rem;font-weight:600;cursor:pointer;">Save Flags</button>
+        <button onclick="this.closest('.modal-overlay').style.display='none'" style="flex:1;padding:.5rem;background:#f3f4f6;color:#374151;border:none;border-radius:.5rem;font-weight:600;cursor:pointer;">Cancel</button>
+      </div>
+    </div>`;
+    m._card = card;
+  }
+  function saveFlagModal(scopeEl){
+    const m = document.getElementById('flag-modal');
+    if(!m || !m._card) return;
+    const card = m._card;
+    const g = id => m.querySelector('#'+id);
+    card.dataset.siemreap = g('f-siemreap').checked ? 'true' : '';
+    card.dataset.noqr = g('f-noqr').checked ? 'true' : '';
+    card.dataset.illegal = g('f-illegal').checked ? 'true' : '';
+    card.dataset.loanFlag = g('f-loan').checked ? 'true' : '';
+    card.dataset.denied = g('f-denied').checked ? 'true' : '';
+    saveNow();
+    m.style.display='none';
+    if(typeof refreshCardBody==='function') refreshCardBody(card);
+  }
+
   // Add a note to the korea modal's note list immediately (with timestamp)
   function addKoreaNote(){
     const overlay = document.getElementById('korea-edit-modal');
@@ -5349,6 +5404,7 @@ function syncUniv() {
         folderId: card.dataset.folderId || '',
         folderUrl: card.dataset.folderUrl || '',
         denied: card.dataset.denied || '',
+        siemreap: card.dataset.siemreap || '',
         payments: card.dataset.payments || '',
         hidden: card.dataset.hidden || '',
         customFields: (LIST_CUSTOM_COLS.reduce((o,c)=>{ const k=c.replace(/[^a-z0-9]/gi,'').toLowerCase(); o[c]=card.dataset[k]||''; return o; },{}))
@@ -5435,7 +5491,7 @@ function syncUniv() {
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden'].forEach(k=>{
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
       card.dataset.name = c.name||'';
