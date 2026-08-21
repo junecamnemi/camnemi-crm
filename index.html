@@ -390,40 +390,40 @@
 
     <!-- Filters -->
     <div class="filter-bar">
-      <!-- Filter pills in a designated scrollable area (grows, scrolls when long) -->
-      <div class="filter-scroll" style="max-height:180px;overflow-y:auto;padding-right:4px;margin-bottom:.5rem;border:1px solid #eef0f4;border-radius:.6rem;padding:.5rem;">
-        <!-- Row 1: Stage (dynamic per pipeline) -->
-        <div class="filter-row">
+            <!-- Filter pills: one row with Stage, School, Program, App Date, Agency -->
+      <div class="filter-scroll" style="max-height:60px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;margin-bottom:.5rem;border:1px solid #eef0f4;border-radius:.6rem;padding:.5rem .6rem;">
+        <div class="filter-row" style="display:flex;align-items:center;gap:.4rem;flex-wrap:nowrap;">
           <span class="filter-label">📋 Stage</span>
-          <span id="filter-stage-pills" class="filter-pills"></span>
-        </div>
-        <!-- Row 2: Program + School -->
-        <div class="filter-row">
-          <span class="filter-label">🎓 Program</span>
+          <span id="filter-stage-pills" class="filter-pills" style="display:inline-flex;"></span>
+          <span class="filter-label" style="margin-left:1rem;">🏫 School</span>
+          <span id="filter-school-pills" class="filter-pills" style="display:inline-flex;"></span>
+          <span class="filter-label" style="margin-left:1rem;">🎓 Program</span>
           <span class="click-filter active" data-ftype="program" data-fval="" onclick="toggleClickFilter(this)">Any</span>
           <span class="click-filter" data-ftype="program" data-fval="D4" onclick="toggleClickFilter(this)">D4</span>
           <span class="click-filter" data-ftype="program" data-fval="BA" onclick="toggleClickFilter(this)">BA</span>
           <span class="click-filter" data-ftype="program" data-fval="MA" onclick="toggleClickFilter(this)">MA</span>
           <span class="click-filter" data-ftype="program" data-fval="Online" onclick="toggleClickFilter(this)">Online</span>
-          <span class="filter-label" style="margin-left:1.2rem;">🏫 School</span>
-          <span id="filter-school-pills" class="filter-pills"></span>
-        </div>
-        <!-- Row 3: Agency + App Date -->
-        <div class="filter-row">
-          <span class="filter-label">🏢 Agency</span>
-          <span id="filter-agency-pills" class="filter-pills"></span>
-          <span class="filter-label" style="margin-left:1.2rem;" id="filter-appdate-label">📅 App Date</span>
-          <span id="filter-appdate-pills"></span>
-          <span class="filter-label" style="margin-left:1.2rem;">💰 Loan</span>
-          <span id="filter-loan-pills" class="filter-pills">
-            <span class="click-filter active" data-ftype="loan" data-fval="" onclick="toggleClickFilter(this)">Any</span>
-            <span class="click-filter" data-ftype="loan" data-fval="yes" onclick="toggleClickFilter(this)">💰 With Loan</span>
-            <span class="click-filter" data-ftype="loan" data-fval="no" onclick="toggleClickFilter(this)">No Loan</span>
-          </span>
-          <button class="filter-clear" onclick="clearFilter()">✕ Clear All</button>
+          <span class="filter-label" style="margin-left:1rem;">📅 App Date</span>
+          <span id="filter-appdate-pills" style="display:inline-flex;"></span>
+          <span class="filter-label" style="margin-left:1rem;">🏢 Agency</span>
+          <span id="filter-agency-pills" class="filter-pills" style="display:inline-flex;"></span>
+          <button class="filter-clear" onclick="clearFilter()" style="margin-left:1rem;">✕ Clear All</button>
         </div>
       </div>
-      <!-- Name search moved to the bottom -->
+      <!-- Flags: all flags in one dropdown row (Any, Loan, SiemReap, No QR, Illegal, Denied) -->
+      <div class="filter-row" style="display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;">
+        <span class="filter-label">🚩 Flags</span>
+        <select id="flag-filter" onchange="toggleFlagFilter(this.value)" style="padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;background:#fff;">
+          <option value="">Any</option>
+          <option value="loan">💰 With Loan</option>
+          <option value="noloan">No Loan</option>
+          <option value="siemreap">📍 SiemReap</option>
+          <option value="noqr">🔳 No QR</option>
+          <option value="illegal">⚠️ Illegal</option>
+          <option value="denied">❌ Denied</option>
+        </select>
+      </div>
+<!-- Name search moved to the bottom -->
       <div class="filter-row" style="border-top:1px dashed #eef0f4;margin-top:.4rem;padding-top:.6rem;">
         <span class="filter-label">🔍 Name</span>
         <input id="filter-search" type="text" placeholder="Search by student name..." style="flex:1;min-width:200px;padding:.45rem .8rem;border:1.5px solid #e2e8f0;border-radius:.6rem;font-size:.82rem;outline:none;" oninput="applyFilter()">
@@ -517,6 +517,7 @@
     restoreBoardTopbar(PIPELINES[pipe].name);
     const fbar = document.querySelector('.filter-bar'); if (fbar) fbar.style.display='';
     const sb=document.getElementById('filter-search'); if(sb) sb.value='';
+    const ff=document.getElementById('flag-filter'); if(ff) ff.value='';
     // Both pipelines default to kanban view
     setView('kanban');
     // leave the universities view and restore the pipeline views
@@ -4014,7 +4015,7 @@ function syncUniv() {
   function batchCancel() { batchMove('canceled'); }
 
   // ======= FILTER (click pills: stage / program / school / agency / appdate) =======
-  let filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[] };
+  let filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[], flag:'' };
   // click a pill to set that value; click "Any" (fval='') or same pill again to clear
   function toggleClickFilter(el) {
     const ftype = el.dataset.ftype;
@@ -4047,18 +4048,34 @@ function syncUniv() {
       const matchAdt = arrMatch(fs.appdate, card.dataset.appdate);
       const hasLoan = !!(card.dataset.loan && card.dataset.loan.trim());
       const matchLoan = (!Array.isArray(fs.loan) || fs.loan.length===0) || fs.loan.some(l => l==='yes' ? hasLoan : !hasLoan);
+      const matchFlag = (()=>{
+        const f = fs.flag;
+        if(!f) return true;
+        if(f==='loan') return hasLoan;
+        if(f==='noloan') return !hasLoan;
+        if(f==='siemreap') return card.dataset.siemreap === 'true';
+        if(f==='noqr') return card.dataset.noqr === 'true';
+        if(f==='illegal') return card.dataset.illegal === 'true';
+        if(f==='denied') return card.dataset.denied === 'true';
+        return true;
+      })();
       const h4 = card.querySelector('h4');
       const nm = (card.dataset.name || (h4 ? h4.textContent : '')).toLowerCase();
       const matchQ = !q || nm.includes(q);
-      card.style.display = (matchS && matchA && matchP && matchSch && matchAdt && matchLoan && matchQ) ? '' : 'none';
+      card.style.display = (matchS && matchA && matchP && matchSch && matchAdt && matchLoan && matchFlag && matchQ) ? '' : 'none';
     });
     refreshCounts();
     if (currentView === 'list') renderList();
   }
   function clearFilter() {
-    filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[] };
+    filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[], flag:'' };
     document.querySelectorAll('.click-filter').forEach(p => p.classList.remove('active'));
     const sb=document.getElementById('filter-search'); if(sb) sb.value='';
+    applyFilter();
+  }
+
+  function toggleFlagFilter(val){
+    filterState.flag = val;
     applyFilter();
   }
 
