@@ -33,6 +33,9 @@ function handle(e, isPost) {
     if (isPost) body = JSON.parse(e.postData.contents);
 
     // ACTION: pull data back from the Sheet (after manual edits)
+    if (body.action === 'importFromSheet') {
+      return importFromSheet(body);
+    }
     if (body.action === 'readSheet') {
       return jsonOut(readSheetToData());
     }
@@ -98,6 +101,63 @@ function handle(e, isPost) {
 }
 
 /** Save data to JSON file AND update the mirror Sheet. */
+/** Import students from an external source Sheet into the CRM customers.
+ *  Expects source Sheet: Students Name | Enter | School | Program | Status | Loan | Illegal | Agency
+ *  Status: Approved -> korea/welcome, Accepted -> new/visa, Denied -> new/archived
+ */
+function importFromSheet(body) {
+  var srcId = String(body.sheetId || '').trim();
+  if (!srcId) return { ok:false, error:'sheetId required' };
+  var ss = SpreadsheetApp.openById(srcId);
+  var sheet = ss.getSheets()[0];
+  var values = sheet.getDataRange().getValues();
+  if (values.length < 2) return { ok:true, imported:0, error:'no data rows' };
+  var headers = values[0].map(function(h){ return String(h).toLowerCase().replace(/\s+/g,'_'); });
+  var schoolMap = { 'KWU':'경운대학교','JBNU':'전북대학교','DDWU':'동덕여자대학교' };
+  var progMap = { 'D2':'BA','D4':'D4','MA':'MA','D-2':'BA','D-4':'D4' };
+  var agencyCanon = { 'camnemi':'CAMNEMI','costa':'COSTA','khema':'Khema','kimsous':'Kimsous','senchao':'Sen Chao','jk':'JK','dinlina':'Din Lina' };
+  var monthMap = { jan:'01',feb:'02',mar:'03',apr:'04',may:'05',jun:'06',jul:'07',aug:'08',sep:'09',oct:'10',nov:'11',dec:'12' };
+  var imported = [];
+  for (var r=1; r<values.length; r++) {
+    var name = String(values[r][0] || '').trim();
+    if (!name) continue;
+    var enter = String(values[r][1] || '').trim();
+    var school = String(values[r][2] || '').trim();
+    var program = String(values[r][3] || '').trim();
+    var status = String(values[r][4] || '').trim().toLowerCase();
+    var loan = String(values[r][5] || '').trim().replace(/[$\s,]/g,'');
+    var illegal = String(values[r][6] || '').trim().toLowerCase();
+    var agency = String(values[r][7] || '').trim();
+    var appdate = '202609';
+    var parts = enter.split('/');
+    if (parts.length === 2) {
+      var mo = monthMap[String(parts[1]).toLowerCase().slice(0,3)] || '01';
+      appdate = parts[0] + mo;
+    }
+    var sch = schoolMap[String(school).toUpperCase()] || school;
+    var prog = progMap[String(program).toUpperCase()] || program;
+    var ag = agencyCanon[String(agency).toLowerCase().replace(/\s+/g,'')] || (agency || 'CAMNEMI');
+    var pipe, stage, denied;
+    if (status === 'approved') { pipe='korea'; stage='welcome'; denied=''; }
+    else if (status === 'denied') { pipe='new'; stage='archived'; denied='true'; }
+    else { pipe='new'; stage='visa'; denied=''; }
+    imported.push({
+      id:'imp_'+name.replace(/[^a-z0-9]/gi,'').toLowerCase() + '_' + r,
+      pipe:pipe, stage:stage, name:name,
+      school:sch, program:prog, appdate:appdate,
+      agency:ag, loan:loan, illegal:(illegal==='illegal')?'true':'',
+      denied:denied, noqr:'', contact:'', email:'', notes:[], birthdate:''
+    });
+  }
+  var data = readSheetToData();
+  var customers = data.customers || [];
+  customers = customers.filter(function(c){ return String(c.id||'').indexOf('imp_') !== 0; });
+  imported.forEach(function(s){ customers.push(s); });
+  data.customers = customers;
+  saveData(JSON.stringify(data));
+  return { ok:true, imported: imported.length, total: customers.length };
+}
+
 function saveData(jsonString) {
   var data = JSON.parse(jsonString);
   getDataFile().setContent(jsonString);
