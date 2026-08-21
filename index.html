@@ -1018,7 +1018,7 @@
     overlay.innerHTML = `
       <div class="modal">
         <h2>${idx !== undefined ? '✏️ Edit Agency' : '➕ Add Agency'}</h2>
-        <div class="field"><label>Agency Name</label><input id="a-name" value="${escapeHtml(existing.name)}"></div>
+        <div class="field"><label>Agency Name</label><input id="a-name" value="${escapeHtml(existing.name)}" oninput="this.value=this.value.toUpperCase()"></div>
         <div class="field"><label>Commission</label><input id="a-commission" value="${escapeHtml(existing.commission)}" placeholder="e.g. 10%"></div>
         <div class="field"><label>Policy</label><textarea id="a-policy" placeholder="Describe the policy...">${escapeHtml(existing.policy)}</textarea></div>
         <div class="field"><label>Note</label><textarea id="a-note" placeholder="Notes about this agency...">${escapeHtml(existing.note||'')}</textarea></div>
@@ -1225,7 +1225,7 @@
     overlay.innerHTML = `
       <div class="modal">
         <h2>${idx !== undefined ? '✏️ Edit Fee' : '➕ Add Fee'}</h2>
-        <div class="field"><label>Fee Item</label><input id="f-name" value="${escapeHtml(existing.name)}"></div>
+        <div class="field"><label>Fee Item</label><input id="f-name" value="${escapeHtml(existing.name)}" oninput="this.value=this.value.toUpperCase()"></div>
         <div class="field"><label>Amount</label><input id="f-amount" value="${escapeHtml(existing.amount)}" placeholder="e.g. USD 500"></div>
         <div class="field"><label>Policy</label><textarea id="f-policy" placeholder="Describe the policy...">${escapeHtml(existing.policy)}</textarea></div>
         <div class="actions">
@@ -2898,7 +2898,7 @@ function syncUniv() {
       <div class="modal">
         <h2>➕ Quick Add Customer</h2>
         <div style="font-size:.78rem;color:#64748b;margin-bottom:.8rem;">Adds to <b>Contact</b>. Fill full details when moved to Potential.</div>
-        <div class="field"><label>Name</label><input id="q-name" placeholder="Full name"></div>
+        <div class="field"><label>Name</label><input id="q-name" placeholder="Full name" oninput="this.value=this.value.toUpperCase()"></div>
         <div class="field"><label>Contact</label><input id="q-contact" placeholder="Phone / WhatsApp / Telegram"></div>
         <div class="field"><label>🏢 Agency</label><div style="display:flex;flex-wrap:wrap;gap:.3rem;">${agencyPills}</div></div>
         <div class="field"><label>🎓 Program</label><div style="display:flex;flex-wrap:wrap;gap:.3rem;">${progPills}</div></div>
@@ -3043,7 +3043,7 @@ function syncUniv() {
     // Korea pipeline: card same as New Customer (Name/School/Program/Agency badges) + note
     if (card.dataset.pipe === 'korea') {
       const agency=card.dataset.agency||'';
-      const schEn = koreaSchoolEn(school);
+      const schEn = koreaSchoolShort(school);
       const schLogo = koreaSchoolLogo(school);
       const progShort = koreaProgramShort(program);
       const monthsInKorea = koreaMonths(card.dataset.appdate);
@@ -3126,6 +3126,12 @@ function syncUniv() {
     if (s.includes('ONLINE')) return 'Online';
     if (/\bMA\b/.test(s)) return 'MA';
     return p||'';
+  }
+  function koreaSchoolShort(kr) {
+    if (!kr) return kr;
+    const u = UNIV_KNOWLEDGE.find(x => x.n === kr || x.ek === kr || x.en === kr);
+    if (u && u.es) return u.es;
+    return kr;
   }
   // Save an inline-edited Korea card field
   function saveKoreaField(input, field) {
@@ -3233,10 +3239,10 @@ function syncUniv() {
     overlay.innerHTML = `
       <div class="modal">
         <h2>🇰🇷 Edit Student (in Korea)</h2>
-        <div class="field"><label>Name *</label><input id="k-name" value="${escapeHtml(name)}" style="${req(name)}"></div>
+        <div class="field"><label>Name *</label><input id="k-name" value="${escapeHtml(name)}" style="${req(name)}" oninput="this.value=this.value.toUpperCase()"></div>
         <div class="field"><label>School *</label>
           <div style="position:relative;">
-            <input id="k-school-search" value="${escapeHtml(school)}" placeholder="🔍 Type to search school..." oninput="filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
+            <input id="k-school-search" value="${escapeHtml(school)}" placeholder="🔍 Type to search school..." oninput="this.value=this.value.toUpperCase();filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
             <div id="k-school-list" style="position:absolute;top:100%;left:0;right:0;z-index:50;background:#fff;border:1px solid #e2e8f0;border-radius:.5rem;max-height:200px;overflow:auto;display:none;box-shadow:0 8px 20px rgba(0,0,0,.12);"></div>
             <input type="hidden" id="k-school" value="${escapeHtml(school)}">
           </div>
