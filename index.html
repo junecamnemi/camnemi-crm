@@ -390,40 +390,43 @@
 
     <!-- Filters -->
     <div class="filter-bar">
-      <!-- Row 0: Search by name -->
-      <div class="filter-row" style="border-bottom:1px dashed #eef0f4;margin-bottom:.4rem;padding-bottom:.6rem;">
+      <!-- Filter pills in a designated scrollable area (grows, scrolls when long) -->
+      <div class="filter-scroll" style="max-height:180px;overflow-y:auto;padding-right:4px;margin-bottom:.5rem;border:1px solid #eef0f4;border-radius:.6rem;padding:.5rem;">
+        <!-- Row 1: Stage (dynamic per pipeline) -->
+        <div class="filter-row">
+          <span class="filter-label">📋 Stage</span>
+          <span id="filter-stage-pills" class="filter-pills"></span>
+        </div>
+        <!-- Row 2: Program + School -->
+        <div class="filter-row">
+          <span class="filter-label">🎓 Program</span>
+          <span class="click-filter active" data-ftype="program" data-fval="" onclick="toggleClickFilter(this)">Any</span>
+          <span class="click-filter" data-ftype="program" data-fval="D4" onclick="toggleClickFilter(this)">D4</span>
+          <span class="click-filter" data-ftype="program" data-fval="BA" onclick="toggleClickFilter(this)">BA</span>
+          <span class="click-filter" data-ftype="program" data-fval="MA" onclick="toggleClickFilter(this)">MA</span>
+          <span class="click-filter" data-ftype="program" data-fval="Online" onclick="toggleClickFilter(this)">Online</span>
+          <span class="filter-label" style="margin-left:1.2rem;">🏫 School</span>
+          <span id="filter-school-pills" class="filter-pills"></span>
+        </div>
+        <!-- Row 3: Agency + App Date -->
+        <div class="filter-row">
+          <span class="filter-label">🏢 Agency</span>
+          <span id="filter-agency-pills" class="filter-pills"></span>
+          <span class="filter-label" style="margin-left:1.2rem;" id="filter-appdate-label">📅 App Date</span>
+          <span id="filter-appdate-pills"></span>
+          <span class="filter-label" style="margin-left:1.2rem;">💰 Loan</span>
+          <span id="filter-loan-pills" class="filter-pills">
+            <span class="click-filter active" data-ftype="loan" data-fval="" onclick="toggleClickFilter(this)">Any</span>
+            <span class="click-filter" data-ftype="loan" data-fval="yes" onclick="toggleClickFilter(this)">💰 With Loan</span>
+            <span class="click-filter" data-ftype="loan" data-fval="no" onclick="toggleClickFilter(this)">No Loan</span>
+          </span>
+          <button class="filter-clear" onclick="clearFilter()">✕ Clear All</button>
+        </div>
+      </div>
+      <!-- Name search moved to the bottom -->
+      <div class="filter-row" style="border-top:1px dashed #eef0f4;margin-top:.4rem;padding-top:.6rem;">
         <span class="filter-label">🔍 Name</span>
         <input id="filter-search" type="text" placeholder="Search by student name..." style="flex:1;min-width:200px;padding:.45rem .8rem;border:1.5px solid #e2e8f0;border-radius:.6rem;font-size:.82rem;outline:none;" oninput="applyFilter()">
-      </div>
-      <!-- Row 1: Stage (dynamic per pipeline) -->
-      <div class="filter-row">
-        <span class="filter-label">📋 Stage</span>
-        <span id="filter-stage-pills" class="filter-pills"></span>
-      </div>
-      <!-- Row 2: Program + School -->
-      <div class="filter-row">
-        <span class="filter-label">🎓 Program</span>
-        <span class="click-filter active" data-ftype="program" data-fval="" onclick="toggleClickFilter(this)">Any</span>
-        <span class="click-filter" data-ftype="program" data-fval="D4" onclick="toggleClickFilter(this)">D4</span>
-        <span class="click-filter" data-ftype="program" data-fval="BA" onclick="toggleClickFilter(this)">BA</span>
-        <span class="click-filter" data-ftype="program" data-fval="MA" onclick="toggleClickFilter(this)">MA</span>
-        <span class="click-filter" data-ftype="program" data-fval="Online" onclick="toggleClickFilter(this)">Online</span>
-        <span class="filter-label" style="margin-left:1.2rem;">🏫 School</span>
-        <span id="filter-school-pills" class="filter-pills"></span>
-      </div>
-      <!-- Row 3: Agency + App Date -->
-      <div class="filter-row">
-        <span class="filter-label">🏢 Agency</span>
-        <span id="filter-agency-pills" class="filter-pills"></span>
-        <span class="filter-label" style="margin-left:1.2rem;" id="filter-appdate-label">📅 App Date</span>
-        <span id="filter-appdate-pills"></span>
-        <span class="filter-label" style="margin-left:1.2rem;">💰 Loan</span>
-        <span id="filter-loan-pills" class="filter-pills">
-          <span class="click-filter active" data-ftype="loan" data-fval="" onclick="toggleClickFilter(this)">Any</span>
-          <span class="click-filter" data-ftype="loan" data-fval="yes" onclick="toggleClickFilter(this)">💰 With Loan</span>
-          <span class="click-filter" data-ftype="loan" data-fval="no" onclick="toggleClickFilter(this)">No Loan</span>
-        </span>
-        <button class="filter-clear" onclick="clearFilter()">✕ Clear All</button>
       </div>
     </div>
 
@@ -476,7 +479,7 @@
   const PIPELINES = {
     new: {
       name: 'Students in Process',
-      stages: ['contact','potential','registration','documentready','admission','visa','archived','canceled']
+      stages: ['contact','potential','registration','admission','visa','archived','canceled']
     },
     korea: {
       name: 'Students in Korea',
@@ -484,7 +487,7 @@
     }
   };
   const STAGE_LABELS = {
-    contact:'📞 Contact', potential:'💡 Potential', registration:'📝 Registered',
+    contact:'📞 Contact', potential:'💡 Potential', registration:'📝 REGISTER & DOCU',
     documentready:'📂 Document Ready', application:'📄 Application', admission:'🎓 Admission', visa:'🛂 VISA Process',
     welcome:'✅ VISA Grant', stay:'🏠 Stay', return:'✈️ Return', giveup:'⛔ Giveup',
     archived:'🗄️ Archived', canceled:'⛔ Canceled'
@@ -5460,7 +5463,7 @@ function syncUniv() {
       if (Array.isArray(db.hiddenListCols)) HIDDEN_LIST_COLS = db.hiddenListCols;
       if (Array.isArray(db.listColOrder)) LIST_COL_ORDER = db.listColOrder;
       // restore customers: rebuild cards after renderPipeline (merge registration/application)
-      db.customers.forEach(c => { if (c.pipe==='new' && c.stage==='application') c.stage='registration'; });
+      db.customers.forEach(c => { if (c.pipe==='new' && c.stage==='application') c.stage='registration'; if (c.pipe==='new' && c.stage==='documentready') c.stage='registration'; });
       window.__RESTORE_CUSTOMERS__ = db.customers;
       return true;
     } catch(e) { console.warn('DB load failed', e); return false; }
