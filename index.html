@@ -315,6 +315,10 @@
       <span class="pipe-count" id="side-count-korea">0</span>
     </div>
 
+    <div class="sidebar-section-label" style="margin-top:.6rem;">Agency Sheet</div>
+    <button onclick="getAgencySheetLink()" style="width:100%;padding:.55rem;background:#e0f2fe;color:#0c4a6e;border:1px solid #bae6fd;border-radius:.75rem;font-weight:600;cursor:pointer;margin-bottom:.3rem;font-size:.78rem;">🔗 Get agency share sheet</button>
+    <button onclick="pullAgencySubmissionsApp()" style="width:100%;padding:.55rem;background:#dcfce7;color:#166534;border:1px solid #86efac;border-radius:.75rem;font-weight:600;cursor:pointer;font-size:.78rem;">📥 Pull submissions → Contact</button>
+
     <div class="sidebar-section-label">Our Knowledge</div>
     <div class="pipe-item" id="nav-universities" onclick="openUniversities()">
       <span class="pipe-name">🏛️ Universities</span>
@@ -4828,6 +4832,50 @@ function syncUniv() {
       </div>`;
     document.body.appendChild(overlay);
     setTimeout(()=>overlay.style.opacity='1',10);
+  }
+  // Get the shared Agency Submissions sheet link (auto-created in backend)
+  async function getAgencySheetLink(){
+    const url = backendUrl();
+    if(!url){ alert('Backend not configured.'); return; }
+    try {
+      const res = await fetch(url+'?cb='+Date.now(), {method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'getAgencySubmissions'})});
+      const j = await res.json();
+      const link = j.sheetUrl || j.url;
+      const msg = link ? 'Share this sheet with your agencies (they add rows):\n\n'+link : 'Could not get the sheet.';
+      alert(msg);
+    } catch(e){ alert('Error: '+e); }
+  }
+  // Pull agency submissions from the shared sheet into the Contact list
+  async function pullAgencySubmissionsApp(){
+    const url = backendUrl();
+    if(!url){ alert('Backend not configured.'); return; }
+    try {
+      const res = await fetch(url+'?cb='+Date.now(), {method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'pullAgencySubmissions'})});
+      const j = await res.json();
+      const subs = Array.isArray(j.customers) ? j.customers : (Array.isArray(j) ? j : []);
+      if(!subs.length){ alert('No submissions found yet. Ask agencies to add rows to the shared sheet.'); return; }
+      // merge into current data: add any that don't already exist by name
+      let added = 0;
+      const existing = [];
+      document.querySelectorAll('.customer-card[data-pipe="new"]').forEach(c=>{ existing.push((c.dataset.name||'').toLowerCase()); });
+      subs.forEach(s=>{
+        const nm=(s.name||'').toUpperCase();
+        if(!nm || existing.includes(nm.toLowerCase())) return;
+        const card=document.createElement('div');
+        card.className='customer-card'; card.id=s.id||('c'+Date.now()+Math.floor(Math.random()*1000));
+        card.dataset.pipe='new'; card.dataset.stage='contact';
+        card.dataset.name=nm; card.dataset.agency=s.agency||'CAMNEMI';
+        card.dataset.program=s.program||'Not Yet'; card.dataset.contact=s.contact||'';
+        card.dataset.school='Not Yet Specified'; card.dataset.appdate='Not Specified';
+        card.dataset.notes = (s.notes||'[]');
+        const container=document.querySelector('.cards[data-cards="contact"]');
+        if(container) container.appendChild(card); else { let hp=document.getElementById('hidden-cards'); if(!hp){hp=document.createElement('div');hp.id='hidden-cards';hp.style.display='none';document.body.appendChild(hp);} hp.appendChild(card); }
+        refreshCardBody(card); applyCardBorder(card); if(typeof attachCard==='function') attachCard(card);
+        existing.push(nm.toLowerCase()); added++;
+      });
+      if(added){ saveNow(); saveDatabase(); alert('Added '+added+' student(s) from the agency sheet.'); renderPipeline(); }
+      else alert('No new submissions to add (all already in your list).');
+    } catch(e){ alert('Error pulling: '+e); }
   }
   function saveBackendUrl(){
     const inp=document.getElementById('backend-url-input'); if(!inp) return;

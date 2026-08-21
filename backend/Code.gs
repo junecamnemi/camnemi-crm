@@ -41,6 +41,14 @@ function handle(e, isPost) {
       var ss = getSheet();
       return jsonOut({ sheetUrl: 'https://docs.google.com/spreadsheets/d/' + ss.getId() + '/edit', sheetId: ss.getId(), name: ss.getName() });
     }
+    // ACTION: get/create the shared Agency Submissions spreadsheet
+    if (body.action === 'getAgencySubmissions') {
+      return getAgencySubmissions();
+    }
+    // ACTION: pull agency submissions from the shared sheet into customers
+    if (body.action === 'pullAgencySubmissions') {
+      return pullAgencySubmissions();
+    }
     // ACTION: add an agency-submitted contact directly to the Sheet (reliable cross-browser)
     if (body.action === 'addAgencyContact') {
       return addAgencyContact(body);
@@ -194,6 +202,64 @@ function readSheetToData() {
   return data;
 }
 
+
+/** ============ AGENCY SUBMISSIONS SPREADSHEET ============ */
+var AGENCY_SHEET_ID_KEY = 'AGENCY_SUBMISSIONS_SHEET_ID';
+var AGENCY_SHEET_NAME = 'Camnemi Agency Submissions';
+var AGENCY_COLS = ['name','contact','agency','program','note','date'];
+
+// Get (or create) the dedicated agency submissions spreadsheet.
+function getAgencySheet() {
+  var props = PropertiesService.getScriptProperties();
+  var id = props.getProperty(AGENCY_SHEET_ID_KEY);
+  var ss = null;
+  if (id) { try { ss = SpreadsheetApp.openById(id); } catch(err){ ss=null; } }
+  if (!ss) {
+    var files = DriveApp.getFilesByName(AGENCY_SHEET_NAME);
+    while (files.hasNext()) { var c = files.next(); if (c.getMimeType()==='application/vnd.google-apps.spreadsheet'){ ss=SpreadsheetApp.open(c); break; } }
+  }
+  if (!ss) {
+    ss = SpreadsheetApp.create(AGENCY_SHEET_NAME);
+    props.setProperty(AGENCY_SHEET_ID_KEY, ss.getId());
+    var sh = ss.getSheetByName('Sheet1'); if (!sh) sh = ss.insertSheet('Agency Submissions');
+    sh.getRange(1,1,1,AGENCY_COLS.length).setValues([AGENCY_COLS]).setFontWeight('bold').setBackground('#1E293B').setFontColor('#FFFFFF');
+    sh.autoResizeColumns(1, AGENCY_COLS.length);
+    // share with anyone with the link (editor) so agencies can add rows
+    ss.getViewers().forEach(function(u){ try{ ss.addEditor(u); }catch(e){} });
+  }
+  return ss;
+}
+// ACTION handler: get agency submissions link + data
+function getAgencySubmissions() {
+  var ss = getAgencySheet();
+  return { ok:true, sheetUrl:'https://docs.google.com/spreadsheets/d/'+ss.getId()+'/edit', sheetId: ss.getId() };
+}
+// ACTION handler: pull agency submissions from the sheet into customers
+function pullAgencySubmissions() {
+  var ss = getAgencySheet();
+  var sh = (ss.getSheetByName('Agency Submissions')) || ss.getSheets()[0];
+  var data = { customers: [] };
+  if (!sh) return data;
+  var last = sh.getLastRow();
+  if (last < 2) return data;
+  var vals = sh.getRange(2,1,last-1,AGENCY_COLS.length).getValues();
+  for (var i=0;i<vals.length;i++) {
+    var r = vals[i];
+    var name = String(r[0]||'').trim();
+    if (!name) continue;
+    data.customers.push({
+      id:'c'+Date.now()+Math.floor(Math.random()*1000),
+      pipe:'new', stage:'contact', name:name.toUpperCase(),
+      age:'', agency:String(r[2]||'CAMNEMI').trim()||'CAMNEMI',
+      program:String(r[3]||'Not Yet')||'Not Yet',
+      school:'Not Yet Specified', appdate:'Not Specified',
+      contact:String(r[1]||''), email:'', loan:'', topik:'', ielts:'',
+      notes: r[4] ? JSON.stringify([{text:String(r[4]),time:''}]) : '[]',
+      birthdate:''
+    });
+  }
+  return data;
+}
 /** ============ GUIDE PDF UPLOAD ============ */
 
 function uploadGuide(body) {
