@@ -415,6 +415,12 @@
         <span id="filter-agency-pills" class="filter-pills"></span>
         <span class="filter-label" style="margin-left:1.2rem;" id="filter-appdate-label">📅 App Date</span>
         <span id="filter-appdate-pills"></span>
+        <span class="filter-label" style="margin-left:1.2rem;">💰 Loan</span>
+        <span id="filter-loan-pills" class="filter-pills">
+          <span class="click-filter active" data-ftype="loan" data-fval="" onclick="toggleClickFilter(this)">Any</span>
+          <span class="click-filter" data-ftype="loan" data-fval="yes" onclick="toggleClickFilter(this)">💰 With Loan</span>
+          <span class="click-filter" data-ftype="loan" data-fval="no" onclick="toggleClickFilter(this)">No Loan</span>
+        </span>
         <button class="filter-clear" onclick="clearFilter()">✕ Clear All</button>
       </div>
     </div>
@@ -3997,7 +4003,7 @@ function syncUniv() {
   function batchCancel() { batchMove('canceled'); }
 
   // ======= FILTER (click pills: stage / program / school / agency / appdate) =======
-  let filterState = { stage:'', program:'', school:'', agency:'', appdate:'' };
+  let filterState = { stage:'', program:'', school:'', agency:'', appdate:'', loan:'' };
   // click a pill to set that value; click "Any" (fval='') or same pill again to clear
   function toggleClickFilter(el) {
     const ftype = el.dataset.ftype;
@@ -4010,7 +4016,7 @@ function syncUniv() {
   }
 
   function applyFilter() {
-    const { stage, program, school, agency, appdate } = filterState;
+    const { stage, program, school, agency, appdate, loan } = filterState;
     const q = (document.getElementById('filter-search') ? document.getElementById('filter-search').value : '').trim().toLowerCase();
     document.querySelectorAll('.customer-card[data-pipe="' + currentPipe + '"]').forEach(card => {
       const matchS = !stage || card.dataset.stage === stage;
@@ -4018,10 +4024,12 @@ function syncUniv() {
       const matchP = !program || card.dataset.program === program;
       const matchSch = !school || koreaSchoolEn(card.dataset.school) === school || card.dataset.school === school;
       const matchAdt = !appdate || card.dataset.appdate === appdate;
+      const hasLoan = !!(card.dataset.loan && card.dataset.loan.trim());
+      const matchLoan = !loan || (loan==='yes' ? hasLoan : !hasLoan);
       const h4 = card.querySelector('h4');
       const nm = (card.dataset.name || (h4 ? h4.textContent : '')).toLowerCase();
       const matchQ = !q || nm.includes(q);
-      card.style.display = (matchS && matchA && matchP && matchSch && matchAdt && matchQ) ? '' : 'none';
+      card.style.display = (matchS && matchA && matchP && matchSch && matchAdt && matchLoan && matchQ) ? '' : 'none';
     });
     // refresh counts, and rebuild the list if it's the active view
     refreshCounts();
