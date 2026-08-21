@@ -82,6 +82,7 @@
     .tag-program { background: #dcfce7; color: #166534; }
     .tag-school { background: #fef3c7; color: #92400e; }
     .tag-months { background: #e0e7ff; color: #3730a3; }
+    .tag-loanflag { background: #ccfbf1; color: #0f766e; }
     .tag-topik { background: #fee2e2; color: #991b1b; }
     .tag-ielts { background: #e0f2fe; color: #0c4a6e; }
     .tag-illegal { background: #7f1d1d; color: #fff; }
@@ -484,7 +485,7 @@
   const PIPELINES = {
     new: {
       name: 'Students in Process',
-      stages: ['contact','potential','registration','admission','visa']
+      stages: ['contact','potential','registration','documentready','admission','visa']
     },
     korea: {
       name: 'Students in Korea',
@@ -492,14 +493,14 @@
     }
   };
   const STAGE_LABELS = {
-    contact:'📞 Contact', potential:'💡 Potential', registration:'📝 Regist & Application',
-    application:'📄 Application', admission:'🎓 Admission', visa:'🛂 VISA Process',
+    contact:'📞 Contact', potential:'💡 Potential', registration:'📝 Registered',
+    documentready:'📂 Document Ready', application:'📄 Application', admission:'🎓 Admission', visa:'🛂 VISA Process',
     welcome:'👋 Welcome (VISA Passed)', stay:'🏠 Stay', return:'✈️ Return', giveup:'⛔ Giveup',
     archived:'🗄️ Archived', canceled:'⛔ Canceled'
   };
   const STAGE_COLORS = {
     contact:'#f59e0b', potential:'#3b82f6', registration:'#22c55e',
-    application:'#8b5cf6', admission:'#ec4899', visa:'#ef4444',
+    application:'#8b5cf6', documentready:'#f97316', admission:'#ec4899', visa:'#ef4444',
     welcome:'#22c55e', stay:'#3b82f6', return:'#8b5cf6', giveup:'#ef4444',
     archived:'#64748b', canceled:'#475569'
   };
@@ -3042,6 +3043,7 @@ function syncUniv() {
           ${monthsInKorea ? `<span class="tag tag-months">🗓 ${escapeHtml(monthsInKorea)}</span>` : ''}
           ${card.dataset.noqr === 'true' ? `<span class="tag tag-noqr">🔳 NO QR</span>` : ''}
           ${card.dataset.illegal === 'true' ? `<span class="tag tag-illegal">⚠️ Illegal</span>` : ''}
+          ${card.dataset.loanFlag === 'true' ? `<span class="tag tag-loanflag">💰 Loan</span>` : ''}
         </div>
         <div class="note">${escapeHtml(noteDisplay)}</div>`;
       card.querySelector('h4').textContent = name;
@@ -3161,8 +3163,16 @@ function syncUniv() {
     let notesArr=[];
     try { notesArr = JSON.parse(card.dataset.notes||'[]'); if(!Array.isArray(notesArr)) notesArr=[]; } catch(e){ notesArr = card.dataset.notes ? [{text:String(card.dataset.notes),time:''}] : []; }
     const notesHtml = notesArr.length ? notesArr.map((n,i)=>`<div class="knote" style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:.4rem;margin-bottom:.35rem;background:#f8fafc;"><div class="knote-text" style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><div style="display:flex;align-items:center;gap:.25rem;flex:none;"><button onclick="editKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#6b7280;font-size:.72rem;" title="Edit note">✏️</button><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button></div><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
-    const pipe = PIPELINES['korea'];
-    const stageOpts = pipe.stages.map(s => `<option value="${s}" ${card.dataset.stage===s?'selected':''}>${STAGE_LABELS[s]}</option>`).join('');
+    const cardPipe = card.dataset.pipe || 'korea';
+    const pipe = PIPELINES[cardPipe] || PIPELINES['korea'];
+    // Stage dropdown maps the card's pipeline stages exactly
+    const stageList = pipe.stages;
+    const stageOpts = stageList.map(s => `<option value="${s}" ${card.dataset.stage===s?'selected':''}>${STAGE_LABELS[s]}</option>`).join('');
+    // Stage as clickable buttons (better than dropdown)
+    const curStage = card.dataset.stage;
+    const stageBtns = stageList.map(s => `<button type="button" class="kstage-btn ${curStage===s?'active':''}" data-stage="${s}" onclick="selectKStage(this)" style="padding:.4rem .7rem;border-radius:.5rem;border:1.5px solid ${curStage===s?'#2563eb':'#e2e8f0'};background:${curStage===s?'#eff6ff':'#fff'};color:${curStage===s?'#2563eb':'#334155'};font-size:.72rem;font-weight:600;cursor:pointer;">${STAGE_LABELS[s]}</button>`).join('');
+    // current stage as hidden value for saveKoreaEdit compatibility
+    const curStageHidden = curStage;
     const agencyOpts = AGENCIES.map(a=>`<option value="${escapeHtml(a.name)}" ${a.name===agency?'selected':''}>${escapeHtml(a.name)}</option>`).join('');
     // School dropdown from UNIV_KNOWLEDGE (Korean names) + current value
     const univList = (typeof UNIV_KNOWLEDGE !== 'undefined' && Array.isArray(UNIV_KNOWLEDGE)) ? UNIV_KNOWLEDGE : [];
@@ -3203,15 +3213,16 @@ function syncUniv() {
           </div>
         </div>
         <div class="field"><label>Program *</label><select id="k-program">${programOpts}</select></div>
-        <div class="field"><label>Entered Korea</label><select id="k-appdate">${enterOpts}</select></div>
+        ${cardPipe==='korea' ? `<div class="field"><label>Entered Korea</label><select id="k-appdate">${enterOpts}</select></div>` : ''}
         <div class="field"><label>Contact</label><input id="k-contact" value="${escapeHtml(contact)}"></div>
         <div class="field"><label>Email</label><input id="k-email" value="${escapeHtml(email)}"></div>
         <div class="field"><label>Agency</label><select id="k-agency"><option value="">— Agency —</option>${agencyOpts}</select></div>
-        <div class="field"><label>Loan (USD)</label><input id="k-loan" value="${escapeHtml(loan)}"></div>
+        <div class="field"><label>Loan (USD)</label><input id="k-loan" value="${escapeHtml(loan)}" oninput="toggleKLoanFlag()"></div>
         <div class="field"><label>Flags</label>
           <div style="display:flex;gap:1.2rem;flex-wrap:wrap;">
             <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-noqr" ${noqr?'checked':''} style="accent-color:#dc2626;width:16px;height:16px;"> 🔳 No QR</label>
             <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-illegal" ${illegal?'checked':''} style="accent-color:#7f1d1d;width:16px;height:16px;"> ⚠️ Illegal</label>
+            <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-loan-flag" ${loan?'checked':''} style="accent-color:#0d9488;width:16px;height:16px;"> 💰 Loan</label>
           </div>
         </div>
         <div class="field"><label>📝 Notes</label>
@@ -3221,7 +3232,14 @@ function syncUniv() {
             <button class="btn btn-note" onclick="addKoreaNote()" style="font-size:.75rem;padding:.3rem .7rem;">➕ Add</button>
           </div>
         </div>
-        <div class="field"><label>Stage</label><select id="k-stage">${stageOpts}<option value="archived" ${card.dataset.stage==='archived'?'selected':''}>🗄️ Archived</option><option value="canceled" ${card.dataset.stage==='canceled'?'selected':''}>⛔ Canceled</option></select></div>
+        <div class="field"><label>Stage</label>
+          <div style="display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.25rem;">${stageBtns}</div>
+          <input type="hidden" id="k-stage" value="${escapeHtml(curStageHidden)}">
+          ${(cardPipe==='new' && card.dataset.stage==='visa') ? `<div style="margin-top:.7rem;padding:.9rem;border-radius:.75rem;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;">
+            <div style="font-size:.8rem;font-weight:700;color:#15803d;margin-bottom:.55rem;">🛂 VISA Process — Approved?</div>
+            <button class="btn" onclick="visaApproved()" style="width:100%;padding:.7rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(22,163,74,.35);transition:transform .12s, box-shadow .12s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 16px rgba(22,163,74,.45)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 12px rgba(22,163,74,.35)';" onmousedown="this.style.transform='translateY(0)';">✅ VISA Approved — Move to Korea 🇰🇷</button>
+          </div>` : ''}
+        </div>
         <div class="field"><label>📁 Documents</label>
           <div id="k-docs" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:160px;overflow:auto;font-size:.78rem;background:#f8fafc;color:#94a3b8;">Loading documents...</div>
           <div id="k-dropzone" style="margin-top:.4rem;border:2px dashed #c7d2fe;border-radius:.6rem;padding:.8rem;text-align:center;color:#6366f1;font-size:.78rem;background:#eef2ff;cursor:pointer;">⬇️ Drag & drop files here, or click to upload</div>
@@ -3256,6 +3274,7 @@ function syncUniv() {
     card.dataset.email=overlay.querySelector('#k-email').value.trim();
     card.dataset.agency=normalizeAgency(overlay.querySelector('#k-agency').value);
     card.dataset.loan=overlay.querySelector('#k-loan').value.trim();
+    const loanFlagEl=overlay.querySelector('#k-loan-flag'); if(loanFlagEl){ card.dataset.loanFlag = loanFlagEl.checked ? 'true' : ''; }
     const noqrEl=overlay.querySelector('#k-noqr'); if(noqrEl) card.dataset.noqr = noqrEl.checked ? 'true' : '';
     const illegalEl=overlay.querySelector('#k-illegal'); if(illegalEl) card.dataset.illegal = illegalEl.checked ? 'true' : '';
     const nv=overlay.querySelector('#k-note').value.trim();
@@ -3339,8 +3358,10 @@ function syncUniv() {
   function openEditModal(card) {
     // Students in Korea: use a simple 8-field modal (no detailed sections needed)
     if (card.dataset.pipe === 'korea') { openKoreaEditModal(card); return; }
-    // New Customers in Contact stage: simple modal (same inputs as +Add), full modal appears at Potential+
+    // New Customers in Contact stage: simple modal (same inputs as +Add)
     if (card.dataset.pipe === 'new' && card.dataset.stage === 'contact') { openContactEditModal(card); return; }
+    // Unified modal for all students (Korea-based). Process cards use the same modal.
+    if (card.dataset.pipe === 'new') { openKoreaEditModal(card); return; }
     const name = card.dataset.name || (card.querySelector('h4') ? card.querySelector('h4').textContent : '');
     const age = card.dataset.age;
     const contact = card.dataset.contact || '';
@@ -4518,6 +4539,59 @@ function syncUniv() {
       if(info && info.ok && info.renamed) refreshKoreaDocs();
       else alert('Could not rename file.');
     } catch(e){ alert('Error: '+e); }
+  }
+
+  // Select a stage via button: update hidden value + highlight
+  function selectKStage(btn){
+    const overlay = document.getElementById('korea-edit-modal');
+    if(!overlay) return;
+    const stage = btn.getAttribute('data-stage');
+    const hidden = overlay.querySelector('#k-stage');
+    if(hidden) hidden.value = stage;
+    overlay.querySelectorAll('.kstage-btn').forEach(b=>{
+      const on = b.getAttribute('data-stage')===stage;
+      b.classList.toggle('active', on);
+      b.style.borderColor = on ? '#2563eb' : '#e2e8f0';
+      b.style.background = on ? '#eff6ff' : '#fff';
+      b.style.color = on ? '#2563eb' : '#334155';
+    });
+  }
+
+  // VISA Approved: move a process student to Korea / Welcome stage
+  function visaApproved(){
+    const overlay = document.getElementById('korea-edit-modal');
+    if(!overlay || !overlay._card) return;
+    const card = overlay._card;
+    const name = card.dataset.name || '';
+    if(!confirm('VISA approved for ' + name + '? Move to Students in Korea (Welcome stage).')) return;
+    const from = card.dataset.stage;
+    card.dataset.pipe = 'korea';
+    card.dataset.stage = 'welcome';
+    card.dataset.enteredKorea = card.dataset.enteredKorea || ''; 
+    // set entered korea to today if not set
+    if(!card.dataset.appdate){ const d=new Date(); card.dataset.appdate = String(d.getFullYear())+String(d.getMonth()+1).padStart(2,'0'); }
+    const fromCol = document.querySelector(`.cards[data-cards="${from}"]`);
+    const toCol = document.querySelector('.cards[data-cards="welcome"]');
+    if(fromCol && fromCol.contains(card)) fromCol.removeChild(card);
+    if(toCol) toCol.appendChild(card);
+    if(from) changeCount(from,-1);
+    changeCount('welcome',+1);
+    card.style.borderLeftColor = STAGE_COLORS['welcome']||'#94a3b8';
+    logAction(name, 'VISA Approved → moved to Korea / Welcome');
+    refreshCardBody(card);
+    bumpCardRecent(card); reorderAllByRecent();
+    saveNow(); refreshCounts();
+    closeModal();
+    if(currentPipe!=='korea'){ switchPipeline('korea'); } 
+    alert('✅ ' + name + ' moved to Students in Korea (Welcome).');
+  }
+
+  // Auto-toggle the Loan flag based on loan amount in the korea modal
+  function toggleKLoanFlag(){
+    const loanInput = document.getElementById('k-loan');
+    const flagEl = document.getElementById('k-loan-flag');
+    if(!loanInput || !flagEl) return;
+    flagEl.checked = loanInput.value.trim() !== '';
   }
 
   // Add a note to the korea modal's note list immediately (with timestamp)
