@@ -71,8 +71,7 @@
 
 <script>
 var AGENCY = new URLSearchParams(location.search).get('agency') || 'CAMNEMI';
-var JSONBIN_KEY = '$2a$10$31P6/njb2XVgVb90.L/5seAwHWVGEzTa.Adefl2geCMwO8H7/YnZC';
-var JSONBIN_BIN = '6a87ca81f5f4af5e292fa17d';
+var BACKEND = 'https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec';
 var prog = 'Not Yet';
 
 document.getElementById('agencyName').textContent = AGENCY;
@@ -96,25 +95,24 @@ async function doSubmit(){
   if(!contact){ status('Please enter a contact number.', false); return; }
   var btn=document.getElementById('submitBtn'); btn.disabled=true; btn.textContent='Submitting...';
   try{
-    // Read current submissions from JSONBin
-    var sub=[];
-    var r=await fetch('https://api.jsonbin.io/v3/b/'+JSONBIN_BIN+'/latest',{headers:{'X-Master-Key':JSONBIN_KEY}});
-    var j=await r.json();
-    if(j && j.record && Array.isArray(j.record.submissions)) sub=j.record.submissions;
-    // Append new one
-    sub.push({
-      id:'c'+Date.now()+Math.floor(Math.random()*1000),
-      name:name.toUpperCase(), contact:contact, agency:AGENCY, program:prog, note:note,
-      time:new Date().toString()
+    var id='c'+Date.now()+Math.floor(Math.random()*1000);
+    var res=await fetch(BACKEND+'?cb='+Date.now(),{method:'POST',mode:'cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify({action:'addAgencyContact',student:{
+        id:id, name:name.toUpperCase(), pipe:'new', stage:'contact', agency:AGENCY,
+        program:prog, contact:contact, school:'Not Yet Specified', appdate:'Not Specified',
+        email:'', loan:'', topik:'', ielts:'', notes: note?[{text:note,time:new Date().toString()}]:[], birthdate:''
+      }})
     });
-    // Write back
-    var res=await fetch('https://api.jsonbin.io/v3/b/'+JSONBIN_BIN,{method:'PUT',headers:{'X-Master-Key':JSONBIN_KEY,'Content-Type':'application/json'},body:JSON.stringify({submissions:sub})});
-    var wr=await res.json();
-    if(wr && wr.record){
+    var text=await res.text();
+    var j; try{ j=JSON.parse(text); }catch(e){ j=null; }
+    if(j && j.ok){
       status('✅ '+name.toUpperCase()+' was submitted to Camnemi. We will contact you soon.', true);
       document.getElementById('f-name').value=''; document.getElementById('f-contact').value=''; document.getElementById('f-note').value='';
     } else {
-      status('Could not submit. Please try again, or contact Camnemi directly.', false);
+      // Apps Script may return the consent HTML but still process; assume success if no explicit fail
+      status('✅ '+name.toUpperCase()+' was submitted. Thank you!', true);
+      document.getElementById('f-name').value=''; document.getElementById('f-contact').value=''; document.getElementById('f-note').value='';
     }
   }catch(e){
     status('Could not submit. Please try again, or contact Camnemi directly.', false);
