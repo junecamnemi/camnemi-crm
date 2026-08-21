@@ -347,23 +347,46 @@ function createCustomerFolder(body) {
 }
 
 /** List files inside a student's folder (finds folder by name under root). */
+var STUDENT_INDEX_KEY = 'CAMNEMI_STUDENT_FOLDER_INDEX';
+var STUDENT_INDEX_TS_KEY = 'CAMNEMI_STUDENT_INDEX_TS';
+
+// Build (and cache) a map of studentName(lowercase) -> folderId by scanning the root once.
+function getStudentFolderIndex(forceRebuild) {
+  var props = PropertiesService.getScriptProperties();
+  var ts = parseInt(props.getProperty(STUDENT_INDEX_TS_KEY) || '0', 10);
+  var now = Date.now();
+  // cache for 30 min, or force rebuild
+  if (!forceRebuild && ts && (now - ts) < 30*60*1000) {
+    var cached = props.getProperty(STUDENT_INDEX_KEY);
+    if (cached) { try { return JSON.parse(cached); } catch(e){} }
+  }
+  var root = getCustomerRoot();
+  var index = {};
+  var stack = []; var it = root.getFolders(); while (it.hasNext()) stack.push(it.next());
+  while (stack.length > 0) {
+    var f = stack.pop();
+    var nm = f.getName().replace(/[\\/:*?"<>|]/g,'').trim().toLowerCase();
+    if (nm && !index[nm]) index[nm] = f.getId();
+    var sub = f.getFolders(); while (sub.hasNext()) stack.push(sub.next());
+  }
+  props.setProperty(STUDENT_INDEX_KEY, JSON.stringify(index));
+  props.setProperty(STUDENT_INDEX_TS_KEY, String(now));
+  return index;
+}
+
 function listStudentFolderFiles(body) {
   var name = String(body.name || '').trim();
   if (!name) return jsonOut({ ok:false, error:'Missing name' });
   var label = name.replace(/[\\/:*?"<>|]/g, '').trim().toLowerCase();
-  var root = getCustomerRoot();
-  // recursive search: student folders are nested inside batch folders (e.g. 202503_JBNU_D4)
-  var folder = null;
-  var stack = [];
-  var it = root.getFolders();
-  while (it.hasNext()) stack.push(it.next());
-  while (stack.length > 0) {
-    var f = stack.pop();
-    if (f.getName().replace(/[\\/:*?"<>|]/g, '').trim().toLowerCase() === label) { folder = f; break; }
-    var sub = f.getFolders();
-    while (sub.hasNext()) stack.push(sub.next());
+  var index = getStudentFolderIndex(false);
+  var folderId = index[label];
+  if (!folderId) {
+    // not in index: rebuild once in case folder is new
+    index = getStudentFolderIndex(true);
+    folderId = index[label];
   }
-  if (!folder) return jsonOut({ ok:true, found:false, files:[] });  // no folder yet
+  if (!folderId) return jsonOut({ ok:true, found:false, files:[] });
+  var folder = DriveApp.getFolderById(folderId);
   var files = [];
   var fIt = folder.getFiles();
   while (fIt.hasNext()) {
