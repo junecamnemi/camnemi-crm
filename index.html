@@ -4128,34 +4128,24 @@ function syncUniv() {
   function renderList() {
     const body = document.getElementById('list-body');
     body.innerHTML = '';
-    // rebuild all column headers (skip hidden), each with a hide (👁) button
-    const customHead = document.getElementById('list-custom-head');
-    if(customHead){
-      let cur = customHead;
-      // remove previously injected headers
-      while(cur.previousElementSibling && cur.previousElementSibling.dataset && cur.previousElementSibling.dataset.listcol){
-        cur.previousElementSibling.remove();
-      }
-      // base columns (visible ones)
-      for(let i=LIST_BASE_COLS.length-1;i>=0;i--){
-        const col = LIST_BASE_COLS[i];
-        if(HIDDEN_LIST_COLS.includes(col.key)) continue;
-        const th = document.createElement('th');
-        th.dataset.listcol = col.key;
-        th.style.cssText = 'position:relative;';
-        th.innerHTML = `${col.label} <button onclick="event.stopPropagation();toggleListCol(this,'${col.key}')" title="Hide column" style="background:none;border:none;cursor:pointer;font-size:.7rem;margin-left:3px;opacity:.5;">👁</button>`;
-        cur.parentNode.insertBefore(th, cur);
-      }
-      // custom columns (visible ones)
-      for(let i=LIST_CUSTOM_COLS.length-1;i>=0;i--){
-        const col = LIST_CUSTOM_COLS[i];
-        if(HIDDEN_LIST_COLS.includes('custom:'+col)) continue;
-        const th = document.createElement('th');
-        th.dataset.listcol = 'custom:'+col;
-        th.style.cssText = 'position:relative;';
-        th.innerHTML = `${col} <button onclick="event.stopPropagation();toggleListCol(this,'custom:${col}')" title="Hide column" style="background:none;border:none;cursor:pointer;font-size:.7rem;margin-left:3px;opacity:.5;">👁</button>`;
-        cur.parentNode.insertBefore(th, cur);
-      }
+    // rebuild all column headers in the correct order (skip hidden), each with a hide (👁) button
+    // clear all previously injected headers + the + button, then rebuild fresh
+    const headerRow = document.getElementById('list-header-row');
+    if(headerRow){
+      headerRow.innerHTML = '';
+      let html = '';
+      // base columns in defined order
+      LIST_BASE_COLS.forEach(col=>{
+        if(HIDDEN_LIST_COLS.includes(col.key)) return;
+        html += `<th data-listcol="${col.key}" style="position:relative;">${col.label} <button onclick="event.stopPropagation();toggleListCol(this,'${col.key}')" title="Hide column" style="background:none;border:none;cursor:pointer;font-size:.7rem;margin-left:3px;opacity:.5;">👁</button></th>`;
+      });
+      // custom columns
+      LIST_CUSTOM_COLS.forEach(col=>{
+        if(HIDDEN_LIST_COLS.includes('custom:'+col)) return;
+        html += `<th data-listcol="custom:${col}" style="position:relative;">${col} <button onclick="event.stopPropagation();toggleListCol(this,'custom:${col}')" title="Hide column" style="background:none;border:none;cursor:pointer;font-size:.7rem;margin-left:3px;opacity:.5;">👁</button></th>`;
+      });
+      // keep the + button as the last header
+      headerRow.innerHTML = html + `<th id="list-custom-head" style="width:40px;text-align:center;"><button onclick="addListColumn()" title="Add a column (backend field)" style="background:#e0e7ff;color:#3730a3;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:1rem;font-weight:700;line-height:1;">+</button></th>`;
     }
     const { stage, program, school, agency, appdate } = filterState;
     const arrMatch=(a,v)=>((!Array.isArray(a)||a.length===0)||a.includes(v));
