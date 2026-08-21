@@ -845,6 +845,7 @@
         refreshCardBody(drag);
         if (currentView === 'list') renderList();
         if (from !== to) logAction(logStudentName(drag), 'Move card: ' + from + ' → ' + to);
+        bumpCardRecent(drag); reorderAllByRecent();
         saveNow();  // persist the move immediately (real-time save)
       }
     } else { drag.classList.remove('dragging'); }
@@ -2954,6 +2955,7 @@ function syncUniv() {
     closeModal();
     refreshCounts();
     logAction(name, 'Add card');
+    bumpCardRecent(card); reorderAllByRecent();
     saveNow();
   }
   function saveNewCustomer() {
@@ -3233,6 +3235,7 @@ function syncUniv() {
     refreshCardBody(card);
     if(newStage!==oldStage) logAction(name, 'Move card: ' + oldStage + ' → ' + newStage);
     if(nv) logAction(name, 'Note');
+    bumpCardRecent(card); reorderAllByRecent();
     saveNow();
     refreshCounts();
     if(currentView==='list') renderList();
@@ -3285,6 +3288,7 @@ function syncUniv() {
     refreshCardBody(card);
     if(nv) logAction(name, 'Note');
     logAction(name, 'Revise input');
+    bumpCardRecent(card); reorderAllByRecent();
     saveNow();
     refreshCounts();
     if(currentView==='list') renderList();
@@ -3752,6 +3756,7 @@ function syncUniv() {
     if (stage && stage !== oldStage) logAction(name, 'Move card: ' + oldStage + ' → ' + stage);
     if (newPipe && newPipe !== oldPipe) logAction(name, 'Move card: pipeline ' + oldPipe + ' → ' + newPipe);
     if (newNoteVal) logAction(name, 'Note');
+    bumpCardRecent(card); reorderAllByRecent();
     saveNow();
     closeModal();
     if (currentView === 'list') renderList();
@@ -4589,7 +4594,8 @@ function syncUniv() {
         email: card.dataset.email, loan: card.dataset.loan, birthdate: card.dataset.birthdate,
         noqr: card.dataset.noqr, illegal: card.dataset.illegal,
         notes: card.dataset.notes ? JSON.parse(card.dataset.notes) : [],
-        stage_order: card.parentElement ? card.parentElement.getAttribute('data-cards') : card.dataset.stage
+        stage_order: card.parentElement ? card.parentElement.getAttribute('data-cards') : card.dataset.stage,
+        recent: card.dataset.recent || ''
       });
     });
     return {
@@ -4667,7 +4673,7 @@ function syncUniv() {
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal'].forEach(k=>{
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
       card.dataset.name = c.name||'';
@@ -4837,6 +4843,36 @@ function syncUniv() {
   function getAgencySheetLink(){
     alert('Agency submissions use JSONBin. Give each agency their link:\n\nhttps://junecamnemi.github.io/camnemi-crm/agency-form.html?agency=YOUR_AGENCY');
   }
+  // Silent auto-pull of agency submissions (no alerts) - runs on boot
+  async function autoPullAgencySubmissions(){
+    if (!window.__bootDone) return;
+    const key='$2a$10$31P6/njb2XVgVb90.L/5seAwHWVGEzTa.Adefl2geCMwO8H7/YnZC';
+    const bin='6a87ca81f5f4af5e292fa17d';
+    try {
+      const res=await fetch('https://api.jsonbin.io/v3/b/'+bin+'/latest',{headers:{'X-Master-Key':key}});
+      const j=await res.json();
+      const subs=(j&&j.record&&Array.isArray(j.record.submissions))?j.record.submissions:[];
+      if(!subs.length) return;
+      let added=0; const existing=[];
+      document.querySelectorAll('.customer-card[data-pipe="new"]').forEach(c=>{existing.push((c.dataset.name||'').toUpperCase());});
+      subs.forEach(s=>{
+        const nm=(s.name||'').toUpperCase(); if(!nm||existing.includes(nm)) return;
+        const card=document.createElement('div'); card.className='customer-card'; card.id=s.id||('c'+Date.now()+Math.floor(Math.random()*1000));
+        card.dataset.pipe='new'; card.dataset.stage='contact';
+        card.dataset.name=nm; card.dataset.agency=s.agency||'CAMNEMI';
+        card.dataset.program=s.program||'Not Yet'; card.dataset.contact=s.contact||'';
+        card.dataset.school='Not Yet Specified'; card.dataset.appdate='Not Specified';
+        card.dataset.notes=s.note?JSON.stringify([{text:s.note,time:s.time||''}]):'[]';
+        card.dataset.recent=Date.now();
+        const container=document.querySelector('.cards[data-cards="contact"]');
+        if(container) container.appendChild(card); else {let hp=document.getElementById('hidden-cards'); if(!hp){hp=document.createElement('div');hp.id='hidden-cards';hp.style.display='none';document.body.appendChild(hp);} hp.appendChild(card);}
+        refreshCardBody(card); applyCardBorder(card); if(typeof attachCard==='function') attachCard(card);
+        existing.push(nm); added++;
+      });
+      if(added){ saveNow(); saveDatabase(); if(document.querySelector('.customer-card[data-pipe="new"]')) reorderAllByRecent(); }
+    } catch(e){}
+  }
+
   // Pull agency submissions from JSONBin into the Contact list
   async function pullAgencySubmissionsApp(){
     const key='$2a$10$31P6/njb2XVgVb90.L/5seAwHWVGEzTa.Adefl2geCMwO8H7/YnZC';
@@ -5137,6 +5173,9 @@ function syncUniv() {
 
     // Load university/guide data lazily (deferred so the UI is fast first)
     setTimeout(loadDataFile, 300);
+    // AUTO-PULL agency submissions silently (no alert) a few seconds after boot
+    setTimeout(autoPullAgencySubmissions, 4000);
+
     // auto-save on window unload (belt & suspenders)
     window.addEventListener('beforeunload', saveDatabase);
     // MutationObserver: auto-save whenever customer cards change
@@ -5147,6 +5186,23 @@ function syncUniv() {
   document.addEventListener('DOMContentLoaded', () => { bootApp(); });
   // Auto-save after any data mutation
   function markDirty(){ setTimeout(saveDatabase, 0); }
+  // Mark a card as recently-updated and re-sort its column so newest is first
+  function bumpCardRecent(card){
+    if(!card) return;
+    card.dataset.recent = Date.now();
+  }
+  // Sort a column's cards by most recently updated (newest first)
+  function reorderColumnByRecent(col){
+    if(!col) return;
+    const cards = Array.from(col.querySelectorAll('.customer-card'));
+    if(cards.length < 2) return;
+    cards.sort((a,b)=> (parseInt(b.dataset.recent||0,10)||0) - (parseInt(a.dataset.recent||0,10)||0));
+    cards.forEach(c=>col.appendChild(c));
+  }
+  function reorderAllByRecent(){
+    document.querySelectorAll('.cards').forEach(reorderColumnByRecent);
+  }
+
   // Immediate save: write localStorage + push to cloud right away (real-time)
   function saveNow() {
     if (__suppressSave) return;
