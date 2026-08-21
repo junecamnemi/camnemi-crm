@@ -4415,7 +4415,7 @@ function syncUniv() {
       const DEMO_NAMES_LOCAL = new Set(['JAMES SMITH','SARAH JOHNSON','OLIVIA BROWN','LIAM JOHNSON','SOPHIA GARCIA','NOAH MILLER','ISABELLA DAVIS','ETHAN WILSON','MIA MOORE','LUCAS TAYLOR','AMELIA ANDERSON','MASON THOMAS','HARPER JACKSON','ELIJAH WHITE','EVELYN HARRIS','BENJAMIN MARTIN','AVA THOMPSON','HENRY LEE','CHARLOTTE WALKER','ALEXANDER HALL','EMILY ALLEN','DANIEL YOUNG','GRACE KING','MATTHEW WRIGHT','CHLOE SCOTT','SAMUEL GREEN','ZOE BAKER','JOHN ADAMS','LILY NELSON','RYAN HILL','NORA CARTER','EMMA RODRIGUEZ','MICHAEL CHEN','DAVID KIM','MARIA GARCIA','YUSUF AHMED','AISHA KHAN','ㄴㄴㅇ','코스타','KYUNGJUNE JO','SRY VANDADD','ARCHIVE TEST2','VISA DENY FULL','VISA DENY ACTION','VISA DENY ACTION2','DENIED BADGE CHECK','BADGE FINAL','BADGE FINAL2','VISA MOVE TEST','MODAL TEST','PROBE TEST','TEST IMPORT']);
       localCustomers.forEach(lc => {
         const nm = String(lc.name||'').trim().toUpperCase();
-        if(!cloudIds.has(lc.id) && !DEMO_NAMES_LOCAL.has(nm) && !/TEST|AUTOPULL|PROBE|BADGE|VISA\s?DENY|MODAL\s?TEST|^X$/.test(nm)) merged.push(lc);
+        if(!cloudIds.has(lc.id) && !DEMO_NAMES_LOCAL.has(nm) && !/TEST|AUTOPULL|PROBE|BADGE|VISA\s?DENY|MODAL\s?TEST|NSDASDASD|^X$/.test(nm)) merged.push(lc);
       });
       // remove known demo/pollution students (never real data)
       const DEMO_NAMES = new Set(['JAMES SMITH','SARAH JOHNSON','OLIVIA BROWN','LIAM JOHNSON','SOPHIA GARCIA','NOAH MILLER','ISABELLA DAVIS','ETHAN WILSON','MIA MOORE','LUCAS TAYLOR','AMELIA ANDERSON','MASON THOMAS','HARPER JACKSON','ELIJAH WHITE','EVELYN HARRIS','BENJAMIN MARTIN','AVA THOMPSON','HENRY LEE','CHARLOTTE WALKER','ALEXANDER HALL','EMILY ALLEN','DANIEL YOUNG','GRACE KING','MATTHEW WRIGHT','CHLOE SCOTT','SAMUEL GREEN','ZOE BAKER','JOHN ADAMS','LILY NELSON','RYAN HILL','NORA CARTER','EMMA RODRIGUEZ','MICHAEL CHEN','DAVID KIM','MARIA GARCIA','YUSUF AHMED','AISHA KHAN','ㄴㄴㅇ','코스타','KYUNGJUNE JO','SRY VANDADD','ARCHIVE TEST2','VISA DENY FULL','VISA DENY ACTION','VISA DENY ACTION2','DENIED BADGE CHECK','BADGE FINAL','BADGE FINAL2','VISA MOVE TEST','MODAL TEST','PROBE TEST','TEST IMPORT']);
@@ -4424,7 +4424,7 @@ function syncUniv() {
         if(!nm) return true;
         if(DEMO_NAMES.has(nm)) return false;
         // substring match for obvious test/pollution names
-        if(/TEST|AUTOPULL|PROBE|BADGE|VISA\s?DENY|MODAL\s?TEST|^X$/.test(nm)) return false;
+        if(/TEST|AUTOPULL|PROBE|BADGE|VISA\s?DENY|MODAL\s?TEST|NSDASDASD|^X$/.test(nm)) return false;
         return true;
       });
       // dedupe by name (uppercase) so duplicates never persist
@@ -4486,7 +4486,7 @@ function syncUniv() {
           const nm = String(c.name || '').trim().toUpperCase();
           if(!nm) return true;
           if(DEMO_NAMES.has(nm)) return false;
-          if(/TEST|AUTOPULL|PROBE|BADGE|VISA\s?DENY|MODAL\s?TEST|^X$/.test(nm)) return false;
+          if(/TEST|AUTOPULL|PROBE|BADGE|VISA\s?DENY|MODAL\s?TEST|NSDASDASD|^X$/.test(nm)) return false;
           return true;
         });
       }
