@@ -6,7 +6,8 @@
   <title>Customer Pipeline — Students in Process / Students in Korea</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', -apple-system, sans-serif; background: #eef2f7; min-height: 100vh; color: #374151; }
+    html { overflow-y: scroll; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: #eef2f7; min-height: 100vh; color: #374151; overflow-y: scroll; }
 
     /* ===== Sidebar ===== */
     .service-sidebar { position: fixed; left: 0; top: 0; height: 100vh; width: 300px; background: #1e293b; color: #fff; padding: 1.5rem; overflow-y: auto; z-index: 5; }
@@ -53,12 +54,12 @@
     .stat .lbl { font-size: .72rem; color: #6b7280; text-transform: capitalize; }
 
     /* ===== Kanban ===== */
-    .pipeline { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; align-items: stretch; }
-    .stage { flex: 0 0 290px; background: #e4e9f0; border-radius: .75rem; padding: .75rem; display: flex; flex-direction: column; height: calc(100vh - 320px); min-height: 440px; position: relative; }
+    .pipeline { display: flex; gap: 1rem; overflow-x: scroll; padding-bottom: 1rem; align-items: stretch; }
+    .stage { flex: 0 0 290px; background: #e4e9f0; border-radius: .75rem; padding: .75rem; display: flex; flex-direction: column; height: calc(100vh - 380px); min-height: 320px; position: relative; }
     .stage-header { display: flex; justify-content: space-between; align-items: center; padding: .5rem .5rem .75rem; font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: #475569; }
     .stage-count { background: #3b82f6; color: #fff; padding: .15rem .6rem; border-radius: 999px; font-size: .75rem; font-weight: 600; }
     .stage .cards { flex: 1; overflow-y: auto; }
-    .contact-add-fab { position: fixed; bottom: 24px; right: 24px; width: auto; padding: .85rem 1.4rem; background: linear-gradient(135deg,#3b82f6,#2563eb); color: #fff; border: none; border-radius: .9rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .4rem; box-shadow: 0 4px 14px rgba(59,130,246,.4); transition: transform .15s, box-shadow .15s; z-index: 40; }
+    .contact-add-fab { position: absolute; bottom: 12px; left: 12px; right: 12px; width: auto; padding: .7rem 1.2rem; background: linear-gradient(135deg,#3b82f6,#2563eb); color: #fff; border: none; border-radius: .9rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .4rem; box-shadow: 0 4px 14px rgba(59,130,246,.4); transition: transform .15s, box-shadow .15s; z-index: 40; }
     .contact-add-fab:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(59,130,246,.5); }
     .contact-add-fab:active { transform: translateY(0); }
 
@@ -83,6 +84,7 @@
     .tag-school { background: #fef3c7; color: #92400e; }
     .tag-months { background: #e0e7ff; color: #3730a3; }
     .tag-loanflag { background: #ccfbf1; color: #0f766e; }
+    .tag-denied { background: #fee2e2; color: #b91c1c; font-weight: 700; }
     .tag-topik { background: #fee2e2; color: #991b1b; }
     .tag-ielts { background: #e0f2fe; color: #0c4a6e; }
     .tag-illegal { background: #7f1d1d; color: #fff; }
@@ -2964,7 +2966,7 @@ function syncUniv() {
         ${topik ? `<span class="tag tag-topik">🇰🇷 ${escapeHtml(topik)}</span>` : ''}
         ${ielts ? `<span class="tag tag-ielts">🇬🇧 ${escapeHtml(ielts)}</span>` : ''}
         ${card.dataset.noqr === 'true' ? `<span class="tag tag-noqr">🔳 NO QR</span>` : ''}
-        ${card.dataset.illegal === 'true' ? `<span class="tag tag-illegal">⚠️ Illegal</span>` : ''}
+        ${card.dataset.illegal === 'true' ? `<span class="tag tag-illegal">⚠️ Illegal</span>` : ''}${card.dataset.denied === 'true' ? `<span class="tag tag-denied">❌ Denied</span>` : ''}
       </div>
       <div class="note">${note ? escapeHtml(note) : 'No notes yet.'}</div>`;
     card.querySelector('h4').textContent = name;
@@ -3008,8 +3010,9 @@ function syncUniv() {
           ${schEn ? `<span class="tag tag-school">${schLogo?`<img src="${escapeHtml(schLogo)}" onerror="this.style.display='none'" style="width:14px;height:14px;object-fit:contain;border-radius:3px;background:#fff;vertical-align:middle;margin-right:3px;">`:''}${escapeHtml(schEn)}</span>` : ''}
           ${monthsInKorea ? `<span class="tag tag-months">🗓 ${escapeHtml(monthsInKorea)}</span>` : ''}
           ${card.dataset.noqr === 'true' ? `<span class="tag tag-noqr">🔳 NO QR</span>` : ''}
-          ${card.dataset.illegal === 'true' ? `<span class="tag tag-illegal">⚠️ Illegal</span>` : ''}
+          ${card.dataset.illegal === 'true' ? `<span class="tag tag-illegal">⚠️ Illegal</span>` : ''}${card.dataset.denied === 'true' ? `<span class="tag tag-denied">❌ Denied</span>` : ''}
           ${card.dataset.loanFlag === 'true' ? `<span class="tag tag-loanflag">💰 Loan</span>` : ''}
+          ${card.dataset.denied === 'true' ? `<span class="tag tag-denied">❌ Denied</span>` : ''}
         </div>
         <div class="note">${escapeHtml(noteDisplay)}</div>`;
       card.querySelector('h4').textContent = name;
@@ -3109,6 +3112,16 @@ function syncUniv() {
   // Call after any card is placed in the DOM (creation or stage change)
   function refreshCardBody(card) {
     renderCardBody(card);
+    // ensure the Denied badge shows (in case the card renderer skipped it)
+    if(card.dataset.denied === 'true'){
+      const tr = card.querySelector('.tag-row');
+      if(tr && !tr.querySelector('.tag-denied')){
+        const b = document.createElement('span');
+        b.className = 'tag tag-denied';
+        b.textContent = '❌ Denied';
+        tr.appendChild(b);
+      }
+    }
     card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#94a3b8';
     applyCardBorder(card);
   }
@@ -3204,6 +3217,7 @@ function syncUniv() {
           ${(cardPipe==='new' && card.dataset.stage==='visa') ? `<div style="margin-top:.7rem;padding:.9rem;border-radius:.75rem;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;">
             <div style="font-size:.8rem;font-weight:700;color:#15803d;margin-bottom:.55rem;">🛂 VISA Process — Approved?</div>
             <button class="btn" onclick="visaApproved()" style="width:100%;padding:.7rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(22,163,74,.35);transition:transform .12s, box-shadow .12s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 16px rgba(22,163,74,.45)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 12px rgba(22,163,74,.35)';" onmousedown="this.style.transform='translateY(0)';">✅ VISA Approved — Move to Korea 🇰🇷</button>
+            <button class="btn" onclick="visaDenied()" style="width:100%;margin-top:.5rem;padding:.7rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(220,38,38,.35);transition:transform .12s, box-shadow .12s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 16px rgba(220,38,38,.45)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 12px rgba(220,38,38,.35)';" onmousedown="this.style.transform='translateY(0)';">❌ VISA Denied — Archive</button>
           </div>` : ''}
         </div>
         <div class="field"><label>📁 Documents</label>
@@ -4205,7 +4219,7 @@ function syncUniv() {
           ${card.dataset.topik ? `<span class="tag tag-topik">🇰🇷 ${escapeHtml(card.dataset.topik)}</span>` : ''}
           ${card.dataset.ielts ? `<span class="tag tag-ielts">🇬🇧 ${escapeHtml(card.dataset.ielts)}</span>` : ''}
           ${card.dataset.noqr === 'true' ? `<span class="tag tag-noqr">🔳 NO QR</span>` : ''}
-          ${card.dataset.illegal === 'true' ? `<span class="tag tag-illegal">⚠️ Illegal</span>` : ''}
+          ${card.dataset.illegal === 'true' ? `<span class="tag tag-illegal">⚠️ Illegal</span>` : ''}${card.dataset.denied === 'true' ? `<span class="tag tag-denied">❌ Denied</span>` : ''}
         </div>
         <div class="note">${escapeHtml(note)}</div>`;
       card.style.borderLeftColor = STAGE_COLORS[stage];
@@ -4574,6 +4588,31 @@ function syncUniv() {
     closeModal();
     if(currentPipe!=='korea'){ switchPipeline('korea'); } 
     alert('✅ ' + name + ' moved to Students in Korea (Welcome).');
+  }
+
+  // VISA Denied: move a process student to Archived with a Denied badge
+  function visaDenied(){
+    const overlay = document.getElementById('korea-edit-modal');
+    if(!overlay || !overlay._card) return;
+    const card = overlay._card;
+    const name = card.dataset.name || '';
+    if(!confirm('VISA denied for ' + name + '? Move to Archived with Denied badge.')) return;
+    const from = card.dataset.stage;
+    card.dataset.stage = 'archived';
+    card.dataset.denied = 'true';
+    const fromCol = document.querySelector(`.cards[data-cards="${from}"]`);
+    const toCol = document.querySelector('.cards[data-cards="archived"]');
+    if(fromCol && fromCol.contains(card)) fromCol.removeChild(card);
+    if(toCol) toCol.appendChild(card);
+    if(from) changeCount(from,-1);
+    changeCount('archived',+1);
+    card.style.borderLeftColor = STAGE_COLORS['archived']||'#94a3b8';
+    logAction(name, 'VISA Denied → Archived');
+    refreshCardBody(card);
+    bumpCardRecent(card); reorderAllByRecent();
+    saveNow(); refreshCounts();
+    closeModal();
+    alert('❌ ' + name + ' moved to Archived (VISA Denied).');
   }
 
   // Auto-toggle the Loan flag based on loan amount in the korea modal
@@ -4968,7 +5007,8 @@ function syncUniv() {
         stage_order: card.parentElement ? card.parentElement.getAttribute('data-cards') : card.dataset.stage,
         recent: card.dataset.recent || '',
         folderId: card.dataset.folderId || '',
-        folderUrl: card.dataset.folderUrl || ''
+        folderUrl: card.dataset.folderUrl || '',
+        denied: card.dataset.denied || ''
       });
     });
     return {
@@ -5046,7 +5086,7 @@ function syncUniv() {
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl'].forEach(k=>{
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
       card.dataset.name = c.name||'';
