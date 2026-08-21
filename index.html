@@ -3048,9 +3048,12 @@ function syncUniv() {
         <div class="note">${escapeHtml(noteDisplay)}</div>
         <div style="margin-top:.4rem;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;">
           <button class="btn btn-note" onclick="event.stopPropagation();uploadCustomerDoc(this.closest('.customer-card'))" style="font-size:.68rem;padding:.2rem .5rem;" title="Upload file to this student's Drive folder">📎 Upload</button>
-          ${card.dataset.folderUrl ? `<a href="${escapeHtml(card.dataset.folderUrl)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="font-size:.68rem;color:#2563eb;font-weight:600;text-decoration:none;">📁 Open Folder</a>` : `<button class="btn btn-note" onclick="event.stopPropagation();linkKoreaFolder(this.closest('.customer-card'))" style="font-size:.68rem;padding:.2rem .5rem;" title="Find this student's Drive folder">🔗 Find Folder</button>`}
+        </div>
+        <div class="korea-files" style="margin-top:.4rem;max-height:110px;overflow:auto;border-top:1px dashed #eef0f4;padding-top:.3rem;font-size:.7rem;color:#475569;">
+          ${card.dataset.folderFiles ? renderFolderFiles(card.dataset.folderFiles) : '<div class="kf-loading" style="color:#94a3b8;">📁 Loading folder...</div>'}
         </div>`;
       card.querySelector('h4').textContent = name;
+      if(!card.dataset.folderFiles){ loadKoreaFolderFiles(card); }
       card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#3b82f6';
       return;
     }
@@ -4434,6 +4437,28 @@ function syncUniv() {
       }
     } catch(e){ console.warn('createFolder failed', e); }
   }
+  // Load a korea student's folder files and show them on the card
+  async function loadKoreaFolderFiles(card){
+    if(!card || !backendUrl()) return;
+    const name = card.dataset.name || (card.querySelector('h4')?card.querySelector('h4').textContent:'');
+    if(!name) return;
+    try {
+      const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({ action:'listStudentFolderFiles', name:name }) });
+      const info = JSON.parse(await res.text());
+      const filesEl = card.querySelector('.korea-files');
+      if(info && info.ok){
+        if(info.files && info.files.length){
+          card.dataset.folderFiles = JSON.stringify(info.files);
+          if(info.folderUrl) card.dataset.folderUrl = info.folderUrl;
+          if(filesEl) filesEl.innerHTML = renderFolderFiles(info.files);
+        } else if(filesEl){
+          filesEl.innerHTML = info.found ? '<div style="color:#94a3b8;">📁 Folder: no files</div>' : '<div style="color:#94a3b8;">📁 No folder yet</div>';
+        }
+      }
+    } catch(e){ const el=card.querySelector('.korea-files'); if(el) el.innerHTML=''; }
+  }
+
   // Find (or create) a student's Drive folder and re-render the card with the link
   async function linkKoreaFolder(card){
     if(!card || !backendUrl()) return;
@@ -4451,6 +4476,15 @@ function syncUniv() {
         alert('Folder for ' + name + ': ' + info.folderUrl);
       } else { alert('Could not find/create folder.'); }
     } catch(e){ alert('Error: '+e); }
+  }
+
+  // Render the cached folder-files JSON into card HTML
+  function renderFolderFiles(filesJson){
+    try {
+      const files = typeof filesJson === 'string' ? JSON.parse(filesJson) : filesJson;
+      if(!Array.isArray(files) || !files.length) return '<div style="color:#94a3b8;">📁 No files yet</div>';
+      return files.slice(0,6).map(f=>`<div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href="${escapeHtml(f.url||'#')}" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">📄 ${escapeHtml(f.name||'file')}</a></div>`).join('') + (files.length>6?`<div style="color:#94a3b8;">+${files.length-6} more</div>`:'');
+    } catch(e){ return ''; }
   }
 
   // Upload a file into a customer's Drive folder.

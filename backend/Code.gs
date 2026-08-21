@@ -41,6 +41,10 @@ function handle(e, isPost) {
       var ss = getSheet();
       return jsonOut({ sheetUrl: 'https://docs.google.com/spreadsheets/d/' + ss.getId() + '/edit', sheetId: ss.getId(), name: ss.getName() });
     }
+    // ACTION: list files in a student's folder (find by name under root)
+    if (body.action === 'listStudentFolderFiles') {
+      return listStudentFolderFiles(body);
+    }
     // ACTION: get/create the shared Agency Submissions spreadsheet
     if (body.action === 'getAgencySubmissions') {
       return getAgencySubmissions();
@@ -296,12 +300,15 @@ function getWikiFolderBackend() {
 
 // Root folder in Drive that holds all customer document folders.
 var CUSTOMER_ROOT_NAME = 'Camnemi Customer Docs';
+var CUSTOMER_ROOT_FIXED_ID = '1FB40aQQokZy2KDEl1AEHG3RHUzo5rd1S';  // user's real students-files parent folder
 var CUSTOMER_ROOT_KEY = 'CAMNEMI_CUSTOMER_ROOT_ID';
 
 function getCustomerRoot() {
   var props = PropertiesService.getScriptProperties();
   var id = props.getProperty(CUSTOMER_ROOT_KEY);
   var folder = null;
+  // Prefer the user's real students-files root folder
+  if (CUSTOMER_ROOT_FIXED_ID) { try { folder = DriveApp.getFolderById(CUSTOMER_ROOT_FIXED_ID); } catch(err){ folder=null; } }
   if (id) { try { folder = DriveApp.getFolderById(id); } catch(err){ folder=null; } }
   if (!folder) {
     var files = DriveApp.getFoldersByName(CUSTOMER_ROOT_NAME);
@@ -329,6 +336,24 @@ function createCustomerFolder(body) {
     ok: true, folderId: folder.getId(), name: folder.getName(),
     folderUrl: 'https://drive.google.com/drive/folders/' + folder.getId()
   });
+}
+
+/** List files inside a student's folder (finds folder by name under root). */
+function listStudentFolderFiles(body) {
+  var name = String(body.name || '').trim();
+  if (!name) return jsonOut({ ok:false, error:'Missing name' });
+  var label = name.replace(/[\\/:*?"<>|]/g, '').trim();
+  var root = getCustomerRoot();
+  var it = root.getFoldersByName(label);
+  if (!it.hasNext()) return jsonOut({ ok:true, found:false, files:[] });  // no folder yet
+  var folder = it.next();
+  var files = [];
+  var fIt = folder.getFiles();
+  while (fIt.hasNext()) {
+    var f = fIt.next();
+    files.push({ name: f.getName(), mime: f.getMimeType(), size: f.getSize(), url: f.getUrl() });
+  }
+  return jsonOut({ ok:true, found:true, folderId: folder.getId(), folderUrl: folder.getUrl(), files: files });
 }
 
 /**
