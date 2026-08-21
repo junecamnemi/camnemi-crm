@@ -45,6 +45,14 @@ function handle(e, isPost) {
     if (body.action === 'listStudentFolderFiles') {
       return listStudentFolderFiles(body);
     }
+    // ACTION: rename a student's folder (find by old name, rename to new name)
+    if (body.action === 'renameStudentFolder') {
+      return renameStudentFolder(body);
+    }
+    // ACTION: rename a file inside a student's folder
+    if (body.action === 'renameStudentFile') {
+      return renameStudentFile(body);
+    }
     // ACTION: find a student's docs (recursive) and copy them into a clean per-student folder
     if (body.action === 'copyStudentDocs') {
       return copyStudentDocs(body);
@@ -394,6 +402,37 @@ function listStudentFolderFiles(body) {
     files.push({ name: f.getName(), mime: f.getMimeType(), size: f.getSize(), url: f.getUrl() });
   }
   return jsonOut({ ok:true, found:true, folderId: folder.getId(), folderUrl: folder.getUrl(), files: files });
+}
+
+/** Rename a student's folder (find by old name under root, rename to new name). */
+function renameStudentFolder(body) {
+  var oldName = String(body.oldName || '').trim();
+  var newName = String(body.newName || '').trim();
+  if (!oldName || !newName) return jsonOut({ ok:false, error:'oldName and newName required' });
+  var oldLabel = oldName.replace(/[\\/:*?"<>|]/g,'').trim().toLowerCase();
+  var newLabel = newName.replace(/[\\/:*?"<>|]/g,'').trim();
+  var index = getStudentFolderIndex(false);
+  var folderId = index[oldLabel];
+  if (!folderId) return jsonOut({ ok:true, renamed:false, error:'Source folder not found' });
+  var folder = DriveApp.getFolderById(folderId);
+  folder.setName(newLabel);
+  // invalidate cache so the index picks up the new name
+  PropertiesService.getScriptProperties().deleteProperty(STUDENT_INDEX_KEY);
+  return jsonOut({ ok:true, renamed:true, folderId:folder.getId(), folderUrl:folder.getUrl() });
+}
+
+/** Rename a file inside a student's folder. */
+function renameStudentFile(body) {
+  var folderId = String(body.folderId || '').trim();
+  var oldName = String(body.oldName || '').trim();
+  var newName = String(body.newName || '').trim();
+  if (!folderId || !oldName || !newName) return jsonOut({ ok:false, error:'folderId, oldName, newName required' });
+  var folder = DriveApp.getFolderById(folderId);
+  var it = folder.getFilesByName(oldName);
+  if (!it.hasNext()) return jsonOut({ ok:true, renamed:false, error:'File not found' });
+  var file = it.next();
+  file.setName(newName);
+  return jsonOut({ ok:true, renamed:true, fileId:file.getId(), name:file.getName(), url:file.getUrl() });
 }
 
 /** Find a student's folder recursively, copy all its files into a clean per-student folder, return the new link. */

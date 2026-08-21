@@ -3220,7 +3220,10 @@ function syncUniv() {
     const school=overlay.querySelector('#k-school').value.trim();
     const program=overlay.querySelector('#k-program').value.trim();
     if(!name||!school||!program){ alert('Name, School and Program are required.'); return; }
+    const oldName = card.dataset.name || '';
+    const nameChanged = oldName && oldName.toUpperCase() !== name.toUpperCase();
     card.dataset.name=name;
+    if(nameChanged){ renameStudentFolderApp(oldName, name); }
     card.dataset.school=school;
     card.dataset.program=program;
     const appEl=overlay.querySelector('#k-appdate'); if(appEl) card.dataset.appdate=appEl.value;
@@ -4460,6 +4463,32 @@ function syncUniv() {
     } catch(e){ const el=card.querySelector('.korea-files'); if(el) el.innerHTML=''; }
   }
 
+  // Rename a student's Drive folder when their name changes
+  async function renameStudentFolderApp(oldName, newName){
+    try {
+      const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({ action:'renameStudentFolder', oldName:oldName, newName:newName }) });
+      const info = JSON.parse(await res.text());
+      if(info && info.ok && info.renamed){
+        // update folder link on card
+        const card = document.querySelector('.customer-card[data-pipe="korea"]') && Array.from(document.querySelectorAll('.customer-card[data-pipe="korea"]')).find(c=>(c.dataset.name||'').toUpperCase()===newName.toUpperCase());
+        if(card && info.folderUrl) card.dataset.folderUrl = info.folderUrl;
+      }
+    } catch(e){}
+  }
+  // Rename a file inside the student's folder
+  async function renameStudentFileApp(folderId, oldName){
+    const newName = prompt('Rename "'+oldName+'" to:', oldName);
+    if(!newName || newName===oldName) return;
+    try {
+      const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({ action:'renameStudentFile', folderId:folderId, oldName:oldName, newName:newName }) });
+      const info = JSON.parse(await res.text());
+      if(info && info.ok && info.renamed) refreshKoreaDocs();
+      else alert('Could not rename file.');
+    } catch(e){ alert('Error: '+e); }
+  }
+
   // Set up the korea modal's drag-and-drop upload zone
   function setupKoreaDropzone(overlay, card){
     const zone = overlay.querySelector('#k-dropzone');
@@ -4509,7 +4538,7 @@ function syncUniv() {
       const info = JSON.parse(await res.text());
       if(info && info.ok && info.files && info.files.length){
         card.dataset.folderFiles = JSON.stringify(info.files);
-        docsEl.innerHTML = info.files.map(f=>`<div style="padding:.2rem 0;border-bottom:1px dashed #eef0f4;"><a href="${escapeHtml(f.url||'#')}" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">📄 ${escapeHtml(f.name||'file')}</a></div>`).join('');
+        docsEl.innerHTML = info.files.map(f=>`<div style="padding:.2rem 0;border-bottom:1px dashed #eef0f4;display:flex;justify-content:space-between;align-items:center;gap:.3rem;"><a href="${escapeHtml(f.url||'#')}" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">📄 ${escapeHtml(f.name||'file')}</a><button onclick="renameStudentFileApp('${info.folderId}','${escapeHtml(f.name||'').replace(/'/g,"\\'")}')" style="background:none;border:none;cursor:pointer;font-size:.68rem;color:#6b7280;" title="Rename file">✏️</button></div>`).join('');
       } else if(info && info.found){
         docsEl.innerHTML = '<span style="color:#94a3b8;">📁 No documents yet</span>';
       } else {
