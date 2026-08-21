@@ -5575,8 +5575,10 @@ function syncUniv() {
       try {
         // PUSH local state to cloud FIRST so moved/edited/new cards are persisted
         // before any stale cloud data is pulled back. This fixes reload reverting moves.
-        await syncPush();
+        // PULL authoritative backend data FIRST so imported/shared customers
+        // (e.g. the 62 from RUN_IMPORT) are never wiped by a stale local push.
         const synced = await syncPull();
+        await syncPush();
         if (synced) {
           restoreCustomers();
           // Re-seed Korea students if the backend restore left none (protects against data gaps)
