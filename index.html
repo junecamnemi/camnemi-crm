@@ -4081,9 +4081,13 @@ function syncUniv() {
   // value of a custom column for a card (reads card.dataset.<col> or stored extra fields)
   function listCustomValue(card, col){
     const key = col.replace(/[^a-z0-9]/gi,'').toLowerCase();
-    const v = card.dataset ? (card.dataset[key] || card.dataset[col] || '') : '';
-    if(v) return v;
-    // check stored extras on the card (payments etc.)
+    if(!card) return '';
+    if(card.dataset && card.dataset[key]) return card.dataset[key];
+    if(card.dataset && card.dataset[col]) return card.dataset[col];
+    // check customFields stored on the card element (restored from backend)
+    if(card.dataset && card.dataset.customFields){
+      try{ const cf=JSON.parse(card.dataset.customFields); if(cf[col]!==undefined) return cf[col]; }catch(e){}
+    }
     return '';
   }
 
@@ -4097,10 +4101,37 @@ function syncUniv() {
     renderList();
   }
   const LIST_BASE_COLS = [
-    {key:'name', label:'Name'}, {key:'age', label:'Age'}, {key:'contact', label:'Contact'},
-    {key:'agency', label:'Agency'}, {key:'program', label:'Program'}, {key:'school', label:'School'},
-    {key:'appdate', label:'App. Date'}, {key:'stage', label:'Stage'}, {key:'note', label:'Note'}
+    {key:'id', label:'ID'}, {key:'name', label:'Name'}, {key:'age', label:'Age'},
+    {key:'contact', label:'Contact'}, {key:'email', label:'Email'}, {key:'agency', label:'Agency'},
+    {key:'program', label:'Program'}, {key:'school', label:'School'}, {key:'appdate', label:'App. Date'},
+    {key:'stage', label:'Stage'}, {key:'loan', label:'Loan'}, {key:'topik', label:'TOPIK'},
+    {key:'ielts', label:'IELTS'}, {key:'birthdate', label:'Birthdate'}, {key:'noqr', label:'No QR'},
+    {key:'illegal', label:'Illegal'}, {key:'denied', label:'Denied'}, {key:'payments', label:'Payments'},
+    {key:'recent', label:'Updated'}, {key:'folderId', label:'Folder'}, {key:'note', label:'Note'}
   ];
+
+  // Double-click a custom list field to edit it (persists to card + backend)
+  function editListField(td){
+    const key = td.dataset.colkey;
+    const cardId = td.dataset.cardid;
+    const card = document.getElementById(cardId);
+    if(!card) return;
+    const cur = listCustomValue(card, key);
+    const input = document.createElement('input');
+    input.value = cur;
+    input.style.cssText='width:100%;border:1px solid #6366f1;border-radius:.3rem;padding:.15rem .3rem;font-size:.75rem;';
+    td.textContent='';
+    td.appendChild(input);
+    input.focus();
+    const commit=()=>{
+      const val = input.value.trim();
+      card.dataset[key] = val;
+      saveNow();
+      renderList();
+    };
+    input.addEventListener('blur', commit);
+    input.addEventListener('keydown', e=>{ if(e.key==='Enter'){e.preventDefault();commit();} if(e.key==='Escape') renderList(); });
+  }
 
   function renderList() {
     const body = document.getElementById('list-body');
@@ -4180,6 +4211,7 @@ function syncUniv() {
       const tr = document.createElement('tr');
       // build cells only for visible base columns + visible custom columns
       let cells = '';
+      const baseVal = (r, key) => r[key] !== undefined ? r[key] : (r.card ? r.card.dataset[key] : '');
       LIST_BASE_COLS.forEach(col=>{
         if(HIDDEN_LIST_COLS.includes(col.key)) return;
         if(col.key==='name') cells += `<td class="lst-name">${escapeHtml(r.name)}</td>`;
@@ -4191,8 +4223,17 @@ function syncUniv() {
         else if(col.key==='appdate') cells += `<td>${escapeHtml(r.appdate)}</td>`;
         else if(col.key==='stage') cells += `<td class="lst-stage"><span style="background:${r.stageBg}">${STAGE_LABELS[r.stage] || r.stage}</span></td>`;
         else if(col.key==='note') cells += `<td class="note-cell">${escapeHtml(r.note)}</td>`;
+        else if(col.key==='payments') {
+          let arr=[]; try{arr=JSON.parse(r.card.dataset.payments||'[]');}catch(e){}
+          const total=arr.reduce((s,p)=>s+(parseFloat(p.amount)||0),0);
+          cells += `<td>${total?('$'+total.toLocaleString('en-US')):''}</td>`;
+        }
+        else cells += `<td>${escapeHtml(String(baseVal(r,col.key)||''))}</td>`;
       });
-      LIST_CUSTOM_COLS.forEach(c=>{ if(!HIDDEN_LIST_COLS.includes('custom:'+c)) cells += `<td>${escapeHtml(listCustomValue(r.card, c))}</td>`; });
+      LIST_CUSTOM_COLS.forEach(c=>{ if(!HIDDEN_LIST_COLS.includes('custom:'+c)) {
+        const k = c.replace(/[^a-z0-9]/gi,'').toLowerCase();
+        cells += `<td class="lst-edit" data-colkey="${k}" data-cardid="${r.card.id}" onclick="event.stopPropagation()" ondblclick="editListField(this)" title="Double-click to edit">${escapeHtml(listCustomValue(r.card, c))}</td>`;
+      }});
       tr.innerHTML = cells;
       tr._card = r.card;
       tr.style.cursor = 'pointer';
@@ -5226,7 +5267,8 @@ function syncUniv() {
         folderUrl: card.dataset.folderUrl || '',
         denied: card.dataset.denied || '',
         payments: card.dataset.payments || '',
-        hidden: card.dataset.hidden || ''
+        hidden: card.dataset.hidden || '',
+        customFields: (LIST_CUSTOM_COLS.reduce((o,c)=>{ const k=c.replace(/[^a-z0-9]/gi,'').toLowerCase(); o[c]=card.dataset[k]||''; return o; },{}))
       });
     });
     return {
