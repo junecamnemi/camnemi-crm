@@ -111,7 +111,7 @@
 
     /* ===== Modals ===== */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; z-index: 99999; }
-    .modal { background: #fff; border-radius: 1rem; padding: 1.5rem; max-width: 460px; width: 92%; box-shadow: 0 20px 50px rgba(0,0,0,.3); max-height: 90vh; display: flex; flex-direction: column; position: relative; }
+    .modal { background: #fff; border-radius: 1rem; padding: 1.5rem; max-width: 460px; width: 92%; box-shadow: 0 20px 50px rgba(0,0,0,.3); max-height: 90vh; display: flex; flex-direction: column; position: relative; overflow-y: auto; }
     .m-close { position: absolute; top: .6rem; right: .6rem; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: #f1f5f9; color: #475569; font-size: 1rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; transition: background .15s, color .15s; }
     .m-close:hover { background: #fee2e2; color: #dc2626; }
     .modal-scroll { overflow-y: auto; flex: 1 1 auto; min-height: 0; }
@@ -3150,7 +3150,7 @@ function syncUniv() {
   // ======= SIMPLE EDIT MODAL FOR STUDENTS IN KOREA =======
   // Only the 8 essential fields + stage. No detailed sections.
   function openKoreaEditModal(card) {
-    const name = card.dataset.name || '';
+    const name = caps(card.dataset.name || '');
     const school = card.dataset.school || '';
     const program = card.dataset.program || '';
     const appdate = card.dataset.appdate || '';
