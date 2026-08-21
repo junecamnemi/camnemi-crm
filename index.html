@@ -492,7 +492,7 @@
   const STAGE_LABELS = {
     contact:'📞 Contact', potential:'💡 Potential', registration:'📝 Registered',
     documentready:'📂 Document Ready', application:'📄 Application', admission:'🎓 Admission', visa:'🛂 VISA Process',
-    welcome:'👋 Welcome (VISA Passed)', stay:'🏠 Stay', return:'✈️ Return', giveup:'⛔ Giveup',
+    welcome:'✅ VISA Grant', stay:'🏠 Stay', return:'✈️ Return', giveup:'⛔ Giveup',
     archived:'🗄️ Archived', canceled:'⛔ Canceled'
   };
   const STAGE_COLORS = {
@@ -4012,40 +4012,49 @@ function syncUniv() {
   function batchCancel() { batchMove('canceled'); }
 
   // ======= FILTER (click pills: stage / program / school / agency / appdate) =======
-  let filterState = { stage:'', program:'', school:'', agency:'', appdate:'', loan:'' };
+  let filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[] };
   // click a pill to set that value; click "Any" (fval='') or same pill again to clear
   function toggleClickFilter(el) {
     const ftype = el.dataset.ftype;
     const fval = el.dataset.fval;
-    filterState[ftype] = (filterState[ftype] === fval) ? '' : fval;
+    if(!Array.isArray(filterState[ftype])) filterState[ftype] = [];
+    // "Any" (fval='') clears this filter type
+    if(fval === ''){
+      filterState[ftype] = [];
+    } else {
+      const idx = filterState[ftype].indexOf(fval);
+      if(idx >= 0) filterState[ftype].splice(idx,1);
+      else filterState[ftype].push(fval);
+    }
     document.querySelectorAll('.click-filter[data-ftype="' + ftype + '"]').forEach(p => {
-      p.classList.toggle('active', p.dataset.fval === filterState[ftype]);
+      p.classList.toggle('active', filterState[ftype].includes(p.dataset.fval) || (p.dataset.fval==='' && filterState[ftype].length===0));
     });
     applyFilter();
   }
 
   function applyFilter() {
-    const { stage, program, school, agency, appdate, loan } = filterState;
+    const fs = filterState;
+    const arrMatch = (arr, val) => (!Array.isArray(arr) || arr.length===0) || arr.includes(val);
     const q = (document.getElementById('filter-search') ? document.getElementById('filter-search').value : '').trim().toLowerCase();
     document.querySelectorAll('.customer-card[data-pipe="' + currentPipe + '"]').forEach(card => {
-      const matchS = !stage || card.dataset.stage === stage;
-      const matchA = !agency || card.dataset.agency === agency;
-      const matchP = !program || card.dataset.program === program;
-      const matchSch = !school || koreaSchoolEn(card.dataset.school) === school || card.dataset.school === school;
-      const matchAdt = !appdate || card.dataset.appdate === appdate;
+      const matchS = arrMatch(fs.stage, card.dataset.stage);
+      const matchA = arrMatch(fs.agency, card.dataset.agency);
+      const matchP = arrMatch(fs.program, card.dataset.program);
+      const schVals = [koreaSchoolEn(card.dataset.school), card.dataset.school];
+      const matchSch = (!Array.isArray(fs.school) || fs.school.length===0) || fs.school.some(s => schVals.includes(s));
+      const matchAdt = arrMatch(fs.appdate, card.dataset.appdate);
       const hasLoan = !!(card.dataset.loan && card.dataset.loan.trim());
-      const matchLoan = !loan || (loan==='yes' ? hasLoan : !hasLoan);
+      const matchLoan = (!Array.isArray(fs.loan) || fs.loan.length===0) || fs.loan.some(l => l==='yes' ? hasLoan : !hasLoan);
       const h4 = card.querySelector('h4');
       const nm = (card.dataset.name || (h4 ? h4.textContent : '')).toLowerCase();
       const matchQ = !q || nm.includes(q);
       card.style.display = (matchS && matchA && matchP && matchSch && matchAdt && matchLoan && matchQ) ? '' : 'none';
     });
-    // refresh counts, and rebuild the list if it's the active view
     refreshCounts();
     if (currentView === 'list') renderList();
   }
   function clearFilter() {
-    filterState = { stage:'', program:'', school:'', agency:'', appdate:'' };
+    filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[] };
     document.querySelectorAll('.click-filter').forEach(p => p.classList.remove('active'));
     const sb=document.getElementById('filter-search'); if(sb) sb.value='';
     applyFilter();
@@ -4078,28 +4087,62 @@ function syncUniv() {
     return '';
   }
 
+  // Columns the user has hidden in list view (by base key)
+  let HIDDEN_LIST_COLS = [];
+  function toggleListCol(el, colKey){
+    const idx = HIDDEN_LIST_COLS.indexOf(colKey);
+    if(idx>=0) HIDDEN_LIST_COLS.splice(idx,1);
+    else HIDDEN_LIST_COLS.push(colKey);
+    saveDatabase();
+    renderList();
+  }
+  const LIST_BASE_COLS = [
+    {key:'name', label:'Name'}, {key:'age', label:'Age'}, {key:'contact', label:'Contact'},
+    {key:'agency', label:'Agency'}, {key:'program', label:'Program'}, {key:'school', label:'School'},
+    {key:'appdate', label:'App. Date'}, {key:'stage', label:'Stage'}, {key:'note', label:'Note'}
+  ];
+
   function renderList() {
     const body = document.getElementById('list-body');
     body.innerHTML = '';
-    // inject custom column headers before the + button
+    // rebuild all column headers (skip hidden), each with a hide (👁) button
     const customHead = document.getElementById('list-custom-head');
     if(customHead){
-      const prev = customHead.previousElementSibling;
       let cur = customHead;
-      LIST_CUSTOM_COLS.forEach(col=>{
+      // remove previously injected headers
+      while(cur.previousElementSibling && cur.previousElementSibling.dataset && cur.previousElementSibling.dataset.listcol){
+        cur.previousElementSibling.remove();
+      }
+      // base columns (visible ones)
+      for(let i=LIST_BASE_COLS.length-1;i>=0;i--){
+        const col = LIST_BASE_COLS[i];
+        if(HIDDEN_LIST_COLS.includes(col.key)) continue;
         const th = document.createElement('th');
-        th.textContent = col;
+        th.dataset.listcol = col.key;
+        th.style.cssText = 'position:relative;';
+        th.innerHTML = `${col.label} <button onclick="event.stopPropagation();toggleListCol(this,'${col.key}')" title="Hide column" style="background:none;border:none;cursor:pointer;font-size:.7rem;margin-left:3px;opacity:.5;">👁</button>`;
         cur.parentNode.insertBefore(th, cur);
-      });
+      }
+      // custom columns (visible ones)
+      for(let i=LIST_CUSTOM_COLS.length-1;i>=0;i--){
+        const col = LIST_CUSTOM_COLS[i];
+        if(HIDDEN_LIST_COLS.includes('custom:'+col)) continue;
+        const th = document.createElement('th');
+        th.dataset.listcol = 'custom:'+col;
+        th.style.cssText = 'position:relative;';
+        th.innerHTML = `${col} <button onclick="event.stopPropagation();toggleListCol(this,'custom:${col}')" title="Hide column" style="background:none;border:none;cursor:pointer;font-size:.7rem;margin-left:3px;opacity:.5;">👁</button>`;
+        cur.parentNode.insertBefore(th, cur);
+      }
     }
     const { stage, program, school, agency, appdate } = filterState;
+    const arrMatch=(a,v)=>((!Array.isArray(a)||a.length===0)||a.includes(v));
     const rows = [];
     document.querySelectorAll('.customer-card[data-pipe="' + currentPipe + '"]').forEach(card => {
-      const matchS = !stage || card.dataset.stage === stage;
-      const matchA = !agency || card.dataset.agency === agency;
-      const matchP = !program || card.dataset.program === program;
-      const matchSch = !school || koreaSchoolEn(card.dataset.school) === school || card.dataset.school === school;
-      const matchAdt = !appdate || card.dataset.appdate === appdate;
+      const matchS = arrMatch(stage, card.dataset.stage);
+      const matchA = arrMatch(agency, card.dataset.agency);
+      const matchP = arrMatch(program, card.dataset.program);
+      const matchSch = (!Array.isArray(school)||school.length===0) || school.some(s=>[koreaSchoolEn(card.dataset.school),card.dataset.school].includes(s));
+      const matchAdt = arrMatch(appdate, card.dataset.appdate);
       if (!(matchS && matchA && matchP && matchSch && matchAdt)) return; // filtered out
       const name = card.dataset.name || (card.querySelector('h4') ? card.querySelector('h4').textContent : '');
       const cAge = card.dataset.age || '';
@@ -4135,17 +4178,22 @@ function syncUniv() {
     }
     rows.forEach(r => {
       const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td class="lst-name">${escapeHtml(r.name)}</td>
-        <td>${escapeHtml(r.age)}</td>
-        <td>${escapeHtml(r.contact)}</td>
-        <td>${r.agency ? `<span class="tag tag-agency">🏢 ${escapeHtml(r.agency)}</span>` : ''}</td>
-        <td>${r.program ? `<span class="tag tag-program">🎓 ${escapeHtml(r.program)}</span>` : ''}</td>
-        <td>${escapeHtml(r.school)}</td>
-        <td>${escapeHtml(r.appdate)}</td>
-        <td class="lst-stage"><span style="background:${r.stageBg}">${STAGE_LABELS[r.stage] || r.stage}</span></td>
-        <td class="note-cell">${escapeHtml(r.note)}</td>
-        ${LIST_CUSTOM_COLS.map(c=>`<td>${escapeHtml(listCustomValue(r.card, c))}</td>`).join('')}`;
+      // build cells only for visible base columns + visible custom columns
+      let cells = '';
+      LIST_BASE_COLS.forEach(col=>{
+        if(HIDDEN_LIST_COLS.includes(col.key)) return;
+        if(col.key==='name') cells += `<td class="lst-name">${escapeHtml(r.name)}</td>`;
+        else if(col.key==='age') cells += `<td>${escapeHtml(r.age)}</td>`;
+        else if(col.key==='contact') cells += `<td>${escapeHtml(r.contact)}</td>`;
+        else if(col.key==='agency') cells += `<td>${r.agency ? `<span class="tag tag-agency">🏢 ${escapeHtml(r.agency)}</span>` : ''}</td>`;
+        else if(col.key==='program') cells += `<td>${r.program ? `<span class="tag tag-program">🎓 ${escapeHtml(r.program)}</span>` : ''}</td>`;
+        else if(col.key==='school') cells += `<td>${escapeHtml(r.school)}</td>`;
+        else if(col.key==='appdate') cells += `<td>${escapeHtml(r.appdate)}</td>`;
+        else if(col.key==='stage') cells += `<td class="lst-stage"><span style="background:${r.stageBg}">${STAGE_LABELS[r.stage] || r.stage}</span></td>`;
+        else if(col.key==='note') cells += `<td class="note-cell">${escapeHtml(r.note)}</td>`;
+      });
+      LIST_CUSTOM_COLS.forEach(c=>{ if(!HIDDEN_LIST_COLS.includes('custom:'+c)) cells += `<td>${escapeHtml(listCustomValue(r.card, c))}</td>`; });
+      tr.innerHTML = cells;
       tr._card = r.card;
       tr.style.cursor = 'pointer';
       tr.addEventListener('click', () => {
@@ -5193,6 +5241,8 @@ function syncUniv() {
       wikiNotes: WIKI_NOTES,
       wikiDocs: WIKI_DOCS,
       activityLog: ACTIVITY_LOG,
+      listCustomCols: LIST_CUSTOM_COLS,
+      hiddenListCols: HIDDEN_LIST_COLS,
       savedAt: new Date().toISOString()
     };
   }
@@ -5225,6 +5275,7 @@ function syncUniv() {
       if (Array.isArray(db.transactions)) TRANS = db.transactions;
       if (Array.isArray(db.recs)) RECS = db.recs;
       if (Array.isArray(db.listCustomCols)) LIST_CUSTOM_COLS = db.listCustomCols;
+      if (Array.isArray(db.hiddenListCols)) HIDDEN_LIST_COLS = db.hiddenListCols;
       // restore customers: rebuild cards after renderPipeline (merge registration/application)
       db.customers.forEach(c => { if (c.pipe==='new' && c.stage==='application') c.stage='registration'; });
       window.__RESTORE_CUSTOMERS__ = db.customers;
