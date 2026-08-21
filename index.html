@@ -3190,7 +3190,13 @@ function syncUniv() {
       <div class="modal">
         <h2>🇰🇷 Edit Student (in Korea)</h2>
         <div class="field"><label>Name *</label><input id="k-name" value="${escapeHtml(name)}" style="${req(name)}"></div>
-        <div class="field"><label>School *</label><select id="k-school">${schoolOpts}</select></div>
+        <div class="field"><label>School *</label>
+          <div style="position:relative;">
+            <input id="k-school-search" value="${escapeHtml(school)}" placeholder="🔍 Type to search school..." oninput="filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
+            <div id="k-school-list" style="position:absolute;top:100%;left:0;right:0;z-index:50;background:#fff;border:1px solid #e2e8f0;border-radius:.5rem;max-height:200px;overflow:auto;display:none;box-shadow:0 8px 20px rgba(0,0,0,.12);"></div>
+            <input type="hidden" id="k-school" value="${escapeHtml(school)}">
+          </div>
+        </div>
         <div class="field"><label>Program *</label><select id="k-program">${programOpts}</select></div>
         <div class="field"><label>Entered Korea</label><select id="k-appdate">${enterOpts}</select></div>
         <div class="field"><label>Contact</label><input id="k-contact" value="${escapeHtml(contact)}"></div>
@@ -4490,6 +4496,37 @@ function syncUniv() {
       else alert('Could not rename file.');
     } catch(e){ alert('Error: '+e); }
   }
+
+  // Searchable school picker for the korea modal
+  function filterKoreaSchools(q){
+    const listEl = document.getElementById('k-school-list');
+    if(!listEl) return;
+    const univList = (typeof UNIV_KNOWLEDGE !== 'undefined' && Array.isArray(UNIV_KNOWLEDGE)) ? UNIV_KNOWLEDGE : [];
+    q = (q||'').toLowerCase().trim();
+    let matches = univList;
+    if(q) matches = univList.filter(u => (u.n||'').toLowerCase().includes(q) || (u.en||'').toLowerCase().includes(q) || (u.es||'').toLowerCase().includes(q));
+    matches = matches.slice(0,60);
+    if(!matches.length){
+      listEl.innerHTML = '<div style="padding:.4rem .6rem;color:#94a3b8;">No schools found</div>';
+      listEl.style.display='block';
+      return;
+    }
+    listEl.innerHTML = matches.map(u=>`<div class="kschool-item" data-n="${escapeHtml(u.n||'')}" onmousedown="event.preventDefault();selectKoreaSchool('${escapeHtml(u.n||'').replace(/'/g,"\\'")}')" style="padding:.45rem .6rem;cursor:pointer;font-size:.8rem;border-bottom:1px solid #f1f5f9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${escapeHtml(u.n||'')}${u.es?' <span style="color:#94a3b8;font-size:.72rem;">('+escapeHtml(u.es)+')</span>':''}</div>`).join('');
+    listEl.style.display='block';
+  }
+  function selectKoreaSchool(name){
+    const listEl = document.getElementById('k-school-list');
+    const searchEl = document.getElementById('k-school-search');
+    const hiddenEl = document.getElementById('k-school');
+    if(listEl) listEl.style.display='none';
+    if(searchEl) searchEl.value = name;
+    if(hiddenEl) hiddenEl.value = name;
+  }
+  // Close school dropdown on click elsewhere
+  document.addEventListener('click', e=>{
+    const listEl = document.getElementById('k-school-list');
+    if(listEl && !e.target.closest('#k-school-search') && !e.target.closest('.kschool-item')) listEl.style.display='none';
+  });
 
   // Set up the korea modal's drag-and-drop upload zone
   function setupKoreaDropzone(overlay, card){
