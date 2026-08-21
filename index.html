@@ -4353,9 +4353,9 @@ function syncUniv() {
     if (!backendUrl()) return false;
     try {
       __syncing = true;
-      // cache-buster: Apps Script caches responses; a unique query param + no-cache headers force a fresh read
-      const cb = '?t=' + Date.now() + Math.floor(Math.random()*100000);
-      const res = await fetch(backendUrl() + cb, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8','Cache-Control':'no-cache','Pragma':'no-cache'}, body: JSON.stringify({ action:'readSheet' }) });
+      // cache-buster: Apps Script caches responses; a query param forces a fresh read
+      const cb = '?t=' + Date.now();
+      const res = await fetch(backendUrl() + cb, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({ action:'readSheet' }) });
       if (!res.ok) throw new Error('HTTP '+res.status);
       const text = await res.text();
       const db = JSON.parse(text);
