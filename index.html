@@ -537,15 +537,11 @@
     if(stage.classList.contains('stage-collapsed')) stage.classList.remove('stage-expanded');
     else stage.classList.add('stage-expanded');
   }
-  // Auto-collapse empty stages (0 cards). Collapsed stages can be clicked to expand.
+  // Stage collapse disabled: all stages stay expanded at full width
   function applyStageCollapse(){
     document.querySelectorAll('.stage[data-stage]').forEach(stage=>{
-      const key = stage.dataset.stage;
-      const count = stage.querySelectorAll('.customer-card').length;
-      // don't override manual expand
-      if(stage.classList.contains('stage-expanded')) return;
-      if(count===0 && !stage.classList.contains('stage-collapsed')) stage.classList.add('stage-collapsed');
-      else if(count>0 && stage.classList.contains('stage-collapsed')) stage.classList.remove('stage-collapsed');
+      stage.classList.remove('stage-collapsed');
+      stage.classList.remove('stage-expanded');
     });
   }
 
@@ -558,7 +554,7 @@
       </button>` : '';
     return `
       <div class="stage" data-stage="${stageKey}">
-        <div class="stage-header" onclick="toggleStageCollapse('${stageKey}')" title="Click to collapse/expand"><span class="stage-name">${STAGE_LABELS[stageKey]}</span><span class="stage-count" data-count="${stageKey}">0</span></div>
+        <div class="stage-header"><span class="stage-name">${STAGE_LABELS[stageKey]}</span><span class="stage-count" data-count="${stageKey}">0</span></div>
         <div class="cards" data-cards="${stageKey}"></div>
         ${quickAdd}
       </div>`;
