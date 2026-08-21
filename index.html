@@ -4154,47 +4154,7 @@ function syncUniv() {
       const container = document.querySelector(`.cards[data-cards="${stage}"]`);
       (container || document.getElementById('kanban-view')).appendChild(card);
     };
-    mk('new','contact','Sarah Johnson',29,'Sunrise Edu','D4','Yonsei University','2026/DEC','@sarah_j · +1 555 123 4567','Interested in D4 program.');
-    mk('new','contact','Michael Chen',34,'Global Study','BA','Not Yet Specified','2027/MAR','@mike_chen · +1 555 987 6543','Follow-up call scheduled.');
-    mk('new','potential','Emma Rodriguez',24,'EduBridge','MA','Korea University','2026/DEC','@emma_r · +1 555 222 3333','Qualified, demo done.');
-    mk('new','registration','David Kim',27,'Direct (no agency)','BA','Seoul National University','2027/MAR','@david_k · +1 555 444 5555','Documents submitted.');
-    mk('new','application','Maria Garcia',22,'EduBridge','MA','Korea University','2026/DEC','@maria_g · +1 555 666 7777','Application in progress, needs document upload.');
-    mk('new','admission','Yusuf Ahmed',25,'Sunrise Edu','D4','Yonsei University','2027/MAR','@yusuf_a · +1 555 777 8888','Awaiting invoice and admission letter.');
-    mk('new','visa','Aisha Khan',26,'Global Study','MA','Korea University','2026/DEC','@aisha_k · +1 555 999 0000','Awaiting visa approval and flight booking.');
-
-    // 30 test customers in the Contact stage
-    const firstNames = ['James','Olivia','Liam','Sophia','Noah','Isabella','Ethan','Mia','Lucas','Amelia','Mason','Harper','Elijah','Evelyn','Benjamin','Ava','Henry','Charlotte','Alexander','Emily','Daniel','Grace','Matthew','Chloe','Samuel','Zoe','John','Lily','Ryan','Nora'];
-    const lastNames = ['Smith','Brown','Johnson','Garcia','Miller','Davis','Wilson','Moore','Taylor','Anderson','Thomas','Jackson','White','Harris','Martin','Thompson','Lee','Walker','Hall','Allen','Young','King','Wright','Scott','Green','Baker','Adams','Nelson','Hill','Carter'];
-    const agencies = ['Sunrise Edu','Global Study','EduBridge','Direct (no agency)'];
-    const programs = ['D4','BA','MA','Online'];
-    const schools = ['Yonsei University','Korea University','Seoul National University','Hanyang University','Not Yet Specified'];
-    const appdates = ['2026/DEC','2027/MAR','Not Specified'];
-    const notes = [
-      'Initial inquiry via website.',
-      'Sent welcome packet, awaiting reply.',
-      'Asked about tuition fees.',
-      'Interested in scholarship options.',
-      'Contacted via Telegram, wants a call.',
-      'Comparing programs between schools.',
-      'Requested application checklist.',
-      'Planning to apply next semester.',
-      'Asked about housing options.',
-      'Follow up scheduled for next week.'
-    ];
-    for (let i = 0; i < 30; i++) {
-      const fn = firstNames[i % firstNames.length];
-      const ln = lastNames[i % lastNames.length];
-      const age = 19 + (i % 12);
-      const agency = agencies[i % agencies.length];
-      const program = programs[i % programs.length];
-      const school = schools[i % schools.length];
-      const appdate = appdates[i % appdates.length];
-      const phone = `+1 555 ${String(100 + i).padStart(3,'0')} ${String(1000 + i*7).slice(0,4)}`;
-      const note = notes[i % notes.length];
-      mk('new','contact', fn + ' ' + ln, age, agency, program, school, appdate, `@${fn.toLowerCase()}_${i+1} · ${phone}`, note);
-    }
   }
-
   // ======= KOREA STUDENTS (from Camnemi_Students_Excel) =======
   // 59 students loaded from the Excel, all starting in the 'Stay' stage.
   const KOREA_STUDENTS = [
@@ -4335,7 +4295,7 @@ function syncUniv() {
           folderId: card.dataset.folderId||'', folderUrl: card.dataset.folderUrl||''
         });
       });
-      const merged = (db.customers||[]).slice();
+      let merged = (db.customers||[]).slice();
       const cloudIds = new Set(merged.map(c=>c.id));
       const localById = {};
       localCustomers.forEach(lc => { localById[lc.id] = lc; });
