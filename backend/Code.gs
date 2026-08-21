@@ -327,11 +327,14 @@ function createCustomerFolder(body) {
   var name = String(body.name || '').trim();
   if (!name) return jsonOut({ error: 'Missing name' });
   var label = name.replace(/[\\/:*?"<>|]/g, '').trim();  // sanitize
+  var labelLc = label.toLowerCase();
 
   var root = getCustomerRoot();
-  // avoid duplicates: find existing folder with same name under root
-  var existing = root.getFoldersByName(label);
-  var folder = existing.hasNext() ? existing.next() : root.createFolder(label);
+  // avoid duplicates: case-insensitive find existing folder with same name under root
+  var folder = null;
+  var fit = root.getFolders();
+  while (fit.hasNext()) { var ff = fit.next(); if (ff.getName().trim().toLowerCase() === labelLc) { folder = ff; break; } }
+  if (!folder) folder = root.createFolder(label);
   return jsonOut({
     ok: true, folderId: folder.getId(), name: folder.getName(),
     folderUrl: 'https://drive.google.com/drive/folders/' + folder.getId()
@@ -342,11 +345,16 @@ function createCustomerFolder(body) {
 function listStudentFolderFiles(body) {
   var name = String(body.name || '').trim();
   if (!name) return jsonOut({ ok:false, error:'Missing name' });
-  var label = name.replace(/[\\/:*?"<>|]/g, '').trim();
+  var label = name.replace(/[\\/:*?"<>|]/g, '').trim().toLowerCase();
   var root = getCustomerRoot();
-  var it = root.getFoldersByName(label);
-  if (!it.hasNext()) return jsonOut({ ok:true, found:false, files:[] });  // no folder yet
-  var folder = it.next();
+  // case-insensitive search over all folders under root
+  var folder = null;
+  var it = root.getFolders();
+  while (it.hasNext()) {
+    var f = it.next();
+    if (f.getName().replace(/[\\/:*?"<>|]/g, '').trim().toLowerCase() === label) { folder = f; break; }
+  }
+  if (!folder) return jsonOut({ ok:true, found:false, files:[] });  // no folder yet
   var files = [];
   var fIt = folder.getFiles();
   while (fIt.hasNext()) {
