@@ -846,6 +846,25 @@
     { name: 'JK', commission: '—', policy: 'Partner agency.' },
     { name: 'Din Lina', commission: '—', policy: 'Partner agency.' }
   ];
+
+  // Built-in default agencies (always available; backend db.agencies are merged on top)
+  const DEFAULT_AGENCIES = [
+    { name: 'CAMNEMI', commission: '—', policy: 'In-house / direct (no external agency). Default.' },
+    { name: 'COSTA', commission: '10%', policy: 'Partner agency. Payment on admission confirmation.' },
+    { name: 'Khema', commission: '12%', policy: 'Partner agency. Quarterly performance review.' },
+    { name: 'Kimsous', commission: '—', policy: 'Partner agency.' },
+    { name: 'Sen Chao', commission: '—', policy: 'Partner agency.' },
+    { name: 'JK', commission: '—', policy: 'Partner agency.' },
+    { name: 'Din Lina', commission: '—', policy: 'Partner agency.' }
+  ];
+  function mergeAgencies(loaded){
+    const base = DEFAULT_AGENCIES.slice();
+    const names = new Set(base.map(a=>a.name));
+    (Array.isArray(loaded)?loaded:[]).forEach(a=>{
+      if(a && a.name && !names.has(a.name)){ base.push(a); names.add(a.name); }
+    });
+    return base;
+  }
   function openAgencies() {
     currentSection='other'; updateLogButton();
     goHash('agencies');
@@ -5046,8 +5065,8 @@ function syncUniv() {
       const db = JSON.parse(raw);
       if (!db || !Array.isArray(db.customers)) return false;
       // restore policy arrays
-      if (Array.isArray(db.agencies)) {
-        AGENCIES = db.agencies;
+      if (db.agencies !== undefined) {
+        AGENCIES = mergeAgencies(db.agencies);
         // always ensure CAMNEMI is present as the in-house default
         if (!AGENCIES.some(a => a.name === 'CAMNEMI')) {
           AGENCIES.unshift({ name:'CAMNEMI', commission:'—', policy:'In-house / direct (no external agency). Default.' });
@@ -5066,7 +5085,7 @@ function syncUniv() {
   }
   // Apply a backend-fetched db into app state (arrays) and mark for restore
   function applyDbToState(db) {
-    if (Array.isArray(db.agencies)) AGENCIES = db.agencies;
+    if (db.agencies !== undefined) AGENCIES = mergeAgencies(db.agencies);
     if (Array.isArray(db.fees)) FEES = db.fees;
     if (Array.isArray(db.partners)) PARTNERS = db.partners;
     if (Array.isArray(db.tasks)) TASKS = db.tasks;
