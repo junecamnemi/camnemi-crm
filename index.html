@@ -58,7 +58,7 @@
     .stage-header { display: flex; justify-content: space-between; align-items: center; padding: .5rem .5rem .75rem; font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: #475569; }
     .stage-count { background: #3b82f6; color: #fff; padding: .15rem .6rem; border-radius: 999px; font-size: .75rem; font-weight: 600; }
     .stage .cards { flex: 1; overflow-y: auto; }
-    .contact-add-fab { position: fixed; bottom: 250px; left: 330px; width: 272px; padding: .85rem; background: linear-gradient(135deg,#3b82f6,#2563eb); color: #fff; border: none; border-radius: .9rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .4rem; box-shadow: 0 4px 14px rgba(59,130,246,.4); transition: transform .15s, box-shadow .15s; z-index: 40; }
+    .contact-add-fab { position: fixed; bottom: 24px; right: 24px; width: auto; padding: .85rem 1.4rem; background: linear-gradient(135deg,#3b82f6,#2563eb); color: #fff; border: none; border-radius: .9rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .4rem; box-shadow: 0 4px 14px rgba(59,130,246,.4); transition: transform .15s, box-shadow .15s; z-index: 40; }
     .contact-add-fab:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(59,130,246,.5); }
     .contact-add-fab:active { transform: translateY(0); }
 
@@ -431,24 +431,6 @@
     <!-- Kanban (built by JS per pipeline) -->
     <div class="pipeline" id="kanban-view"></div>
 
-    <!-- Archived / Canceled section (below the pipeline) -->
-    <div class="archive-section" id="archive-section">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem;">
-        <h3 style="font-size:1rem;color:#475569;">🗄️ Archived / Canceled</h3>
-        <span style="font-size:.78rem;color:#64748b;font-weight:600;">⬇ Drag a card here or set its stage to Archived/Canceled</span>
-      </div>
-      <div style="display:flex;gap:1rem;">
-        <div class="stage archive-stage" style="flex:1;">
-          <div class="stage-header"><span>🗄️ Archived</span><span class="stage-count" data-count="archived">0</span></div>
-          <div class="cards" data-cards="archived"></div>
-        </div>
-        <div class="stage archive-stage" style="flex:1;">
-          <div class="stage-header"><span>⛔ Canceled</span><span class="stage-count" data-count="canceled">0</span></div>
-          <div class="cards" data-cards="canceled"></div>
-        </div>
-      </div>
-    </div>
-
     <!-- List view -->
     <div class="list-view" id="list-view">
       <table class="list-table">
@@ -489,7 +471,7 @@
   const PIPELINES = {
     new: {
       name: 'Students in Process',
-      stages: ['contact','potential','registration','documentready','admission','visa']
+      stages: ['contact','potential','registration','documentready','admission','visa','archived','canceled']
     },
     korea: {
       name: 'Students in Korea',
@@ -555,27 +537,7 @@
   }
 
   // Rebuild the Archived / Canceled boxes so only the ACTIVE pipeline's cards show
-  function rebuildArchive() {
-    const a = document.getElementById('archive-section');
-    const heading = `
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem;">
-        <h3 style="font-size:1rem;color:#475569;">🗄️ Archived / Canceled</h3>
-        <span style="font-size:.75rem;color:#94a3b8;">drag a card here or set its stage</span>
-      </div>`;
-    const boxes = `
-      <div style="display:flex;gap:1rem;">
-        <div class="stage archive-stage" style="flex:1;">
-          <div class="stage-header"><span>🗄️ Archived</span><span class="stage-count" data-count="archived">0</span></div>
-          <div class="cards" data-cards="archived"></div>
-        </div>
-        <div class="stage archive-stage" style="flex:1;">
-          <div class="stage-header"><span>⛔ Canceled</span><span class="stage-count" data-count="canceled">0</span></div>
-          <div class="cards" data-cards="canceled"></div>
-        </div>
-      </div>`;
-    a.innerHTML = heading + boxes;
-  }
-
+  function rebuildArchive() { /* archived/canceled are now regular pipeline stages */ }
   function renderPipeline() {
     const pipe = PIPELINES[currentPipe];
     // --- SAFE REBUILD: park ALL cards first so rebuilding columns never erases them ---
