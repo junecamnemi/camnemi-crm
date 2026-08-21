@@ -4093,7 +4093,7 @@ function syncUniv() {
     renderList();
   }
   const LIST_BASE_COLS = [
-    {key:'id', label:'ID'}, {key:'name', label:'Name'}, {key:'age', label:'Age'},
+    {key:'name', label:'Name'}, {key:'age', label:'Age'},
     {key:'contact', label:'Contact'}, {key:'email', label:'Email'}, {key:'agency', label:'Agency'},
     {key:'program', label:'Program'}, {key:'school', label:'School'}, {key:'appdate', label:'App. Date'},
     {key:'stage', label:'Stage'}, {key:'loan', label:'Loan'}, {key:'topik', label:'TOPIK'},
@@ -4125,6 +4125,24 @@ function syncUniv() {
     input.addEventListener('keydown', e=>{ if(e.key==='Enter'){e.preventDefault();commit();} if(e.key==='Escape') renderList(); });
   }
 
+  // Show hidden columns and let the user restore them
+  function showHiddenListCols(){
+    if(!HIDDEN_LIST_COLS.length){ alert('No hidden columns.'); return; }
+    const list = HIDDEN_LIST_COLS.map(h=>{
+      const label = LIST_BASE_COLS.find(c=>c.key===h) ? LIST_BASE_COLS.find(c=>c.key===h).label : (h.startsWith('custom:') ? h.replace('custom:','') : h);
+      return h + ' (' + label + ')';
+    }).join('\n');
+    const input = prompt('Hidden columns. Enter the column key(s) to restore, comma-separated:\n\n' + list);
+    if(!input) return;
+    const keys = input.split(',').map(s=>s.trim()).filter(Boolean);
+    keys.forEach(k=>{
+      const idx = HIDDEN_LIST_COLS.indexOf(k);
+      if(idx>=0) HIDDEN_LIST_COLS.splice(idx,1);
+    });
+    saveDatabase();
+    renderList();
+  }
+
   function renderList() {
     const body = document.getElementById('list-body');
     body.innerHTML = '';
@@ -4137,15 +4155,22 @@ function syncUniv() {
       // base columns in defined order
       LIST_BASE_COLS.forEach(col=>{
         if(HIDDEN_LIST_COLS.includes(col.key)) return;
-        html += `<th data-listcol="${col.key}" style="position:relative;">${col.label} <button onclick="event.stopPropagation();toggleListCol(this,'${col.key}')" title="Hide column" style="background:none;border:none;cursor:pointer;font-size:.7rem;margin-left:3px;opacity:.5;">👁</button></th>`;
+        html += `<th data-listcol="${col.key}" style="position:relative;">${col.label}
+          <button onclick="event.stopPropagation();sortList('${col.key}')" title="Sort" style="background:#eef2ff;color:#4f46e5;border:none;border-radius:.3rem;cursor:pointer;font-size:.7rem;margin-left:3px;padding:.05rem .3rem;">↕</button>
+          <button onclick="event.stopPropagation();toggleListCol(this,'${col.key}')" title="Hide column" style="background:#fef2f2;color:#b91c1c;border:none;border-radius:.3rem;cursor:pointer;font-size:.7rem;margin-left:2px;padding:.05rem .3rem;">👁</button>
+        </th>`;
       });
       // custom columns
       LIST_CUSTOM_COLS.forEach(col=>{
         if(HIDDEN_LIST_COLS.includes('custom:'+col)) return;
-        html += `<th data-listcol="custom:${col}" style="position:relative;">${col} <button onclick="event.stopPropagation();toggleListCol(this,'custom:${col}')" title="Hide column" style="background:none;border:none;cursor:pointer;font-size:.7rem;margin-left:3px;opacity:.5;">👁</button></th>`;
+        html += `<th data-listcol="custom:${col}" style="position:relative;">${col}
+          <button onclick="event.stopPropagation();sortList('${col}')" title="Sort" style="background:#eef2ff;color:#4f46e5;border:none;border-radius:.3rem;cursor:pointer;font-size:.7rem;margin-left:3px;padding:.05rem .3rem;">↕</button>
+          <button onclick="event.stopPropagation();toggleListCol(this,'custom:${col}')" title="Hide column" style="background:#fef2f2;color:#b91c1c;border:none;border-radius:.3rem;cursor:pointer;font-size:.7rem;margin-left:2px;padding:.05rem .3rem;">👁</button>
+        </th>`;
       });
       // keep the + button as the last header
-      headerRow.innerHTML = html + `<th id="list-custom-head" style="width:40px;text-align:center;"><button onclick="addListColumn()" title="Add a column (backend field)" style="background:#e0e7ff;color:#3730a3;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:1rem;font-weight:700;line-height:1;">+</button></th>`;
+      headerRow.innerHTML = html + `<th style="width:70px;text-align:center;"><button onclick="showHiddenListCols()" title="Show hidden columns" style="background:#fef9c3;color:#a16207;border:none;border-radius:.3rem;cursor:pointer;font-size:.65rem;padding:.1rem .35rem;">⇄ Show hidden</button></th>
+      <th id="list-custom-head" style="width:40px;text-align:center;"><button onclick="addListColumn()" title="Add a column (backend field)" style="background:#e0e7ff;color:#3730a3;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:1rem;font-weight:700;line-height:1;">+</button></th>`;
     }
     const { stage, program, school, agency, appdate } = filterState;
     const arrMatch=(a,v)=>((!Array.isArray(a)||a.length===0)||a.includes(v));
