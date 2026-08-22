@@ -4704,11 +4704,15 @@ function syncUniv() {
   function backendUrl() {
     return localStorage.getItem('camnemi_backend_url') || 'https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec';
   }
+  // Supabase defaults are embedded (anon key is public by design).
+  // localStorage overrides win if the user pastes a different project.
+  var DEFAULT_SUPABASE_URL = 'https://zjdvzpylxazfbazioxto.supabase.co';
+  var DEFAULT_SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqZHZ6cHlseGF6ZmJhemlveHRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0MjEwNTYsImV4cCI6MjEwMjk5NzA1Nn0.k1W4rIf_QaHjv529oHkOQLAGoYbyT08lDiAEplo76vQ';
   function supabaseUrl() {
-    return (localStorage.getItem('camnemi_supabase_url') || '').replace(/\/+$/,'');
+    return (localStorage.getItem('camnemi_supabase_url') || DEFAULT_SUPABASE_URL).replace(/\/+$/,'');
   }
   function supabaseKey() {
-    return localStorage.getItem('camnemi_supabase_key') || '';
+    return localStorage.getItem('camnemi_supabase_key') || DEFAULT_SUPABASE_KEY;
   }
   function useSupabase() {
     return !!(supabaseUrl() && supabaseKey());
