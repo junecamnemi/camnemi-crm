@@ -2055,6 +2055,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   function syncWiki() {
     syncWikiCount();
     try { localStorage.setItem('camnemi_wiki', JSON.stringify({notes:WIKI_NOTES, docs:WIKI_DOCS, cats:WIKI_CATS})); } catch(e){}
+    syncWikiCloud();
   }
   function loadWiki() {
     try {
@@ -2065,6 +2066,28 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     } catch(e){}
     if (!WIKI_NOTES.length) seedWiki();
     if (!WIKI_CATS.length) WIKI_CATS = defaultWikiCats();
+  }
+  async function syncWikiCloud() {
+    if (!useSupabase()) return;
+    try {
+      if (WIKI_NOTES.length) {
+        await sbUpsert('wiki_notes', WIKI_NOTES.map(n => ({
+          id: n.id, cat: n.cat || '', subj: n.subj || '', body: n.body || '',
+          replies: n.replies || [], updated: n.updated || ''
+        })), 'id');
+      }
+      if (WIKI_DOCS.length) {
+        await sbUpsert('wiki_docs', WIKI_DOCS.map(d => ({
+          id: d.id, note_id: d.noteId || d.note_id || '', cat: d.cat || '',
+          name: d.name || '', url: d.link || d.url || ''
+        })), 'id');
+      }
+      if (WIKI_CATS.length) {
+        await sbUpsert('wiki_cats', WIKI_CATS.map((c,i) => ({
+          id: c.id, icon: c.icon || '', title: c.title || '', sort: i
+        })), 'id');
+      }
+    } catch(e){ console.warn('wiki cloud sync failed', e); }
   }
   function openWiki() {
     currentSection = 'wiki';
@@ -2839,6 +2862,17 @@ function syncUniv() {
   let __dataLoaded = false;
   function loadDataFile(cb) {
     if (__dataLoaded) { if (cb) cb(); return; }
+    if (useSupabase()) {
+      supabaseLoadUniversities().then(ok => {
+        if (ok) { if (cb) cb(); return; }
+        loadDataFileFromJs(cb);
+      }).catch(() => loadDataFileFromJs(cb));
+      return;
+    }
+    loadDataFileFromJs(cb);
+  }
+  function loadDataFileFromJs(cb) {
+    if (__dataLoaded) { if (cb) cb(); return; }
     const s = document.createElement('script');
     s.src = 'data.js';
     s.onload = () => {
@@ -2847,7 +2881,6 @@ function syncUniv() {
       if (window.UNIV_GUIDES) window.__UNIV_GUIDES__ = window.UNIV_GUIDES;
       syncUniv();
       try { rebuildFilterBar(); } catch(e){}
-      // Re-render all customer cards so Korea school names show in English
       try { document.querySelectorAll('.customer-card').forEach(c=>refreshCardBody(c)); } catch(e){}
       if (cb) cb();
     };
@@ -4667,25 +4700,246 @@ function syncUniv() {
     });
   }
   // ======= GOOGLE DRIVE BACKEND SYNC =======
-  // Set via the Data & Google Sheets → Backend settings (stored in localStorage).
-  // Or paste your Apps Script Web App URL directly here:
+  // Set via Data tools. Prefer Supabase (fast Postgres). Apps Script is the fallback.
   function backendUrl() {
     return localStorage.getItem('camnemi_backend_url') || 'https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec';
+  }
+  function supabaseUrl() {
+    return (localStorage.getItem('camnemi_supabase_url') || '').replace(/\/+$/,'');
+  }
+  function supabaseKey() {
+    return localStorage.getItem('camnemi_supabase_key') || '';
+  }
+  function useSupabase() {
+    return !!(supabaseUrl() && supabaseKey());
+  }
+  async function supabaseFetch(path, opts) {
+    const url = supabaseUrl() + path;
+    const headers = Object.assign({
+      'apikey': supabaseKey(),
+      'Authorization': 'Bearer ' + supabaseKey(),
+      'Content-Type': 'application/json'
+    }, (opts && opts.headers) || {});
+    const res = await fetch(url, Object.assign({}, opts, { headers }));
+    const text = await res.text();
+    if (!res.ok) throw new Error('Supabase HTTP '+res.status+' '+text.slice(0,200));
+    return text ? JSON.parse(text) : null;
+  }
+  async function supabaseReadDb() {
+    const rows = await supabaseFetch('/rest/v1/crm_data?id=eq.1&select=payload');
+    const payload = rows && rows[0] && rows[0].payload;
+    if (!payload || !Array.isArray(payload.customers)) throw new Error('Bad Supabase payload');
+    return payload;
+  }
+  async function supabaseWriteDb(payload) {
+    await supabaseFetch('/rest/v1/crm_data?id=eq.1', {
+      method: 'PATCH',
+      headers: { 'Prefer': 'return=minimal' },
+      body: JSON.stringify({ payload: payload, updated_at: new Date().toISOString() })
+    });
+    return true;
+  }
+  async function sbSelect(table, query) {
+    const q = query ? (query.startsWith('?') ? query : '?' + query) : '';
+    const rows = await supabaseFetch('/rest/v1/' + table + q);
+    return Array.isArray(rows) ? rows : [];
+  }
+  async function sbUpsert(table, rows, onConflict) {
+    if (!rows || !rows.length) return [];
+    const headers = { 'Prefer': 'resolution=merge-duplicates,return=minimal' };
+    if (onConflict) headers['Prefer'] += '';
+    const path = onConflict
+      ? '/rest/v1/' + table + '?on_conflict=' + encodeURIComponent(onConflict)
+      : '/rest/v1/' + table;
+    return supabaseFetch(path, { method: 'POST', headers: headers, body: JSON.stringify(rows) });
+  }
+  async function sbDelete(table, query) {
+    const q = query ? (query.startsWith('?') ? query : '?' + query) : '';
+    return supabaseFetch('/rest/v1/' + table + q, { method: 'DELETE', headers: { 'Prefer': 'return=minimal' } });
+  }
+  function mapUnivRow(r) {
+    const extra = r.extra || {};
+    return Object.assign({
+      n: r.name_kr || r.id, loc: r.loc || '', tuition: r.tuition || {},
+      en: r.name_en || '', es: r.short_en || '', ek: r.name_kr || r.id,
+      logo: r.logo || '', stu: r.students, rk: r.rank, type: r.type || 'univ',
+      majors_ba: r.majors_ba || [], majors_ma: r.majors_ma || [],
+      req: r.req || {}, cert: r.cert || {}
+    }, extra);
+  }
+  async function supabaseReadTables() {
+    const [
+      customers, agencies, fees, partners, tasks, trans, recs,
+      wikiNotes, wikiDocs, wikiCats, settings
+    ] = await Promise.all([
+      sbSelect('customers', 'select=*&limit=2000'),
+      sbSelect('agencies', 'select=*'),
+      sbSelect('fees', 'select=*&order=sort.asc'),
+      sbSelect('partners', 'select=*'),
+      sbSelect('tasks', 'select=*'),
+      sbSelect('transactions', 'select=*'),
+      sbSelect('recs', 'select=*'),
+      sbSelect('wiki_notes', 'select=*'),
+      sbSelect('wiki_docs', 'select=*'),
+      sbSelect('wiki_cats', 'select=*&order=sort.asc'),
+      sbSelect('app_settings', 'select=*')
+    ]);
+    const list = (settings.find(s => s.key === 'list_view') || {}).value || {};
+    return {
+      version: 1,
+      customers: (customers || []).map(c => ({
+        id: c.id, pipe: c.pipe, stage: c.stage, name: c.name, age: c.age,
+        agency: c.agency, program: c.program, school: c.school, appdate: c.appdate,
+        contact: c.contact, email: c.email, loan: c.loan, topik: c.topik, ielts: c.ielts,
+        notes: c.notes || [], birthdate: c.birthdate, noqr: c.noqr, illegal: c.illegal,
+        denied: c.denied, loanFlag: c.loan_flag, payments: c.payments || [],
+        recent: c.recent, folderId: c.folder_id, folderUrl: c.folder_url,
+        hidden: c.hidden, siemreap: c.siemreap, customFields: c.custom_fields || {}
+      })),
+      agencies: agencies || [],
+      fees: fees || [],
+      partners: partners || [],
+      tasks: tasks || [],
+      transactions: (trans || []).map(t => ({ date: t.date, type: t.type, cat: t.category, amount: Number(t.amount)||0, note: t.note })),
+      recs: recs || [],
+      wikiNotes: wikiNotes || [],
+      wikiDocs: (wikiDocs || []).map(d => ({ id: d.id, noteId: d.note_id, cat: d.cat, name: d.name, link: d.url })),
+      wikiCats: wikiCats || [],
+      listCustomCols: list.listCustomCols || [],
+      hiddenListCols: list.hiddenListCols || [],
+      listColOrder: list.listColOrder || []
+    };
+  }
+  async function supabaseWriteTables(payload) {
+    if (Array.isArray(payload.agencies) && payload.agencies.length) {
+      await sbUpsert('agencies', payload.agencies.map(a => ({
+        name: a.name, commission: a.commission || '', policy: a.policy || '', note: a.note || ''
+      })), 'name');
+    }
+    if (Array.isArray(payload.fees)) {
+      await sbDelete('fees', 'name=neq.');
+      if (payload.fees.length) {
+        await sbUpsert('fees', payload.fees.map((f,i) => ({
+          name: f.name || '', amount: f.amount || '', policy: f.policy || '', sort: i
+        })));
+      }
+    }
+    if (Array.isArray(payload.partners)) {
+      await sbDelete('partners', 'name=neq.');
+      if (payload.partners.length) {
+        await sbUpsert('partners', payload.partners.map(p => ({ name: p.name || '', note: p.note || p.policy || '' })));
+      }
+    }
+    if (Array.isArray(payload.tasks)) {
+      await sbDelete('tasks', 'title=neq.');
+      if (payload.tasks.length) {
+        await sbUpsert('tasks', payload.tasks.map(t => ({
+          date: t.date || '', type: t.type || 'todo', title: t.title || '', note: t.note || ''
+        })));
+      }
+    }
+    if (Array.isArray(payload.transactions)) {
+      await sbDelete('transactions', 'date=neq.');
+      if (payload.transactions.length) {
+        await sbUpsert('transactions', payload.transactions.map(t => ({
+          date: t.date || '', type: t.type || 'income', category: t.cat || t.category || '',
+          amount: Number(t.amount)||0, note: t.note || ''
+        })));
+      }
+    }
+    if (Array.isArray(payload.recs)) {
+      await sbDelete('recs', 'title=neq.');
+      if (payload.recs.length) {
+        await sbUpsert('recs', payload.recs.map(r => ({ col: r.col || 'problems', title: r.title || '', note: r.note || '' })));
+      }
+    }
+    if (Array.isArray(payload.wikiNotes)) {
+      await sbUpsert('wiki_notes', payload.wikiNotes.map(n => ({
+        id: n.id, cat: n.cat || '', subj: n.subj || '', body: n.body || '',
+        replies: n.replies || [], updated: n.updated || ''
+      })), 'id');
+    }
+    if (Array.isArray(payload.wikiDocs)) {
+      await sbUpsert('wiki_docs', payload.wikiDocs.map(d => ({
+        id: d.id, note_id: d.noteId || d.note_id || '', cat: d.cat || '',
+        name: d.name || '', url: d.link || d.url || ''
+      })), 'id');
+    }
+    if (Array.isArray(WIKI_CATS) && WIKI_CATS.length) {
+      await sbUpsert('wiki_cats', WIKI_CATS.map((c,i) => ({
+        id: c.id, icon: c.icon || '', title: c.title || '', sort: i
+      })), 'id');
+    }
+    await sbUpsert('app_settings', [{
+      key: 'list_view',
+      value: {
+        listCustomCols: payload.listCustomCols || LIST_CUSTOM_COLS || [],
+        hiddenListCols: payload.hiddenListCols || HIDDEN_LIST_COLS || [],
+        listColOrder: payload.listColOrder || LIST_COL_ORDER || []
+      }
+    }], 'key');
+    // customers: upsert rows (do not wipe if local is empty)
+    if (Array.isArray(payload.customers) && payload.customers.length) {
+      await sbUpsert('customers', payload.customers.map(c => ({
+        id: c.id, pipe: c.pipe || 'new', stage: c.stage || 'contact', name: c.name || '',
+        age: c.age || '', agency: c.agency || '', program: c.program || '', school: c.school || '',
+        appdate: c.appdate || '', contact: c.contact || '', email: c.email || '', loan: c.loan || '',
+        topik: c.topik || '', ielts: c.ielts || '', notes: c.notes || [], birthdate: c.birthdate || '',
+        noqr: c.noqr || '', illegal: c.illegal || '', denied: c.denied || '',
+        loan_flag: c.loanFlag || c.loan_flag || '',
+        payments: typeof c.payments === 'string' && c.payments
+          ? (function(){ try { return JSON.parse(c.payments); } catch(e){ return []; } })()
+          : (c.payments || []),
+        recent: c.recent || '', folder_id: c.folderId || '', folder_url: c.folderUrl || '',
+        hidden: c.hidden || '', siemreap: c.siemreap || '', custom_fields: c.customFields || {}
+      })), 'id');
+    }
+    return true;
+  }
+  async function supabaseLoadUniversities() {
+    const rows = await sbSelect('universities', 'select=*&limit=500');
+    if (!rows.length) return false;
+    UNIV_KNOWLEDGE = rows.map(mapUnivRow);
+    window.UNIV_KNOWLEDGE = UNIV_KNOWLEDGE;
+    const gRows = await sbSelect('university_guides', 'select=*&limit=2000');
+    const g = {};
+    gRows.forEach(r => {
+      if (!g[r.univ_id]) g[r.univ_id] = {};
+      g[r.univ_id][r.track] = r.url;
+    });
+    window.UNIV_GUIDES = g;
+    window.__UNIV_GUIDES__ = g;
+    __dataLoaded = true;
+    try { syncUniv(); } catch(e){}
+    try { rebuildFilterBar(); } catch(e){}
+    try { document.querySelectorAll('.customer-card').forEach(c=>refreshCardBody(c)); } catch(e){}
+    return true;
   }
   let __syncing = false;
   let __bootDone = false;  // suppress auto-push until initial sync completes
   let __suppressSave = false;  // suppress ALL saves during initial boot render
   // Pull data from the Drive backend (Apps Script). Falls back to localStorage.
   async function syncPull() {
-    if (!backendUrl()) return false;
+    if (!useSupabase() && !backendUrl()) return false;
     try {
       __syncing = true;
-      // cache-buster: Apps Script caches responses; a query param forces a fresh read
-      const cb = '?t=' + Date.now();
-      const res = await fetch(backendUrl() + cb, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({ action:'readSheet' }) });
-      if (!res.ok) throw new Error('HTTP '+res.status);
-      const text = await res.text();
-      const db = JSON.parse(text);
+      let db;
+      if (useSupabase()) {
+        try {
+          db = await supabaseReadTables();
+          if (!db.customers.length) {
+            const blob = await supabaseReadDb().catch(()=>null);
+            if (blob && blob.customers && blob.customers.length) db.customers = blob.customers;
+          }
+        } catch(e) {
+          db = await supabaseReadDb();
+        }
+      } else {
+        const cb = '?t=' + Date.now();
+        const res = await fetch(backendUrl() + cb, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({ action:'readSheet' }) });
+        if (!res.ok) throw new Error('HTTP '+res.status);
+        db = JSON.parse(await res.text());
+      }
       if (!db || !Array.isArray(db.customers)) throw new Error('Bad data shape');
       // BACKEND IS THE SOURCE OF TRUTH: use cloud data as-is (no local merge),
       // so local demo/pollution can never re-enter. Local-only new cards added
@@ -4739,7 +4993,7 @@ function syncUniv() {
   }
   // Push all current data to the Drive backend.
   async function syncPush() {
-    if (!backendUrl()) return false;
+    if (!useSupabase() && !backendUrl()) return false;
     if (!__bootDone) return false;  // don't push seeded/empty state during boot
     if (__syncing) return false;
     try {
@@ -4749,27 +5003,30 @@ function syncUniv() {
       // an agency (or any client) with a partial local copy cannot wipe
       // the shared customers. New local customers are added; existing ones kept.
       try {
-        const gurl = backendUrl() + '?cb=' + Date.now();
-        const gres = await fetch(gurl, {
-          method:'POST', mode:'cors',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ action:'get' })
-        });
-        if (gres.ok) {
-          const gtxt = await gres.text();
-          const g = JSON.parse(gtxt);
-          const remoteCust = Array.isArray(g.customers) ? g.customers : (Array.isArray(g.data) ? g.data : (g.data && Array.isArray(g.data.customers) ? g.data.customers : []));
-          if (Array.isArray(remoteCust) && remoteCust.length) {
-            const local = payload.customers || [];
-            const localIds = new Set(local.map(c=>c.id));
-            // keep remote customers that aren't in local (i.e., from other clients)
-            const extras = remoteCust.filter(c=>!localIds.has(c.id));
-            // if local is essentially empty (fresh agency browser), prefer remote
-            if (local.length === 0 && extras.length) {
-              payload.customers = remoteCust;
-            } else {
-              payload.customers = local.concat(extras);
-            }
+        let remoteCust = [];
+        if (useSupabase()) {
+          const remote = await supabaseReadDb();
+          remoteCust = Array.isArray(remote.customers) ? remote.customers : [];
+        } else {
+          const gurl = backendUrl() + '?cb=' + Date.now();
+          const gres = await fetch(gurl, {
+            method:'POST', mode:'cors',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ action:'get' })
+          });
+          if (gres.ok) {
+            const g = JSON.parse(await gres.text());
+            remoteCust = Array.isArray(g.customers) ? g.customers : (Array.isArray(g.data) ? g.data : (g.data && Array.isArray(g.data.customers) ? g.data.customers : []));
+          }
+        }
+        if (Array.isArray(remoteCust) && remoteCust.length) {
+          const local = payload.customers || [];
+          const localIds = new Set(local.map(c=>c.id));
+          const extras = remoteCust.filter(c=>!localIds.has(c.id));
+          if (local.length === 0 && extras.length) {
+            payload.customers = remoteCust;
+          } else {
+            payload.customers = local.concat(extras);
           }
         }
       } catch(e){ /* merge best-effort; push local if remote unavailable */ }
@@ -4793,6 +5050,11 @@ function syncUniv() {
           if(seenNm.has(nm)) return false;
           seenNm.add(nm); return true;
         });
+      }
+      if (useSupabase()) {
+        await supabaseWriteTables(payload);
+        try { await supabaseWriteDb(payload); } catch(e) { console.warn('payload mirror failed', e); }
+        return true;
       }
       const res = await fetch(backendUrl(), {
         method:'POST',
@@ -5557,6 +5819,10 @@ function syncUniv() {
     if (Array.isArray(db.recs)) RECS = db.recs;
     if (Array.isArray(db.wikiNotes)) WIKI_NOTES = db.wikiNotes;
     if (Array.isArray(db.wikiDocs)) WIKI_DOCS = db.wikiDocs;
+    if (Array.isArray(db.wikiCats) && db.wikiCats.length) WIKI_CATS = db.wikiCats;
+    if (Array.isArray(db.listCustomCols)) LIST_CUSTOM_COLS = db.listCustomCols;
+    if (Array.isArray(db.hiddenListCols)) HIDDEN_LIST_COLS = db.hiddenListCols;
+    if (Array.isArray(db.listColOrder) && db.listColOrder.length) LIST_COL_ORDER = db.listColOrder;
     if (Array.isArray(db.customers)) {
       db.customers.forEach(c => { if (c.pipe==='new' && c.stage==='application') c.stage='registration'; });
       window.__RESTORE_CUSTOMERS__ = db.customers;
@@ -5734,8 +6000,14 @@ function syncUniv() {
           <div style="font-size:.78rem;font-weight:700;color:#111827;margin-top:.5rem;">🗑 Danger</div>
           ${btn('🧹 Clear all saved data & reset','clearDatabase()','#dc2626')}
         </div>
-        <div style="font-size:.78rem;font-weight:700;color:#111827;margin-top:.5rem;">☁️ Google Drive Backend</div>
-        <div style="font-size:.72rem;color:#64748b;margin-bottom:.3rem;">Paste your Apps Script Web App URL to sync all data to Google Drive (shared by everyone).</div>
+        <div style="font-size:.78rem;font-weight:700;color:#111827;margin-top:.5rem;">⚡ Supabase (recommended)</div>
+        <div style="font-size:.72rem;color:#64748b;margin-bottom:.3rem;">Fast Postgres backend. Paste Project URL + anon key from supabase.com → Project Settings → API. GitHub Pages stays the website.</div>
+        <input id="supabase-url-input" type="text" placeholder="https://xxxx.supabase.co" value="${supabaseUrl()}" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.78rem;margin-bottom:.3rem;box-sizing:border-box;">
+        <input id="supabase-key-input" type="password" placeholder="anon public key (eyJ...)" value="${supabaseKey()}" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.78rem;margin-bottom:.4rem;box-sizing:border-box;">
+        <button class="btn btn-save" onclick="saveSupabaseSettings()" style="width:100%;margin-bottom:.3rem;">💾 Save Supabase &amp; Sync</button>
+        <div style="font-size:.72rem;color:#94a3b8;margin-bottom:.6rem;">Status: ${useSupabase() ? 'Supabase ON — Sheet is fallback only.' : 'Supabase not set — still using Google Apps Script (slow).'}</div>
+        <div style="font-size:.78rem;font-weight:700;color:#111827;margin-top:.5rem;">☁️ Google Drive Backend (legacy)</div>
+        <div style="font-size:.72rem;color:#64748b;margin-bottom:.3rem;">Old Apps Script / Sheet. Keep until Supabase import is verified.</div>
         <input id="backend-url-input" type="text" placeholder="https://script.google.com/macros/s/..." value="${backendUrl()}" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.78rem;margin-bottom:.4rem;box-sizing:border-box;">
         <button class="btn btn-save" onclick="saveBackendUrl()" style="width:100%;margin-bottom:.3rem;">💾 Save & Sync</button>
         <div style="font-size:.72rem;color:#94a3b8;">Status: ${backendUrl() ? 'Backend configured. Data will sync on save.' : 'No backend yet — data stays in this browser only.'}</div>
@@ -5812,6 +6084,16 @@ function syncUniv() {
     } catch(e){ alert('Error pulling submissions: '+e); }
   }
 
+  function saveSupabaseSettings(){
+    const u=document.getElementById('supabase-url-input');
+    const k=document.getElementById('supabase-key-input');
+    if(!u||!k) return;
+    localStorage.setItem('camnemi_supabase_url', u.value.trim());
+    localStorage.setItem('camnemi_supabase_key', k.value.trim());
+    alert(useSupabase() ? 'Supabase saved. Syncing now…' : 'Supabase cleared. Falling back to Google Sheet.');
+    closeModal();
+    setTimeout(()=>{ syncPush(); setTimeout(syncPull, 400); }, 100);
+  }
   function saveBackendUrl(){
     const inp=document.getElementById('backend-url-input'); if(!inp) return;
     localStorage.setItem('camnemi_backend_url', inp.value.trim());
