@@ -3371,7 +3371,7 @@ function syncUniv() {
           <div id="k-docs" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:160px;overflow:auto;font-size:.78rem;background:#f8fafc;color:#94a3b8;">Loading documents...</div>
           <div id="k-dropzone" style="margin-top:.4rem;border:2px dashed #c7d2fe;border-radius:.6rem;padding:.8rem;text-align:center;color:#6366f1;font-size:.78rem;background:#eef2ff;cursor:pointer;">⬇️ Drag & drop files here, or click to upload</div>
           <div style="display:flex;gap:.4rem;margin-top:.4rem;">
-            <button class="btn btn-note" onclick="refreshKoreaDocs()" style="font-size:.72rem;padding:.25rem .6rem;">🔄 Refresh</button>
+            <button class="btn btn-note" onclick="refreshKoreaDocs(true)" style="font-size:.72rem;padding:.25rem .6rem;">🔄 Refresh</button>
           </div>
         </div>
         <div class="modal-actions">
@@ -4794,6 +4794,7 @@ function syncUniv() {
         notes: c.notes || [], birthdate: c.birthdate, noqr: c.noqr, illegal: c.illegal,
         denied: c.denied, loanFlag: c.loan_flag, payments: c.payments || [],
         recent: c.recent, folderId: c.folder_id, folderUrl: c.folder_url,
+        docs: c.docs || [],
         hidden: c.hidden, siemreap: c.siemreap, customFields: c.custom_fields || {}
       })),
       agencies: agencies || [],
@@ -4891,6 +4892,7 @@ function syncUniv() {
           ? (function(){ try { return JSON.parse(c.payments); } catch(e){ return []; } })()
           : (c.payments || []),
         recent: c.recent || '', folder_id: c.folderId || '', folder_url: c.folderUrl || '',
+        docs: c.docs || [],
         hidden: c.hidden || '', siemreap: c.siemreap || '', custom_fields: c.customFields || {}
       })), 'id');
     }
@@ -5122,26 +5124,30 @@ function syncUniv() {
       }
     } catch(e){ console.warn('createFolder failed', e); }
   }
-  // Load a korea student's folder files and show them on the card
+  // Load a korea student's folder files and show them on the card (cache-first, background refresh)
   async function loadKoreaFolderFiles(card){
     if(!card || !backendUrl()) return;
     const name = card.dataset.name || (card.querySelector('h4')?card.querySelector('h4').textContent:'');
     if(!name) return;
+    const filesEl = card.querySelector('.korea-files');
+    // show cached immediately
+    const cached = (function(){ try { return JSON.parse(card.dataset.folderFiles || '[]'); } catch(e){ return []; } })();
+    if (Array.isArray(cached) && cached.length && filesEl) filesEl.innerHTML = renderFolderFiles(cached);
     try {
       const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
         body: JSON.stringify({ action:'listStudentFolderFiles', name:name }) });
       const info = JSON.parse(await res.text());
-      const filesEl = card.querySelector('.korea-files');
       if(info && info.ok){
         if(info.files && info.files.length){
           card.dataset.folderFiles = JSON.stringify(info.files);
           if(info.folderUrl) card.dataset.folderUrl = info.folderUrl;
           if(filesEl) filesEl.innerHTML = renderFolderFiles(info.files);
-        } else if(filesEl){
+          if (typeof scheduleSyncPush === 'function') scheduleSyncPush();
+        } else if(filesEl && !cached.length){
           filesEl.innerHTML = info.found ? '<div style="color:#94a3b8;">📁 Folder: no files</div>' : '<div style="color:#94a3b8;">📁 No folder yet</div>';
         }
       }
-    } catch(e){ const el=card.querySelector('.korea-files'); if(el) el.innerHTML=''; }
+    } catch(e){ const el=card.querySelector('.korea-files'); if(el && !cached.length) el.innerHTML=''; }
   }
 
   // Rename a student's Drive folder when their name changes
@@ -5479,14 +5485,22 @@ function syncUniv() {
   }
 
   // Load the current korea edit modal's documents into #k-docs
-  async function refreshKoreaDocs(){
+  // FAST PATH: show cached folder files from the DB instantly, then refresh from Drive in background.
+  async function refreshKoreaDocs(forceRefresh){
     const overlay = document.querySelector('#korea-edit-modal');
     const docsEl = document.getElementById('k-docs');
     if(!overlay || !docsEl) return;
     const card = overlay._card;
     const name = card.dataset.name || (card.querySelector('h4')?card.querySelector('h4').textContent:'');
     if(!name){ docsEl.innerHTML = '<span style="color:#94a3b8;">No name</span>'; return; }
-    docsEl.innerHTML = 'Loading documents...';
+    // 1) render cached files immediately (stored in the DB via folderFiles)
+    const cached = (function(){ try { return JSON.parse(card.dataset.folderFiles || '[]'); } catch(e){ return []; } })();
+    if (Array.isArray(cached) && cached.length && !forceRefresh) {
+      docsEl.innerHTML = cached.map(f=>`<div style="padding:.2rem 0;border-bottom:1px dashed #eef0f4;display:flex;justify-content:space-between;align-items:center;gap:.3rem;"><a href="${escapeHtml(f.url||'#')}" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">📄 ${escapeHtml(f.name||'file')}</a></div>`).join('');
+    } else {
+      docsEl.innerHTML = cached.length ? '<span style="color:#94a3b8;">Loading latest documents...</span>' : 'Loading documents...';
+    }
+    // 2) always refresh from Drive in the background (unless explicitly told to keep cache)
     try {
       const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
         body: JSON.stringify({ action:'listStudentFolderFiles', name:name }) });
@@ -5494,12 +5508,13 @@ function syncUniv() {
       if(info && info.ok && info.files && info.files.length){
         card.dataset.folderFiles = JSON.stringify(info.files);
         docsEl.innerHTML = info.files.map(f=>`<div style="padding:.2rem 0;border-bottom:1px dashed #eef0f4;display:flex;justify-content:space-between;align-items:center;gap:.3rem;"><a href="${escapeHtml(f.url||'#')}" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">📄 ${escapeHtml(f.name||'file')}</a><button onclick="renameStudentFileApp('${info.folderId}','${escapeHtml(f.name||'').replace(/'/g,"\\'")}')" style="background:none;border:none;cursor:pointer;font-size:.68rem;color:#6b7280;" title="Rename file">✏️</button></div>`).join('');
+        if (typeof scheduleSyncPush === 'function') scheduleSyncPush();
       } else if(info && info.found){
-        docsEl.innerHTML = '<span style="color:#94a3b8;">📁 No documents yet</span>';
-      } else {
+        if (!cached.length) docsEl.innerHTML = '<span style="color:#94a3b8;">📁 No documents yet</span>';
+      } else if(!cached.length){
         docsEl.innerHTML = '<span style="color:#f59e0b;">⚠️ No folder found for this student</span>';
       }
-    } catch(e){ docsEl.innerHTML = '<span style="color:#dc2626;">Error loading: '+e+'</span>'; }
+    } catch(e){ if(!cached.length) docsEl.innerHTML = '<span style="color:#dc2626;">Error loading: '+e+'</span>'; }
   }
 
   // Copy a student's docs (from nested batch folder) into their clean folder, then refresh card
@@ -5738,6 +5753,7 @@ function syncUniv() {
         recent: card.dataset.recent || '',
         folderId: card.dataset.folderId || '',
         folderUrl: card.dataset.folderUrl || '',
+        docs: (function(){ try { return JSON.parse(card.dataset.folderFiles || '[]'); } catch(e){ return []; } })(),
         denied: card.dataset.denied || '',
         siemreap: card.dataset.siemreap || '',
         payments: card.dataset.payments || '',
@@ -5833,6 +5849,7 @@ function syncUniv() {
       ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
+      if (Array.isArray(c.docs) && c.docs.length) card.dataset.folderFiles = JSON.stringify(c.docs);
       card.dataset.name = c.name||'';
       card.dataset.notes = JSON.stringify(c.notes||[]);
       card.innerHTML = `
