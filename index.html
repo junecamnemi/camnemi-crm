@@ -4734,20 +4734,6 @@ function syncUniv() {
     if (!res.ok) throw new Error('Supabase HTTP '+res.status+' '+text.slice(0,200));
     return text ? JSON.parse(text) : null;
   }
-  async function supabaseReadDb() {
-    const rows = await supabaseFetch('/rest/v1/crm_data?id=eq.1&select=payload');
-    const payload = rows && rows[0] && rows[0].payload;
-    if (!payload || !Array.isArray(payload.customers)) throw new Error('Bad Supabase payload');
-    return payload;
-  }
-  async function supabaseWriteDb(payload) {
-    await supabaseFetch('/rest/v1/crm_data?id=eq.1', {
-      method: 'PATCH',
-      headers: { 'Prefer': 'return=minimal' },
-      body: JSON.stringify({ payload: payload, updated_at: new Date().toISOString() })
-    });
-    return true;
-  }
   async function sbSelect(table, query) {
     const q = query ? (query.startsWith('?') ? query : '?' + query) : '';
     const rows = await supabaseFetch('/rest/v1/' + table + q);
@@ -4939,15 +4925,7 @@ function syncUniv() {
       __syncing = true;
       let db;
       if (useSupabase()) {
-        try {
-          db = await supabaseReadTables();
-          if (!db.customers.length) {
-            const blob = await supabaseReadDb().catch(()=>null);
-            if (blob && blob.customers && blob.customers.length) db.customers = blob.customers;
-          }
-        } catch(e) {
-          db = await supabaseReadDb();
-        }
+        db = await supabaseReadTables();
       } else {
         const cb = '?t=' + Date.now();
         const res = await fetch(backendUrl() + cb, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({ action:'readSheet' }) });
@@ -5019,8 +4997,8 @@ function syncUniv() {
       try {
         let remoteCust = [];
         if (useSupabase()) {
-          const remote = await supabaseReadDb();
-          remoteCust = Array.isArray(remote.customers) ? remote.customers : [];
+          const remote = await sbSelect('customers', 'select=*&limit=2000');
+          remoteCust = Array.isArray(remote) ? remote : [];
         } else {
           const gurl = backendUrl() + '?cb=' + Date.now();
           const gres = await fetch(gurl, {
@@ -5067,7 +5045,6 @@ function syncUniv() {
       }
       if (useSupabase()) {
         await supabaseWriteTables(payload);
-        try { await supabaseWriteDb(payload); } catch(e) { console.warn('payload mirror failed', e); }
         return true;
       }
       const res = await fetch(backendUrl(), {
