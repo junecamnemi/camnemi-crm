@@ -1435,6 +1435,10 @@ let UNIV_KNOWLEDGE = [];
     setKnowledgeTopbar('🏛️ Universities');
     ['gks-view','marketing-view','koreaLife-view','tasks-view','recommendation-view','profit-view'].forEach(id=>{const el=document.getElementById(id); if(el) el.style.display='none';});
     renderUnivList('');
+    // Re-render once university data finishes loading (fixes click-before-load blank view)
+    if (!__dataLoaded) {
+      loadDataFile(function(){ try { renderUnivList(''); } catch(e){} });
+    }
   }
   function hideUniversities() {
     const uv = document.getElementById('univ-view');
