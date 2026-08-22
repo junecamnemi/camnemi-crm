@@ -4768,7 +4768,12 @@ function syncUniv() {
       en: r.name_en || '', es: r.short_en || '', ek: r.name_kr || r.id,
       logo: r.logo || '', stu: r.students, rk: r.rank, type: r.type || 'univ',
       majors_ba: r.majors_ba || [], majors_ma: r.majors_ma || [],
-      req: r.req || {}, cert: r.cert || {}
+      req: r.req || {}, cert: r.cert || {},
+      t: r.t != null ? r.t : ((r.req||{}).topik != null ? r.req.topik : null),
+      i: r.i != null ? r.i : ((r.req||{}).ielts != null ? r.req.ielts : null),
+      eng: r.eng || '', scholarships: r.scholarships || [],
+      req_note: r.req_note || '', website: r.website || '',
+      majors: (r.majors_ba || []).map(m => (typeof m === 'string') ? m : (m.kr || '')).filter(Boolean)
     }, extra);
   }
   async function supabaseReadTables() {
