@@ -188,12 +188,11 @@
     /* ===== List view ===== */
     .list-view { display: none; background: #fff; border-radius: .75rem; box-shadow: 0 2px 8px rgba(0,0,0,.08); overflow: hidden; }
     .list-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
-    .list-table thead th { background: #1e293b; color: #fff; text-align: left; padding: .7rem .9rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .03em; }
+    .list-table thead th { background: #f1f5f9; color: #334155; text-align: left; padding: .7rem .9rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .03em; border-bottom: 1px solid #e2e8f0; }
     .list-table tbody td { padding: .6rem .9rem; border-bottom: 1px solid #eef0f4; color: #374151; vertical-align: middle; }
     .list-table tbody tr { cursor: pointer; }
     .list-table tbody tr:hover { background: #f8fafc; }
     .list-table .lst-name { font-weight: 600; text-transform: uppercase; }
-    .list-table .lst-stage span { display: inline-block; padding: .12rem .5rem; border-radius: 999px; font-size: .7rem; color: #fff; }
     .list-table .note-cell { max-width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #6b7280; }
 
     /* ===== Archived / Canceled section ===== */
@@ -4426,14 +4425,14 @@ function syncUniv() {
       const baseVal = (r, key) => r[key] !== undefined ? r[key] : (r.card ? r.card.dataset[key] : '');
       LIST_BASE_COLS.forEach(col=>{
         if(HIDDEN_LIST_COLS.includes(col.key)) return;
-        if(col.key==='name') cells += `<td class="lst-name">${escapeHtml(r.name)}</td>`;
+        else if(col.key==='name') cells += `<td class="lst-name">${escapeHtml(r.name)}</td>`;
         else if(col.key==='age') cells += `<td>${escapeHtml(r.age)}</td>`;
         else if(col.key==='contact') cells += `<td>${escapeHtml(r.contact)}</td>`;
-        else if(col.key==='agency') cells += `<td>${r.agency ? `<span class="tag tag-agency">🏢 ${escapeHtml(r.agency)}</span>` : ''}</td>`;
-        else if(col.key==='program') cells += `<td>${r.program ? `<span class="tag tag-program">🎓 ${escapeHtml(r.program)}</span>` : ''}</td>`;
+        else if(col.key==='agency') cells += `<td>${escapeHtml(r.agency)}</td>`;
+        else if(col.key==='program') cells += `<td>${escapeHtml(r.program)}</td>`;
         else if(col.key==='school') cells += `<td>${escapeHtml(r.school)}</td>`;
         else if(col.key==='appdate') cells += `<td>${escapeHtml(r.appdate)}</td>`;
-        else if(col.key==='stage') cells += `<td class="lst-stage"><span style="background:${r.stageBg}">${STAGE_LABELS[r.stage] || r.stage}</span></td>`;
+        else if(col.key==='stage') cells += `<td>${STAGE_LABELS[r.stage] || escapeHtml(r.stage)}</td>`;
         else if(col.key==='note') cells += `<td class="note-cell">${escapeHtml(r.note)}</td>`;
         else if(col.key==='payments') {
           let arr=[]; try{arr=JSON.parse(r.card.dataset.payments||'[]');}catch(e){}
