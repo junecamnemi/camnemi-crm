@@ -3350,7 +3350,7 @@ function syncUniv() {
           <div id="k-dropzone" style="margin-top:.4rem;border:2px dashed #c7d2fe;border-radius:.6rem;padding:.8rem;text-align:center;color:#6366f1;font-size:.78rem;background:#eef2ff;cursor:pointer;">⬇️ Drag & drop files here, or click to upload</div>
           <div style="display:flex;gap:.4rem;margin-top:.4rem;">
             <button class="btn btn-note" onclick="refreshKoreaDocs(true)" style="font-size:.72rem;padding:.25rem .6rem;">🔄 Refresh</button>
-            ${card.dataset.folderUrl ? `<a href="${card.dataset.folderUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.3rem;padding:.35rem .7rem;background:#e0f2fe;color:#0c4a6e;border-radius:.5rem;font-size:.75rem;font-weight:600;text-decoration:none;">📁 Open folder</a>` : ''}
+            <button class="btn btn-note" onclick="openStudentFolder(document.getElementById('korea-edit-modal')._card)" style="font-size:.72rem;padding:.25rem .6rem;background:#e0f2fe;color:#0c4a6e;">📁 ${card.dataset.folderUrl ? 'Open folder' : 'Create & open folder'}</button>
           </div>
         </div>
         <div class="modal-actions">
@@ -3663,11 +3663,12 @@ function syncUniv() {
             <div id="e-drive-docs" style="font-size:.75rem;color:#6b7280;">
               ${card.dataset.folderId
                 ? `<div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
-                     <a href="${card.dataset.folderUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .8rem;background:#e0f2fe;color:#0c4a6e;border-radius:.5rem;font-size:.78rem;font-weight:600;text-decoration:none;">📁 Open folder</a>
+                     <button onclick="openStudentFolder(overlay._card)" style="display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .8rem;background:#e0f2fe;color:#0c4a6e;border-radius:.5rem;font-size:.78rem;font-weight:600;border:none;cursor:pointer;">📁 Open folder</button>
                      <button class="btn btn-save" onclick="uploadCustomerDoc(overlay._card)">⬆ Upload files</button>
                    </div>`
                 : `<div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
-                     <button class="btn btn-save" onclick="ensureCustomerFolder(overlay._card).then(()=>{refreshDriveDocs(overlay._card);})">📁 Create folder & upload</button>
+                     <button class="btn btn-save" onclick="openStudentFolder(overlay._card).then(()=>{refreshDriveDocs(overlay._card);})">📁 Create folder & open</button>
+                     <button class="btn btn-save" onclick="ensureCustomerFolder(overlay._card).then(()=>{refreshDriveDocs(overlay._card);})">⬆ Upload files</button>
                      <span>Folder auto-created when customer reaches Registration.</span>
                    </div>`}
             </div>
@@ -5128,8 +5129,21 @@ function syncUniv() {
         card.dataset.folderId = info.folderId;
         card.dataset.folderUrl = info.folderUrl;
         saveDatabase();
+        scheduleSyncPush();
       }
     } catch(e){ console.warn('createFolder failed', e); }
+  }
+  // Open the student's Drive folder; if it doesn't exist yet, create it first, then open.
+  async function openStudentFolder(card) {
+    if (!card) return;
+    if (!card.dataset.folderUrl) {
+      await ensureCustomerFolder(card);
+    }
+    if (card.dataset.folderUrl) {
+      window.open(card.dataset.folderUrl, '_blank', 'noopener');
+    } else {
+      alert('Could not create the folder right now. Please try again.');
+    }
   }
   // Load a korea student's folder files and show them on the card (cache-first, background refresh)
   async function loadKoreaFolderFiles(card){
