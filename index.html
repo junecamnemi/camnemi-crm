@@ -3395,6 +3395,11 @@ function syncUniv() {
     if(!name||!school||!program){ alert('Name, School and Program are required.'); return; }
     const oldName = card.dataset.name || '';
     const nameChanged = oldName && oldName.toUpperCase() !== name.toUpperCase();
+    const oldSchool = card.dataset.school || '';
+    const oldProgram = card.dataset.program || '';
+    const oldContact = card.dataset.contact || '';
+    const oldEmail = card.dataset.email || '';
+    const oldAgency = card.dataset.agency || '';
     card.dataset.name=name;
     if(nameChanged){ renameStudentFolderApp(oldName, name); }
     card.dataset.school=school;
@@ -3427,6 +3432,14 @@ function syncUniv() {
     refreshCardBody(card);
     if(newStage!==oldStage) logAction(name, 'Move card: ' + oldStage + ' → ' + newStage);
     if(nv) logAction(name, 'Note');
+    // log info revision with changed fields captured in extra
+    const changed = [];
+    if (card.dataset.school && card.dataset.school !== oldSchool) changed.push('school→'+card.dataset.school);
+    if (card.dataset.program && card.dataset.program !== oldProgram) changed.push('program→'+card.dataset.program);
+    if (card.dataset.contact && card.dataset.contact !== oldContact) changed.push('contact');
+    if (card.dataset.email && card.dataset.email !== oldEmail) changed.push('email');
+    if (card.dataset.agency && card.dataset.agency !== oldAgency) changed.push('agency→'+card.dataset.agency);
+    if (changed.length) logAction(name, 'Revise input', 'student', { fields: changed.join(', ') });
     bumpCardRecent(card); reorderAllByRecent();
     saveNow();
     refreshCounts();
@@ -3863,6 +3876,10 @@ function syncUniv() {
     if (!overlay || !overlay._card) return;
     const card = overlay._card;
     const oldStage = card.dataset.stage;
+    const oldSchool = card.dataset.school || '';
+    const oldProgram = card.dataset.program || '';
+    const oldAgency = card.dataset.agency || '';
+    const oldContact = card.dataset.contact || '';
     const name = caps(overlay.querySelector('#e-name').value.trim());
     const contact = overlay.querySelector('#e-contact').value.trim();
     const age = overlay.querySelector('#e-age').value.trim();
@@ -3950,6 +3967,15 @@ function syncUniv() {
     if (stage && stage !== oldStage) logAction(name, 'Move card: ' + oldStage + ' → ' + stage);
     if (newPipe && newPipe !== oldPipe) logAction(name, 'Move card: pipeline ' + oldPipe + ' → ' + newPipe);
     if (newNoteVal) logAction(name, 'Note');
+    // log info revision with changed fields captured in extra
+    {
+      const changed = [];
+      if (card.dataset.school && card.dataset.school !== oldSchool) changed.push('school→'+card.dataset.school);
+      if (card.dataset.program && card.dataset.program !== oldProgram) changed.push('program→'+card.dataset.program);
+      if (card.dataset.agency && card.dataset.agency !== oldAgency) changed.push('agency→'+card.dataset.agency);
+      if (card.dataset.contact && card.dataset.contact !== oldContact) changed.push('contact');
+      if (changed.length) logAction(name, 'Revise input', 'student', { fields: changed.join(', ') });
+    }
     bumpCardRecent(card); reorderAllByRecent();
     saveNow();
     closeModal();
@@ -5300,6 +5326,7 @@ function syncUniv() {
     document.getElementById('k-pay-amount').value='';
     const listEl = document.getElementById('k-payments');
     if(listEl) listEl.innerHTML = renderPaymentsList(card.dataset.payments);
+    logAction(logStudentName(card), 'Payment added: $'+parseFloat(amount).toLocaleString('en-US'), 'student', { amount: parseFloat(amount), date: date });
   }
   function deleteKPayment(idx){
     const overlay = document.getElementById('korea-edit-modal');
