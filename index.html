@@ -3964,9 +3964,11 @@ function syncUniv() {
     if (!overlay || !overlay._card) return;
     const card = overlay._card;
     const stage = card.dataset.stage;
+    const nm = logStudentName(card);
     card.remove();
     changeCount(stage, -1);
     closeModal();
+    logAction(nm, 'Delete student (permanent)', 'student', { stage: stage });
     if (currentView === 'list') renderList();
   }
   // Archive the customer. If already archived → allow delete (with confirm).
@@ -3983,6 +3985,7 @@ function syncUniv() {
     }
     // move to Archived
     const from = card.dataset.stage;
+    const nm = logStudentName(card);
     card.dataset.stage = 'archived';
     card.style.borderLeftColor = STAGE_COLORS['archived'] || '#94a3b8';
     const target = document.querySelector('.cards[data-cards="archived"]');
@@ -3991,6 +3994,7 @@ function syncUniv() {
     changeCount('archived', +1);
     applyCardBorder(card);
     closeModal();
+    logAction(nm, 'Archive: ' + from + ' → archived', 'student', { from: from, to: 'archived' });
     if (currentView === 'list') renderList();
   }
   function closeModal() { const m = document.querySelector('.modal-overlay'); if (m) m.remove(); }
@@ -4111,10 +4115,12 @@ function syncUniv() {
     if(!hp){ hp = document.createElement('div'); hp.id='hidden-cards'; hp.style.display='none'; document.body.appendChild(hp); }
     sel.forEach(card => {
       const st = card.dataset.stage;
+      const nm = logStudentName(card);
       card.dataset.hidden = 'true';
       if(card.parentElement) card.parentElement.removeChild(card);
       hp.appendChild(card);
       changeCount(st, -1);
+      logAction(nm, 'Hide student', 'student', { stage: st });
     });
     saveNow();
     updateBatchBar();
@@ -5136,10 +5142,12 @@ function syncUniv() {
   // Open the student's Drive folder; if it doesn't exist yet, create it first, then open.
   async function openStudentFolder(card) {
     if (!card) return;
+    const hadFolder = !!card.dataset.folderUrl;
     if (!card.dataset.folderUrl) {
       await ensureCustomerFolder(card);
     }
     if (card.dataset.folderUrl) {
+      logAction(logStudentName(card), hadFolder ? 'Open folder' : 'Create & open folder', 'student', { url: card.dataset.folderUrl });
       window.open(card.dataset.folderUrl, '_blank', 'noopener');
     } else {
       alert('Could not create the folder right now. Please try again.');
@@ -5330,6 +5338,7 @@ function syncUniv() {
     card.dataset.payments = JSON.stringify(arr);
     const listEl = document.getElementById('k-payments');
     if(listEl) listEl.innerHTML = renderPaymentsList(card.dataset.payments);
+    logAction(logStudentName(card), 'Payment deleted', 'student', { index: idx });
   }
 
   // Open the flag modal for a student card
@@ -5377,6 +5386,15 @@ function syncUniv() {
     card.dataset.loanFlag = g('f-loan').checked ? 'true' : '';
     card.dataset.denied = g('f-denied').checked ? 'true' : '';
     saveNow();
+    // log flag changes (who set which flags)
+    const nm = logStudentName(card);
+    const flags = [];
+    if (card.dataset.siemreap==='true') flags.push('siemreap');
+    if (card.dataset.noqr==='true') flags.push('noqr');
+    if (card.dataset.illegal==='true') flags.push('illegal');
+    if (card.dataset.loanFlag==='true') flags.push('loan');
+    if (card.dataset.denied==='true') flags.push('denied');
+    logAction(nm, 'Set flags: ' + (flags.join(', ') || 'none'), 'student', { flags: flags });
     m.style.display='none';
     if(typeof refreshCardBody==='function') refreshCardBody(card);
   }
@@ -6219,6 +6237,8 @@ function syncUniv() {
     authUser = { email: email, name: payload.name || email, hd: hd };
     localStorage.setItem('camnemi_auth', JSON.stringify({ email: email, name: payload.name||'', hd: hd, t: Date.now() }));
     hideLogin();
+    // log the sign-in event (who logged in and when)
+    try { logAction((payload.name||email).split('@')[0], 'Log in', 'auth'); flushActivityQueue(); } catch(e){}
   }
   function showLoginError(){ const e=document.getElementById('login-error'); if(e){ e.style.display='block'; } }
   function hideLogin(){
