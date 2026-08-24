@@ -520,7 +520,7 @@
   const PIPELINES = {
     new: {
       name: 'D2D4 in Process',
-      stages: ['contact','potential','registration','admission','visa','archived','canceled']
+      stages: ['registration','admission','visa','archived','canceled']
     },
     korea: {
       name: 'D2D4 in Korea',
@@ -587,8 +587,8 @@
   }
 
   function buildStage(pipe, stageKey) {
-    // floating + quick-add button on the Contact column of New Customers pipeline
-    const quickAdd = (pipe==='new' && stageKey==='contact') ? `
+    // floating + quick-add button on the first stage (Registration) of New Customers pipeline
+    const quickAdd = (pipe==='new' && stageKey==='registration') ? `
       <button class="contact-add-fab" onclick="openQuickAdd()" title="Quick add customer">
         <span style="font-size:1.5rem;line-height:1;">+</span>
         <span style="font-size:.72rem;font-weight:700;">Add</span>
@@ -1005,13 +1005,13 @@
     const id = 'c' + Date.now() + Math.floor(Math.random()*1000);
     const card = document.createElement('div');
     card.className='customer-card'; card.id=id;
-    card.dataset.pipe='new'; card.dataset.stage='contact';
+    card.dataset.pipe='new'; card.dataset.stage='registration';
     card.dataset.name = name.toUpperCase(); card.dataset.agency=agency;
     card.dataset.program = program; card.dataset.contact=contact;
     card.dataset.school='Not Yet Specified'; card.dataset.appdate='Not Specified';
     card.dataset.notes = note ? JSON.stringify([{text:note,time:nowStr()}]) : '[]';
-    // place into Contact column if it exists
-    const container = document.querySelector('.cards[data-cards="contact"]');
+    // place into Registration column if it exists
+    const container = document.querySelector('.cards[data-cards="registration"]');
     if (container) container.appendChild(card);
     else { let hp=document.getElementById('hidden-cards'); if(!hp){hp=document.createElement('div');hp.id='hidden-cards';hp.style.display='none';document.body.appendChild(hp);} hp.appendChild(card); }
     refreshCardBody(card); applyCardBorder(card);
@@ -1026,7 +1026,7 @@
         fetch(url + '?cb=' + Date.now(), { method:'POST', mode:'cors',
           headers:{'Content-Type':'application/json'},
           body: JSON.stringify({ action:'addAgencyContact', student:{
-            id, name:name.toUpperCase(), pipe:'new', stage:'contact', agency, program, contact,
+            id, name:name.toUpperCase(), pipe:'new', stage:'registration', agency, program, contact,
             school:'Not Yet Specified', appdate:'Not Specified', notes: JSON.parse(card.dataset.notes || '[]')
           }})
         }).then(r=>r.json()).then(res=>{
@@ -3016,7 +3016,7 @@ function syncUniv() {
     const program = pickedValue('q-program') || 'Not Yet';
     const note = overlay.querySelector('#q-note').value.trim();
     if (!name || !contact) { alert('Please fill Name and Contact.'); return; }
-    const stage = 'contact';
+    const stage = 'registration';
     let notesArr = [];
     if (note) notesArr.push({ text: note, time: nowStr(), by: currentUserName() });
     const card = document.createElement('div');
@@ -6083,13 +6083,13 @@ function syncUniv() {
       subs.forEach(s=>{
         const nm=(s.name||'').toUpperCase(); if(!nm||existing.includes(nm)) return;
         const card=document.createElement('div'); card.className='customer-card'; card.id=s.id||('c'+Date.now()+Math.floor(Math.random()*1000));
-        card.dataset.pipe='new'; card.dataset.stage='contact';
+        card.dataset.pipe='new'; card.dataset.stage='registration';
         card.dataset.name=nm; card.dataset.agency=s.agency||'CAMNEMI';
         card.dataset.program=s.program||'Not Yet'; card.dataset.contact=s.contact||'';
         card.dataset.school='Not Yet Specified'; card.dataset.appdate='Not Specified';
         card.dataset.notes=s.note?JSON.stringify([{text:s.note,time:s.time||''}]):'[]';
         card.dataset.recent=Date.now();
-        const container=document.querySelector('.cards[data-cards="contact"]');
+        const container=document.querySelector('.cards[data-cards="registration"]');
         if(container) container.appendChild(card); else {let hp=document.getElementById('hidden-cards'); if(!hp){hp=document.createElement('div');hp.id='hidden-cards';hp.style.display='none';document.body.appendChild(hp);} hp.appendChild(card);}
         refreshCardBody(card); applyCardBorder(card); if(typeof attachCard==='function') attachCard(card);
         existing.push(nm); added++;
@@ -6115,12 +6115,12 @@ function syncUniv() {
         if(!nm || existing.includes(nm)) return;
         const card=document.createElement('div');
         card.className='customer-card'; card.id=s.id||('c'+Date.now()+Math.floor(Math.random()*1000));
-        card.dataset.pipe='new'; card.dataset.stage='contact';
+        card.dataset.pipe='new'; card.dataset.stage='registration';
         card.dataset.name=nm; card.dataset.agency=s.agency||'CAMNEMI';
         card.dataset.program=s.program||'Not Yet'; card.dataset.contact=s.contact||'';
         card.dataset.school='Not Yet Specified'; card.dataset.appdate='Not Specified';
         card.dataset.notes = s.note ? JSON.stringify([{text:s.note,time:s.time||''}]) : '[]';
-        const container=document.querySelector('.cards[data-cards="contact"]');
+        const container=document.querySelector('.cards[data-cards="registration"]');
         if(container) container.appendChild(card); else { let hp=document.getElementById('hidden-cards'); if(!hp){hp=document.createElement('div');hp.id='hidden-cards';hp.style.display='none';document.body.appendChild(hp);} hp.appendChild(card); }
         refreshCardBody(card); applyCardBorder(card); if(typeof attachCard==='function') attachCard(card);
         existing.push(nm); added++;
