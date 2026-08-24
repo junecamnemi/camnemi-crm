@@ -458,6 +458,10 @@ function listStudentFolderFiles(body) {
     index = getStudentFolderIndex(true);
     folderId = index[label];
   }
+  if (!folderId) {
+    // fuzzy match: try name-token matching (first/last order, partial, extra suffix)
+    folderId = fuzzyFindFolderId(index, label);
+  }
   if (!folderId) return jsonOut({ ok:true, found:false, files:[] });
   var folder = DriveApp.getFolderById(folderId);
   var files = [];
@@ -467,6 +471,36 @@ function listStudentFolderFiles(body) {
     files.push({ name: f.getName(), mime: f.getMimeType(), size: f.getSize(), url: f.getUrl() });
   }
   return jsonOut({ ok:true, found:true, folderId: folder.getId(), folderUrl: folder.getUrl(), files: files });
+}
+
+// Robust folder lookup: exact -> reversed name -> all-tokens-present -> single-token substring
+function fuzzyFindFolderId(index, label) {
+  if (!index) return null;
+  var tokens = label.split(/[\s,;]+/).filter(function(t){ return t.length > 1; });  // ignore 1-char noise
+  if (tokens.length === 0) return null;
+
+  // reversed order (folder stored "LAST FIRST")
+  if (tokens.length >= 2) {
+    var reversed = tokens.slice(1).join(' ') + ' ' + tokens[0];
+    if (index[reversed]) return index[reversed];
+  }
+
+  // all tokens present in a folder key (in any order) — handles suffixes like "- D2 visa"
+  for (var k in index) {
+    var allMatch = true;
+    for (var i = 0; i < tokens.length; i++) {
+      if (k.indexOf(tokens[i]) < 0) { allMatch = false; break; }
+    }
+    if (allMatch) return index[k];
+  }
+
+  // single token: first key containing it
+  if (tokens.length === 1) {
+    for (var k in index) {
+      if (k.indexOf(tokens[0]) >= 0) return index[k];
+    }
+  }
+  return null;
 }
 
 /** Rename a student's folder (find by old name under root, rename to new name). */

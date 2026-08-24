@@ -5753,6 +5753,11 @@ function syncUniv() {
       const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
         body: JSON.stringify({ action:'listStudentFolderFiles', name:name }) });
       const info = JSON.parse(await res.text());
+      if(info && info.folderId){
+        // persist the found folder id/url on the card so it's reused next time
+        card.dataset.folderId = info.folderId;
+        if(info.folderUrl) card.dataset.folderUrl = info.folderUrl;
+      }
       if(info && info.ok && info.files && info.files.length){
         card.dataset.folderFiles = JSON.stringify(info.files);
         docsEl.innerHTML = info.files.map(f=>`<div style="padding:.2rem 0;border-bottom:1px dashed #eef0f4;display:flex;justify-content:space-between;align-items:center;gap:.3rem;"><a href="${escapeHtml(f.url||'#')}" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">📄 ${escapeHtml(f.name||'file')}</a><button onclick="renameStudentFileApp('${info.folderId}','${escapeHtml(f.name||'').replace(/'/g,"\\'")}')" style="background:none;border:none;cursor:pointer;font-size:.68rem;color:#6b7280;" title="Rename file">✏️</button></div>`).join('');
