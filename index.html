@@ -3144,8 +3144,6 @@ function syncUniv() {
   //  - other stages: standard display
   function renderCardBody(card) {
     const name = card.dataset.name || (card.querySelector('h4') ? card.querySelector('h4').textContent : '');
-    // Flag: Cambodia for the new pipeline, Korea for the Korea pipeline
-    const flag = (card.dataset.pipe === 'korea') ? '🇰🇷' : (card.dataset.pipe === 'online') ? '🌐' : (card.dataset.pipe === 'consulting') ? '💬' : '🇰🇭';
     const progRaw = card.dataset.program || '';
     const prog = (card.dataset.pipe === 'korea') ? koreaProgramShort(progRaw) : (progRaw || 'Not Yet');
     // School badge: short name (e.g. JBNU) when available, else the raw school name
@@ -3155,7 +3153,7 @@ function syncUniv() {
       ? `<div class="school-badge">🏫 ${escapeHtml(schoolShort)}</div>` : '';
     card.innerHTML = `
       <input type="checkbox" class="card-select" onclick="onCardSelect(this, event)">
-      <div class="name-row"><span style="font-size:1rem;line-height:1;flex:none;">${flag}</span><h4></h4></div>
+      <div class="name-row"><h4></h4></div>
       <div class="prog-line">🎓 ${escapeHtml(prog)}</div>
       ${schoolBadge}`;
     card.querySelector('h4').textContent = name;
