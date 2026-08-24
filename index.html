@@ -5648,12 +5648,68 @@ function syncUniv() {
     try { const r = localStorage.getItem(ACTIVITY_KEY); if(r) ACTIVITY_LOG = JSON.parse(r); } catch(e){}
     if(!Array.isArray(ACTIVITY_LOG)) ACTIVITY_LOG = [];
   }
-  function logAction(student, action, section){
+  // ---- activity persistence to the shared DB ----
+  let __actQueue = [];
+  let __actTimer = null;
+  function queueActivityToDb(entry){
+    if(!useSupabase()) return;
+    __actQueue.push(entry);
+    // batch-write every ~3s of accumulated activity (or on flush)
+    if(__actTimer) clearTimeout(__actTimer);
+    __actTimer = setTimeout(flushActivityQueue, 3000);
+  }
+  async function flushActivityQueue(){
+    if(!useSupabase() || !__actQueue.length) return;
+    const batch = __actQueue.splice(0, 50);
+    try {
+      const rows = batch.map(e => ({
+        time: e.time, user_name: e.user, student: e.student || '',
+        action: e.action || '', section: e.section || 'student',
+        extra: e.extra || {}
+      }));
+      const url = supabaseUrl() + '/rest/v1/activity_log';
+      const key = supabaseKey();
+      const r = await fetch(url, {
+        method: 'POST', headers: { 'apikey': key, 'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+        body: JSON.stringify(rows)
+      });
+      if(!r.ok) console.warn('activity log push failed', r.status);
+    } catch(e){ console.warn('activity log push error', e); }
+  }
+  // load DB history once at boot, merge with local (local wins by id)
+  async function loadActivityFromDb(){
+    if(!useSupabase()) return;
+    try {
+      const url = supabaseUrl() + '/rest/v1/activity_log?select=id,time,user_name,student,action,section&order=id.desc&limit=3000';
+      const key = supabaseKey();
+      const r = await fetch(url, { headers: { 'apikey': key, 'Authorization': 'Bearer ' + key } });
+      if(!r.ok) return;
+      const rows = await r.json();
+      if(!Array.isArray(rows)) return;
+      const localIds = new Set(ACTIVITY_LOG.map(l => l.id));
+      rows.forEach(x => {
+        // map DB row -> app entry (only add if id not already local)
+        const id = String(x.id);
+        if(localIds.has(id)) return;
+        ACTIVITY_LOG.push({
+          id: id, time: x.time || '', user: x.user_name || '', student: x.student || '',
+          action: x.action || '', section: x.section || 'student'
+        });
+      });
+      if (ACTIVITY_LOG.length > 2000) ACTIVITY_LOG = ACTIVITY_LOG.slice(-2000);
+      try { localStorage.setItem(ACTIVITY_KEY, JSON.stringify(ACTIVITY_LOG)); } catch(e){}
+      const listEl = document.getElementById('activity-panel-list');
+      if (listEl && listEl.innerHTML) renderActivityPanel();
+    } catch(e){ console.warn('activity log load error', e); }
+  }
+  function logAction(student, action, section, extra){
     const u = currentUserName();
-    ACTIVITY_LOG.push({ id:'l'+Date.now()+Math.floor(Math.random()*1000), time:new Date().toISOString(), user:u, student:student||'', action:action||'', section:section||'student' });
+    const entry = { id:'l'+Date.now()+Math.floor(Math.random()*1000), time:new Date().toISOString(), user:u, student:student||'', action:action||'', section:section||'student', extra: extra||{} };
+    ACTIVITY_LOG.push(entry);
     // keep last 2000 for performance
     if (ACTIVITY_LOG.length > 2000) ACTIVITY_LOG = ACTIVITY_LOG.slice(-2000);
     try { localStorage.setItem(ACTIVITY_KEY, JSON.stringify(ACTIVITY_LOG)); } catch(e){}
+    queueActivityToDb(entry);
   }
   function logStudentName(card){
     return card.dataset.name || (card.querySelector('h4')?card.querySelector('h4').textContent:'') || '';
@@ -6293,6 +6349,7 @@ function syncUniv() {
     __suppressSave = true;  // hold saves during boot
     const hasDB = loadDatabase();  // load persisted data if it exists
     loadActivityLog();
+    loadActivityFromDb();  // merge shared DB activity history (async, best-effort)
     normalizeAgencyData();
     loadWiki();
     syncWikiCount();
