@@ -79,8 +79,12 @@
     .card-select { position: absolute; top: .5rem; right: .5rem; width: 16px; height: 16px; accent-color: #3b82f6; cursor: pointer; z-index: 3; }
     .customer-card .name-row { display: flex; align-items: center; gap: .35rem; }
     .customer-card h4 { font-size: .92rem; color: #111827; text-transform: uppercase; letter-spacing: .02em; line-height: 1.2; }
-    .customer-card .prog-line { font-size: .75rem; color: #6b7280; margin-top: .25rem; }
-    .customer-card .school-badge { display: inline-block; margin-top: .35rem; padding: .1rem .5rem; border-radius: 999px; font-size: .68rem; font-weight: 700; background: #eef2ff; color: #4338ca; }
+    .customer-card .card-photo { width: 44px; height: 56px; object-fit: cover; border-radius: .4rem; border: 1px solid #e2e8f0; flex: none; background: #f1f5f9; }
+    .customer-card .card-badges { display: flex; flex-wrap: nowrap; gap: .3rem; margin-top: .3rem; overflow: hidden; }
+    .customer-card .card-badge { display: inline-flex; align-items: center; gap: .25rem; padding: .1rem .5rem; border-radius: 999px; font-size: .66rem; font-weight: 700; white-space: nowrap; }
+    .customer-card .badge-school { background: #eef2ff; color: #4338ca; }
+    .customer-card .badge-prog { background: #ecfdf5; color: #047857; }
+    .customer-card .badge-logo { width: 14px; height: 14px; object-fit: contain; border-radius: 3px; background: #fff; vertical-align: middle; }
     .tag-row { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .5rem; }
     .tag { padding: .12rem .55rem; border-radius: 999px; font-size: .7rem; font-weight: 600; }
     .tag-agency { background: #f3e8ff; color: #6b21a8; }
@@ -3150,16 +3154,35 @@ function syncUniv() {
     const name = card.dataset.name || (card.querySelector('h4') ? card.querySelector('h4').textContent : '');
     const progRaw = card.dataset.program || '';
     const prog = (card.dataset.pipe === 'korea') ? koreaProgramShort(progRaw) : (progRaw || 'Not Yet');
-    // School badge: short name (e.g. JBNU) when available, else the raw school name
+    // School: short name + logo
     const schoolRaw = card.dataset.school || '';
     const schoolShort = koreaSchoolShort(schoolRaw);
-    const schoolBadge = (schoolRaw && schoolShort && schoolShort !== 'Not Yet Specified' && schoolShort !== 'Not Specified')
-      ? `<div class="school-badge">🏫 ${escapeHtml(schoolShort)}</div>` : '';
+    const schoolLogo = koreaSchoolLogo(schoolRaw);
+    const showSchool = schoolRaw && schoolShort && schoolShort !== 'Not Yet Specified' && schoolShort !== 'Not Specified';
+    // Photo from folder files (photo/passport image)
+    let photoUrl = '';
+    try {
+      const files = JSON.parse(card.dataset.folderFiles || '[]');
+      if (Array.isArray(files)) {
+        const ph = files.find(f => /passport|여권|photo|picture|사진|이미지|image/i.test(f.name||'') && /\.(jpe?g|png|webp|gif|bmp)$/i.test(f.name||''));
+        if (ph && ph.url) photoUrl = ph.url;
+      }
+    } catch(e){}
+    const photoHtml = photoUrl
+      ? `<img class="card-photo" src="${escapeHtml(photoUrl)}" onerror="this.style.display='none'" alt="photo" referrerpolicy="no-referrer">`
+      : '';
+    const schoolHtml = showSchool
+      ? `<span class="card-badge badge-school">${schoolLogo?`<img class="badge-logo" src="${escapeHtml(schoolLogo)}" onerror="this.style.display='none'" alt="">`:''}${escapeHtml(schoolShort)}</span>`
+      : '';
     card.innerHTML = `
       <input type="checkbox" class="card-select" onclick="onCardSelect(this, event)">
-      <div class="name-row"><h4></h4></div>
-      <div class="prog-line">🎓 ${escapeHtml(prog)}</div>
-      ${schoolBadge}`;
+      <div class="card-top" style="display:flex;align-items:flex-start;gap:.5rem;">
+        ${photoHtml}
+        <div style="flex:1;min-width:0;">
+          <div class="name-row"><h4></h4></div>
+          <div class="card-badges">${schoolHtml}<span class="card-badge badge-prog">${escapeHtml(prog)}</span></div>
+        </div>
+      </div>`;
     card.querySelector('h4').textContent = name;
     card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#3b82f6';
   }
