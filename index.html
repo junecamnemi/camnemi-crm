@@ -3160,12 +3160,12 @@ function syncUniv() {
     const schoolShort = koreaSchoolShort(schoolRaw);
     const schoolLogo = koreaSchoolLogo(schoolRaw);
     const showSchool = schoolRaw && schoolShort && schoolShort !== 'Not Yet Specified' && schoolShort !== 'Not Specified';
-    // Photo from folder files (photo/passport image) — convert Drive link to direct image
+    // Photo from folder files (PHOTO image only, not passport) — convert Drive link to direct image
     let photoUrl = '';
     try {
       const files = JSON.parse(card.dataset.folderFiles || '[]');
       if (Array.isArray(files)) {
-        const ph = files.find(f => /passport|여권|photo|picture|사진|이미지|image/i.test(f.name||'') && /\.(jpe?g|png|webp|gif|bmp)$/i.test(f.name||''));
+        const ph = files.find(f => /photo|picture|사진|이미지|image|img/i.test(f.name||'') && !/passport|여권|passeport/i.test(f.name||'') && /\.(jpe?g|png|webp|gif|bmp)$/i.test(f.name||''));
         if (ph && ph.url) {
           photoUrl = driveImageUrl(ph.url);
         }
