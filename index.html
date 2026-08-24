@@ -72,16 +72,14 @@
     .cards.drop-target { background: #c9d4e4; border-radius: .5rem; }
 
     /* ===== Card ===== */
-    .customer-card { background: #fff; border-radius: .5rem; padding: .85rem; border-left: 4px solid #94a3b8; box-shadow: 0 1px 3px rgba(0,0,0,.12); cursor: pointer; user-select: none; touch-action: none; min-height: 150px; display: flex; flex-direction: column; overflow: hidden; position: relative; }
+    .customer-card { background: #fff; border-radius: .5rem; padding: .7rem .85rem; border-left: 4px solid #94a3b8; box-shadow: 0 1px 3px rgba(0,0,0,.12); cursor: pointer; user-select: none; touch-action: none; display: flex; flex-direction: column; overflow: hidden; position: relative; }
     .customer-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.15); }
     .customer-card.dragging { opacity: .35; }
     .customer-card.selected { outline: 2px solid #3b82f6; outline-offset: -2px; box-shadow: 0 4px 12px rgba(59,130,246,.3); }
     .card-select { position: absolute; top: .5rem; right: .5rem; width: 16px; height: 16px; accent-color: #3b82f6; cursor: pointer; z-index: 3; }
-    .customer-card .name-row { display: flex; justify-content: space-between; align-items: center; }
-    .customer-card h4 { font-size: .95rem; color: #111827; text-transform: uppercase; letter-spacing: .02em; }
-    .customer-card .age-pill { background: #eff6ff; color: #1e40af; padding: .1rem .55rem; border-radius: 999px; font-size: .75rem; font-weight: 600; }
-    .customer-card .contact-line { font-size: .8rem; color: #6b7280; margin-top: .35rem; }
-    .customer-card .detail-line { font-size: .8rem; color: #6b7280; margin-top: .3rem; }
+    .customer-card .name-row { display: flex; align-items: center; gap: .35rem; }
+    .customer-card h4 { font-size: .92rem; color: #111827; text-transform: uppercase; letter-spacing: .02em; line-height: 1.2; }
+    .customer-card .prog-line { font-size: .75rem; color: #6b7280; margin-top: .25rem; }
     .tag-row { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .5rem; }
     .tag { padding: .12rem .55rem; border-radius: 999px; font-size: .7rem; font-weight: 600; }
     .tag-agency { background: #f3e8ff; color: #6b21a8; }
@@ -3120,10 +3118,12 @@ function syncUniv() {
     const name = card.dataset.name || (card.querySelector('h4') ? card.querySelector('h4').textContent : '');
     // Flag: Cambodia for the new pipeline, Korea for the Korea pipeline
     const flag = (card.dataset.pipe === 'korea') ? '🇰🇷' : '🇰🇭';
+    const progRaw = card.dataset.program || '';
+    const prog = (card.dataset.pipe === 'korea') ? koreaProgramShort(progRaw) : (progRaw || 'Not Yet');
     card.innerHTML = `
       <input type="checkbox" class="card-select" onclick="onCardSelect(this, event)">
-      <div class="name-row" style="display:flex;align-items:center;gap:.35rem;"><span style="font-size:1.05rem;line-height:1;">${flag}</span><h4></h4></div>
-      <div class="card-resize"></div>`;
+      <div class="name-row"><span style="font-size:1rem;line-height:1;flex:none;">${flag}</span><h4></h4></div>
+      <div class="prog-line">🎓 ${escapeHtml(prog)}</div>`;
     card.querySelector('h4').textContent = name;
     card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#3b82f6';
   }
