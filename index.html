@@ -3380,8 +3380,18 @@ function syncUniv() {
             <button class="btn btn-note" onclick="addKoreaNote()" style="font-size:.75rem;padding:.3rem .7rem;">➕ Add</button>
           </div>
         </div>
-        <div class="field"><label>🛂 여권정보 (Passport Info)</label>
-          <div id="k-passport-fields" style="border:1px solid #e2e8f0;border-radius:.5rem;padding:.5rem;background:#f8fafc;">
+        <div class="field"><label>📁 Documents</label>
+          <div id="k-docs" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:160px;overflow:auto;font-size:.78rem;background:#f8fafc;color:#94a3b8;">Loading documents...</div>
+          <div id="k-dropzone" style="margin-top:.4rem;border:2px dashed #c7d2fe;border-radius:.6rem;padding:.8rem;text-align:center;color:#6366f1;font-size:.78rem;background:#eef2ff;cursor:pointer;">⬇️ Drag & drop files here, or click to upload</div>
+          <div style="display:flex;gap:.4rem;margin-top:.4rem;">
+            <button class="btn btn-note" onclick="refreshKoreaDocs(true)" style="font-size:.72rem;padding:.25rem .6rem;">🔄 Refresh</button>
+            <button class="btn btn-note" onclick="openStudentFolder(document.getElementById('korea-edit-modal')._card)" style="font-size:.72rem;padding:.25rem .6rem;background:#e0f2fe;color:#0c4a6e;">📁 ${card.dataset.folderUrl ? 'Open folder' : 'Create & open folder'}</button>
+          </div>
+        </div>
+        <!-- 여권정보 (folded, under Documents) -->
+        <div class="field">
+          <div onclick="toggleKPassport()" style="display:flex;align-items:center;gap:.4rem;cursor:pointer;user-select:none;"><span id="kpp-fold-ic">▶</span><label style="cursor:pointer;margin:0;">🛂 여권정보 (Passport Info)</label><button onclick="event.stopPropagation();autoParsePassportFromFolder()" style="margin-left:auto;background:#e0f2fe;color:#0c4a6e;border:none;border-radius:.4rem;padding:.2rem .55rem;font-size:.7rem;font-weight:600;cursor:pointer;">🔄 Parse</button></div>
+          <div id="k-passport-fields" style="display:none;border:1px solid #e2e8f0;border-radius:.5rem;padding:.5rem;background:#f8fafc;margin-top:.4rem;">
             <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem;">
               <div style="flex:1;min-width:120px;"><label style="font-size:.68rem;color:#6b7280;">Name on passport</label><input id="kpp-name" value="${escapeHtml(pp.name)}" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;text-transform:uppercase;"></div>
               <div style="flex:1;min-width:120px;"><label style="font-size:.68rem;color:#6b7280;">Passport Number</label><input id="kpp-num" value="${escapeHtml(pp.num)}" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;text-transform:uppercase;"></div>
@@ -3391,15 +3401,7 @@ function syncUniv() {
               <div style="flex:1;min-width:110px;"><label style="font-size:.68rem;color:#6b7280;">Expiration Date</label><input id="kpp-exp" value="${escapeHtml(pp.exp)}" placeholder="YYYY-MM-DD" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;"></div>
               <div style="flex:1;min-width:80px;"><label style="font-size:.68rem;color:#6b7280;">Sex</label><select id="kpp-sex" style="width:100%;padding:.35rem .4rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;"><option value="">—</option><option value="M" ${pp.sex==='M'?'selected':''}>M</option><option value="F" ${pp.sex==='F'?'selected':''}>F</option></select></div>
             </div>
-            <div style="font-size:.68rem;color:#94a3b8;">Passport in the folder can be parsed automatically once the OCR server is running. Fields are manually editable.</div>
-          </div>
-        </div>
-        <div class="field"><label>📁 Documents</label>
-          <div id="k-docs" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:160px;overflow:auto;font-size:.78rem;background:#f8fafc;color:#94a3b8;">Loading documents...</div>
-          <div id="k-dropzone" style="margin-top:.4rem;border:2px dashed #c7d2fe;border-radius:.6rem;padding:.8rem;text-align:center;color:#6366f1;font-size:.78rem;background:#eef2ff;cursor:pointer;">⬇️ Drag & drop files here, or click to upload</div>
-          <div style="display:flex;gap:.4rem;margin-top:.4rem;">
-            <button class="btn btn-note" onclick="refreshKoreaDocs(true)" style="font-size:.72rem;padding:.25rem .6rem;">🔄 Refresh</button>
-            <button class="btn btn-note" onclick="openStudentFolder(document.getElementById('korea-edit-modal')._card)" style="font-size:.72rem;padding:.25rem .6rem;background:#e0f2fe;color:#0c4a6e;">📁 ${card.dataset.folderUrl ? 'Open folder' : 'Create & open folder'}</button>
+            <div id="kpp-status" style="font-size:.68rem;color:#94a3b8;"></div>
           </div>
         </div>
         <div class="modal-actions">
@@ -3409,7 +3411,7 @@ function syncUniv() {
       </div>`;
     document.body.appendChild(overlay);
     setTimeout(()=>overlay.style.opacity='1',10);
-    setTimeout(()=>{ if(typeof setupKoreaDropzone==='function') setupKoreaDropzone(overlay, card); if(typeof refreshKoreaDocs==='function') refreshKoreaDocs(); }, 50);
+    setTimeout(()=>{ if(typeof setupKoreaDropzone==='function') setupKoreaDropzone(overlay, card); if(typeof refreshKoreaDocs==='function') refreshKoreaDocs(); setTimeout(()=>{ if(typeof autoParsePassportFromFolder==='function') autoParsePassportFromFolder(); }, 2500); }, 50);
   }
   function saveKoreaEdit() {
     const overlay=document.getElementById('korea-edit-modal'); if(!overlay||!overlay._card) return;
@@ -5638,6 +5640,63 @@ function syncUniv() {
     if(ok) alert('Uploaded '+ok+' file(s).');
     else alert('No files uploaded.');
     refreshKoreaDocs();
+  }
+
+  // Toggle the folded 여권정보 section
+  function toggleKPassport(){
+    const box = document.getElementById('k-passport-fields');
+    const ic = document.getElementById('kpp-fold-ic');
+    if(!box) return;
+    const show = box.style.display !== 'block';
+    box.style.display = show ? 'block' : 'none';
+    if(ic) ic.textContent = show ? '▼' : '▶';
+  }
+  // Auto-parse a passport file from the student's Drive folder via the local OCR server
+  async function autoParsePassportFromFolder(){
+    const overlay = document.querySelector('#korea-edit-modal');
+    if(!overlay) return;
+    const card = overlay._card;
+    const statusEl = document.getElementById('kpp-status');
+    const setStatus = (t, c) => { if(statusEl){ statusEl.textContent = t; statusEl.style.color = c || '#94a3b8'; } };
+    let files = [];
+    try { files = JSON.parse(card.dataset.folderFiles || '[]'); } catch(e){ files = []; }
+    if(!Array.isArray(files) || !files.length){
+      // try fetching fresh
+      const name = card.dataset.name || '';
+      try {
+        const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({ action:'listStudentFolderFiles', name:name }) });
+        const info = JSON.parse(await res.text());
+        if(info && info.ok && Array.isArray(info.files)) files = info.files;
+      } catch(e){}
+    }
+    // find a passport-like file (name contains passport / 여권)
+    const passportFile = files.find(f => /passport|여권|passeport/i.test(f.name || ''));
+    if(!passportFile){
+      setStatus('⚠️ No passport file found in the folder.', '#f59e0b');
+      return;
+    }
+    setStatus('Parsing passport from folder…', '#3b82f6');
+    try {
+      // download the file bytes then send to the local OCR server
+      const fileRes = await fetch(passportFile.url, { mode:'cors' });
+      if(!fileRes.ok) throw new Error('download failed ' + fileRes.status);
+      const blob = await fileRes.blob();
+      const file = new File([blob], passportFile.name || 'passport.jpg', { type: blob.type || 'image/jpeg' });
+      const fd = new FormData();
+      fd.append('file', file);
+      const r = await fetch(PASSPORT_API, { method:'POST', body: fd });
+      if(!r.ok) throw new Error('OCR server error ' + r.status);
+      const d = await r.json();
+      const set = (id, v) => { const el = document.getElementById(id); if(el) el.value = v || ''; };
+      set('kpp-name', (d.name || '').toUpperCase());
+      set('kpp-num', (d.passport_number || '').toUpperCase());
+      set('kpp-dob', d.birth_date || '');
+      set('kpp-exp', d.expiration_date || '');
+      set('kpp-sex', d.sex || '');
+      setStatus('✓ Parsed — review & Save.', '#059669');
+    } catch(err) {
+      setStatus('⚠️ Auto-parse failed: ' + err.message + ' — enter manually.', '#ef4444');
+    }
   }
 
   // Load the current korea edit modal's documents into #k-docs
