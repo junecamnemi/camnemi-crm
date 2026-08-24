@@ -3261,7 +3261,10 @@ function syncUniv() {
     const program = card.dataset.program || '';
     const major = card.dataset.major || '';
     const parentContact = card.dataset.parentContact || '';
+    const parentName = card.dataset.parentName || '';
     const appdate = card.dataset.appdate || '';
+    // English school name: from UNIV_KNOWLEDGE if the Korean name matches, else stored english
+    const schoolEn = koreaSchoolEn(school) || (card.dataset.schoolEn || '');
     const contact = card.dataset.contact || '';
     const email = card.dataset.email || '';
     const agency = card.dataset.agency || '';
@@ -3313,6 +3316,7 @@ function syncUniv() {
     overlay.innerHTML = `
       <div class="modal">
         <h2 style="text-transform:uppercase;">${escapeHtml(name)}</h2>
+        <input type="hidden" id="k-name" value="${escapeHtml(name)}">
         <!-- Stage: first area of modal -->
         <div class="field"><label>Stage</label>
           <div style="display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.25rem;">${stageBtns}</div>
@@ -3328,26 +3332,28 @@ function syncUniv() {
           <div class="field" style="flex:1;"><label>🏢 Agency</label><select id="k-agency"><option value="">— Agency —</option>${agencyOpts}</select></div>
           <div class="field" style="flex:1;"><label>🎓 Program *</label><select id="k-program">${programOpts}</select></div>
         </div>
-        <!-- School | Major -->
+        <!-- School (KR) | School (EN) -->
         <div style="display:flex;gap:.7rem;align-items:flex-start;">
-          <div class="field" style="flex:1.4;"><label>🏫 School *</label>
+          <div class="field" style="flex:1.2;"><label>🏫 School (Korean) *</label>
             <div style="position:relative;">
-              <input id="k-school-search" value="${escapeHtml(school)}" placeholder="🔍 Type to search school..." oninput="this.value=this.value.toUpperCase();filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
+              <input id="k-school-search" value="${escapeHtml(school)}" placeholder="🔍 한국 대학교 검색..." oninput="this.value=this.value.toUpperCase();filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
               <div id="k-school-list" style="position:absolute;top:100%;left:0;right:0;z-index:50;background:#fff;border:1px solid #e2e8f0;border-radius:.5rem;max-height:200px;overflow:auto;display:none;box-shadow:0 8px 20px rgba(0,0,0,.12);"></div>
               <input type="hidden" id="k-school" value="${escapeHtml(school)}">
             </div>
           </div>
-          <div class="field" style="flex:1;"><label>📘 Major</label><input id="k-major" value="${escapeHtml(major)}"></div>
+          <div class="field" style="flex:1;"><label>🏫 School (English)</label><input id="k-school-en" value="${escapeHtml(schoolEn)}" placeholder="Auto from Korean name"></div>
         </div>
+        <!-- Major -->
+        <div class="field"><label>📘 Major</label><input id="k-major" value="${escapeHtml(major)}"></div>
         <!-- Contact | Email -->
         <div style="display:flex;gap:.7rem;align-items:flex-start;">
           <div class="field" style="flex:1;"><label>📞 Contact</label><input id="k-contact" value="${escapeHtml(contact)}"></div>
           <div class="field" style="flex:1;"><label>✉️ Email</label><input id="k-email" value="${escapeHtml(email)}"></div>
         </div>
-        <!-- Parent Contact | Name -->
+        <!-- Parent Name | Parent Contact -->
         <div style="display:flex;gap:.7rem;align-items:flex-start;">
-          <div class="field" style="flex:1;"><label>👨‍👩‍👧 Parent Contact</label><input id="k-parent-contact" value="${escapeHtml(parentContact)}"></div>
-          <div class="field" style="flex:1;"><label>Name *</label><input id="k-name" value="${escapeHtml(name)}" style="${req(name)}" oninput="this.value=this.value.toUpperCase()"></div>
+          <div class="field" style="flex:1;"><label>👨‍👩‍👧 Parent Name</label><input id="k-parent-name" value="${escapeHtml(parentName)}"></div>
+          <div class="field" style="flex:1;"><label>📞 Parent Contact</label><input id="k-parent-contact" value="${escapeHtml(parentContact)}"></div>
         </div>
         ${cardPipe==='korea' ? `<div class="field"><label>Entered Korea</label><select id="k-appdate">${enterOpts}</select></div>` : ''}
         <div class="field"><label>Loan (USD)</label><input id="k-loan" value="${escapeHtml(loan)}" oninput="toggleKLoanFlag()"></div>
@@ -3410,7 +3416,9 @@ function syncUniv() {
     card.dataset.school=school;
     card.dataset.program=program;
     const majEl=overlay.querySelector('#k-major'); if(majEl) card.dataset.major = majEl.value.trim();
+    const pnEl=overlay.querySelector('#k-parent-name'); if(pnEl) card.dataset.parentName = pnEl.value.trim();
     const pcEl=overlay.querySelector('#k-parent-contact'); if(pcEl) card.dataset.parentContact = pcEl.value.trim();
+    const seEl=overlay.querySelector('#k-school-en'); if(seEl) card.dataset.schoolEn = seEl.value.trim();
     const appEl=overlay.querySelector('#k-appdate'); if(appEl) card.dataset.appdate=appEl.value;
     card.dataset.contact=overlay.querySelector('#k-contact').value.trim();
     card.dataset.email=overlay.querySelector('#k-email').value.trim();
@@ -4883,7 +4891,8 @@ function syncUniv() {
         recent: c.recent, folderId: c.folder_id, folderUrl: c.folder_url,
         docs: c.docs || [],
         hidden: c.hidden, siemreap: c.siemreap, customFields: c.custom_fields || {},
-        major: c.major || '', parentContact: c.parent_contact || ''
+        major: c.major || '', parentContact: c.parent_contact || '', parentName: c.parent_name || '',
+        schoolEn: c.school_en || ''
       })),
       agencies: agencies || [],
       fees: fees || [],
@@ -4982,7 +4991,8 @@ function syncUniv() {
         recent: c.recent || '', folder_id: c.folderId || '', folder_url: c.folderUrl || '',
         docs: c.docs || [],
         hidden: c.hidden || '', siemreap: c.siemreap || '', custom_fields: c.customFields || {},
-        major: c.major || '', parent_contact: c.parentContact || ''
+        major: c.major || '', parent_contact: c.parentContact || '', parent_name: c.parentName || '',
+        school_en: c.schoolEn || ''
       })), 'id');
     }
     return true;
@@ -5038,7 +5048,8 @@ function syncUniv() {
           topik: card.dataset.topik, ielts: card.dataset.ielts, noqr: card.dataset.noqr, illegal: card.dataset.illegal,
           notes: card.dataset.notes ? JSON.parse(card.dataset.notes) : [],
           folderId: card.dataset.folderId||'', folderUrl: card.dataset.folderUrl||'',
-          major: card.dataset.major||'', parentContact: card.dataset.parentContact||''
+          major: card.dataset.major||'', parentContact: card.dataset.parentContact||'',
+          parentName: card.dataset.parentName||'', schoolEn: card.dataset.schoolEn||''
         });
       });
       let merged = (db.customers||[]).slice();
@@ -5559,6 +5570,13 @@ function syncUniv() {
     if(listEl) listEl.style.display='none';
     if(searchEl) searchEl.value = name;
     if(hiddenEl) hiddenEl.value = name;
+    // auto-fill English school name
+    const enEl = document.getElementById('k-school-en');
+    if(enEl){
+      const u = (typeof UNIV_KNOWLEDGE !== 'undefined' && Array.isArray(UNIV_KNOWLEDGE)) ? UNIV_KNOWLEDGE.find(x => x.n===name || x.ek===name) : null;
+      if(u && (u.en || u.es)) enEl.value = (u.en || u.es || '');
+      else if (koreaSchoolEn) enEl.value = koreaSchoolEn(name) || '';
+    }
   }
   // Close school dropdown on click elsewhere
   document.addEventListener('click', e=>{
@@ -5932,6 +5950,8 @@ function syncUniv() {
         hidden: card.dataset.hidden || '',
         major: card.dataset.major || '',
         parentContact: card.dataset.parentContact || '',
+        parentName: card.dataset.parentName || '',
+        schoolEn: card.dataset.schoolEn || '',
         customFields: (LIST_CUSTOM_COLS.reduce((o,c)=>{ const k=c.replace(/[^a-z0-9]/gi,'').toLowerCase(); o[c]=card.dataset[k]||''; return o; },{}))
       });
     });
@@ -6020,7 +6040,7 @@ function syncUniv() {
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact'].forEach(k=>{
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact','parentName','schoolEn'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
       if (Array.isArray(c.docs) && c.docs.length) card.dataset.folderFiles = JSON.stringify(c.docs);
