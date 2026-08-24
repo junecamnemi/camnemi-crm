@@ -3259,6 +3259,8 @@ function syncUniv() {
     const name = caps(card.dataset.name || '');
     const school = card.dataset.school || '';
     const program = card.dataset.program || '';
+    const major = card.dataset.major || '';
+    const parentContact = card.dataset.parentContact || '';
     const appdate = card.dataset.appdate || '';
     const contact = card.dataset.contact || '';
     const email = card.dataset.email || '';
@@ -3310,20 +3312,44 @@ function syncUniv() {
     overlay.className='modal-overlay'; overlay.id='korea-edit-modal'; overlay._card=card;
     overlay.innerHTML = `
       <div class="modal">
-        <h2>🇰🇷 Edit Student (in Korea)</h2>
-        <div class="field"><label>Name *</label><input id="k-name" value="${escapeHtml(name)}" style="${req(name)}" oninput="this.value=this.value.toUpperCase()"></div>
-        <div class="field"><label>School *</label>
-          <div style="position:relative;">
-            <input id="k-school-search" value="${escapeHtml(school)}" placeholder="🔍 Type to search school..." oninput="this.value=this.value.toUpperCase();filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
-            <div id="k-school-list" style="position:absolute;top:100%;left:0;right:0;z-index:50;background:#fff;border:1px solid #e2e8f0;border-radius:.5rem;max-height:200px;overflow:auto;display:none;box-shadow:0 8px 20px rgba(0,0,0,.12);"></div>
-            <input type="hidden" id="k-school" value="${escapeHtml(school)}">
-          </div>
+        <h2 style="text-transform:uppercase;">${escapeHtml(name)}</h2>
+        <!-- Stage: first area of modal -->
+        <div class="field"><label>Stage</label>
+          <div style="display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.25rem;">${stageBtns}</div>
+          <input type="hidden" id="k-stage" value="${escapeHtml(curStageHidden)}">
+          ${(cardPipe==='new' && card.dataset.stage==='visa') ? `<div style="margin-top:.7rem;padding:.9rem;border-radius:.75rem;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;">
+            <div style="font-size:.8rem;font-weight:700;color:#15803d;margin-bottom:.55rem;">🛂 VISA Process — Approved?</div>
+            <button class="btn" onclick="visaApproved()" style="width:100%;padding:.7rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(22,163,74,.35);">✅ VISA Approved — Move to Korea 🇰🇷</button>
+            <button class="btn" onclick="visaDenied()" style="width:100%;margin-top:.5rem;padding:.7rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(220,38,38,.35);">❌ VISA Denied — Archive</button>
+          </div>` : ''}
         </div>
-        <div class="field"><label>Program *</label><select id="k-program">${programOpts}</select></div>
+        <!-- Agency | Program -->
+        <div style="display:flex;gap:.7rem;align-items:flex-start;">
+          <div class="field" style="flex:1;"><label>🏢 Agency</label><select id="k-agency"><option value="">— Agency —</option>${agencyOpts}</select></div>
+          <div class="field" style="flex:1;"><label>🎓 Program *</label><select id="k-program">${programOpts}</select></div>
+        </div>
+        <!-- School | Major -->
+        <div style="display:flex;gap:.7rem;align-items:flex-start;">
+          <div class="field" style="flex:1.4;"><label>🏫 School *</label>
+            <div style="position:relative;">
+              <input id="k-school-search" value="${escapeHtml(school)}" placeholder="🔍 Type to search school..." oninput="this.value=this.value.toUpperCase();filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
+              <div id="k-school-list" style="position:absolute;top:100%;left:0;right:0;z-index:50;background:#fff;border:1px solid #e2e8f0;border-radius:.5rem;max-height:200px;overflow:auto;display:none;box-shadow:0 8px 20px rgba(0,0,0,.12);"></div>
+              <input type="hidden" id="k-school" value="${escapeHtml(school)}">
+            </div>
+          </div>
+          <div class="field" style="flex:1;"><label>📘 Major</label><input id="k-major" value="${escapeHtml(major)}"></div>
+        </div>
+        <!-- Contact | Email -->
+        <div style="display:flex;gap:.7rem;align-items:flex-start;">
+          <div class="field" style="flex:1;"><label>📞 Contact</label><input id="k-contact" value="${escapeHtml(contact)}"></div>
+          <div class="field" style="flex:1;"><label>✉️ Email</label><input id="k-email" value="${escapeHtml(email)}"></div>
+        </div>
+        <!-- Parent Contact | Name -->
+        <div style="display:flex;gap:.7rem;align-items:flex-start;">
+          <div class="field" style="flex:1;"><label>👨‍👩‍👧 Parent Contact</label><input id="k-parent-contact" value="${escapeHtml(parentContact)}"></div>
+          <div class="field" style="flex:1;"><label>Name *</label><input id="k-name" value="${escapeHtml(name)}" style="${req(name)}" oninput="this.value=this.value.toUpperCase()"></div>
+        </div>
         ${cardPipe==='korea' ? `<div class="field"><label>Entered Korea</label><select id="k-appdate">${enterOpts}</select></div>` : ''}
-        <div class="field"><label>Contact</label><input id="k-contact" value="${escapeHtml(contact)}"></div>
-        <div class="field"><label>Email</label><input id="k-email" value="${escapeHtml(email)}"></div>
-        <div class="field"><label>Agency</label><select id="k-agency"><option value="">— Agency —</option>${agencyOpts}</select></div>
         <div class="field"><label>Loan (USD)</label><input id="k-loan" value="${escapeHtml(loan)}" oninput="toggleKLoanFlag()"></div>
         <div class="field"><label>Flags</label>
           <div style="display:flex;gap:1.2rem;flex-wrap:wrap;">
@@ -3333,28 +3359,19 @@ function syncUniv() {
             <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-siemreap" ${siemreap?'checked':''} style="accent-color:#0891b2;width:16px;height:16px;"> 📍 SiemReap</label>
           </div>
         </div>
-        <div class="field"><label>📝 Notes</label>
-          <div id="k-notes-list" style="max-height:140px;overflow:auto;">${notesHtml}</div>
-          <div style="display:flex;gap:.4rem;margin-top:.4rem;">
-            <input id="k-note" placeholder="Add a note..." onkeydown="if(event.key==='Enter'){event.preventDefault();addKoreaNote();}" style="flex:1;padding:.45rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
-            <button class="btn btn-note" onclick="addKoreaNote()" style="font-size:.75rem;padding:.3rem .7rem;">➕ Add</button>
-          </div>
-        </div>
-        <div class="field"><label>Stage</label>
-          <div style="display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.25rem;">${stageBtns}</div>
-          <input type="hidden" id="k-stage" value="${escapeHtml(curStageHidden)}">
-          ${(cardPipe==='new' && card.dataset.stage==='visa') ? `<div style="margin-top:.7rem;padding:.9rem;border-radius:.75rem;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;">
-            <div style="font-size:.8rem;font-weight:700;color:#15803d;margin-bottom:.55rem;">🛂 VISA Process — Approved?</div>
-            <button class="btn" onclick="visaApproved()" style="width:100%;padding:.7rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(22,163,74,.35);transition:transform .12s, box-shadow .12s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 16px rgba(22,163,74,.45)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 12px rgba(22,163,74,.35)';" onmousedown="this.style.transform='translateY(0)';">✅ VISA Approved — Move to Korea 🇰🇷</button>
-            <button class="btn" onclick="visaDenied()" style="width:100%;margin-top:.5rem;padding:.7rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(220,38,38,.35);transition:transform .12s, box-shadow .12s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 16px rgba(220,38,38,.45)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 12px rgba(220,38,38,.35)';" onmousedown="this.style.transform='translateY(0)';">❌ VISA Denied — Archive</button>
-          </div>` : ''}
-        </div>
         <div class="field"><label>💰 Payments</label>
           <div id="k-payments" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:120px;overflow:auto;font-size:.78rem;background:#f8fafc;margin-bottom:.4rem;">${renderPaymentsList(card.dataset.payments)}</div>
           <div style="display:flex;gap:.4rem;align-items:center;">
             <input id="k-pay-amount" placeholder="Amount ($)" style="flex:1;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
             <input id="k-pay-date" placeholder="Date" value="${escapeHtml(todayStr())}" style="width:110px;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
             <button class="btn btn-note" onclick="addKPayment()" style="font-size:.75rem;padding:.3rem .7rem;">➕ Add</button>
+          </div>
+        </div>
+        <div class="field"><label>📝 Notes</label>
+          <div id="k-notes-list" style="max-height:140px;overflow:auto;">${notesHtml}</div>
+          <div style="display:flex;gap:.4rem;margin-top:.4rem;">
+            <input id="k-note" placeholder="Add a note..." onkeydown="if(event.key==='Enter'){event.preventDefault();addKoreaNote();}" style="flex:1;padding:.45rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
+            <button class="btn btn-note" onclick="addKoreaNote()" style="font-size:.75rem;padding:.3rem .7rem;">➕ Add</button>
           </div>
         </div>
         <div class="field"><label>📁 Documents</label>
@@ -3392,6 +3409,8 @@ function syncUniv() {
     if(nameChanged){ renameStudentFolderApp(oldName, name); }
     card.dataset.school=school;
     card.dataset.program=program;
+    const majEl=overlay.querySelector('#k-major'); if(majEl) card.dataset.major = majEl.value.trim();
+    const pcEl=overlay.querySelector('#k-parent-contact'); if(pcEl) card.dataset.parentContact = pcEl.value.trim();
     const appEl=overlay.querySelector('#k-appdate'); if(appEl) card.dataset.appdate=appEl.value;
     card.dataset.contact=overlay.querySelector('#k-contact').value.trim();
     card.dataset.email=overlay.querySelector('#k-email').value.trim();
@@ -4863,7 +4882,8 @@ function syncUniv() {
         denied: c.denied, loanFlag: c.loan_flag, payments: c.payments || [],
         recent: c.recent, folderId: c.folder_id, folderUrl: c.folder_url,
         docs: c.docs || [],
-        hidden: c.hidden, siemreap: c.siemreap, customFields: c.custom_fields || {}
+        hidden: c.hidden, siemreap: c.siemreap, customFields: c.custom_fields || {},
+        major: c.major || '', parentContact: c.parent_contact || ''
       })),
       agencies: agencies || [],
       fees: fees || [],
@@ -4961,7 +4981,8 @@ function syncUniv() {
           : (c.payments || []),
         recent: c.recent || '', folder_id: c.folderId || '', folder_url: c.folderUrl || '',
         docs: c.docs || [],
-        hidden: c.hidden || '', siemreap: c.siemreap || '', custom_fields: c.customFields || {}
+        hidden: c.hidden || '', siemreap: c.siemreap || '', custom_fields: c.customFields || {},
+        major: c.major || '', parent_contact: c.parentContact || ''
       })), 'id');
     }
     return true;
@@ -5016,7 +5037,8 @@ function syncUniv() {
           email: card.dataset.email, loan: card.dataset.loan, birthdate: card.dataset.birthdate,
           topik: card.dataset.topik, ielts: card.dataset.ielts, noqr: card.dataset.noqr, illegal: card.dataset.illegal,
           notes: card.dataset.notes ? JSON.parse(card.dataset.notes) : [],
-          folderId: card.dataset.folderId||'', folderUrl: card.dataset.folderUrl||''
+          folderId: card.dataset.folderId||'', folderUrl: card.dataset.folderUrl||'',
+          major: card.dataset.major||'', parentContact: card.dataset.parentContact||''
         });
       });
       let merged = (db.customers||[]).slice();
@@ -5908,6 +5930,8 @@ function syncUniv() {
         siemreap: card.dataset.siemreap || '',
         payments: card.dataset.payments || '',
         hidden: card.dataset.hidden || '',
+        major: card.dataset.major || '',
+        parentContact: card.dataset.parentContact || '',
         customFields: (LIST_CUSTOM_COLS.reduce((o,c)=>{ const k=c.replace(/[^a-z0-9]/gi,'').toLowerCase(); o[c]=card.dataset[k]||''; return o; },{}))
       });
     });
@@ -5996,7 +6020,7 @@ function syncUniv() {
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap'].forEach(k=>{
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
       if (Array.isArray(c.docs) && c.docs.length) card.dataset.folderFiles = JSON.stringify(c.docs);
