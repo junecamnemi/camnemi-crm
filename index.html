@@ -80,6 +80,7 @@
     .customer-card .name-row { display: flex; align-items: center; gap: .35rem; }
     .customer-card h4 { font-size: .92rem; color: #111827; text-transform: uppercase; letter-spacing: .02em; line-height: 1.2; }
     .customer-card .card-photo { width: 44px; height: 56px; object-fit: cover; border-radius: .4rem; border: 1px solid #e2e8f0; flex: none; background: #f1f5f9; }
+    .customer-card .card-photo-placeholder { display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #cbd5e1; background: #f8fafc; }
     .customer-card .card-badges { display: flex; flex-wrap: nowrap; gap: .3rem; margin-top: .3rem; overflow: hidden; }
     .customer-card .card-badge { display: inline-flex; align-items: center; gap: .25rem; padding: .1rem .5rem; border-radius: 999px; font-size: .66rem; font-weight: 700; white-space: nowrap; }
     .customer-card .badge-school { background: #eef2ff; color: #4338ca; }
@@ -3159,18 +3160,20 @@ function syncUniv() {
     const schoolShort = koreaSchoolShort(schoolRaw);
     const schoolLogo = koreaSchoolLogo(schoolRaw);
     const showSchool = schoolRaw && schoolShort && schoolShort !== 'Not Yet Specified' && schoolShort !== 'Not Specified';
-    // Photo from folder files (photo/passport image)
+    // Photo from folder files (photo/passport image) — convert Drive link to direct image
     let photoUrl = '';
     try {
       const files = JSON.parse(card.dataset.folderFiles || '[]');
       if (Array.isArray(files)) {
         const ph = files.find(f => /passport|여권|photo|picture|사진|이미지|image/i.test(f.name||'') && /\.(jpe?g|png|webp|gif|bmp)$/i.test(f.name||''));
-        if (ph && ph.url) photoUrl = ph.url;
+        if (ph && ph.url) {
+          photoUrl = driveImageUrl(ph.url);
+        }
       }
     } catch(e){}
     const photoHtml = photoUrl
       ? `<img class="card-photo" src="${escapeHtml(photoUrl)}" onerror="this.style.display='none'" alt="photo" referrerpolicy="no-referrer">`
-      : '';
+      : `<div class="card-photo card-photo-placeholder">👤</div>`;
     const schoolHtml = showSchool
       ? `<span class="card-badge badge-school">${schoolLogo?`<img class="badge-logo" src="${escapeHtml(schoolLogo)}" onerror="this.style.display='none'" alt="">`:''}${escapeHtml(schoolShort)}</span>`
       : '';
@@ -3206,6 +3209,13 @@ function syncUniv() {
     const u = UNIV_KNOWLEDGE.find(x => x.n === kr || x.ek === kr || x.en === kr);
     if (u && u.logo) return u.logo;
     return '';
+  }
+  // Convert a Google Drive view link into a direct image thumbnail URL
+  function driveImageUrl(url) {
+    if (!url) return '';
+    const m = String(url).match(/\/d\/([^/]+)/);
+    if (m) return 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w400';
+    return url;
   }
   // Months lived in Korea since Entered Korea (appdate YYYYMM), e.g. "+3M"
   function koreaMonths(appdate) {
