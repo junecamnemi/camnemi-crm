@@ -3150,7 +3150,7 @@ function syncUniv() {
     const prog = (card.dataset.pipe === 'korea') ? koreaProgramShort(progRaw) : (progRaw || 'Not Yet');
     // School badge: short name (e.g. JBNU) when available, else the raw school name
     const schoolRaw = card.dataset.school || '';
-    const schoolShort = (card.dataset.pipe === 'korea') ? koreaSchoolShort(schoolRaw) : schoolRaw;
+    const schoolShort = koreaSchoolShort(schoolRaw);
     const schoolBadge = (schoolRaw && schoolShort && schoolShort !== 'Not Yet Specified' && schoolShort !== 'Not Specified')
       ? `<div class="school-badge">🏫 ${escapeHtml(schoolShort)}</div>` : '';
     card.innerHTML = `
@@ -3207,8 +3207,11 @@ function syncUniv() {
   function koreaSchoolShort(kr) {
     if (!kr) return kr;
     const u = UNIV_KNOWLEDGE.find(x => x.n === kr || x.ek === kr || x.en === kr);
-    if (u && u.es) return u.es;
-    return kr;
+    if (u && u.es) return u.es;   // short code, e.g. JBNU / KWU
+    if (u && u.en) return u.en;   // fall back to full English name
+    // last resort: strip "University"/"대학교" so we never show raw Korean
+    const stripped = String(kr).replace(/대학교|대학|大学|University|Univ\.?/g, '').trim();
+    return stripped || kr;
   }
   // Save an inline-edited Korea card field
   function saveKoreaField(input, field) {
