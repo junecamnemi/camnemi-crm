@@ -2125,6 +2125,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
       sidebar += `<div class="wiki-cat${folded}" style="background:${catColor.bg};color:${catColor.fg};display:flex;justify-content:space-between;align-items:center;cursor:pointer;" onclick="toggleWikiCatFold('${c.id}')">
           <span style="display:flex;align-items:center;gap:.3rem;">${c.folded?'▶':'▼'} ${c.icon} ${c.title} (${notes.length})</span>
           <span style="display:flex;gap:.2rem;">
+            <button onclick="event.stopPropagation();openWikiNewNote('${c.id}')" title="New page in this category" style="background:none;border:none;cursor:pointer;font-size:.65rem;color:inherit;opacity:.85;font-weight:700;">＋</button>
             <button onclick="event.stopPropagation();editWikiCat('${c.id}')" title="Rename category" style="background:none;border:none;cursor:pointer;font-size:.6rem;color:inherit;opacity:.75;">✏️</button>
             <button onclick="event.stopPropagation();deleteWikiCat('${c.id}')" title="Delete category" style="background:none;border:none;cursor:pointer;font-size:.6rem;color:inherit;opacity:.75;">🗑</button>
           </span>
@@ -2135,8 +2136,6 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
         const active = n.id === wikiSel ? ' wiki-tree-item-active' : '';
         sidebar += `<div class="wiki-tree-item${active}" onclick="openWikiPage('${n.id}')"><span class="wiki-dot" style="background:${WIKI_CAT_COLORS[catIdx % WIKI_CAT_COLORS.length].fg};"></span>${escapeHtml(n.subj)}${(n.replies||[]).length?` <span class="wiki-rp">${(n.replies||[]).length}</span>`:''}</div>`;
       });
-      // "+ new page" button under the last note of this category
-      sidebar += `<div class="wiki-cat-new" onclick="openWikiNewNote('${c.id}')">+ New page</div>`;
       sidebar += `</div>`;
     }
     sidebar += `</div></div>`;
