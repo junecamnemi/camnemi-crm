@@ -3263,8 +3263,9 @@ function syncUniv() {
     const parentContact = card.dataset.parentContact || '';
     const parentName = card.dataset.parentName || '';
     const appdate = card.dataset.appdate || '';
-    // English school name: from UNIV_KNOWLEDGE if the Korean name matches, else stored english
-    const schoolEn = koreaSchoolEn(school) || (card.dataset.schoolEn || '');
+    // Combined school display: "전북대학교 (JBNU)" — Korean name + short code
+    const _schU = (typeof UNIV_KNOWLEDGE !== 'undefined' && Array.isArray(UNIV_KNOWLEDGE)) ? UNIV_KNOWLEDGE.find(x => x.n === school || x.ek === school || x.en === school) : null;
+    const schoolDisplay = school ? (school + ((_schU && _schU.es) ? ' (' + _schU.es + ')' : '')) : '';
     const contact = card.dataset.contact || '';
     const email = card.dataset.email || '';
     const agency = card.dataset.agency || '';
@@ -3274,6 +3275,8 @@ function syncUniv() {
     const siemreap = card.dataset.siemreap === 'true';
     let notesArr=[];
     try { notesArr = JSON.parse(card.dataset.notes||'[]'); if(!Array.isArray(notesArr)) notesArr=[]; } catch(e){ notesArr = card.dataset.notes ? [{text:String(card.dataset.notes),time:''}] : []; }
+    let pp = { name:'', num:'', dob:'', exp:'', sex:'' };
+    try { if (card.dataset.passport) pp = Object.assign(pp, JSON.parse(card.dataset.passport)); } catch(e){}
     const notesHtml = notesArr.length ? notesArr.map((n,i)=>`<div class="knote" style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:.4rem;margin-bottom:.35rem;background:#f8fafc;"><div class="knote-text" style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><div style="display:flex;align-items:center;gap:.25rem;flex:none;"><button onclick="editKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#6b7280;font-size:.72rem;" title="Edit note">✏️</button><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button></div><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
     const cardPipe = card.dataset.pipe || 'korea';
     const pipe = PIPELINES[cardPipe] || PIPELINES['korea'];
@@ -3332,16 +3335,13 @@ function syncUniv() {
           <div class="field" style="flex:1;"><label>🏢 Agency</label><select id="k-agency"><option value="">— Agency —</option>${agencyOpts}</select></div>
           <div class="field" style="flex:1;"><label>🎓 Program *</label><select id="k-program">${programOpts}</select></div>
         </div>
-        <!-- School (KR) | School (EN) -->
-        <div style="display:flex;gap:.7rem;align-items:flex-start;">
-          <div class="field" style="flex:1.2;"><label>🏫 School (Korean) *</label>
-            <div style="position:relative;">
-              <input id="k-school-search" value="${escapeHtml(school)}" placeholder="🔍 한국 대학교 검색..." oninput="this.value=this.value.toUpperCase();filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
-              <div id="k-school-list" style="position:absolute;top:100%;left:0;right:0;z-index:50;background:#fff;border:1px solid #e2e8f0;border-radius:.5rem;max-height:200px;overflow:auto;display:none;box-shadow:0 8px 20px rgba(0,0,0,.12);"></div>
-              <input type="hidden" id="k-school" value="${escapeHtml(school)}">
-            </div>
+        <!-- School (Korean + short) -->
+        <div class="field"><label>🏫 School *</label>
+          <div style="position:relative;">
+            <input id="k-school-search" value="${escapeHtml(schoolDisplay)}" placeholder="🔍 대학교 검색 (예: 전북대학교 JBNU)..." oninput="filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
+            <div id="k-school-list" style="position:absolute;top:100%;left:0;right:0;z-index:50;background:#fff;border:1px solid #e2e8f0;border-radius:.5rem;max-height:200px;overflow:auto;display:none;box-shadow:0 8px 20px rgba(0,0,0,.12);"></div>
+            <input type="hidden" id="k-school" value="${escapeHtml(school)}">
           </div>
-          <div class="field" style="flex:1;"><label>🏫 School (English)</label><input id="k-school-en" value="${escapeHtml(schoolEn)}" placeholder="Auto from Korean name"></div>
         </div>
         <!-- Major -->
         <div class="field"><label>📘 Major</label><input id="k-major" value="${escapeHtml(major)}"></div>
@@ -3378,6 +3378,20 @@ function syncUniv() {
           <div style="display:flex;gap:.4rem;margin-top:.4rem;">
             <input id="k-note" placeholder="Add a note..." onkeydown="if(event.key==='Enter'){event.preventDefault();addKoreaNote();}" style="flex:1;padding:.45rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
             <button class="btn btn-note" onclick="addKoreaNote()" style="font-size:.75rem;padding:.3rem .7rem;">➕ Add</button>
+          </div>
+        </div>
+        <div class="field"><label>🛂 여권정보 (Passport Info)</label>
+          <div id="k-passport-fields" style="border:1px solid #e2e8f0;border-radius:.5rem;padding:.5rem;background:#f8fafc;">
+            <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem;">
+              <div style="flex:1;min-width:120px;"><label style="font-size:.68rem;color:#6b7280;">Name on passport</label><input id="kpp-name" value="${escapeHtml(pp.name)}" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;text-transform:uppercase;"></div>
+              <div style="flex:1;min-width:120px;"><label style="font-size:.68rem;color:#6b7280;">Passport Number</label><input id="kpp-num" value="${escapeHtml(pp.num)}" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;text-transform:uppercase;"></div>
+            </div>
+            <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem;">
+              <div style="flex:1;min-width:110px;"><label style="font-size:.68rem;color:#6b7280;">Birth-Date</label><input id="kpp-dob" value="${escapeHtml(pp.dob)}" placeholder="YYYY-MM-DD" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;"></div>
+              <div style="flex:1;min-width:110px;"><label style="font-size:.68rem;color:#6b7280;">Expiration Date</label><input id="kpp-exp" value="${escapeHtml(pp.exp)}" placeholder="YYYY-MM-DD" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;"></div>
+              <div style="flex:1;min-width:80px;"><label style="font-size:.68rem;color:#6b7280;">Sex</label><select id="kpp-sex" style="width:100%;padding:.35rem .4rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;"><option value="">—</option><option value="M" ${pp.sex==='M'?'selected':''}>M</option><option value="F" ${pp.sex==='F'?'selected':''}>F</option></select></div>
+            </div>
+            <div style="font-size:.68rem;color:#94a3b8;">Passport in the folder can be parsed automatically once the OCR server is running. Fields are manually editable.</div>
           </div>
         </div>
         <div class="field"><label>📁 Documents</label>
@@ -3418,7 +3432,6 @@ function syncUniv() {
     const majEl=overlay.querySelector('#k-major'); if(majEl) card.dataset.major = majEl.value.trim();
     const pnEl=overlay.querySelector('#k-parent-name'); if(pnEl) card.dataset.parentName = pnEl.value.trim();
     const pcEl=overlay.querySelector('#k-parent-contact'); if(pcEl) card.dataset.parentContact = pcEl.value.trim();
-    const seEl=overlay.querySelector('#k-school-en'); if(seEl) card.dataset.schoolEn = seEl.value.trim();
     const appEl=overlay.querySelector('#k-appdate'); if(appEl) card.dataset.appdate=appEl.value;
     card.dataset.contact=overlay.querySelector('#k-contact').value.trim();
     card.dataset.email=overlay.querySelector('#k-email').value.trim();
@@ -3428,6 +3441,18 @@ function syncUniv() {
     const noqrEl=overlay.querySelector('#k-noqr'); if(noqrEl) card.dataset.noqr = noqrEl.checked ? 'true' : '';
     const illegalEl=overlay.querySelector('#k-illegal'); if(illegalEl) card.dataset.illegal = illegalEl.checked ? 'true' : '';
     const siemEl=overlay.querySelector('#k-siemreap'); if(siemEl) card.dataset.siemreap = siemEl.checked ? 'true' : '';
+    // save passport info
+    const ppNameEl=overlay.querySelector('#kpp-name'), ppNumEl=overlay.querySelector('#kpp-num'),
+          ppDobEl=overlay.querySelector('#kpp-dob'), ppExpEl=overlay.querySelector('#kpp-exp'), ppSexEl=overlay.querySelector('#kpp-sex');
+    if (ppNameEl || ppNumEl || ppDobEl || ppExpEl || ppSexEl) {
+      card.dataset.passport = JSON.stringify({
+        name: ppNameEl ? ppNameEl.value.trim().toUpperCase() : '',
+        num: ppNumEl ? ppNumEl.value.trim().toUpperCase() : '',
+        dob: ppDobEl ? ppDobEl.value.trim() : '',
+        exp: ppExpEl ? ppExpEl.value.trim() : '',
+        sex: ppSexEl ? ppSexEl.value : ''
+      });
+    }
     const nv=overlay.querySelector('#k-note').value.trim();
     // preserve existing notes, append new one only if typed
     let allNotes = [];
@@ -4892,7 +4917,7 @@ function syncUniv() {
         docs: c.docs || [],
         hidden: c.hidden, siemreap: c.siemreap, customFields: c.custom_fields || {},
         major: c.major || '', parentContact: c.parent_contact || '', parentName: c.parent_name || '',
-        schoolEn: c.school_en || ''
+        schoolEn: c.school_en || '', passport: c.passport || ''
       })),
       agencies: agencies || [],
       fees: fees || [],
@@ -4992,7 +5017,7 @@ function syncUniv() {
         docs: c.docs || [],
         hidden: c.hidden || '', siemreap: c.siemreap || '', custom_fields: c.customFields || {},
         major: c.major || '', parent_contact: c.parentContact || '', parent_name: c.parentName || '',
-        school_en: c.schoolEn || ''
+        school_en: c.schoolEn || '', passport: c.passport || ''
       })), 'id');
     }
     return true;
@@ -5049,7 +5074,8 @@ function syncUniv() {
           notes: card.dataset.notes ? JSON.parse(card.dataset.notes) : [],
           folderId: card.dataset.folderId||'', folderUrl: card.dataset.folderUrl||'',
           major: card.dataset.major||'', parentContact: card.dataset.parentContact||'',
-          parentName: card.dataset.parentName||'', schoolEn: card.dataset.schoolEn||''
+          parentName: card.dataset.parentName||'', schoolEn: card.dataset.schoolEn||'',
+          passport: card.dataset.passport||''
         });
       });
       let merged = (db.customers||[]).slice();
@@ -5568,15 +5594,11 @@ function syncUniv() {
     const searchEl = document.getElementById('k-school-search');
     const hiddenEl = document.getElementById('k-school');
     if(listEl) listEl.style.display='none';
-    if(searchEl) searchEl.value = name;
+    // show combined "전북대학교 (JBNU)" in the search box, store Korean name in hidden
+    const u = (typeof UNIV_KNOWLEDGE !== 'undefined' && Array.isArray(UNIV_KNOWLEDGE)) ? UNIV_KNOWLEDGE.find(x => x.n===name || x.ek===name) : null;
+    const display = name + ((u && u.es) ? ' (' + u.es + ')' : '');
+    if(searchEl) searchEl.value = display;
     if(hiddenEl) hiddenEl.value = name;
-    // auto-fill English school name
-    const enEl = document.getElementById('k-school-en');
-    if(enEl){
-      const u = (typeof UNIV_KNOWLEDGE !== 'undefined' && Array.isArray(UNIV_KNOWLEDGE)) ? UNIV_KNOWLEDGE.find(x => x.n===name || x.ek===name) : null;
-      if(u && (u.en || u.es)) enEl.value = (u.en || u.es || '');
-      else if (koreaSchoolEn) enEl.value = koreaSchoolEn(name) || '';
-    }
   }
   // Close school dropdown on click elsewhere
   document.addEventListener('click', e=>{
@@ -5952,6 +5974,7 @@ function syncUniv() {
         parentContact: card.dataset.parentContact || '',
         parentName: card.dataset.parentName || '',
         schoolEn: card.dataset.schoolEn || '',
+        passport: card.dataset.passport || '',
         customFields: (LIST_CUSTOM_COLS.reduce((o,c)=>{ const k=c.replace(/[^a-z0-9]/gi,'').toLowerCase(); o[c]=card.dataset[k]||''; return o; },{}))
       });
     });
@@ -6040,7 +6063,7 @@ function syncUniv() {
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact','parentName','schoolEn'].forEach(k=>{
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact','parentName','schoolEn','passport'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
       if (Array.isArray(c.docs) && c.docs.length) card.dataset.folderFiles = JSON.stringify(c.docs);
