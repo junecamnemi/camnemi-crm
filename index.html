@@ -80,6 +80,7 @@
     .customer-card .name-row { display: flex; align-items: center; gap: .35rem; }
     .customer-card h4 { font-size: .92rem; color: #111827; text-transform: uppercase; letter-spacing: .02em; line-height: 1.2; }
     .customer-card .prog-line { font-size: .75rem; color: #6b7280; margin-top: .25rem; }
+    .customer-card .school-badge { display: inline-block; margin-top: .35rem; padding: .1rem .5rem; border-radius: 999px; font-size: .68rem; font-weight: 700; background: #eef2ff; color: #4338ca; }
     .tag-row { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .5rem; }
     .tag { padding: .12rem .55rem; border-radius: 999px; font-size: .7rem; font-weight: 600; }
     .tag-agency { background: #f3e8ff; color: #6b21a8; }
@@ -3147,10 +3148,16 @@ function syncUniv() {
     const flag = (card.dataset.pipe === 'korea') ? '🇰🇷' : (card.dataset.pipe === 'online') ? '🌐' : (card.dataset.pipe === 'consulting') ? '💬' : '🇰🇭';
     const progRaw = card.dataset.program || '';
     const prog = (card.dataset.pipe === 'korea') ? koreaProgramShort(progRaw) : (progRaw || 'Not Yet');
+    // School badge: short name (e.g. JBNU) when available, else the raw school name
+    const schoolRaw = card.dataset.school || '';
+    const schoolShort = (card.dataset.pipe === 'korea') ? koreaSchoolShort(schoolRaw) : schoolRaw;
+    const schoolBadge = (schoolRaw && schoolShort && schoolShort !== 'Not Yet Specified' && schoolShort !== 'Not Specified')
+      ? `<div class="school-badge">🏫 ${escapeHtml(schoolShort)}</div>` : '';
     card.innerHTML = `
       <input type="checkbox" class="card-select" onclick="onCardSelect(this, event)">
       <div class="name-row"><span style="font-size:1rem;line-height:1;flex:none;">${flag}</span><h4></h4></div>
-      <div class="prog-line">🎓 ${escapeHtml(prog)}</div>`;
+      <div class="prog-line">🎓 ${escapeHtml(prog)}</div>
+      ${schoolBadge}`;
     card.querySelector('h4').textContent = name;
     card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#3b82f6';
   }
