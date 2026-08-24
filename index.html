@@ -3118,56 +3118,14 @@ function syncUniv() {
   //  - other stages: standard display
   function renderCardBody(card) {
     const name = card.dataset.name || (card.querySelector('h4') ? card.querySelector('h4').textContent : '');
-    const program = card.dataset.program||'', school = card.dataset.school||'', topik=card.dataset.topik||'', ielts=card.dataset.ielts||'', agency=card.dataset.agency||'';
-    const progDisplayStd = program || 'Not Yet';
-    let note='';
-    let noteBy='';
-    try { const n=JSON.parse(card.dataset.notes||'[]'); if(n[0]){ note=n[0].text; noteBy=n[0].by||''; } } catch(e){ note=card.dataset.notes||''; }
-    const noteDisplay = note ? (note + (noteBy ? '  ·  ✍️ '+noteBy : '')) : 'No notes yet.';
-    // Korea pipeline: card same as New Customer (Name/School/Program/Agency badges) + note
-    if (card.dataset.pipe === 'korea') {
-      const agency=card.dataset.agency||'';
-      const schEn = koreaSchoolShort(school);
-      const schLogo = koreaSchoolLogo(school);
-      const progShort = koreaProgramShort(program);
-      const monthsInKorea = koreaMonths(card.dataset.appdate);
-      card.innerHTML = `
-        <input type="checkbox" class="card-select" onclick="onCardSelect(this, event)">
-        <div class="name-row"><h4></h4></div>
-        <div class="tag-row">
-          ${agency ? `<span class="tag tag-agency">🏢 ${escapeHtml(agency)}</span>` : ''}
-          ${progShort ? `<span class="tag tag-program">🎓 ${escapeHtml(progShort)}</span>` : ''}
-          ${schEn ? `<span class="tag tag-school">${schLogo?`<img src="${escapeHtml(schLogo)}" onerror="this.style.display='none'" style="width:14px;height:14px;object-fit:contain;border-radius:3px;background:#fff;vertical-align:middle;margin-right:3px;">`:''}${escapeHtml(schEn)}</span>` : ''}
-          ${monthsInKorea ? `<span class="tag tag-months">🗓 ${escapeHtml(monthsInKorea)}</span>` : ''}
-          ${card.dataset.noqr === 'true' ? `<span class="tag tag-noqr">🔳 NO QR</span>` : ''}
-          ${card.dataset.illegal === 'true' ? `<span class="tag tag-illegal">⚠️ Illegal</span>` : ''}${card.dataset.denied === 'true' ? `<span class="tag tag-denied">❌ Denied</span>` : ''}
-          ${card.dataset.loanFlag === 'true' ? `<span class="tag tag-loanflag">💰 Loan</span>` : ''}
-          ${card.dataset.siemreap === 'true' ? `<span class="tag tag-siemreap">📍 SiemReap</span>` : ''}
-          ${card.dataset.denied === 'true' ? `<span class="tag tag-denied">❌ Denied</span>` : ''}
-        </div>
-        <div class="note">${escapeHtml(noteDisplay)}</div>
-        ${cardPaymentTotal(card) ? `<div style="font-size:.7rem;color:#0f766e;font-weight:700;margin-top:.3rem;">💰 Paid: $${cardPaymentTotal(card).toLocaleString('en-US')}</div>` : ''}
-        <button onclick="event.stopPropagation();openFlagModal(this.closest('.customer-card'))" title="Set flags" style="margin-top:.4rem;background:#f0f9ff;color:#0369a1;border:1px solid #bae6fd;border-radius:.4rem;padding:.15rem .5rem;font-size:.68rem;cursor:pointer;">🚩 Flag</button>
-        <div class="card-resize"></div>`;
-      card.querySelector('h4').textContent = name;
-      card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#3b82f6';
-      return;
-    }
-    // Standard pipeline: normal card display
+    // Flag: Cambodia for the new pipeline, Korea for the Korea pipeline
+    const flag = (card.dataset.pipe === 'korea') ? '🇰🇷' : '🇰🇭';
     card.innerHTML = `
       <input type="checkbox" class="card-select" onclick="onCardSelect(this, event)">
-      <div class="name-row"><h4></h4></div>
-      <div class="tag-row">
-        ${agency ? `<span class="tag tag-agency">🏢 ${escapeHtml(agency)}</span>` : ''}
-        <span class="tag tag-program">🎓 ${escapeHtml(progDisplayStd)}</span>
-        ${school ? `<span class="tag tag-school">🏫 ${escapeHtml(school)}</span>` : ''}
-        ${topik ? `<span class="tag tag-topik">🇰🇷 ${escapeHtml(topik)}</span>` : ''}
-        ${ielts ? `<span class="tag tag-ielts">🇬🇧 ${escapeHtml(ielts)}</span>` : ''}
-        ${card.dataset.noqr==='true' ? `<span class="tag tag-noqr">🔳 NO QR</span>` : ''}
-        ${card.dataset.illegal==='true' ? `<span class="tag tag-illegal">⚠️ Illegal</span>` : ''}
-      </div>
-      <div class="note">${escapeHtml(noteDisplay)}</div>`;
+      <div class="name-row" style="display:flex;align-items:center;gap:.35rem;"><span style="font-size:1.05rem;line-height:1;">${flag}</span><h4></h4></div>
+      <div class="card-resize"></div>`;
     card.querySelector('h4').textContent = name;
+    card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#3b82f6';
   }
   // Toggle a korea card between compact preview and full 8-field editor
   function toggleKoreaCard(el) {
@@ -3252,16 +3210,6 @@ function syncUniv() {
   // Call after any card is placed in the DOM (creation or stage change)
   function refreshCardBody(card) {
     renderCardBody(card);
-    // ensure the Denied badge shows (in case the card renderer skipped it)
-    if(card.dataset.denied === 'true'){
-      const tr = card.querySelector('.tag-row');
-      if(tr && !tr.querySelector('.tag-denied')){
-        const b = document.createElement('span');
-        b.className = 'tag tag-denied';
-        b.textContent = '❌ Denied';
-        tr.appendChild(b);
-      }
-    }
     card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#94a3b8';
     applyCardBorder(card);
   }
