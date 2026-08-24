@@ -557,6 +557,10 @@
     document.getElementById('main-title').textContent = PIPELINES[pipe].name;
     restoreBoardTopbar(PIPELINES[pipe].name);
     const fbar = document.querySelector('.filter-bar'); if (fbar) fbar.style.display='';
+    // reset filters when switching pipelines so a filter chosen in one
+    // pipeline never carries over and hides students in the other
+    filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[], flag:[] };
+    document.querySelectorAll('.click-filter').forEach(p => p.classList.remove('active'));
     const sb=document.getElementById('filter-search'); if(sb) sb.value='';
     // Both pipelines default to kanban view
     setView('kanban');
