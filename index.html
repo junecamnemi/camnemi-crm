@@ -616,7 +616,9 @@
     rebuildArchive();
 
     // move cards of THIS pipeline into their proper column / archive box
+    // (hidden cards stay parked in #hidden-cards and are never shown in any stage)
     park.querySelectorAll('.customer-card[data-pipe="' + currentPipe + '"]').forEach(card => {
+      if (card.dataset.hidden === 'true') return; // never show hidden cards in stages
       const stage = card.dataset.stage;
       const target = document.querySelector(`.cards[data-cards="${stage}"]`);
       if (target) target.appendChild(card);
@@ -631,10 +633,10 @@
 
   function refreshCounts() {
     const pipe = PIPELINES[currentPipe];
-    // count only visible (non-filtered) cards
+    // count only visible (non-filtered) cards, excluding hidden ones
     function visibleCount(stage) {
-      return document.querySelectorAll(`.customer-card[data-pipe="${currentPipe}"][data-stage="${stage}"]`).length -
-             document.querySelectorAll(`.customer-card[data-pipe="${currentPipe}"][data-stage="${stage}"][style*="display: none"]`).length;
+      return document.querySelectorAll(`.customer-card[data-pipe="${currentPipe}"][data-stage="${stage}"]:not([data-hidden="true"])`).length -
+             document.querySelectorAll(`.customer-card[data-pipe="${currentPipe}"][data-stage="${stage}"]:not([data-hidden="true"])[style*="display: none"]`).length;
     }
     // main stages
     pipe.stages.forEach(s => {
@@ -4121,6 +4123,7 @@ function syncUniv() {
     const arrMatch = (arr, val) => (!Array.isArray(arr) || arr.length===0) || arr.includes(val);
     const q = (document.getElementById('filter-search') ? document.getElementById('filter-search').value : '').trim().toLowerCase();
     document.querySelectorAll('.customer-card[data-pipe="' + currentPipe + '"]').forEach(card => {
+      if (card.dataset.hidden === 'true') return; // hidden cards are never filtered into view
       const matchS = arrMatch(fs.stage, card.dataset.stage);
       const matchA = arrMatch(fs.agency, card.dataset.agency);
       const matchP = arrMatch(fs.program, card.dataset.program);
@@ -4354,6 +4357,7 @@ function syncUniv() {
     const arrMatch=(a,v)=>((!Array.isArray(a)||a.length===0)||a.includes(v));
     const rows = [];
     document.querySelectorAll('.customer-card[data-pipe="' + currentPipe + '"]').forEach(card => {
+      if (card.dataset.hidden === 'true') return; // never show hidden cards in list view
       const matchS = arrMatch(stage, card.dataset.stage);
       const matchA = arrMatch(agency, card.dataset.agency);
       const matchP = arrMatch(program, card.dataset.program);
