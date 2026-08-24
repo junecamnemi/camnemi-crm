@@ -48,6 +48,11 @@ function handle(e, isPost) {
     if (body.action === 'listStudentFolderFiles') {
       return listStudentFolderFiles(body);
     }
+    // ACTION: return the full student-name->folderId index in one call
+    if (body.action === 'getFolderIndex') {
+      var idx = getStudentFolderIndex(!!body.force);
+      return jsonOut({ ok:true, count: Object.keys(idx).length, index: idx });
+    }
     // ACTION: rename a student's folder (find by old name, rename to new name)
     if (body.action === 'renameStudentFolder') {
       return renameStudentFolder(body);
@@ -450,27 +455,34 @@ function getStudentFolderIndex(forceRebuild) {
 function listStudentFolderFiles(body) {
   var name = String(body.name || '').trim();
   if (!name) return jsonOut({ ok:false, error:'Missing name' });
-  var label = name.replace(/[\\/:*?"<>|]/g, '').trim().toLowerCase();
-  var index = getStudentFolderIndex(false);
-  var folderId = index[label];
+  var folderId = body.folderId;  // explicit folderId takes priority (from fuzzy index match)
   if (!folderId) {
-    // not in index: rebuild once in case folder is new
-    index = getStudentFolderIndex(true);
+    var label = name.replace(/[\\/:*?"<>|]/g, '').trim().toLowerCase();
+    var index = getStudentFolderIndex(false);
     folderId = index[label];
-  }
-  if (!folderId) {
-    // fuzzy match: try name-token matching (first/last order, partial, extra suffix)
-    folderId = fuzzyFindFolderId(index, label);
+    if (!folderId) {
+      // not in index: rebuild once in case folder is new
+      index = getStudentFolderIndex(true);
+      folderId = index[label];
+    }
+    if (!folderId) {
+      // fuzzy match: try name-token matching (first/last order, partial, extra suffix)
+      folderId = fuzzyFindFolderId(index, label);
+    }
   }
   if (!folderId) return jsonOut({ ok:true, found:false, files:[] });
-  var folder = DriveApp.getFolderById(folderId);
-  var files = [];
-  var fIt = folder.getFiles();
-  while (fIt.hasNext()) {
-    var f = fIt.next();
-    files.push({ name: f.getName(), mime: f.getMimeType(), size: f.getSize(), url: f.getUrl() });
+  try {
+    var folder = DriveApp.getFolderById(folderId);
+    var files = [];
+    var fIt = folder.getFiles();
+    while (fIt.hasNext()) {
+      var f = fIt.next();
+      files.push({ name: f.getName(), mime: f.getMimeType(), size: f.getSize(), url: f.getUrl() });
+    }
+    return jsonOut({ ok:true, found:true, folderId: folder.getId(), folderUrl: folder.getUrl(), files: files });
+  } catch(err) {
+    return jsonOut({ ok:true, found:false, files:[] });
   }
-  return jsonOut({ ok:true, found:true, folderId: folder.getId(), folderUrl: folder.getUrl(), files: files });
 }
 
 // Robust folder lookup: exact -> reversed name -> all-tokens-present -> single-token substring

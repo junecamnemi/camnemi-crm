@@ -3217,6 +3217,41 @@ function syncUniv() {
     if (m) return 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w400';
     return url;
   }
+  // Cache of the full folder index (name -> folderId) fetched from the backend
+  let __folderIndexCache = null;
+  let __folderIndexTs = 0;
+  // Fetch the full student folder index (name->folderId) in one backend call
+  async function fetchFolderIndex(force){
+    if (__folderIndexCache && !force && (Date.now() - __folderIndexTs) < 30*60*1000) return __folderIndexCache;
+    try {
+      const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({ action:'getFolderIndex', force: !!force }) });
+      const info = JSON.parse(await res.text());
+      if (info && info.ok && info.index) { __folderIndexCache = info.index; __folderIndexTs = Date.now(); }
+      return __folderIndexCache || {};
+    } catch(e){ return __folderIndexCache || {}; }
+  }
+  // Client-side fuzzy folder lookup over the index (exact -> reversed -> all-tokens -> substring)
+  function fuzzyFolderId(index, name){
+    if(!index) return '';
+    const label = String(name||'').replace(/[\\/:*?"<>|]/g,'').trim().toLowerCase();
+    if (index[label]) return index[label];
+    const tokens = label.split(/[\s,;]+/).filter(t=>t.length>1);
+    if (!tokens.length) return '';
+    if (tokens.length>=2){
+      const reversed = tokens.slice(1).join(' ') + ' ' + tokens[0];
+      if (index[reversed]) return index[reversed];
+    }
+    for (const k in index){
+      let all = true;
+      for (const t of tokens){ if(k.indexOf(t)<0){ all=false; break; } }
+      if (all) return index[k];
+    }
+    if (tokens.length===1){
+      for (const k in index){ if(k.indexOf(tokens[0])>=0) return index[k]; }
+    }
+    return '';
+  }
   // Months lived in Korea since Entered Korea (appdate YYYYMM), e.g. "+3M"
   function koreaMonths(appdate) {
     if (!appdate) return '';
@@ -5752,7 +5787,19 @@ function syncUniv() {
     try {
       const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
         body: JSON.stringify({ action:'listStudentFolderFiles', name:name }) });
-      const info = JSON.parse(await res.text());
+      let info = JSON.parse(await res.text());
+      // If the direct lookup failed, try the full-index fuzzy match (reliable name matching)
+      if (!info || !info.found || !info.folderId) {
+        const index = await fetchFolderIndex(false);
+        const fid = fuzzyFolderId(index, name);
+        if (fid) {
+          const res2 = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+            body: JSON.stringify({ action:'listStudentFolderFiles', name:name, folderId:fid }) });
+          const info2 = JSON.parse(await res2.text());
+          if (info2 && info2.found) info = info2;
+          else if (fid) { info = { ok:true, found:true, folderId:fid, folderUrl:'https://drive.google.com/drive/folders/'+fid, files: [] }; }
+        }
+      }
       if(info && info.folderId){
         // persist the found folder id/url on the card so it's reused next time
         card.dataset.folderId = info.folderId;
