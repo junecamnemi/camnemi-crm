@@ -186,13 +186,17 @@
 
     /* ===== List view ===== */
     .list-view { display: none; background: #fff; border-radius: .75rem; box-shadow: 0 2px 8px rgba(0,0,0,.08); overflow: hidden; }
-    .list-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
-    .list-table thead th { background: #f1f5f9; color: #334155; text-align: left; padding: .7rem .9rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .03em; border-bottom: 1px solid #e2e8f0; }
-    .list-table tbody td { padding: .6rem .9rem; border-bottom: 1px solid #eef0f4; color: #374151; vertical-align: middle; }
+    .list-table { width: 100%; border-collapse: collapse; font-size: .85rem; table-layout: fixed; }
+    .list-table thead th { background: #f1f5f9; color: #334155; text-align: left; padding: .7rem .9rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .03em; border-bottom: 1px solid #e2e8f0; overflow: hidden; }
+    .list-table tbody td { padding: .6rem .9rem; border-bottom: 1px solid #eef0f4; color: #374151; vertical-align: middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .list-table tbody tr { cursor: pointer; }
     .list-table tbody tr:hover { background: #f8fafc; }
     .list-table .lst-name { font-weight: 600; text-transform: uppercase; }
     .list-table .note-cell { max-width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #6b7280; }
+    /* Column resize handle */
+    .col-resize { position: absolute; top: 0; right: 0; width: 6px; height: 100%; cursor: col-resize; user-select: none; }
+    .col-resize:hover, .col-resize.active { background: #3b82f6; }
+    body.col-resizing { cursor: col-resize; user-select: none; }
 
     /* ===== Archived / Canceled section ===== */
     .archive-section {
@@ -4367,6 +4371,47 @@ function syncUniv() {
     renderList();
   }
 
+  // ---- Column width resize (drag the handle on any <th>) ----
+  let LIST_COL_WIDTHS = {};
+  try { LIST_COL_WIDTHS = JSON.parse(localStorage.getItem('camnemi_list_col_widths') || '{}'); } catch(e){ LIST_COL_WIDTHS = {}; }
+  function listColWidth(key){
+    const w = LIST_COL_WIDTHS[key];
+    return w ? `width:${w}px;` : '';
+  }
+  function saveListColWidths(){
+    try { localStorage.setItem('camnemi_list_col_widths', JSON.stringify(LIST_COL_WIDTHS)); } catch(e){}
+  }
+  function initListResize(){
+    const table = document.querySelector('.list-table');
+    if(!table) return;
+    table.querySelectorAll('.col-resize').forEach(h => {
+      h.onmousedown = e => {
+        e.preventDefault(); e.stopPropagation();
+        const key = h.dataset.col;
+        const th = h.parentElement;
+        const startX = e.clientX;
+        const startW = th.offsetWidth;
+        document.body.classList.add('col-resizing');
+        h.classList.add('active');
+        function onMove(ev){
+          const delta = ev.clientX - startX;
+          const w = Math.max(60, Math.min(600, startW + delta));
+          LIST_COL_WIDTHS[key] = Math.round(w);
+          th.style.width = w + 'px';
+        }
+        function onUp(){
+          document.removeEventListener('mousemove', onMove);
+          document.removeEventListener('mouseup', onUp);
+          document.body.classList.remove('col-resizing');
+          h.classList.remove('active');
+          saveListColWidths();
+        }
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+      };
+    });
+  }
+
   function renderList() {
     const body = document.getElementById('list-body');
     body.innerHTML = '';
@@ -4382,14 +4427,14 @@ function syncUniv() {
       visibleBase.forEach(key=>{
         const col = LIST_BASE_COLS.find(c=>c.key===key);
         if(!col || HIDDEN_LIST_COLS.includes(key)) return;
-        html += `<th data-listcol="${key}" onclick="sortList('${key}')" style="position:relative;cursor:pointer;" title="Click to sort">${col.label}</th>`;
+        html += `<th data-listcol="${key}" onclick="sortList('${key}')" style="position:relative;cursor:pointer;${listColWidth(key)}" title="Click to sort">${col.label}<span class="col-resize" data-col="${key}" onclick="event.stopPropagation()" title="Drag to resize"></span></th>`;
       });
       const sortedCustom = LIST_COL_ORDER.filter(k => k.startsWith('custom:'));
       const visibleCustom = sortedCustom.length ? sortedCustom : LIST_CUSTOM_COLS.map(c=>'custom:'+c);
       visibleCustom.forEach(key=>{
         const col = key.replace('custom:','');
         if(HIDDEN_LIST_COLS.includes(key)) return;
-        html += `<th data-listcol="${key}" onclick="sortList('${col}')" style="position:relative;cursor:pointer;" title="Click to sort">${col}</th>`;
+        html += `<th data-listcol="${key}" onclick="sortList('${col}')" style="position:relative;cursor:pointer;${listColWidth(key)}" title="Click to sort">${col}<span class="col-resize" data-col="${key}" onclick="event.stopPropagation()" title="Drag to resize"></span></th>`;
       });
       // keep the + button as the last header
       headerRow.innerHTML = html + `<th style="width:40px;text-align:center;"><button onclick="openListSettings()" title="Column settings" style="background:#eef2ff;color:#4f46e5;border:none;border-radius:.3rem;cursor:pointer;font-size:.8rem;padding:.15rem .4rem;">⚙</button></th>`;
@@ -4474,6 +4519,7 @@ function syncUniv() {
       });
       body.appendChild(tr);
     });
+    initListResize();
   }
 
   // ======= ATTACH =======
