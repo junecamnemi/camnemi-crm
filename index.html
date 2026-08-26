@@ -3194,6 +3194,15 @@ function syncUniv() {
     // must look like a photo
     return /photo|picture|사진|이미지|image|img/i.test(n);
   }
+  // A "photo in PDF" — name says photo but it's a PDF (can't render inline, but flag it)
+  function isPdfPhoto(f) {
+    const n = f.name || '';
+    if (!/\.pdf$/i.test(n)) return false;
+    if (/passport|여권|passeport/i.test(n)) return false;
+    if (/identity|\bid\b|id_|id-|idcard|residence|resident|rcard|student\s*id|학생증|신분증|주민증|khmers?id|id card/i.test(n)) return false;
+    if (/certificate|cert|family.?book|birth.?cert|transcript|tuberculosis|tb\s*test|healthy|checklist|check.?list|bank.?statement|income|health|medical|재직|signature/i.test(n)) return false;
+    return /photo|picture|사진|이미지/i.test(n);
+  }
   function renderCardBody(card) {
     const name = card.dataset.name || (card.querySelector('h4') ? card.querySelector('h4').textContent : '');
     const progRaw = card.dataset.program || '';
@@ -3205,18 +3214,22 @@ function syncUniv() {
     const showSchool = schoolRaw && schoolShort && schoolShort !== 'Not Yet Specified' && schoolShort !== 'Not Specified';
     // Photo from folder files (PHOTO image only — NOT passport / ID card) — convert Drive link to direct image
         let photoUrl = '';
+        let pdfPhotoUrl = '';
         try {
           const files = JSON.parse(card.dataset.folderFiles || '[]');
           if (Array.isArray(files)) {
             const ph = files.find(f => isCardPhoto(f));
             if (ph && ph.url) {
               photoUrl = driveImageUrl(ph.url);
+            } else {
+              const pph = files.find(f => isPdfPhoto(f));
+              if (pph && pph.url) pdfPhotoUrl = pph.url;
             }
           }
         } catch(e){}
     const photoHtml = photoUrl
       ? `<img class="card-photo" src="${escapeHtml(photoUrl)}" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'" alt="photo" referrerpolicy="no-referrer">`
-      : `<div class="card-photo card-photo-placeholder">👤</div>`;
+      : `<div class="card-photo card-photo-placeholder" title="${escapeHtml(pdfPhotoUrl?'Photo is in a PDF document': '')}">👤${pdfPhotoUrl?'<span style="position:absolute;bottom:1px;right:2px;font-size:.5rem;">📄</span>':''}</div>`;
     const schoolHtml = showSchool
       ? `<span class="card-badge badge-school">${schoolLogo?`<img class="badge-logo" src="${escapeHtml(schoolLogo)}" onerror="this.style.display='none'" alt="">`:''}${escapeHtml(schoolShort)}</span>`
       : '';
