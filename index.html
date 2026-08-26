@@ -3214,6 +3214,47 @@ function syncUniv() {
       </div>`;
     card.querySelector('h4').textContent = name;
     card.style.borderLeftColor = STAGE_COLORS[card.dataset.stage] || '#3b82f6';
+    // lazy-load the photo if none cached (Korea-pipe cards)
+    if (!photoUrl && card.dataset.pipe === 'korea' && !card.dataset.__photoLoading) {
+      card.dataset.__photoLoading = '1';
+      ensureCardPhoto(card);
+    }
+  }
+  // Lazily fetch a Korea student's folder files so the card photo appears without opening the modal.
+  // Uses the folder index + fuzzy match (fast, one index call cached).
+  let __photoQueue = [];
+  let __photoBusy = false;
+  async function ensureCardPhoto(card) {
+    __photoQueue.push(card);
+    if (__photoBusy) return;
+    __photoBusy = true;
+    try { await fetchFolderIndex(false); } catch(e){}
+    while (__photoQueue.length) {
+      const c = __photoQueue.shift();
+      try {
+        const nm = c.dataset.name || '';
+        if (!nm) continue;
+        const index = (typeof __folderIndexCache !== 'undefined') ? __folderIndexCache : {};
+        const fid = fuzzyFolderId(index, nm);
+        if (!fid) continue;
+        const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+          body: JSON.stringify({ action:'listStudentFolderFiles', name:nm, folderId:fid }) });
+        const info = JSON.parse(await res.text());
+        if (info && info.files && info.files.length) {
+          c.dataset.folderFiles = JSON.stringify(info.files);
+          if (info.folderId) c.dataset.folderId = info.folderId;
+          if (info.folderUrl) c.dataset.folderUrl = info.folderUrl;
+          const ph = info.files.find(f => /photo|picture|사진|이미지|image|img/i.test(f.name||'') && !/passport|여권|passeport/i.test(f.name||'') && /\.(jpe?g|png|webp|gif|bmp)$/i.test(f.name||''));
+          if (ph && ph.url) {
+            const img = c.querySelector('.card-photo');
+            if (img && img.tagName !== 'IMG') { renderCardBody(c); }  // re-render to inject photo
+            else if (img && img.tagName === 'IMG') { img.src = driveImageUrl(ph.url); }
+          }
+        }
+      } catch(e){}
+      await new Promise(r => setTimeout(r, 250));
+    }
+    __photoBusy = false;
   }
   // Toggle a korea card between compact preview and full 8-field editor
   function toggleKoreaCard(el) {
