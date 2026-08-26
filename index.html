@@ -3198,7 +3198,7 @@ function syncUniv() {
       }
     } catch(e){}
     const photoHtml = photoUrl
-      ? `<img class="card-photo" src="${escapeHtml(photoUrl)}" onerror="this.style.display='none'" alt="photo" referrerpolicy="no-referrer">`
+      ? `<img class="card-photo" src="${escapeHtml(photoUrl)}" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'" alt="photo" referrerpolicy="no-referrer">`
       : `<div class="card-photo card-photo-placeholder">👤</div>`;
     const schoolHtml = showSchool
       ? `<span class="card-badge badge-school">${schoolLogo?`<img class="badge-logo" src="${escapeHtml(schoolLogo)}" onerror="this.style.display='none'" alt="">`:''}${escapeHtml(schoolShort)}</span>`
@@ -3221,11 +3221,27 @@ function syncUniv() {
     }
   }
   // Lazily fetch a Korea student's folder files so the card photo appears without opening the modal.
-  // Uses the folder index + fuzzy match (fast, one index call cached).
+  // Only fetches for cards that scroll INTO the viewport (IntersectionObserver) — keeps the
+  // initial load light even when there are many Korea students.
   let __photoQueue = [];
   let __photoBusy = false;
-  async function ensureCardPhoto(card) {
-    __photoQueue.push(card);
+  let __photoObs = null;
+  function getPhotoObserver(){
+    if (__photoObs) return __photoObs;
+    if (typeof IntersectionObserver === 'undefined') return null;
+    __photoObs = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          const c = en.target;
+          __photoObs.unobserve(c);
+          __photoQueue.push(c);
+          pumpPhotoQueue();
+        }
+      });
+    }, { rootMargin: '200px' });
+    return __photoObs;
+  }
+  async function pumpPhotoQueue() {
     if (__photoBusy) return;
     __photoBusy = true;
     try { await fetchFolderIndex(false); } catch(e){}
@@ -3252,9 +3268,14 @@ function syncUniv() {
           }
         }
       } catch(e){}
-      await new Promise(r => setTimeout(r, 250));
+      await new Promise(r => setTimeout(r, 120));
     }
     __photoBusy = false;
+  }
+  function ensureCardPhoto(card) {
+    const obs = getPhotoObserver();
+    if (obs) obs.observe(card);
+    else { __photoQueue.push(card); pumpPhotoQueue(); }
   }
   // Toggle a korea card between compact preview and full 8-field editor
   function toggleKoreaCard(el) {
@@ -3278,10 +3299,10 @@ function syncUniv() {
     return '';
   }
   // Convert a Google Drive view link into a direct image thumbnail URL
-  function driveImageUrl(url) {
+  function driveImageUrl(url, size) {
     if (!url) return '';
     const m = String(url).match(/\/d\/([^/]+)/);
-    if (m) return 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w400';
+    if (m) return 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=' + (size || 'w100');
     return url;
   }
   // Cache of the full folder index (name -> folderId) fetched from the backend
