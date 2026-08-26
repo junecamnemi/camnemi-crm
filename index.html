@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Customer Pipeline — D2D4 in Process / D2D4 in Korea</title>
+  <link rel="preconnect" href="https://zjdvzpylxazfbazioxto.supabase.co">
+  <link rel="preconnect" href="https://drive.google.com">
+  <link rel="preconnect" href="https://lh3.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://zjdvzpylxazfbazioxto.supabase.co">
+  <link rel="dns-prefetch" href="https://drive.google.com">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { overflow-y: scroll; }
@@ -6769,7 +6774,7 @@ function syncUniv() {
     __suppressSave = true;  // hold saves during boot
     const hasDB = loadDatabase();  // load persisted data if it exists
     loadActivityLog();
-    loadActivityFromDb();  // merge shared DB activity history (async, best-effort)
+    setTimeout(()=>{ try{ loadActivityFromDb(); }catch(e){} }, 2000);  // defer heavy activity fetch until after first paint
     normalizeAgencyData();
     loadWiki();
     syncWikiCount();
