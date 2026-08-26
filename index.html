@@ -2604,6 +2604,7 @@ function renderGKSRows(q){
             <option value="junior">Junior College</option>
           </select>
           <label style="display:flex;align-items:center;gap:.3rem;font-size:.82rem;font-weight:600;color:#475569;white-space:nowrap;cursor:pointer;"><input type="checkbox" id="univ-over2k" checked onchange="renderUnivRows(document.getElementById('univ-search').value)" style="accent-color:#3b82f6;width:16px;height:16px;"> &gt;2000 students</label>
+          <label style="display:flex;align-items:center;gap:.3rem;font-size:.82rem;font-weight:700;color:#0f766e;white-space:nowrap;cursor:pointer;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:.5rem;padding:.3rem .55rem;"><input type="checkbox" id="univ-guide2027" onchange="renderUnivRows(document.getElementById('univ-search').value)" style="accent-color:#0d9488;width:16px;height:16px;"> 2027 guide</label>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:.8rem;">
           <label style="font-size:.78rem;font-weight:600;color:#475569;">📍 Location
@@ -2703,6 +2704,10 @@ function renderGKSRows(q){
       const partnerNames = new Set((PARTNERS||[]).map(p=>p.name));
       list = list.filter(u => partnerNames.has(u.n));
     }
+    // 2027 guide checkbox — show only univs that have a 2027 admission guide
+    const g27El = document.getElementById('univ-guide2027');
+    const fg27 = g27El && g27El.checked;
+    if (fg27) list = list.filter(u => hasGuideYear(u.n, '2027'));
     // Certified checkboxes (교육부 인증제)
     const cdEl = document.getElementById('univ-cert-degree');
     const clEl = document.getElementById('univ-cert-lang');
@@ -2842,15 +2847,19 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
           <div style="font-size:.72rem;color:#94a3b8;margin-top:.4rem;">Junior college (2~3-year associate degree). No master\'s program.</div>
         </div>`;
     } else {
-      const hasBa = !!g.ba, hasMa = !!g.ma, hasLang = !!g.lang;
+      const hasBa = !!currentGuide(name,'ba'), hasMa = !!currentGuide(name,'ma'), hasLang = !!currentGuide(name,'lang');
+      const baG = currentGuide(name,'ba'), maG = currentGuide(name,'ma'), langG = currentGuide(name,'lang');
+      const yrBadge = (y) => y ? `<span style="font-size:.62rem;font-weight:700;background:#0d9488;color:#fff;border-radius:999px;padding:.1rem .45rem;margin-left:.3rem;">${y}</span>` : '';
+      const guideBox = (href, label, color, g) => `<a href="${href}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;border-radius:.5rem;font-size:.82rem;font-weight:600;color:#fff;text-decoration:none;${color}">${label}${yrBadge(g?g.year:'')}</a>`;
       guideRow = `
         <div class="modal-section">
-          <div class="modal-section-title">📥 Admission Guide</div>
+          <div class="modal-section-title">📥 Admission Guide ${hasGuideYear(name,'2027') ? '<span style="font-size:.7rem;font-weight:700;color:#0d9488;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;padding:.15rem .6rem;margin-left:.4rem;">✅ 2027 guide available</span>' : '<span style="font-size:.7rem;color:#94a3b8;margin-left:.4rem;">latest shown</span>'}</div>
           <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
-            ${hasBa ? linkBtn(g.ba,'🎓 Bachelor Guide','background:#2563eb;') : '<span style="font-size:.75rem;color:#94a3b8">Bachelor guide — n/a</span>'}
-            ${hasMa ? linkBtn(g.ma,'🎓 Master Guide','background:#7c3aed;') : '<span style="font-size:.75rem;color:#94a3b8">Master guide — n/a</span>'}
-            ${hasLang ? linkBtn(g.lang,'💬 Language Course','background:#059669;') : '<span style="font-size:.75rem;color:#94a3b8">Language guide — n/a</span>'}
+            ${hasBa ? guideBox(baG.url,'🎓 Bachelor Guide','background:#2563eb;',baG) : '<span style="font-size:.75rem;color:#94a3b8">Bachelor guide — n/a</span>'}
+            ${hasMa ? guideBox(maG.url,'🎓 Master Guide','background:#7c3aed;',maG) : '<span style="font-size:.75rem;color:#94a3b8">Master guide — n/a</span>'}
+            ${hasLang ? guideBox(langG.url,'💬 Language Course','background:#059669;',langG) : '<span style="font-size:.75rem;color:#94a3b8">Language guide — n/a</span>'}
           </div>
+          <div style="font-size:.68rem;color:#94a3b8;margin-top:.4rem;">Showing the most recent guide year for each track. Universities with a 2027 admission guide are flagged.</div>
         </div>`;
     }
     let detailSections = '';
@@ -2931,6 +2940,23 @@ function syncUniv() {
     document.head.appendChild(s);
   }
   function univGuides() { return window.__UNIV_GUIDES__ || {}; }
+  // Does this university have a guide for the given year (any track)?
+  function hasGuideYear(univName, year) {
+    const gu = univGuides()[univName] || {};
+    for (const tr in gu) {
+      if (gu[tr] && typeof gu[tr] === 'object' && gu[tr][year]) return true;
+    }
+    return false;
+  }
+  // Current (newest) guide for a university + track → {url, year, title} or null
+  function currentGuide(univName, track) {
+    const gu = univGuides()[univName] || {};
+    const tr = gu[track];
+    if (!tr || typeof tr !== 'object') return null;
+    const cur = tr.current || (Object.keys(tr).filter(k=>/^\d{4}$/.test(k)).sort().pop());
+    if (!cur || !tr[cur]) return null;
+    return tr[cur];
+  }
 
 
   // ======= ADD CUSTOMER FORM =======
@@ -5101,10 +5127,23 @@ function syncUniv() {
     const g = {};
     gRows.forEach(r => {
       if (!g[r.univ_id]) g[r.univ_id] = {};
-      g[r.univ_id][r.track] = r.url;
+      const tr = r.track || 'ba';
+      // keep the guide per (track, year); track pointer keeps the NEWEST year per track
+      if (!g[r.univ_id][tr]) g[r.univ_id][tr] = {};
+      const year = r.year || '2026';
+      g[r.univ_id][tr][year] = { url: r.url, year: year, title: r.title || '' };
+    });
+    // build per-track "current" = newest year available
+    Object.keys(g).forEach(un => {
+      Object.keys(g[un]).forEach(tr => {
+        const years = Object.keys(g[un][tr]).sort();
+        const newest = years[years.length - 1];
+        g[un][tr].current = newest;
+      });
     });
     window.UNIV_GUIDES = g;
     window.__UNIV_GUIDES__ = g;
+    window.__UNIV_GUIDE_YEARS__ = ['2027','2026'];
     __dataLoaded = true;
     try { syncUniv(); } catch(e){}
     try { rebuildFilterBar(); } catch(e){}
