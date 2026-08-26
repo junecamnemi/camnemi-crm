@@ -5459,7 +5459,10 @@ function syncUniv() {
     const fromCol = document.querySelector(`.cards[data-cards="${from}"]`);
     const toCol = document.querySelector('.cards[data-cards="welcome"]');
     if(fromCol && fromCol.contains(card)) fromCol.removeChild(card);
+    // If the welcome column isn't visible (wrong pipeline), re-append the card to a
+    // visible container so saveNow() finds it; switchPipeline will re-render correctly.
     if(toCol) toCol.appendChild(card);
+    else if(fromCol) fromCol.appendChild(card);
     if(from) changeCount(from,-1);
     changeCount('welcome',+1);
     card.style.borderLeftColor = STAGE_COLORS['welcome']||'#94a3b8';
