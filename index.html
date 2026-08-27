@@ -3524,12 +3524,8 @@ function syncUniv() {
       .map(v=>`<option value="${v}" ${topik===v?'selected':''}>${v||'— None —'}</option>`).join('');
     const IELTS_OPTS = ['','IELTS 4.0','IELTS 4.5','IELTS 5.0','IELTS 5.5','IELTS 6.0','IELTS 6.5','IELTS 7.0']
       .map(v=>`<option value="${v}" ${ielts===v?'selected':''}>${v||'— None —'}</option>`).join('');
-    // Application document checklist (user-specified list)
-    const APP_DOC_TYPES = ['Photo','Passport','ID card','Birth Certificate','Familybook','Parents ID','Transcript','Diploma','Embassy Letter','Bank Statement','Translated Documents','Other school ask'];
-    const appDocChecks = APP_DOC_TYPES.map(dt=>{
-      const on = appdocsArr.includes(dt);
-      return `<label style="display:flex;align-items:center;gap:.3rem;font-size:.78rem;color:#334155;padding:.15rem 0;"><input type="checkbox" data-appdoc="${escapeHtml(dt)}" ${on?'checked':''} style="accent-color:#2563eb;width:15px;height:15px;"> ${escapeHtml(dt)}</label>`;
-    }).join('');
+    // Application documents: now uploaded per-row with NAME_DOCTYPE.ext naming.
+    // (Each row is rendered by renderAppDocsRows(); uploads go to the Drive folder.)
     // VISA document checklist
     const VISA_DOC_TYPES = ['Visa Application Form','Passport','Certificate of Admission','Bank Balance Certificate','Passport Photo','Proof of Accommodation','Invitation Letter','Health Checkup','Notarized Documents','Other'];
     const visaDocChecks = VISA_DOC_TYPES.map(dt=>{
@@ -3626,9 +3622,8 @@ function syncUniv() {
         <!-- 5. APPLICATION DOCUMENTS -->
         <div class="modal-section">
           <div class="modal-section-title" onclick="this.parentElement.classList.toggle('closed')"><span class="fold-ic">▼</span>📄 Application Documents</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.1rem .8rem;">${appDocChecks}</div>
+          <div id="k-appdocs-rows" style="display:flex;flex-direction:column;gap:.35rem;"></div>
           <div id="k-docs" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:120px;overflow:auto;font-size:.78rem;background:#f8fafc;color:#94a3b8;margin-top:.6rem;">Loading documents...</div>
-          <div id="k-dropzone" style="margin-top:.4rem;border:2px dashed #c7d2fe;border-radius:.6rem;padding:.7rem;text-align:center;color:#6366f1;font-size:.78rem;background:#eef2ff;cursor:pointer;">⬇️ Drag & drop files here, or click to upload</div>
           <div style="display:flex;gap:.4rem;margin-top:.4rem;">
             <button class="btn btn-note" onclick="refreshKoreaDocs(true)" style="font-size:.72rem;padding:.25rem .6rem;">🔄 Refresh</button>
             <button class="btn btn-note" onclick="openStudentFolder(document.getElementById('korea-edit-modal')._card)" style="font-size:.72rem;padding:.25rem .6rem;background:#e0f2fe;color:#0c4a6e;">📁 ${card.dataset.folderUrl ? 'Open folder' : 'Create & open folder'}</button>
@@ -3675,7 +3670,7 @@ function syncUniv() {
       </div>`;
     document.body.appendChild(overlay);
     setTimeout(()=>overlay.style.opacity='1',10);
-    setTimeout(()=>{ if(typeof setupKoreaDropzone==='function') setupKoreaDropzone(overlay, card); if(typeof refreshKoreaDocs==='function') refreshKoreaDocs(); setTimeout(()=>{ if(typeof autoParsePassportFromFolder==='function') autoParsePassportFromFolder(); }, 2500); }, 50);
+    setTimeout(()=>{ if(typeof renderAppDocsRows==='function') renderAppDocsRows(); if(typeof setupKoreaDropzone==='function') setupKoreaDropzone(overlay, card); if(typeof refreshKoreaDocs==='function') refreshKoreaDocs(); setTimeout(()=>{ if(typeof autoParsePassportFromFolder==='function') autoParsePassportFromFolder(); }, 2500); }, 50);
   }
   function saveKoreaEdit() {
     const overlay=document.getElementById('korea-edit-modal'); if(!overlay||!overlay._card) return;
@@ -5946,6 +5941,58 @@ function syncUniv() {
   });
 
   // Set up the korea modal's drag-and-drop upload zone
+  // Application document types (one upload row each)
+  const APP_DOC_TYPES = ['Photo','Passport','ID card','Birth Certificate','Familybook','Parents ID','Transcript','Diploma','Embassy Letter','Bank Statement','Translated Documents','Other school ask'];
+  // Build one row per application document type: label + uploaded-file status + Upload button
+  function renderAppDocsRows(){
+    const box = document.getElementById('k-appdocs-rows');
+    if(!box) return;
+    const overlay = document.getElementById('korea-edit-modal');
+    if(!overlay || !overlay._card) return;
+    const card = overlay._card;
+    const name = (card.dataset.name || '').toUpperCase().replace(/[^A-Z0-9 ]/g,'').replace(/\s+/g,'_');
+    // map filename (NAME_DOCTYPE.ext) -> file record, to show status per row
+    const files = (function(){ try { return JSON.parse(card.dataset.folderFiles || '[]'); } catch(e){ return []; } })();
+    box.innerHTML = APP_DOC_TYPES.map(dt=>{
+      const tag = dt.toUpperCase().replace(/[^A-Z0-9 ]/g,'').replace(/\s+/g,'_'); // e.g. ID_CARD, BIRTH_CERTIFICATE
+      const f = files.find(x => { const n=(x.name||'').toUpperCase(); return n.indexOf('_'+tag)>=0 || n.indexOf(tag)>=0; });
+      return `<div style="display:flex;align-items:center;gap:.5rem;padding:.35rem .5rem;border:1px solid #eef0f4;border-radius:.5rem;background:#fff;">
+        <span style="flex:1;font-size:.8rem;font-weight:600;color:#334155;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">📄 ${escapeHtml(dt)}</span>
+        ${f
+          ? `<a href="${escapeHtml(f.url||'#')}" target="_blank" rel="noopener" style="font-size:.72rem;color:#059669;text-decoration:none;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${escapeHtml(f.name||'')}">✓ ${escapeHtml(f.name||'')}</a>`
+          : `<span style="font-size:.72rem;color:#94a3b8;">— not uploaded —</span>`}
+        <button onclick="uploadAppDoc('${escapeHtml(dt)}')" style="padding:.28rem .6rem;border:none;border-radius:.45rem;background:#2563eb;color:#fff;font-size:.72rem;font-weight:600;cursor:pointer;">⬆ Upload</button>
+      </div>`;
+    }).join('');
+  }
+  // Upload a file for a specific application document type with forced filename NAME_DOCTYPE.ext (uppercase)
+  function uploadAppDoc(docType){
+    const overlay = document.getElementById('korea-edit-modal');
+    if(!overlay || !overlay._card) return;
+    const card = overlay._card;
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.onchange = async () => {
+      const file = input.files && input.files[0];
+      if(!file) return;
+      const name = (card.dataset.name || '').toUpperCase().replace(/[^A-Z0-9 ]/g,'').replace(/\s+/g,'_');
+      const tag = docType.toUpperCase().replace(/[^A-Z0-9 ]/g,'').replace(/\s+/g,'_');
+      const ext = (file.name.split('.').pop() || 'JPG').toUpperCase();
+      const filename = `${name}_${tag}.${ext}`;   // e.g. LIM_NITA_PASSPORT.JPG
+      if(!card.dataset.folderId) await ensureCustomerFolder(card);
+      if(!card.dataset.folderId){ alert('Could not create folder. Check backend.'); return; }
+      try {
+        const b64 = await fileToBase64(file);
+        const mime = file.type || 'application/octet-stream';
+        const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+          body: JSON.stringify({ action:'uploadCustomerFile', folderId:card.dataset.folderId, filename:filename, contentBase64:b64, mime:mime }) });
+        const info = JSON.parse(await res.text());
+        if(info.ok){ logAction(logStudentName(card), 'Upload '+docType+': '+filename); refreshKoreaDocs(); }
+        else alert('Upload failed: '+(info.error||'?'));
+      } catch(e){ alert('Upload error: '+e.message); }
+    };
+    input.click();
+  }
   function setupKoreaDropzone(overlay, card){
     const zone = overlay.querySelector('#k-dropzone');
     if(!zone) return;
@@ -6077,6 +6124,7 @@ function syncUniv() {
       if(info && info.ok && info.files && info.files.length){
         card.dataset.folderFiles = JSON.stringify(info.files);
         docsEl.innerHTML = info.files.map(f=>`<div style="padding:.2rem 0;border-bottom:1px dashed #eef0f4;display:flex;justify-content:space-between;align-items:center;gap:.3rem;"><a href="${escapeHtml(f.url||'#')}" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">📄 ${escapeHtml(f.name||'file')}</a><button onclick="renameStudentFileApp('${info.folderId}','${escapeHtml(f.name||'').replace(/'/g,"\\'")}')" style="background:none;border:none;cursor:pointer;font-size:.68rem;color:#6b7280;" title="Rename file">✏️</button></div>`).join('');
+        if (typeof renderAppDocsRows === 'function') renderAppDocsRows();
         if (typeof scheduleSyncPush === 'function') scheduleSyncPush();
       } else if(info && info.found){
         if (!cached.length) docsEl.innerHTML = '<span style="color:#94a3b8;">📁 No documents yet</span>';
