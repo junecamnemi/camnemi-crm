@@ -3500,81 +3500,158 @@ function syncUniv() {
       const am = parseInt(appdate.slice(4,6),10);
       enterOpts += `<option value="${appdate}" selected>${appdate.slice(0,4)}/${MON_LABEL[am]||String(am).padStart(2,'0')}</option>`;
     }
+    // NEW FIELDS: TOPIK / IELTS / High School / Grad month / doc checklists
+    const topik = card.dataset.topik || '';
+    const ielts = card.dataset.ielts || '';
+    const highschool = card.dataset.highschool || '';
+    const gradmonth = card.dataset.gradmonth || '';
+    let appdocsArr = []; try { appdocsArr = JSON.parse(card.dataset.appdocs||'[]'); if(!Array.isArray(appdocsArr)) appdocsArr=[]; } catch(e){}
+    let visadocsArr = []; try { visadocsArr = JSON.parse(card.dataset.visadocs||'[]'); if(!Array.isArray(visadocsArr)) visadocsArr=[]; } catch(e){}
+    // Photo for the frozen header (same logic as card photo)
+    let hdrPhotoUrl = '';
+    try {
+      const files = JSON.parse(card.dataset.folderFiles || '[]');
+      if (Array.isArray(files)) {
+        const ph = files.find(f => isCardPhoto(f));
+        if (ph && ph.url) hdrPhotoUrl = driveImageUrl(ph.url);
+      }
+    } catch(e){}
+    const hdrPhotoHtml = hdrPhotoUrl
+      ? `<img src="${escapeHtml(hdrPhotoUrl)}" loading="lazy" decoding="async" onerror="this.style.display='none'" alt="photo" referrerpolicy="no-referrer" style="width:56px;height:72px;object-fit:cover;border-radius:.5rem;border:1px solid #e2e8f0;flex:none;background:#f1f5f9;">`
+      : `<div style="width:56px;height:72px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#cbd5e1;background:#f8fafc;border-radius:.5rem;flex:none;">👤</div>`;
+    // TOPIK / IELTS select options
+    const TOPIK_OPTS = ['','TOPIK 1','TOPIK 2','TOPIK 3','TOPIK 4','TOPIK 5','TOPIK 6']
+      .map(v=>`<option value="${v}" ${topik===v?'selected':''}>${v||'— None —'}</option>`).join('');
+    const IELTS_OPTS = ['','IELTS 4.0','IELTS 4.5','IELTS 5.0','IELTS 5.5','IELTS 6.0','IELTS 6.5','IELTS 7.0']
+      .map(v=>`<option value="${v}" ${ielts===v?'selected':''}>${v||'— None —'}</option>`).join('');
+    // Application document checklist (user-specified list)
+    const APP_DOC_TYPES = ['Photo','Passport','ID card','Birth Certificate','Familybook','Parents ID','Transcript','Diploma','Embassy Letter','Bank Statement','Translated Documents','Other school ask'];
+    const appDocChecks = APP_DOC_TYPES.map(dt=>{
+      const on = appdocsArr.includes(dt);
+      return `<label style="display:flex;align-items:center;gap:.3rem;font-size:.78rem;color:#334155;padding:.15rem 0;"><input type="checkbox" data-appdoc="${escapeHtml(dt)}" ${on?'checked':''} style="accent-color:#2563eb;width:15px;height:15px;"> ${escapeHtml(dt)}</label>`;
+    }).join('');
+    // VISA document checklist
+    const VISA_DOC_TYPES = ['Visa Application Form','Passport','Certificate of Admission','Bank Balance Certificate','Passport Photo','Proof of Accommodation','Invitation Letter','Health Checkup','Notarized Documents','Other'];
+    const visaDocChecks = VISA_DOC_TYPES.map(dt=>{
+      const on = visadocsArr.includes(dt);
+      return `<label style="display:flex;align-items:center;gap:.3rem;font-size:.78rem;color:#334155;padding:.15rem 0;"><input type="checkbox" data-visadoc="${escapeHtml(dt)}" ${on?'checked':''} style="accent-color:#7c3aed;width:15px;height:15px;"> ${escapeHtml(dt)}</label>`;
+    }).join('');
     const overlay = document.createElement('div');
     overlay.className='modal-overlay'; overlay.id='korea-edit-modal'; overlay._card=card;
     overlay.innerHTML = `
-      <div class="modal">
-        <h2 style="text-transform:uppercase;">${escapeHtml(name)}</h2>
+      <div class="modal" style="max-width:560px;padding:0;overflow:hidden;">
+        <!-- FROZEN HEADER: photo + name -->
+        <div style="position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #e2e8f0;padding:1rem 1.25rem;display:flex;align-items:center;gap:.85rem;">
+          ${hdrPhotoHtml}
+          <div style="flex:1;min-width:0;">
+            <div style="font-size:.95rem;font-weight:800;color:#111827;text-transform:uppercase;line-height:1.25;word-break:break-word;">${escapeHtml(name)}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem;">${stageBtns}</div>
+            <input type="hidden" id="k-stage" value="${escapeHtml(curStageHidden)}">
+          </div>
+          <button onclick="closeModal()" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:#64748b;flex:none;">✕</button>
+        </div>
+        <div style="overflow-y:auto;max-height:calc(90vh - 7rem);padding:1.1rem 1.25rem;">
         <input type="hidden" id="k-name" value="${escapeHtml(name)}">
-        <!-- Stage: first area of modal -->
-        <div class="field"><label>Stage</label>
-          <div style="display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.25rem;">${stageBtns}</div>
-          <input type="hidden" id="k-stage" value="${escapeHtml(curStageHidden)}">
-          ${(cardPipe==='new' && card.dataset.stage==='visa') ? `<div style="margin-top:.7rem;padding:.9rem;border-radius:.75rem;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;">
-            <div style="font-size:.8rem;font-weight:700;color:#15803d;margin-bottom:.55rem;">🛂 VISA Process — Approved?</div>
-            <button class="btn" onclick="visaApproved()" style="width:100%;padding:.7rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(22,163,74,.35);">✅ VISA Approved — Move to Korea 🇰🇷</button>
-            <button class="btn" onclick="visaDenied()" style="width:100%;margin-top:.5rem;padding:.7rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(220,38,38,.35);">❌ VISA Denied — Archive</button>
-          </div>` : ''}
-        </div>
-        <!-- Agency | Program -->
-        <div style="display:flex;gap:.7rem;align-items:flex-start;">
-          <div class="field" style="flex:1;"><label>🏢 Agency</label><select id="k-agency"><option value="">— Agency —</option>${agencyOpts}</select></div>
-          <div class="field" style="flex:1;"><label>🎓 Program *</label><select id="k-program">${programOpts}</select></div>
-        </div>
-        <!-- School (Korean + short) -->
-        <div class="field"><label>🏫 School *</label>
-          <div style="position:relative;">
-            <input id="k-school-search" value="${escapeHtml(schoolDisplay)}" placeholder="🔍 대학교 검색 (예: 전북대학교 JBNU)..." oninput="filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
-            <div id="k-school-list" style="position:absolute;top:100%;left:0;right:0;z-index:50;background:#fff;border:1px solid #e2e8f0;border-radius:.5rem;max-height:200px;overflow:auto;display:none;box-shadow:0 8px 20px rgba(0,0,0,.12);"></div>
-            <input type="hidden" id="k-school" value="${escapeHtml(school)}">
+        ${(cardPipe==='new' && card.dataset.stage==='visa') ? `<div style="margin-bottom:.9rem;padding:.9rem;border-radius:.75rem;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;">
+          <div style="font-size:.8rem;font-weight:700;color:#15803d;margin-bottom:.55rem;">🛂 VISA Process — Approved?</div>
+          <button class="btn" onclick="visaApproved()" style="width:100%;padding:.65rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(22,163,74,.35);">✅ VISA Approved — Move to Korea 🇰🇷</button>
+          <button class="btn" onclick="visaDenied()" style="width:100%;margin-top:.45rem;padding:.65rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(220,38,38,.35);">❌ VISA Denied — Archive</button>
+        </div>` : ''}
+
+        <!-- 1. APPLICATION INFORMATION -->
+        <div class="modal-section">
+          <div class="modal-section-title" onclick="this.parentElement.classList.toggle('closed')"><span class="fold-ic">▼</span>📋 Application Information</div>
+          <div style="display:flex;gap:.7rem;align-items:flex-start;">
+            <div class="field" style="flex:1;"><label>🏢 Agency</label><select id="k-agency"><option value="">— Agency —</option>${agencyOpts}</select></div>
+            <div class="field" style="flex:1;"><label>🎓 Program *</label><select id="k-program">${programOpts}</select></div>
           </div>
-        </div>
-        <!-- Major -->
-        <div class="field"><label>📘 Major</label><input id="k-major" value="${escapeHtml(major)}"></div>
-        <!-- Contact | Email -->
-        <div style="display:flex;gap:.7rem;align-items:flex-start;">
-          <div class="field" style="flex:1;"><label>📞 Contact</label><input id="k-contact" value="${escapeHtml(contact)}"></div>
-          <div class="field" style="flex:1;"><label>✉️ Email</label><input id="k-email" value="${escapeHtml(email)}"></div>
-        </div>
-        <!-- Parent Name | Parent Contact -->
-        <div style="display:flex;gap:.7rem;align-items:flex-start;">
-          <div class="field" style="flex:1;"><label>👨‍👩‍👧 Parent Name</label><input id="k-parent-name" value="${escapeHtml(parentName)}"></div>
-          <div class="field" style="flex:1;"><label>📞 Parent Contact</label><input id="k-parent-contact" value="${escapeHtml(parentContact)}"></div>
-        </div>
-        ${cardPipe==='korea' ? `<div class="field"><label>Entered Korea</label><select id="k-appdate">${enterOpts}</select></div>` : ''}
-        <div class="field"><label>Loan (USD)</label><input id="k-loan" value="${escapeHtml(loan)}" oninput="toggleKLoanFlag()"></div>
-        <div class="field"><label>Flags</label>
-          <div style="display:flex;gap:1.2rem;flex-wrap:wrap;">
-            <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-noqr" ${noqr?'checked':''} style="accent-color:#dc2626;width:16px;height:16px;"> 🔳 No QR</label>
-            <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-illegal" ${illegal?'checked':''} style="accent-color:#7f1d1d;width:16px;height:16px;"> ⚠️ Illegal</label>
-            <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-loan-flag" ${loan?'checked':''} style="accent-color:#0d9488;width:16px;height:16px;"> 💰 Loan</label>
-            <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-siemreap" ${siemreap?'checked':''} style="accent-color:#0891b2;width:16px;height:16px;"> 📍 SiemReap</label>
+          <div class="field"><label>🏫 School *</label>
+            <div style="position:relative;">
+              <input id="k-school-search" value="${escapeHtml(schoolDisplay)}" placeholder="🔍 대학교 검색 (예: 전북대학교 JBNU)..." oninput="filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
+              <div id="k-school-list" style="position:absolute;top:100%;left:0;right:0;z-index:50;background:#fff;border:1px solid #e2e8f0;border-radius:.5rem;max-height:200px;overflow:auto;display:none;box-shadow:0 8px 20px rgba(0,0,0,.12);"></div>
+              <input type="hidden" id="k-school" value="${escapeHtml(school)}">
+            </div>
           </div>
+          <div class="field"><label>📘 Major</label><input id="k-major" value="${escapeHtml(major)}"></div>
         </div>
-        <div class="field"><label>💰 Payments</label>
-          <div id="k-payments" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:120px;overflow:auto;font-size:.78rem;background:#f8fafc;margin-bottom:.4rem;">${renderPaymentsList(card.dataset.payments)}</div>
-          <div style="display:flex;gap:.4rem;align-items:center;">
-            <input id="k-pay-amount" placeholder="Amount ($)" style="flex:1;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
-            <input id="k-pay-date" placeholder="Date" value="${escapeHtml(todayStr())}" style="width:110px;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
+
+        <!-- 2. PERSONAL INFORMATION -->
+        <div class="modal-section">
+          <div class="modal-section-title" onclick="this.parentElement.classList.toggle('closed')"><span class="fold-ic">▼</span>👤 Personal Information</div>
+          <div style="display:flex;gap:.7rem;align-items:flex-start;">
+            <div class="field" style="flex:1;"><label>📞 Contact</label><input id="k-contact" value="${escapeHtml(contact)}"></div>
+            <div class="field" style="flex:1;"><label>✉️ Email</label><input id="k-email" value="${escapeHtml(email)}"></div>
+          </div>
+          <div style="display:flex;gap:.7rem;align-items:flex-start;">
+            <div class="field" style="flex:1;"><label>👨‍👩‍👧 Parent Name</label><input id="k-parent-name" value="${escapeHtml(parentName)}"></div>
+            <div class="field" style="flex:1;"><label>📞 Parent Contact</label><input id="k-parent-contact" value="${escapeHtml(parentContact)}"></div>
+          </div>
+          <div style="display:flex;gap:.7rem;align-items:flex-start;">
+            <div class="field" style="flex:1;"><label>🏫 High School Name</label><input id="k-highschool" value="${escapeHtml(highschool)}" placeholder="e.g. Hun Sen High School"></div>
+            <div class="field" style="flex:1;"><label>🎓 Graduation Month (YYMM)</label><input id="k-gradmonth" value="${escapeHtml(gradmonth)}" placeholder="e.g. 2508" maxlength="4" style="text-transform:uppercase;"></div>
+          </div>
+          ${cardPipe==='korea' ? `<div class="field"><label>Entered Korea</label><select id="k-appdate">${enterOpts}</select></div>` : ''}
+        </div>
+
+        <!-- 3. CONDITIONS -->
+        <div class="modal-section">
+          <div class="modal-section-title" onclick="this.parentElement.classList.toggle('closed')"><span class="fold-ic">▼</span>⚙️ Conditions</div>
+          <div style="display:flex;gap:.7rem;align-items:flex-start;">
+            <div class="field" style="flex:1;"><label>🇰🇷 TOPIK Level</label><select id="k-topik">${TOPIK_OPTS}</select></div>
+            <div class="field" style="flex:1;"><label>🇬🇧 IELTS Level</label><select id="k-ielts">${IELTS_OPTS}</select></div>
+          </div>
+          <div class="field"><label>Flags</label>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+              <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-illegal" ${illegal?'checked':''} style="accent-color:#7f1d1d;width:16px;height:16px;"> ⚠️ Illegal family in Korea</label>
+              <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-noqr" ${noqr?'checked':''} style="accent-color:#dc2626;width:16px;height:16px;"> 🔳 No QR</label>
+              <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-siemreap" ${siemreap?'checked':''} style="accent-color:#0891b2;width:16px;height:16px;"> 📍 SiemReap</label>
+              <label style="display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#334155;"><input type="checkbox" id="k-loan-flag" ${loan?'checked':''} style="accent-color:#0d9488;width:16px;height:16px;"> 💰 Loan</label>
+            </div>
+          </div>
+          <div class="field"><label>💰 Loan Amount (USD)</label><input id="k-loan" value="${escapeHtml(loan)}" oninput="toggleKLoanFlag()" placeholder="e.g. 5,000"></div>
+        </div>
+
+        <!-- 4. PAYMENT -->
+        <div class="modal-section">
+          <div class="modal-section-title" onclick="this.parentElement.classList.toggle('closed')"><span class="fold-ic">▼</span>💰 Payment</div>
+          <div id="k-payments" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:140px;overflow:auto;font-size:.78rem;background:#f8fafc;margin-bottom:.4rem;">${renderPaymentsList(card.dataset.payments)}</div>
+          <div style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;">
+            <input id="k-pay-amount" placeholder="Amount ($)" oninput="this.value=this.value.replace(/[^0-9.,]/g,'')" style="flex:1;min-width:90px;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
+            <input id="k-pay-date" placeholder="Date" value="${escapeHtml(todayStr())}" style="width:105px;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
+            <input id="k-pay-reason" placeholder="Reason" style="flex:1;min-width:90px;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
             <button class="btn btn-note" onclick="addKPayment()" style="font-size:.75rem;padding:.3rem .7rem;">➕ Add</button>
           </div>
         </div>
-        <div class="field"><label>📝 Notes</label>
+
+        <!-- 5. APPLICATION DOCUMENTS -->
+        <div class="modal-section">
+          <div class="modal-section-title" onclick="this.parentElement.classList.toggle('closed')"><span class="fold-ic">▼</span>📄 Application Documents</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.1rem .8rem;">${appDocChecks}</div>
+          <div id="k-docs" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:120px;overflow:auto;font-size:.78rem;background:#f8fafc;color:#94a3b8;margin-top:.6rem;">Loading documents...</div>
+          <div id="k-dropzone" style="margin-top:.4rem;border:2px dashed #c7d2fe;border-radius:.6rem;padding:.7rem;text-align:center;color:#6366f1;font-size:.78rem;background:#eef2ff;cursor:pointer;">⬇️ Drag & drop files here, or click to upload</div>
+          <div style="display:flex;gap:.4rem;margin-top:.4rem;">
+            <button class="btn btn-note" onclick="refreshKoreaDocs(true)" style="font-size:.72rem;padding:.25rem .6rem;">🔄 Refresh</button>
+            <button class="btn btn-note" onclick="openStudentFolder(document.getElementById('korea-edit-modal')._card)" style="font-size:.72rem;padding:.25rem .6rem;background:#e0f2fe;color:#0c4a6e;">📁 ${card.dataset.folderUrl ? 'Open folder' : 'Create & open folder'}</button>
+          </div>
+        </div>
+
+        <!-- 6. VISA DOCUMENTS -->
+        <div class="modal-section">
+          <div class="modal-section-title" onclick="this.parentElement.classList.toggle('closed')"><span class="fold-ic">▼</span>🛂 VISA Documents</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.1rem .8rem;">${visaDocChecks}</div>
+        </div>
+
+        <!-- 7. FINAL NOTE -->
+        <div class="modal-section">
+          <div class="modal-section-title" onclick="this.parentElement.classList.toggle('closed')"><span class="fold-ic">▼</span>📝 Final Note</div>
           <div id="k-notes-list" style="max-height:140px;overflow:auto;">${notesHtml}</div>
           <div style="display:flex;gap:.4rem;margin-top:.4rem;">
             <input id="k-note" placeholder="Add a note..." onkeydown="if(event.key==='Enter'){event.preventDefault();addKoreaNote();}" style="flex:1;padding:.45rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
             <button class="btn btn-note" onclick="addKoreaNote()" style="font-size:.75rem;padding:.3rem .7rem;">➕ Add</button>
           </div>
         </div>
-        <div class="field"><label>📁 Documents</label>
-          <div id="k-docs" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:160px;overflow:auto;font-size:.78rem;background:#f8fafc;color:#94a3b8;">Loading documents...</div>
-          <div id="k-dropzone" style="margin-top:.4rem;border:2px dashed #c7d2fe;border-radius:.6rem;padding:.8rem;text-align:center;color:#6366f1;font-size:.78rem;background:#eef2ff;cursor:pointer;">⬇️ Drag & drop files here, or click to upload</div>
-          <div style="display:flex;gap:.4rem;margin-top:.4rem;">
-            <button class="btn btn-note" onclick="refreshKoreaDocs(true)" style="font-size:.72rem;padding:.25rem .6rem;">🔄 Refresh</button>
-            <button class="btn btn-note" onclick="openStudentFolder(document.getElementById('korea-edit-modal')._card)" style="font-size:.72rem;padding:.25rem .6rem;background:#e0f2fe;color:#0c4a6e;">📁 ${card.dataset.folderUrl ? 'Open folder' : 'Create & open folder'}</button>
-          </div>
-        </div>
-        <!-- 여권정보 (folded, under Documents) -->
+
+        <!-- Passport info (folded) -->
         <div class="field">
           <div onclick="toggleKPassport()" style="display:flex;align-items:center;gap:.4rem;cursor:pointer;user-select:none;"><span id="kpp-fold-ic">▶</span><label style="cursor:pointer;margin:0;">🛂 여권정보 (Passport Info)</label><button onclick="event.stopPropagation();autoParsePassportFromFolder()" style="margin-left:auto;background:#e0f2fe;color:#0c4a6e;border:none;border-radius:.4rem;padding:.2rem .55rem;font-size:.7rem;font-weight:600;cursor:pointer;">🔄 Parse</button></div>
           <div id="k-passport-fields" style="display:none;border:1px solid #e2e8f0;border-radius:.5rem;padding:.5rem;background:#f8fafc;margin-top:.4rem;">
@@ -3589,6 +3666,7 @@ function syncUniv() {
             </div>
             <div id="kpp-status" style="font-size:.68rem;color:#94a3b8;"></div>
           </div>
+        </div>
         </div>
         <div class="modal-actions">
           <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
@@ -3625,6 +3703,19 @@ function syncUniv() {
     card.dataset.email=overlay.querySelector('#k-email').value.trim();
     card.dataset.agency=normalizeAgency(overlay.querySelector('#k-agency').value);
     card.dataset.loan=overlay.querySelector('#k-loan').value.trim();
+    const topikEl=overlay.querySelector('#k-topik'); if(topikEl) card.dataset.topik = topikEl.value;
+    const ieltsEl=overlay.querySelector('#k-ielts'); if(ieltsEl) card.dataset.ielts = ieltsEl.value;
+    const hsEl=overlay.querySelector('#k-highschool'); if(hsEl) card.dataset.highschool = hsEl.value.trim();
+    const gmEl=overlay.querySelector('#k-gradmonth'); if(gmEl) card.dataset.gradmonth = gmEl.value.trim();
+    // save document checklists
+    const appDocSel = overlay.querySelectorAll('input[data-appdoc]');
+    if (appDocSel.length) {
+      card.dataset.appdocs = JSON.stringify(Array.from(appDocSel).filter(c=>c.checked).map(c=>c.dataset.appdoc));
+    }
+    const visaDocSel = overlay.querySelectorAll('input[data-visadoc]');
+    if (visaDocSel.length) {
+      card.dataset.visadocs = JSON.stringify(Array.from(visaDocSel).filter(c=>c.checked).map(c=>c.dataset.visadoc));
+    }
     const loanFlagEl=overlay.querySelector('#k-loan-flag'); if(loanFlagEl){ card.dataset.loanFlag = loanFlagEl.checked ? 'true' : ''; }
     const noqrEl=overlay.querySelector('#k-noqr'); if(noqrEl) card.dataset.noqr = noqrEl.checked ? 'true' : '';
     const illegalEl=overlay.querySelector('#k-illegal'); if(illegalEl) card.dataset.illegal = illegalEl.checked ? 'true' : '';
@@ -3728,12 +3819,10 @@ function syncUniv() {
     closeModal();
   }
   function openEditModal(card) {
-    // Students in Korea: use a simple 8-field modal (no detailed sections needed)
-    if (card.dataset.pipe === 'korea') { openKoreaEditModal(card); return; }
-    // New Customers in Contact stage: simple modal (same inputs as +Add)
-    if (card.dataset.pipe === 'new' && card.dataset.stage === 'contact') { openContactEditModal(card); return; }
-    // Unified modal for all students (Korea-based). Process cards use the same modal.
-    if (card.dataset.pipe === 'new') { openKoreaEditModal(card); return; }
+    // Unified modal for all students: one rich modal for every pipeline/stage.
+    // (Contact-stage cards used to open a separate simple modal; now they use
+    //  the same rich modal as everything else.)
+    if (card.dataset.pipe === 'korea' || card.dataset.pipe === 'new') { openKoreaEditModal(card); return; }
     const name = card.dataset.name || (card.querySelector('h4') ? card.querySelector('h4').textContent : '');
     const age = card.dataset.age;
     const contact = card.dataset.contact || '';
@@ -4753,9 +4842,7 @@ function syncUniv() {
       tr._card = r.card;
       tr.style.cursor = 'pointer';
       tr.addEventListener('click', () => {
-        if (r.card.dataset.pipe === 'korea') openKoreaEditModal(r.card);
-        else if (r.card.dataset.pipe === 'new' && r.card.dataset.stage === 'contact') openContactEditModal(r.card);
-        else openEditModal(r.card);
+        openEditModal(r.card);
       });
       body.appendChild(tr);
     });
@@ -5105,7 +5192,9 @@ function syncUniv() {
         docs: c.docs || [],
         hidden: c.hidden, siemreap: c.siemreap, customFields: c.custom_fields || {},
         major: c.major || '', parentContact: c.parent_contact || '', parentName: c.parent_name || '',
-        schoolEn: c.school_en || '', passport: c.passport || ''
+        schoolEn: c.school_en || '', passport: c.passport || '',
+        highschool: c.highschool || '', gradmonth: c.gradmonth || '',
+        appdocs: c.appdocs || '[]', visadocs: c.visadocs || '[]'
       })),
       agencies: agencies || [],
       fees: fees || [],
@@ -5191,7 +5280,25 @@ function syncUniv() {
     }], 'key');
     // customers: upsert rows (do not wipe if local is empty)
     if (Array.isArray(payload.customers) && payload.customers.length) {
-      await sbUpsert('customers', payload.customers.map(c => ({
+      // Defensive dedupe by name (case-insensitive) before writing — the same
+      // student can exist under multiple random client ids (multi-device sync,
+      // re-adds). Prefer richer/more-recent row, mirroring the merge in syncPush.
+      const custMap = new Map();
+      for (const c of payload.customers) {
+        const key = String(c.name || '').trim().toUpperCase();
+        if (!key) { custMap.set(c.id || Math.random(), c); continue; }
+        const prev = custMap.get(key);
+        if (!prev) { custMap.set(key, c); continue; }
+        const prevScore = (prev.passport?1:0) + (prev.notes&&prev.notes.length?1:0) + (prev.birthdate?1:0);
+        const curScore  = (c.passport?1:0) + (c.notes&&c.notes.length?1:0) + (c.birthdate?1:0);
+        const prevUpd = new Date(prev.updated_at||0).getTime();
+        const curUpd  = new Date(c.updated_at||0).getTime();
+        if (curScore > prevScore || (curScore === prevScore && curUpd > prevUpd)) {
+          custMap.set(key, c);
+        }
+      }
+      const deduped = Array.from(custMap.values());
+      await sbUpsert('customers', deduped.map(c => ({
         id: c.id, pipe: c.pipe || 'new', stage: c.stage || 'contact', name: c.name || '',
         age: c.age || '', agency: c.agency || '', program: c.program || '', school: c.school || '',
         appdate: c.appdate || '', contact: c.contact || '', email: c.email || '', loan: c.loan || '',
@@ -5205,7 +5312,9 @@ function syncUniv() {
         docs: c.docs || [],
         hidden: c.hidden || '', siemreap: c.siemreap || '', custom_fields: c.customFields || {},
         major: c.major || '', parent_contact: c.parentContact || '', parent_name: c.parentName || '',
-        school_en: c.schoolEn || '', passport: c.passport || ''
+        school_en: c.schoolEn || '', passport: c.passport || '',
+        highschool: c.highschool || '', gradmonth: c.gradmonth || '',
+        appdocs: c.appdocs || '[]', visadocs: c.visadocs || '[]'
       })), 'id');
     }
     return true;
@@ -5345,11 +5454,31 @@ function syncUniv() {
           const local = payload.customers || [];
           const localIds = new Set(local.map(c=>c.id));
           const extras = remoteCust.filter(c=>!localIds.has(c.id));
+          let merged;
           if (local.length === 0 && extras.length) {
-            payload.customers = remoteCust;
+            merged = remoteCust;
           } else {
-            payload.customers = local.concat(extras);
+            merged = local.concat(extras);
           }
+          // DEDUPE BY NAME (case-insensitive): the same real student can exist
+          // under different random client ids (multiple devices / re-adds). Keep
+          // one row per name, preferring the row with a passport/notes (richer)
+          // and then the most recently updated, so duplicates stop accumulating.
+          const byName = new Map();
+          for (const c of merged) {
+            const key = String(c.name || '').trim().toUpperCase();
+            if (!key) { byName.set(c.id || Math.random(), c); continue; }
+            const prev = byName.get(key);
+            if (!prev) { byName.set(key, c); continue; }
+            const prevScore = (prev.passport?1:0) + (prev.notes&&prev.notes.length?1:0) + (prev.birthdate?1:0);
+            const curScore  = (c.passport?1:0) + (c.notes&&c.notes.length?1:0) + (c.birthdate?1:0);
+            const prevUpd = new Date(prev.updated_at||0).getTime();
+            const curUpd  = new Date(c.updated_at||0).getTime();
+            if (curScore > prevScore || (curScore === prevScore && curUpd > prevUpd)) {
+              byName.set(key, c);
+            }
+          }
+          payload.customers = Array.from(byName.values());
         }
       } catch(e){ /* merge best-effort; push local if remote unavailable */ }
       // remove known demo/pollution students before pushing
@@ -5620,10 +5749,13 @@ function syncUniv() {
     const rows = arr.map((p,i)=>{
       const amt = parseFloat(p.amount)||0;
       total += amt;
-      return `<div style="display:flex;justify-content:space-between;align-items:center;padding:.25rem 0;border-bottom:1px dashed #eef0f4;">
-        <span style="color:#334155;">💰 $${amt.toLocaleString('en-US')}</span>
-        <span style="color:#94a3b8;font-size:.7rem;">${escapeHtml(p.date||'')}</span>
-        <button onclick="deleteKPayment(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.72rem;">🗑</button>
+      return `<div style="display:flex;justify-content:space-between;align-items:center;padding:.25rem 0;border-bottom:1px dashed #eef0f4;gap:.4rem;">
+        <div style="flex:1;min-width:0;">
+          <span style="color:#334155;font-weight:600;">💰 $${amt.toLocaleString('en-US')}</span>
+          ${p.reason ? `<span style="color:#64748b;font-size:.72rem;margin-left:.4rem;">(${escapeHtml(p.reason)})</span>` : ''}
+        </div>
+        <span style="color:#94a3b8;font-size:.7rem;flex:none;">${escapeHtml(p.date||'')}</span>
+        <button onclick="deleteKPayment(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.72rem;flex:none;">🗑</button>
       </div>`;
     }).join('');
     return rows + `<div style="padding-top:.35rem;font-weight:700;color:#0f766e;">Total: $${total.toLocaleString('en-US')}</div>`;
@@ -5634,16 +5766,19 @@ function syncUniv() {
     if(!overlay || !overlay._card) return;
     const amount = document.getElementById('k-pay-amount').value.trim();
     const date = document.getElementById('k-pay-date').value.trim() || todayStr();
-    if(!amount || isNaN(parseFloat(amount))){ alert('Enter a valid payment amount.'); return; }
+    const reasonEl = document.getElementById('k-pay-reason');
+    const reason = reasonEl ? reasonEl.value.trim() : '';
+    if(!amount || isNaN(parseFloat(amount.replace(/,/g,'')))){ alert('Enter a valid payment amount.'); return; }
     const card = overlay._card;
     let arr=[];
     try{ arr = JSON.parse(card.dataset.payments||'[]'); if(!Array.isArray(arr)) arr=[]; }catch(e){ arr=[]; }
-    arr.push({ amount: parseFloat(amount), date: date });
+    arr.push({ amount: parseFloat(amount.replace(/,/g,'')), date: date, reason: reason });
     card.dataset.payments = JSON.stringify(arr);
     document.getElementById('k-pay-amount').value='';
+    if(reasonEl) reasonEl.value='';
     const listEl = document.getElementById('k-payments');
     if(listEl) listEl.innerHTML = renderPaymentsList(card.dataset.payments);
-    logAction(logStudentName(card), 'Payment added: $'+parseFloat(amount).toLocaleString('en-US'), 'student', { amount: parseFloat(amount), date: date });
+    logAction(logStudentName(card), 'Payment added: $'+parseFloat(amount.replace(/,/g,'')).toLocaleString('en-US')+(reason?' ('+reason+')':''), 'student', { amount: parseFloat(amount.replace(/,/g,'')), date: date, reason: reason });
   }
   function deleteKPayment(idx){
     const overlay = document.getElementById('korea-edit-modal');
@@ -6253,6 +6388,10 @@ function syncUniv() {
         parentName: card.dataset.parentName || '',
         schoolEn: card.dataset.schoolEn || '',
         passport: card.dataset.passport || '',
+        highschool: card.dataset.highschool || '',
+        gradmonth: card.dataset.gradmonth || '',
+        appdocs: card.dataset.appdocs || '[]',
+        visadocs: card.dataset.visadocs || '[]',
         customFields: (LIST_CUSTOM_COLS.reduce((o,c)=>{ const k=c.replace(/[^a-z0-9]/gi,'').toLowerCase(); o[c]=card.dataset[k]||''; return o; },{}))
       });
     });
@@ -6341,7 +6480,7 @@ function syncUniv() {
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact','parentName','schoolEn','passport'].forEach(k=>{
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact','parentName','schoolEn','passport','highschool','gradmonth','appdocs','visadocs'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
       if (Array.isArray(c.docs) && c.docs.length) card.dataset.folderFiles = JSON.stringify(c.docs);
