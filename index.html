@@ -5941,9 +5941,23 @@ function syncUniv() {
   });
 
   // Set up the korea modal's drag-and-drop upload zone
-  // Application document types (one upload row each)
-  const APP_DOC_TYPES = ['Photo','Passport','ID card','Birth Certificate','Familybook','Parents ID','Transcript','Diploma','Embassy Letter','Bank Statement','Translated Documents','Other school ask'];
-  // Build one row per application document type: label + uploaded-file status + Upload button
+  // Application document types (one row each; multiple files allowed per row)
+  // Each entry: [label, [keywords that match filename (uppercase, no spaces)]]
+  const APP_DOC_RULES = [
+    ['Photo',            ['PHOTO']],
+    ['Passport',         ['PASSPORT','PASSPORT_NEW']],
+    ['ID card (Khmer ID)',['IDENTITY','IDENTITYCARD','IDCARD','KHMERID','IDENTITYCRAD']],
+    ['Birth Certificate',['BIRTHCERT','BIRTH_CERTIFICATION','BIRTHCERTIFICATION']],
+    ['Familybook',       ['RESIDENCEBOOK','FAMILYBOOK','FAMILY_BOOK','RESIDENCE_BOOK']],
+    ['Parents ID',       ['DAD_ID','MOM_ID','DAD_PASSPORT','MOM_PASSPORT','DADIDENTITY','MOMIDENTITY','DAD_IDENTITY','MOM_IDENTITY','DADID','MOMID','FATHER','MOTHER']],
+    ['Transcript',       ['TRANSCRIPT']],
+    ['Diploma',          ['DIPLOMA','BA_CERT','CERTIFICATION_ENGLISH','DEGREE','GRADUATION']],
+    ['Embassy Letter',   ['EMBASSY','LETTER']],
+    ['Bank Statement',   ['BANK','INCOME','CERTIFICATION_INCOME','BALANCE']],
+    ['Translated Documents',['TRANSLATED','ENGLISH','TRANSLATION']],
+    ['Other school ask', ['APPLICATION','CONFIRMATION','CONSENT','ENVLO','CV']],
+  ];
+  // Build one row per application document type: label + all matched files + Upload button
   function renderAppDocsRows(){
     const box = document.getElementById('k-appdocs-rows');
     if(!box) return;
@@ -5951,17 +5965,21 @@ function syncUniv() {
     if(!overlay || !overlay._card) return;
     const card = overlay._card;
     const name = (card.dataset.name || '').toUpperCase().replace(/[^A-Z0-9 ]/g,'').replace(/\s+/g,'_');
-    // map filename (NAME_DOCTYPE.ext) -> file record, to show status per row
+    // files currently in the student folder (cached from listStudentFolderFiles)
     const files = (function(){ try { return JSON.parse(card.dataset.folderFiles || '[]'); } catch(e){ return []; } })();
-    box.innerHTML = APP_DOC_TYPES.map(dt=>{
-      const tag = dt.toUpperCase().replace(/[^A-Z0-9 ]/g,'').replace(/\s+/g,'_'); // e.g. ID_CARD, BIRTH_CERTIFICATE
-      const f = files.find(x => { const n=(x.name||'').toUpperCase(); return n.indexOf('_'+tag)>=0 || n.indexOf(tag)>=0; });
-      return `<div style="display:flex;align-items:center;gap:.5rem;padding:.35rem .5rem;border:1px solid #eef0f4;border-radius:.5rem;background:#fff;">
-        <span style="flex:1;font-size:.8rem;font-weight:600;color:#334155;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">📄 ${escapeHtml(dt)}</span>
-        ${f
-          ? `<a href="${escapeHtml(f.url||'#')}" target="_blank" rel="noopener" style="font-size:.72rem;color:#059669;text-decoration:none;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${escapeHtml(f.name||'')}">✓ ${escapeHtml(f.name||'')}</a>`
-          : `<span style="font-size:.72rem;color:#94a3b8;">— not uploaded —</span>`}
-        <button onclick="uploadAppDoc('${escapeHtml(dt)}')" style="padding:.28rem .6rem;border:none;border-radius:.45rem;background:#2563eb;color:#fff;font-size:.72rem;font-weight:600;cursor:pointer;">⬆ Upload</button>
+    box.innerHTML = APP_DOC_RULES.map(([dt, kws])=>{
+      // match files whose UPPERCASE name contains any keyword
+      const matched = files.filter(x => {
+        const n = (x.name||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+        return kws.some(k => n.indexOf(k)>=0);
+      });
+      const filesHtml = matched.length
+        ? matched.map(f=>`<a href="${escapeHtml(f.url||'#')}" target="_blank" rel="noopener" style="font-size:.72rem;color:#059669;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${escapeHtml(f.name||'')}">✓ ${escapeHtml(f.name||'')}</a>`).join('<br>')
+        : `<span style="font-size:.72rem;color:#94a3b8;">— not uploaded —</span>`;
+      return `<div style="display:flex;align-items:flex-start;gap:.5rem;padding:.35rem .5rem;border:1px solid #eef0f4;border-radius:.5rem;background:#fff;">
+        <span style="flex:1;font-size:.8rem;font-weight:600;color:#334155;min-width:0;padding-top:.1rem;">📄 ${escapeHtml(dt)}${matched.length?` <span style="color:#059669;font-weight:700;">(${matched.length})</span>`:''}</span>
+        <span style="flex:1.2;min-width:0;text-align:right;">${filesHtml}</span>
+        <button onclick="uploadAppDoc('${escapeHtml(dt)}')" style="padding:.28rem .6rem;border:none;border-radius:.45rem;background:#2563eb;color:#fff;font-size:.72rem;font-weight:600;cursor:pointer;flex:none;">⬆ Upload</button>
       </div>`;
     }).join('');
   }
