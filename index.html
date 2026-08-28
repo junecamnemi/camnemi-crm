@@ -3759,6 +3759,7 @@ function syncUniv() {
     refreshCounts();
     if(currentView==='list') renderList();
     closeModal();
+    forcePushNow();   // persist edits/stage-moves to the cloud immediately
   }
   // ======= SIMPLE EDIT MODAL FOR CONTACT-STAGE NEW CUSTOMERS =======
   // Same inputs as the +Add form: Name / Contact / Agency / Program / Note.
@@ -5687,6 +5688,10 @@ function syncUniv() {
     bumpCardRecent(card); reorderAllByRecent();
     saveNow(); refreshCounts();
     closeModal();
+    // Force an immediate DB write of this move so it survives any later pull/reload.
+    // (Without this, a background syncPull can overwrite the local korea/welcome
+    //  state with stale cloud visa data before the debounced push fires.)
+    forcePushNow();
     if(currentPipe!=='korea'){ switchPipeline('korea'); } 
     alert('✅ ' + name + ' moved to D2D4 in Korea (Welcome).');
   }
@@ -5713,7 +5718,18 @@ function syncUniv() {
     bumpCardRecent(card); reorderAllByRecent();
     saveNow(); refreshCounts();
     closeModal();
+    forcePushNow();
     alert('❌ ' + name + ' moved to Archived (VISA Denied).');
+  }
+
+  // Force an immediate push of current state to the cloud backend, bypassing the
+  // debounce and the __syncing guard, so a card move is persisted right away.
+  function forcePushNow(){
+    if (useSupabase() || backendUrl()) {
+      clearTimeout(__pushTimer);
+      __syncing = false;            // clear any in-flight flag so the push is allowed
+      syncPush().catch(()=>{});
+    }
   }
 
   // Auto-toggle the Loan flag based on loan amount in the korea modal
