@@ -82,6 +82,22 @@ def main():
     today = datetime.date.today().isoformat()
     print("=== Daily 2027 guide checker", today, "===")
 
+    # 0) auto-fill deadlines from newly downloaded adiga PDFs into verified_kb.json
+    try:
+        import auto_fill_periods
+        print("[deadlines] running auto_fill_periods ...")
+        auto_fill_periods.main()
+    except Exception as e:
+        print("[deadlines] auto_fill_periods failed:", e)
+
+    # 0b) rebuild the guide reference map (2027 vs 2026 status) in verified_kb.json
+    try:
+        import build_guide_map
+        print("[guide] rebuilding guide reference map ...")
+        build_guide_map.main()
+    except Exception as e:
+        print("[guide] rebuild failed:", e)
+
     # 1) adiga re-scrape (BA source of truth)
     n_files = run_adiga_scrape()
     print("[adiga] foreign guides on disk now:", n_files)
