@@ -93,6 +93,18 @@ function handle(e, isPost) {
     if (body.action === 'uploadCustomerFile') {
       return uploadCustomerFile(body);
     }
+    // ACTION: upload a Hermes backup zip into the 'Hermes Backups' Drive folder
+    if (body.action === 'backupUpload') {
+      return backupUpload(body);
+    }
+    // ACTION: scan the whole tree for duplicate folder names (collision detection)
+    if (body.action === 'findDuplicateFolders') {
+      return findDuplicateFolders(body);
+    }
+    // ACTION: recursively scan a student's folder tree and return every file with its folder path
+    if (body.action === 'scanStudentFolderRecursive') {
+      return scanStudentFolderRecursive(body);
+    }
 
     var data = getDataFile().getBlob().getDataAsString('UTF-8');
     if (isPost && body.data !== undefined) {
@@ -405,19 +417,29 @@ function getCustomerRoot() {
  * Create a folder for one customer.
  * POST: { action:'createFolder', name:'CHEA MONTHANRONGRATH', month:'202503', school:'Jeonbuk' }
  * Folder name is just the student's name (month/school ignored).
+ * COLLISION-SAFE: searches the whole root tree (not just top level) so it
+ * reuses an existing folder instead of creating a duplicate.
  */
 function createCustomerFolder(body) {
   var name = String(body.name || '').trim();
   if (!name) return jsonOut({ error: 'Missing name' });
   var label = name.replace(/[\\/:*?"<>|]/g, '').trim();  // sanitize
   var labelLc = label.toLowerCase();
+  if (!labelLc) return jsonOut({ error: 'Invalid name' });
 
   var root = getCustomerRoot();
-  // avoid duplicates: case-insensitive find existing folder with same name under root
+  // avoid duplicates: case-insensitive find existing folder with same name ANYWHERE under root
   var folder = null;
-  var fit = root.getFolders();
-  while (fit.hasNext()) { var ff = fit.next(); if (ff.getName().trim().toLowerCase() === labelLc) { folder = ff; break; } }
+  var stack = []; var it = root.getFolders(); while (it.hasNext()) stack.push(it.next());
+  while (stack.length > 0 && !folder) {
+    var f = stack.pop();
+    if (f.getName().trim().toLowerCase() === labelLc) { folder = f; break; }
+    var sub = f.getFolders(); while (sub.hasNext()) stack.push(sub.next());
+  }
   if (!folder) folder = root.createFolder(label);
+  // invalidate index cache since a new folder may have been created
+  PropertiesService.getScriptProperties().deleteProperty(STUDENT_INDEX_KEY);
+  PropertiesService.getScriptProperties().deleteProperty(STUDENT_INDEX_TS_KEY);
   return jsonOut({
     ok: true, folderId: folder.getId(), name: folder.getName(),
     folderUrl: 'https://drive.google.com/drive/folders/' + folder.getId()
@@ -428,7 +450,34 @@ function createCustomerFolder(body) {
 var STUDENT_INDEX_KEY = 'CAMNEMI_STUDENT_FOLDER_INDEX';
 var STUDENT_INDEX_TS_KEY = 'CAMNEMI_STUDENT_INDEX_TS';
 
+/** Scan the whole customer tree and report any duplicate folder names (collisions).
+ *  Returns groups: { name: [...folderIds] } for names that appear more than once.
+ */
+function findDuplicateFolders(body) {
+  var root = getCustomerRoot();
+  var byName = {};
+  var stack = []; var it = root.getFolders(); while (it.hasNext()) stack.push(it.next());
+  while (stack.length > 0) {
+    var f = stack.pop();
+    var nm = f.getName().replace(/[\\/:*?"<>|]/g,'').trim().toLowerCase();
+    if (nm) {
+      if (!byName[nm]) byName[nm] = [];
+      var files = 0; var fit = f.getFiles(); while (fit.hasNext()) { fit.next(); files++; }
+      byName[nm].push({ id: f.getId(), name: f.getName(), files: files, url: f.getUrl() });
+    }
+    var sub = f.getFolders(); while (sub.hasNext()) stack.push(sub.next());
+  }
+  var dups = {};
+  var count = 0;
+  for (var k in byName) {
+    if (byName[k].length > 1) { dups[k] = byName[k]; count += byName[k].length - 1; }
+  }
+  return jsonOut({ ok: true, duplicateGroups: Object.keys(dups).length, extraFolders: count, groups: dups });
+}
+
 // Build (and cache) a map of studentName(lowercase) -> folderId by scanning the root once.
+// If the SAME name exists in multiple folders, the map keeps the folder that has
+// more files (the "real" one) so lookups don't resolve to an empty duplicate.
 function getStudentFolderIndex(forceRebuild) {
   var props = PropertiesService.getScriptProperties();
   var ts = parseInt(props.getProperty(STUDENT_INDEX_TS_KEY) || '0', 10);
@@ -439,17 +488,27 @@ function getStudentFolderIndex(forceRebuild) {
     if (cached) { try { return JSON.parse(cached); } catch(e){} }
   }
   var root = getCustomerRoot();
-  var index = {};
+  var index = {};          // label(lc) -> { id, files }
   var stack = []; var it = root.getFolders(); while (it.hasNext()) stack.push(it.next());
   while (stack.length > 0) {
     var f = stack.pop();
     var nm = f.getName().replace(/[\\/:*?"<>|]/g,'').trim().toLowerCase();
-    if (nm && !index[nm]) index[nm] = f.getId();
+    if (nm) {
+      var fileCount = 0;
+      var fit = f.getFiles(); while (fit.hasNext()) { fit.next(); fileCount++; }
+      var existing = index[nm];
+      if (!existing || (existing && fileCount > existing.files)) {
+        index[nm] = { id: f.getId(), files: fileCount };
+      }
+    }
     var sub = f.getFolders(); while (sub.hasNext()) stack.push(sub.next());
   }
-  props.setProperty(STUDENT_INDEX_KEY, JSON.stringify(index));
+  // flatten to name->id
+  var flat = {};
+  for (var k in index) flat[k] = index[k].id;
+  props.setProperty(STUDENT_INDEX_KEY, JSON.stringify(flat));
   props.setProperty(STUDENT_INDEX_TS_KEY, String(now));
-  return index;
+  return flat;
 }
 
 function listStudentFolderFiles(body) {
@@ -515,20 +574,41 @@ function fuzzyFindFolderId(index, label) {
   return null;
 }
 
-/** Rename a student's folder (find by old name under root, rename to new name). */
+/** Rename a student's folder (find by old name under root, rename to new name).
+ *  COLLISION-SAFE: refuses to rename if another folder (not this one) already
+ *  uses the new name, so two folders can never end up with the same name. */
 function renameStudentFolder(body) {
   var oldName = String(body.oldName || '').trim();
   var newName = String(body.newName || '').trim();
   if (!oldName || !newName) return jsonOut({ ok:false, error:'oldName and newName required' });
   var oldLabel = oldName.replace(/[\\/:*?"<>|]/g,'').trim().toLowerCase();
   var newLabel = newName.replace(/[\\/:*?"<>|]/g,'').trim();
-  var index = getStudentFolderIndex(false);
+  var newLabelLc = newLabel.toLowerCase();
+  if (!newLabelLc) return jsonOut({ ok:false, error:'Invalid new name' });
+
+  var index = getStudentFolderIndex(true);  // force rebuild so we see current state
   var folderId = index[oldLabel];
   if (!folderId) return jsonOut({ ok:true, renamed:false, error:'Source folder not found' });
+
+  // COLLISION GUARD: scan the whole root tree for any OTHER folder already
+  // named newLabel (case-insensitive). If found, abort the rename.
+  var root = getCustomerRoot();
+  var stack = []; var it = root.getFolders(); while (it.hasNext()) stack.push(it.next());
+  while (stack.length > 0) {
+    var f = stack.pop();
+    var fNameLc = f.getName().replace(/[\\/:*?"<>|]/g,'').trim().toLowerCase();
+    if (fNameLc === newLabelLc && f.getId() !== folderId) {
+      return jsonOut({ ok:false, renamed:false, collision:true,
+        error:'A folder named "'+newName+'" already exists (id='+f.getId()+'). Rename or remove it first.' });
+    }
+    var sub = f.getFolders(); while (sub.hasNext()) stack.push(sub.next());
+  }
+
   var folder = DriveApp.getFolderById(folderId);
   folder.setName(newLabel);
   // invalidate cache so the index picks up the new name
   PropertiesService.getScriptProperties().deleteProperty(STUDENT_INDEX_KEY);
+  PropertiesService.getScriptProperties().deleteProperty(STUDENT_INDEX_TS_KEY);
   return jsonOut({ ok:true, renamed:true, folderId:folder.getId(), folderUrl:folder.getUrl() });
 }
 
@@ -583,6 +663,78 @@ function copyStudentDocs(body) {
   }
   return jsonOut({ ok:true, found:true, copied:copied, already:already, total:total,
     folderId: dest.getId(), folderUrl: 'https://drive.google.com/drive/folders/' + dest.getId() });
+}
+
+/**
+ * Recursively scan a student's folder tree under the customer root and return
+ * every file with its folder path, so the frontend can auto-classify documents
+ * (KhmerID, Dad ID, Mom ID, Passport, …) by filename.
+ * POST: { action:'scanStudentFolderRecursive', name:'...' }  OR  { folderId:'...' }
+ */
+function scanStudentFolderRecursive(body) {
+  var name = String(body.name || '').trim();
+  var folderId = body.folderId;
+  var start = null;
+  if (folderId) {
+    try { start = DriveApp.getFolderById(folderId); } catch(err){ start = null; }
+  }
+  if (!start) {
+    if (!name) return jsonOut({ ok:false, error:'name or folderId required' });
+    var label = name.replace(/[\\/:*?"<>|]/g, '').trim().toLowerCase();
+    var index = getStudentFolderIndex(true);
+    folderId = index[label];
+    if (!folderId) folderId = fuzzyFindFolderId(index, label);
+    if (!folderId) return jsonOut({ ok:true, found:false, files:[] });
+    try { start = DriveApp.getFolderById(folderId); } catch(err){ return jsonOut({ ok:true, found:false, files:[] }); }
+  }
+  var all = [];
+  var stack = [{ folder: start, path: start.getName() }];
+  while (stack.length) {
+    var cur = stack.pop();
+    var fit = cur.folder.getFiles();
+    while (fit.hasNext()) {
+      var f = fit.next();
+      all.push({ name: f.getName(), mime: f.getMimeType(), size: f.getSize(), url: f.getUrl(), fileId: f.getId(), folder: cur.path });
+    }
+    var sit = cur.folder.getFolders();
+    while (sit.hasNext()) {
+      var sub = sit.next();
+      stack.push({ folder: sub, path: cur.path + ' / ' + sub.getName() });
+    }
+  }
+  return jsonOut({ ok:true, found:true, folderId: start.getId(), folderUrl: start.getUrl(), files: all });
+}
+
+/**
+ * Upload a Hermes backup zip into the 'Hermes Backups' Drive folder.
+ * POST: { action:'backupUpload', filename:'hermes_backup_....zip', contentBase64:'...' }
+ */
+function backupUpload(body) {
+  var filename = String(body.filename || '').trim();
+  var b64 = body.contentBase64;
+  if (!filename || !b64) return jsonOut({ error: 'Missing filename/contentBase64' });
+  var props = PropertiesService.getScriptProperties();
+  var folderId = props.getProperty('HERMES_BACKUP_FOLDER_ID');
+  var folder = null;
+  if (folderId) { try { folder = DriveApp.getFolderById(folderId); } catch(err){ folder = null; } }
+  if (!folder) {
+    var it = DriveApp.getFoldersByName('Hermes Backups');
+    if (it.hasNext()) folder = it.next();
+  }
+  if (!folder) { folder = DriveApp.createFolder('Hermes Backups'); }
+  props.setProperty('HERMES_BACKUP_FOLDER_ID', folder.getId());
+  // remove old backups, keep newest 10
+  var old = folder.getFiles();
+  var names = [];
+  while (old.hasNext()) { var f = old.next(); names.push({ id: f.getId(), name: f.getName() }); }
+  names.sort(function(a,b){ return (a.name < b.name) ? -1 : 1; });
+  while (names.length > 10) { var victim = names.shift(); try { DriveApp.getFileById(victim.id).setTrashed(true); } catch(e){} }
+  var blob = Utilities.newBlob(Utilities.base64Decode(b64, Utilities.Charset.UTF_8), 'application/zip', filename);
+  var file = folder.createFile(blob);
+  file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+  return jsonOut({ ok:true, fileId:file.getId(), name:file.getName(), size:blob.getBytes().length,
+    folderId:folder.getId(), folderUrl:'https://drive.google.com/drive/folders/'+folder.getId(),
+    url:file.getUrl() });
 }
 
 /**
