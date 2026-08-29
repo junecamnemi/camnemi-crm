@@ -5628,8 +5628,13 @@ function syncUniv() {
         // update folder link on card
         const card = document.querySelector('.customer-card[data-pipe="korea"]') && Array.from(document.querySelectorAll('.customer-card[data-pipe="korea"]')).find(c=>(c.dataset.name||'').toUpperCase()===newName.toUpperCase());
         if(card && info.folderUrl) card.dataset.folderUrl = info.folderUrl;
+      } else if(info && info.collision){
+        // name collision — tell the user clearly instead of failing silently
+        alert('⚠️ Folder name collision: '+info.error);
+      } else if(info && !info.renamed){
+        console.warn('Folder rename did not complete:', info.error||'unknown');
       }
-    } catch(e){}
+    } catch(e){ console.warn('renameStudentFolder failed', e); }
   }
   // Rename a file inside the student's folder
   async function renameStudentFileApp(folderId, oldName){
