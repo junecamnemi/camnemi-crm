@@ -664,6 +664,7 @@
 
     applyStageCollapse();
     refreshCounts();
+    reorderAllByRecent();  // keep most-recent cards at the top after every render
     if (currentView === 'list') renderList();
     applyFilter();
   }
@@ -3535,7 +3536,7 @@ function syncUniv() {
     const overlay = document.createElement('div');
     overlay.className='modal-overlay'; overlay.id='korea-edit-modal'; overlay._card=card;
     overlay.innerHTML = `
-      <div class="modal" style="max-width:560px;padding:0;overflow:hidden;">
+      <div class="modal" style="max-width:1100px;padding:0;overflow:hidden;">
         <!-- FROZEN HEADER: photo + name -->
         <div style="position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #e2e8f0;padding:1rem 1.25rem;display:flex;align-items:center;gap:.85rem;">
           ${hdrPhotoHtml}
@@ -3554,6 +3555,10 @@ function syncUniv() {
           <button class="btn" onclick="visaDenied()" style="width:100%;margin-top:.45rem;padding:.65rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(220,38,38,.35);">❌ VISA Denied — Archive</button>
         </div>` : ''}
 
+        <!-- TWO-COLUMN LAYOUT -->
+        <div style="display:flex;gap:1.2rem;align-items:flex-start;flex-wrap:wrap;">
+          <!-- LEFT COLUMN: Application / Personal / Conditions -->
+          <div style="flex:1;min-width:320px;">
         <!-- 1. APPLICATION INFORMATION -->
         <div class="modal-section">
           <div class="modal-section-title" onclick="this.parentElement.classList.toggle('closed')"><span class="fold-ic">▼</span>📋 Application Information</div>
@@ -3606,6 +3611,9 @@ function syncUniv() {
           </div>
           <div class="field"><label>💰 Loan Amount (USD)</label><input id="k-loan" value="${escapeHtml(loan)}" oninput="toggleKLoanFlag()" placeholder="e.g. 5,000"></div>
         </div>
+          </div>
+          <!-- RIGHT COLUMN: Payment / Docs / VISA / Note / Passport -->
+          <div style="flex:1;min-width:320px;">
 
         <!-- 4. PAYMENT -->
         <div class="modal-section">
@@ -3660,6 +3668,8 @@ function syncUniv() {
               <div style="flex:1;min-width:80px;"><label style="font-size:.68rem;color:#6b7280;">Sex</label><select id="kpp-sex" style="width:100%;padding:.35rem .4rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;"><option value="">—</option><option value="M" ${pp.sex==='M'?'selected':''}>M</option><option value="F" ${pp.sex==='F'?'selected':''}>F</option></select></div>
             </div>
             <div id="kpp-status" style="font-size:.68rem;color:#94a3b8;"></div>
+          </div>
+        </div>
           </div>
         </div>
         </div>
@@ -5416,16 +5426,20 @@ function syncUniv() {
       applyDbToState(db);
       return (db.customers && db.customers.length > 0);  // true only if real data came back
     } catch(e) { console.warn('Backend pull failed', e); return false; }
-    finally { __syncing = false; }
+    finally {
+      __syncing = false;
+      // Flush any save that arrived while this pull was running (after sync flag released)
+      flushPendingPush();
+    }
   }
   // Push all current data to the Drive backend.
-  async function syncPush() {
+  async function syncPush(snapshot) {
     if (!useSupabase() && !backendUrl()) return false;
     if (!__bootDone) return false;  // don't push seeded/empty state during boot
     if (__syncing) return false;
     try {
       __syncing = true;
-      let payload = exportAllData();
+      let payload = snapshot || exportAllData();
       // MERGE with existing backend data instead of replacing, so that
       // an agency (or any client) with a partial local copy cannot wipe
       // the shared customers. New local customers are added; existing ones kept.
@@ -5466,6 +5480,14 @@ function syncUniv() {
             if (!key) { byName.set(c.id || Math.random(), c); continue; }
             const prev = byName.get(key);
             if (!prev) { byName.set(key, c); continue; }
+            // LOCAL (current DOM, what the user is looking at / just moved) ALWAYS
+            // beats remote, regardless of score. Without this, a welcome card with a
+            // passport would win over a just-moved stay card and the move would revert.
+            const cIsLocal = localIds.has(c.id);
+            const pIsLocal = localIds.has(prev.id);
+            if (cIsLocal && !pIsLocal) { byName.set(key, c); continue; }
+            if (!cIsLocal && pIsLocal) { continue; }
+            // both local or both remote → richer row, then most recently updated
             const prevScore = (prev.passport?1:0) + (prev.notes&&prev.notes.length?1:0) + (prev.birthdate?1:0);
             const curScore  = (c.passport?1:0) + (c.notes&&c.notes.length?1:0) + (c.birthdate?1:0);
             const prevUpd = new Date(prev.updated_at||0).getTime();
@@ -5510,7 +5532,11 @@ function syncUniv() {
       });
       return res.ok;
     } catch(e) { console.warn('Backend push failed', e); return false; }
-    finally { __syncing = false; }
+    finally {
+      __syncing = false;
+      // Flush any save that arrived while this push was running (after sync flag released)
+      flushPendingPush();
+    }
   }
   // Pull data that was edited in the Google Sheet back into the app.
   async function syncFromSheet() {
@@ -6449,6 +6475,7 @@ function syncUniv() {
   function exportAllData() {
     // customers: serialize DOM cards
     const customers = [];
+    const nowIso = new Date().toISOString();
     document.querySelectorAll('.customer-card').forEach(card => {
       customers.push({
         id: card.id,
@@ -6463,6 +6490,7 @@ function syncUniv() {
         notes: card.dataset.notes ? JSON.parse(card.dataset.notes) : [],
         stage_order: card.parentElement ? card.parentElement.getAttribute('data-cards') : card.dataset.stage,
         recent: card.dataset.recent || '',
+        updated_at: card.dataset.updated_at || nowIso,  // so local (just-moved) cards win name-dedupe
         folderId: card.dataset.folderId || '',
         folderUrl: card.dataset.folderUrl || '',
         docs: (function(){ try { return JSON.parse(card.dataset.folderFiles || '[]'); } catch(e){ return []; } })(),
@@ -6904,6 +6932,16 @@ function syncUniv() {
   }
   // Restore an existing session on load; otherwise keep the login overlay up
   function initAuth() {
+    // BETA BYPASS: on localhost (beta preview) auto-sign-in as a test user so
+    // the login gate is skipped for testing. The live site is still protected.
+    try {
+      const host = location.hostname || '';
+      if (host === 'localhost' || host === '127.0.0.1') {
+        authUser = { email: 'beta@camnemi.com', name: 'BETA TEST', hd: '' };
+        hideLogin();
+        return true;
+      }
+    } catch(e){}
     try {
       const s = JSON.parse(localStorage.getItem('camnemi_auth') || 'null');
       if (s && s.email && s.email.endsWith('@'+AUTH_DOMAIN)) { authUser=s; hideLogin(); return true; }
@@ -7046,10 +7084,13 @@ function syncUniv() {
     // Always ensure the Students in Korea pipeline is populated from our built-in list
     const koreaCards = document.querySelectorAll('.customer-card[data-pipe="korea"]').length;
     if (koreaCards === 0) seedKoreaStudents();
+    reorderAllByRecent();  // order cards by most recent first
     refreshCounts();
     setTimeout(rebuildFilterBar, 50);  // populate Agency + School pills from databases
     __bootDone = true;  // now allow pushes
     __suppressSave = false;  // release the boot hold after everything is rendered
+    // If the user moved/edited a card while boot was still loading, push it now.
+    flushPendingPush();
 
     // Hash routing: on load, open the section from the URL hash (e.g. #/universities)
     window.addEventListener('hashchange', onHashChange);
@@ -7125,13 +7166,33 @@ function syncUniv() {
   }
 
   // Immediate save: write localStorage + push to cloud right away (real-time)
+  let __pendingPush = false;    // a save arrived while a sync was in flight
+  let __pendingPayload = null;  // snapshot of that save, so a concurrent pull can't clobber it
   function saveNow() {
-    if (__suppressSave) return;
+    // Always persist locally first (boot suppression only guards the boot render
+    // path via saveDatabase(); real user actions always write to localStorage).
     try { localStorage.setItem(DB_KEY, JSON.stringify(exportAllData())); } catch(e){}
-    if (backendUrl() && __bootDone && !__syncing) {
-      clearTimeout(__pushTimer);
-      syncPush();
+    if (!backendUrl() || !__bootDone) {
+      // Boot still in progress (or no backend): snapshot so it flushes after boot/sync.
+      try { __pendingPayload = exportAllData(); } catch(e){}
+      __pendingPush = true;
+      return;
     }
+    if (__syncing) {
+      // A pull/push is running: snapshot the exact current state so the change
+      // isn't lost when that sync finishes and re-renders from cloud data.
+      try { __pendingPayload = exportAllData(); } catch(e){}
+      __pendingPush = true;
+      return;
+    }
+    clearTimeout(__pushTimer);
+    syncPush();
+  }
+  // Flush a pending save (called after __syncing is released / boot completes)
+  function flushPendingPush() {
+    if (!__pendingPush || !__pendingPayload) return;
+    const p = __pendingPayload; __pendingPush = false; __pendingPayload = null;
+    try { syncPush(p); } catch(e){}
   }
 </script>
   <!-- Activity Log slide-in panel -->
