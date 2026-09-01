@@ -90,6 +90,7 @@
     .customer-card .card-badge { display: inline-flex; align-items: center; gap: .25rem; padding: .1rem .5rem; border-radius: 999px; font-size: .66rem; font-weight: 700; white-space: nowrap; }
     .customer-card .badge-school { background: #eef2ff; color: #4338ca; }
     .customer-card .badge-prog { background: #ecfdf5; color: #047857; }
+    .customer-card .camid-badge { background: #fff7ed; color: #9a3412; border: 1px solid #fdba74; }
     .customer-card .badge-logo { width: 14px; height: 14px; object-fit: contain; border-radius: 3px; background: #fff; vertical-align: middle; }
     .tag-row { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .5rem; }
     .tag { padding: .12rem .55rem; border-radius: 999px; font-size: .7rem; font-weight: 600; }
@@ -1044,6 +1045,7 @@
     const note = (ap.querySelector('#ap-note').value || '').trim();
     if (!name) { alert('Please enter the student name.'); return; }
     const agency = (document.getElementById('ap-agency')||{}).textContent || 'CAMNEMI';
+    name = disambiguateName(name);
     const id = 'c' + Date.now() + Math.floor(Math.random()*1000);
     const card = document.createElement('div');
     card.className='customer-card'; card.id=id;
@@ -1051,6 +1053,7 @@
     card.dataset.name = name.toUpperCase(); card.dataset.agency=agency;
     card.dataset.program = program; card.dataset.contact=contact;
     card.dataset.school='Not Yet Specified'; card.dataset.appdate='Not Specified';
+    card.dataset.camnemiId = nextCamnemiId(camnemiYear('Not Specified'));
     card.dataset.notes = note ? JSON.stringify([{text:note,time:nowStr()}]) : '[]';
     // place into Registration column if it exists
     const container = document.querySelector('.cards[data-cards="registration"]');
@@ -3074,15 +3077,68 @@ function syncUniv() {
     const el=document.querySelector('[data-pick="'+group+'"].active');
     return el ? el.getAttribute('data-val') : null;
   }
+  // ======= CAMNEMI ID + DUPLICATE-NAME DISAMBIGUATION =======
+  // Generate the next sequential Camnemi ID for a given year: CAM-YYYY-NNNN (yearly reset).
+  function nextCamnemiId(year){
+    const yr = year && /^\d{4}$/.test(String(year)) ? String(year) : String(new Date().getFullYear());
+    let max = 0;
+    document.querySelectorAll('.customer-card').forEach(c => {
+      const m = (c.dataset.camnemiId || '').match(new RegExp('^CAM-' + yr + '-(\\d{4})$'));
+      if (m) max = Math.max(max, parseInt(m[1], 10));
+    });
+    return 'CAM-' + yr + '-' + String(max + 1).padStart(4, '0');
+  }
+  // Derive the student's Camnemi year from appdate (fallback: current year).
+  function camnemiYear(appdate){
+    const y = parseInt(String(appdate || '').slice(0,4), 10);
+    return (y >= 2025 && y <= 2027) ? String(y) : String(new Date().getFullYear());
+  }
+  // If a NEW student's name collides with an existing card (case-insensitive, ignoring
+  // any trailing " A"/" B" suffix), disambiguate BOTH: the existing bare card becomes
+  // "NAME A" and the new one becomes "NAME B" (or the next free letter). Returns the
+  // final name to use for the new card and renames the existing card in place.
+  function disambiguateName(baseName){
+    const nm = String(baseName || '').trim();
+    if (!nm) return nm;
+    const upper = nm.toUpperCase();
+    const regex = new RegExp('^' + upper.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '( [A-Z])?$');
+    const cards = Array.from(document.querySelectorAll('.customer-card'));
+    const collided = cards.filter(c => {
+      const cn = String(c.dataset.name || '').trim().toUpperCase();
+      return regex.test(cn);
+    });
+    if (collided.length === 0) return nm;
+    // used suffix letters among collided cards
+    const used = new Set();
+    collided.forEach(c => {
+      const m = String(c.dataset.name || '').trim().match(/ ([A-Z])$/);
+      if (m) used.add(m[1]);
+    });
+    // the bare (unsuffixed) existing card becomes " A"
+    const bare = collided.find(c => !/ [A-Z]$/.test(String(c.dataset.name || '').trim()));
+    if (bare) {
+      const newNm = (String(bare.dataset.name || '').trim() + ' A');
+      bare.dataset.name = newNm;
+      const h4 = bare.querySelector('h4'); if (h4) h4.textContent = newNm;
+      if (typeof refreshCardBody === 'function') refreshCardBody(bare);
+      used.add('A');
+    }
+    // pick next free letter for the new card (A if the bare card wasn't found)
+    let letter = 'A';
+    while (used.has(letter)) letter = String.fromCharCode(letter.charCodeAt(0) + 1);
+    return nm + ' ' + letter;
+  }
   function saveQuickAdd() {
     const overlay = document.getElementById('quick-add-modal');
     if (!overlay) return;
-    const name = caps(overlay.querySelector('#q-name').value.trim());
+    let name = caps(overlay.querySelector('#q-name').value.trim());
     const contact = overlay.querySelector('#q-contact').value.trim();
     const agency = pickedValue('q-agency') || 'CAMNEMI';
     const program = pickedValue('q-program') || 'Not Yet';
     const note = overlay.querySelector('#q-note').value.trim();
     if (!name || !contact) { alert('Please fill Name and Contact.'); return; }
+    // duplicate-name disambiguation: existing bare card → " A", new card → " B" (or next letter)
+    name = disambiguateName(name);
     const stage = 'registration';
     let notesArr = [];
     if (note) notesArr.push({ text: note, time: nowStr(), by: currentUserName() });
@@ -3100,6 +3156,7 @@ function syncUniv() {
     card.dataset.appdate = 'Not Specified';
     card.dataset.contact = contact;
     card.dataset.notes = JSON.stringify(notesArr);
+    card.dataset.camnemiId = nextCamnemiId(camnemiYear(card.dataset.appdate));
     card.innerHTML = `
       <input type="checkbox" class="card-select" onclick="onCardSelect(this, event)">
       <div class="name-row"><h4></h4></div>
@@ -3123,7 +3180,7 @@ function syncUniv() {
   function saveNewCustomer() {
     const overlay = document.querySelector('.modal-overlay');
     if (!overlay) return;
-    const name = caps(overlay.querySelector('#f-name').value.trim());
+    let name = caps(overlay.querySelector('#f-name').value.trim());
     const contact = overlay.querySelector('#f-contact').value.trim();
     const age = overlay.querySelector('#f-age').value.trim();
     const agency = overlay.querySelector('#f-agency').value || 'CAMNEMI';
@@ -3135,6 +3192,8 @@ function syncUniv() {
     const stage = overlay.querySelector('#f-stage').value;
     const note = overlay.querySelector('#f-note').value.trim();
     if (!name || !contact || !age) { alert('Please fill Name, Contact and Age.'); return; }
+    // duplicate-name disambiguation: existing bare card → " A", new card → " B" (or next letter)
+    name = disambiguateName(name);
 
     let notesArr = [];
     if (note) notesArr.push({ text: note, time: nowStr(), by: currentUserName() });
@@ -3153,6 +3212,7 @@ function syncUniv() {
     card.dataset.appdate = appdate;
     card.dataset.contact = contact;
     card.dataset.notes = JSON.stringify(notesArr);
+    card.dataset.camnemiId = nextCamnemiId(camnemiYear(appdate));
 
     card.innerHTML = `
       <input type="checkbox" class="card-select" onclick="onCardSelect(this, event)">
@@ -3239,7 +3299,7 @@ function syncUniv() {
       <div class="card-top" style="display:flex;align-items:flex-start;gap:.5rem;">
         ${photoHtml}
         <div style="flex:1;min-width:0;">
-          <div class="name-row"><h4></h4></div>
+          <div class="name-row"><h4></h4>${card.dataset.camnemiId ? `<span class="card-badge camid-badge">${escapeHtml(card.dataset.camnemiId)}</span>` : ''}</div>
           <div class="card-badges">${schoolHtml}<span class="card-badge badge-prog">${escapeHtml(prog)}</span></div>
         </div>
       </div>`;
@@ -3541,7 +3601,7 @@ function syncUniv() {
         <div style="position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #e2e8f0;padding:1rem 1.25rem;display:flex;align-items:center;gap:.85rem;">
           ${hdrPhotoHtml}
           <div style="flex:1;min-width:0;">
-            <div style="font-size:.95rem;font-weight:800;color:#111827;text-transform:uppercase;line-height:1.25;word-break:break-word;">${escapeHtml(name)}</div>
+            <div style="font-size:.95rem;font-weight:800;color:#111827;text-transform:uppercase;line-height:1.25;word-break:break-word;">${escapeHtml(name)} ${card.dataset.camnemiId ? `<span style="display:inline-block;margin-left:.35rem;padding:.08rem .5rem;border-radius:999px;background:#fff7ed;color:#9a3412;border:1px solid #fdba74;font-size:.68rem;font-weight:700;vertical-align:middle;">${escapeHtml(card.dataset.camnemiId)}</span>` : ''}</div>
             <div style="display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem;">${stageBtns}</div>
             <input type="hidden" id="k-stage" value="${escapeHtml(curStageHidden)}">
           </div>
@@ -5200,7 +5260,8 @@ function syncUniv() {
         major: c.major || '', parentContact: c.parent_contact || '', parentName: c.parent_name || '',
         schoolEn: c.school_en || '', passport: c.passport || '',
         highschool: c.highschool || '', gradmonth: c.gradmonth || '',
-        appdocs: c.appdocs || '[]', visadocs: c.visadocs || '[]'
+        appdocs: c.appdocs || '[]', visadocs: c.visadocs || '[]',
+        camnemiId: c.camnemi_id || ''
       })),
       agencies: agencies || [],
       fees: fees || [],
@@ -5320,7 +5381,8 @@ function syncUniv() {
         major: c.major || '', parent_contact: c.parentContact || '', parent_name: c.parentName || '',
         school_en: c.schoolEn || '', passport: c.passport || '',
         highschool: c.highschool || '', gradmonth: c.gradmonth || '',
-        appdocs: c.appdocs || '[]', visadocs: c.visadocs || '[]'
+        appdocs: c.appdocs || '[]', visadocs: c.visadocs || '[]',
+        camnemi_id: c.camnemiId || c.camnemi_id || ''
       })), 'id');
     }
     return true;
@@ -5502,11 +5564,27 @@ function syncUniv() {
       // remove known demo/pollution students before pushing
       if (Array.isArray(payload.customers)) {
         const DEMO_NAMES = new Set(['JAMES SMITH','SARAH JOHNSON','OLIVIA BROWN','LIAM JOHNSON','SOPHIA GARCIA','NOAH MILLER','ISABELLA DAVIS','ETHAN WILSON','MIA MOORE','LUCAS TAYLOR','AMELIA ANDERSON','MASON THOMAS','HARPER JACKSON','ELIJAH WHITE','EVELYN HARRIS','BENJAMIN MARTIN','AVA THOMPSON','HENRY LEE','CHARLOTTE WALKER','ALEXANDER HALL','EMILY ALLEN','DANIEL YOUNG','GRACE KING','MATTHEW WRIGHT','CHLOE SCOTT','SAMUEL GREEN','ZOE BAKER','JOHN ADAMS','LILY NELSON','RYAN HILL','NORA CARTER','EMMA RODRIGUEZ','MICHAEL CHEN','DAVID KIM','MARIA GARCIA','YUSUF AHMED','AISHA KHAN','ㄴㄴㅇ','코스타','KYUNGJUNE JO','SRY VANDADD','ARCHIVE TEST2','VISA DENY FULL','VISA DENY ACTION','VISA DENY ACTION2','DENIED BADGE CHECK','BADGE FINAL','BADGE FINAL2','VISA MOVE TEST','MODAL TEST','PROBE TEST','TEST IMPORT']);
+        // A card that has NO camnemi_id but whose name already exists in the cloud
+        // WITH a camnemi_id is a stale seed / re-push from an old browser — never let
+        // it overwrite or duplicate the real row (the real row owns the ID).
+        const remoteByName = new Map();
+        (remoteCust||[]).forEach(c => {
+          const k = String(c.name||'').trim().toUpperCase();
+          if (k && !remoteByName.has(k)) remoteByName.set(k, c);
+        });
         payload.customers = payload.customers.filter(c => {
           const nm = String(c.name || '').trim().toUpperCase();
           if(!nm) return true;
           if(DEMO_NAMES.has(nm)) return false;
           if(/TEST|AUTOPULL|PROBE|BADGE|VISA\s?DENY|MODAL\s?TEST|NSDASDASD|^X$/.test(nm)) return false;
+          // stale seed guard: local row without an ID vs remote row with an ID, same name
+          const localId = c.camnemiId || c.camnemi_id || '';
+          const remoteRow = remoteByName.get(nm);
+          const remoteId = remoteRow && (remoteRow.camnemi_id || '');
+          if (!localId && remoteId) {
+            // this local card is a duplicate of an existing real student → drop it
+            return false;
+          }
           return true;
         });
       }
@@ -6507,6 +6585,7 @@ function syncUniv() {
         gradmonth: card.dataset.gradmonth || '',
         appdocs: card.dataset.appdocs || '[]',
         visadocs: card.dataset.visadocs || '[]',
+        camnemiId: card.dataset.camnemiId || '',
         customFields: (LIST_CUSTOM_COLS.reduce((o,c)=>{ const k=c.replace(/[^a-z0-9]/gi,'').toLowerCase(); o[c]=card.dataset[k]||''; return o; },{}))
       });
     });
@@ -6595,7 +6674,7 @@ function syncUniv() {
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact','parentName','schoolEn','passport','highschool','gradmonth','appdocs','visadocs'].forEach(k=>{
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact','parentName','schoolEn','passport','highschool','gradmonth','appdocs','visadocs','camnemiId'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
       if (Array.isArray(c.docs) && c.docs.length) card.dataset.folderFiles = JSON.stringify(c.docs);
