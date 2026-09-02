@@ -5451,6 +5451,7 @@ function syncUniv() {
           topik: card.dataset.topik, ielts: card.dataset.ielts, noqr: card.dataset.noqr, illegal: card.dataset.illegal,
           notes: card.dataset.notes ? JSON.parse(card.dataset.notes) : [],
           folderId: card.dataset.folderId||'', folderUrl: card.dataset.folderUrl||'',
+          recent: card.dataset.recent || '',
           major: card.dataset.major||'', parentContact: card.dataset.parentContact||'',
           parentName: card.dataset.parentName||'', schoolEn: card.dataset.schoolEn||'',
           passport: card.dataset.passport||''
@@ -5458,6 +5459,32 @@ function syncUniv() {
       });
       let merged = (db.customers||[]).slice();
       const cloudIds = new Set(merged.map(c=>c.id));
+      // A locally-moved/edited card must beat the stale cloud row for the SAME
+      // student, otherwise refreshing reverts the move. Match by id OR name and
+      // prefer whichever row has the newer `recent` (move/edit timestamp) /
+      // updated_at. The local DOM is what the user just acted on.
+      const localByKey = new Map();
+      localCustomers.forEach(lc => {
+        const k = String(lc.name || '').trim().toUpperCase();
+        if (k) { const prev = localByKey.get(k); if (!prev || (parseInt(lc.recent||'0',10)||0) > (parseInt(prev.recent||'0',10)||0)) localByKey.set(k, lc); }
+      });
+      merged = merged.map(c => {
+        const k = String(c.name || '').trim().toUpperCase();
+        if (!k) return c;
+        const lc = localByKey.get(k);
+        if (!lc) return c;
+        const lr = parseInt(lc.recent||'0',10)||0;
+        const cr = parseInt(c.recent||'0',10)||0;
+        const lu = new Date(lc.updated_at||0).getTime();
+        const cu = new Date(c.updated_at||0).getTime();
+        // Only a card the user actually moved/edited (local recent set) may
+        // override cloud; untouched cards keep the cloud row so other devices'
+        // changes still propagate. local recent newer → keep local state.
+        if (lr > 0 && (lr > cr || (lr === cr && lu > cu))) {
+          return Object.assign({}, c, lc, { id: c.id });  // keep cloud id, take local state
+        }
+        return c;
+      });
       // append local-only cards that are NOT demo and NOT already in cloud (real new adds by this user)
       const DEMO_NAMES_LOCAL = new Set(['JAMES SMITH','SARAH JOHNSON','OLIVIA BROWN','LIAM JOHNSON','SOPHIA GARCIA','NOAH MILLER','ISABELLA DAVIS','ETHAN WILSON','MIA MOORE','LUCAS TAYLOR','AMELIA ANDERSON','MASON THOMAS','HARPER JACKSON','ELIJAH WHITE','EVELYN HARRIS','BENJAMIN MARTIN','AVA THOMPSON','HENRY LEE','CHARLOTTE WALKER','ALEXANDER HALL','EMILY ALLEN','DANIEL YOUNG','GRACE KING','MATTHEW WRIGHT','CHLOE SCOTT','SAMUEL GREEN','ZOE BAKER','JOHN ADAMS','LILY NELSON','RYAN HILL','NORA CARTER','EMMA RODRIGUEZ','MICHAEL CHEN','DAVID KIM','MARIA GARCIA','YUSUF AHMED','AISHA KHAN','ㄴㄴㅇ','코스타','KYUNGJUNE JO','SRY VANDADD','ARCHIVE TEST2','VISA DENY FULL','VISA DENY ACTION','VISA DENY ACTION2','DENIED BADGE CHECK','BADGE FINAL','BADGE FINAL2','VISA MOVE TEST','MODAL TEST','PROBE TEST','TEST IMPORT']);
       localCustomers.forEach(lc => {
@@ -7203,6 +7230,7 @@ function syncUniv() {
         const synced = await syncPull();
         if (synced) {
           restoreCustomers();
+          reorderAllByRecent();  // keep most-recently-moved cards first after pull
           // Re-seed Korea students if the backend restore left none (protects against data gaps)
           if (document.querySelectorAll('.customer-card[data-pipe="korea"]').length === 0) seedKoreaStudents();
           syncAgencies(); syncFees(); syncPartners(); syncTasks(); syncRecommendation(); syncProfit();
@@ -7218,7 +7246,17 @@ function syncUniv() {
     setTimeout(autoPullAgencySubmissions, 4000);
 
     // auto-save on window unload (belt & suspenders)
-    window.addEventListener('beforeunload', saveDatabase);
+    window.addEventListener('beforeunload', () => {
+      // Persist locally AND push to the cloud immediately (not debounced).
+      // A debounced push dies with the page on refresh, which made card moves
+      // silently revert to their old pipeline/stage on reload.
+      try { localStorage.setItem(DB_KEY, JSON.stringify(exportAllData())); } catch(e){}
+      if (__bootDone && (useSupabase() || backendUrl())) {
+        clearTimeout(__pushTimer);
+        __syncing = false;
+        syncPush().catch(()=>{});
+      }
+    });
     // MutationObserver: auto-save whenever customer cards change
     const obs = new MutationObserver(() => { setTimeout(saveDatabase, 200); });
     const kanban = document.getElementById('kanban-view');
