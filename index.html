@@ -3345,12 +3345,20 @@ function syncUniv() {
       try {
         const nm = c.dataset.name || '';
         if (!nm) continue;
-        const index = (typeof __folderIndexCache !== 'undefined') ? __folderIndexCache : {};
-        const fid = fuzzyFolderId(index, nm);
-        if (!fid) continue;
-        const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
-          body: JSON.stringify({ action:'listStudentFolderFiles', name:nm, folderId:fid }) });
-        const info = JSON.parse(await res.text());
+        // Fast path: read from Supabase cache (single fast call, no Apps Script latency)
+        const sb = await supabaseFolderFiles(nm);
+        let info = null;
+        if (sb.ok && sb.found) {
+          info = sb;
+        } else {
+          // Slow path: fall back to Apps Script backend for students not yet cached
+          const index = (typeof __folderIndexCache !== 'undefined') ? __folderIndexCache : {};
+          const fid = fuzzyFolderId(index, nm);
+          if (!fid) continue;
+          const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+            body: JSON.stringify({ action:'listStudentFolderFiles', name:nm, folderId:fid }) });
+          info = JSON.parse(await res.text());
+        }
         if (info && info.files && info.files.length) {
           c.dataset.folderFiles = JSON.stringify(info.files);
           if (info.folderId) c.dataset.folderId = info.folderId;
@@ -3403,9 +3411,39 @@ function syncUniv() {
   // Cache of the full folder index (name -> folderId) fetched from the backend
   let __folderIndexCache = null;
   let __folderIndexTs = 0;
+  // Fast path: read a student's folder files from the Supabase cache table
+  // (mirrored from Drive by the sync script). Falls back to the Apps Script
+  // backend when the cache has no row for this student.
+  async function supabaseFolderFiles(name){
+    try {
+      // case-insensitive match: cache rows are lowercase folder names, card names are uppercase
+      const rows = await supabaseFetch('/rest/v1/student_folder_files?name=ilike.' + encodeURIComponent(name) + '&select=name,folder_id,folder_url,files,updated_at&limit=1', {});
+      if (Array.isArray(rows) && rows.length && rows[0].files) {
+        return { ok:true, found:true, folderId: rows[0].folder_id||'', folderUrl: rows[0].folder_url||'', files: Array.isArray(rows[0].files)? rows[0].files : [] };
+      }
+    } catch(e){}
+    return { ok:false };
+  }
+  // Fast path: read the folder index from Supabase cache table (260+ rows, one call)
+  async function supabaseFolderIndex(){
+    try {
+      const rows = await supabaseFetch('/rest/v1/student_folder_index?select=name,folder_id', {});
+      if (Array.isArray(rows)) {
+        const idx = {};
+        rows.forEach(r => { if (r.name && r.folder_id) idx[r.name] = r.folder_id; });
+        if (Object.keys(idx).length) return idx;
+      }
+    } catch(e){}
+    return null;
+  }
   // Fetch the full student folder index (name->folderId) in one backend call
   async function fetchFolderIndex(force){
     if (__folderIndexCache && !force && (Date.now() - __folderIndexTs) < 30*60*1000) return __folderIndexCache;
+    // Fast path: try Supabase cache first (single fast call, no Apps Script latency)
+    try {
+      const sbIdx = await supabaseFolderIndex();
+      if (sbIdx) { __folderIndexCache = sbIdx; __folderIndexTs = Date.now(); return sbIdx; }
+    } catch(e){}
     try {
       const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
         body: JSON.stringify({ action:'getFolderIndex', force: !!force }) });
@@ -5720,9 +5758,16 @@ function syncUniv() {
     const cached = (function(){ try { return JSON.parse(card.dataset.folderFiles || '[]'); } catch(e){ return []; } })();
     if (Array.isArray(cached) && cached.length && filesEl) filesEl.innerHTML = renderFolderFiles(cached);
     try {
-      const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
-        body: JSON.stringify({ action:'listStudentFolderFiles', name:name }) });
-      const info = JSON.parse(await res.text());
+      // Fast path: Supabase cache first
+      const sb = await supabaseFolderFiles(name);
+      let info = null;
+      if (sb.ok && sb.found) {
+        info = sb;
+      } else {
+        const res = await fetch(backendUrl(), { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+          body: JSON.stringify({ action:'listStudentFolderFiles', name:name }) });
+        info = JSON.parse(await res.text());
+      }
       if(info && info.ok){
         if(info.files && info.files.length){
           card.dataset.folderFiles = JSON.stringify(info.files);
