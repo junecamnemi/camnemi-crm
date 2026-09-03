@@ -252,26 +252,41 @@ def main():
         en = (s.get("scholarships") or {}).get("enroll") or []
         ex = (s.get("scholarships") or {}).get("existing") or []
         if sc:
-            # group by (type, category)
-            from collections import defaultdict
-            groups = defaultdict(list)
-            for x in sc:
-                groups[(x.get("type"), x.get("category"))].append(x)
-            for (t, cat), items in groups.items():
-                label = {
-                    ("enroll", "academic"): "[Admission · Academic]",
-                    ("enroll", "language"): "[Admission · Language]",
-                    ("enroll", "both"): "[Admission · Academic+Lang]",
-                    ("enroll", "general"): "[Admission · General]",
-                    ("existing", "academic"): "[During-study · Academic]",
-                    ("existing", "language"): "[During-study · Language]",
-                    ("existing", "both"): "[During-study · Academic+Lang]",
-                    ("existing", "general"): "[During-study · General]",
-                }.get((t, cat), f"[{t}/{cat}]")
-                brief = " / ".join(en_scholarship(x.get("name", "")) for x in items[:2])
-                # skip empty briefs (e.g. translated names that lose meaning)
-                if brief and brief.strip(" /·"):
-                    print(f"   {label} {brief}")
+            # check if entries have type/category fields (BA/MA style) or just name/condition/benefit (junior style)
+            has_type = any(x.get("type") for x in sc)
+            if has_type:
+                # group by (type, category) — BA/MA style
+                from collections import defaultdict
+                groups = defaultdict(list)
+                for x in sc:
+                    groups[(x.get("type"), x.get("category"))].append(x)
+                for (t, cat), items in groups.items():
+                    label = {
+                        ("enroll", "academic"): "[Admission · Academic]",
+                        ("enroll", "language"): "[Admission · Language]",
+                        ("enroll", "both"): "[Admission · Academic+Lang]",
+                        ("enroll", "general"): "[Admission · General]",
+                        ("existing", "academic"): "[During-study · Academic]",
+                        ("existing", "language"): "[During-study · Language]",
+                        ("existing", "both"): "[During-study · Academic+Lang]",
+                        ("existing", "general"): "[During-study · General]",
+                    }.get((t, cat), f"[{t}/{cat}]")
+                    brief = " / ".join(en_scholarship(x.get("name", "")) for x in items[:2])
+                    if brief and brief.strip(" /·"):
+                        print(f"   {label} {brief}")
+            else:
+                # junior style: no type/category — print name + benefit directly
+                for x in sc[:3]:
+                    n = x.get("name", "")
+                    cond = x.get("condition", "")
+                    benefit = x.get("benefit", "")
+                    line = en_scholarship(n)
+                    if cond:
+                        line += f": {cond[:120]}"
+                    if benefit:
+                        line += f" → {benefit[:80]}"
+                    if line.strip():
+                        print(f"   💰 {line}")
         elif en or ex:
             # fallback: old flat lists (schools without categorized data)
             if en:
