@@ -5203,7 +5203,6 @@ function syncUniv() {
   async function sbUpsert(table, rows, onConflict) {
     if (!rows || !rows.length) return [];
     const headers = { 'Prefer': 'resolution=merge-duplicates,return=minimal' };
-    if (onConflict) headers['Prefer'] += '';
     const path = onConflict
       ? '/rest/v1/' + table + '?on_conflict=' + encodeURIComponent(onConflict)
       : '/rest/v1/' + table;
@@ -5424,18 +5423,11 @@ function syncUniv() {
   let __suppressSave = false;  // suppress ALL saves during initial boot render
   // Pull data from the Drive backend (Apps Script). Falls back to localStorage.
   async function syncPull() {
-    if (!useSupabase() && !backendUrl()) return false;
+    if (!useSupabase()) return false;
     try {
       __syncing = true;
       let db;
-      if (useSupabase()) {
-        db = await supabaseReadTables();
-      } else {
-        const cb = '?t=' + Date.now();
-        const res = await fetch(backendUrl() + cb, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({ action:'readSheet' }) });
-        if (!res.ok) throw new Error('HTTP '+res.status);
-        db = JSON.parse(await res.text());
-      }
+      db = await supabaseReadTables();
       if (!db || !Array.isArray(db.customers)) throw new Error('Bad data shape');
       // BACKEND IS THE SOURCE OF TRUTH: use cloud data as-is (no local merge),
       // so local demo/pollution can never re-enter. Local-only new cards added
@@ -5523,7 +5515,7 @@ function syncUniv() {
   }
   // Push all current data to the Drive backend.
   async function syncPush(snapshot) {
-    if (!useSupabase() && !backendUrl()) return false;
+    if (!useSupabase()) return false;
     if (!__bootDone) return false;  // don't push seeded/empty state during boot
     if (__syncing) return false;
     try {
@@ -5534,21 +5526,8 @@ function syncUniv() {
       // the shared customers. New local customers are added; existing ones kept.
       try {
         let remoteCust = [];
-        if (useSupabase()) {
-          const remote = await sbSelect('customers', 'select=*&limit=2000');
-          remoteCust = Array.isArray(remote) ? remote : [];
-        } else {
-          const gurl = backendUrl() + '?cb=' + Date.now();
-          const gres = await fetch(gurl, {
-            method:'POST', mode:'cors',
-            headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({ action:'get' })
-          });
-          if (gres.ok) {
-            const g = JSON.parse(await gres.text());
-            remoteCust = Array.isArray(g.customers) ? g.customers : (Array.isArray(g.data) ? g.data : (g.data && Array.isArray(g.data.customers) ? g.data.customers : []));
-          }
-        }
+        const remote = await sbSelect('customers', 'select=*&limit=2000');
+        remoteCust = Array.isArray(remote) ? remote : [];
         if (Array.isArray(remoteCust) && remoteCust.length) {
           const local = payload.customers || [];
           const localIds = new Set(local.map(c=>c.id));
@@ -5625,17 +5604,8 @@ function syncUniv() {
           seenNm.add(nm); return true;
         });
       }
-      if (useSupabase()) {
-        await supabaseWriteTables(payload);
-        return true;
-      }
-      const res = await fetch(backendUrl(), {
-        method:'POST',
-        mode:'cors',
-        headers:{'Content-Type':'text/plain;charset=utf-8'},
-        body: JSON.stringify({ data: payload })
-      });
-      return res.ok;
+      await supabaseWriteTables(payload);
+      return true;
     } catch(e) { console.warn('Backend push failed', e); return false; }
     finally {
       __syncing = false;
@@ -5861,7 +5831,7 @@ function syncUniv() {
   // Force an immediate push of current state to the cloud backend, bypassing the
   // debounce and the __syncing guard, so a card move is persisted right away.
   function forcePushNow(){
-    if (useSupabase() || backendUrl()) {
+    if (useSupabase()) {
       clearTimeout(__pushTimer);
       __syncing = false;            // clear any in-flight flag so the push is allowed
       syncPush().catch(()=>{});
@@ -6881,19 +6851,15 @@ function syncUniv() {
     document.body.appendChild(overlay);
     setTimeout(()=>overlay.style.opacity='1',10);
   }
-  // Agency submissions now use JSONBin (browser-friendly, no Google account needed)
+  // Agency submissions are stored in Supabase (agency_submissions table)
   function getAgencySheetLink(){
-    alert('Agency submissions use JSONBin. Give each agency their link:\n\nhttps://junecamnemi.github.io/camnemi-crm/agency-form.html?agency=YOUR_AGENCY');
+    alert('Agency submissions use Supabase. Give each agency their link:\n\nhttps://junecamnemi.github.io/camnemi-crm/agency-form.html?agency=YOUR_AGENCY');
   }
   // Silent auto-pull of agency submissions (no alerts) - runs on boot
   async function autoPullAgencySubmissions(){
     if (!__bootDone) return;
-    const key='$2a$10$31P6/njb2XVgVb90.L/5seAwHWVGEzTa.Adefl2geCMwO8H7/YnZC';
-    const bin='6a87ca81f5f4af5e292fa17d';
     try {
-      const res=await fetch('https://api.jsonbin.io/v3/b/'+bin+'/latest',{headers:{'X-Master-Key':key}});
-      const j=await res.json();
-      const subs=(j&&j.record&&Array.isArray(j.record.submissions))?j.record.submissions:[];
+      const subs = await sbSelect('agency_submissions', '?select=id,name,contact,agency,program,note,time&order=created_at.asc&limit=500');
       if(!subs.length) return;
       let added=0; const existing=[];
       document.querySelectorAll('.customer-card[data-pipe="new"]').forEach(c=>{existing.push((c.dataset.name||'').toUpperCase());});
@@ -6915,14 +6881,10 @@ function syncUniv() {
     } catch(e){}
   }
 
-  // Pull agency submissions from JSONBin into the Contact list
+  // Pull agency submissions from Supabase into the Contact list
   async function pullAgencySubmissionsApp(){
-    const key='$2a$10$31P6/njb2XVgVb90.L/5seAwHWVGEzTa.Adefl2geCMwO8H7/YnZC';
-    const bin='6a87ca81f5f4af5e292fa17d';
     try {
-      const res=await fetch('https://api.jsonbin.io/v3/b/'+bin+'/latest',{headers:{'X-Master-Key':key}});
-      const j=await res.json();
-      const subs = (j && j.record && Array.isArray(j.record.submissions)) ? j.record.submissions : [];
+      const subs = await sbSelect('agency_submissions', '?select=id,name,contact,agency,program,note,time&order=created_at.asc&limit=500');
       if(!subs.length){ alert('No submissions found yet. Ask agencies to use their link.'); return; }
       let added=0;
       const existing=[];

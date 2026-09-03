@@ -71,8 +71,8 @@
 
 <script>
 var AGENCY = new URLSearchParams(location.search).get('agency') || 'CAMNEMI';
-var JSONBIN_KEY = '$2a$10$31P6/njb2XVgVb90.L/5seAwHWVGEzTa.Adefl2geCMwO8H7/YnZC';
-var JSONBIN_BIN = '6a87ca81f5f4af5e292fa17d';
+var SUPABASE_URL = 'https://zjdvzpylxazfbazioxto.supabase.co';
+var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqZHZ6cHlseGF6ZmJhemlveHRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0MjEwNTYsImV4cCI6MjEwMjk5NzA1Nn0.k1W4rIf_QaHjv529oHkOQLAGoYbyT08lDiAEplo76vQ';
 var prog = 'Not Yet';
 
 document.getElementById('agencyName').textContent = AGENCY;
@@ -96,21 +96,22 @@ async function doSubmit(){
   if(!contact){ status('Please enter a contact number.', false); return; }
   var btn=document.getElementById('submitBtn'); btn.disabled=true; btn.textContent='Submitting...';
   try{
-    // Read current submissions from JSONBin
-    var sub=[];
-    var r=await fetch('https://api.jsonbin.io/v3/b/'+JSONBIN_BIN+'/latest',{headers:{'X-Master-Key':JSONBIN_KEY}});
-    var j=await r.json();
-    if(j && j.record && Array.isArray(j.record.submissions)) sub=j.record.submissions;
-    // Append new one
-    sub.push({
-      id:'c'+Date.now()+Math.floor(Math.random()*1000),
-      name:name.toUpperCase(), contact:contact, agency:AGENCY, program:prog, note:note,
-      time:new Date().toString()
+    // Insert directly into Supabase (agency_submissions table)
+    var res=await fetch(SUPABASE_URL+'/rest/v1/agency_submissions',{
+      method:'POST',
+      headers:{
+        'apikey':SUPABASE_ANON,
+        'Authorization':'Bearer '+SUPABASE_ANON,
+        'Content-Type':'application/json',
+        'Prefer':'return=minimal'
+      },
+      body:JSON.stringify([{
+        id:'c'+Date.now()+Math.floor(Math.random()*1000),
+        name:name.toUpperCase(), contact:contact, agency:AGENCY, program:prog, note:note,
+        time:new Date().toString()
+      }])
     });
-    // Write back
-    var res=await fetch('https://api.jsonbin.io/v3/b/'+JSONBIN_BIN,{method:'PUT',headers:{'X-Master-Key':JSONBIN_KEY,'Content-Type':'application/json'},body:JSON.stringify({submissions:sub})});
-    var wr=await res.json();
-    if(wr && wr.record){
+    if(res.ok){
       status('✅ '+name.toUpperCase()+' was submitted to Camnemi. We will contact you soon.', true);
       document.getElementById('f-name').value=''; document.getElementById('f-contact').value=''; document.getElementById('f-note').value='';
     } else {
