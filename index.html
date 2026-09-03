@@ -3243,30 +3243,17 @@ function syncUniv() {
   // Render a card's innerHTML based on stage:
   //  - Contact (New Customers): inline editable inputs (Name, Contact, Note, Agency)
   //  - other stages: standard display
-  // A file counts as the student's card PHOTO if it's an image — passport photos
-  // (jpg named "Passport.jpg" or "Photo.jpg") are fine; only document scans
-  // (passport *page*, ID card, residence card, student ID, certificates) are excluded.
+  // A file counts as the student's card PHOTO only if it's an image whose name says
+  // "photo/picture/사진" — and NOT a passport, ID card, residence card, student ID, etc.
   function isCardPhoto(f) {
     const n = f.name || '';
     if (!/\.(jpe?g|png|webp|gif|bmp)$/i.test(n)) return false;
-    // never a document scan: ID / residence / student card / certificate
+    // never a document: passport / ID / residence / student card / certificate
+    if (/passport|여권|passeport/i.test(n)) return false;
     if (/identity|\bid\b|id_|id-|idcard|residence|resident|rcard|student\s*id|학생증|신분증|주민증|identity card|khmers?id|id card/i.test(n)) return false;
     if (/certificate|cert|family.?book|birth.?cert|transcript|tuberculosis|tb\s*test|healthy|checklist|check.?list|bank.?statement|income|health|medical|재직|signature|sign\b|엄마|아빠/i.test(n)) return false;
-    // passport scans (PDF) are filtered separately; an IMAGE named *passport* is the
-    // passport-style portrait photo (e.g. "Seang_Thaimeng_Passport.jpg")
-    if (/passport|여권|passeport/i.test(n)) return true;
     // must look like a photo
     return /photo|picture|사진|이미지|image|img/i.test(n);
-  }
-  // Fallback for folders whose portrait photo has a camera-export name
-  // (e.g. "R9287ff copy.jpg") — any image that is not a document scan.
-  function isCardPhotoAnyImage(f) {
-    const n = f.name || '';
-    if (!/\.(jpe?g|png|webp|gif|bmp)$/i.test(n)) return false;
-    if (/identity|\bid\b|id_|id-|idcard|residence|resident|rcard|student\s*id|학생증|신분증|주민증|identity card|khmers?id|id card/i.test(n)) return false;
-    if (/certificate|cert|family.?book|birth.?cert|transcript|tuberculosis|tb\s*test|healthy|checklist|check.?list|bank.?statement|income|health|medical|재직|signature|sign\b|엄마|아빠/i.test(n)) return false;
-    if (/passport|여권|passeport/i.test(n)) return true;
-    return true; // any remaining image is treated as the portrait
   }
   // A "photo in PDF" — name says photo but it's a PDF (can't render inline, but flag it)
   function isPdfPhoto(f) {
@@ -3292,10 +3279,7 @@ function syncUniv() {
         try {
           const files = JSON.parse(card.dataset.folderFiles || '[]');
           if (Array.isArray(files)) {
-            let ph = files.find(f => isCardPhoto(f));
-            // Fallback: no keyword-matched photo? Any image that is NOT a document
-            // scan (e.g. camera-export names like "R9287ff copy.jpg") is the portrait.
-            if (!ph) ph = files.find(f => isCardPhotoAnyImage(f));
+            const ph = files.find(f => isCardPhoto(f));
             if (ph && ph.url) {
               photoUrl = driveImageUrl(ph.url);
             } else {
@@ -3596,8 +3580,7 @@ function syncUniv() {
     try {
       const files = JSON.parse(card.dataset.folderFiles || '[]');
       if (Array.isArray(files)) {
-        let ph = files.find(f => isCardPhoto(f));
-        if (!ph) ph = files.find(f => isCardPhotoAnyImage(f));
+        const ph = files.find(f => isCardPhoto(f));
         if (ph && ph.url) hdrPhotoUrl = driveImageUrl(ph.url);
       }
     } catch(e){}
