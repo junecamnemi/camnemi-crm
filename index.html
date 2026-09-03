@@ -133,7 +133,7 @@
     .m-close { position: absolute; top: .6rem; right: .6rem; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: #f1f5f9; color: #475569; font-size: 1rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; transition: background .15s, color .15s; }
     .m-close:hover { background: #fee2e2; color: #dc2626; }
     .modal-scroll { overflow-y: auto; flex: 1 1 auto; min-height: 0; }
-    .modal-actions { flex: 0 0 auto; display: flex; gap: .5rem; justify-content: flex-end; padding-top: .9rem; margin-top: .4rem; border-top: 1px solid #e2e8f0; position: sticky; bottom: 0; background: #fff; padding-bottom: .2rem; z-index: 5;} background: #fff; position: sticky; bottom: 0; }
+    .modal-actions { flex: 0 0 auto; display: flex; gap: .5rem; justify-content: flex-end; padding-top: .9rem; margin-top: .4rem; border-top: 1px solid #e2e8f0; position: sticky; bottom: 0; background: #fff; padding-bottom: .2rem; z-index: 5; }
     .modal h2 { font-size: 1.2rem; color: #111827; margin-bottom: 1rem; text-transform: uppercase; }
     .modal-section { border:1px solid #eef0f4; border-radius:.75rem; padding:.85rem 1rem; margin-bottom:.9rem; background:#fbfbfd; }
     .modal-section-title { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#64748b; margin-bottom:.6rem; display:flex; align-items:center; gap:.4rem; cursor:pointer; user-select:none; }
@@ -399,8 +399,8 @@
       <span class="pipe-name">✅ To-Do & Events</span>
       <span class="pipe-count" id="side-count-todo">0</span>
     </div>
-    <div class="pipe-item disabled" id="nav-profit" title="Coming soon">
-      <span class="pipe-name">💰 Profit & Expense</span>
+    <div class="pipe-item" id="nav-profit" onclick="openProfit()">
+      <span class="pipe-name">💰 Income / Expense</span>
       <span class="pipe-count" id="side-count-profit">0</span>
     </div>
 
@@ -472,6 +472,13 @@
           <span class="click-filter" data-ftype="flag" data-fval="siemreap" onclick="toggleClickFilter(this)">📍 SiemReap</span>
           <span class="click-filter" data-ftype="flag" data-fval="noqr" onclick="toggleClickFilter(this)">🔳 No QR</span>
           <span class="click-filter" data-ftype="flag" data-fval="illegal" onclick="toggleClickFilter(this)">⚠️ Illegal</span>
+        </div>
+        <div class="filter-row" style="flex-wrap:wrap;">
+          <span class="filter-label">👤 Assigned</span>
+          <select id="filter-assigned" onchange="toggleAssignedFilter(this.value)" style="padding:.45rem .8rem;border:1.5px solid #e2e8f0;border-radius:.6rem;font-size:.82rem;outline:none;background:#fff;color:#111827;max-width:220px;">
+            <option value="">All</option>
+            <option value="__unassigned__">🚫 Unassigned</option>
+          </select>
         </div>
       </div>
       <!-- Name search + Flags in one row -->
@@ -1262,6 +1269,16 @@
       }).join('');
       adtPills.innerHTML = `<span class="click-filter active" data-ftype="appdate" data-fval="" onclick="toggleClickFilter(this)">Any</span>` + pills;
     }
+    // --- Assigned dropdown: All / Unassigned / team members ---
+    const asgSel = document.getElementById('filter-assigned');
+    if (asgSel) {
+      const members = (typeof getTeamMembers === 'function') ? getTeamMembers() : [];
+      const cur = asgSel.value;
+      asgSel.innerHTML = '<option value="">All</option><option value="__unassigned__">🚫 Unassigned</option>' +
+        members.map(m => `<option value="${escapeHtml(m)}">${escapeHtml(m)}</option>`).join('');
+      // restore previous selection if still valid
+      if (cur) asgSel.value = (cur === '__unassigned__' || members.includes(cur)) ? cur : '';
+    }
   }
   function agencyDropdownHTML() {
     return '<option value="">— Select agency —</option>' + agencyOptions();
@@ -1717,7 +1734,7 @@ let UNIV_KNOWLEDGE = [];
         <div style="display:flex;gap:.5rem;margin:1rem 0;">
           <button class="btn btn-add" onclick="openAddTask('${escapeHtml(date)}')">+ Task/Event</button>
           <button class="btn btn-add" onclick="openTransForm('income','${escapeHtml(date)}')">+ Income</button>
-          <button class="btn btn-add" onclick="openTransForm('expense''${escapeHtml(date)}')"">+ Expense</button>
+          <button class="btn btn-add" onclick="openTransForm('expense','${escapeHtml(date)}')">+ Expense</button>
         </div>
         <div class="modal-section"><div class="modal-section-title">📌 Tasks & Events</div>${taskRows}</div>
         <div class="modal-section"><div class="modal-section-title">💸 Transactions</div>${transRows}</div>
@@ -1950,7 +1967,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   function openProfit() {
     currentSection='other'; updateLogButton();
     goHash('profit');
-    seedTrans();
+    ensureTransIds();
     document.querySelectorAll('.pipe-item').forEach(el => el.classList.remove('active'));
     const nu=document.getElementById('nav-profit'); if(nu) nu.classList.add('active');
     ['nav-todo','nav-recommendation','nav-gks','nav-marketing','nav-koreaLife','nav-universities'].forEach(id=>{const el=document.getElementById(id); if(el) el.classList.remove('active');});
@@ -1972,40 +1989,86 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     document.getElementById('profit-view').style.display='block';
     renderProfit();
   }
+  let PROFIT_MONTH = new Date().getMonth();
+  let PROFIT_YEAR = new Date().getFullYear();
+  let __TRANS_SEQ = 1000;
+  function ensureTransIds(){
+    TRANS.forEach(t=>{ if(!t._id) t._id = 'tr' + (__TRANS_SEQ++); });
+  }
   function renderProfit() {
-    seedTrans();
-    const income = TRANS.filter(t=>t.type==='income');
-    const expense = TRANS.filter(t=>t.type==='expense');
-    const totIncome = income.reduce((s,t)=>s+t.amount,0);
-    const totExpense = expense.reduce((s,t)=>s+t.amount,0);
-    const profit = totIncome - totExpense;
+    ensureTransIds();
+    const now = new Date();
+    const first = new Date(PROFIT_YEAR, PROFIT_MONTH, 1);
+    const daysInMonth = new Date(PROFIT_YEAR, PROFIT_MONTH+1, 0).getDate();
+    const startDow = first.getDay();
+    const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const todayStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
     const fmt = (n)=>'₩' + n.toLocaleString();
+    const mkey = `${PROFIT_YEAR}-${String(PROFIT_MONTH+1).padStart(2,'0')}`;
+    const monthTrans = TRANS.filter(t=>t.date && t.date.startsWith(mkey));
+    const totIncome = monthTrans.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
+    const totExpense = monthTrans.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
+    const profit = totIncome - totExpense;
     const stat = (label, val, color) => `<div style="background:${color}22;border:1px solid ${color}44;border-radius:.7rem;padding:.7rem .9rem;"><div style="font-size:.72rem;color:#64748b;">${label}</div><div style="font-size:1.15rem;font-weight:700;color:${color};">${val}</div></div>`;
+    // calendar cells
+    let cells='';
+    for(let i=0;i<startDow;i++) cells+='<div style="min-height:86px;"></div>';
+    for(let d=1; d<=daysInMonth; d++){
+      const ds = `${PROFIT_YEAR}-${String(PROFIT_MONTH+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      const dayTrans = TRANS.filter(t=>t.date===ds);
+      const dInc = dayTrans.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
+      const dExp = dayTrans.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
+      const isToday = ds===todayStr;
+      let moneyHtml = '';
+      if(dInc) moneyHtml+=`<div style="font-size:.6rem;color:#059669;font-weight:700;margin-top:1px;">▲ ${fmt(dInc)}</div>`;
+      if(dExp) moneyHtml+=`<div style="font-size:.6rem;color:#dc2626;font-weight:700;margin-top:1px;">▼ ${fmt(dExp)}</div>`;
+      if(!dInc && !dExp) moneyHtml='<div style="font-size:.58rem;color:#cbd5e1;margin-top:1px;">—</div>';
+      const cnt = dayTrans.length;
+      cells += `<div onclick="openProfitDay('${ds}')" title="Click to add / view income &amp; expense" style="min-height:86px;border:1px solid #eef0f4;border-radius:6px;padding:4px;background:${isToday?'#eff6ff':'#fff'};cursor:pointer;overflow:hidden;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:.72rem;font-weight:700;color:${isToday?'#1e40af':'#64748b'};">${d}</span>
+          ${cnt?`<span style="font-size:.58rem;color:#94a3b8;">${cnt}건</span>`:''}
+        </div>
+        ${moneyHtml}
+      </div>`;
+    }
     const rows = TRANS.slice().sort((a,b)=>b.date.localeCompare(a.date)).map((t,i)=>`<tr>
       <td>${t.type==='income'?'<span style="background:#dcfce7;color:#166534;border-radius:4px;padding:.1rem .4rem;font-size:.7rem;font-weight:600">+ Income</span>':'<span style="background:#fee2e2;color:#991b1b;border-radius:4px;padding:.1rem .4rem;font-size:.7rem;font-weight:600">- Expense</span>'}</td>
       <td style="font-weight:600">${escapeHtml(t.cat)}</td>
       <td style="color:#6b7280">${escapeHtml(t.note||'')}</td>
       <td style="color:#475569;white-space:nowrap">${escapeHtml(t.date)}</td>
       <td style="white-space:nowrap;font-weight:600;color:${t.type==='income'?'#166534':'#991b1b'}">${t.type==='income'?'+':'-'}${fmt(t.amount)}</td>
-      <td style="white-space:nowrap;"><button class="btn btn-note" onclick="editTrans(${i})">✏️</button><button class="btn btn-danger" onclick="deleteTrans(${i})">🗑</button></td>
+      <td style="white-space:nowrap;"><button class="btn btn-note" onclick="editTrans('${t._id}')">✏️</button><button class="btn btn-danger" onclick="deleteTrans('${t._id}')">🗑</button></td>
     </tr>`).join('');
     const v=document.getElementById('profit-view');
     v.innerHTML = `
-      ${knowledgeHeader('💰','Profit & Expense','Track your income (service fees, commissions) and expenses (marketing, agency, admin).','<b>'+TRANS.length+'</b> transactions')}
+      ${knowledgeHeader('💰','Income / Expense','Track income (service fees, commissions) and expenses (marketing, agency, admin) on the calendar. Click a date to add entries.','<b>'+TRANS.length+'</b> transactions')}
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1rem;">
-        ${stat('Total Income','+'+fmt(totIncome),'#059669')}
-        ${stat('Total Expense','-'+fmt(totExpense),'#dc2626')}
+        ${stat('This Month Income','+'+fmt(totIncome),'#059669')}
+        ${stat('This Month Expense','-'+fmt(totExpense),'#dc2626')}
         ${stat('Net Profit',fmt(profit), profit>=0?'#2563eb':'#dc2626')}
+      </div>
+      <div style="background:#fff;border:1px solid #eef0f4;border-radius:14px;padding:1rem;box-shadow:0 2px 10px rgba(0,0,0,.05);margin-bottom:1rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;">
+          <button class="btn btn-cancel" onclick="shiftProfitMonth(-1)">◀</button>
+          <div style="font-size:1.05rem;font-weight:700;color:#111827;">${monthNames[PROFIT_MONTH]} ${PROFIT_YEAR}</div>
+          <button class="btn btn-cancel" onclick="shiftProfitMonth(1)">▶</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;">
+          ${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(x=>`<div style="font-size:.68rem;font-weight:700;color:#94a3b8;text-align:center;">${x}</div>`).join('')}
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;">${cells}</div>
+        <div style="margin-top:.6rem;font-size:.72rem;color:#94a3b8;">Click a date to add income / expense. <span style="color:#059669">▲ income</span> · <span style="color:#dc2626">▼ expense</span></div>
       </div>
       <div style="background:#fff;border:1px solid #eef0f4;border-radius:14px;padding:1.2rem;box-shadow:0 2px 10px rgba(0,0,0,.05);">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;">
-          <div style="font-size:.95rem;font-weight:700;color:#111827;">💸 Transactions (${TRANS.length})</div>
+          <div style="font-size:.95rem;font-weight:700;color:#111827;">💸 All Transactions (${TRANS.length})</div>
           <div style="display:flex;gap:.4rem;">
             <button class="btn btn-add" onclick="openTransForm('income')">+ Income</button>
-            <button class="btn btn-add" onclick="openTransForm('expense'"">+ Expense</button>
+            <button class="btn btn-add" onclick="openTransForm('expense')">+ Expense</button>
           </div>
         </div>
-        <div style="max-height:calc(100vh - 320px);overflow:auto;border:1px solid #eef0f4;border-radius:.5rem;">
+        <div style="max-height:calc(100vh - 380px);overflow:auto;border:1px solid #eef0f4;border-radius:.5rem;">
           <table class="list-table" style="font-size:.8rem;margin:0;">
             <thead><tr><th>Type</th><th>Category</th><th>Note</th><th>Date</th><th>Amount</th><th></th></tr></thead>
             <tbody>${rows||'<tr><td colspan="6" style="color:#94a3b8;text-align:center;padding:.8rem">No transactions yet.</td></tr>'}</tbody>
@@ -2013,7 +2076,36 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
         </div>
       </div>`;
   }
+  function shiftProfitMonth(d){ PROFIT_MONTH+=d; if(PROFIT_MONTH<0){PROFIT_MONTH=11;PROFIT_YEAR--;} if(PROFIT_MONTH>11){PROFIT_MONTH=0;PROFIT_YEAR++;} renderProfit(); }
+  // Day detail modal (transactions only for that date)
+  function openProfitDay(date){
+    const overlay=document.createElement('div');
+    overlay.className='modal-overlay'; overlay.id='profit-day-modal';
+    const dayTrans = TRANS.filter(t=>t.date===date);
+    const fmt=(n)=>'₩'+n.toLocaleString();
+    const transRows = dayTrans.map(t=>`<div style="padding:.35rem 0;border-bottom:1px dashed #eef0f4;font-size:.82rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem;">
+      <div style="min-width:0;overflow:hidden;"><span style="color:${t.type==='income'?'#059669':'#dc2626'};font-weight:700;">${t.type==='income'?'+':'-'}${fmt(t.amount)}</span> <b>${escapeHtml(t.cat)}</b> <span style="color:#94a3b8">${escapeHtml(t.note||'')}</span></div>
+      <div style="white-space:nowrap;flex-shrink:0;"><button class="btn btn-note" onclick="editTrans('${t._id}')">✏️</button><button class="btn btn-danger" onclick="deleteTrans('${t._id}')">🗑</button></div>
+    </div>`).join('')||'<div style="color:#94a3b8;font-size:.8rem;padding:.3rem 0;">No transactions this day.</div>';
+    overlay.innerHTML=`
+      <div class="modal">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <h2 style="margin:0;">💸 ${escapeHtml(date)}</h2>
+          <button onclick="closeModal()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;">✕</button>
+        </div>
+        <div style="display:flex;gap:.5rem;margin:1rem 0;">
+          <button class="btn btn-add" onclick="openTransForm('income','${escapeHtml(date)}')">+ Income</button>
+          <button class="btn btn-add" onclick="openTransForm('expense','${escapeHtml(date)}')">+ Expense</button>
+        </div>
+        <div class="modal-section"><div class="modal-section-title">💸 Transactions</div>${transRows}</div>
+      </div>`;
+    overlay.__date = date;
+    document.body.appendChild(overlay);
+    setTimeout(()=>overlay.style.opacity='1',10);
+  }
   function openTransForm(type, date){
+    // close any day-detail modal first so closeModal() targets THIS form
+    const pd=document.getElementById('profit-day-modal'); if(pd) pd.remove();
     const overlay=document.createElement('div');
     overlay.className='modal-overlay'; overlay.id='trans-form-modal';
     overlay.innerHTML=`
@@ -2033,8 +2125,10 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     setTimeout(()=>overlay.style.opacity='1',10);
     setTimeout(()=>{const a=overlay.querySelector('#tr-amount'); if(a)a.focus();},50);
   }
-  function editTrans(idx){
-    const t=TRANS[idx]; if(!t) return;
+  function editTrans(id){
+    ensureTransIds();
+    const pd=document.getElementById('profit-day-modal'); if(pd) pd.remove();
+    const t=TRANS.find(x=>x._id===id); if(!t) return;
     const overlay=document.createElement('div');
     overlay.className='modal-overlay'; overlay.id='trans-form-modal';
     overlay.innerHTML=`
@@ -2047,13 +2141,13 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
         <div class="field"><label>Note</label><textarea id="tr-note">${escapeHtml(t.note||'')}</textarea></div>
         <div class="actions">
           <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
-          <button class="btn btn-save" onclick="saveTrans(${idx})">Save</button>
+          <button class="btn btn-save" onclick="saveTrans('${id}')">Save</button>
         </div>
       </div>`;
     document.body.appendChild(overlay);
     setTimeout(()=>overlay.style.opacity='1',10);
   }
-  function saveTrans(idx){
+  function saveTrans(id){
     const overlay=document.getElementById('trans-form-modal'); if(!overlay) return;
     const type=overlay.querySelector('#tr-type').value;
     const cat=overlay.querySelector('#tr-cat').value.trim();
@@ -2061,11 +2155,21 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     const date=overlay.querySelector('#tr-date').value;
     const note=overlay.querySelector('#tr-note').value.trim();
     if(!cat){alert('Category required.');return;}
-    const obj={type,cat,amount,date,note};
-    if(idx!==undefined && TRANS[idx]) TRANS[idx]=obj; else TRANS.push(obj);
+    ensureTransIds();
+    const obj={type,cat,amount,date,note,_id: (id && TRANS.some(x=>x._id===id)) ? id : 'tr'+(__TRANS_SEQ++)};
+    if(id && TRANS.some(x=>x._id===id)){ const t=TRANS.find(x=>x._id===id); Object.assign(t, obj); }
+    else TRANS.push(obj);
+    closeModal(); renderProfit(); markDirty();
+  }
+  function deleteTrans(id){
+    if(!confirm('Delete this transaction?')) return;
+    ensureTransIds();
+    TRANS = TRANS.filter(t=>t._id!==id);
+    // refresh day modal if open, then re-render
+    const dm=document.getElementById('profit-day-modal');
+    if(dm && dm.__date){ const d=dm.__date; closeModal(); openProfitDay(d); }
     renderProfit(); markDirty();
   }
-  function deleteTrans(idx){ if(!confirm('Delete this transaction?')) return; TRANS.splice(idx,1); renderProfit(); }
   function syncProfit(){ const c=document.getElementById('side-count-profit'); if(c) c.textContent=TRANS.length; }
 
 
@@ -4587,7 +4691,7 @@ function syncUniv() {
   function batchCancel() { batchMove('canceled'); }
 
   // ======= FILTER (click pills: stage / program / school / agency / appdate) =======
-  let filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[], flag:[] };
+  let filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[], flag:[], assigned:[] };
   // click a pill to set that value; click "Any" (fval='') or same pill again to clear
   function toggleClickFilter(el) {
     const ftype = el.dataset.ftype;
@@ -4604,6 +4708,12 @@ function syncUniv() {
     document.querySelectorAll('.click-filter[data-ftype="' + ftype + '"]').forEach(p => {
       p.classList.toggle('active', filterState[ftype].includes(p.dataset.fval) || (p.dataset.fval==='' && filterState[ftype].length===0));
     });
+    applyFilter();
+  }
+
+  // assigned dropdown filter
+  function toggleAssignedFilter(val) {
+    filterState.assigned = val ? [val] : [];
     applyFilter();
   }
 
@@ -4635,15 +4745,23 @@ function syncUniv() {
       const h4 = card.querySelector('h4');
       const nm = (card.dataset.name || (h4 ? h4.textContent : '')).toLowerCase();
       const matchQ = !q || nm.includes(q);
-      card.style.display = (matchS && matchA && matchP && matchSch && matchAdt && matchLoan && matchFlag && matchQ) ? '' : 'none';
+      // assigned filter: value is a team member name, or '__unassigned__' for no assignee
+      const asgVals = fs.assigned;
+      const matchAsg = (!Array.isArray(asgVals) || asgVals.length===0) || asgVals.some(a => {
+        const cur = (card.dataset.assigned || '').trim();
+        if (a === '__unassigned__') return !cur;
+        return cur.toLowerCase() === String(a).toLowerCase();
+      });
+      card.style.display = (matchS && matchA && matchP && matchSch && matchAdt && matchLoan && matchFlag && matchAsg && matchQ) ? '' : 'none';
     });
     refreshCounts();
     if (currentView === 'list') renderList();
   }
   function clearFilter() {
-    filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[], flag:[] };
+    filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[], flag:[], assigned:[] };
     document.querySelectorAll('.click-filter').forEach(p => p.classList.remove('active'));
     const sb=document.getElementById('filter-search'); if(sb) sb.value='';
+    const asgSel=document.getElementById('filter-assigned'); if(asgSel) asgSel.value='';
     applyFilter();
   }
 
@@ -7300,7 +7418,6 @@ function syncUniv() {
     syncTasks();
     if (!hasDB) seedRecs();
     syncRecommendation();
-    if (!hasDB) seedTrans();
     syncProfit();
     syncUniv();
     renderPipeline();  // build columns first
