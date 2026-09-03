@@ -3294,6 +3294,9 @@ function syncUniv() {
     const schoolHtml = showSchool
       ? `<span class="card-badge badge-school">${schoolLogo?`<img class="badge-logo" src="${escapeHtml(schoolLogo)}" onerror="this.style.display='none'" alt="">`:''}${escapeHtml(schoolShort)}</span>`
       : '';
+    const assignChip = card.dataset.assigned
+      ? `<button class="card-assign-chip" onclick="openAssignMenu(event)" title="Assigned to ${escapeHtml(card.dataset.assigned)}" style="display:inline-flex;align-items:center;gap:.18rem;margin-top:.32rem;padding:.08rem .45rem;border:1px solid #c7d2fe;background:#eef2ff;color:#4338ca;border-radius:999px;font-size:.62rem;font-weight:700;cursor:pointer;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">👤 ${escapeHtml(card.dataset.assigned)}</button>`
+      : `<button class="card-assign-chip card-assign-empty" onclick="openAssignMenu(event)" title="Assign to a team member" style="display:inline-flex;align-items:center;gap:.18rem;margin-top:.32rem;padding:.08rem .45rem;border:1px dashed #cbd5e1;background:transparent;color:#94a3b8;border-radius:999px;font-size:.62rem;font-weight:600;cursor:pointer;">＋ Assign</button>`;
     card.innerHTML = `
       <input type="checkbox" class="card-select" onclick="onCardSelect(this, event)">
       <div class="card-top" style="display:flex;align-items:flex-start;gap:.5rem;">
@@ -3301,6 +3304,7 @@ function syncUniv() {
         <div style="flex:1;min-width:0;">
           <div class="name-row"><h4></h4>${card.dataset.camnemiId ? `<span class="card-badge camid-badge">${escapeHtml(card.dataset.camnemiId)}</span>` : ''}</div>
           <div class="card-badges">${schoolHtml}<span class="card-badge badge-prog">${escapeHtml(prog)}</span></div>
+          ${assignChip}
         </div>
       </div>`;
     card.querySelector('h4').textContent = name;
@@ -3536,6 +3540,9 @@ function syncUniv() {
     // current stage as hidden value for saveKoreaEdit compatibility
     const curStageHidden = curStage;
     const agencyOpts = AGENCIES.map(a=>`<option value="${escapeHtml(a.name)}" ${a.name===agency?'selected':''}>${escapeHtml(a.name)}</option>`).join('');
+    const assigned = card.dataset.assigned || '';
+    const teamNames = (typeof getTeamMembers==='function') ? getTeamMembers() : [];
+    const assignedOpts = '<option value="">— Unassigned —</option>' + teamNames.map(m=>`<option value="${escapeHtml(m)}" ${m===assigned?'selected':''}>${escapeHtml(m)}</option>`).join('') + (assigned && !teamNames.includes(assigned) ? `<option value="${escapeHtml(assigned)}" selected>${escapeHtml(assigned)}</option>` : '');
     // School dropdown from UNIV_KNOWLEDGE (Korean names) + current value
     const univList = (typeof UNIV_KNOWLEDGE !== 'undefined' && Array.isArray(UNIV_KNOWLEDGE)) ? UNIV_KNOWLEDGE : [];
     const schoolOpts = '<option value="">— Select school —</option>' + univList.map(u=>`<option value="${escapeHtml(u.n||'')}" ${(u.n===school)?'selected':''}>${escapeHtml(u.n||'')}${u.es?' ('+escapeHtml(u.es)+')':''}</option>`).join('') + (school && !univList.some(u=>u.n===school) ? `<option value="${escapeHtml(school)}" selected>${escapeHtml(school)}</option>` : '');
@@ -3626,6 +3633,7 @@ function syncUniv() {
             <div class="field" style="flex:1;"><label>🏢 Agency</label><select id="k-agency"><option value="">— Agency —</option>${agencyOpts}</select></div>
             <div class="field" style="flex:1;"><label>🎓 Program *</label><select id="k-program">${programOpts}</select></div>
           </div>
+          <div class="field"><label>👤 Assigned to</label><select id="k-assigned">${assignedOpts}</select></div>
           <div class="field"><label>🏫 School *</label>
             <div style="position:relative;">
               <input id="k-school-search" value="${escapeHtml(schoolDisplay)}" placeholder="🔍 대학교 검색 (예: 전북대학교 JBNU)..." oninput="filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
@@ -3756,6 +3764,7 @@ function syncUniv() {
     const oldContact = card.dataset.contact || '';
     const oldEmail = card.dataset.email || '';
     const oldAgency = card.dataset.agency || '';
+    const oldAssigned = card.dataset.assigned || '';
     card.dataset.name=name;
     if(nameChanged){ renameStudentFolderApp(oldName, name); }
     card.dataset.school=school;
@@ -3767,6 +3776,7 @@ function syncUniv() {
     card.dataset.contact=overlay.querySelector('#k-contact').value.trim();
     card.dataset.email=overlay.querySelector('#k-email').value.trim();
     card.dataset.agency=normalizeAgency(overlay.querySelector('#k-agency').value);
+    const asgEl=overlay.querySelector('#k-assigned'); if(asgEl) card.dataset.assigned = asgEl.value.trim();
     card.dataset.loan=overlay.querySelector('#k-loan').value.trim();
     const topikEl=overlay.querySelector('#k-topik'); if(topikEl) card.dataset.topik = topikEl.value;
     const ieltsEl=overlay.querySelector('#k-ielts'); if(ieltsEl) card.dataset.ielts = ieltsEl.value;
@@ -3824,6 +3834,7 @@ function syncUniv() {
     if (card.dataset.email && card.dataset.email !== oldEmail) changed.push('email');
     if (card.dataset.agency && card.dataset.agency !== oldAgency) changed.push('agency→'+card.dataset.agency);
     if (changed.length) logAction(name, 'Revise input', 'student', { fields: changed.join(', ') });
+    if (card.dataset.assigned !== oldAssigned) logAction(name, card.dataset.assigned ? ('Assigned to '+card.dataset.assigned) : 'Unassigned', 'student', { from: oldAssigned, to: card.dataset.assigned || '' });
     bumpCardRecent(card); reorderAllByRecent();
     saveNow();
     refreshCounts();
@@ -5260,7 +5271,7 @@ function syncUniv() {
         schoolEn: c.school_en || '', passport: c.passport || '',
         highschool: c.highschool || '', gradmonth: c.gradmonth || '',
         appdocs: c.appdocs || '[]', visadocs: c.visadocs || '[]',
-        camnemiId: c.camnemi_id || ''
+        camnemiId: c.camnemi_id || '', assigned: c.assigned || ''
       })),
       agencies: agencies || [],
       fees: fees || [],
@@ -5381,7 +5392,8 @@ function syncUniv() {
         school_en: c.schoolEn || '', passport: c.passport || '',
         highschool: c.highschool || '', gradmonth: c.gradmonth || '',
         appdocs: c.appdocs || '[]', visadocs: c.visadocs || '[]',
-        camnemi_id: c.camnemiId || c.camnemi_id || ''
+        camnemi_id: c.camnemiId || c.camnemi_id || '',
+        assigned: c.assigned || ''
       })), 'id');
     }
     return true;
@@ -5983,6 +5995,7 @@ function syncUniv() {
     card.dataset.notes = JSON.stringify(notes);
     input.value='';
     renderKoreaNotes(overlay, notes);
+    logAction(logStudentName(card), 'Note added', 'student', { text: text });
   }
   function editKoreaNote(idx){
     const overlay = document.getElementById('korea-edit-modal');
@@ -6006,7 +6019,7 @@ function syncUniv() {
     input.select();
     const commit = ()=>{
       const val = input.value.trim();
-      if(notes[idx] && val!==notes[idx].text){ notes[idx].text = val; notes[idx].time = nowStr(); card.dataset.notes = JSON.stringify(notes); }
+      if(notes[idx] && val!==notes[idx].text){ notes[idx].text = val; notes[idx].time = nowStr(); card.dataset.notes = JSON.stringify(notes); logAction(logStudentName(card), 'Note edited', 'student', { text: val }); }
       renderKoreaNotes(overlay, notes);
     };
     input.addEventListener('blur', commit);
@@ -6018,9 +6031,11 @@ function syncUniv() {
     const card = overlay._card;
     let notes = [];
     try { notes = JSON.parse(card.dataset.notes||'[]'); if(!Array.isArray(notes)) notes=[]; } catch(e){ notes=[]; }
+    const removed = notes[idx] ? (notes[idx].text||'') : '';
     notes.splice(idx,1);
     card.dataset.notes = JSON.stringify(notes);
     renderKoreaNotes(overlay, notes);
+    logAction(logStudentName(card), 'Note deleted', 'student', { text: removed });
   }
   function renderKoreaNotes(overlay, notes){
     const listEl = overlay.querySelector('#k-notes-list');
@@ -6583,6 +6598,7 @@ function syncUniv() {
         appdocs: card.dataset.appdocs || '[]',
         visadocs: card.dataset.visadocs || '[]',
         camnemiId: card.dataset.camnemiId || '',
+        assigned: card.dataset.assigned || '',
         customFields: (LIST_CUSTOM_COLS.reduce((o,c)=>{ const k=c.replace(/[^a-z0-9]/gi,'').toLowerCase(); o[c]=card.dataset[k]||''; return o; },{}))
       });
     });
@@ -6671,7 +6687,7 @@ function syncUniv() {
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact','parentName','schoolEn','passport','highschool','gradmonth','appdocs','visadocs','camnemiId'].forEach(k=>{
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact','parentName','schoolEn','passport','highschool','gradmonth','appdocs','visadocs','camnemiId','assigned'].forEach(k=>{
         if(c[k]!==undefined) card.dataset[k]=c[k];
       });
       if (Array.isArray(c.docs) && c.docs.length) card.dataset.folderFiles = JSON.stringify(c.docs);
@@ -6982,6 +6998,109 @@ function syncUniv() {
     const u = currentUser();
     return (u.name && u.name!=='Guest') ? u.name : (u.email ? u.email.split('@')[0] : 'Guest');
   }
+  // ======= TEAM ROSTER + PER-CARD ASSIGN =======
+  // Editable roster lives in localStorage 'camnemi_team'; sign-ins are auto-collected
+  // from the activity log so every @camnemi.com user who has used the CRM shows up.
+  function teamRoster(){
+    let r = []; try { r = JSON.parse(localStorage.getItem('camnemi_team')||'[]'); } catch(e){}
+    if(!Array.isArray(r)) r = [];
+    return r;
+  }
+  function saveTeamRoster(r){ try { localStorage.setItem('camnemi_team', JSON.stringify(r||[])); } catch(e){} }
+  function getTeamMembers(){
+    const names = new Set();
+    teamRoster().forEach(m=>{ if(m && m.name) names.add(m.name); });
+    // everyone who ever signed in (section 'auth' / action 'Log in')
+    ACTIVITY_LOG.forEach(l=>{ if(l.section==='auth' || l.action==='Log in'){ const nm=String(l.student||l.user||'').trim(); if(nm && nm!=='Guest') names.add(nm); } });
+    const cu = currentUserName(); if(cu && cu!=='Guest') names.add(cu);
+    return Array.from(names).sort();
+  }
+  function addTeamMemberName(name){
+    name = (name||'').trim(); if(!name) return;
+    const r = teamRoster();
+    if(!r.some(m=>m.name===name)) r.push({ name:name, email:'' });
+    saveTeamRoster(r);
+  }
+  function removeTeamMemberName(name){
+    saveTeamRoster(teamRoster().filter(m=>m.name!==name));
+  }
+  function removeTeamMemberByIndex(i){
+    const members = getTeamMembers();
+    if(members[i]!==undefined) removeTeamMemberName(members[i]);
+  }
+  function assignCardTo(card, name){
+    const old = card.dataset.assigned || '';
+    const nm = (name||'').trim();
+    if(old === nm) return;
+    card.dataset.assigned = nm;
+    if(nm) addTeamMemberName(nm);
+    refreshCardBody(card);
+    logAction(logStudentName(card), nm ? ('Assigned to '+nm) : 'Unassigned', 'student', { from: old, to: nm });
+    bumpCardRecent(card); reorderAllByRecent();
+    saveNow(); forcePushNow();
+  }
+  let __assignCard = null;
+  function openAssignMenu(ev){
+    ev.stopPropagation();
+    const card = ev.target.closest ? ev.target.closest('.customer-card') : null;
+    if(!card) return;
+    __assignCard = card;
+    closeAssignMenu();
+    const members = getTeamMembers();
+    const cur = card.dataset.assigned || '';
+    let html = '<div style="font-size:.7rem;color:#94a3b8;padding:.3rem .55rem;font-weight:600;">Assign to</div>';
+    html += `<button class="assign-opt" onclick="assignByIndex(-1)" style="display:block;width:100%;text-align:left;background:none;border:none;padding:.42rem .55rem;border-radius:.4rem;cursor:pointer;font-size:.82rem;color:#334155;">${cur ? '↩ Unassign' : '👤 Unassigned'}</button>`;
+    members.forEach((m,i)=>{
+      html += `<button class="assign-opt" onclick="assignByIndex(${i})" style="display:block;width:100%;text-align:left;background:none;border:none;padding:.42rem .55rem;border-radius:.4rem;cursor:pointer;font-size:.82rem;color:#334155;">${m===cur?'✓ ':''}${escapeHtml(m)}</button>`;
+    });
+    html += '<div style="border-top:1px solid #eef0f4;margin:.3rem 0;"></div>';
+    html += '<button class="assign-opt" onclick="openTeamManager()" style="display:block;width:100%;text-align:left;background:none;border:none;padding:.42rem .55rem;border-radius:.4rem;cursor:pointer;font-size:.82rem;color:#2563eb;font-weight:600;">✏️ Manage team…</button>';
+    const menu = document.createElement('div');
+    menu.id = 'assign-menu';
+    menu.style.cssText = 'position:fixed;z-index:9999;background:#fff;border:1px solid #e2e8f0;border-radius:.6rem;box-shadow:0 10px 30px rgba(0,0,0,.18);min-width:200px;max-height:340px;overflow:auto;padding:.3rem;';
+    menu.innerHTML = html;
+    menu.addEventListener('mouseenter',()=>{ menu._hover=true; });
+    menu.addEventListener('mouseleave',()=>{ menu._hover=false; });
+    const rect = ev.target.getBoundingClientRect();
+    menu.style.top = Math.min(rect.bottom + 6, window.innerHeight - 220) + 'px';
+    menu.style.left = Math.min(rect.left, window.innerWidth - 230) + 'px';
+    document.body.appendChild(menu);
+    setTimeout(()=>{ document.addEventListener('click', closeAssignMenuOnClick); }, 0);
+  }
+  function assignByIndex(i){
+    const card = __assignCard; if(!card) return;
+    const members = getTeamMembers();
+    assignCardTo(card, i < 0 ? '' : (members[i]||''));
+    closeAssignMenu();
+  }
+  function closeAssignMenu(){ const m=document.getElementById('assign-menu'); if(m) m.remove(); document.removeEventListener('click', closeAssignMenuOnClick); }
+  function closeAssignMenuOnClick(ev){ if(ev.target.closest && ev.target.closest('#assign-menu')) return; closeAssignMenu(); }
+  function openTeamManager(){
+    closeAssignMenu();
+    const members = getTeamMembers();
+    const overlay = document.createElement('div'); overlay.className='modal-overlay'; overlay.id='team-manager-modal';
+    overlay.innerHTML = `
+      <div class="modal" style="max-width:460px;">
+        <h2 style="margin:0 0 .7rem;">👥 Team members (@camnemi.com)</h2>
+        <div style="font-size:.76rem;color:#64748b;margin-bottom:.9rem;">These names are offered when you assign a student. People who sign in are collected automatically.</div>
+        <div id="team-list" style="max-height:260px;overflow:auto;margin-bottom:.8rem;">
+          ${members.map((m,i)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:.4rem .55rem;border:1px solid #eef0f4;border-radius:.45rem;margin-bottom:.3rem;"><span style="font-size:.86rem;font-weight:600;color:#111827;">${escapeHtml(m)}</span><button class="btn btn-danger" onclick="removeTeamMemberByIndex(${i});openTeamManager()" style="font-size:.72rem;padding:.22rem .55rem;">Remove</button></div>`).join('') || '<div style="color:#94a3b8;font-size:.82rem;padding:.4rem;">No members yet.</div>'}
+        </div>
+        <div style="display:flex;gap:.4rem;margin-bottom:.9rem;">
+          <input id="team-new-name" placeholder="Name (e.g. Sreylin)" style="flex:1;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;box-sizing:border-box;">
+          <button class="btn btn-save" onclick="addTeamMemberFromInput()" style="font-size:.82rem;white-space:nowrap;">＋ Add</button>
+        </div>
+        <div class="modal-actions"><button class="btn btn-save" onclick="closeModal()">Done</button></div>
+      </div>`;
+    document.body.appendChild(overlay); setTimeout(()=>overlay.style.opacity='1',10);
+  }
+  function addTeamMemberFromInput(){
+    const inp=document.getElementById('team-new-name');
+    if(!inp) return;
+    addTeamMemberName(inp.value);
+    openTeamManager();
+  }
+
   // Update the top-bar badge with the signed-in account
   function updateAuthBadge() {
     const b = document.getElementById('auth-badge');
