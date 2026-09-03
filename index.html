@@ -3243,17 +3243,30 @@ function syncUniv() {
   // Render a card's innerHTML based on stage:
   //  - Contact (New Customers): inline editable inputs (Name, Contact, Note, Agency)
   //  - other stages: standard display
-  // A file counts as the student's card PHOTO only if it's an image whose name says
-  // "photo/picture/사진" — and NOT a passport, ID card, residence card, student ID, etc.
+  // A file counts as the student's card PHOTO if it's an image — passport photos
+  // (jpg named "Passport.jpg" or "Photo.jpg") are fine; only document scans
+  // (passport *page*, ID card, residence card, student ID, certificates) are excluded.
   function isCardPhoto(f) {
     const n = f.name || '';
     if (!/\.(jpe?g|png|webp|gif|bmp)$/i.test(n)) return false;
-    // never a document: passport / ID / residence / student card / certificate
-    if (/passport|여권|passeport/i.test(n)) return false;
+    // never a document scan: ID / residence / student card / certificate
     if (/identity|\bid\b|id_|id-|idcard|residence|resident|rcard|student\s*id|학생증|신분증|주민증|identity card|khmers?id|id card/i.test(n)) return false;
     if (/certificate|cert|family.?book|birth.?cert|transcript|tuberculosis|tb\s*test|healthy|checklist|check.?list|bank.?statement|income|health|medical|재직|signature|sign\b|엄마|아빠/i.test(n)) return false;
+    // passport scans (PDF) are filtered separately; an IMAGE named *passport* is the
+    // passport-style portrait photo (e.g. "Seang_Thaimeng_Passport.jpg")
+    if (/passport|여권|passeport/i.test(n)) return true;
     // must look like a photo
     return /photo|picture|사진|이미지|image|img/i.test(n);
+  }
+  // Fallback for folders whose portrait photo has a camera-export name
+  // (e.g. "R9287ff copy.jpg") — any image that is not a document scan.
+  function isCardPhotoAnyImage(f) {
+    const n = f.name || '';
+    if (!/\.(jpe?g|png|webp|gif|bmp)$/i.test(n)) return false;
+    if (/identity|\bid\b|id_|id-|idcard|residence|resident|rcard|student\s*id|학생증|신분증|주민증|identity card|khmers?id|id card/i.test(n)) return false;
+    if (/certificate|cert|family.?book|birth.?cert|transcript|tuberculosis|tb\s*test|healthy|checklist|check.?list|bank.?statement|income|health|medical|재직|signature|sign\b|엄마|아빠/i.test(n)) return false;
+    if (/passport|여권|passeport/i.test(n)) return true;
+    return true; // any remaining image is treated as the portrait
   }
   // A "photo in PDF" — name says photo but it's a PDF (can't render inline, but flag it)
   function isPdfPhoto(f) {
@@ -3279,7 +3292,10 @@ function syncUniv() {
         try {
           const files = JSON.parse(card.dataset.folderFiles || '[]');
           if (Array.isArray(files)) {
-            const ph = files.find(f => isCardPhoto(f));
+            let ph = files.find(f => isCardPhoto(f));
+            // Fallback: no keyword-matched photo? Any image that is NOT a document
+            // scan (e.g. camera-export names like "R9287ff copy.jpg") is the portrait.
+            if (!ph) ph = files.find(f => isCardPhotoAnyImage(f));
             if (ph && ph.url) {
               photoUrl = driveImageUrl(ph.url);
             } else {
@@ -3580,7 +3596,8 @@ function syncUniv() {
     try {
       const files = JSON.parse(card.dataset.folderFiles || '[]');
       if (Array.isArray(files)) {
-        const ph = files.find(f => isCardPhoto(f));
+        let ph = files.find(f => isCardPhoto(f));
+        if (!ph) ph = files.find(f => isCardPhotoAnyImage(f));
         if (ph && ph.url) hdrPhotoUrl = driveImageUrl(ph.url);
       }
     } catch(e){}
@@ -5201,7 +5218,10 @@ function syncUniv() {
       'Authorization': 'Bearer ' + supabaseKey(),
       'Content-Type': 'application/json'
     }, (opts && opts.headers) || {});
-    const res = await fetch(url, Object.assign({}, opts, { headers }));
+    // keepalive:true lets the request survive page unload (beforeunload refresh) —
+    // without it the browser cancels the fetch and the card move is lost, which
+    // made cards silently revert to their old pipeline/stage on reload.
+    const res = await fetch(url, Object.assign({ keepalive: true }, opts, { headers }));
     const text = await res.text();
     if (!res.ok) throw new Error('Supabase HTTP '+res.status+' '+text.slice(0,200));
     return text ? JSON.parse(text) : null;
@@ -5554,27 +5574,29 @@ function syncUniv() {
           // under different random client ids (multiple devices / re-adds). Keep
           // one row per name, preferring the row with a passport/notes (richer)
           // and then the most recently updated, so duplicates stop accumulating.
+          // The NEWER row wins — NOT "local always wins". Otherwise a stale tab
+          // (opened before a move) would push its old pipeline/stage and silently
+          // revert the move that another tab just made.
           const byName = new Map();
           for (const c of merged) {
             const key = String(c.name || '').trim().toUpperCase();
             if (!key) { byName.set(c.id || Math.random(), c); continue; }
             const prev = byName.get(key);
             if (!prev) { byName.set(key, c); continue; }
-            // LOCAL (current DOM, what the user is looking at / just moved) ALWAYS
-            // beats remote, regardless of score. Without this, a welcome card with a
-            // passport would win over a just-moved stay card and the move would revert.
-            const cIsLocal = localIds.has(c.id);
-            const pIsLocal = localIds.has(prev.id);
-            if (cIsLocal && !pIsLocal) { byName.set(key, c); continue; }
-            if (!cIsLocal && pIsLocal) { continue; }
-            // both local or both remote → richer row, then most recently updated
+            const cRecent = parseInt(c.recent || '0', 10) || 0;
+            const pRecent = parseInt(prev.recent || '0', 10) || 0;
+            const cUpd = new Date(c.updated_at || 0).getTime();
+            const pUpd = new Date(prev.updated_at || 0).getTime();
+            // newer recent (explicit move/edit timestamp) always wins
+            if (cRecent !== pRecent) {
+              if (cRecent > pRecent) byName.set(key, c);
+              continue;
+            }
+            // richer row wins, then newer updated_at
             const prevScore = (prev.passport?1:0) + (prev.notes&&prev.notes.length?1:0) + (prev.birthdate?1:0);
             const curScore  = (c.passport?1:0) + (c.notes&&c.notes.length?1:0) + (c.birthdate?1:0);
-            const prevUpd = new Date(prev.updated_at||0).getTime();
-            const curUpd  = new Date(c.updated_at||0).getTime();
-            if (curScore > prevScore || (curScore === prevScore && curUpd > prevUpd)) {
-              byName.set(key, c);
-            }
+            if (curScore > prevScore) { byName.set(key, c); continue; }
+            if (curScore === prevScore && cUpd > pUpd) byName.set(key, c);
           }
           payload.customers = Array.from(byName.values());
         }
@@ -7332,9 +7354,34 @@ function syncUniv() {
       // A debounced push dies with the page on refresh, which made card moves
       // silently revert to their old pipeline/stage on reload.
       try { localStorage.setItem(DB_KEY, JSON.stringify(exportAllData())); } catch(e){}
-      if (__bootDone && (useSupabase() || backendUrl())) {
+      if (__bootDone && useSupabase()) {
         clearTimeout(__pushTimer);
         __syncing = false;
+        // Lightweight keepalive push: ONLY recently-moved cards (id/pipe/stage).
+        // The full export is often hundreds of KB — over the 64KB keepalive limit
+        // and cancelled by the browser on unload. This slim row always fits and
+        // survives the refresh, so the move can never be lost.
+        try {
+          const cutoff = Date.now() - 30000;
+          const moved = [];
+          document.querySelectorAll('.customer-card').forEach(card => {
+            const r = parseInt(card.dataset.recent || '0', 10) || 0;
+            if (r >= cutoff) {
+              moved.push({ id: card.id, pipe: card.dataset.pipe || '', stage: card.dataset.stage || '', name: card.dataset.name || '', recent: String(r) });
+            }
+          });
+          if (moved.length) {
+            fetch(supabaseUrl() + '/rest/v1/customers?on_conflict=id', {
+              method: 'POST', keepalive: true,
+              headers: {
+                'apikey': supabaseKey(), 'Authorization': 'Bearer ' + supabaseKey(),
+                'Content-Type': 'application/json', 'Prefer': 'resolution=merge-duplicates,return=minimal'
+              },
+              body: JSON.stringify(moved)
+            }).catch(()=>{});
+          }
+        } catch(e){}
+        // full best-effort push as well (may be cancelled, but the slim push above is not)
         syncPush().catch(()=>{});
       }
     });
