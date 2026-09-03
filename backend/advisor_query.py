@@ -44,6 +44,30 @@ def parse_topik(lang_req):
     return int(m.group(1)) if m else None
 
 
+def max_scholarship_pct(s):
+    """Return the best scholarship discount % advertised by a school
+    (from scholarships_categorized tiers / scholarship strings)."""
+    best = 0
+    sc = s.get("scholarships_categorized") or []
+    for x in sc:
+        for t in x.get("tiers", []):
+            amt = str(t.get("amount", ""))
+            m = re.search(r"(\d{2,3})\s*%", amt)
+            if m:
+                v = int(m.group(1))
+                if "전액" in amt or "100%" in amt:
+                    v = 100
+                best = max(best, v)
+    if not best:
+        txt = str(s.get("scholarship", ""))
+        for m in re.finditer(r"(\d{2,3})\s*%", txt):
+            v = int(m.group(1))
+            if "전액" in txt or "100%" in txt:
+                v = 100
+            best = max(best, v)
+    return best
+
+
 def main():
     ap = argparse.ArgumentParser(description="Camnemi verified university query")
     ap.add_argument("--ielts", type=float, help="min IELTS score the student has")
@@ -53,6 +77,7 @@ def main():
     ap.add_argument("--level", type=str, choices=["ba", "ma", "junior"], default="ba", help="ba=bachelor, ma=master's, junior=2yr college")
     ap.add_argument("--region", type=str, help="region filter (e.g. 서울, 경기, 부산)")
     ap.add_argument("--max_tuition", type=int, help="max tuition per semester (KRW)")
+    ap.add_argument("--scholarship_min", type=int, help="min scholarship discount % (e.g. 80 = 80%+ off)")
     ap.add_argument("--year", type=str, help="2027 or 2026")
     ap.add_argument("--top", type=int, default=15)
     args = ap.parse_args()
@@ -73,6 +98,9 @@ def main():
 
     results = []
     for name, s in section.items():
+        # EXCLUSION filter: skip theological colleges, education univs, schools <2000 students
+        if s.get("excluded"):
+            continue
         # track filter (bachelor only has track field)
         if args.track != "all" and "track" in s:
             want = "영어트랙" if args.track == "english" else "한국어트랙"
@@ -111,6 +139,10 @@ def main():
                 continue
             if s["tuition_min"] > args.max_tuition:
                 continue
+        # scholarship % filter
+        if args.scholarship_min:
+            if max_scholarship_pct(s) < args.scholarship_min:
+                continue
         # major keyword (match English + Korean aliases)
         if args.major:
             alias = {
@@ -122,6 +154,14 @@ def main():
                 "english": ["english", "영어", "language", "언어"],
                 "global": ["global", "글로벌", "international", "국제"],
                 "hospitality": ["hospitality", "호텔", "관광", "외식", "항공서비스"],
+                "food": ["food", "식품", "영양", "조리", "푸드", "외식", "메디푸드", "한방식품"],
+                "cosmetic": ["cosmetic", "화장품", "뷰티", "미용", "코스메틱", "향장", "스킨", "네일", "헤어", "메이크업", "뷰티케어", "K-뷰티"],
+                "pharmacy": ["pharmacy", "약학", "제약", "약과학"],
+                "nursing": ["nursing", "간호"],
+                "bio": ["bio", "생명", "바이오", "생물"],
+                "design": ["design", "디자인", "패션", "의류"],
+                "media": ["media", "미디어", "방송", "영화", "애니메이션", "웹툰", "게임"],
+                "ai": ["ai", "인공지능", "artificial intelligence"],
             }
             keys = alias.get(args.major.lower(), [args.major.lower()])
             hay = ""
@@ -136,12 +176,15 @@ def main():
                 continue
         results.append(s)
 
-    # sort by rank (parse #N)
+    # sort by rank (parse #N); if scholarship_min given, sort by scholarship % desc first
     def rank_key(s):
         m = re.match(r"#(\d+)", str(s.get("rank", "-")))
         return (0 if m else 1, int(m.group(1)) if m else 999)
 
-    results.sort(key=rank_key)
+    if args.scholarship_min:
+        results.sort(key=lambda s: -max_scholarship_pct(s))
+    else:
+        results.sort(key=rank_key)
     results = results[: args.top]
 
     if not results:
@@ -196,6 +239,14 @@ def main():
                 print(f"   💵 {' / '.join(parts)}")
         if s.get("scholarship"):
             print(f"   Scholarship: {en_scholarship(s['scholarship'])}")
+        # verified TOPIK6 scholarship (master, from original guide PDF scan)
+        v6 = s.get("scholarship_topik6_verified")
+        if v6:
+            print(f"   🏆 TOPIK6 verified: {en_scholarship(v6)}")
+        # scholarship % badge
+        pct = max_scholarship_pct(s)
+        if pct:
+            print(f"   💰 Best scholarship: up to {pct}% tuition off")
         # categorized scholarships: enroll/existing × academic/language (preferred)
         sc = s.get("scholarships_categorized") or []
         en = (s.get("scholarships") or {}).get("enroll") or []
