@@ -84,6 +84,43 @@ def ielts_playbook():
     return _PLAYBOOK
 
 
+# TOPIK scholarship tier playbook (from 2026/2027 BA guides) — keyed by Korean school name
+_TOPIK_PB = None
+
+
+def topik_playbook():
+    global _TOPIK_PB
+    if _TOPIK_PB is None:
+        try:
+            p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "topik_scholarship_tiers.json")
+            with open(p, encoding="utf-8") as f:
+                _TOPIK_PB = json.load(f)
+        except Exception:
+            _TOPIK_PB = {}
+    return _TOPIK_PB
+
+
+def topik_tier_pct(school, level):
+    """Return scholarship % a TOPIK level holder gets at school, or None."""
+    d = topik_playbook().get(school)
+    if not d:
+        return None
+    tiers = {}
+    for k, v in (d.get("tiers") or {}).items():
+        try:
+            tiers[int(k)] = v
+        except (TypeError, ValueError):
+            continue
+    # exact match first, else nearest tier at/below the level
+    if level in tiers:
+        return tiers[level]
+    best = None
+    for k, v in sorted(tiers.items()):
+        if k <= level:
+            best = v
+    return best
+
+
 def main():
     ap = argparse.ArgumentParser(description="Camnemi verified university query")
     ap.add_argument("--ielts", type=float, help="min IELTS score the student has")
@@ -223,6 +260,12 @@ def main():
                 print(f"   🎯 IELTS {args.ielts} → {pb['pct']}% tuition off ({pb.get('note','')[:100]})")
             elif pb:
                 print(f"   🎯 IELTS {args.ielts} → no tier (need higher: {pb.get('note','')[:90]})")
+        # TOPIK playbook tier
+        if args.topik is not None and args.level == "ba":
+            tpct = topik_tier_pct(name, args.topik)
+            if tpct is not None:
+                d = topik_playbook().get(name, {})
+                print(f"   🎯 TOPIK {args.topik} → {tpct}% tuition off ({d.get('note','')[:90]})")
         major_src = s.get("majors") or s.get("majors_sample") or []
         if isinstance(major_src, list):
             majors_txt = ", ".join(en_major(str(m)) for m in major_src[:5])
