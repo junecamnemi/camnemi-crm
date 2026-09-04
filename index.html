@@ -49,6 +49,7 @@
     .filter-clear { margin-left:auto; padding:.3rem .7rem; border:1px solid #e2e8f0; border-radius:999px; font-size:.72rem; font-weight:600; color:#64748b; background:#f8fafc; cursor:pointer; }
     .filter-clear:hover { background:#f1f5f9; color:#ef4444; border-color:#fecaca; }
     .filter-pills { display: inline-flex; flex-wrap: wrap; gap: .3rem; align-items: center; }
+    .filter-toggle-row { display: none; }
 
     .list-table th.sortable { cursor:pointer; user-select:none; white-space:nowrap; }
     .list-table th.sortable:hover { color:#2563eb; }
@@ -283,11 +284,59 @@
       .modal { width: 95%; max-height: 92vh; }
       .list-table { font-size: .72rem; }
       .btn, button { min-height: 34px; }
+      /* NEW: mobile-friendly extras */
+      .filter-toggle-row { display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: .15rem .1rem .45rem; user-select: none; }
+      .filter-bar.collapsed .filter-scroll { display: none; }
+      .filter-bar.collapsed #filter-toggle-chev { transform: rotate(-90deg); }
+      .stats-row { grid-template-columns: repeat(3, 1fr); gap: .5rem; margin-bottom: 1rem; }
+      .stat .num { font-size: 1.25rem; }
+      .stat { padding: .7rem .4rem; }
+      .filter-bar { padding: .6rem .7rem; }
+      .filter-scroll { max-height: 150px !important; }
+      .view-toggle { order: 3; width: 100%; justify-content: stretch; }
+      .view-toggle button { flex: 1; }
+      .view-toggle button:last-child { background: transparent !important; color: #475569 !important; border: none !important; }
+      .card-select { top: .35rem; right: .35rem; }
+      .camid-badge { font-size: .56rem; padding: .08rem .35rem; max-width: 88px; overflow: hidden; text-overflow: ellipsis; }
+      .card-assign-chip { min-height: 28px; font-size: .64rem; }
+      .list-view { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .list-table { min-width: 520px; }
+      .contact-add-fab { padding: .65rem 1rem; font-size: .85rem; }
     }
     @media (max-width: 520px) {
       .stage { flex: 0 0 175px; }
       .customer-card { padding: .7rem; }
+      .customer-card { border-left-width: 3px !important; }
       .topbar h1 { font-size: 1rem; }
+      /* NEW: small-phone extras */
+      .stats-row { grid-template-columns: repeat(2, 1fr); gap: .4rem; }
+      .stat .num { font-size: 1.1rem; }
+      .filter-label { width: 62px; font-size: .62rem; }
+      .filter-scroll { max-height: 132px !important; }
+      .click-filter { padding: .32rem .6rem; font-size: .72rem; }
+      .topbar { gap: .3rem; }
+      #auth-badge { padding: .28rem .5rem; font-size: .68rem; }
+      #view-log-btn { font-size: .7rem; padding: .3rem .55rem; }
+      .card-assign-chip { min-height: 32px; }
+      .camid-badge { max-width: none; overflow: visible; text-overflow: clip; white-space: nowrap; font-size: .6rem; }
+      .stage-name { white-space: normal; line-height: 1.15; }
+      .modal { width: 100%; border-radius: 1rem 1rem 0 0; max-height: 94vh; }
+      .modal-overlay { align-items: flex-end; }
+      .modal-actions button { flex: 1; }
+      .name-row { flex-wrap: wrap; row-gap: .15rem; }
+      .customer-card h4 { font-size: .85rem; }
+      .customer-card .card-photo { width: 40px; height: 52px; }
+      .customer-card .note { font-size: .75rem; }
+      .activity-panel { width: 100%; max-width: 100%; }
+      .stage { height: calc(100vh - 300px); }
+      .pipeline { gap: .5rem; }
+    }
+    @media (max-width: 380px) {
+      .stage { flex: 0 0 165px; }
+      .filter-label { width: 100%; margin-bottom: .15rem; }
+      .click-filter { font-size: .68rem; padding: .28rem .5rem; }
+      .topbar h1 { font-size: .9rem; }
+      .view-toggle button { font-size: .68rem; padding: .3rem .3rem; }
     }
 </style>
 </head>
@@ -443,7 +492,11 @@
     </div>
 
     <!-- Filters -->
-    <div class="filter-bar">
+    <div class="filter-bar" id="filter-bar">
+      <div class="filter-toggle-row" onclick="toggleFilterBar()">
+        <span style="font-size:.75rem;font-weight:700;color:#475569;">🔍 Filters</span>
+        <span id="filter-toggle-chev" style="font-size:.7rem;color:#94a3b8;transition:transform .2s;">▾</span>
+      </div>
                         <!-- Filter pills: Stage, School, Program+AppDate, Agency -->
       <div class="filter-scroll" style="max-height:200px;overflow-y:auto;padding-right:4px;margin-bottom:.5rem;border:1px solid #eef0f4;border-radius:.6rem;padding:.5rem .6rem;">
         <div class="filter-row">
@@ -4692,6 +4745,11 @@ function syncUniv() {
 
   // ======= FILTER (click pills: stage / program / school / agency / appdate) =======
   let filterState = { stage:[], program:[], school:[], agency:[], appdate:[], loan:[], flag:[], assigned:[] };
+  // Mobile: collapse/expand the filter pill section (search row stays visible)
+  function toggleFilterBar(){
+    const fb = document.getElementById('filter-bar');
+    if (fb) fb.classList.toggle('collapsed');
+  }
   // click a pill to set that value; click "Any" (fval='') or same pill again to clear
   function toggleClickFilter(el) {
     const ftype = el.dataset.ftype;
@@ -7443,6 +7501,11 @@ function syncUniv() {
     setTimeout(rebuildFilterBar, 50);  // populate Agency + School pills from databases
     __bootDone = true;  // now allow pushes
     __suppressSave = false;  // release the boot hold after everything is rendered
+    // Start with the filter pill section collapsed on phones so cards get screen space
+    if (window.innerWidth <= 860) {
+      const fb = document.getElementById('filter-bar');
+      if (fb) fb.classList.add('collapsed');
+    }
     // If the user moved/edited a card while boot was still loading, push it now.
     flushPendingPush();
 
