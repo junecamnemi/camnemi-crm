@@ -68,6 +68,22 @@ def max_scholarship_pct(s):
     return best
 
 
+# IELTS scholarship tier playbook (from 2026/2027 BA guides) — keyed by Korean school name
+_PLAYBOOK = None
+
+
+def ielts_playbook():
+    global _PLAYBOOK
+    if _PLAYBOOK is None:
+        try:
+            p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ielts55_playbook.json")
+            with open(p, encoding="utf-8") as f:
+                _PLAYBOOK = json.load(f)
+        except Exception:
+            _PLAYBOOK = {}
+    return _PLAYBOOK
+
+
 def main():
     ap = argparse.ArgumentParser(description="Camnemi verified university query")
     ap.add_argument("--ielts", type=float, help="min IELTS score the student has")
@@ -200,6 +216,13 @@ def main():
         lg = logo(name)
         lgp = f" [{lg}]" if lg else ""
         print(f"■ {en_name(name)}{lgp} ({rk}, {en_region(s.get('region') or s.get('loc',''))})")
+        # IELTS playbook tier (if we have verified IELTS->% data for this school)
+        if args.ielts is not None and args.level == "ba":
+            pb = ielts_playbook().get(name)
+            if pb and pb.get("pct", 0) > 0:
+                print(f"   🎯 IELTS {args.ielts} → {pb['pct']}% tuition off ({pb.get('note','')[:100]})")
+            elif pb:
+                print(f"   🎯 IELTS {args.ielts} → no tier (need higher: {pb.get('note','')[:90]})")
         major_src = s.get("majors") or s.get("majors_sample") or []
         if isinstance(major_src, list):
             majors_txt = ", ".join(en_major(str(m)) for m in major_src[:5])
