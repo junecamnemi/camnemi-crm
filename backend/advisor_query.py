@@ -68,8 +68,9 @@ def max_scholarship_pct(s):
     return best
 
 
-# Unified scholarship playbook (입학 + 재학) from 2026/2027 BA guides — keyed by Korean school name
+# Unified scholarship playbook (입학 + 재학) from 2026/2027 guides — keyed by Korean school name
 _PLAYBOOK = None
+_MA_PLAYBOOK = None
 
 
 def playbook():
@@ -84,6 +85,18 @@ def playbook():
     return _PLAYBOOK
 
 
+def ma_playbook():
+    global _MA_PLAYBOOK
+    if _MA_PLAYBOOK is None:
+        try:
+            p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scholarship_playbook_master.json")
+            with open(p, encoding="utf-8") as f:
+                _MA_PLAYBOOK = json.load(f)
+        except Exception:
+            _MA_PLAYBOOK = {}
+    return _MA_PLAYBOOK
+
+
 def _tier_val(tier, level):
     """Resolve a tier entry for a TOPIK level (T3..T6) or IELTS score (I5.5..)."""
     if tier is None:
@@ -95,9 +108,9 @@ def _tier_val(tier, level):
     return None
 
 
-def topik_tier_pct(school, level):
+def topik_tier_pct(school, level, pb=None):
     """Return (enroll%, existing%) a TOPIK level holder gets at school."""
-    d = playbook().get(school)
+    d = (pb or playbook()).get(school)
     if not d:
         return None, None
     en, ex = None, None
@@ -124,9 +137,9 @@ def topik_tier_pct(school, level):
     return en, ex
 
 
-def ielts_tier_pct(school, score):
+def ielts_tier_pct(school, score, pb=None):
     """Return (enroll%, existing%) an IELTS score holder gets at school."""
-    d = playbook().get(school)
+    d = (pb or playbook()).get(school)
     if not d:
         return None, None
     en, ex = None, None
@@ -286,23 +299,24 @@ def main():
         lgp = f" [{lg}]" if lg else ""
         print(f"■ {en_name(name)}{lgp} ({rk}, {en_region(s.get('region') or s.get('loc',''))})")
         # Scholarship tier badges: admission (입학) + during-study (재학) shown together
-        if args.ielts is not None and args.level == "ba":
-            en, ex = ielts_tier_pct(name, args.ielts)
+        pb = ma_playbook() if args.level == "ma" else playbook()
+        if args.ielts is not None:
+            en, ex = ielts_tier_pct(name, args.ielts, pb)
             if en is not None or ex is not None:
                 parts = []
                 if en is not None:
-                    parts.append(f"admission {en}%" if isinstance(en, int) else f"admission: {en_scholarship(str(en))}")
+                    parts.append(f"admission {en}%" if isinstance(en, int) else f"admission: {en}")
                 if ex is not None:
-                    parts.append(f"during-study {ex}%" if isinstance(ex, int) else f"during-study: {en_scholarship(str(ex))}")
+                    parts.append(f"during-study {ex}%" if isinstance(ex, int) else f"during-study: {ex}")
                 print(f"   🎯 IELTS {args.ielts}: {' / '.join(parts)} tuition off")
-        if args.topik is not None and args.level == "ba":
-            en, ex = topik_tier_pct(name, args.topik)
+        if args.topik is not None:
+            en, ex = topik_tier_pct(name, args.topik, pb)
             if en is not None or ex is not None:
                 parts = []
                 if en is not None:
-                    parts.append(f"admission {en}%" if isinstance(en, int) else f"admission: {en_scholarship(str(en))}")
+                    parts.append(f"admission {en}%" if isinstance(en, int) else f"admission: {en}")
                 if ex is not None:
-                    parts.append(f"during-study {ex}%" if isinstance(ex, int) else f"during-study: {en_scholarship(str(ex))}")
+                    parts.append(f"during-study {ex}%" if isinstance(ex, int) else f"during-study: {ex}")
                 print(f"   🎯 TOPIK {args.topik}: {' / '.join(parts)} tuition off")
         major_src = s.get("majors") or s.get("majors_sample") or []
         if isinstance(major_src, list):
