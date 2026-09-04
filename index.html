@@ -157,6 +157,8 @@
     .btn-save:hover { filter: brightness(1.05); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(59,130,246,.4); }
     .btn-cancel { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
     .btn-cancel:hover { background: #e2e8f0; color: #1e293b; }
+    .btn-nav { background:#eef2ff; color:#4338ca; border:1px solid #c7d2fe; font-weight:700; cursor:pointer; border-radius:.5rem; }
+    .btn-nav:hover { background:#e0e7ff; }
     .btn-danger { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; margin-right: auto; }
     .btn-danger:hover { background: #fee2e2; }
     .btn-archive { background: #eef2ff; color: #4f46e5; border: 1px solid #c7d2fe; margin-right: auto; }
@@ -197,9 +199,9 @@
     .doc-fold-toggle:hover { color: #3b82f6; }
 
     /* ===== List view ===== */
-    .list-view { display: none; background: #fff; border-radius: .75rem; box-shadow: 0 2px 8px rgba(0,0,0,.08); overflow: hidden; }
-    .list-table { width: 100%; border-collapse: collapse; font-size: .85rem; table-layout: fixed; }
-    .list-table thead th { background: #f1f5f9; color: #334155; text-align: left; padding: .7rem .9rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .03em; border-bottom: 1px solid #e2e8f0; overflow: hidden; }
+    .list-view { display: none; background: #fff; border-radius: .75rem; box-shadow: 0 2px 8px rgba(0,0,0,.08); overflow: auto; }
+    .list-table { width: 100%; border-collapse: collapse; font-size: .85rem; table-layout: fixed; min-width: 900px; }
+    .list-table thead th { background: #f1f5f9; color: #334155; text-align: left; padding: .7rem .9rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .03em; border-bottom: 1px solid #e2e8f0; overflow: hidden; white-space: nowrap; }
     .list-table tbody td { padding: .6rem .9rem; border-bottom: 1px solid #eef0f4; color: #374151; vertical-align: middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .list-table tbody tr { cursor: pointer; }
     .list-table tbody tr:hover { background: #f8fafc; }
@@ -433,18 +435,21 @@
       <span class="pipe-name">📚 Wiki</span>
       <span class="pipe-count" id="side-count-wiki">0</span>
     </div>
-    <div class="pipe-item disabled" id="nav-gks" title="Coming soon">
+    <div class="pipe-item" id="nav-gks" onclick="openGks()">
       <span class="pipe-name">🎓 GKS / Scholarships</span>
+      <span class="pipe-count" id="side-count-gks">0</span>
     </div>
-    <div class="pipe-item disabled" id="nav-marketing" title="Coming soon">
+    <div class="pipe-item" id="nav-marketing" onclick="openMarketing()">
       <span class="pipe-name">📣 Marketing</span>
+      <span class="pipe-count" id="side-count-marketing">0</span>
     </div>
-    <div class="pipe-item disabled" id="nav-koreaLife" title="Coming soon">
+    <div class="pipe-item" id="nav-koreaLife" onclick="openKoreaLife()">
       <span class="pipe-name">🇰🇷 Korea Life</span>
+      <span class="pipe-count" id="side-count-koreaLife">0</span>
     </div>
 
     <div class="sidebar-section-label">Camnemi Calendar</div>
-    <div class="pipe-item disabled" id="nav-todo" title="Coming soon">
+    <div class="pipe-item" id="nav-todo" onclick="openTasks('all')">
       <span class="pipe-name">✅ To-Do & Events</span>
       <span class="pipe-count" id="side-count-todo">0</span>
     </div>
@@ -695,6 +700,7 @@
       <div class="stage" data-stage="${stageKey}">
         <div class="stage-header"><span class="stage-name">${STAGE_LABELS[stageKey]}</span><span class="stage-count" data-count="${stageKey}">0</span></div>
         <div class="cards" data-cards="${stageKey}"></div>
+        <div class="stage-empty-hint" data-empty-hint="${stageKey}" style="display:none;font-size:.75rem;color:#cbd5e1;text-align:center;padding:.6rem .3rem;border:1px dashed #eef0f4;border-radius:.5rem;margin:.35rem .1rem;">No students here</div>
         ${quickAdd}
       </div>`;
   }
@@ -763,6 +769,12 @@
     // agencies count (number of distinct agencies in use + fixed list)
     const ag = document.getElementById('side-count-agencies');
     if (ag) ag.textContent = AGENCIES ? AGENCIES.length : 0;
+    // show "No students here" hint on empty columns
+    document.querySelectorAll('.stage-empty-hint').forEach(hint => {
+      const key = hint.dataset.emptyHint;
+      const has = document.querySelector(`.cards[data-cards="${key}"] .customer-card`);
+      hint.style.display = has ? 'none' : 'block';
+    });
     applyStageCollapse();
   }
 
@@ -791,8 +803,9 @@
     const missingFlight = stage === 'visa' && !docs.some(d => d.cat === 'flight');
     const missing = missingReg || missingApp || missingInv || missingAdm || missingVisa || missingFlight;
     if (missing) {
-      card.style.border = '2px solid #ef4444';           // red
-      card.style.borderLeftWidth = '6px';
+      card.style.border = '1px solid #fecaca';           // soft red tint instead of harsh 2px
+      card.style.borderLeftWidth = '4px';
+      card.style.borderLeftColor = '#ef4444';
     } else {
       card.style.border = '1px solid #e5e7eb';
       card.style.borderLeft = '4px solid ' + (STAGE_COLORS[stage] || '#94a3b8');
@@ -1273,20 +1286,23 @@
   // Rebuild the Agency + School filter pills from the shared databases.
   // Agency list = AGENCIES + CAMNEMI; School list = UNIV_KNOWLEDGE (with logos) that appear on cards.
   function rebuildFilterBar() {
+    // "Any" pill is active only when no value is selected for that type
+    // (never hardcode 'active' on it — that caused Any+value both highlighted).
+    const anyActive = (ftype) => (!Array.isArray(filterState[ftype]) || filterState[ftype].length === 0) ? 'active' : '';
     // --- Stage pills: dynamic per pipeline ---
     const stPills = document.getElementById('filter-stage-pills');
     if (stPills) {
       const pipe = PIPELINES[currentPipe];
       const stages = pipe ? pipe.stages : [];
       const pills = stages.map(s => `<span class="click-filter" data-ftype="stage" data-fval="${escapeHtml(s)}" onclick="toggleClickFilter(this)">${escapeHtml((STAGE_LABELS[s]||s).replace(/^[^\w]*/,''))}</span>`).join('');
-      stPills.innerHTML = `<span class="click-filter active" data-ftype="stage" data-fval="" onclick="toggleClickFilter(this)">Any</span>` + pills;
+      stPills.innerHTML = `<span class="click-filter ${anyActive('stage')}" data-ftype="stage" data-fval="" onclick="toggleClickFilter(this)">Any</span>` + pills;
     }
     // --- Agency pills: CAMNEMI + AGENCIES ---
     const agPills = document.getElementById('filter-agency-pills');
     if (agPills) {
       const agencies = AGENCIES.map(a=>normalizeAgency(a.name)).filter((v,i,s)=>v && s.indexOf(v)===i);
       const pills = agencies.map(a=>`<span class="click-filter" data-ftype="agency" data-fval="${escapeHtml(a)}" onclick="toggleClickFilter(this)">${escapeHtml(a)}</span>`).join('');
-      agPills.innerHTML = `<span class="click-filter active" data-ftype="agency" data-fval="" onclick="toggleClickFilter(this)">Any</span>` + pills;
+      agPills.innerHTML = `<span class="click-filter ${anyActive('agency')}" data-ftype="agency" data-fval="" onclick="toggleClickFilter(this)">Any</span>` + pills;
     }
     // --- School pills: from UNIV_KNOWLEDGE, show schools that appear on cards + include logo ---
     const schPills = document.getElementById('filter-school-pills');
@@ -1301,7 +1317,7 @@
         const logo = u && u.logo ? `<img src="${escapeHtml(u.logo)}" onerror="this.style.display='none'" style="width:15px;height:15px;object-fit:contain;border-radius:3px;background:#fff;vertical-align:middle;margin-right:3px;">` : '';
         return `<span class="click-filter" data-ftype="school" data-fval="${escapeHtml(enVal)}" onclick="toggleClickFilter(this)">${logo}${escapeHtml(u?u.es||enVal:enVal)}</span>`;
       }).join('');
-      schPills.innerHTML = `<span class="click-filter active" data-ftype="school" data-fval="" onclick="toggleClickFilter(this)">Any</span>` + pills +
+      schPills.innerHTML = `<span class="click-filter ${anyActive('school')}" data-ftype="school" data-fval="" onclick="toggleClickFilter(this)">Any</span>` + pills +
         `<span class="click-filter" data-ftype="school" data-fval="Not Yet Specified" onclick="toggleClickFilter(this)">Not Set</span>`;
     }
     // --- Korea Enter / App Date pills: from cards' appdate (for korea = enter month) ---
@@ -1320,7 +1336,7 @@
           : m;
         return `<span class="click-filter" data-ftype="appdate" data-fval="${escapeHtml(m)}" onclick="toggleClickFilter(this)">${escapeHtml(disp)}</span>`;
       }).join('');
-      adtPills.innerHTML = `<span class="click-filter active" data-ftype="appdate" data-fval="" onclick="toggleClickFilter(this)">Any</span>` + pills;
+      adtPills.innerHTML = `<span class="click-filter ${anyActive('appdate')}" data-ftype="appdate" data-fval="" onclick="toggleClickFilter(this)">Any</span>` + pills;
     }
     // --- Assigned dropdown: All / Unassigned / team members ---
     const asgSel = document.getElementById('filter-assigned');
@@ -2103,9 +2119,9 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
       </div>
       <div style="background:#fff;border:1px solid #eef0f4;border-radius:14px;padding:1rem;box-shadow:0 2px 10px rgba(0,0,0,.05);margin-bottom:1rem;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;">
-          <button class="btn btn-cancel" onclick="shiftProfitMonth(-1)">◀</button>
+          <button class="btn btn-cancel" onclick="shiftProfitMonth(-1)" style="font-size:.95rem;font-weight:700;padding:.4rem .85rem;min-width:2.4rem;">◀</button>
           <div style="font-size:1.05rem;font-weight:700;color:#111827;">${monthNames[PROFIT_MONTH]} ${PROFIT_YEAR}</div>
-          <button class="btn btn-cancel" onclick="shiftProfitMonth(1)">▶</button>
+          <button class="btn btn-cancel" onclick="shiftProfitMonth(1)" style="font-size:.95rem;font-weight:700;padding:.4rem .85rem;min-width:2.4rem;">▶</button>
         </div>
         <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;">
           ${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(x=>`<div style="font-size:.68rem;font-weight:700;color:#94a3b8;text-align:center;">${x}</div>`).join('')}
@@ -2615,7 +2631,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   }
   function deleteWikiDoc(id){ WIKI_DOCS = WIKI_DOCS.filter(x=>x.id!==id); syncWiki(); renderWiki(); logAction('wiki file', 'delete', 'wiki'); }
 
-  function openGKS() {
+  function openGks() {
     currentSection='other'; updateLogButton(); goHash('gks'); showKnowledgePanel('gks-view','nav-gks', renderGKS); }
   function renderGKS() {
     const univs = UNIV_KNOWLEDGE.filter(u => (u.type||'univ')!=='junior' && u.scholarships && u.scholarships.length);
@@ -3072,7 +3088,19 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     document.body.appendChild(overlay);
     setTimeout(() => overlay.style.opacity = '1', 10);
   }
-function syncUniv() {
+  function syncGksCount() {
+    const c = document.getElementById('side-count-gks');
+    if (c) c.textContent = '2';
+  }
+  function syncMarketingCount() {
+    const c = document.getElementById('side-count-marketing');
+    if (c) c.textContent = '6';
+  }
+  function syncKoreaLifeCount() {
+    const c = document.getElementById('side-count-koreaLife');
+    if (c) c.textContent = '8';
+  }
+  function syncUniv() {
     const el = document.getElementById('side-count-univ');
     if (el && typeof UNIV_KNOWLEDGE !== 'undefined') el.textContent = UNIV_KNOWLEDGE.length;
   }
@@ -4994,9 +5022,16 @@ function syncUniv() {
   // ---- Column width resize (drag the handle on any <th>) ----
   let LIST_COL_WIDTHS = {};
   try { LIST_COL_WIDTHS = JSON.parse(localStorage.getItem('camnemi_list_col_widths') || '{}'); } catch(e){ LIST_COL_WIDTHS = {}; }
+  // Default sensible widths so the table doesn't squeeze 20 columns into 70px each.
+  const LIST_DEFAULT_WIDTHS = {
+    name: 170, age: 50, contact: 110, email: 150, agency: 110, program: 90,
+    school: 140, appdate: 90, stage: 120, loan: 60, topik: 70, ielts: 60,
+    birthdate: 90, noqr: 60, illegal: 70, denied: 70, payments: 100,
+    recent: 90, folderId: 60, note: 220
+  };
   function listColWidth(key){
-    const w = LIST_COL_WIDTHS[key];
-    return w ? `width:${w}px;` : '';
+    const w = LIST_COL_WIDTHS[key] || LIST_DEFAULT_WIDTHS[key];
+    return w ? `width:${w}px;min-width:${w}px;` : '';
   }
   function saveListColWidths(){
     try { localStorage.setItem('camnemi_list_col_widths', JSON.stringify(LIST_COL_WIDTHS)); } catch(e){}
@@ -7368,7 +7403,7 @@ function syncUniv() {
     'pipeline-korea': () => switchPipeline('korea'),
     'universities':   () => openUniversities(),
     'wiki':           () => openWiki(),
-    'gks':            () => openGKS(),
+    'gks':            () => openGks(),
     'marketing':      () => openMarketing(),
     'koreaLife':      () => openKoreaLife(),
     'tasks':          () => openTasks('todo'),
@@ -7478,6 +7513,7 @@ function syncUniv() {
     syncRecommendation();
     syncProfit();
     syncUniv();
+    try { syncGksCount(); syncMarketingCount(); syncKoreaLifeCount(); } catch(e){}
     renderPipeline();  // build columns first
 
     // FAST PATH: show cards instantly from saved/local data (no waiting on backend)
