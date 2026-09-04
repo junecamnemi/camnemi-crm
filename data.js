@@ -58,7 +58,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "20",
       "foreign_pct": "1.0"
-    }
+    },
+    "period": "2026.9.7~9.11 (원서접수 09:00~18:00, 김해캠퍼스 입학처 직접 접수, 인터넷 접수 불가; 합격자 발표 2026.10.30)"
   },
   {
     "n": "가천대학교",
@@ -799,7 +800,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "5149",
       "foreign_pct": "17.6"
-    }
+    },
+    "period": "2026.10.12~10.23"
   },
   {
     "n": "가톨릭관동대학교",
@@ -1010,7 +1012,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "224",
       "foreign_pct": "2.8"
-    }
+    },
+    "period": "2026.7.6~7.10 (2027-1)"
   },
   {
     "n": "가톨릭꽃동네대학교",
@@ -1555,7 +1558,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1603",
       "foreign_pct": "15.9"
-    }
+    },
+    "period": "2026.4.6~4.19"
   },
   {
     "n": "감리교신학대학교",
@@ -1642,7 +1646,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "11",
       "foreign_pct": "1.5"
-    }
+    },
+    "period": "2026.9.7~"
   },
   {
     "n": "강남대학교",
@@ -2044,7 +2049,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "595",
       "foreign_pct": "26.8"
-    }
+    },
+    "period": "1차 2026.09.28~10.07, 2차 2026.10.26~11.04, 3차 2026.11.23~12.02, 4차 2026.12.21~12.30 (최종 등록금 납부 ~2027.02.19)"
   },
   {
     "n": "강원대학교",
@@ -3191,7 +3197,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "2757",
       "foreign_pct": "12.1"
-    }
+    },
+    "period": "2025.9.4~9.11"
   },
   {
     "n": "건양대학교",
@@ -4341,71 +4348,19 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "사회통합프로그램\u0007: 사전평가 61점이상, 교육과정 3단계 이상 이수",
     "scholarships": [
       {
-        "name": "외국인 신·편입학 장학(B/C/D급)",
+        "name": "입학장학금(TOPIK/IELTS)",
         "level": "undergrad",
         "type": "enroll",
         "tiers": [
           {
             "score_type": "TOPIK",
-            "score": "4급 이상",
-            "amount": "입학 해당학기 수업료 70%"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 90 이상",
-            "amount": "입학 해당학기 수업료 전액"
+            "score": 4,
+            "amount": "70%"
           },
           {
             "score_type": "IELTS",
-            "score": "6.5 이상",
-            "amount": "입학 해당학기 수업료 전액"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 85 이상",
-            "amount": "입학 해당학기 수업료 70%"
-          },
-          {
-            "score_type": "IELTS",
-            "score": "6.0 이상",
-            "amount": "입학 해당학기 수업료 70%"
-          }
-        ]
-      },
-      {
-        "name": "외국인 유학생 신입생 기숙사비 지원",
-        "level": "undergrad",
-        "type": "enroll",
-        "tiers": [
-          {
-            "score_type": "TOPIK",
-            "score": "4급 이상",
-            "amount": "기숙사비 100% 2회 지원"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 90 이상",
-            "amount": "기숙사비 100% 2회 지원"
-          },
-          {
-            "score_type": "IELTS",
-            "score": "7.0 이상",
-            "amount": "기숙사비 100% 2회 지원"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "3급",
-            "amount": "기숙사비 100% 1회 지원"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 70 이상",
-            "amount": "기숙사비 100% 1회 지원"
-          },
-          {
-            "score_type": "IELTS",
-            "score": "5.5 이상",
-            "amount": "기숙사비 100% 1회 지원"
+            "score": 6.0,
+            "amount": "70%"
           }
         ]
       }
@@ -4416,7 +4371,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "504",
       "foreign_pct": "4.5"
-    }
+    },
+    "period": "2026.10.26~11.20 (18:00까지, 방문 또는 우편접수)"
   },
   {
     "n": "경동대학교",
@@ -4633,7 +4589,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1278",
       "foreign_pct": "111.4"
-    }
+    },
+    "period": "제1유형(재외국민): 수시 2026.09.07~09.11, 정시 2027.01.04~01.07 / 제2유형(외국인·전교육과정이수자): 3월입학 2026.07.06~2027.02.28, 9월입학 2027.03.01~2027.08.31"
   },
   {
     "n": "경북대학교",
@@ -4681,29 +4638,41 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "",
     "scholarships": [
       {
-        "name": "신편입생 장학금(TOPIK)",
+        "name": "입학장학금(TOPIK/IELTS)",
         "level": "undergrad",
         "type": "enroll",
         "tiers": [
           {
             "score_type": "TOPIK",
-            "score": "3급",
-            "amount": "첫 학기 수업료 면제"
+            "score": 3,
+            "amount": "20%"
           },
           {
             "score_type": "TOPIK",
-            "score": "4급",
-            "amount": "첫 학기 수업료 반액 면제"
+            "score": 4,
+            "amount": "40%"
           },
           {
             "score_type": "TOPIK",
-            "score": "5급",
-            "amount": "첫 학기 수업료 전액 면제"
+            "score": 5,
+            "amount": "80%"
+          }
+        ]
+      },
+      {
+        "name": "재학 성적장학금",
+        "level": "undergrad",
+        "type": "existing",
+        "tiers": [
+          {
+            "score_type": "TOPIK",
+            "score": 4,
+            "amount": "80%"
           },
           {
             "score_type": "TOPIK",
-            "score": "6급",
-            "amount": "첫 학기 등록금 전액 면제"
+            "score": 3,
+            "amount": "7%"
           }
         ]
       }
@@ -4714,7 +4683,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "1972",
       "foreign_pct": "6.7"
-    }
+    },
+    "period": "2026.10.12~10.30 (1학기, 09:00~18:00, 유웨이어플라이 온라인접수); 2학기: 2027.4.12~4.30"
   },
   {
     "n": "경상국립대학교",
@@ -5399,54 +5369,39 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "사회통합프로그램(KIIP) 4단계 이상 이수 또는 사전평가 81점 이상, 세종학당 한국",
     "scholarships": [
       {
-        "name": "외국인 신·편입생 장학금(등록금 감면)",
+        "name": "입학장학금(TOPIK/IELTS)",
         "level": "undergrad",
         "type": "enroll",
         "tiers": [
           {
             "score_type": "TOPIK",
-            "score": "4급 이상",
-            "amount": "등록금 50% 감면"
+            "score": 5,
+            "amount": "100%"
           },
           {
             "score_type": "TOPIK",
-            "score": "3급",
-            "amount": "등록금 40% 감면"
+            "score": 4,
+            "amount": "50%"
           },
           {
             "score_type": "TOPIK",
-            "score": "3급 미만/어학입학기준",
-            "amount": "등록금 30% 감면"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 104 이상",
-            "amount": "등록금 50% 감면"
+            "score": 3,
+            "amount": "40%"
           },
           {
             "score_type": "IELTS",
-            "score": "7.5 이상",
-            "amount": "등록금 50% 감면"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 95 이상",
-            "amount": "등록금 40% 감면"
+            "score": 7.5,
+            "amount": "50%"
           },
           {
             "score_type": "IELTS",
-            "score": "7.0 이상",
-            "amount": "등록금 40% 감면"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 71 이상",
-            "amount": "등록금 30% 감면"
+            "score": 7.0,
+            "amount": "40%"
           },
           {
             "score_type": "IELTS",
-            "score": "5.5 이상",
-            "amount": "등록금 30% 감면"
+            "score": 5.5,
+            "amount": "30%"
           }
         ]
       }
@@ -5457,7 +5412,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "1930",
       "foreign_pct": "11.7"
-    }
+    },
+    "period": "1차 2026.09.11~09.21, 2차 2026.09.28~10.12 (면접 2026.11.04~11.09, 합격자발표 2026.11.16, 2027.03.02 개강)"
   },
   {
     "n": "경운대학교",
@@ -6540,7 +6496,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "6929",
       "foreign_pct": "21.1"
-    }
+    },
+    "period": "see 2027 guide"
   },
   {
     "n": "계명대학교",
@@ -7189,7 +7146,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "2654",
       "foreign_pct": "9.3"
-    }
+    },
+    "period": "2026.9.21~10.23"
   },
   {
     "n": "고려대학교",
@@ -7492,7 +7450,7 @@ window.UNIV_KNOWLEDGE = [
     ],
     "req": {
       "topik": 5,
-      "ielts": null,
+      "ielts": 7.0,
       "kiip": null,
       "sejong": "중급",
       "selftest": true,
@@ -7524,7 +7482,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "5520",
       "foreign_pct": "19.6"
-    }
+    },
+    "period": "2026.8.3~8.31 (2027 Round 1)"
   },
   {
     "n": "고신대학교",
@@ -7586,7 +7545,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "103",
       "foreign_pct": "2.8"
-    }
+    },
+    "period": "2026.7.6~7.10 (2027-1)"
   },
   {
     "n": "공주교육대학교",
@@ -7923,7 +7883,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1076",
       "foreign_pct": "9.6"
-    }
+    },
+    "period": "2027-1"
   },
   {
     "n": "광주가톨릭대학교",
@@ -9724,7 +9685,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "",
       "foreign_pct": ""
-    }
+    },
+    "period": "2026.12.4~ (2027-1) / 2027.6.4 (2027-2)"
   },
   {
     "n": "국립공주대학교",
@@ -9763,7 +9725,7 @@ window.UNIV_KNOWLEDGE = [
     "majors_ma": [],
     "req": {
       "topik": 3,
-      "ielts": null,
+      "ielts": 5.5,
       "kiip": 3,
       "sejong": "중급1",
       "selftest": true,
@@ -9833,7 +9795,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "409",
       "foreign_pct": "2.6"
-    }
+    },
+    "period": "2026.7.6(월) 10:00 ~ 7.10(금) 17:00 (온라인 원서접수만, ipsi.kongju.ac.kr)"
   },
   {
     "n": "국립군산대학교",
@@ -11380,7 +11343,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "104",
       "foreign_pct": "3.4"
-    }
+    },
+    "period": "2027.1.4~1.7 (전기 정시, 09:00~18:00, 방문/우편 직접 제출·인터넷접수 없음); 후기: 2027.5.25~6.3"
   },
   {
     "n": "국립부경대학교",
@@ -13163,7 +13127,7 @@ window.UNIV_KNOWLEDGE = [
     ],
     "req": {
       "topik": 3,
-      "ielts": null,
+      "ielts": 5.5,
       "kiip": 3,
       "sejong": "중급1",
       "selftest": false,
@@ -13200,7 +13164,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "515",
       "foreign_pct": "5.1"
-    }
+    },
+    "period": "2026.11.2~11.13 (2027-1)"
   },
   {
     "n": "국립한국교통대학교",
@@ -13522,69 +13487,24 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "",
     "scholarships": [
       {
-        "name": "신입학생 성적우수 장학금",
+        "name": "입학장학금(TOPIK/IELTS)",
+        "level": "undergrad",
         "type": "enroll",
         "tiers": [
           {
             "score_type": "TOPIK",
-            "score": "TOPIK 6급 (A유형)",
-            "amount": "수업Ⅰ 전액 + 수업Ⅱ 전액 및 재학 중 수업Ⅰ 전액"
+            "score": 5,
+            "amount": "75%"
           },
           {
             "score_type": "TOPIK",
-            "score": "TOPIK 5급 (B유형)",
-            "amount": "수업Ⅰ 전액 + 수업Ⅱ 75%"
+            "score": 4,
+            "amount": "50%"
           },
           {
             "score_type": "TOPIK",
-            "score": "TOPIK 4급 (C유형)",
-            "amount": "수업Ⅰ 전액 + 수업Ⅱ 50%"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "TOPIK 3급 (E유형)",
-            "amount": "수업Ⅰ 전액"
-          },
-          {
-            "score_type": "GPA",
-            "score": "외국인학교 졸업 상위 5% 이상 (A유형)",
-            "amount": "수업Ⅰ 전액 + 수업Ⅱ 전액"
-          },
-          {
-            "score_type": "GPA",
-            "score": "외국인학교 졸업 상위 10% 이상 (C유형)",
-            "amount": "수업Ⅰ 전액 + 수업Ⅱ 50%"
-          },
-          {
-            "score_type": "GPA",
-            "score": "외국인학교 졸업 상위 15% 이상 (E유형)",
-            "amount": "수업Ⅰ 전액"
-          }
-        ]
-      },
-      {
-        "name": "재학생 성적우수 장학금",
-        "type": "existing",
-        "tiers": [
-          {
-            "score_type": "GPA",
-            "score": "평점평균 2.8 이상 + F학점 없음 (A유형)",
-            "amount": "수업Ⅰ 전액 + 수업료Ⅱ 전액"
-          },
-          {
-            "score_type": "GPA",
-            "score": "평점평균 2.8 이상 + F학점 없음 (B유형)",
-            "amount": "수업Ⅰ 전액 + 수업료Ⅱ 75%"
-          },
-          {
-            "score_type": "GPA",
-            "score": "평점평균 2.8 이상 + F학점 없음 (C유형)",
-            "amount": "수업Ⅰ 전액 + 수업료Ⅱ 50%"
-          },
-          {
-            "score_type": "GPA",
-            "score": "평점평균 2.8 이상 + F학점 없음 (D유형)",
-            "amount": "수업Ⅰ 전액 + 수업료Ⅱ 25%"
+            "score": 6,
+            "amount": "75%"
           }
         ]
       }
@@ -13595,7 +13515,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "154",
       "foreign_pct": "1.4"
-    }
+    },
+    "period": "2027.1.4~1.7 (원서접수 및 전형료 납부, 09:00~18:00, 방문/우편접수)"
   },
   {
     "n": "국립한국해양대학교",
@@ -13845,59 +13766,41 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "",
     "scholarships": [
       {
-        "name": "외국인 유학생 장학금(신입생)",
+        "name": "입학장학금(TOPIK/IELTS)",
         "level": "undergrad",
         "type": "enroll",
         "tiers": [
           {
             "score_type": "TOPIK",
-            "score": "6",
-            "amount": "등록금의 100%"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 100 이상",
-            "amount": "등록금의 100%"
-          },
-          {
-            "score_type": "IELTS",
-            "score": "7.0 이상",
-            "amount": "등록금의 100%"
+            "score": 3,
+            "amount": "20%"
           },
           {
             "score_type": "TOPIK",
-            "score": "5",
-            "amount": "등록금의 80%"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 90 이상",
-            "amount": "등록금의 80%"
-          },
-          {
-            "score_type": "IELTS",
-            "score": "6.5 이상",
-            "amount": "등록금의 80%"
+            "score": 6,
+            "amount": "100%"
           },
           {
             "score_type": "TOPIK",
-            "score": "4",
-            "amount": "등록금의 40%"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 80 이상",
-            "amount": "등록금의 40%"
-          },
-          {
-            "score_type": "IELTS",
-            "score": "6.0 이상",
-            "amount": "등록금의 40%"
+            "score": 5,
+            "amount": "80%"
           },
           {
             "score_type": "TOPIK",
-            "score": "3",
-            "amount": "등록금의 20%"
+            "score": 4,
+            "amount": "40%"
+          }
+        ]
+      },
+      {
+        "name": "재학 성적장학금",
+        "level": "undergrad",
+        "type": "existing",
+        "tiers": [
+          {
+            "score_type": "TOPIK",
+            "score": 4,
+            "amount": "100%"
           }
         ]
       }
@@ -13908,7 +13811,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "336",
       "foreign_pct": "4.2"
-    }
+    },
+    "period": "2027.1.4~1.7 (09:00~18:00 KST, studyinkorea.go.kr 온라인접수)"
   },
   {
     "n": "국립한밭대학교",
@@ -13960,44 +13864,41 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "",
     "scholarships": [
       {
-        "name": "외국인 유학생 장학금 (신입생)",
+        "name": "입학장학금(TOPIK/IELTS)",
+        "level": "undergrad",
         "type": "enroll",
         "tiers": [
           {
             "score_type": "TOPIK",
-            "score": "TOPIK 5급 이상 (A급)",
-            "amount": "첫 학기 수업료 전액 감면"
+            "score": 4,
+            "amount": "50%"
           },
           {
             "score_type": "TOPIK",
-            "score": "TOPIK 4급 이상 (B급)",
-            "amount": "첫 학기 수업료 50% 감면"
+            "score": 3,
+            "amount": "30%"
           },
           {
             "score_type": "TOPIK",
-            "score": "TOPIK 3급 이상 (C급)",
-            "amount": "첫 학기 수업료 30% 감면"
+            "score": 5,
+            "amount": "50%"
+          },
+          {
+            "score_type": "IELTS",
+            "score": 6.0,
+            "amount": "50%"
           }
         ]
       },
       {
-        "name": "외국인 유학생 장학금 (재학생)",
+        "name": "재학 성적장학금",
+        "level": "undergrad",
         "type": "existing",
         "tiers": [
           {
-            "score_type": "GPA",
-            "score": "직전학기 평점 3.700 이상 + TOPIK 4급 이상 + 12학점 이상 (A급)",
-            "amount": "수업료 전액 감면"
-          },
-          {
-            "score_type": "GPA",
-            "score": "직전학기 평점 3.400~3.700 (B급)",
-            "amount": "수업료 50% 감면"
-          },
-          {
-            "score_type": "GPA",
-            "score": "직전학기 평점 3.000~3.400 (C급)",
-            "amount": "수업료 30% 감면"
+            "score_type": "TOPIK",
+            "score": 4,
+            "amount": "50%"
           }
         ]
       }
@@ -14008,7 +13909,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "467",
       "foreign_pct": "4.2"
-    }
+    },
+    "period": "2026.10.14~12.16 (10:00~18:00, 인터넷접수, 입학안내 홈페이지)"
   },
   {
     "n": "국민대학교",
@@ -14645,106 +14547,31 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "",
     "scholarships": [
       {
-        "name": "입학성적 우수 장학금",
-        "level": "undergrad",
-        "type": "enroll",
-        "tiers": [
-          {
-            "score_type": "TOPIK",
-            "score": "6",
-            "amount": "수업료 100%"
-          },
-          {
-            "score_type": "IELTS",
-            "score": "8.0",
-            "amount": "수업료 100%"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 112 이상",
-            "amount": "수업료 100%"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "5",
-            "amount": "수업료 70%"
-          },
-          {
-            "score_type": "IELTS",
-            "score": "7.5",
-            "amount": "수업료 70%"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 105 이상",
-            "amount": "수업료 70%"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "4",
-            "amount": "수업료 50%"
-          },
-          {
-            "score_type": "IELTS",
-            "score": "7.0",
-            "amount": "수업료 50%"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 97 이상",
-            "amount": "수업료 50%"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "3",
-            "amount": "수업료 30%"
-          },
-          {
-            "score_type": "IELTS",
-            "score": "6.5",
-            "amount": "수업료 30%"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 86 이상",
-            "amount": "수업료 30%"
-          }
-        ]
-      },
-      {
-        "name": "신입생 TOPIK 우수 장학금",
+        "name": "입학장학금(TOPIK/IELTS)",
         "level": "grad",
         "type": "enroll",
         "tiers": [
           {
             "score_type": "TOPIK",
-            "score": "6급",
-            "amount": "수업료 70% (인문계열)"
+            "score": 6,
+            "amount": "100%"
+          }
+        ]
+      },
+      {
+        "name": "재학 성적장학금",
+        "level": "grad",
+        "type": "existing",
+        "tiers": [
+          {
+            "score_type": "TOPIK",
+            "score": 4,
+            "amount": "50%"
           },
           {
             "score_type": "TOPIK",
-            "score": "5급",
-            "amount": "수업료 50% (인문계열)"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "4급",
-            "amount": "수업료 30% (인문계열)"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "6급",
-            "amount": "수업료 100% (자연/공학/예체능계열)"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "5급",
-            "amount": "수업료 70% (자연/공학/예체능계열)"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "4급",
-            "amount": "수업료 50% (자연/공학/예체능계열)"
+            "score": 3,
+            "amount": "30%"
           }
         ]
       }
@@ -14755,7 +14582,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "2633",
       "foreign_pct": "12.9"
-    }
+    },
+    "period": "2025.10.20~10.31"
   },
   {
     "n": "극동대학교",
@@ -15149,7 +14977,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1",
       "foreign_pct": "1.0"
-    }
+    },
+    "period": "재외국민과 외국인 전형(수시) 원서접수 2026.09.07~09.11 20:00 (서류 2026.09.21 17:00까지, 면접 2026.09.23~09.24, 합격발표 2026.10.14, 등록 2026.12.21~12.23)"
   },
   {
     "n": "김천대학교",
@@ -15410,7 +15239,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "445",
       "foreign_pct": "7.5"
-    }
+    },
+    "period": "수시(재외국민·북한이탈주민·전교육과정이수자) 2026.07.06~07.10, 순수외국인 2026.11.02~2027.01.05, 9월입학(순수외국인) 2027.06.01~07.09 (면접·합격자발표: 재외국민 2026.12.18 이내 / 순수외국인 2027.01.22까지, 9월 2027.07.23까지)"
   },
   {
     "n": "남부대학교",
@@ -16258,7 +16088,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "1672",
       "foreign_pct": "10.8"
-    }
+    },
+    "period": "Round 1 10.1~16 / Round 2 12.2~18"
   },
   {
     "n": "대구가톨릭대학교",
@@ -18358,7 +18189,7 @@ window.UNIV_KNOWLEDGE = [
     "majors_ba": [],
     "majors_ma": [],
     "req": {
-      "topik": null,
+      "topik": 3,
       "ielts": null,
       "kiip": null,
       "sejong": null,
@@ -18372,7 +18203,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "2",
       "foreign_pct": "4.2"
-    }
+    },
+    "period": "원서교부 2026.08.03~08.31, 원서접수 2026.09.09~09.11 (교리고사·면접 2026.11.09, 합격자발표 2026.11.13, 등록 2026.12.21~12.23)"
   },
   {
     "n": "대전대학교",
@@ -18661,7 +18493,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "460",
       "foreign_pct": "4.4"
-    }
+    },
+    "period": "원서접수 2026.07.07~07.10 17:00, 서류제출 2026.07.17까지 (면접 2026.08.06, 최초합격자발표 2026.08.21 15:00, 문서등록 2026.12.21~12.23, 등록금납부 2027.02.10~02.12)"
   },
   {
     "n": "대전신학대학교",
@@ -18816,7 +18649,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "661",
       "foreign_pct": "6.3"
-    }
+    },
+    "period": "온라인 원서접수(스터디인코리아) 2026.10.29~11.05 17:00, 서류심사 2026.11.09~11.10, 면접 2026.11.14~11.15, 합격자발표 2026.11.24, 등록예치금 납부 2026.11.25~12.04, 표준입학허가서 발급 2026.12.01~12.31"
   },
   {
     "n": "덕성여자대학교",
@@ -19092,7 +18926,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "443",
       "foreign_pct": "6.7"
-    }
+    },
+    "period": "2026.10.12~10.23 (Round 1) / 2026.11.23~ (Round 2)"
   },
   {
     "n": "동국대학교",
@@ -21036,7 +20871,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1059",
       "foreign_pct": "16.0"
-    }
+    },
+    "period": "2027"
   },
   {
     "n": "동아대학교",
@@ -21792,6 +21628,33 @@ window.UNIV_KNOWLEDGE = [
         "name": "국가고시합격/공로/체육/간부/봉사/형제 등",
         "type": "existing",
         "tiers": []
+      },
+      {
+        "name": "입학장학금(TOPIK/IELTS)",
+        "level": "undergrad",
+        "type": "enroll",
+        "tiers": [
+          {
+            "score_type": "IELTS",
+            "score": 6.5,
+            "amount": "100%"
+          },
+          {
+            "score_type": "IELTS",
+            "score": 6.0,
+            "amount": "50%"
+          },
+          {
+            "score_type": "IELTS",
+            "score": 5.5,
+            "amount": "30%"
+          },
+          {
+            "score_type": "TOPIK",
+            "score": 4,
+            "amount": "100%"
+          }
+        ]
       }
     ],
     "cert": {
@@ -21800,7 +21663,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "371",
       "foreign_pct": "1.9"
-    }
+    },
+    "period": "2026.9.14(월) ~ 10.6(화) 17:00 (인터넷 접수 www.uwayapply.com, 2027학년도 전기 외국인특별전형 1차)"
   },
   {
     "n": "루터대학교",
@@ -21884,7 +21748,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "",
       "foreign_pct": ""
-    }
+    },
+    "period": "원서접수(유웨이) 2026.09.07~09.11, 서류제출 2026.09.07~09.18 17:00, 면접 2026.11.12, 최초합격자발표 2026.12.08, 등록 2026.12.14~12.16, 표준입학허가서 발급 2026.12.29~2027.01.06"
   },
   {
     "n": "명지대학교",
@@ -22547,34 +22412,66 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "",
     "scholarships": [
       {
-        "name": "신(편)입생 입학장학금",
+        "name": "입학장학금(TOPIK/IELTS)",
         "level": "undergrad",
         "type": "enroll",
         "tiers": [
           {
-            "score_type": "TOPIK",
-            "score": "미취득",
-            "amount": "등록금의 20% (생활지원금)"
+            "score_type": "IELTS",
+            "score": 5.5,
+            "amount": "40%"
+          },
+          {
+            "score_type": "IELTS",
+            "score": 6.0,
+            "amount": "60%"
+          },
+          {
+            "score_type": "IELTS",
+            "score": 6.5,
+            "amount": "70%"
+          },
+          {
+            "score_type": "IELTS",
+            "score": 7.0,
+            "amount": "80%"
           },
           {
             "score_type": "TOPIK",
             "score": 3,
-            "amount": "등록금의 40% (외국인장학금)"
+            "amount": "40%"
           },
           {
             "score_type": "TOPIK",
             "score": 4,
-            "amount": "등록금의 60%"
+            "amount": "60%"
           },
           {
             "score_type": "TOPIK",
             "score": 5,
-            "amount": "등록금의 70%"
+            "amount": "70%"
           },
           {
             "score_type": "TOPIK",
             "score": 6,
-            "amount": "등록금의 80%"
+            "amount": "80%"
+          }
+        ]
+      },
+      {
+        "name": "재학 성적장학금",
+        "level": "undergrad",
+        "type": "existing",
+        "tiers": [
+          {
+            "score_type": "IELTS",
+            "score": 6,
+            "amount": "50%"
+          },
+          {
+            "score_type": "TOPIK",
+            "score": 4,
+            "amount": "50%"
           }
         ]
       }
@@ -22585,7 +22482,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "",
       "foreign_pct": ""
-    }
+    },
+    "period": "1차 원서접수 2026.09.21~10.02(공휴일 제외), 면접 2026.10.17, 합격자발표 2026.11.06 / 2차 2026.10.26~11.06, 면접 2026.11.21, 발표 2026.12.04 / 3차 2026.11.23~12.04, 면접 2026.12.19, 발표 2027.01.04 (등록금 납부는 각 차수 발표 직후 ~1주일, 토픽점수 추가제출 ~2027.02.19, 개강 2027.03.02)"
   },
   {
     "n": "목원대학교",
@@ -22995,7 +22893,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1648",
       "foreign_pct": "17.6"
-    }
+    },
+    "period": "Round 1 9.16~10.7 / Round 2 11.23~12.23"
   },
   {
     "n": "목포가톨릭대학교",
@@ -23299,7 +23198,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "984",
       "foreign_pct": "10.5"
-    }
+    },
+    "period": "2026.10.16~10.22"
   },
   {
     "n": "백석대학교",
@@ -23368,7 +23268,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "733",
       "foreign_pct": "4.8"
-    }
+    },
+    "period": "2026.7.6(월) 09:00 ~ 7.10(금) 15:00 (인터넷 접수, uwayapply.com)"
   },
   {
     "n": "부산가톨릭대학교",
@@ -25099,51 +25000,29 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "",
     "scholarships": [
       {
-        "name": "입학 장학금",
+        "name": "입학장학금(TOPIK/IELTS)",
         "level": "undergrad",
         "type": "enroll",
         "tiers": [
           {
             "score_type": "TOPIK",
             "score": 3,
-            "amount": "수업료의 30% 감면"
+            "amount": "30%"
           },
           {
             "score_type": "TOPIK",
             "score": 4,
-            "amount": "수업료의 30% 감면"
+            "amount": "40%"
           },
           {
             "score_type": "TOPIK",
             "score": 5,
-            "amount": "수업료의 40% 감면"
+            "amount": "50%"
           },
           {
             "score_type": "TOPIK",
             "score": 6,
-            "amount": "수업료의 50% 감면"
-          }
-        ]
-      },
-      {
-        "name": "입학 후 TOPIK 장학금",
-        "level": "undergrad",
-        "type": "enroll",
-        "tiers": [
-          {
-            "score_type": "TOPIK",
-            "score": 4,
-            "amount": "200,000원"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": 5,
-            "amount": "400,000원"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": 6,
-            "amount": "600,000원"
+            "amount": "60%"
           }
         ]
       }
@@ -25154,7 +25033,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "1290",
       "foreign_pct": "14.0"
-    }
+    },
+    "period": "신·편입 1차 원서접수 2026.09.28~2026.10.08, 2차 2026.11.23~2026.12.04 (2027학년도 1학기; 개강 2027.03.02; 서류제출은 원서접수와 동일기간)"
   },
   {
     "n": "부산장신대학교",
@@ -26695,6 +26575,40 @@ window.UNIV_KNOWLEDGE = [
         "name": "성적우수장학금(재학생), ST근로·공로·희망·특별지원·법정·국가장학",
         "type": "existing",
         "tiers": []
+      },
+      {
+        "name": "입학장학금(TOPIK/IELTS)",
+        "level": "undergrad",
+        "type": "enroll",
+        "tiers": [
+          {
+            "score_type": "TOPIK",
+            "score": 5,
+            "amount": "70%"
+          },
+          {
+            "score_type": "TOPIK",
+            "score": 4,
+            "amount": "70%"
+          }
+        ]
+      },
+      {
+        "name": "재학 성적장학금",
+        "level": "undergrad",
+        "type": "existing",
+        "tiers": [
+          {
+            "score_type": "TOPIK",
+            "score": 4,
+            "amount": "50%"
+          },
+          {
+            "score_type": "IELTS",
+            "score": 6.0,
+            "amount": "50%"
+          }
+        ]
       }
     ],
     "cert": {
@@ -26703,7 +26617,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1074",
       "foreign_pct": "7.8"
-    }
+    },
+    "period": "학부 1차: 2026.9.7(월) ~ 10.2(금) 17:00 / 학부 2차: 2026.11.9(월) ~ 11.18(수) 17:00 (2027학년도 3월 외국인특별전형, global.seoultech.ac.kr)"
   },
   {
     "n": "서울교육대학교",
@@ -27413,7 +27328,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "2471",
       "foreign_pct": "11.3"
-    }
+    },
+    "period": "2025.3.1.~2027.2.28."
   },
   {
     "n": "서울시립대학교",
@@ -28691,7 +28607,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "672",
       "foreign_pct": "7.0"
-    }
+    },
+    "period": "2026.10.8~10.22 (Round 1) / 2026.12.22~2027.1.5 (Round 2)"
   },
   {
     "n": "서울장신대학교",
@@ -29476,7 +29393,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "1980",
       "foreign_pct": "17.6"
-    }
+    },
+    "period": "2027"
   },
   {
     "n": "성결대학교",
@@ -30270,7 +30188,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "4831",
       "foreign_pct": "19.0"
-    }
+    },
+    "period": "2026.08.12.~09.04."
   },
   {
     "n": "성신여자대학교",
@@ -31495,7 +31414,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "3703",
       "foreign_pct": "21.7"
-    }
+    },
+    "period": "2025.9.8~9.19"
   },
   {
     "n": "세한대학교",
@@ -31611,7 +31531,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "10",
       "foreign_pct": "8.3"
-    }
+    },
+    "period": "2025.8.1.~2026.7.31."
   },
   {
     "n": "수원대학교",
@@ -32141,7 +32062,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "473",
       "foreign_pct": "4.0"
-    }
+    },
+    "period": "Round 1 10.7~16 / Round 2 11.6~20 / Round 3 12.3~18"
   },
   {
     "n": "순천향대학교",
@@ -33206,29 +33128,46 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "",
     "scholarships": [
       {
-        "name": "입학장학금(A) 언어우수 1",
+        "name": "입학장학금(TOPIK/IELTS)",
         "level": "undergrad",
         "type": "enroll",
         "tiers": [
           {
             "score_type": "TOPIK",
-            "score": "6급",
-            "amount": "수업료 100% 감면"
+            "score": 6,
+            "amount": "100%"
           },
           {
             "score_type": "TOPIK",
-            "score": "5급",
-            "amount": "수업료 80% 감면"
+            "score": 5,
+            "amount": "80%"
           },
           {
             "score_type": "TOPIK",
-            "score": "4급",
-            "amount": "수업료 60% 감면"
+            "score": 4,
+            "amount": "60%"
           },
           {
             "score_type": "TOPIK",
-            "score": "3급",
-            "amount": "수업료 40% 감면"
+            "score": 3,
+            "amount": "40%"
+          }
+        ]
+      },
+      {
+        "name": "재학 성적장학금",
+        "level": "undergrad",
+        "type": "existing",
+        "tiers": [
+          {
+            "score_type": "TOPIK",
+            "score": 6,
+            "amount": "100%"
+          },
+          {
+            "score_type": "TOPIK",
+            "score": 4,
+            "amount": "50%"
           }
         ]
       }
@@ -33239,7 +33178,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "3039",
       "foreign_pct": "15.2"
-    }
+    },
+    "period": "순수외국인 특별전형(2027-1학기) 원서접수 1차 2026.10.12~10.16 17:00, 2차 2026.11.23~11.27 17:00, 3차 2026.12.28~12.30 17:00 (개강 2027.03.02)"
   },
   {
     "n": "신경주대학교",
@@ -34965,7 +34905,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "6621",
       "foreign_pct": "23.7"
-    }
+    },
+    "period": "2026.9.1~9.17 (Round 1)"
   },
   {
     "n": "영남대학교",
@@ -35105,7 +35046,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1628",
       "foreign_pct": "5.8"
-    }
+    },
+    "period": "2026.10.12~11.13 (Round 1) / 2026.12.9~2027.1.8 (Round 2)"
   },
   {
     "n": "영남신학대학교",
@@ -35753,7 +35695,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "",
       "foreign_pct": ""
-    }
+    },
+    "period": "정시(다)군 재외국민과 외국인 특별전형(정원외) 원서접수 2027.01.04~01.07 17:00 (교내 방문접수, 서류 2027.01.14 17:00까지, 면접 2027.01.26, 합격발표 2027.02.05, 등록 2027.02.10~02.12)"
   },
   {
     "n": "예원예술대학교",
@@ -36862,7 +36805,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "2891",
       "foreign_pct": "22.5"
-    }
+    },
+    "period": "2026.7.6~7.10"
   },
   {
     "n": "울산대학교",
@@ -37695,7 +37639,7 @@ window.UNIV_KNOWLEDGE = [
     "es": "Eulji",
     "ek": "을지대학교",
     "logo": "univ_logos/c2e4d28cdd.png",
-    "stu": 412,
+    "stu": 5641,
     "rk": null,
     "type": "univ",
     "majors_ba": [
@@ -37962,7 +37906,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "27",
       "foreign_pct": "6.6"
-    }
+    },
+    "period": "2026.9.7~9.11"
   },
   {
     "n": "이화여자대학교",
@@ -38830,7 +38775,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "2541",
       "foreign_pct": "12.6"
-    }
+    },
+    "period": "see 2027 guide"
   },
   {
     "n": "인제대학교",
@@ -39151,7 +39097,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "808",
       "foreign_pct": "9.4"
-    }
+    },
+    "period": "2025.9.22~10.17"
   },
   {
     "n": "인천가톨릭대학교",
@@ -40463,7 +40410,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "2205",
       "foreign_pct": "8.9"
-    }
+    },
+    "period": "2026.9.30~11.5"
   },
   {
     "n": "장로회신학대학교",
@@ -40523,7 +40471,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "32",
       "foreign_pct": "4.3"
-    }
+    },
+    "period": "2026.9.7~9.11 (2027-1)"
   },
   {
     "n": "전남대학교",
@@ -40591,6 +40540,13 @@ window.UNIV_KNOWLEDGE = [
             "amount": "성적우수(전체 신입생 30%), 정착지원(기숙사 거주 신입생), 한국어우수(TOPIK 4급 이상 첫 학기)"
           }
         ]
+      },
+      {
+        "name": "외국인 장학금(원본 요강)",
+        "level": "undergrad",
+        "type": "enroll",
+        "tiers": [],
+        "desc": "입학: TOPIK 5급 이상→첫 학기 등록금 전액; TOPIK 4급→첫 학기 수업료2 면제; 본교 언어교육원 한국어 정규강좌 연속 2개 학기 이상 등록 후 4단계 수료→첫 학기 수업료2의 1/2 면제; 입학 성적 우수자→첫 학기 수업료2의 1/2 또는 수업료1 면제"
       }
     ],
     "cert": {
@@ -40599,7 +40555,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1800",
       "foreign_pct": "8.4"
-    }
+    },
+    "period": "2026.10.1~10.14 (전기 1차 인터넷접수); 2차 2026.10.15~10.23 / 후기 1차 2027.4.1~4.16, 2차 2027.4.26~5.14 (마감일 18:00)"
   },
   {
     "n": "전북대학교",
@@ -41290,7 +41247,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1879",
       "foreign_pct": "8.0"
-    }
+    },
+    "period": "2026 early term: Round 1 9.22~10.3 / Round 2 11.5~19"
   },
   {
     "n": "전주교육대학교",
@@ -41775,51 +41733,31 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "사회통합프로그램 3단계 이수 또는 사전평가 61점 이상",
     "scholarships": [
       {
-        "name": "영어트랙 장학금 (신입생 첫 학기)",
-        "level": "undergrad",
-        "type": "enroll",
-        "tiers": [
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 104 또는 IELTS 7.5 이상",
-            "amount": "등록금 70% 감면"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 91 또는 IELTS 6.5 이상",
-            "amount": "등록금 60% 감면"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 79 또는 IELTS 6.0 이상",
-            "amount": "등록금 50% 감면"
-          }
-        ]
-      },
-      {
-        "name": "신입생 장학금(TOPIK 급수별)",
+        "name": "입학장학금(TOPIK/IELTS)",
         "level": "grad",
         "type": "enroll",
         "tiers": [
           {
             "score_type": "TOPIK",
-            "score": "3급 이상",
-            "amount": "첫 학기 수업료 30%"
+            "score": 3,
+            "amount": "30%"
+          }
+        ]
+      },
+      {
+        "name": "재학 성적장학금",
+        "level": "grad",
+        "type": "existing",
+        "tiers": [
+          {
+            "score_type": "TOPIK",
+            "score": 4,
+            "amount": "40%"
           },
           {
             "score_type": "TOPIK",
-            "score": "4급 이상",
-            "amount": "첫 학기 수업료 40%"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "5급 이상",
-            "amount": "첫 학기 수업료 70%"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "6급 이상",
-            "amount": "첫 학기 수업료 80%"
+            "score": 3,
+            "amount": "20%"
           }
         ]
       }
@@ -41830,7 +41768,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "489",
       "foreign_pct": "3.6"
-    }
+    },
+    "period": "1차 2026.4.20~4.30 / 2차 2026.6.15~6.24"
   },
   {
     "n": "제주국제대학교",
@@ -42069,7 +42008,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "353",
       "foreign_pct": "112.8"
-    }
+    },
+    "period": "2026.1.19~1.21"
   },
   {
     "n": "제주대학교",
@@ -42507,7 +42447,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "539",
       "foreign_pct": "4.2"
-    }
+    },
+    "period": "2026.10.5~10.23 (전기 1차 원서접수); 전기 2차 2026.11.9~11.27 / 후기 1차 2027.3.29~4.16, 후기 2차 2027.5.3~5.21"
   },
   {
     "n": "조선대학교",
@@ -43164,7 +43105,7 @@ window.UNIV_KNOWLEDGE = [
     ],
     "req": {
       "topik": 3,
-      "ielts": null,
+      "ielts": 5.5,
       "kiip": 3,
       "sejong": "중급1",
       "selftest": true,
@@ -43272,7 +43213,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "415",
       "foreign_pct": "1.7"
-    }
+    },
+    "period": "2026.6.1~7.10"
   },
   {
     "n": "중부대학교",
@@ -43475,7 +43417,7 @@ window.UNIV_KNOWLEDGE = [
       }
     ],
     "req": {
-      "topik": null,
+      "topik": 3,
       "ielts": 5.5,
       "kiip": null,
       "sejong": null,
@@ -43485,66 +43427,19 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "사회통합프로그램·세종학당자격은한국어능력장학금수혜조건에서제외",
     "scholarships": [
       {
-        "name": "한국어능력장학금 (한국어트랙)",
-        "level": "undergrad",
-        "type": "enroll",
-        "tiers": [
-          {
-            "score_type": "TOPIK",
-            "score": "2급",
-            "amount": "등록금 10% 감면"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "3급",
-            "amount": "등록금 20% 감면"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "4급",
-            "amount": "등록금 30% 감면"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "5급",
-            "amount": "등록금 50% 감면"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "6급",
-            "amount": "등록금 60% 감면"
-          }
-        ]
-      },
-      {
-        "name": "한국어능력장학금",
+        "name": "입학장학금(TOPIK/IELTS)",
         "level": "grad",
         "type": "enroll",
         "tiers": [
           {
             "score_type": "TOPIK",
-            "score": "2급",
-            "amount": "수업료 10%"
+            "score": 2,
+            "amount": "10%"
           },
           {
-            "score_type": "TOPIK",
-            "score": "3급",
-            "amount": "수업료 20%"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "4급",
-            "amount": "수업료 30%"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "5급",
-            "amount": "수업료 40%"
-          },
-          {
-            "score_type": "TOPIK",
-            "score": "6급",
-            "amount": "수업료 50%"
+            "score_type": "IELTS",
+            "score": 5.5,
+            "amount": "20%"
           }
         ]
       }
@@ -43555,7 +43450,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "1628",
       "foreign_pct": "16.1"
-    }
+    },
+    "period": "2026.6.22~6.26"
   },
   {
     "n": "중앙대학교",
@@ -44040,7 +43936,7 @@ window.UNIV_KNOWLEDGE = [
     ],
     "req": {
       "topik": 4,
-      "ielts": null,
+      "ielts": 5.5,
       "kiip": null,
       "sejong": null,
       "selftest": true,
@@ -44072,7 +43968,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "5355",
       "foreign_pct": "21.1"
-    }
+    },
+    "period": "2026.3.1.~2027.2.28."
   },
   {
     "n": "중앙승가대학교",
@@ -44237,7 +44134,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "84",
       "foreign_pct": "2.2"
-    }
+    },
+    "period": "2027.3.1~"
   },
   {
     "n": "진주교육대학교",
@@ -44499,7 +44397,7 @@ window.UNIV_KNOWLEDGE = [
     ],
     "req": {
       "topik": 3,
-      "ielts": null,
+      "ielts": 5.5,
       "kiip": null,
       "sejong": null,
       "selftest": false,
@@ -44512,7 +44410,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "198",
       "foreign_pct": "10.6"
-    }
+    },
+    "period": "2025.11.10~11.19 (외국인 추가모집 원서: 2025.12.29~2026.1.5)"
   },
   {
     "n": "청운대학교",
@@ -45307,8 +45206,8 @@ window.UNIV_KNOWLEDGE = [
       }
     ],
     "req": {
-      "topik": null,
-      "ielts": null,
+      "topik": 3,
+      "ielts": 5.5,
       "kiip": null,
       "sejong": null,
       "selftest": true,
@@ -45321,7 +45220,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1543",
       "foreign_pct": "9.4"
-    }
+    },
+    "period": "재외국민과 외국인 수시 특별전형 - 전기 원서접수 2026.12.01~12.24(9:00~17:00), 후기 원서접수 2027.06.01~06.25(9:00~17:00) (온라인 접수; 면접은 접수 후 별도 일정)"
   },
   {
     "n": "초당대학교",
@@ -45597,7 +45497,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "601",
       "foreign_pct": "22.4"
-    }
+    },
+    "period": "2027학년도 전기 외국인 유학생 신·편입: 원서접수 1차 2026.10.12~10.23, 2차 2026.11.09~11.20, 3차 2026.12.14~2027.01.08, 4차 2027.01.18~02.19 (합격발표 1차 2026.10.30 / 2차 2026.11.27 / 3차 2027.01.15 / 4차 2027.02.23, 개강 2027.03.02)"
   },
   {
     "n": "총신대학교",
@@ -47067,7 +46968,7 @@ window.UNIV_KNOWLEDGE = [
     ],
     "req": {
       "topik": 3,
-      "ielts": null,
+      "ielts": 5.5,
       "kiip": null,
       "sejong": null,
       "selftest": true,
@@ -47148,7 +47049,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1109",
       "foreign_pct": "6.4"
-    }
+    },
+    "period": "2026학년도 후기 일반대학원 추가모집(석사·석박사통합·박사): 원서접수 2026.7.20(월) 09:00 ~ 7.24(금) 18:00 (인터넷접수: 충북대 홈페이지/대학원입학정보 ipsi.chungbuk.ac.kr/진학어플라이; 전형료 50,000원) / 구비서류 7.20~7.28 / 면접·전공구술 2026.8.5(수) / 합격발표 2026.8.19(수) 예정 / 등록금 납부 8.20~8.21"
   },
   {
     "n": "칼빈대학교",
@@ -47256,7 +47158,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "1742",
       "foreign_pct": "76.7"
-    }
+    },
+    "period": "신입학 외국인특별전형(3월) 1차 원서접수 2026.09.07~2026.10.04 (서류 동일기간, 면접 2026.10.19~10.20, 합격발표 2026.10.22, 등록 2026.10.22~10.29; 2차 일정은 요강에 표기 없음)"
   },
   {
     "n": "평택대학교",
@@ -47932,7 +47835,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "141",
       "foreign_pct": "3.5"
-    }
+    },
+    "period": "2025.11.10~12.19 (2026 entry)"
   },
   {
     "n": "포항공과대학교",
@@ -47953,7 +47857,7 @@ window.UNIV_KNOWLEDGE = [
     "majors_ma": [],
     "req": {
       "topik": null,
-      "ielts": null,
+      "ielts": 6.5,
       "kiip": null,
       "sejong": null,
       "selftest": false,
@@ -47982,6 +47886,13 @@ window.UNIV_KNOWLEDGE = [
             "amount": "이주지원금, 생활비, 학기근로, 한국어 우수 장학금 등"
           }
         ]
+      },
+      {
+        "name": "외국인 장학금(원본 요강)",
+        "level": "undergrad",
+        "type": "enroll",
+        "tiers": [],
+        "desc": "입학: 모든 합격자 수업료 전액 면제(첫 학기부터, GPA 3.0/4.3 유지 시 8학기까지 갱신). Pathfinder Voucher: 3학기 이수 후 KRW 11,000,000 상당 바우처. Arrival Scholarship(International Admissions만): 최초 학기 시작 6개월 내 한국 거주 이력 없는 자, 편도 항공료 포함 최대 2,500,000원 1회 정산. Korean Proficiency Scholarship: 학기 중 TOPIK 4급 이상 취득 시 300,000원 1회. Living Allowance: 월 500,000원(학년도 전체, 방학 포함)"
       }
     ],
     "cert": {
@@ -47990,7 +47901,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": true,
       "foreign": "159",
       "foreign_pct": "8.6"
-    }
+    },
+    "period": "2026.8.25(화) 14:00 ~ 9.2(수) 17:00 (Spring 2027, StudyinKorea 온라인 접수)"
   },
   {
     "n": "한경국립대학교",
@@ -48293,7 +48205,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "673",
       "foreign_pct": "9.3"
-    }
+    },
+    "period": "2026.10.6~10.21"
   },
   {
     "n": "한국공학대학교",
@@ -49302,7 +49215,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "3586",
       "foreign_pct": "15.8"
-    }
+    },
+    "period": "2025.9.1~9.12"
   },
   {
     "n": "한국체육대학교",
@@ -49491,7 +49405,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "19",
       "foreign_pct": "0.6"
-    }
+    },
+    "period": "2026.9.8~9.10 (수시 외국인군 특별전형, 방문접수 09:00~16:00, 인터넷접수 없음)"
   },
   {
     "n": "한국침례신학대학교",
@@ -50487,7 +50402,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "245",
       "foreign_pct": "4.7"
-    }
+    },
+    "period": "2026.8.1~9.15"
   },
   {
     "n": "한라대학교",
@@ -50788,7 +50704,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "253",
       "foreign_pct": "2.4"
-    }
+    },
+    "period": "2025.11.17~12.23"
   },
   {
     "n": "한서대학교",
@@ -51103,7 +51020,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "412",
       "foreign_pct": "5.2"
-    }
+    },
+    "period": "1학기(3월) 원서접수 2026.12.14~12.18, 2학기(9월) 원서접수 2027.06.21~06.25 (합격발표 1학기 2027.01.14, 2학기 2027.07.15)"
   },
   {
     "n": "한성대학교",
@@ -51516,55 +51434,19 @@ window.UNIV_KNOWLEDGE = [
     "req_note": "",
     "scholarships": [
       {
-        "name": "신입생 외국인 장학금",
+        "name": "입학장학금(TOPIK/IELTS)",
+        "level": "undergrad",
         "type": "enroll",
         "tiers": [
           {
-            "score_type": "TOEFL",
-            "score": "iBT 79~93 / IELTS 6.5",
-            "amount": "등록금 30% (첫 학기)"
+            "score_type": "TOPIK",
+            "score": 5,
+            "amount": "50%"
           },
           {
-            "score_type": "TOEFL",
-            "score": "iBT 94~109 / IELTS 7~7.5",
-            "amount": "등록금 50% (첫 학기)"
-          },
-          {
-            "score_type": "TOEFL",
-            "score": "iBT 110~120 / IELTS 8 이상",
-            "amount": "등록금 100% (첫 학기)"
-          }
-        ]
-      },
-      {
-        "name": "국제교육원 장학금",
-        "type": "enroll",
-        "tiers": [
-          {
-            "score_type": "한국어",
-            "score": "국제교육원 4급 수료",
-            "amount": "등록금 30% (첫 학기)"
-          },
-          {
-            "score_type": "한국어",
-            "score": "국제교육원 5급 수료",
-            "amount": "등록금 50% (첫 학기)"
-          },
-          {
-            "score_type": "한국어",
-            "score": "국제교육원 6급 수료",
-            "amount": "등록금 100% (첫 학기)"
-          }
-        ]
-      },
-      {
-        "name": "한양 우수 외국인 장학금(HIEA)",
-        "type": "existing",
-        "tiers": [
-          {
-            "score_type": "",
-            "score": "",
-            "amount": "등록금 30% / 50% / 70% / 100% 차등 (학기별)"
+            "score_type": "IELTS",
+            "score": 6.5,
+            "amount": "30%"
           }
         ]
       }
@@ -51575,7 +51457,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "8264",
       "foreign_pct": "36.3"
-    }
+    },
+    "period": "2027학년도 1학기(3월) 원서접수 2026.09.01(10:00)~09.18(17:00), 서류제출 2026.09.01~09.30(17:00), 합격자발표 2026.12.18 (개강 2027.03.02; 학부 단일 접수기간, 차수 구분 없음)"
   },
   {
     "n": "한일장신대학교",
@@ -51652,7 +51535,8 @@ window.UNIV_KNOWLEDGE = [
       "excellent": false,
       "foreign": "141",
       "foreign_pct": "15.6"
-    }
+    },
+    "period": "2026.10.12~10.22 (Round 1) / 2026.11.2~ (Round 2)"
   },
   {
     "n": "협성대학교",
