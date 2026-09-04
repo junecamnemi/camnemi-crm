@@ -68,15 +68,15 @@ def max_scholarship_pct(s):
     return best
 
 
-# IELTS scholarship tier playbook (from 2026/2027 BA guides) — keyed by Korean school name
+# Unified scholarship playbook (입학 + 재학) from 2026/2027 BA guides — keyed by Korean school name
 _PLAYBOOK = None
 
 
-def ielts_playbook():
+def playbook():
     global _PLAYBOOK
     if _PLAYBOOK is None:
         try:
-            p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ielts55_playbook.json")
+            p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scholarship_playbook.json")
             with open(p, encoding="utf-8") as f:
                 _PLAYBOOK = json.load(f)
         except Exception:
@@ -84,41 +84,73 @@ def ielts_playbook():
     return _PLAYBOOK
 
 
-# TOPIK scholarship tier playbook (from 2026/2027 BA guides) — keyed by Korean school name
-_TOPIK_PB = None
-
-
-def topik_playbook():
-    global _TOPIK_PB
-    if _TOPIK_PB is None:
-        try:
-            p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "topik_scholarship_tiers.json")
-            with open(p, encoding="utf-8") as f:
-                _TOPIK_PB = json.load(f)
-        except Exception:
-            _TOPIK_PB = {}
-    return _TOPIK_PB
+def _tier_val(tier, level):
+    """Resolve a tier entry for a TOPIK level (T3..T6) or IELTS score (I5.5..)."""
+    if tier is None:
+        return None
+    if isinstance(tier, (int, float)):
+        return int(tier)
+    if isinstance(tier, str):
+        return tier  # descriptive (e.g. 'GPA기준', 'ISS M...')
+    return None
 
 
 def topik_tier_pct(school, level):
-    """Return scholarship % a TOPIK level holder gets at school, or None."""
-    d = topik_playbook().get(school)
+    """Return (enroll%, existing%) a TOPIK level holder gets at school."""
+    d = playbook().get(school)
     if not d:
-        return None
-    tiers = {}
-    for k, v in (d.get("tiers") or {}).items():
-        try:
-            tiers[int(k)] = v
-        except (TypeError, ValueError):
-            continue
-    # exact match first, else nearest tier at/below the level
-    if level in tiers:
-        return tiers[level]
-    best = None
-    for k, v in sorted(tiers.items()):
-        if k <= level:
-            best = v
-    return best
+        return None, None
+    en, ex = None, None
+    for sec in ("enroll", "existing"):
+        tiers = {}
+        for k, v in (d.get(sec) or {}).items():
+            if k.startswith("T"):
+                try:
+                    tiers[int(k[1:])] = v
+                except (TypeError, ValueError):
+                    continue
+        if level in tiers:
+            val = _tier_val(tiers[level], level)
+        else:
+            best, val = None, None
+            for k, v in sorted(tiers.items()):
+                if k <= level:
+                    best, val = k, v
+            val = _tier_val(val, level) if best is not None else None
+        if sec == "enroll":
+            en = val
+        else:
+            ex = val
+    return en, ex
+
+
+def ielts_tier_pct(school, score):
+    """Return (enroll%, existing%) an IELTS score holder gets at school."""
+    d = playbook().get(school)
+    if not d:
+        return None, None
+    en, ex = None, None
+    for sec in ("enroll", "existing"):
+        tiers = {}
+        for k, v in (d.get(sec) or {}).items():
+            if k.startswith("I"):
+                try:
+                    tiers[float(k[1:])] = v
+                except (TypeError, ValueError):
+                    continue
+        if score in tiers:
+            val = _tier_val(tiers[score], score)
+        else:
+            best, val = None, None
+            for k, v in sorted(tiers.items()):
+                if k <= score:
+                    best, val = k, v
+            val = _tier_val(val, score) if best is not None else None
+        if sec == "enroll":
+            en = val
+        else:
+            ex = val
+    return en, ex
 
 
 def main():
@@ -253,19 +285,25 @@ def main():
         lg = logo(name)
         lgp = f" [{lg}]" if lg else ""
         print(f"■ {en_name(name)}{lgp} ({rk}, {en_region(s.get('region') or s.get('loc',''))})")
-        # IELTS playbook tier (if we have verified IELTS->% data for this school)
+        # Scholarship tier badges: admission (입학) + during-study (재학) shown together
         if args.ielts is not None and args.level == "ba":
-            pb = ielts_playbook().get(name)
-            if pb and pb.get("pct", 0) > 0:
-                print(f"   🎯 IELTS {args.ielts} → {pb['pct']}% tuition off ({pb.get('note','')[:100]})")
-            elif pb:
-                print(f"   🎯 IELTS {args.ielts} → no tier (need higher: {pb.get('note','')[:90]})")
-        # TOPIK playbook tier
+            en, ex = ielts_tier_pct(name, args.ielts)
+            if en is not None or ex is not None:
+                parts = []
+                if en is not None:
+                    parts.append(f"admission {en}%" if isinstance(en, int) else f"admission: {en_scholarship(str(en))}")
+                if ex is not None:
+                    parts.append(f"during-study {ex}%" if isinstance(ex, int) else f"during-study: {en_scholarship(str(ex))}")
+                print(f"   🎯 IELTS {args.ielts}: {' / '.join(parts)} tuition off")
         if args.topik is not None and args.level == "ba":
-            tpct = topik_tier_pct(name, args.topik)
-            if tpct is not None:
-                d = topik_playbook().get(name, {})
-                print(f"   🎯 TOPIK {args.topik} → {tpct}% tuition off ({d.get('note','')[:90]})")
+            en, ex = topik_tier_pct(name, args.topik)
+            if en is not None or ex is not None:
+                parts = []
+                if en is not None:
+                    parts.append(f"admission {en}%" if isinstance(en, int) else f"admission: {en_scholarship(str(en))}")
+                if ex is not None:
+                    parts.append(f"during-study {ex}%" if isinstance(ex, int) else f"during-study: {en_scholarship(str(ex))}")
+                print(f"   🎯 TOPIK {args.topik}: {' / '.join(parts)} tuition off")
         major_src = s.get("majors") or s.get("majors_sample") or []
         if isinstance(major_src, list):
             majors_txt = ", ".join(en_major(str(m)) for m in major_src[:5])
