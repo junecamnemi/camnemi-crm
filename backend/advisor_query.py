@@ -335,6 +335,25 @@ def main():
         else:
             lang_disp = s.get('lang_req', '')
         print(f"   Language: {en_lang(lang_disp)} | Apply: {s.get('period','-')}")
+        if args.level == "junior":
+            fg = s.get("foreign_guide")
+            if fg == "obtained":
+                ft = s.get("foreign_topik")
+                typ = s.get("guide_type","")
+                typmap = {"combined_lang_degree":"(어학+전문학사 통합 요강)","combined_lang_degree_adv":"(어학+전문학사+전공심화 통합 요강)","degree_advanced":"(전문학사+전공심화)","degree_only":"(전문학사 전용)"}
+                ttxt = typmap.get(typ,"")
+                ftxt = f" | Foreigner TOPIK: {ft}" if ft else ""
+                print(f"   🌍 Foreigner guide: confirmed{ttxt}{ftxt}")
+            elif fg == "no_public_guide":
+                print(f"   🌍 Foreigner: 외국인 요강 미공개 — 국제교류처/유학원 경유 필요")
+            elif fg == "closed":
+                print(f"   ❌ 폐교 — 모집 중단 (2026.08.31)")
+            elif fg == "merged":
+                print(f"   🔀 타교 통합 — 2027부터 4년제 전환")
+            if s.get("exclude_reason"):
+                print(f"   ⚠️ {en_lang(s['exclude_reason'])}")
+            if s.get("foreign_guide_note"):
+                print(f"   🌍 {s['foreign_guide_note']}")
         if args.level == "junior" and s.get("lang_note"):
             print(f"   ⚠️ {en_lang(s['lang_note'])}")
         tu = fmt_tuition_usd(s.get("tuition_semester") or s.get("tuition_min"))
