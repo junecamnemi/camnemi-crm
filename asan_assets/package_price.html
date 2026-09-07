@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Asan Medical Center Medical Tourism Concierge — Package Price</title>
+<style>
+  @page {
+    size: A4;
+    margin: 7mm 10mm 9mm 10mm;
+    @bottom-center {
+      content: "Camnemi Medical Tourism Concierge · Page " counter(page) " / " counter(pages);
+      font-family: 'Malgun Gothic';
+      font-size: 6pt;
+      color: #9aa5b1;
+    }
+  }
+  @font-face {
+    font-family: 'Malgun Gothic';
+    src: url('C:/Windows/Fonts/malgun.ttf');
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'Malgun Gothic';
+    src: url('C:/Windows/Fonts/malgunbd.ttf');
+    font-weight: bold;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', sans-serif; color: #1f2937; }
+
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 1.5mm; border-bottom: 2pt solid #0b5394; margin-bottom: 2mm;
+  }
+  .header .brands { display: flex; align-items: center; gap: 2.5mm; }
+  .header .logo { height: 7.5mm; }
+  .header .x { font-size: 16pt; font-weight: bold; color: #0b5394; line-height: 1; }
+  .header .camlogo { height: 7.5mm; }
+  .header .camtag {
+    background: #fdeebd; color: #7a5c00; font-weight: bold; font-size: 7pt;
+    padding: 0.7mm 2mm; border: 1pt solid #e0b23a; border-radius: 3px;
+    white-space: nowrap;
+  }
+  .header .titles { text-align: right; }
+  .header .titles .kr { font-size: 12pt; font-weight: bold; color: #0b5394; }
+  .header .titles .en { font-size: 6.5pt; color: #6b7280; margin-top: 0.3mm; }
+
+  .meta {
+    display: flex; justify-content: space-between; align-items: center;
+    background: #f3f6fb; border-radius: 4px; padding: 1.2mm 3mm; margin-bottom: 2.5mm;
+    font-size: 6.8pt; color: #6b7280;
+  }
+  .meta b { color: #0b5394; }
+  .meta .cur { font-size: 7.5pt; font-weight: bold; color: #0b5394; }
+
+  .package {
+    background: #fff; border: 0.8pt solid #dbe3ee; border-radius: 5px;
+    margin-bottom: 2mm; overflow: hidden;
+  }
+  .package .head {
+    background: linear-gradient(135deg, #0b5394 0%, #1d6fc4 60%, #2e8bd8 100%);
+    color: #fff; padding: 1.3mm 3mm;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .package .head .name { font-size: 8.5pt; font-weight: bold; }
+  .package .head .name small { font-size: 6pt; font-weight: normal; opacity: 0.9; margin-left: 1.5mm; }
+
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  th, td { padding: 0.8mm 2.5mm; vertical-align: top; text-align: left; }
+  thead th { background: #eef3fa; color: #0b5394; font-size: 6.5pt; border-bottom: 0.8pt solid #dbe3ee; }
+  thead th:nth-child(1) { width: 13mm; }
+  thead th:nth-child(2) { width: auto; }
+  thead th:nth-child(3) { width: 20mm; text-align: center; }
+  tbody tr { border-bottom: 0.4pt solid #eef1f6; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #f9fbfd; }
+  td.code { font-weight: bold; color: #0b5394; width: 13mm; font-size: 7pt; }
+  td.desc { font-size: 6.8pt; line-height: 1.3; color: #374151; width: auto; }
+  td.desc .srv { font-weight: bold; color: #111827; }
+  td.desc ul { margin: 0.3mm 0 0 3.5mm; padding: 0; }
+  td.desc li { font-size: 6.4pt; color: #5b6570; line-height: 1.25; }
+  td.price { text-align: center; font-weight: bold; color: #0b5394; font-size: 8.5pt; white-space: nowrap; width: 20mm; }
+
+  .note {
+    margin-top: 2mm; font-size: 6pt; color: #6b7280; line-height: 1.4;
+    background: #fafbfc; border-left: 1.5pt solid #0b5394; padding: 1.2mm 2.5mm; border-radius: 0 3px 3px 0;
+  }
+  .note b { color: #0b5394; }
+  .recbg { background: #fff7e6 !important; }
+
+  /* ── Profile page (page 2) ── */
+  .identity {
+    display: flex; align-items: center; gap: 5mm;
+    background: linear-gradient(135deg, #0b5394 0%, #1d6fc4 60%, #2e8bd8 100%);
+    border-radius: 6px; padding: 4mm 5mm; margin-bottom: 3mm;
+    color: #fff;
+  }
+  .identity img {
+    width: 26mm; height: 28mm; object-fit: cover;
+    border-radius: 4px; border: 1.5pt solid rgba(255,255,255,0.7);
+  }
+  .identity .nm { font-size: 17pt; font-weight: bold; line-height: 1.2; }
+  .identity .tl { font-size: 9.5pt; margin-top: 1mm; opacity: 0.95; }
+  .identity .ct { font-size: 7.5pt; margin-top: 2mm; opacity: 0.9; line-height: 1.5; }
+
+  .item { padding: 1.6mm 3mm; border-bottom: 0.5pt solid #eef1f6; }
+  .item:last-child { border-bottom: none; }
+  .item .top { display: table; width: 100%; }
+  .item .tt { display: table-cell; font-size: 8pt; font-weight: bold; color: #0b5394; }
+  .item .ty { display: table-cell; text-align: right; font-size: 6.8pt; font-weight: bold; color: #b8860b; white-space: nowrap; padding-left: 3mm; }
+  .item .sub { font-size: 7pt; color: #5b6570; margin-top: 0.6mm; line-height: 1.45; }
+
+  .cert { padding: 1.4mm 3mm; border-bottom: 0.5pt solid #eef1f6; }
+  .cert:last-child { border-bottom: none; }
+  .cert .cn { font-size: 7.8pt; font-weight: bold; color: #111827; }
+  .cert .cy { float: right; font-size: 6.8pt; font-weight: bold; color: #b8860b; padding-left: 3mm; }
+  .cert .cd { font-size: 6.8pt; color: #5b6570; margin-top: 0.5mm; line-height: 1.45; }
+  .cert .clist { margin: 0.8mm 0 0 0; padding-left: 4mm; }
+  .cert .clist li { font-size: 6.8pt; color: #5b6570; line-height: 1.5; }
+
+  .specialty { padding: 1.5mm 3mm; }
+  .spc {
+    display: inline-block; background: #eef3fa; color: #0b5394;
+    font-weight: bold; font-size: 6.5pt; padding: 0.8mm 2mm;
+    border: 0.8pt solid #c6d4e8; border-radius: 10px; margin: 0.5mm 0.8mm 0 0;
+    line-height: 1.3;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="brands">
+    <img class="logo" src="C:/Users/USER/camnemi-crm/asan_assets/amc_logo_hi.png" alt="Asan Medical Center">
+    <span class="x">×</span>
+    <img class="camlogo" src="C:/Users/USER/camnemi-crm/asan_assets/camnemi_logo.png" alt="CAMNEMI KOREA">
+    <span class="camtag">★ Official Agency of AMC</span>
+  </div>
+  <div class="titles">
+    <div class="kr">Medical Tourism Concierge — Package Price</div>
+    <div class="en">Asan Medical Center · Khmer Patient Support Service</div>
+  </div>
+</div>
+
+<div class="meta">
+  <span><b>Camnemi</b> Medical Tourism Concierge</span>
+  <span class="cur">Currency : USD ($)</span>
+  <span>Contact : <b>medical@camnemi.com</b></span>
+</div>
+
+
+<!-- ★ Recommended -->
+<div class="package" style="border:1.5pt solid #f0b429;">
+  <div class="head" style="background:linear-gradient(135deg,#b8860b 0%,#d9a413 60%,#f0b429 100%);">
+    <span class="name">★ Recommended Package <small>— Most Popular Combo</small></span>
+  </div>
+  <table>
+    <thead><tr><th>Code</th><th>Service</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="code">A</td>
+        <td class="desc"><span class="srv">Registration to Asan &amp; Guide to How to Check-in for Service</span><br>Required service to visit Asan Medical Center — we register you and guide you through the check-in process.</td>
+        <td class="price">$100</td>
+      </tr>
+      <tr>
+        <td class="code">B.1</td>
+        <td class="desc"><span class="srv">Khmer Doctor Online Consulting in Asan — before Registration</span><br>10 minutes consultation with a Khmer-speaking doctor.</td>
+        <td class="price">$100</td>
+      </tr>
+      <tr>
+        <td class="code">B.3</td>
+        <td class="desc"><span class="srv">Guide the Hospital by Khmer Doctor During Treatment</span><br>The Khmer doctor personally guides you through the hospital during your treatment.</td>
+        <td class="price">$300</td>
+      </tr>
+      <tr style="background:#fff7e6;border-top:1.5pt solid #f0b429;">
+        <td class="code" style="color:#b8860b;">Pkg</td>
+        <td class="desc"><span class="srv" style="color:#b8860b;">Recommended Package Total</span><br>A + B.1 + B.3 — Registration + Khmer consult + Doctor guide.</td>
+        <td class="price" style="color:#b8860b;font-size:11pt;">$500</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- A -->
+<div class="package">
+  <div class="head"><span class="name">A. Registration &amp; Guide <small>— Hospital Registration &amp; Check-in Assistance</small></span></div>
+  <table>
+    <thead><tr><th>Code</th><th>Service</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="code">A</td>
+        <td class="desc"><span class="srv">Registration to Asan &amp; Guide to How to Check-in for Service</span><br>Required service to visit Asan Medical Center — we register you and guide you through the check-in process.</td>
+        <td class="price">$100</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- B -->
+<div class="package">
+  <div class="head"><span class="name">B. Khmer Doctor Consulting <small>— Consult with a Khmer-speaking Doctor at Asan</small></span></div>
+  <table>
+    <thead><tr><th>Code</th><th>Service</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="code">B.1</td>
+        <td class="desc"><span class="srv">Khmer Doctor Online Consulting in Asan — before Registration</span><br>10 minutes consultation with a Khmer-speaking doctor.</td>
+        <td class="price">$100</td>
+      </tr>
+      <tr>
+        <td class="code">B.2</td>
+        <td class="desc"><span class="srv">Khmer Doctor Online Consulting in Asan — before Registration</span><br>60 minutes consultation with a Khmer-speaking doctor.</td>
+        <td class="price">$300</td>
+      </tr>
+      <tr>
+        <td class="code">B.3</td>
+        <td class="desc"><span class="srv">Guide the Hospital by Khmer Doctor During Treatment</span><br>The Khmer doctor personally guides you through the hospital during your treatment.</td>
+        <td class="price">$300</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- C -->
+<div class="package">
+  <div class="head"><span class="name">C. Concierge <small>— VISA · Transport · Booking Support</small></span></div>
+  <table>
+    <thead><tr><th>Code</th><th>Service</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="code">C.1</td>
+        <td class="desc"><span class="srv">VISA Preparation</span>
+          <ul>
+            <li>Prepare documents with translation (translation included)</li>
+            <li>We only support <b>C-3-1 Travel VISA</b></li>
+            <li>VISA application fee &amp; document issuing fee are <b>not included</b></li>
+            <li>VISA results we cannot assure</li>
+          </ul>
+        </td>
+        <td class="price">$100</td>
+      </tr>
+      <tr>
+        <td class="code">C.2</td>
+        <td class="desc"><span class="srv">Airport Pickup &amp; Transport to Hotel</span>
+          <ul>
+            <li>Awaiting at the airport to welcome customers</li>
+            <li>Transport to accommodation using Van (Carnival)</li>
+          </ul>
+        </td>
+        <td class="price">$150</td>
+      </tr>
+      <tr>
+        <td class="code">C.3</td>
+        <td class="desc"><span class="srv">Booking Airticket / Accommodation</span>
+          <ul>
+            <li>Flight ticket and accommodation fee are on customers</li>
+          </ul>
+        </td>
+        <td class="price">$50</td>
+      </tr>
+      <tr>
+        <td class="code">C.4</td>
+        <td class="desc"><span class="srv">Sending to Airport</span>
+          <ul>
+            <li>Help to check out from hotel and check in for departure</li>
+            <li>Transport to airport using Van (Carnival)</li>
+          </ul>
+        </td>
+        <td class="price">$150</td>
+      </tr>
+          <tr style="background:#fff7e6;border-top:1.5pt solid #f0b429;">
+        <td class="code" style="color:#b8860b;">Pkg</td>
+        <td class="desc"><span class="srv" style="color:#b8860b;">Concierge Package (C.1 – C.4)</span><br>
+          Full concierge package — VISA + Pickup + Booking + Airport Send-off.
+          <span style="color:#b8860b;font-weight:bold;">Total $450 → <span style="font-size:10pt;">$400</span></span> <span style="color:#b91c1c;font-weight:bold;">(Package discount)</span></td>
+        <td class="price" style="color:#b8860b;">~~$450~~<br><span style="font-size:11pt;color:#b91c1c;">$400</span></td>
+      </tr>
+</tbody>
+  </table>
+</div>
+
+<!-- D -->
+<div class="package">
+  <div class="head"><span class="name">D. Khmer ⇄ Korean Translation <small>— Interpretation Service</small></span></div>
+  <table>
+    <thead><tr><th>Code</th><th>Service</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="code">D.1</td>
+        <td class="desc"><span class="srv">Translation Basic Service</span><br>4 hours per day basis.</td>
+        <td class="price">$150</td>
+      </tr>
+      <tr>
+        <td class="code">D.2</td>
+        <td class="desc"><span class="srv">Additional Time for Translation</span><br>Extra translation time, charged by the hour.</td>
+        <td class="price">$40</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="note">
+  ※ All prices are in <b>USD ($)</b> and are for the support/concierge service only.<br>
+  ※ VISA application fee, document issuing fee, flight tickets and accommodation are <b>not included</b> and are to be paid by the customer.<br>
+  <div style="margin-top:1.5mm;">※ VISA results cannot be assured.</div>
+</div>
+
+<!-- ══════ PAGE 2 : OUR CAMBODIAN DOCTOR ══════ -->
+<div style="page-break-before: always;"></div>
+
+<div class="header">
+  <div class="brands">
+    <img class="logo" src="C:/Users/USER/camnemi-crm/asan_assets/amc_logo_hi.png" alt="Asan Medical Center">
+    <span class="x">×</span>
+    <img class="camlogo" src="C:/Users/USER/camnemi-crm/asan_assets/camnemi_logo.png" alt="CAMNEMI KOREA">
+    <span class="camtag">★ Official Agency of AMC</span>
+  </div>
+  <div class="titles">
+    <div class="kr">Our Medical Director</div>
+    <div class="en">Camnemi Medical Tourism Concierge · Cambodia</div>
+  </div>
+</div>
+
+<div class="meta">
+  <span><b>Dr. Chea Siek Ai</b> — Director of Medical Service</span>
+  <span>Curriculum Vitae</span>
+  <span>Contact : <b>medical@camnemi.com</b></span>
+</div>
+
+<!-- Identity -->
+<div class="identity">
+  <img src="C:/Users/USER/camnemi-crm/asan_assets/dr_chea_photo_final.png" alt="Chea Siek Ai">
+  <div>
+    <div class="nm">Chea Siek Ai, MD</div>
+    <div class="tl">Director of Medical Service</div>
+    <div class="ct">📞 +82-10-9839-7855 &nbsp;·&nbsp; ✉️ medical@camnemi.com</div>
+  </div>
+</div>
+
+<!-- Education -->
+<div class="package">
+  <div class="head"><span class="name">🎓 Education <small>— Academic Background</small></span></div>
+  <div class="item">
+    <div class="top"><div class="tt">Master degree of Plastic &amp; Reconstructive Surgery</div><div class="ty">2025 ~</div></div>
+    <div class="sub">University of Ulsan College of Medicine</div>
+  </div>
+  <div class="item">
+    <div class="top"><div class="tt">Bachelor of Medicine</div><div class="ty">2020</div></div>
+    <div class="sub">Faculty of Medicine, University of Puthisastra</div>
+  </div>
+</div>
+
+<!-- Experience -->
+<div class="package">
+  <div class="head"><span class="name">💼 Working Experience <small>— Clinical Career</small></span></div>
+  <div class="item">
+    <div class="top"><div class="tt">Asan Medical Center</div><div class="ty">2025 ~</div></div>
+    <div class="sub">Training &amp; Fellowship — Department of Plastic and Reconstructive Surgery</div>
+  </div>
+  <div class="item">
+    <div class="top"><div class="tt">Sunrise Janpan Hospital</div><div class="ty">2021 – 2024</div></div>
+    <div class="sub">Junior Surgeon</div>
+  </div>
+  <div class="item">
+    <div class="top"><div class="tt">Sihanouk Hospital Center of Hope</div><div class="ty">2020 – 2021</div></div>
+    <div class="sub">Trainee Surgeon</div>
+  </div>
+</div>
+
+<!-- Certificates -->
+<div class="package">
+  <div class="head"><span class="name">📜 Certificates <small>— Licenses &amp; Recognition</small></span></div>
+  <div class="cert">
+    <div class="cn">Certificate of International Ambassador</div><div class="cy">03/2021</div>
+    <div class="cd">Master Series Microsurgery for Residents 2 — Online course</div>
+  </div>
+  <div class="cert">
+    <div class="cn">Certificate of Attendance</div>
+    <ul class="clist">
+      <li>25th Annual Conference of Cambodian Society of Surgery (11/2019)</li>
+      <li>1st APSARA Course on General Medicine — "Infectious Disease" (12/2018)</li>
+      <li>24th Annual Conference of Cambodian Society of Surgery (11/2018)</li>
+      <li>23rd Annual Conference of Cambodian Society of Surgery (11/2017)</li>
+      <li>Emergency Medicine, University of Puthisastra, Phnom Penh (06/2017)</li>
+    </ul>
+  </div>
+  <div class="cert">
+    <div class="cn">Certificate of Appreciation</div><div class="cy">01/2018</div>
+    <div class="cd">Outstanding Volunteer Accomplishment — 8th CHPAA Medical, Dental, Surgical, Prosthetic Hand (LN-4) / Disability Referral Mission, Prey Veng Province, Cambodia</div>
+  </div>
+</div>
+
+<!-- Clinical Focus -->
+<div class="package">
+  <div class="head"><span class="name">🩺 Clinical Focus <small>— Areas of Expertise</small></span></div>
+  <div class="specialty">
+    <span class="spc">🫀 Plastic &amp; Reconstructive Surgery</span>
+    <span class="spc">🔬 Microsurgery</span>
+    <span class="spc">🩻 General Surgery</span>
+    <span class="spc">🚑 Emergency Medicine</span>
+    <span class="spc">🧠 Surgical Care</span>
+  </div>
+</div>
+
+<div class="note">
+  ※ Curriculum Vitae of <b>Dr. Chea Siek Ai, MD</b> · Director of Medical Service · Camnemi Medical Tourism Concierge · Contact : <b>medical@camnemi.com</b>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,964 @@
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+var sso_url = "https://home.knu.ac.kr";
+$(document).ready(function(){
+	var todayDate = new Date();
+	todayDate.setDate( todayDate.getDate() + Number(1) );
+	document.cookie = "reUrl=https://home.knu.ac.kr/HOME/global; domain=knu.ac.kr; path=/; expires=" + todayDate.toGMTString() + ";"
+});
+</script>
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=1280">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="No-Cache">
+<meta http-equiv="Pragma" content="No-Cache">
+<meta name="format-detection" content="telephone=no">
+<title>경북대학교 국제처</title>
+<meta property="og:title" content="국제처" />
+
+<link rel="stylesheet" type="text/css" href="../old_data/css/common.css?1729476650">
+<link rel="stylesheet" type="text/css" href="../old_data/css/board.css?1614141536">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
+<link rel="stylesheet" href="../../HOME/data/css/font-awesome.min.css?">
+<!-- <link rel="stylesheet" type="text/css" href="../old_data/css/content.css?1730794565"> -->
+<link rel="stylesheet" type="text/css"   href="../old_data/css/global/content.css?1770950179">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="../old_data/js/jquery.cycle_main.js?1614054496"></script>
+<script src="../old_data/js/common.js?1770797429"></script>
+<script src="../old_data/js/menu.js?1614054496"></script>
+<script type="text/javascript" src="../old_data/js/jquery.cycle2.js"></script>
+<script type="text/javascript" src="../old_data/js/jquery.cycle2.carousel.js"></script>
+
+<script type="text/javascript">
+
+<!--
+$(function(){
+	/**
+	 *	GNB Initialize
+	 */
+	var fe_gnbInit = function(){
+		var $gnb = $("#gnb");
+		
+		//1depth control
+		//alert(max_2menu);
+		h_px = (max_2menu * 20);
+		//mouseover
+		$gnb.find("> div > div > ul > li > a")
+		.bind("mouseenter", function(){ 
+			$(".depth2").show().stop().animate({opacity:'1',height:h_px+80},400);
+			$("#id_gnb_bg").stop().animate({opacity:'1',height:h_px+80},200);
+		});
+
+
+		$gnb.mouseleave(function(){
+			$(".depth2").stop().animate({height:'0px',opacity:'1'},200,function() {$(".depth2").hide();});
+			$("#id_gnb_bg").stop().animate({height:'0px',opacity:'1'},400);
+		});
+
+		$gnb.find("> div > div > ul > li > a")
+		.focus(function(){ 
+			$(".depth2").show().stop().animate({opacity:'1',height:h_px+80},400);
+			$("#id_gnb_bg").stop().animate({opacity:'1',height:h_px+80},200);
+		});
+		
+		
+
+		$gnb.find("li:last > a").blur(function(){
+			$(".depth2").stop().animate({height:'0px',opacity:'1'},200,function() {$(".depth2").hide();});
+			$("#id_gnb_bg").stop().animate({height:'0px',opacity:'1'},400);
+		});
+		$("#menu_out_check").focus(function(){ 
+			$(".depth2").stop().animate({height:'0px',opacity:'1'},200,function() {$(".depth2").hide();});
+			$("#id_gnb_bg").stop().animate({height:'0px',opacity:'1'},400);
+		});
+	}
+	fe_gnbInit(); //excute
+
+});
+
+//-->
+</script>
+</head>
+<body class="bbg">
+
+	<div id="skipwrap">
+	<div id="skipnavi">
+		<ul>
+		<li><a href="#container" title="본문 내용으로 바로가기" style="height:32px;">본문 내용으로 바로가기</a></li>
+		<li><a href="#gnb" title="주 메뉴로 바로가기" style="height:32px;">주 메뉴로 바로가기</a></li>
+		</ul>
+	</div>
+	</div>
+
+	<div id="login_layer_bg" style="position:absolute; left:0px; top:0px; width:100%; height:100%; z-index:999999; display:none; background:#000;opacity:0.5;filter:alpha(opacity=50, style=2, finishopacity=50);" onclick="login_close();"></div>
+<div id="login_layer" style="position:fixed;width:700px;left:50%;top:250px;margin-left:-350px;padding:20px;z-index:9999999;background:#fff;display:none;border:2px solid;border-color:#DA2128;">
+<div class="toptxt">자신의 신분에 맞는 로그인화면을 선택하세요.</div>
+<div class="login_section">
+<a href="https://my.knu.ac.kr/stpo/comm/support/loginPortal/loginForm.action?redirUrl=https%3A%2F%2Fhome.knu.ac.kr%2FHOME%2Fglobal" class="ico1" title="학생포털시스템 로그인 페이지로 이동"><p class="tit">학생<p class="txt">학생 및 졸업생은<br>학생포털시스템을 통해 로그인 됩니다.</p></p></a>
+<a href="https://hi.knu.ac.kr//portal/comm/support/loginPortal/loginForm.action?redirUrl=https%3A%2F%2Fhome.knu.ac.kr%2FHOME%2Fglobal" class="ico2" title="교직원 업무포털시스템 로그인 페이지로 이동"><p class="tit">교직원<p class="txt">교수 및 교직원은<br>업무포털시스템을 통해 로그인 됩니다.</p></p></a>
+</div>
+<div class="tac"><a href="#" onclick="login_close();" class="btn_d">닫기</a></div>
+</div>	
+	<div id="wrap" class="mbg">
+		
+	<!-- container -->
+	<div class="mv-wrap" style="position:relative;">
+		 
+					<script type="text/javascript">
+	<!--
+	/* 메인 이미지 로테이션 스크립트 */
+
+	$(document).ready(function() {
+		$('#mvslide').cycle({
+			fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+			speed:  1000, //페이드바뀌는 시간
+			timeout: 5000, //5초
+			slides: '> div.mainSlide' //Id = slides 레이어 아래 속해있는 span 태그를 잡아 돌린다.
+		});
+	});
+	function mvStop() {
+		$('#mvslide').cycle('pause');
+		$('#mvisual .control a.stop').hide();
+		$('#mvisual .control a.play').show();
+	}
+	function mvPlay() {
+		$('#mvslide').cycle('resume');
+		$('#mvisual .control a.stop').show();
+		$('#mvisual .control a.play').hide();
+	}
+	function mvPrev() {
+		$('#mvslide').cycle('prev');
+	}
+	function mvNext() {
+		$('#mvslide').cycle('next');
+	}
+	//-->
+	</script>
+
+	<div id="mvisual" class="mvbg">
+		<div id="header">
+	<!-- topwrap -->
+	<div id="topwrap">
+	<div class="d_width">
+		<div id="logo">
+		<a href="./index.htm">
+			<img src="../old_data/staticObj/global/knu_logo_241021.png" class="png24" alt="KNU경북대학교"/>			<span class="name_c">국제처</span></a>
+		</div>
+		<div class="right">
+			<a href="index.htm" title="홈으로 이동">HOME</a>
+						<a href="#" onclick="login_show()" title="로그인">LOGIN</a>
+						<a href="http://en.knu.ac.kr/" class="lang" target="_blank">ENG</a>
+			<a href="http://cn.knu.ac.kr/" class="lang" target="_blank">中文</a>
+			<!-- <a href="" title="사이트맵 페이지로 이동" class="sitemap"></a> -->
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+	<!-- //topwrap -->
+	<!-- gnb -->
+	<div id="gnb"><a name="gnb"></a>
+	<div class="d_width">
+						<div id="gnbmn">
+			<h2>주메뉴</h2>
+			<ul id="top1menu" class="depth1">
+								
+				<li style="width:14%;"><a href="./sub.htm?nav_code=glo1549934404"  id="top1m1" title ='About Us > About OIA 페이지로 이동합니다.'>About Us</a>
+				
+					
+										<ul id="top2m1" class="depth2 fst">
+
+					
+															<li id="top2m1m1"><a href="./sub.htm?nav_code=glo1549934404"  title ='About OIA 페이지로 이동합니다.'>About OIA</a></li>
+															<li id="top2m1m2"><a href="./sub.htm?nav_code=glo1549934408"  title ='OIA Staff 페이지로 이동합니다.'>OIA Staff</a></li>
+															<li id="top2m1m3"><a href="./sub.htm?nav_code=glo1763598206"  title ='International Partners 페이지로 이동합니다.'>International Partners</a></li>
+															<li id="top2m1m4"><a href="./sub.htm?nav_code=glo1549934425"  title ='Contact Us 페이지로 이동합니다.'>Contact Us</a></li>
+					
+					</ul>
+									</li>
+								
+				<li style="width:14%;"><a href="./sub.htm?nav_code=glo1549934904"  id="top1m2" title ='Outbound Programs > 교환학생제도란? 페이지로 이동합니다.'>Outbound Programs</a>
+				
+					
+										<ul id="top2m2" class="depth2">
+
+					
+															<li id="top2m2m1"><a href="./sub.htm?nav_code=glo1549934904"  title ='교환학생(Student Exchange) 페이지로 이동합니다.'>교환학생(Student Exchange)</a></li>
+															<li id="top2m2m2"><a href="./sub.htm?nav_code=glo1593427599"  title ='복수학위제(Double Degree) 페이지로 이동합니다.'>복수학위제(Double Degree)</a></li>
+															<li id="top2m2m3"><a href="./sub.htm?nav_code=glo1549934977"  title ='해외인턴(Internship) 페이지로 이동합니다.'>해외인턴(Internship)</a></li>
+															<li id="top2m2m4"><a href="./sub.htm?nav_code=glo1743486238"  title ='글로벌챌린저(Global Challenger) 페이지로 이동합니다.'>글로벌챌린저(Global Challenger)</a></li>
+															<li id="top2m2m5"><a href="./sub.htm?nav_code=glo1549934691"  title ='외국대학 Summer/Winter School 페이지로 이동합니다.'>외국대학 Summer/Winter School</a></li>
+															<li id="top2m2m6"><a href="./sub.htm?nav_code=glo1606986376"  title ='해외 명문대 썸머스쿨 페이지로 이동합니다.'>해외 명문대 썸머스쿨</a></li>
+															<li id="top2m2m7"><a href="./sub.htm?nav_code=glo1549935295"  title ='기타 프로그램(Other Programs) 페이지로 이동합니다.'>기타 프로그램(Other Programs)</a></li>
+					
+					</ul>
+									</li>
+								
+				<li style="width:14%;"><a href="https://en.knu.ac.kr/admission/exchange01.htm" target='_blank' id="top1m3" title ='새창으로 Inbound Programs 페이지가 열립니다.'>Inbound Programs</a>
+				
+					
+										<ul id="top2m3" class="depth2">
+
+					
+															<li id="top2m3m1"><a href="https://en.knu.ac.kr/admission/exchange01.htm" target='_blank' title ='새창으로 Exchange Student Program 페이지가 열립니다.'>Exchange Student Program</a></li>
+															<li id="top2m3m2"><a href="https://en.knu.ac.kr/admission/double01.htm" target='_blank' title ='새창으로 Double Degree Program 페이지가 열립니다.'>Double Degree Program</a></li>
+															<li id="top2m3m3"><a href="https://en.knu.ac.kr/admission/visiting01.htm" target='_blank' title ='새창으로 Visiting Student Program 페이지가 열립니다.'>Visiting Student Program</a></li>
+															<li id="top2m3m4"><a href="https://en.knu.ac.kr/admission/summer01.htm" target='_blank' title ='새창으로 Summer School Program 페이지가 열립니다.'>Summer School Program</a></li>
+															<li id="top2m3m5"><a href="https://en.knu.ac.kr/admission/visiting02.htm" target='_blank' title ='새창으로 Visiting Scholar Program 페이지가 열립니다.'>Visiting Scholar Program</a></li>
+					
+					</ul>
+									</li>
+								
+				<li style="width:14%;"><a href="./sub.htm?nav_code=glo1549935033"  id="top1m4" title ='Degree Program > 외국인 특별전형<br>(Undergraduate, Graduate) 페이지로 이동합니다.'>Degree Program</a>
+				
+					
+										<ul id="top2m4" class="depth2">
+
+					
+															<li id="top2m4m1"><a href="./sub.htm?nav_code=glo1549935033"  title ='외국인 특별전형<br>(Undergraduate, Graduate) 페이지로 이동합니다.'>외국인 특별전형<br>(Undergraduate, Graduate)</a></li>
+															<li id="top2m4m2"><a href="./sub.htm?nav_code=glo1711940030"  title ='정부초청장학<br>(Global Korea Scholarship) 페이지로 이동합니다.'>정부초청장학<br>(Global Korea Scholarship)</a></li>
+															<li id="top2m4m3"><a href="./sub.htm?nav_code=glo1549935049"  title ='한국어연수과정<br>(Korean Language Program) 페이지로 이동합니다.'>한국어연수과정<br>(Korean Language Program)</a></li>
+					
+					</ul>
+									</li>
+								
+				<li style="width:14%;"><a href="./sub.htm?nav_code=glo1730012369"  id="top1m5" title ='E-Help > Visa 페이지로 이동합니다.'>E-Help</a>
+				
+					
+										<ul id="top2m5" class="depth2">
+
+					
+															<li id="top2m5m1"><a href="./sub.htm?nav_code=glo1730012369"  title ='LIFE 페이지로 이동합니다.'>LIFE</a></li>
+															<li id="top2m5m2"><a href="./sub.htm?nav_code=glo1729752163"  title ='Special Programs 페이지로 이동합니다.'>Special Programs</a></li>
+															<li id="top2m5m3"><a href="./sub.htm?nav_code=glo1730012177"  title ='Scholarship 페이지로 이동합니다.'>Scholarship</a></li>
+															<li id="top2m5m4"><a href="./sub.htm?nav_code=glo1729835413"  title ='Int'l Students Guidebook 페이지로 이동합니다.'>Int'l Students Guidebook</a></li>
+					
+					</ul>
+									</li>
+								
+				<li style="width:14%;"><a href="./sub.htm?nav_code=glo1769497210"  id="top1m6" title ='ICRC > About ICRC(국제협력연구센터) 페이지로 이동합니다.'>ICRC</a>
+				
+					
+										<ul id="top2m6" class="depth2">
+
+					
+															<li id="top2m6m1"><a href="./sub.htm?nav_code=glo1769497210"  title ='About ICRC(국제협력연구센터) 페이지로 이동합니다.'>About ICRC(국제협력연구센터)</a></li>
+															<li id="top2m6m2"><a href="./sub.htm?nav_code=glo1769497229"  title ='대학원생 지원 프로그램(Programs for Graduates) 페이지로 이동합니다.'>대학원생 지원 프로그램(Programs for Graduates)</a></li>
+															<li id="top2m6m3"><a href="./sub.htm?nav_code=glo1769497265"  title ='KNU 글로벌 인사이트(KNU Global Insight: Seminars) 페이지로 이동합니다.'>KNU 글로벌 인사이트(KNU Global Insight: Seminars)</a></li>
+															<li id="top2m6m4"><a href="./sub.htm?nav_code=glo1769497297"  title ='Research Network 페이지로 이동합니다.'>Research Network</a></li>
+					
+					</ul>
+									</li>
+								
+				<li style="width:16%;"><a href="./sub.htm?nav_code=glo1729572883"  id="top1m7" title ='Community > 국제화프로그램 페이지로 이동합니다.'>Community</a>
+				
+					
+										<ul id="top2m7" class="depth2">
+
+					
+															<li id="top2m7m1"><a href="./sub.htm?nav_code=glo1729572883"  title ='국제화프로그램 페이지로 이동합니다.'>국제화프로그램</a></li>
+															<li id="top2m7m2"><a href="./sub.htm?nav_code=glo1729648656"  title ='International  Students 페이지로 이동합니다.'>International  Students</a></li>
+															<li id="top2m7m3"><a href="./sub.htm?nav_code=glo1744778533"  title ='KNU Alumni 페이지로 이동합니다.'>KNU Alumni</a></li>
+					
+					</ul>
+									</li>
+											</ul>
+			</div>
+			<div class="clear"></div>
+	</div>	
+	<script type="text/javascript">initTopMenu(0,0);max_2menu=7;</script>
+	</div>
+	<!-- //gnb -->
+</div>
+<div id="id_gnb_bg" class="gnb_bg"></div>
+<div class="clear"></div>		<div id="mvslide">
+
+				<div
+                style="position:absolute;background:url('../old_data/bbsData/global/MAIN_1640587357');background-size:cover;z-index:10;background-position:50% 50%;;background-repeat:no-repeat;height:100%;width:100%; filter:brightness(0.7);" class="mainSlide">
+			</div>
+						<div
+                style="position:absolute;background:url('../old_data/bbsData/global/MAIN_1640587345');background-size:cover;z-index:10;background-position:50% 50%;;background-repeat:no-repeat;height:100%;width:100%; filter:brightness(0.7);" class="mainSlide">
+			</div>
+						<div
+                style="position:absolute;background:url('../old_data/bbsData/global/MAIN_1775701024');background-size:cover;z-index:10;background-position:50% 50%;;background-repeat:no-repeat;height:100%;width:100%; filter:brightness(0.7);" class="mainSlide">
+			</div>
+			
+		</div>
+
+				<div class="control">
+			<a href="#" onclick="mvPrev();return false;" class="prev"></a>
+			<a href="#" onclick="mvStop();return false;" class="stop"></a>
+			<a href="#" onclick="mvPlay();return false;" class="play" style="display:none;"></a>
+			<a href="#" onclick="mvNext();return false;" class="next"></a>
+		</div>
+				<div class="d_width tal">
+			<div class="col_wrap_flat">
+					<div class="col_w7">
+						<div class="tit_width">
+							<div id="main_title_editarea">
+									<p class="m-tit mbp20">Beyond Borders,<br>
+									Together<br>
+									With the World</p>
+									<p class="s-tit">국경을 넘은 글로벌 교류 무한한 가능성의 시작</p>
+							</div>
+						</div>
+						<div class="quick-bnr">
+							<ul>
+								<li>
+									<a href="./sub.htm?nav_code=glo1549935033">
+										<p class="tit">대학(원) 외국인 특별전형 바로가기<br>Admission Quick Menu</p>
+										<span class="ico1"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col_w3">
+						<div class="mnewslist">
+							<h3>공지사항(국제화 프로그램)</h3>
+							<ul>
+															<li>
+									<a href="./sub.htm?mode=view&mv_data=aWR4PTE5MDkxJnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTcyOTU3Mjg4MyZjb2RlPW5vdGljZSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">
+										<div class="txt-wrap">
+											<p class="subject">[국제협력연구센터] 2026학년도 글로벌 JA교수 지원사항 여비 지급 및 절차 안내</p><!--링크 걸기-->
+											<p class="date">2026-08-21</p>
+										</div>
+									</a>
+								</li>
+
+																<li>
+									<a href="./sub.htm?mode=view&mv_data=aWR4PTE5MDg5JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTcyOTU3Mjg4MyZjb2RlPW5vdGljZSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">
+										<div class="txt-wrap">
+											<p class="subject">2027학년도 1학기 외국대학 파견 교환학생 면접 일정 안내</p><!--링크 걸기-->
+											<p class="date">2026-08-21</p>
+										</div>
+									</a>
+								</li>
+
+																<li>
+									<a href="./sub.htm?mode=view&mv_data=aWR4PTE5MDc5JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTcyOTU3Mjg4MyZjb2RlPW5vdGljZSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">
+										<div class="txt-wrap">
+											<p class="subject">2026학년도 상반기 KNU 글로벌 세미나 (8월) 안내</p><!--링크 걸기-->
+											<p class="date">2026-08-12</p>
+										</div>
+									</a>
+								</li>
+
+																<li>
+									<a href="./sub.htm?mode=view&mv_data=aWR4PTE5MDc3JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTcyOTU3Mjg4MyZjb2RlPW5vdGljZSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">
+										<div class="txt-wrap">
+											<p class="subject">2026 경북 청년 해외인턴 지원사업 모집(3차)</p><!--링크 걸기-->
+											<p class="date">2026-08-12</p>
+										</div>
+									</a>
+								</li>
+
+																<li>
+									<a href="./sub.htm?mode=view&mv_data=aWR4PTE5MDczJnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTcyOTU3Mjg4MyZjb2RlPW5vdGljZSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">
+										<div class="txt-wrap">
+											<p class="subject">2026년 2학기 KNU Global Gateway Program 모집안내</p><!--링크 걸기-->
+											<p class="date">2026-08-07</p>
+										</div>
+									</a>
+								</li>
+
+																							</ul>
+							<div class="sns">
+								<a href="https://cafe.naver.com/knuoia" target="_blank"><img src="../old_data/staticObj/global/topsns_blog.png" alt="네이버카페로 가기"></a>
+								<a href="https://www.instagram.com/knu_international/?hl=ko" target="_blank"><img src="../old_data/staticObj/global/sns_insta.png" alt="인스타그램으로 가기"></a>
+								<a href="https://www.youtube.com/channel/UCcVR1TUWcB9Ku6FslF-SgUg" target="_blank"><img src="../old_data/staticObj/global/sns_youtube.png" alt="유튜브 가기"></a>
+								<a href="https://www.facebook.com/knuinternational" target="_blank"><img src="../old_data/staticObj/global/sns_facebook.png"></a>
+							</div>
+							<div class="txt-more">
+								<a class="ico-plus minus" href="./sub.htm?nav_code=glo1729572883"><span></span></a>
+								<!-- <a href="./sub.htm?nav_code=glo1729572883">+</a> -->
+							</div>
+						</div>
+						<div class="mnewslist">
+							<h3>Notice(International Students)</h3>
+							<ul>
+							
+							
+
+
+
+								<li>
+									<a href="./sub.htm?mode=view&mv_data=aWR4PTE5MDk3JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTcyOTY0ODY1NiZjb2RlPWluX25vdGljZSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">
+										<div class="txt-wrap">
+											<p class="subject">대구가톨릭대학교 주관 대구경북 외국인 유학생 풋살대회</p><!--링크 걸기-->
+											<p class="date">2026-08-26</p>
+										</div>
+									</a>
+								</li>
+							
+
+
+
+								<li>
+									<a href="./sub.htm?mode=view&mv_data=aWR4PTE5MDk2JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTcyOTY0ODY1NiZjb2RlPWluX25vdGljZSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">
+										<div class="txt-wrap">
+											<p class="subject">2026-2 글쓰기도움터 튜터링  및 상담 안내</p><!--링크 걸기-->
+											<p class="date">2026-08-25</p>
+										</div>
+									</a>
+								</li>
+							
+
+
+
+								<li>
+									<a href="./sub.htm?mode=view&mv_data=aWR4PTE5MDk1JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTcyOTY0ODY1NiZjb2RlPWluX25vdGljZSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">
+										<div class="txt-wrap">
+											<p class="subject">Hyundai Outlet Daegu Discount for KNU International Students</p><!--링크 걸기-->
+											<p class="date">2026-08-24</p>
+										</div>
+									</a>
+								</li>
+							
+
+
+
+								<li>
+									<a href="./sub.htm?mode=view&mv_data=aWR4PTE5MDk0JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTcyOTY0ODY1NiZjb2RlPWluX25vdGljZSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">
+										<div class="txt-wrap">
+											<p class="subject">Employment and Settlement Survey of International Students 외국인 유학생 취업 및 정착 실태조사</p><!--링크 걸기-->
+											<p class="date">2026-08-24</p>
+										</div>
+									</a>
+								</li>
+							
+
+
+
+								<li>
+									<a href="./sub.htm?mode=view&mv_data=aWR4PTE5MDkzJnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTcyOTY0ODY1NiZjb2RlPWluX25vdGljZSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">
+										<div class="txt-wrap">
+											<p class="subject">2026 대한민국 다문화 어울림 엑스포 사전 등록</p><!--링크 걸기-->
+											<p class="date">2026-08-24</p>
+										</div>
+									</a>
+								</li>
+							
+														</ul>
+							<div class="sns">
+								<a href="https://www.instagram.com/studyatknu/" target="_blank"><img src="../old_data/staticObj/global/sns_insta.png" alt="인스타그램으로 가기"></a>
+								<a href="https://www.youtube.com/channel/UCcVR1TUWcB9Ku6FslF-SgUg" target="_blank"><img src="../old_data/staticObj/global/sns_youtube.png" alt="유튜브 가기"></a>
+								<a href="https://www.facebook.com/knuinternational" target="_blank"><img src="../old_data/staticObj/global/sns_facebook.png"></a>
+
+								<!-- <a href="https://cafe.naver.com/knuoia" target="_blank"><img src="../old_data/staticObj/global/sns_blog.png" alt="네이버카페로 가기"></a> -->
+
+							</div>
+							<div class="txt-more">
+								<a class="ico-plus minus" href="./sub.htm?nav_code=glo1729648656"><span></span></a>
+								<!-- <a href="./sub.htm?nav_code=glo1729572883">+</a> -->
+							</div>
+						</div>
+					</div>
+					
+			</div>
+        </div>
+        <a href="#container" class="main-scroll page-go"></a>
+	</div>
+</div> 
+        
+		<div id="container">
+                <div class="main-about1">
+                    <div class="d_width">
+                        <div class="title-wrap">
+                            <p class="tit">GLOBAL AREA</p>
+                            <p class="txt">국제적 경쟁력을 갖춘 글로벌 리더 양성</p>
+                        </div>
+						<div class="big-cont bg1">
+                            <a href="https://home.knu.ac.kr/HOME/global/sub.htm?nav_code=glo1549935033">
+                                <p class="tit">OFFICE OF INTERNATIONAL AFFAIRS</p>
+                                <p class="txt">학생 및 교수교류를 통해 본교의 국제화를 도모하고 있습니다.<br>
+									21세기에 요구되는 국제적 경쟁력을 갖춘 글로벌리더 양성을 목표로
+                                <br>다양한 국제화 프로그램을 운영하여 학생들에게 참여 기회를 확대하고 있습니다.</p>
+                            </a>
+                        </div>
+                        <ul class="d3 clearfix">
+                            <li><a href="https://home.knu.ac.kr/HOME/global/sub.htm?nav_code=glo1549935033" class="bg1 on">Academic Degree Program</a></li>
+                            <li><a href="https://home.knu.ac.kr/HOME/global/sub.htm?nav_code=glo1549934404" class="bg2">About OlA</a></li>
+                            <li><a href="https://home.knu.ac.kr/HOME/global/sub.htm?nav_code=glo1594355125" class="bg3">Exchange Student Program</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d_width">
+                    <div class="col_wrap">
+                        <div class="col_d2">
+                            <div class="bx">
+									                                    <div class="main-about2">
+                                        <a href="./sub.htm?&mode=view&mv_data=aWR4PTE4ODMxJnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTU0OTkzNTI2MyZjb2RlPXZpZGVvJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=" src = "../old_data/bbsData/global/">
+                                            <p class="tit">Video Gallery</p>
+                                            <i class="fa fa-youtube-play">
+											
+											</i>
+                                        </a>
+									</div>
+                                </div>
+                            </div>
+							<script type="text/javascript">
+
+								$(document).ready(function(){
+									$('.experience').cycle({
+										fx: 'fade',
+										speed:  500,
+										timeout: 5000,
+										slides: '> li.inner_ex'
+									});
+
+									$('.photo').cycle({
+										fx: 'fade',
+										speed:  500,
+										timeout: 5000,
+										slides: '> li.inner_photo'
+									});
+
+								});
+								function infoPrev()
+								{
+									$('.experience').cycle('prev');
+									
+								}
+
+								function infoPrev1()
+								{
+									$('.photo').cycle('prev');
+								}
+
+								function infoNext()
+								{
+									$('.experience').cycle('next');
+									
+								}
+
+								function infoNext1()
+								{
+									$('.photo').cycle('next');
+								}
+
+								function infoPlay()
+								{
+									
+									$('.experience').cycle('resume');
+									
+									
+									$('a.mabout3_ex_stop').show();
+									$('a.mabout3_ex_play').hide();
+								
+								}
+
+								function infoPlay1()
+								{
+									
+									$('.photo').cycle('resume');
+									
+									$('a.mabout3_ph_stop').show();
+									$('a.mabout3_ph_play').hide();
+								
+								}
+
+								function infoStop()
+								{
+
+									$('.experience').cycle('pause');
+									
+								
+									$('a.mabout3_ex_stop').hide();
+									$('a.mabout3_ex_play').show();
+
+									
+								}
+
+								function infoStop1()
+								{
+
+									$('.photo').cycle('pause');
+								
+									$('a.mabout3_ph_stop').hide();
+									$('a.mabout3_ph_play').show();
+
+									
+								}
+								
+							</script>
+                            <div class="col_d4">
+                                <div class="bx">
+                                    <div class="mgallery-slide">
+                                        <h3>Experience</h3>
+										
+                                        <ul class="clearfix experience">
+										                                            <li class="inner_ex">
+												<div class="img_frame">
+													<img src="../old_data/bbsData/global/20231006154620651fad3ca645f.3">
+												</div>
+												<div class="txt-wrap">
+													<p class="subject"><a href="./sub.htm?nav_code=glo1549935238&mode=view&mv_data=aWR4PTE3Nzg5JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9JmNvZGU9c3VnaSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">[대만 교환학생 수기] 무더운 날씨에 내리는 시원한 소나기 처럼</a></p>
+													<p class="desc">등록된 게시물이 없습니다.</p>
+													<p class="date"></p>
+													<div class="txt-more"><a href="#">+</a>
+													</div>
+													<div class="more"><a href="./sub.htm?nav_code=glo1549935238&mode=view&mv_data=aWR4PTE3Nzg5JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9JmNvZGU9c3VnaSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">+</a></div>
+												</div>
+                                            </li>
+											                                            <li class="inner_ex">
+												<div class="img_frame">
+													<img src="../old_data/bbsData/global/20231006154342651fac9ece17c.3">
+												</div>
+												<div class="txt-wrap">
+													<p class="subject"><a href="./sub.htm?nav_code=glo1549935238&mode=view&mv_data=aWR4PTE3Nzg4JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9JmNvZGU9c3VnaSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">[인도네시아 교환학생 수기] 국경을 뛰어넘은 우리들의 하모니</a></p>
+													<p class="desc">등록된 게시물이 없습니다.</p>
+													<p class="date"></p>
+													<div class="txt-more"><a href="#">+</a>
+													</div>
+													<div class="more"><a href="./sub.htm?nav_code=glo1549935238&mode=view&mv_data=aWR4PTE3Nzg4JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9JmNvZGU9c3VnaSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">+</a></div>
+												</div>
+                                            </li>
+											                                            <li class="inner_ex">
+												<div class="img_frame">
+													<img src="../old_data/bbsData/global/20231006154135651fac1f4ac81.3">
+												</div>
+												<div class="txt-wrap">
+													<p class="subject"><a href="./sub.htm?nav_code=glo1549935238&mode=view&mv_data=aWR4PTE3Nzg3JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9JmNvZGU9c3VnaSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">[리투아니아 교환학생 수기] '주저하지 않는 마음'은 돋아나 '우리'를 꽃피우게 할거야</a></p>
+													<p class="desc">등록된 게시물이 없습니다.</p>
+													<p class="date"></p>
+													<div class="txt-more"><a href="#">+</a>
+													</div>
+													<div class="more"><a href="./sub.htm?nav_code=glo1549935238&mode=view&mv_data=aWR4PTE3Nzg3JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9JmNvZGU9c3VnaSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9">+</a></div>
+												</div>
+                                            </li>
+																						<!-- 
+											<li class="nodata">
+                                                <div class="img_frame">
+													<img src="../old_data/bbsData/global/20231006154135651fac1f4ac81.3">
+                                                </div>
+												<div class="txt-wrap">
+													<p class="subject"><a href="./sub.htm?nav_code=glo1549935238&mode=view&mv_data=aWR4PTE3Nzg3JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9JmNvZGU9c3VnaSZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9"></a></p>
+													<p class="desc">등록된 게시물이 없습니다.</p>
+													<p class="date"></p>
+													<div class="txt-more"><a href="#">+</a>
+													</div>
+												</div>
+                                            </li>
+											-->
+                                        </ul>
+                                        <div class="more"><a href="">+</a></div>
+                                            <div class="control" style="z-index:200;">
+												<a href="#" onclick="infoPrev();return false;">
+													<img src="../old_data/staticObj/global/mexperience_prev.png" alt="이전으로">
+												</a>
+												<a href="#" onclick="infoStop();return false;" class="mabout3_ex_stop"><img src="../old_data/staticObj/global/mexperience_stop.png" alt="멈추기"></a>
+												<a href="#" onclick="infoPlay();return false;" class="mabout3_ex_play" style="display:none"><img src="../old_data/staticObj/global/mexperience_play.png" alt="시작"></a>
+												<a href="#" onclick="infoNext();return false;"><img src="../old_data/staticObj/global/mexperience_next.png" alt="다음으로"></a>
+											</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="col_d4">
+                                <div class="bx">
+                                    <div class="mgallery-slide">
+                                        <h3>Photo Gallery</h3>
+											
+                                            <ul class="clearfix photo">
+											 
+																							<li class="inner_photo">
+													<div class="img_frame">
+														<img src="../old_data/bbsData/global/20231006154135651fac1f4ac81.3">
+													</div>
+													<div class="txt-wrap">
+															<p class="subject"><a href="./sub.htm?mode=view&mv_data=aWR4PTE4ODA5JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTU0OTkzNTI1NSZjb2RlPXBob3RvJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=">2025 Fall KNU Farewell Ceremony</a></p>
+															<p class="date"></p>
+															<div class="txt-more"><a href="#">+</a>
+															</div>
+															<div class="more"><a href="./sub.htm?mode=view&mv_data=aWR4PTE4ODA5JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTU0OTkzNTI1NSZjb2RlPXBob3RvJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=">+</a></div>
+													</div>
+												</li>
+												 
+																							<li class="inner_photo">
+													<div class="img_frame">
+														<img src="../old_data/bbsData/global/20231006154135651fac1f4ac81.3">
+													</div>
+													<div class="txt-wrap">
+															<p class="subject"><a href="./sub.htm?mode=view&mv_data=aWR4PTE4NjAzJnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTU0OTkzNTI1NSZjb2RlPXBob3RvJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=">2025 Spring KNU Farewell Ceremony</a></p>
+															<p class="date"></p>
+															<div class="txt-more"><a href="#">+</a>
+															</div>
+															<div class="more"><a href="./sub.htm?mode=view&mv_data=aWR4PTE4NjAzJnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTU0OTkzNTI1NSZjb2RlPXBob3RvJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=">+</a></div>
+													</div>
+												</li>
+												 
+																							<li class="inner_photo">
+													<div class="img_frame">
+														<img src="../old_data/bbsData/global/2025041013330167f749fdb6680.0">
+													</div>
+													<div class="txt-wrap">
+															<p class="subject"><a href="./sub.htm?mode=view&mv_data=aWR4PTE4NDI2JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTU0OTkzNTI1NSZjb2RlPXBob3RvJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=">2025 Spring Cultural Excursion for KNU International exchange and double degree students</a></p>
+															<p class="date"></p>
+															<div class="txt-more"><a href="#">+</a>
+															</div>
+															<div class="more"><a href="./sub.htm?mode=view&mv_data=aWR4PTE4NDI2JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9nbG9iYWwmbmF2X2NvZGU9Z2xvMTU0OTkzNTI1NSZjb2RlPXBob3RvJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=">+</a></div>
+													</div>
+												</li>
+																							</ul>
+											<div class="more"><a href="">+</a></div>
+											<div class="control" style="z-index:200;">
+												<a href="#" onclick="infoPrev1();return false;">
+													<img src="../old_data/staticObj/global/mexperience_prev.png" alt="이전으로">
+												</a>
+												<a href="#" onclick="infoStop1();return false;" class="mabout3_ph_stop photo"><img src="../old_data/staticObj/global/mexperience_stop.png" alt="멈추기"></a>
+												<a href="#" onclick="infoPlay1();return false;" class="mabout3_ph_play photo" style="display:none"><img src="../old_data/staticObj/global/mexperience_play.png" alt="시작"></a>
+												<a href="#" onclick="infoNext1();return false;"><img src="../old_data/staticObj/global/mexperience_next.png" alt="다음으로"></a>
+											</div>
+									</div>
+								</div>
+                            </div>
+						</div>
+						<div class="main-about4">
+							<ul class="d2 clearfix">
+								<li>
+									<a href="https://home.knu.ac.kr/HOME/global/sub.htm?nav_code=glo1549934425" class="bg1">
+										<p class="tit">Contact Us</p>
+										<p class="txt">궁금한 사항을 언제든 물어보세요!</p>
+									</a>
+								</li>
+								<li>
+									<a href="https://iwc.knu.ac.kr/" class="bg2">
+										<p class="tit">IWC</p>
+										<p class="txt">International Writing Center</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="main-about5">
+						<div class="d_width"></div>
+					</div>
+				</div>
+
+	<!-- //container -->
+</div>
+<!-- [FOOTER AREA] : FOOTER 공간(site_mainfooter) -->
+<script src="../old_data/js/jquery_selectric/jquery.selectric.min.js"></script>
+<script type="text/javascript">
+<!--
+$(function(){//셀렉트박스
+	$('.Script_select_ui').selectric({
+	  onChange: function() {
+		var url = $(this).val();
+		if(url!=""){
+			var openNewWindow = window.open("about:blank");
+			openNewWindow.location.href = url;
+			$(this).val("");
+		}
+	  }
+	});
+});
+/*
+$(document).ready(function(){
+$('.Script_select_ui').selectric().on('change', function() {
+  alert($(this).val());
+});
+});
+*/
+function policy_pop(){
+	window.open("../old_bbs/template_policy_pop.htm", "","scrollbars=yes,width=860,height=600");
+}
+function private_pop(){
+	window.open("../old_bbs/template_private_pop.htm", "","scrollbars=yes,width=860,height=600");
+}
+//바로가기 목록 열고 닫기
+$(document).ready(function() {
+	$(this).find('#f_related span.tit, #f_related a.arr').bind('click',function(){
+		//alert($(this).attr("class"));
+		if($(this).attr("class") == "tit"){
+			//alert($(this).next().attr("display"));
+			if($(this).next().css("display") == "none"){
+				$("#f_related .select_ul").hide();
+				$("#f_related a.arr img").attr({
+					src:"../old_data/staticObj/support/f_select_arr.png",
+					alt:"바로가기 목록 열기"
+				});
+				$(this).next().show();
+				$(this).parent().find('a.arr img').attr({
+					src:"../old_data/staticObj/support/f_select_arr2.png",
+					alt:"바로가기 목록 닫기"
+				});
+			}else{
+				$(this).next().hide();
+				$(this).parent().find('a.arr img').attr({
+					src:"../old_data/staticObj/support/f_select_arr.png",
+					alt:"바로가기 목록 열기"
+				});
+			}
+		}else{
+			if($(this).prev().css("display") == "none"){
+				$("#f_related .select_ul").hide();
+				$("#f_related a.arr img").attr({
+					src:"../old_data/staticObj/support/f_select_arr.png",
+					alt:"바로가기 목록 열기"
+				});
+				$(this).prev().show();
+				$(this).find('img').attr({
+					src:"../old_data/staticObj/support/f_select_arr2.png",
+					alt:"바로가기 목록 닫기"
+				});
+			}else{
+				$(this).prev().hide();
+				$(this).find('img').attr({
+					src:"../old_data/staticObj/support/f_select_arr.png",
+					alt:"바로가기 목록 열기"
+				});
+			}
+		}
+	});
+
+});
+//-->
+</script>
+<link rel="stylesheet" href="../old_data/js/jquery_selectric/selectric.css">
+
+<div id="footer">
+<div class="d_width">
+		<div class="left">
+			<div class="dpb mbp10"><img src="../old_data/staticObj/footer_logo.png" alt="KNU"></div>
+			<!-- <a href="#" onclick="private_pop();return false;" class="point">개인정보처리방침</a> -->
+			<a href="http://knu.ac.kr//wbbs/wbbs/contents/index.action?menu_url=siteinfo/policy01&menu_idx=94" target="_blank" class="point">개인정보처리방침</a>
+			<a href="#" onclick="policy_pop();return false;">이메일무단수집거부</a>
+			<address>41566 대구광역시 북구 대학로80 (산격동) 경북대학교 국제처 (첨성인 미래관 2층) 건물번호 108<br>Tel. 053-950-2413, 2423 (교환학생), 2425, 2428 (내교 외국인 교환학생), 2415 (해외인턴십), 2436(외국인 학부입학), 2435(외국인 대학원입학)<br>Fax. 053-950-2419</address>
+			<div id="copyright">COPYRIGHT (c) KYUNGPOOK NATIONAL UNIVERSITY. ALL RIGHTS RESERVED.</div>
+		</div>		
+		<div id="f_related">
+						<div class="list1">
+				<span class="tit" id="f_select01">대학/대학원 홈페이지</span>
+				<ul class="f_select01 select_ul" style="display:none;">
+					<li><a href="http://humanities.knu.ac.kr/" target="_blank" title="새창으로 인문대학 홈페이지가 열립니다.">인문대학</a></li>
+					<li><a href="http://social.knu.ac.kr/" target="_blank" title="새창으로 사회과학대학 홈페이지가 열립니다.">사회과학대학</a></li>
+					<li><a href="http://cns.knu.ac.kr/" target="_blank" title="새창으로 자연과학대학 홈페이지가 열립니다.">자연과학대학</a></li>
+					<li><a href="http://cec.knu.ac.kr/" target="_blank" title="새창으로 경상대학 홈페이지가 열립니다.">경상대학</a></li>
+					<li><a href="http://eng.knu.ac.kr/" target="_blank" title="새창으로 공과대학 홈페이지가 열립니다.">공과대학</a></li>
+					<li><a href="http://cite.knu.ac.kr/" target="_blank" title="새창으로 IT대학 홈페이지가 열립니다.">IT대학</a></li>
+					<li><a href="http://cals.knu.ac.kr/" target="_blank" title="새창으로 농업생명과학대학 홈페이지가 열립니다.">농업생명과학대학</a></li>
+					<li><a href="http://mvarts.knu.ac.kr/" target="_blank" title="새창으로 예술대학 홈페이지가 열립니다.">예술대학</a></li>
+					<li><a href="http://knutc.knu.ac.kr/" target="_blank" title="새창으로 사범대학 홈페이지가 열립니다.">사범대학</a></li>
+					<li><a href="http://med.knu.ac.kr/" target="_blank" title="새창으로 의과대학 홈페이지가 열립니다.">의과대학</a></li>
+					<li><a href="http://dent.knu.ac.kr/" target="_blank" title="새창으로 치과대학 홈페이지가 열립니다.">치과대학</a></li>
+					<li><a href="http://vet.knu.ac.kr/" target="_blank" title="새창으로 수의과대학 홈페이지가 열립니다.">수의과대학</a></li>
+					<li><a href="http://cohe.knu.ac.kr/" target="_blank" title="새창으로 생활과학대학 홈페이지가 열립니다.">생활과학대학</a></li>
+					<li><a href="http://nurs.knu.ac.kr/" target="_blank" title="새창으로 간호대학 홈페이지가 열립니다.">간호대학</a></li>
+					<li><a href="http://pharmacy.knu.ac.kr/" target="_blank" title="새창으로 약학대학 홈페이지가 열립니다.">약학대학</a></li>
+					<li><a href="http://cee.knu.ac.kr/" target="_blank" title="새창으로 생태환경대학 홈페이지가 열립니다.">생태환경대학</a></li>
+					<li><a href="http://cst.knu.ac.kr/" target="_blank" title="새창으로 과학기술대학 홈페이지가 열립니다.">과학기술대학</a></li>
+					<li><a href="http://gls.knu.ac.kr/" target="_blank" title="새창으로 글로벌인재학부 홈페이지가 열립니다.">글로벌인재학부</a></li>
+					<li><a href="http://puad.knu.ac.kr/" target="_blank" title="새창으로 행정학부 홈페이지가 열립니다.">행정학부</a></li>
+					<li><a href="http://udm.knu.ac.kr/" target="_blank" title="새창으로 자율전공부 홈페이지가 열립니다.">자율전공부</a></li>
+					<li><a href="http://tbudm.knu.ac.kr/" target="_blank" title="새창으로 과학기술생명자원자율학부 홈페이지가 열립니다.">과학기술생명자원자율학부</a></li>
+					<li><a href="http://shw.knu.ac.kr/" target="_blank" title="새창으로 보건복지학부 홈페이지가 열립니다.">보건복지학부</a></li>
+					<li><a href="http://grad.knu.ac.kr" target="_blank" title="새창으로 일반대학원 홈페이지가 열립니다.">일반대학원</a></li>
+					<li><a href="http://med.knu.ac.kr/" target="_blank" title="새창으로 의학전문대학원 홈페이지가 열립니다.">의학전문대학원</a></li>
+					<li><a href="http://dent.knu.ac.kr/" target="_blank" title="새창으로 치의학전문대학원 홈페이지가 열립니다.">치의학전문대학원</a></li>
+					<li><a href="http://lawschool.knu.ac.kr/" target="_blank" title="새창으로 법학전문대학원 홈페이지가 열립니다.">법학전문대학원</a></li>
+					<li><a href="http://gse.knu.ac.kr/" target="_blank" title="새창으로 교육대학원 홈페이지가 열립니다.">교육대학원</a></li>
+					<li><a href="http://webbuild.knu.ac.kr/~gspa/" target="_blank" title="새창으로 행정대학원 홈페이지가 열립니다.">행정대학원</a></li>
+					<li><a href="http://cec.knu.ac.kr/main01.asp" target="_blank" title="새창으로 경영대학원 홈페이지가 열립니다.">경영대학원</a></li>
+					<li><a href="http://health.knu.ac.kr/" target="_blank" title="새창으로 보건대학원 홈페이지가 열립니다.">보건대학원</a></li>
+					<li><a href="http://ind.knu.ac.kr/" target="_blank" title="새창으로 산업대학원 홈페이지가 열립니다.">산업대학원</a></li>
+					<li><a href="/wbbs/wbbs/contents/index.action?menu_url=edu/school04_01&menu_idx=41" target="_blank" title="새창으로 농업생명융합대학원 홈페이지가 열립니다.">농업생명융합대학원</a></li>
+					<li><a href="http://gsis.knu.ac.kr/" target="_blank" title="새창으로 국제대학원 홈페이지가 열립니다.">국제대학원</a></li>
+					<li><a href="http://social.knu.ac.kr/kor/subpage.php?Pcode=About&Ccode=06&PageNum=010501" target="_blank" title="새창으로 정책정보대학원 홈페이지가 열립니다.">정책정보대학원</a></li>
+					<li><a href="/wbbs/wbbs/contents/index.action?menu_url=edu/school04_02&menu_idx=41" target="_blank" title="새창으로 수사과학대학원 홈페이지가 열립니다.">수사과학대학원</a></li>
+					<li><a href="http://seoksa.knu.ac.kr/" target="_blank" title="새창으로 과학기술대학원 홈페이지가 열립니다.">과학기술대학원</a></li>
+				</ul>
+			<a href="#f_select01" class="arr"><img src="../old_data/staticObj/support/f_select_arr.png" alt="대학/대학원 홈페이지 바로가기 목록 열기"></a>
+			</div>
+			<div class="list2">
+				<span class="tit" id="f_select02">교내 주요홈페이지</span>
+				<ul class="f_select02 select_ul" style="display:none;">
+					<li><a href="http://iac.knu.ac.kr/" target="_blank" title="새창으로 산학연구처(산학협력단) 홈페이지가 열립니다.">산학연구처(산학협력단)</a></li>
+					<li><a href="http://kudos.knu.ac.kr/" target="_blank" title="새창으로 도서관 홈페이지가 열립니다.">도서관</a></li>
+					<li><a href="http://international.knu.ac.kr/" target="_blank" title="새창으로 국제교류원 홈페이지가 열립니다.">국제교류원</a></li>
+					<li><a href="http://knujob.knu.ac.kr/" target="_blank" title="새창으로 인재개발원 홈페이지가 열립니다.">인재개발원</a></li>
+					<li><a href="http://linc.knu.ac.kr/" target="_blank" title="새창으로 LINC사업단 홈페이지가 열립니다.">LINC사업단</a></li>
+					<li><a href="http://fle.knu.ac.kr" target="_blank" title="새창으로 기초교육원 홈페이지가 열립니다.">기초교육원</a></li>
+					<li><a href="http://uicc.knu.ac.kr/" target="_blank" title="새창으로 정보화본부 홈페이지가 열립니다.">정보화본부</a></li>
+					<li><a href="http://dorm.knu.ac.kr/" target="_blank" title="새창으로 생활관 홈페이지가 열립니다.">생활관</a></li>
+					<li><a href="http://clinic.knu.ac.kr" target="_blank" title="새창으로 보건진료소 홈페이지가 열립니다.">보건진료소</a></li>
+					<li><a href="http://kpcl.knu.ac.kr/" target="_blank" title="새창으로 공동실험실습관 홈페이지가 열립니다.">공동실험실습관</a></li>
+					<li><a href="http://lang.knu.ac.kr" target="_blank" title="새창으로 외국어교육원 홈페이지가 열립니다.">외국어교육원</a></li>
+					<li><a href="http://sports.knu.ac.kr/" target="_blank" title="새창으로 체육진흥센터 홈페이지가 열립니다.">체육진흥센터</a></li>
+					<li><a href="http://lifelong.knu.ac.kr/" target="_blank" title="새창으로 평생교육원 홈페이지가 열립니다.">평생교육원</a></li>
+					<li><a href="http://ctl.knu.ac.kr" target="_blank" title="새창으로 교수학습센터 홈페이지가 열립니다.">교수학습센터</a></li>
+					<li><a href="http://support.knu.ac.kr/" target="_blank" title="새창으로 장애학생지원센터 홈페이지가 열립니다.">장애학생지원센터</a></li>
+					<li><a href="http://knuclar.knu.ac.kr/" target="_blank" title="새창으로 실험동물자원관리센터 홈페이지가 열립니다.">실험동물자원관리센터</a></li>
+					<li><a href="http://globalplaza.knu.ac.kr/" target="_blank" title="새창으로 글로벌플라자 홈페이지가 열립니다.">글로벌플라자</a></li>
+					<li><a href="http://museum.knu.ac.kr/" target="_blank" title="새창으로 박물관 홈페이지가 열립니다.">박물관</a></li>
+					<li><a href="http://mnh.knu.ac.kr/" target="_blank" title="새창으로 자연사박물관 홈페이지가 열립니다.">자연사박물관</a></li>
+					<li><a href="http://vmc.knu.ac.kr/" target="_blank" title="새창으로 수의과대학부속동물병원 홈페이지가 열립니다.">수의과대학부속동물병원</a></li>
+					<li><a href="http://artmuseum.knu.ac.kr/" target="_blank" title="새창으로 미술관 홈페이지가 열립니다.">미술관</a></li>
+					<li><a href="http://oz.knu.ac.kr/" target="_blank" title="새창으로 IT교육센터 홈페이지가 열립니다.">IT교육센터</a></li>
+					<li><a href="http://prfa.knu.ac.kr" target="_blank" title="새창으로 교수회 홈페이지가 열립니다.">교수회</a></li>
+					<li><a href="http://fund.knu.ac.kr/" target="_blank" title="새창으로 발전기금 홈페이지가 열립니다.">발전기금</a></li>
+					<li><a href="http://ipsi1.knu.ac.kr/" target="_blank" title="새창으로 입학안내 홈페이지가 열립니다.">입학안내</a></li>
+					<li><a href="http://ssw.knu.ac.kr/" target="_blank" title="새창으로 장학복지 홈페이지가 열립니다.">장학복지</a></li>
+					<li><a href="/wbbs/wbbs/user/yearSchedule/index.action?menu_idx=43" target="_blank" title="새창으로 학사일정 홈페이지가 열립니다.">학사일정</a></li>
+					<li><a href="/wbbs/wbbs/contents/index.action?menu_url=edu/academic03&menu_idx=44" target="_blank" title="새창으로 학사행정 홈페이지가 열립니다.">학사행정</a></li>
+					<li><a href="http://prad.knu.ac.kr/" target="_blank" title="새창으로 교수초빙 홈페이지가 열립니다.">교수초빙</a></li>
+					<li><a href="http://www.knu.ac.kr/bbs/xml/kmap.jsp"" target="_blank" title="새창으로 캠퍼스맵 홈페이지가 열립니다.">캠퍼스맵</a></li>
+					<li><a href="http://knupr.knu.ac.kr/sub.php?menu=5&sub=2&sn=1" target="_blank" title="새창으로 견학안내 홈페이지가 열립니다.">견학안내</a></li>
+					<li><a href="/wbbs/wbbs/contents/index.action?menu_url=intro/search03&menu_idx=32" target="_blank" title="새창으로 교내사이트안내 홈페이지가 열립니다.">교내사이트안내</a></li>
+					<li><a href="/wbbs/wbbs/device_center/main.jsp" target="_blank" title="새창으로 친절/불친절신고 홈페이지가 열립니다.">친절/불친절신고</a></li>
+					<li><a href="/wbbs/wbbs/contents/index.action?menu_url=siteinfo/knu119&menu_idx=92"" target="_blank" title="새창으로 KNU119 홈페이지가 열립니다.">KNU119</a></li>
+					<li><a href="/wbbs/wbbs/contents/index.action?menu_url=intro/about05_03&menu_idx=12" target="_blank" title="새창으로 예·결산회계 홈페이지가 열립니다.">예·결산회계</a></li>
+					<li><a href="http://ufis.knu.ac.kr/" target="_blank" title="새창으로 대학시설공간종합관리시스템 홈페이지가 열립니다.">대학시설공간종합관리시스템</a></li>
+					<li><a href="http://safe.knu.ac.kr/" target="_blank" title="새창으로 연구실안전관리시스템 홈페이지가 열립니다.">연구실안전관리시스템</a></li>
+				</ul>
+				<a href="#f_select02" class="arr"><img src="../old_data/staticObj/support/f_select_arr.png" alt="교내 주요홈페이지 바로가기 목록 열기"></a>
+			</div>
+		</div>
+		<div class="clear"></div>
+</div>
+</div>
+<!-- [FOOTER AREA] : FOOTER 공간(site_mainfooter) -->
+</body>
+</html><!-- 레이어팝업 : 반드시 body내에 위치시키고 작동여부를 검사할 것-->
+	<script language="Javascript">
+	function setCookie( name, value, expiredays )
+	{
+		var todayDate = new Date();
+		todayDate.setDate( todayDate.getDate() + expiredays );
+		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+	}
+
+	function closeLayer(idx,days){
+		var form=document.forms['main_layer_form'+idx];
+		var cookie_name= 'LAYER_COOKIE_global_'+idx;
+
+		if ( form.popup_end.checked   == true) {
+			setCookie( cookie_name, 'NO', days );//쿠기 저장 기간은 1년로 한다.
+		}
+
+		$("#LayerDiv"+idx).hide();
+	} 
+	</script>
+
+
+<!-- //레이어팝업 -->
+
+<script type="text/javascript">
+<!--
+/*프레임 새로고침시 현재페이지 유지 */
+document.onkeydown = function(e) {   
+    var evtK = (e) ? e.which : window.event.keyCode;   
+    var isCtrl = ((typeof isCtrl != 'undefined' && isCtrl) || ((e && evtK == 17) || (!e && event.ctrlKey))) ? true : false;   
+  
+    if ((isCtrl && evtK == 82) || evtK == 116) {   
+        if (e) { evtK = 505; } else { event.keyCode = evtK = 505; }   
+    }   
+    if (evtK == 505) {   
+        location.reload(location.href);
+        return false;   
+    }   
+}	
+//alert(0);
+//-->
+</script>

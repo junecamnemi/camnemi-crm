@@ -1,0 +1,2083 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+    
+
+
+
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>재능대학교 입학안내</title>
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover" />
+<meta name="description" content="재능대학교">
+<meta name="keywords" content="재능대학교, 재능대">
+
+<meta name="format-detection"
+	content="telephone=no, address=no, email=no">
+<!-- 전화번호 주소등 자동 링크 제거 -->
+
+<link rel="shortcut icon" type="image/x-icon"
+	href="assets/front/img/favicon.ico">
+<link rel="icon" href="assets/front/img/favicon.ico">
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css"
+	href="assets/front/css/owl.carousel.min.css">
+<link rel="stylesheet" type="text/css"
+	href="assets/front/css/owl.theme.default.min.css">
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<link rel="stylesheet" type="text/css"
+	href="assets/front/css/slick.min.css">
+<link rel="stylesheet" type="text/css"
+	href="assets/front/css/swiper.min.css">
+<link rel="stylesheet" type="text/css"
+	href="assets/front/css/style_re.css">
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+<!-- jQuery Modal -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="assets/front/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="assets/front/js/slick.min.js"></script>
+<script type="text/javascript" src="assets/front/js/style_re.js"></script>
+<script type="text/javascript" src="assets/front/js/swiper.js"></script>
+<script type="text/javascript" src="assets/front/js/menu.js"></script>
+<script type="text/javascript" src="/apply/assets/front/js/page.util.js"></script>
+
+<script type="text/javascript" src="/apply/ckeditor/ckeditor.js"></script>
+
+<!-- Naver Analytics -->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+	if (!wcs_add)
+		var wcs_add = {};
+	wcs_add["wa"] = "10ba5959b996740";
+	if (window.wcs) {
+		wcs_do();
+	}
+</script>
+
+<script type="text/javascript">
+	var thisPath = window.location.pathname;
+	console.log('thisPath ->' + thisPath);
+	var querys = get_query();
+	console.log(querys);
+	var menu_seq = "";
+	if(thisPath.indexOf("content") != -1) menu_seq = querys.itemSeq;
+	else if(thisPath.indexOf("pdf") != -1) menu_seq = querys.menuSeq;
+	else if(thisPath.indexOf("board") != -1) menu_seq = querys.boardType;
+	console.log('final -> ' +menu_seq);
+	
+	$(document).ready(function() {
+		$.ajax({
+			type : 'POST',
+			url : '/apply/pathname',
+			data : {
+				pathname : thisPath,
+				menuseq : menu_seq
+			},
+			dataType : "json",
+			success : function(data) {
+				//document.title = data.result;
+			},
+			error : function() {
+				console.log('메뉴이름 출력 실패')
+				return;
+			}
+		});
+	});
+
+	function get_query() {
+		var url = document.location.href;
+		var qs = url.substring(url.indexOf('?') + 1).split('&');
+		for (var i = 0, result = {}; i < qs.length; i++) {
+			qs[i] = qs[i].split('=');
+			result[qs[i][0]] = decodeURIComponent(qs[i][1]);
+		}
+		return result;
+	}
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async
+	src="https://www.googletagmanager.com/gtag/js?id=UA-212973594-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-212973594-1');
+</script>
+<body>
+    
+
+
+
+<style>
+	#accessibility a {z-index:100000;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;overflow:hidden;}
+	#accessibility a:focus, 
+	#accessibility a:active {width:100%; height:45px;padding:10px 0; background:#21272e;color:#fff;font-size:1.25em;font-weight:900;text-align:center;text-decoration:none;line-height:1.25em;}
+</style>
+<script>
+	function returnFalse(){
+		return false;
+	}
+	function serviceNotAvailable(){
+		alert('서비스준비중입니다.');return false
+	}
+	function openNewTab(url){
+		var win = window.open(url, '_blank');
+        win.focus();
+	}
+</script>
+<div id="accessibility">
+    <a href="#contents">본문 바로가기</a>
+</div>
+
+<header id="headW">
+
+	
+	
+
+	<!-- 상단 메뉴 mo -->
+	<div id="monavW" class="monavW-pop">
+		<div class="mo-nav" style="left: 100%;">
+			<ul class="menu-list">
+				
+					<li>
+							
+							
+								<a href="#" >조회 및 신청<span
+									class="ico-arrow"><i></i><i></i></span></a>
+							
+						 
+							<ul class="snb">
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="/apply/document.do"
+																>접수서류 확인</a></li>
+														
+													
+												
+											</li>
+									
+								
+									
+								
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="/apply/applyReceipt.do"
+																>원서접수 확인</a></li>
+														
+													
+												
+											</li>
+									
+								
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="http://168.126.246.78:33893/Announcement/Announcement.asp"
+																>합격자 조회</a></li>
+														
+													
+												
+											</li>
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="http://168.126.246.78:33893/Renounce/"
+																target="_blank" title="새 창 열기">등록금환불신청</a></li>
+														
+													
+												
+											</li>
+									
+								
+									
+								
+							</ul>
+						</li>
+				
+					<li>
+							
+							
+								<a href="#" >모집안내<span
+									class="ico-arrow"><i></i><i></i></span></a>
+							
+						 
+							<ul class="snb">
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+															<li><a href="/apply/pdf.do?menuSeq=43"
+																>신입학</a></li>
+														
+														
+													
+												
+											</li>
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+															<li><a href="/apply/pdf.do?menuSeq=42"
+																>4년제 학사학위과정</a></li>
+														
+														
+													
+												
+											</li>
+									
+								
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+															<li><a href="/apply/pdf.do?menuSeq=44"
+																>편입학</a></li>
+														
+														
+													
+												
+											</li>
+									
+								
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+															<li><a href="/apply/pdf.do?menuSeq=45"
+																>일학습병행 계약학과</a></li>
+														
+														
+													
+												
+											</li>
+									
+								
+									
+								
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+															<li><a href="/apply/pdf.do?menuSeq=69"
+																>자율사항(성인학습자)</a></li>
+														
+														
+													
+												
+											</li>
+									
+								
+							</ul>
+						</li>
+				
+					<li>
+							
+							
+								<a href="#" >입시도우미<span
+									class="ico-arrow"><i></i><i></i></span></a>
+							
+						 
+							<ul class="snb">
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="/apply/applyResult.do"
+																>전년도 입시결과</a></li>
+														
+													
+												
+											</li>
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="/apply/diagnose.do"
+																>합격예측진단서비스</a></li>
+														
+													
+												
+											</li>
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="https://sncs.jeiu.ac.kr/jncs/gradeSum.jsp"
+																target="_blank" title="새 창 열기">성적산출 프로그램</a></li>
+														
+													
+												
+											</li>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+															<li><a href="/apply/pdf.do?menuSeq=53"
+																>장학정보 및 혜택</a></li>
+														
+														
+													
+												
+											</li>
+									
+								
+									
+								
+							</ul>
+						</li>
+				
+					<li>
+							
+							
+								<a href="/apply/academic.do" >학과소개<span
+									class="ico-arrow"><i></i><i></i></span></a>
+							
+						 
+							<ul class="snb">
+								
+							</ul>
+						</li>
+				
+					<li>
+							
+							
+								<a href="#" >정보마당<span
+									class="ico-arrow"><i></i><i></i></span></a>
+							
+						 
+							<ul class="snb">
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="/apply/notice.do"
+																>공지사항</a></li>
+														
+													
+												
+											</li>
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="/apply/apply.do"
+																>JEIU 미디어 채널</a></li>
+														
+													
+												
+											</li>
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="/apply/college.do"
+																>대학시설안내</a></li>
+														
+													
+												
+											</li>
+									
+								
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="/apply/faq.do"
+																>FAQ</a></li>
+														
+													
+												
+											</li>
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="/apply/download.do"
+																>자료실</a></li>
+														
+													
+												
+											</li>
+									
+								
+									
+										<li>
+												
+												
+													
+														
+														
+														
+														
+															<li><a
+																href="/apply/campasMap.do"
+																>찾아오시는 길</a></li>
+														
+													
+												
+											</li>
+									
+								
+							</ul>
+						</li>
+				
+			</ul>
+		</div>
+		
+		<script>
+			$(document).ready(function(){
+				$('#monavW').removeClass('monavW-pop');
+				$('#monavW').addClass('monavW-nopop');
+			});
+		</script>
+		
+		<div class="sns-list">
+			<ul class="both">
+				
+			
+				
+				
+					
+						
+							
+								
+									 
+									<li><a href="http://pf.kakao.com/_xcumVd" target="_blank" title="새 창 열기" style="background:url(/apply/admin/sns/20220701_122957_710.svg) 50% no-repeat; background-color: rgba(0,0,0,.7);"></a></li>
+								
+								
+							
+						
+						
+					
+				
+				
+			
+		
+			
+				
+				
+					
+						
+							
+								
+									 
+									<li><a href="https://www.jeiu.ac.kr" target="_blank" title="새 창 열기" style="background:url(/apply/admin/sns/20220701_153356_726.svg) 50% no-repeat; background-color: rgba(0,0,0,.7);"></a></li>
+								
+								
+							
+						
+						
+					
+				
+				
+			
+		
+			
+				
+				
+					
+						
+							
+								
+									 
+									<li><a href="https://instagram.com/jei_university" target="_blank" title="새 창 열기" style="background:url(/apply/admin/sns/20220701_153406_885.svg) 50% no-repeat; background-color: rgba(0,0,0,.7);"></a></li>
+								
+								
+							
+						
+						
+					
+				
+				
+			
+		
+			
+				
+				
+					
+						
+							
+								
+									 
+									<li><a href="https://www.facebook.com/jeiuniversity" target="_blank" title="새 창 열기" style="background:url(/apply/admin/sns/20220701_153413_603.svg) 50% no-repeat; background-color: rgba(0,0,0,.7);"></a></li>
+								
+								
+							
+						
+						
+					
+				
+				
+			
+		
+			
+				
+				
+					
+						
+							
+								
+									 
+									<li><a href="https://www.youtube.com/channel/UC2FDvqlSCw_Q9mTp4vzOuOQ" target="_blank" title="새 창 열기" style="background:url(/apply/admin/sns/20220701_153421_195.svg) 50% no-repeat; background-color: rgba(0,0,0,.7);"></a></li>
+								
+								
+							
+						
+						
+					
+				
+				
+			
+		
+			
+				
+				
+					
+						
+							
+								
+									 
+									<li><a href="https://blog.naver.com/jeiuniversity" target="_blank" title="새 창 열기" style="background:url(/apply/admin/sns/20220701_153429_783.svg) 50% no-repeat; background-color: rgba(0,0,0,.7);"></a></li>
+								
+								
+							
+						
+						
+					
+				
+				
+			
+		
+			</ul>
+		</div>
+	</div>
+	
+	<!-- 상단 메뉴 pc -->
+	<div class="head-pc">
+		<div class="innerW">
+			
+			<div class="head-row">
+				<h1 class="logo">
+					<a href="/apply"><img src="/apply/assets/front/img/logo_bk.svg" alt="인천재능대학교" /></a>
+				</h1>
+				<nav id="headNav" class="gnb">
+					<ul class="disFlex">
+						
+							
+								<li class="sub-menu-control"><!--학과소개 academics class 추가하기-->
+									
+									
+										
+											
+											
+											
+											
+												
+											
+										
+									
+									
+										
+										
+											<a href="/apply/document.do" >조회 및 신청</a>
+										
+									
+									
+										<ul class="snb"><!--학과소개 disable class 추가하기-->
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="/apply/document.do" >접수서류 확인</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+												
+											
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="/apply/applyReceipt.do" >원서접수 확인</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="http://168.126.246.78:33893/Announcement/Announcement.asp" >합격자 조회</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="http://168.126.246.78:33893/Renounce/" target="_blank" title="새 창 열기">등록금환불신청</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+							
+								<li class="sub-menu-control"><!--학과소개 academics class 추가하기-->
+									
+									
+										
+											
+											
+											
+												
+											
+											
+										
+									
+									
+										
+										
+											<a href="/apply/pdf.do?menuSeq=43" >모집안내</a>
+										
+									
+									
+										<ul class="snb"><!--학과소개 disable class 추가하기-->
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																		<a href="/apply/pdf.do?menuSeq=43" >신입학</a>
+																	
+																	
+																								
+															
+																	
+													</li>
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																		<a href="/apply/pdf.do?menuSeq=42" >4년제 학사학위과정</a>
+																	
+																	
+																								
+															
+																	
+													</li>
+												
+											
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																		<a href="/apply/pdf.do?menuSeq=44" >편입학</a>
+																	
+																	
+																								
+															
+																	
+													</li>
+												
+											
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																		<a href="/apply/pdf.do?menuSeq=45" >일학습병행 계약학과</a>
+																	
+																	
+																								
+															
+																	
+													</li>
+												
+											
+												
+											
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																		<a href="/apply/pdf.do?menuSeq=69" >자율사항(성인학습자)</a>
+																	
+																	
+																								
+															
+																	
+													</li>
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+							
+								<li class="sub-menu-control"><!--학과소개 academics class 추가하기-->
+									
+									
+										
+											
+											
+											
+											
+												
+											
+										
+									
+									
+										
+										
+											<a href="/apply/applyResult.do" >입시도우미</a>
+										
+									
+									
+										<ul class="snb"><!--학과소개 disable class 추가하기-->
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="/apply/applyResult.do" >전년도 입시결과</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="/apply/diagnose.do" >합격예측진단서비스</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="https://sncs.jeiu.ac.kr/jncs/gradeSum.jsp" target="_blank" title="새 창 열기">성적산출 프로그램</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+												
+											
+												
+											
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																		<a href="/apply/pdf.do?menuSeq=53" >장학정보 및 혜택</a>
+																	
+																	
+																								
+															
+																	
+													</li>
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+							
+								<li class="sub-menu-control"><!--학과소개 academics class 추가하기-->
+									
+									
+										
+											
+											
+											
+											
+												
+											
+										
+									
+									
+										
+										
+											<a href="/apply/academic.do" >학과소개</a>
+										
+									
+									
+										<ul class="snb"><!--학과소개 disable class 추가하기-->
+											
+										</ul>
+									
+								</li>
+							
+						
+							
+								<li class="sub-menu-control"><!--학과소개 academics class 추가하기-->
+									
+									
+										
+											
+											
+											
+											
+												
+											
+										
+									
+									
+										
+										
+											<a href="/apply/notice.do" >정보마당</a>
+										
+									
+									
+										<ul class="snb"><!--학과소개 disable class 추가하기-->
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="/apply/notice.do" >공지사항</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="/apply/apply.do" >JEIU 미디어 채널</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="/apply/college.do" >대학시설안내</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="/apply/faq.do" >FAQ</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="/apply/download.do" >자료실</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+													
+													<li class="sub-menu-content">								
+														
+															
+															
+																
+																	
+																	
+																	
+																	
+ 																		<a href="/apply/campasMap.do" >찾아오시는 길</a>
+																	
+																								
+															
+																	
+													</li>
+												
+											
+										</ul>
+									
+								</li>
+							
+						
+					</ul>
+				</nav>
+			</div>
+			<a href="#moBtn" class="mo-btn mo-show"> <i></i> <i></i>
+				<i></i>
+			</a>
+		</div>
+		<div class="snb-bg"></div>
+		<!--학과소개 추가하기 시작-->
+
+		<div class="academicsList">
+			<ul>
+			
+				
+				
+				<li>
+					<dl>
+						<dt>
+							
+								
+									
+                                    <span>바이오·헬스케어학부</span>
+                                
+                            </dt>
+                        </dl>
+                        
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab(' https://dept.jeiu.ac.kr/sdble/')">바이오생명과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab(' https://dept.jeiu.ac.kr/ns/')">간호학과 [4년제]</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab(' https://dept.jeiu.ac.kr/ha/')">보건의료행정과 [3년제]</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/sr/main/')">스포츠재활과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab(' https://dept.jeiu.ac.kr/cm/')">화장품학과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/gtk/main/')">글로벌태권도학과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+				</li>
+				
+				
+			
+				
+				
+				<li>
+					<dl>
+						<dt>
+							
+								
+									
+                                    <span>AI융합학부</span>
+                                
+                            </dt>
+                        </dl>
+                        
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/dbt/main/')">바이오테크과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/di/')">드론영상과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/cit/main/')">컴퓨터소프트웨어학과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/comsys/main/')">컴퓨터시스템과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+						
+						
+						
+						
+					
+				</li>
+				
+				
+			
+				
+				
+				<li>
+					<dl>
+						<dt>
+							
+								
+									
+                                    <span>문화콘텐츠학부</span>
+                                
+                            </dt>
+                        </dl>
+                        
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/gd/main/')">게임콘텐츠과 [3년제]</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/vcd/main/')">시각디자인과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/gad/')">게임아트디자인과 [3년제]</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/id/')">인테리어디자인과[3년제]</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/pma/')">사진영상미디어과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/am/')">실용음악과 [3년제]</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+				</li>
+				
+				
+			
+				
+				
+				<li>
+					<dl>
+						<dt>
+							
+								
+									
+                                    <span>웰니스학부</span>
+                                
+                            </dt>
+                        </dl>
+                        
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/ymc/main/')">약손명가스킨케어과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/bs/')">뷰티스타일리스트과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/sw/main/')">사회복지과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/ece/main/')">유아교육과 [3년제]</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+				</li>
+				
+				
+			
+				
+				
+				<li>
+					<dl>
+						<dt>
+							
+								
+									
+                                    <span>서비스경영학부</span>
+                                
+                            </dt>
+                        </dl>
+                        
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab(' https://dept.jeiu.ac.kr/aai/')">글로벌관광비즈니스과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab(' https://dept.jeiu.ac.kr/dl/')">유통상품기획과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/as/main/')">항공서비스과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/hr/main/')">호텔관광과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                    
+								<span>호텔외식조리과</span>
+							
+						</dd>
+					</dl>
+					
+						
+						
+					<dl>
+						<dd><span>
+							
+								
+									<a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/ca/main/')">- 호텔외식조리전공</a>
+								
+								
+								
+							
+						</span></dd>
+					</dl>
+						
+						
+						
+					<dl>
+						<dd><span>
+							
+								
+									<a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/bc/main/')">- 베이커리카페전공</a>
+								
+								
+								
+							
+						</span></dd>
+					</dl>
+						
+						
+					
+				</li>
+				
+				
+			
+				
+				
+				<li>
+					<dl>
+						<dt>
+							
+								
+									
+                                    <span>미래창업학부</span>
+                                
+                            </dt>
+                        </dl>
+                        
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/wac/')">복지케어과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/fcas/')">푸드테크창업과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                    
+								<span>디지털경영과</span>
+							
+						</dd>
+					</dl>
+					
+						
+						
+						
+						
+						
+						
+						
+					
+				</li>
+				
+				
+			
+				
+			
+				
+				
+				<li>
+					<dl>
+						<dt>
+							
+								
+									
+                                    <span>자유전공학부</span>
+                                
+                            </dt>
+                        </dl>
+                        
+                        
+                        <dl>
+                            <dd>
+                                
+                                    
+                                        <a href="#" onclick="openNewTab('https://dept.jeiu.ac.kr/neww/main/')">자유전공학과</a>
+                                    
+                                    
+								
+							
+						</dd>
+					</dl>
+					
+						
+					
+				</li>
+				
+				
+			
+			</ul>
+		</div>
+
+		<!--학과소개 추가하기 끝-->
+	</div>
+</header>
+    <div id="container" class="downW">
+        <div class="sub-wrap">
+            <div class="innerW">
+                <div class="sub-lf">    <div class="lnbW">        <div class="lnb-top">            <h3 class="lnb-tit">입시도우미</h3>        </div>        <div class="lnb-row link-hover">            <ul>                <li class="">                    <a href="/apply/applyResult.do"  >전년도 입시결과</a>                </li>                <li class="">                    <a href="/apply/diagnose.do"  >합격예측진단서비스</a>                </li>                <li class="">                    <a href="https://sncs.jeiu.ac.kr/jncs/gradeSum.jsp" target="_blank" >성적산출 프로그램</a>                </li>                <li class="on">                    <a href="pdf.do?menuSeq=53">장학정보 및 혜택</a>                </li>            </ul>        </div>    </div></div>
+                <div id="contents" class="sub-flr">
+                    <ul class="pageNav">
+                        <li class="home">홈</li>
+                        <li>입시도우미</li>
+                        <li>장학정보 및 혜택</li>
+                    </ul>
+                    <p class="tit-1depth mo-show">입시도우미</p>
+                    <h3 class="headline">장학정보 및 혜택</h3>
+                    <script>
+                        function selectPage(e){
+                            var goToNum = Number(e.value);
+                            $(".tab-tit li").each(function(){
+                                $(this).removeClass('on');
+                                if($(this).attr('data-num') == e.value) $(this).addClass('on');
+                            });
+                            goToPage(goToNum);
+                        }
+                    </script>
+                    <div class="pdf-wrap">
+                        <ul class="tab-tit both">
+                        	
+                        </ul>
+                        <div class="mobile-show-tab mo-show">
+                            <label for="pdfPage" class="blind">PDF 북마크</label>
+                            <select name="pdfPage" id="pdfPage" onchange="selectPage(this);">
+                        		
+                            </select>
+                            <ul class="tab-tit mo-show mo-only both">
+								
+									
+									
+									
+								
+	                            
+                            </ul>
+                        </div>
+                        <!--
+                        
+                        -->
+                        <div class="pdf-view">
+	                        
+                            <div>
+                                <!-- PDF area-->
+                                <iframe id="pdfIframe" src="/apply/js/pdfjs/web/viewer.html?file=/apply/pdfDownloadView.do?menuSeq%3D53" width="100%" height="1190px" title="모집요강pdf"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 퀵메뉴 : 모든 페이지 적용 -->
+        
+
+
+
+<div id="quick" class="sns-list mo-hide">
+    <ul class="both">    	
+		
+			
+				
+				
+					
+						
+							
+								
+									 
+									<li><a href="http://pf.kakao.com/_xcumVd" target="_blank" title="새 창 열기" style="background:url(/apply/admin/sns/20220701_122957_710.svg) 50% no-repeat; background-color: rgba(0,0,0,.7); text-indent:-50000px">카카오톡 채널</a></li>
+								
+								
+							
+						
+						
+					
+				
+				
+			
+		
+			
+				
+				
+					
+						
+							
+								
+									 
+									<li><a href="https://www.jeiu.ac.kr" target="_blank" title="새 창 열기" style="background:url(/apply/admin/sns/20220701_153356_726.svg) 50% no-repeat; background-color: rgba(0,0,0,.7); text-indent:-50000px">대표홈페이지</a></li>
+								
+								
+							
+						
+						
+					
+				
+				
+			
+		
+			
+				
+				
+					
+						
+							
+								
+									 
+									<li><a href="https://instagram.com/jei_university" target="_blank" title="새 창 열기" style="background:url(/apply/admin/sns/20220701_153406_885.svg) 50% no-repeat; background-color: rgba(0,0,0,.7); text-indent:-50000px">인스타그램</a></li>
+								
+								
+							
+						
+						
+					
+				
+				
+			
+		
+			
+				
+				
+					
+						
+							
+								
+									 
+									<li><a href="https://www.facebook.com/jeiuniversity" target="_blank" title="새 창 열기" style="background:url(/apply/admin/sns/20220701_153413_603.svg) 50% no-repeat; background-color: rgba(0,0,0,.7); text-indent:-50000px">페이스북</a></li>
+								
+								
+							
+						
+						
+					
+				
+				
+			
+		
+			
+				
+				
+					
+						
+							
+								
+									 
+									<li><a href="https://www.youtube.com/channel/UC2FDvqlSCw_Q9mTp4vzOuOQ" target="_blank" title="새 창 열기" style="background:url(/apply/admin/sns/20220701_153421_195.svg) 50% no-repeat; background-color: rgba(0,0,0,.7); text-indent:-50000px">유튜브</a></li>
+								
+								
+							
+						
+						
+					
+				
+				
+			
+		
+			
+				
+				
+					
+						
+							
+								
+									 
+									<li><a href="https://blog.naver.com/jeiuniversity" target="_blank" title="새 창 열기" style="background:url(/apply/admin/sns/20220701_153429_783.svg) 50% no-repeat; background-color: rgba(0,0,0,.7); text-indent:-50000px">블로그</a></li>
+								
+								
+							
+						
+						
+					
+				
+				
+			
+		
+    </ul>
+    <button class="btn-quick">접기</button>
+</div>
+<!-- 관리자 수정 -->
+<a href="#adminQuick" rel="modal:open" class="btn-admin quick">아이콘 변경</a>
+    </div>
+    
+
+
+
+
+<footer id="footW">
+    <div class="foot-top">
+        <div class="innerW">
+            <ul class="both">
+                <li><a href="https://www.jeiu.ac.kr/etc/person.asp" target="_blank" title="새 창 열림">개인정보 처리방침</a></li>
+                <li><a href="https://www.jeiu.ac.kr/etc/email.asp" target="_blank" title="새 창 열림">이메일무단수집금지</a></li>
+                <li><a href="https://www.jeiu.ac.kr/plaza/plaza2_6.asp" target="_blank" title="새 창 열림">성희롱피해신고</a></li>
+                <li><a href="https://www.jeiu.ac.kr/college/college2_2.asp" target="_blank" title="새 창 열림">학교법인</a></li>
+                <li><a href="https://jeiu.ac.kr/board/list.asp?BoardID=00033" target="_blank" title="새 창 열림">자체평가</a></li>
+                <li><a href="https://www.jeiu.ac.kr/etc/info_open1.asp" target="_blank" title="새 창 열림">정보공개</a></li>
+            </ul> 
+        </div>
+    </div>
+    <div class="foot-row">
+        <div class="innerW disFlex">
+            <div class="fl-l">
+                <h1 class="foot-logo">재능대학교 입학안내</h1>
+            </div>
+            <div class="fl-r">
+                <p>인천광역시 제물포구 재능로 178(송림동 122-1번지) 재능대학교</p>
+                <p><span class="txt-bk">전화</span><span>032-890-7020/7021</span></p>
+                <p><span class="txt-bk">팩스</span><span>032-890-7028</span></p>
+                <p>Copyright 2021. JEI UNIVERSITY. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript" src="js/pdfjs/pdfPageControl.js"></script>
+    <script>
+        function makeH3(){
+            if($('.pdf-wrap .tab-tit li').length >= 1){
+                var htmlH3 = '<h3 id="newH3" class="blind">';
+                    htmlH3 += $('.pdf-wrap .tab-tit li').eq(0).find('a').text();
+                    htmlH3 += '</h3>'
+                $('.pdf-view').before(htmlH3);
+            }
+            $('.pdf-wrap .tab-tit li a').on('click',function(){
+                var newText = $(this).text();
+                $('#newH3').text(newText);
+            });
+        }
+    </script>
+    <script type="text/javascript">
+    	window.onload = function(){
+    		setTimeout(function(){
+    			goToPage(1);	
+                $(".tab-tit li").eq(0).find("a").attr("title","선택됨");
+                makeH3();
+    		}, 1000);
+    	}
+   	</script>
+    
+</body>
+</html>

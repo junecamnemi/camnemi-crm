@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>접수안내</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.6,user-scaleable=yes">
+    <meta name="description" content="영남신학대학교 국제교류교육원" /><!-- 설명 -->
+<meta name="Keywords" CONTENT="영남신학대학교 국제교류교육원" /><!-- 키워드 -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="영남신학대학교 국제교류교육원" /><!-- 타이틀 -->
+<meta property="og:description" content="" /><!-- 설명 -->
+<meta property="og:image" content="http://langytus.tcubemnet.com/myimage.jpg" /><!-- 이미지 FULL URL 주소 -->
+<meta property="og:url" content="http://langytus.tcubemnet.com/" /><!-- FULL URL -->
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="영남신학대학교 국제교류교육원" /><!-- 타이틀 -->
+<meta name="twitter:description" content="영남신학대학교 국제교류교육원" /><!-- 설명 -->
+<meta name="twitter:image" content="http://langytus.tcubemnet.com//myimage.jpg" /><!-- 이미지 FULL URL 주소 -->
+<meta name="twitter:domain" content="http://langytus.tcubemnet.com/" /><!-- FULL URL -->
+
+<link rel="alternate" href="http://www.mysite.com/">
+<link rel="canonical" href="http://www.mysite.com/">    <link rel="image_src" href="/images/logo_ci.png">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.treeview.css">
+    <link rel="stylesheet" type="text/css" href="/css/board.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/css/gallery.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/css/default/base.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/css/default/layout.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/css/default/layout_content.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/css/default/content.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/css/default/member.css" media="screen">
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/aos.js"></script>
+	<script src="/js/wow.js"></script>
+	<script src="/js/jquery.bxslider.js"></script>
+	<script src="/js/swiper.min.js"></script>
+	<script src="/js/jquery-ui.js"></script>
+	<script src="/js/jquery.lightbox-0.5.js"></script>
+	<script src="/js/jquery.cookie.js"></script>
+	<script src="/js/board.js"></script>
+
+	<!-- AOS -->
+	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		window.addEventListener('load', function () {
+			AOS.init({
+				duration: 1100,
+				easing: 'ease-out-cubic',
+				offset: 100,
+				once: true
+			});
+
+			AOS.refreshHard();
+		});
+	</script>
+	<!-- AOS -->
+
+	<script>
+		//window.onload role
+		$(document).ready(function(){
+			//주메뉴 제어 Begin
+			var bg_box = 'off';//필수 입력
+			var nav_cnt = 0;
+			$(window).scroll(function(){
+				var bg_box = 'off';
+				var sp = $(window).scrollTop();
+				if(sp > 83){
+					$('#header').addClass('scroll');
+					$('#header .logo a img').attr('src', '/images/default/main/logo.svg');
+				}else{
+					if(bg_box == 'off'){
+						$('#header').removeClass('scroll');
+						$('#header .logo a img').attr('src', '/images/default/main/logo.svg');
+					}
+				}
+			});
+			$('#header').mouseover(function(){
+				$('#header').addClass('over');
+				$('#header h1 img').attr('src','/images/default/main/logo.svg');
+				if(bg_box == 'off'){
+					bg_box = 'on';
+				}
+				var sp = $(window).scrollTop();
+				if(sp < 83){//스크롤 높이가 83 이하일때 로고 색상 수정
+					$('#header h1 img').attr('src','/images/default/main/logo.svg');
+				}
+			});
+			$('div#nav > ul > li').each(function(){
+				$(this).find('a:first').on('mouseover', function(){
+					$('#header').addClass('over');
+					$('#header .header_inner').addClass('over');
+					var this_idx = $(this).parent().parent().index() + 1;
+					if(nav_cnt != this_idx){
+						$('div#nav ul li ul').hide();
+						$(this).parent().parent().find('ul').stop().slideDown(0);
+					}
+					nav_cnt = this_idx;
+					$('div#nav > ul > li').removeClass('on');
+					$(this).parent().parent().addClass('on');
+					$('div#nav ul li ul li').removeClass('on');
+					$(this).parent().parent().find('ul > li').addClass('on');
+					for (var i = 0; i < menuImages.length; i++) { $('div#nav > ul > li:eq(' + i + ') > div > a > img').attr({ src: menuImages[i]['link'] }); }
+					$(this).find('img').attr({ src: menuImages[$(this).parent().parent().index()]['hover'] });
+				});
+			});
+			$('div#nav > ul > li').each(function(){
+				$(this).find('ul').on('mouseover', function(){
+					$('div#nav > ul > li').removeClass('on');
+					$(this).parent().addClass('on');
+					$('div#nav ul li ul li').removeClass('on')
+					$(this).find('li').addClass('on');
+				});
+			});
+
+			$('#header').on('mouseleave', function(){
+				var sp = $(window).scrollTop();
+				bg_box = 'off';
+				$('div#nav > ul > li').removeClass('on');
+				$('div#nav > ul > li > ul > li').removeClass('on');
+				$('div#nav > ul > li > ul').stop().hide();
+				$('#header').removeClass('over');
+				nav_cnt = 0;
+				if(sp > 83){
+					$('#header .logo a img').attr('src', '/images/default/main/logo.svg');
+				}else{
+					if(bg_box == 'off'){
+						$('#header .logo a img').attr('src', '/images/default/main/logo.svg');
+					}
+				}
+			});
+			//주메뉴 제어 End
+
+			//언어별
+			$(".select_btn").on("click", function(e){
+				e.preventDefault();
+				if($(".option_list").css("display") == "none"){
+					$(".option_list").slideDown(200);
+				}else {
+					$(".option_list").slideUp(200);
+				}
+			})
+
+			//2차 메뉴가 없을때 nosub 클래스 주기
+			$('.mobile_top > ul > li').each(function(){
+				if($(this).find('ul').index() != 1){
+					$(this).addClass('nosub');
+				}
+			});
+
+			//사이트맵
+            $('.mobile_top > ul').addClass('mbtop');
+            $('.mbtop > li > div > a').unwrap();
+            $('.mbtop > li > ul > li').each(function(){
+				if($(this).find('a:first').attr('href') == '#'){
+					$(this).find('a:first').attr('href',$(this).find(' > ul > li > a:first').attr('href'));
+				}
+			});
+
+
+			//사이트맵 버튼
+			$('.btn-gnb-menu').click(function(){
+				if($('#header').hasClass('open') == false){
+					$('#header').addClass('open');
+					$('body,html').css('overflow','hidden');
+					setTimeout(function() {
+						$('.site-bg').addClass('open');
+					}, 500); // 0.5초 후에 실행
+				}else{
+					$('#header').removeClass('open');
+					$('body,html').css('overflow','visible');
+					$('.site-bg').removeClass('open');
+				}
+			});
+
+			//모바일 메뉴 작업
+			$('.mbtop > li > a').click(function(){
+				var mbtop_li = $(this).parent();
+				var midx = mbtop_li.index();
+
+				$('.mbtop > li > ul').removeClass('on');
+				$('.mbtop > li').each(function(){
+					if($(this).index() != midx){
+						$(this).removeClass('open_li');
+					}
+				});
+
+				if(mbtop_li.find('ul > li').length > 0){
+					if(mbtop_li.prop('class') == 'open_li'){
+						mbtop_li.removeClass('open_li');
+						mbtop_li.find('ul').removeClass('on');
+					}else{
+						mbtop_li.addClass('open_li');
+						mbtop_li.find('ul').addClass('on');
+					}
+					return false;
+				}
+			});
+
+
+
+			//대메뉴별 비쥬얼 다르게
+			var root = '4';
+			$('#wrap #sepration .sep_img').css({"background":"url('/images/default/content/sub_visual0"+root+".jpg') no-repeat 50% center", "background-size":"cover"})
+
+
+			//서브메뉴
+			var root = '4';
+			var depth = '2';
+			var refer = '18';
+
+			$('div#nav > ul > li:eq('+(root-1)+')').addClass('active');
+
+			$('.left_menu > ul > li').each(function(){
+				$(this).find('strong').parent().parent().addClass('on');
+			});
+
+			$('.left_menu_mob > ul > li').each(function(){
+				$(this).find('strong').parent().parent().addClass('on');
+			});
+
+			$('.tab_menu > ul > li').each(function(){
+				$(this).find('strong').parent().parent().addClass('on');
+			});
+
+			if(depth == 2){ // tab메뉴일경우 1차 메뉴 over
+				$('.left_menu > ul > li').each(function(){
+					var href = $(this).find('> a').attr('href');
+					var d = href.split('/');
+					if(d[2] == refer){
+						$(this).find('a').parent().addClass('on');
+					}
+				});
+
+				$('.tab_menu > ul > li').each(function(){
+					$(this).find('strong').parent().parent().addClass('on');
+				});
+			}
+			$('.tab_menu  li.on > a').on('click', function () {
+				$(this).parents('.tab_menu').toggleClass('on');
+				return false;
+			});
+
+			//서브 lnb
+			var idx = '';
+
+			$("#lnb li > a").on("click", function(e) {
+
+				var $parent = $(this).parent();
+				var $sub = $parent.children("div, ul");
+
+				if($sub.length == 0) {
+					return true; // 2차 없으면 그냥 이동
+				}
+
+				e.preventDefault();
+
+				if($parent.hasClass("open")) {
+					$parent.removeClass("open");
+					$sub.slideUp();
+				} else {
+					$("#lnb li").removeClass("open")
+								.children("div, ul").slideUp();
+
+					$parent.addClass("open");
+					$sub.slideDown();
+				}
+			});
+
+			//모바일 탭메뉴
+			$('.left_menu > ul').addClass('tab_ul');
+			var ts = 0;
+			$('.tab_view').click(function(){
+				if(ts == 0){
+					$(this).addClass('on');
+					$('.tab_ul').slideDown(300);
+					ts = 1;
+				}else{
+					$(this).removeClass('on');
+					$('.tab_ul').slideUp(300);
+					ts = 0;
+				}
+			});
+			
+			$('.top-btn').click(function (event) {
+				event.preventDefault();
+				$('html, body').animate({ scrollTop: 0 }, 300);
+			});
+			$(window).scroll(function () {
+			if ($(this).scrollTop() > 200) {
+				$('.top-btn').fadeIn(200);
+			} else {
+				$('.top-btn').fadeOut(200);
+			}});
+		});
+	</script>
+</head>
+
+<body>
+    <!-- wrap -->
+    <div id="wrap">
+        <!-- header -->
+       <div id="header" style="background: #fff;">
+            <!-- header 상단 -->
+			<div class="area_top">
+				<div class="inr">
+					<div class="util_l">
+						<ul class="lst">
+							
+						</ul>
+					</div>
+					<div class="util_r">
+						<ul class="lst">
+                            <li><a href="https://www.ytus.ac.kr" class="" title="새창" target="_blank">대표홈페이지</a></li>
+                                                                                                <li><a href="/login" class="">로그인</a></li>
+                                                            						</ul>
+					</div>
+				</div>
+			</div>
+             <!--// header 상단 -->
+			<!-- 탑메뉴 -->
+			<div class="header_inner" >
+				<h1 class="logo"><a href="/index"><img src="/images/default/main/logo.svg" alt="영남신학대학교 국제교류교육원"/></a></h1>
+				<div id="nav" class="lnb">
+					
+<ul><li><div><a href="/content/123" title="Y-GLOBAL COLLEGE">Y-GLOBAL COLLEGE</a></div><ul><li><a href="/content/124" title="인사말">인사말</a></li></ul></li><li><div><a href="/content/1" title="국제교류교육원 소개">국제교류교육원 소개</a></div><ul><li><a href="/content/2" title="인사말">인사말</a></li><li><a href="/content/4" title="교육목표">교육목표</a></li><li><a href="/content/5" title="구성원 현황">구성원 현황</a></li><li><a href="/content/7" title="오시는 길">오시는 길</a></li></ul></li><li><div><a href="/content/8" title="외국어교육과정">외국어교육과정</a></div><ul><li><a href="/content/9" title="굿모닝 English">굿모닝 English</a></li><li><a href="/content/10" title="영어성종 대비 과정">영어성종 대비 과정</a></li><li><a href="/content/11" title="영어 회화">영어 회화</a></li><li><a href="/content/12" title="영어 기초반">영어 기초반</a></li><li><a href="/content/13" title="TEPS">TEPS</a></li><li><a href="/content/14" title="발음/영작문 교정">발음/영작문 교정</a></li><li><a href="/content/15" title="중국어 회화">중국어 회화</a></li><li><a href="/content/16" title="강사소개">강사소개</a></li></ul></li><li><div><a href="/content/17" title="한국어교육과정">한국어교육과정</a></div><ul><li><a href="/content/18" title="정규과정"><strong>정규과정</strong></a></li><li><a href="/content/23" title="특별과정">특별과정</a></li><li><a href="/content/24" title="강사소개">강사소개</a></li></ul></li><li><div><a href="/content/25" title="모집안내">모집안내</a></div></li><li><div><a href="/content/29" title="커뮤니티">커뮤니티</a></div><ul><li><a href="/content/30" title="공지사항">공지사항</a></li><li><a href="/content/31" title="교육원 소식">교육원 소식</a></li><li><a href="/content/32" title="교육원 갤러리">교육원 갤러리</a></li><li><a href="/content/33" title="교육원 동영상">교육원 동영상</a></li><li><a href="/content/34" title="FAQ">FAQ</a></li><li><a href="/content/35" title="강좌제안">강좌제안</a></li><li><a href="/content/36" title="수강원서 및 서식">수강원서 및 서식</a></li><li><a href="/content/37" title="강좌자료">강좌자료</a></li></ul></li></ul>
+				</div>
+				<!-- 햄버거메뉴 -->
+				<div class="header-right">
+				<!-- 언어별 -->
+				<div class="lang-wrap">
+					<a href="#" class="select_btn">KOR<img src="/images/default/main/globe-icon.svg" alt=""></a>
+					<ul class="option_list">
+						<li><a href="/index">KOR</a></li>
+						<li><a href="/en">ENG</a></li>
+						<li><a href="/ch">CHN</a></li>
+					</ul>
+				</div>
+				<div class="btn-gnb-menu">
+					<button class="btnAll">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+				</div>
+			</div>
+			</div>
+			<div class="bg_box"></div>
+
+			
+			<!-- 전체메뉴펼침 -->
+            <div id="menuAll">
+                <div class="navi-bg"></div>
+                <div id="navi">
+                    <div class="mobile_top">
+                        <div class="sub-link">
+                                                                                                <a href="/login" class="">로그인</a>
+                                                                                        <a href="https://www.ytus.ac.kr" class="" title="새창" target="_blank">대표홈페이지</a>
+                        </div>
+                        <div class="site-bg"><div class="bg"></div></div>
+                        
+<ul><li><div><a href="/content/123" title="Y-GLOBAL COLLEGE">Y-GLOBAL COLLEGE</a></div><ul><li><a href="/content/124" title="인사말">인사말</a></li></ul></li><li><div><a href="/content/1" title="국제교류교육원 소개">국제교류교육원 소개</a></div><ul><li><a href="/content/2" title="인사말">인사말</a></li><li><a href="/content/4" title="교육목표">교육목표</a></li><li><a href="/content/5" title="구성원 현황">구성원 현황</a></li><li><a href="/content/7" title="오시는 길">오시는 길</a></li></ul></li><li><div><a href="/content/8" title="외국어교육과정">외국어교육과정</a></div><ul><li><a href="/content/9" title="굿모닝 English">굿모닝 English</a></li><li><a href="/content/10" title="영어성종 대비 과정">영어성종 대비 과정</a></li><li><a href="/content/11" title="영어 회화">영어 회화</a></li><li><a href="/content/12" title="영어 기초반">영어 기초반</a></li><li><a href="/content/13" title="TEPS">TEPS</a></li><li><a href="/content/14" title="발음/영작문 교정">발음/영작문 교정</a></li><li><a href="/content/15" title="중국어 회화">중국어 회화</a></li><li><a href="/content/16" title="강사소개">강사소개</a></li></ul></li><li><div><a href="/content/17" title="한국어교육과정">한국어교육과정</a></div><ul><li><a href="/content/18" title="정규과정"><strong>정규과정</strong></a><ul><li><a href="/content/38" title="일정소개">일정소개</a></li><li><a href="/content/39" title="접수안내">접수안내</a></li><li><a href="/content/40" title="비자안내">비자안내</a></li><li><a href="/content/41" title="생활안내">생활안내</a></li></ul></li><li><a href="/content/23" title="특별과정">특별과정</a><ul><li><a href="/content/127" title="위탁과정">위탁과정</a><ul><li><a href="/content/128" title="이민자 사회통합프로그램">이민자 사회통합프로그램</a></li><li><a href="/content/129" title="이민자 조기 적응 프로그램">이민자 조기 적응 프로그램</a></li></ul></li></ul></li><li><a href="/content/24" title="강사소개">강사소개</a></li></ul></li><li><div><a href="/content/25" title="모집안내">모집안내</a></div></li><li><div><a href="/content/29" title="커뮤니티">커뮤니티</a></div><ul><li><a href="/content/30" title="공지사항">공지사항</a></li><li><a href="/content/31" title="교육원 소식">교육원 소식</a></li><li><a href="/content/32" title="교육원 갤러리">교육원 갤러리</a></li><li><a href="/content/33" title="교육원 동영상">교육원 동영상</a></li><li><a href="/content/34" title="FAQ">FAQ</a></li><li><a href="/content/35" title="강좌제안">강좌제안</a></li><li><a href="/content/36" title="수강원서 및 서식">수강원서 및 서식</a></li><li><a href="/content/37" title="강좌자료">강좌자료</a></li></ul></li></ul>
+                    </div>
+                </div>
+            </div>
+		</div>
+        <!-- //header -->
+
+        <!-- sub_visual -->
+        <div id="sepration">
+			<div class="sub-visual">
+				<div class="sub-visual-img">
+					<div class="sep_img"></div>
+				</div>
+				<div class="section">
+					<h2 class="fadeInUp">
+													한국어교육과정																	</h2>
+				</div>
+				<div class="section_lnb">
+					<div class="inr">
+						<a href="/index" class="home-icon"></a>
+						<ul id="lnb">
+							<li class="depth0"><a href="/content/17">한국어교육과정<span class="unfd">같은 레벨 메뉴 보기</span></a><div style="display:none;"><ul><li><a href="/content/123">Y-GLOBAL COLLEGE</a></li><li><a href="/content/1">국제교류교육원 소개</a></li><li><a href="/content/8">외국어교육과정</a></li><li><a href="/content/17" class="on">한국어교육과정</a></li><li><a href="/content/25">모집안내</a></li><li><a href="/content/29">커뮤니티</a></li></ul></div></li><li class="depth1"><a href="/content/18">정규과정<span class="unfd">같은 레벨 메뉴 보기</span></a><div style="display:none"><ul><li><a href="/content/18" class="on">정규과정</a></li><li><a href="/content/23">특별과정</a></li><li><a href="/content/24">강사소개</a></li></ul></div></li>						</ul>						
+					</div>
+				</div>
+			</div>
+        </div>
+    <!-- container -->
+        <div id="container">
+			<div class="content_body">
+				<!-- 페이지 타이틀 -->
+				<div class="page_main_title">
+					<h3><span>
+												</span>
+					</h3>
+				</div>
+
+                <!-- 현재 메뉴가 4차 메뉴일 경우 3차 탭메뉴 -->
+                
+				<!-- 탭메뉴 -->
+									<div class="tab_menu"><ul><li><a href="/content/38">일정소개</a></li><li><a href="/content/39"><strong>접수안내</strong></a></li><li><a href="/content/40">비자안내</a></li><li><a href="/content/41">생활안내</a></li></ul></div>
+								<!-- //3차 탭메뉴 -->
+
+				<!-- //페이지 타이틀 -->
+				<div class="co4-1-1">
+    <div class="con">
+
+        <div>
+			<div class="co2-1__block">
+				<h3 class="co2-1__title">등록안내</h3>
+				<ul class="article-list num-list">
+				  <li>서류 제출 및 전형료 납부</li>
+				  <li>입학가능 여부 결정 및 통보</li>
+				  <li>수강료 납부</li>
+				  <li>표준입학허가서(일반연수D-4비자신청) 및 등록금 영수증 발급</li>
+				  <li>비자신청</li>
+				  <li>입국</li>
+				  <li>반편성 시험</li>
+				  <li>개강</li>
+				</ul>
+			  </div>
+		
+			<div class="co2-1__block">
+				<h3 class="co2-1__title">등록금 및 제비용</h3>
+				<p class="horizontal_scroll"><i class="xi-arrow-left"></i><i class="xi-touch"></i><i class="xi-arrow-right"></i><span class="txt">좌, 우로 이동 가능합니다.</span></p>
+				<table class="curriculum-table">
+				  <colgroup>
+					<col style="width:25%">
+					<col style="width:35%">
+					<col style="width:40%">
+				  </colgroup>
+
+				  <thead>
+					<tr>
+					  <th>구분</th>
+					  <th>1학기 기준</th>
+					  <th>비고</th>
+					</tr>
+				  </thead>
+
+				  <tbody>
+					<tr>
+					  <td class="type">전형료</td>
+					  <td>₩30,000</td>
+					  <td>환불불가</td>
+					</tr>
+					<tr>
+					  <td class="type">수강료</td>
+					  <td>₩1,500,000</td>
+					  <td></td>
+					</tr>
+					<tr>
+					  <td class="type">생활관비</td>
+					  <td>₩385,000</td>
+					  <td>열쇠보증금, 자치회비 포함</td>
+					</tr>
+					<tr>
+					  <td class="type">보험료</td>
+					  <td>₩150,000</td>
+					  <td>1년</td>
+					</tr>
+					<tr>
+					  <td class="type">계</td>
+					  <td>₩2,065,000</td>
+					  <td></td>
+					</tr>
+				  </tbody>
+				</table>
+				<p class="table-bottom">※ 교재비와 출입국 수수료는 제외</p>
+			</div>
+			
+			<div class="co2-1__block">
+				<h3 class="co2-1__title">입금계좌</h3>
+				<ul class="co2-1__list">
+					<li>대구은행 : 505-10-193844-4 영남신학대학교 국제교류교육원</li>
+				</ul>
+				<p class="horizontal_scroll"><i class="xi-arrow-left"></i><i class="xi-touch"></i><i class="xi-arrow-right"></i><span class="txt">좌, 우로 이동 가능합니다.</span></p>
+				<table class="curriculum-table third-table">
+				  <colgroup>
+					<col style="width:25%">
+					<col style="width:35%">
+					<col style="width:40%">
+				  </colgroup>
+
+				  <tbody>
+					<!-- 은행 -->
+					<tr>
+					  <td rowspan="2" class="type">은행 (Bank)</td>
+					  <td class="type">대구은행</td>
+					  <td>THE DAEGUBANK, LTD</td>
+					</tr>
+					<tr>
+					  <td class="type">주소 (Address)</td>
+					  <td class="lh-td">
+						18, 2-Ga, Susung-dong, Susung-gu,<br>
+						Daegu 706-712, Republic of Korea
+					  </td>
+					</tr>
+
+					<!-- 예금주 -->
+					<tr>
+					  <td rowspan="2" class="type">예금주 (Remitee)</td>
+					  <td class="type">영남신학대학교총장</td>
+					  <td>Youngnam Theological University and Seminary</td>
+					</tr>
+					<tr>
+					  <td class="type">주소 (Address)</td>
+					  <td class="lh-td">
+						26 Bonghoe 1gil, Jilryang-eub, Gyeongsan,<br>
+						Gyeongbuk 712-720, Republic of Korea
+					  </td>
+					</tr>
+
+					<!-- 계좌번호 -->
+					<tr>
+					  <td class="type">계좌번호 (Account #)</td>
+					  <td colspan="2">505101938444</td>
+					</tr>
+
+					<!-- 은행코드 -->
+					<tr>
+					  <td class="type">은행코드 (Swift Code)</td>
+					  <td colspan="2">DAEBKR22</td>
+					</tr>
+				  </tbody>
+				</table>
+				<p class="table-bottom br-bottom">
+					- 송금은 반드시 본인의 이름으로 하여야 함.<br>
+					- 재한국(在韓國)보증인을 통한 납입도 가능함.
+				</p>
+			</div>
+
+            <div class="co2-1__block">
+                <h3 class="co2-1__title">수강료 환불 및 취소</h3>
+                <div class="article">
+					<ul class="article-list">
+					  <li class="article-li">
+						전액환불
+						<ul class="sub-list">
+						  <li>개강일 전에 등록을 취소하는 경우, 또는 비자 발급 기관에서 비자가 거절된경우(반드시 국제교류교육원에서 발급한 입학허가서 원본을 가지고 와야 환불가능)</li>
+						</ul>
+					  </li>
+					</ul>
+				</div>
+				
+				<div class="article">
+					<ul class="article-list">
+					  <li class="article-li">
+						부분환불
+						<ul class="sub-list">
+						  <li>개강 후 1주일 이내 등록 취소 시 수강료의 70%, 2주일 이내는 수강료의 50% 환불이 가능하며 그 이후에 등록 취소 시 수강료 환불 불가</li>
+						</ul>
+					  </li>
+					</ul>
+				</div>
+				
+				<div class="article">
+					<ul class="article-list">
+					  <li class="article-li">
+						환불예외 사항
+						<ul class="sub-list">
+						  <li>영남신학대학교 표준입학허가서를 통해 C-3 또는 D-4 비자를 발급받은 신입생은 개강 후 환불불가</li>
+						  <li>전형료는 환불불가</li>
+						</ul>
+					  </li>
+					</ul>
+				</div>
+				
+            </div>
+
+            <div class="co2-1__block">
+				<h3 class="co2-1__title">신청생의 제출서류</h3>
+				<ul class="article-list num-list">
+				  <li>입학지원서 1부</li>
+				  <li>여권 사본 1부</li>
+				  <li>최종학력 졸업증명서 및 성적증명서(<a href="https://www.chsi.com.cn/" target="_blank" class="sub-link1">www.chsi.com.cn</a> <a href="https://www.cdgdc.edu.cn/" target="_blank" class="sub-link1">www.cdgdc.edu.cn</a> 신청)</li>
+				  <li>명함판사진 3장(3*4사이즈), 여권용 사진 3장(3.5*4.5사이즈)</li>
+				  <li>전 가족의 신분증과 호구부 사본 및 가족관계공증서</li>
+				  <li>본인 명의의 $9,000 이상의 은행잔고증명서(30일 이내발급분, 6개월계속 유지) 1부. 본인 또는 부모님 재정관련 서류(재직증명서, 소득증명서,또는 사업증명서, 사업소득증명서 및 한국어번역) 1부.</li>
+				  <li>한국어교육과정 동의서</li>
+				</ul>
+			  </div>
+
+            <div class="co2-1__block">
+                <h3 class="co2-1__title">문의</h3>
+                <ul class="co2-1__list">
+                    <li>아래 학교주소, 팩스, 메일로 연락주시기 바랍니다.</li>
+					<li>ADD : (38451)경북 경산시 진량읍 봉회1길 26 영남신학대학교 국제교류교육원</li>
+					<li>TEL : 053)850-0584</li>
+					<li>FAX : 053)853-6352</li>
+					<li>E-MAIL : zizibevv@hanmail.net, zizibevv@ytus.ac.kr (김자양 과장)</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const targets = document.querySelectorAll(
+            '.co4-1-1 .co2-1__block, .co4-1-1 .co4-1-1-wrap'
+        );
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-show');
+                        observer.unobserve(entry.target); // 한 번만
+                    }
+                });
+            }, {
+                threshold: 0.15
+            }
+        );
+
+        targets.forEach(el => observer.observe(el));
+    });
+</script>			</div>
+			<!-- //페이지 주내용 -->
+        </div>
+        <!-- //container -->
+
+        <!-- footer -->
+		<div id="footer">
+			<div class="inner">
+				<div class="footer-top">
+					<h1><a href="/index"><img src="/images/default/main/footer-logo.svg" alt=""></a></h1>
+					<ul>
+						<li>
+							<a href="https://www.ytus.ac.kr/261" target="_blank" rel="noopener noreferrer">
+								개인정보취급방침
+							</a>
+						</li>
+						<li>
+							<a href="https://www.ytus.ac.kr/262" target="_blank" rel="noopener noreferrer">
+								이메일주소무단수집거부
+							</a>
+						</li>
+						<li>
+							<a href="https://www.ytus.ac.kr/127" target="_blank" rel="noopener noreferrer">
+								찾아오시는 길
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="footer-bottom">
+					<div class="left">
+						<ul class="footer-list">
+							<li>
+								<p class="tit">영남신학대학교</p>
+								<p class="txt">(우)38451 경상북도 경산시 진량읍 봉회1길 26</p>
+							</li>
+						</ul>
+						<ul class="footer-list02">
+							<li>
+								<p class="tit">TEL</p>
+								<p class="txt">053-850-0584</p>
+							</li>
+							<li>
+								<p class="tit">FAX</p>
+								<p class="txt">053-853-6352</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<p class="copy">Copyright ⓒ Youngnam Theological University and Seminary International Affairs and Education Institute. All Rights Reserved.</p>
+			</div>
+		</div>
+		<!-- //footer -->
+		<div class="top-btn"><img src="/images/default/main/top-btn.png" alt=""></div>
+    </div>
+    <!-- //wrap -->
+
+    <!-- Running time: 0.1736sec / Memory used: 11.51MB -->
+	<div class="divblind" style="display:none;position:fixed; left:0; top:0;filter:alpha(opacity=96); background:#1b1c1c;opacity:.70; width:100%;height:100%; z-index:10;"></div>
+</body>
+</html>

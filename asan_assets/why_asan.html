@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Why Asan — Asan Medical Center Partnership</title>
+<style>
+  @page {
+    size: A4;
+    margin: 3.5mm 8mm 4.5mm 8mm;
+    @bottom-center {
+      content: "Camnemi × Asan Medical Center · Page " counter(page) " / " counter(pages);
+      font-family: 'Malgun Gothic';
+      font-size: 6.5pt;
+      color: #9aa5b1;
+    }
+  }
+  @font-face {
+    font-family: 'Malgun Gothic';
+    src: url('C:/Windows/Fonts/malgun.ttf');
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'Malgun Gothic';
+    src: url('C:/Windows/Fonts/malgunbd.ttf');
+    font-weight: bold;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', sans-serif; color: #1f2937; font-size: 9pt; }
+
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 1.2mm; border-bottom: 2pt solid #0b5394; margin-bottom: 2mm;
+  }
+  .header .brands { display: flex; align-items: center; gap: 2.5mm; }
+  .header .logo { height: 7.5mm; }
+  .header .x { font-size: 16pt; font-weight: bold; color: #0b5394; line-height: 1; }
+  .header .camlogo { height: 7.5mm; }
+  .header .camtag {
+    background: #fdeebd; color: #7a5c00; font-weight: bold; font-size: 7pt;
+    padding: 0.7mm 2mm; border: 1pt solid #e0b23a; border-radius: 3px;
+    white-space: nowrap;
+  }
+  .header .titles { text-align: right; }
+  .header .titles .kr { font-size: 13pt; font-weight: bold; color: #0b5394; }
+  .header .titles .en { font-size: 7pt; color: #374151; margin-top: 0.3mm; }
+
+  .meta {
+    display: flex; justify-content: space-between; align-items: center;
+    background: #eaf0f9; border-radius: 4px; padding: 1.2mm 3mm; margin-bottom: 2mm;
+    font-size: 7.5pt; color: #1f2937; font-weight: 600;
+  }
+  .meta b { color: #0b5394; }
+
+  .package {
+    background: #fff; border: 1pt solid #c9d5e8; border-radius: 5px;
+    margin-bottom: 2mm; overflow: hidden; page-break-inside: avoid;
+    box-shadow: 0 0.5pt 1pt rgba(11,83,148,0.08);
+  }
+  .package .head {
+    background: linear-gradient(135deg, #0b5394 0%, #1d6fc4 60%, #2e8bd8 100%);
+    color: #fff; padding: 1.4mm 3mm;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .package .head .name { font-size: 10pt; font-weight: bold; }
+  .package .head .name small { font-size: 7.5pt; font-weight: normal; opacity: 0.92; margin-left: 1.5mm; }
+  .package .body { padding: 1.6mm 3mm; font-size: 8.5pt; line-height: 1.5; color: #1f2937; }
+  .package .body p { margin-bottom: 1mm; }
+  .package .body p:last-child { margin-bottom: 0; }
+  .package .body b.hl { color: #0b5394; }
+
+  /* ── Circle stats (2) ── */
+  .circles { display: flex; justify-content: space-between; align-items: flex-end; padding: 1.2mm 0.5mm; }
+  .circle { display: flex; flex-direction: column; align-items: center; width: 20%; }
+  .circle .c {
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0b5394 0%, #1d6fc4 55%, #2e8bd8 100%);
+    color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-weight: bold; text-align: center; line-height: 1.1;
+    box-shadow: 0 1.5pt 3pt rgba(11,83,148,0.35);
+  }
+  .circle .c .sym { font-size: 1.2em; line-height: 1; margin-bottom: 0.3mm; }
+  .circle .cl { font-size: 6.5pt; color: #374151; text-align: center; margin-top: 1mm; line-height: 1.3; font-weight: 600; }
+
+  /* ── Gold badge (3) ── */
+  .goldhead {
+    display: inline-block; background: #fdeebd; color: #8a6d00;
+    font-weight: bold; font-size: 8.5pt; padding: 1.2mm 3mm;
+    border: 1pt solid #e0b23a; border-radius: 3px; margin-bottom: 1.5mm;
+  }
+
+  /* rank rows — department-first, clear rank */
+  .rankrow { display: table; width: 100%; margin-top: 1.2mm; border-spacing: 1.2mm 0; }
+  .rank { display: table-cell; width: 33.33%; background: #f0f4fb; border-radius: 4px; padding: 1.8mm 2mm; text-align: center; border: 1pt solid #b9c9e2; }
+  .rank .rd { font-size: 9pt; font-weight: bold; color: #1f2937; line-height: 1.2; }
+  .rank .rn { font-size: 14pt; font-weight: bold; color: #9a7000; margin-top: 0.8mm; line-height: 1.1; }
+  .rank .rn small { display: block; font-size: 6.5pt; color: #5b6570; font-weight: normal; margin-top: 0.3mm; }
+
+  .badge {
+    display: inline-block; background: #fdeebd; color: #8a6d00;
+    font-weight: bold; font-size: 8pt; padding: 1mm 2.5mm;
+    border: 1pt solid #e0b23a; border-radius: 3px; margin: 0.6mm 0.6mm 0 0;
+  }
+
+  /* specialty chips (3) */
+  .spc {
+    display: inline-block; background: #dbe7f7; color: #0b5394;
+    font-weight: bold; font-size: 8pt; padding: 1mm 2.5mm;
+    border: 1pt solid #9db8dd; border-radius: 12px; margin: 0.6mm 1mm 0 0;
+    line-height: 1.4;
+  }
+
+  /* ── Nationality bars (4) ── */
+  .nat { margin-top: 1.5mm; }
+  .nat .row { display: table; width: 100%; margin-bottom: 1.6mm; }
+  .nat .n { display: table-cell; width: 30mm; font-weight: bold; color: #0b5394; font-size: 9pt; vertical-align: middle; }
+  .nat .bar { display: table-cell; vertical-align: middle; }
+  .nat .bar i {
+    display: inline-block; height: 5mm; vertical-align: middle;
+    background: linear-gradient(90deg, #0b5394, #2e8bd8);
+    border-radius: 2.5mm;
+  }
+  .nat .pct { display: table-cell; width: 15mm; text-align: right; font-weight: bold; color: #9a7000; font-size: 9.5pt; vertical-align: middle; }
+
+  /* ── Patients (5) ── */
+  .goldquote {
+    background: #fdeebd; border: 1pt solid #e0b23a; border-radius: 5px;
+    padding: 1.6mm 3mm; margin-bottom: 1.6mm; text-align: center;
+    font-size: 8.5pt; font-weight: bold; color: #7a5c00; line-height: 1.45;
+  }
+  .patient {
+    display: flex; align-items: center; background: #f0f4fb;
+    border-left: 3pt solid #0b5394; border-radius: 0 5px 5px 0;
+    padding: 1.5mm 3mm; margin-bottom: 1.5mm;
+  }
+  .patient img {
+    width: 12mm; height: 12mm; border-radius: 50%; object-fit: cover;
+    border: 2pt solid #0b5394; margin-right: 3mm; flex: 0 0 auto;
+  }
+  .patient .pn { font-weight: bold; color: #0b5394; font-size: 8.5pt; }
+  .patient .pd { font-size: 7.8pt; color: #1f2937; margin-top: 0.4mm; line-height: 1.4; }
+
+  .bankpoints {
+    display: table; width: 100%; border-collapse: collapse; margin-top: 1mm;
+  }
+  .bankpoint { display: table-cell; width: 33.33%; vertical-align: top; padding: 1.5mm 2mm; background: #f0f4fb; border: 1pt solid #b9c9e2; border-radius: 4px; }
+  .bankpoint .bn { font-size: 8pt; font-weight: bold; color: #0b5394; margin-bottom: 0.8mm; }
+  .bankpoint .bd { font-size: 7.5pt; color: #1f2937; line-height: 1.4; }
+
+  .note {
+    margin-top: 1.6mm; font-size: 7pt; color: #374151; line-height: 1.4;
+    background: #eaf0f9; border-left: 2pt solid #0b5394; padding: 1.3mm 2.5mm; border-radius: 0 4px 4px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="brands">
+    <img class="logo" src="C:/Users/USER/camnemi-crm/asan_assets/amc_logo_hi.png" alt="Asan Medical Center">
+    <span class="x">×</span>
+    <img class="camlogo" src="C:/Users/USER/camnemi-crm/asan_assets/camnemi_logo.png" alt="CAMNEMI KOREA">
+    <span class="camtag">★ Official Agency of AMC</span>
+  </div>
+  <div class="titles">
+    <div class="kr">WHY ASAN?</div>
+    <div class="en">Asan Medical Center · Trusted Partnership for Cambodia</div>
+  </div>
+</div>
+
+<div class="meta">
+  <span>International Patient Services</span>
+  <span>Contact : <b>medical@camnemi.com</b></span>
+</div>
+
+<!-- 1 -->
+<div class="package">
+  <div class="head"><span class="name">1. Trusted Access to World-Class Healthcare <small>— Why Asan</small></span></div>
+  <div class="body">
+    <p>Asan Medical Center is more than just one of Korea's largest hospitals.</p>
+    <p>It is one of <b class="hl">Asia's leading medical institutions</b>, globally recognized for treating serious and complex conditions.</p>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="package">
+  <div class="head"><span class="name">2. Medical Excellence <small>— Global Recognition</small></span></div>
+  <div class="body">
+    <span class="goldhead">★ Newsweek — World's Best Specialized Hospitals 2026</span>
+    <div class="rankrow">
+      <div class="rank"><div class="rd">Oncology</div><div class="rn">4<small>th in the world</small></div></div>
+      <div class="rank"><div class="rd">Gastroenterology</div><div class="rn">4<small>th in the world</small></div></div>
+      <div class="rank"><div class="rd">Endocrinology</div><div class="rn">4<small>th in the world</small></div></div>
+    </div>
+    <div class="rankrow">
+      <div class="rank"><div class="rd">Neurology</div><div class="rn">6<small>th in the world</small></div></div>
+      <div class="rank"><div class="rd">Urology</div><div class="rn">6<small>th in the world</small></div></div>
+      <div class="rank"><div class="rd">Orthopedics</div><div class="rn">8<small>th in the world</small></div></div>
+    </div>
+    <div style="margin-top:1.8mm;"><span class="badge">★ 5 Specialties Asia-Pacific No.1</span></div>
+    <p style="margin-top:1.2mm;">
+      <span class="spc">Cardiology</span>
+      <span class="spc">Cardiac Surgery</span>
+      <span class="spc">Neurology</span>
+      <span class="spc">Endocrinology</span>
+      <span class="spc">Orthopedics</span>
+    </p>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="package">
+  <div class="head"><span class="name">3. Patient Nationalities <small>— Where Our Patients Come From</small></span></div>
+  <div class="body">
+    <p>Major patient nationalities — a global destination for serious &amp; complex care:</p>
+    <div class="nat">
+      <div class="row"><div class="n">🇺🇸 USA</div><div class="bar"><i style="width:78mm;"></i></div><div class="pct">26%</div></div>
+      <div class="row"><div class="n">🇦🇪 UAE</div><div class="bar"><i style="width:45mm;"></i></div><div class="pct">15%</div></div>
+      <div class="row"><div class="n">🇲🇳 Mongolia</div><div class="bar"><i style="width:42mm;"></i></div><div class="pct">14%</div></div>
+    </div>
+    <p style="margin-top:1.8mm;color:#374151;">— even US patients chose ASAN.</p>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="package">
+  <div class="head"><span class="name">4. Asan Already Has a History with Cambodia <small>— Lives Already Saved</small></span></div>
+  <div class="body">
+    <div class="goldquote">"These are not just partnerships. These are Cambodian lives already treated by ASAN."</div>
+    <p>ASAN has already saved Cambodian lives. This partnership can build upon that history and develop it into a more structured one.</p>
+    <div style="margin-top:1.8mm;">
+      <div class="patient"><img src="C:/Users/USER/camnemi-crm/asan_assets/patient_1.png" alt="Hong Reach"><div><div class="pn">Hong Reach (16)</div><div class="pd">Complex congenital heart surgery successfully performed at Asan Medical Center</div></div></div>
+      <div class="patient"><img src="C:/Users/USER/camnemi-crm/asan_assets/patient_2.png" alt="Aok Rotha"><div><div class="pn">Aok Rotha (13)</div><div class="pd">Recovered after multiple complex cardiac surgeries at Asan Medical Center</div></div></div>
+      <div class="patient"><img src="C:/Users/USER/camnemi-crm/asan_assets/patient_3.png" alt="Ms. Pola"><div><div class="pn">Ms. Pola (35, Cambodian Dentist)</div><div class="pd">Successfully treated for ventricular tachycardia</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Bank -->
+<div class="package" style="border:1.5pt solid #e0b23a;">
+  <div class="head" style="background:linear-gradient(135deg,#9a7000 0%,#c8981a 60%,#e0b23a 100%);">
+    <span class="name">★ WHY IT MATTERS FOR THE BANK <small>— Partnership Value</small></span>
+  </div>
+  <div class="body">
+    <div class="bankpoints">
+      <div class="bankpoint">
+        <div class="bn">🛡️ 1. Exclusive Healthcare Privilege</div>
+        <div class="bd">VIP · Priority · Corporate customers get "Access to one of Asia's leading hospitals."</div>
+      </div>
+      <div class="bankpoint">
+        <div class="bn">👨‍👩‍👧‍👦 2. For Their Families Too</div>
+        <div class="bd">Benefits extend to <b class="hl">Parents · Spouse · Children · Family</b>.</div>
+      </div>
+      <div class="bankpoint">
+        <div class="bn">🫱🏽‍🫲🏼 3. Seamless Cambodian Experience</div>
+        <div class="bd">Cambodian staff support patients through the whole journey — minimizing language &amp; medical barriers.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="note">
+  ※ Partnership proposal prepared by <b>Camnemi Medical Tourism Concierge</b> · Contact : <b>medical@camnemi.com</b>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title></title>
+
+<script type="text/javascript">
+
+function fSSOInitialize(){
+	
+	document.frmSSO.submit();
+}
+
+</script>
+
+</head>
+
+<body onload="fSSOInitialize();">
+
+<form id="frmSSO" name="frmSSO" method="post" action="https://sso.songgok.ac.kr:443/PmSSOService">
+	<input type="hidden"   id="app_id"     name="app_id"     value="sg_home" />
+	<input type="hidden"   id="retUrl"     name="retUrl"     value="aHR0cHM6Ly93d3cuc29uZ2dvay5hYy5rci9pcGhhay9NYWluLmRv" />
+	<input type="hidden"   id="failUrl"    name="failUrl"    value="aHR0cDovL3d3dy5zb25nZ29rLmFjLmtyL2tvci9NYWluLmRv" />
+	<input type="hidden"   id="baseUrl"    name="baseUrl"    value="http://www.songgok.ac.kr" />
+	<input type="hidden"   id="baseContext"    name="baseContext"    value="" />
+	<input type="hidden"   id="S1"         name="S1"         value="79D61EC532C8E797CB1DBF2BA542F5D6348DB07EA05C4103F4A90790696F62FFF4CC91E0A6E4160FFB3FD5DAF976173515B76384FD1BB9B7956057A1D687F852BA47CA584373070B237349D0ECA700F057EAD30DBEF89765F70C4BCF882B6FCEEFB21E16855C61805FA5F314DBFB22B2B838C455A6400BAED0E31F117457440119466CD74C0D94CAAFF7D06EC63C3CA27F5C1B0D5BC60ED2E4076310242F0444B1DBEDEF4237F33895890680E91B59CC24990A37020F1A8FCC5F575A567C3D85AE373907A6886603D699DD84B6659A4709DCF6E0244AE71D059DA1E5D2C63AFDC7FC632AA2E63392CA923A0C3D7B1D06366A264AB797A809AA1C2875B0FE5BC5" />
+	<input type="hidden"   id="loginUrl"   name="loginUrl"   value="" />
+	<input type="hidden"   id="ssoGubun"   name="ssoGubun"   value="Redirect" />
+	<input type="hidden"   id="refererUrl" name="refererUrl" value="http://www.songgok.ac.kr/passni/cs_login_chk.jsp" />
+	
+	
+	
+</form>
+
+</body>
+</html>

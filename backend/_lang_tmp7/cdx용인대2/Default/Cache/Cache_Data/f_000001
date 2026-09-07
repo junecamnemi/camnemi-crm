@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+	<head>
+		<meta charset="utf-8">
+<meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src https://fonts.googleapis.com 'self' 'unsafe-inline'; script-src https://www.googletagmanager.com https://www.google-analytics.com 'self' 'unsafe-inline' 'unsafe-eval' https://t1.daumcdn.net https://t1.kakaocdn.net http://developers.kakao.com https://dapi.kakao.com; ">
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>용인대</title>
+<link rel="shortcut icon" type="image/x-icon" href="/css/yonginUser/images/common/favicon.ico" />
+<link rel="stylesheet" href="/css/yonginUser/lib/css/webfonts.css">
+<link rel="stylesheet" href="/css/yonginUser/lib/css/default.css">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131233743-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131233743-1');
+</script>
+
+<!-- wvtex -->
+ <script type="text/javaScript" language="javascript" src="/css/yonginUser/lib/js/jquery-1.12.4.min.js"></script>
+ <script type="text/javaScript" language="javascript" src="/css/yonginUser/lib/js/jquery-ui-custom.js"></script>
+ <script type="text/javaScript" language="javascript" src='/css/yonginUser/lib/js/swiper.min.js'></script>
+
+<script type="text/javaScript" language="javascript" src="/js/wvtex/jquery.wvtex.util.js?ver=3"></script>
+<script type="text/javaScript" language="javascript" src="/js/wvtex/jquery.wvtex.js"></script>
+		
+		<script type="text/javascript">
+			/**
+			 * 페이지 로드시 실행되는 함수
+			 */
+			function initPage() {
+			};
+
+			/**
+			 * 목록 보기 실행
+			 */
+			function doList(pageNo) {
+				var form = $("#FormList");
+
+				if (typeof pageNo !== 'undefined') {
+					form.find(":input[name='pageIndex']").val(pageNo);
+				}
+
+				form.attr("method", "POST");
+				form.attr("action", "/cmn/board/SYSTEM_DEFAULT000028/bbsList.do;jsessionid=B8118AA6EAB3E73D5561793DC8B6081C.language2");
+				form.submit();
+			};
+
+			/**
+			 * 검색 하기 실행
+			 */
+			function doSearch() {
+				var form = $("#FormSearch");
+
+				form.attr("method", "POST");
+				form.attr("action", "/cmn/board/SYSTEM_DEFAULT000028/bbsList.do;jsessionid=B8118AA6EAB3E73D5561793DC8B6081C.language2");
+				form.submit();
+			};
+
+			/**
+			 * 등록화면 실행
+			 */
+			function doCreate() {
+				var form = $("#FormDetail");
+
+				form.find(":input[name='nttId']").val('');
+
+				form.attr("method", "POST");
+				form.attr("action", "/usr/board/SYSTEM_DEFAULT000028/bbsRegist.do;jsessionid=B8118AA6EAB3E73D5561793DC8B6081C.language2");
+				form.submit();
+			};
+
+			/**
+			 * 잠금여부 확인
+			 */
+			function doDetailCheck(nttId, othbcYn) {
+				var form = $("#FormDetail");
+				form.find(":input[name='nttId']").val(nttId);
+				doDetail();
+			};
+
+			/**
+			 * 상세 보기 실행
+			 */
+			function doDetail() {
+				var form = $("#FormDetail");
+
+				var nttId = form.find(":input[name='nttId']").val();
+
+				var url = "/cmn/board/SYSTEM_DEFAULT000028/" + nttId + "bbsDetail.do";
+
+				form.attr("method", "POST");
+				form.attr("action", url);
+				form.submit();
+			};
+		</script>
+	<script type="text/javascript">
+			jQuery(document).ready(function(){
+				if (typeof initPage === "function") {
+					initPage();
+				}
+				/* setPageDesign(); */
+
+				/* setMainType(); */
+			});
+
+			/* function setPageDesign() {
+				// 디자인 맞추기
+				var totalCnt = $(".pagination").find("li").length;
+
+				if (typeof $(".pagination") !== 'undefined' && totalCnt < 5) {
+					$(".pagination").find("li").attr("style", "border-left:0")
+				}
+			}; */
+
+			/* function setMainType() {
+				var INO = UT.getCookie("INO");
+				if(INO == 'OUT') {
+					$("#INOOUT").addClass('active');
+					$("#INOIN").removeClass('active');
+				} else {
+					$("#INOOUT").removeClass('active');
+					$("#INOIN").addClass('active');
+				}
+			}; */
+		</script>
+	</head>
+	<body onload="">
+		<div class="wrap">
+
+			<!-- 상단메뉴 및 팝업 -->
+			<!-- header -->
+		<div id="header">
+			<div class="util">
+				<div class="inner">
+					<div class="select-ul-wrap lang">
+						<a href="#" class="select-head"><span>LANGUGE</span></a>
+						<ul class="select-ul">
+							<li><a href="/cmn/main/main.do" target="_blank">Korean</a></li>
+							<li><a href="/cmn/en/main/main.do" target="_blank">English</a></li>
+							<li><a href="/cmn/cn/main/main.do" target="_blank">Chinese</a></li>
+							<li><a href="/cmn/vi/main/main.do" target="_blank">Vietnam</a></li>
+							<!--<li><a href="/cmn/uz/main/main.do" target="_blank">Uzbekistan</a></li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- header-wrap -->
+			<div class="header-wrap">
+				<div class="inner clearfix">
+					<div class="logo"><a href="/"><span><em class="sr-only">용인대학교</em>국제교류교육원</span></a></div>
+					<div class="menu-wrap clearfix">
+						<div class="gnb-wrap">
+							<a href="#" class="close-btn"><span class="sr-only">메뉴 닫기</span></a>
+							<div class="language-box mobile">
+								<ul>
+									<li class="en"><a href="/cmn/en/main/main.do" target="_blank">English</a></li>
+									<li class="cn"><a href="/cmn/cn/main/main.do" target="_blank">Chinese</a></li>
+									<li class="vi"><a href="/cmn/vi/main/main.do" target="_blank">Vietnam</a></li>
+									<!--<li class="uz"><a href="/cmn/uz/main/main.do" target="_blank">Uzbekistan</a></li>-->
+								</ul>
+							</div>
+
+
+							<ul class="gnb-list depth1">
+									<li><a href="#">교육원 소개</a>
+													<ul class="depth2">
+
+											<li><a href="/cmn/sym/mnu/mpm/601010000/htmlMenuView.do">교육원장 인사말</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/601020000/htmlMenuView.do">부서소개</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/601030000/htmlMenuView.do">캠퍼스 맵</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/601040000/htmlMenuView.do">찾아오시는 길</a></li>
+																</ul>
+															</li>
+														<li><a href="#">한국어과정 안내</a>
+													<ul class="depth2">
+
+											<li><a href="/cmn/sym/mnu/mpm/602010000/htmlMenuView.do">한국어학당 소개</a></li>
+														<li><a href="/cmn/board/SYSTEM_DEFAULT000049/bbsList.do">모집요강 및 지원안내</a></li>
+														<li><a href="/cmn/board/SYSTEM_DEFAULT000050/bbsList.do">유용한 정보</a></li>
+														<li><a href="/cmn/board/SYSTEM_DEFAULT000051/bbsList.do">커뮤니티</a></li>
+														<li><a href="/cmn/board/SYSTEM_DEFAULT000052/bbsList.do">공지사항</a></li>
+																</ul>
+															</li>
+														<li><a href="#">해외프로그램</a>
+													<ul class="depth2">
+
+											<li><a href="/cmn/sym/mnu/mpm/603010000/htmlMenuView.do">교환학생</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/603020000/htmlMenuView.do">단기 어학연수</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/603030000/htmlMenuView.do">해외 자매결연대학</a></li>
+														<li><a href="/cmn/board/SYSTEM_DEFAULT000044/bbsList.do">해외 대학 체험수기</a></li>
+																</ul>
+															</li>
+														<li><a href="#">교내프로그램</a>
+													<ul class="depth2">
+
+											<li><a href="/cmn/sym/mnu/mpm/604010000/htmlMenuView.do">교내 토익과정</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/604020000/htmlMenuView.do">글로벌 버디 프로그램</a></li>
+																</ul>
+															</li>
+														<li><a href="#">입학</a>
+													<ul class="depth2">
+
+											<li><a href="/cmn/sym/mnu/mpm/605010000/htmlMenuView.do">학부입학</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/605020000/htmlMenuView.do">대학원 입학</a></li>
+																</ul>
+															</li>
+														<li><a href="#">대학생활</a>
+													<ul class="depth2">
+
+											<li><a href="/cmn/sym/mnu/mpm/606010000/htmlMenuView.do">장학금</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/606030000/htmlMenuView.do">보험</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/606040000/htmlMenuView.do">출입국 신고</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/606050000/htmlMenuView.do">수강신청</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/606060000/htmlMenuView.do">휴학/복학</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/606070000/htmlMenuView.do">졸업 요건</a></li>
+														<li><a href="/cmn/sym/mnu/mpm/606080000/htmlMenuView.do">인터넷 증명발급</a></li>
+																</ul>
+															</li>
+														<li><a href="#">커뮤니티</a>
+													<ul class="depth2">
+
+											<li><a href="/cmn/board/SYSTEM_DEFAULT000028/bbsList.do">공지사항</a></li>
+														<li><a href="/cmn/board/SYSTEM_DEFAULT000045/bbsList.do">News</a></li>
+														<li><a href="/cmn/board/SYSTEM_DEFAULT000029/bbsList.do">자료실</a></li>
+														<li><a href="/cmn/board/SYSTEM_DEFAULT000030/bbsList.do">상담문의</a></li>
+																</ul>
+															</li>
+														</ul>
+							</div>
+						<div class="util-wrap">
+							<ul class="util-list">
+								<li class="yiu-link"><a href="http://www.yongin.ac.kr" target="_blank"><span class="sr-only">용인대학교 사이트 바로가기</span></a></li>
+								<li class="all-menu"><a href="#"><span class="sr-only">전체메뉴 보기</span></a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- sitemap popup -->
+					<div class="sitemap-popup">
+						<div class="inner">
+							<a href="#" class="close-btn"><span class="sr-only">사이트맵 닫기</span></a>
+
+							<div class="sitemap-wrap">
+								<h1>SITEMAP</h1>
+								<div class="sitemap-list">
+									<ul class="map-depth1">
+										<li><span>교육원 소개</span>
+														<ul class="map-depth2">
+
+												<li><a href="/cmn/sym/mnu/mpm/601010000/htmlMenuView.do">교육원장 인사말</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/601020000/htmlMenuView.do">부서소개</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/601030000/htmlMenuView.do">캠퍼스 맵</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/601040000/htmlMenuView.do">찾아오시는 길</a></li>
+																	</ul>
+																</li>
+															<li><span>한국어과정 안내</span>
+														<ul class="map-depth2">
+
+												<li><a href="/cmn/sym/mnu/mpm/602010000/htmlMenuView.do">한국어학당 소개</a></li>
+															<li><a href="/cmn/board/SYSTEM_DEFAULT000049/bbsList.do">모집요강 및 지원안내</a></li>
+															<li><a href="/cmn/board/SYSTEM_DEFAULT000050/bbsList.do">유용한 정보</a></li>
+															<li><a href="/cmn/board/SYSTEM_DEFAULT000051/bbsList.do">커뮤니티</a></li>
+															<li><a href="/cmn/board/SYSTEM_DEFAULT000052/bbsList.do">공지사항</a></li>
+																	</ul>
+																</li>
+															<li><span>해외프로그램</span>
+														<ul class="map-depth2">
+
+												<li><a href="/cmn/sym/mnu/mpm/603010000/htmlMenuView.do">교환학생</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/603020000/htmlMenuView.do">단기 어학연수</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/603030000/htmlMenuView.do">해외 자매결연대학</a></li>
+															<li><a href="/cmn/board/SYSTEM_DEFAULT000044/bbsList.do">해외 대학 체험수기</a></li>
+																	</ul>
+																</li>
+															<li><span>교내프로그램</span>
+														<ul class="map-depth2">
+
+												<li><a href="/cmn/sym/mnu/mpm/604010000/htmlMenuView.do">교내 토익과정</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/604020000/htmlMenuView.do">글로벌 버디 프로그램</a></li>
+																	</ul>
+																</li>
+															<li><span>입학</span>
+														<ul class="map-depth2">
+
+												<li><a href="/cmn/sym/mnu/mpm/605010000/htmlMenuView.do">학부입학</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/605020000/htmlMenuView.do">대학원 입학</a></li>
+																	</ul>
+																</li>
+															<li><span>대학생활</span>
+														<ul class="map-depth2">
+
+												<li><a href="/cmn/sym/mnu/mpm/606010000/htmlMenuView.do">장학금</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/606030000/htmlMenuView.do">보험</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/606040000/htmlMenuView.do">출입국 신고</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/606050000/htmlMenuView.do">수강신청</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/606060000/htmlMenuView.do">휴학/복학</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/606070000/htmlMenuView.do">졸업 요건</a></li>
+															<li><a href="/cmn/sym/mnu/mpm/606080000/htmlMenuView.do">인터넷 증명발급</a></li>
+																	</ul>
+																</li>
+															<li><span>커뮤니티</span>
+														<ul class="map-depth2">
+
+												<li><a href="/cmn/board/SYSTEM_DEFAULT000028/bbsList.do">공지사항</a></li>
+															<li><a href="/cmn/board/SYSTEM_DEFAULT000045/bbsList.do">News</a></li>
+															<li><a href="/cmn/board/SYSTEM_DEFAULT000029/bbsList.do">자료실</a></li>
+															<li><a href="/cmn/board/SYSTEM_DEFAULT000030/bbsList.do">상담문의</a></li>
+																	</ul>
+																</li>
+															</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //sitemap popup -->
+				</div>
+			</div>
+			<!-- //header-wrap -->
+		</div>
+	<!-- //header --><!-- 컨텐츠 -->
+			<!-- 컨텐츠(일반) -->
+					<div id="contents">
+						<div class="sub-visual center">
+		<div class="inner">
+			<h1>공지사항</h1>
+			<div class="page-nav">
+				<ul>
+					<li class="home"><span class="sr-only">메인</span></li>
+						<li>
+								커뮤니티</li>
+							<li>공지사항</li>
+								</ul>
+				</div>
+			</div>
+		</div>
+
+<div class="inner">
+							<!-- page-tab -->
+<div class="page-tab">
+	<a href="#" class="select-head mobile"><span></span></a>
+	<ul>
+		<li class="is-active"><a href="/cmn/board/SYSTEM_DEFAULT000028/bbsList.do"><span>공지사항</span></a></li>
+					<li><a href="/cmn/board/SYSTEM_DEFAULT000045/bbsList.do"><span>News</span></a></li>
+						<li><a href="/cmn/board/SYSTEM_DEFAULT000029/bbsList.do"><span>자료실</span></a></li>
+						<li><a href="/cmn/board/SYSTEM_DEFAULT000030/bbsList.do"><span>상담문의</span></a></li>
+						</ul>
+</div>
+<!-- //page-tab -->
+
+
+		<!-- 설정값 시작 -->
+		<!-- 설정값 종료 -->
+
+		<!-- 메뉴명 시작 -->
+		<!-- 	메뉴명 종료 -->
+
+		<!-- page-wrap -->
+		<div class="page-wrap">
+			<section class="cont-sec">
+				<h2>
+					공지사항</h2>
+
+				<!-- board-wrap -->
+				<div class="board-wrap">
+					<!-- board-top -->
+					<form id="FormSearch" name="FormSearch" method="post">
+						<input type="hidden" name="currentMenuNo" value="607010000">
+						<input type="hidden" name="pageIndex" id="pageIndex" value="1">
+						<input type="hidden" name="bbsId" value="SYSTEM_DEFAULT000028">
+						<div class="board-top">
+							<p class="board-desc">총 <strong>22개</strong>의 게시물이 있습니다.</p>
+							<div class="search-box">
+								<select name="searchCondition" title="조회조건선택">
+									<option value='sj' >제목</option><option value='cn' >내용</option><option value='cnsj' >제목+내용</option></select>
+
+								<input type="text" name="searchKeyword" placeholder="검색어를 입력해 주세요" onkeyup="UT.callFunctionByEnter(event, doSearch);" value="">
+			    				<button class="search-btn" type="button" onclick="doSearch();"><span class="sr-only">검색</span></button>
+							</div>
+						</div>
+					</form>
+					<!-- //board-top -->
+
+					<!-- board-cont -->
+					<div class="board-cont list">
+						<ul>
+							<li class="notice">
+									<a class="subj" href="javascript:void(0);" onclick="doDetailCheck('1675', 'Y')">
+										2026학년도 수시/정시 합격자 대상 온라인 어학 설명회</a>
+									<div class="info-gp">
+<span>2026.02.05</span>
+										<span>조회수 1604</span>
+									</div>
+									</li>
+							<li class="notice">
+									<a class="subj" href="javascript:void(0);" onclick="doDetailCheck('1674', 'Y')">
+										2026학년도 3월 입학 외국인(부모 모두 외국인인 외국인) 특별전형 신·편입학 모집요강ㅣ2026 March Admission for Foreign Students Special Admission for New and Transfer Students Guidelinesㅣ2026年3月入学外籍学生特别选拔新生及转学生招生简章</a>
+									<div class="info-gp">
+<span>2025.12.11</span>
+										<span>조회수 201</span>
+									</div>
+									<a href="#" class="file"><span class="sr-only">첨부파일</span></a>
+										</li>
+							<li class="notice">
+									<a class="subj" href="javascript:void(0);" onclick="doDetailCheck('1669', 'Y')">
+										2025학년도 하계 어학연수생 선발의 건</a>
+									<div class="info-gp">
+<span>2025.04.09</span>
+										<span>조회수 263</span>
+									</div>
+									<a href="#" class="file"><span class="sr-only">첨부파일</span></a>
+										</li>
+							<li class="notice">
+									<a class="subj" href="javascript:void(0);" onclick="doDetailCheck('1668', 'Y')">
+										2025학년도 2학기 교환학생(파견학생) 선발의 건</a>
+									<div class="info-gp">
+<span>2025.04.09</span>
+										<span>조회수 229</span>
+									</div>
+									<a href="#" class="file"><span class="sr-only">첨부파일</span></a>
+										</li>
+							<li class="notice">
+									<a class="subj" href="javascript:void(0);" onclick="doDetailCheck('1667', 'Y')">
+										2025학년도 9월 입학 외국인(부모 모두 외국인인 외국인) 특별전형 신,편입학 모집요강ㅣ2025 September Admission for Foreign Students Special Admission for New and Transfer Students Guidelinesㅣ2025年9月入学外籍学生特别选拔新生及转学生招生简章</a>
+									<div class="info-gp">
+<span>2025.04.09</span>
+										<span>조회수 105</span>
+									</div>
+									<a href="#" class="file"><span class="sr-only">첨부파일</span></a>
+										</li>
+							<li class="">
+									<a class="subj" href="javascript:void(0);" onclick="doDetailCheck('1673', 'Y')">
+										[세종대] 제6회 ISF 외국인유학생 취·창업 및 대학(원) 입학 페어 안내</a>
+									<div class="info-gp">
+<span>2025.09.10</span>
+										<span>조회수 2546</span>
+									</div>
+									<a href="#" class="file"><span class="sr-only">첨부파일</span></a>
+										</li>
+							<li class="">
+									<a class="subj" href="javascript:void(0);" onclick="doDetailCheck('1666', 'Y')">
+										2025학년도 신입생 대상 온라인 어학설명회 안내</a>
+									<div class="info-gp">
+<span>2025.02.17</span>
+										<span>조회수 2426</span>
+									</div>
+									</li>
+							<li class="">
+									<a class="subj" href="javascript:void(0);" onclick="doDetailCheck('1665', 'Y')">
+										2025 신입생 대상 온라인 어학 설명회</a>
+									<div class="info-gp">
+<span>2025.02.17</span>
+										<span>조회수 4342</span>
+									</div>
+									</li>
+							<li class="">
+									<a class="subj" href="javascript:void(0);" onclick="doDetailCheck('1664', 'Y')">
+										용인대학교 한국어학당 - 중국 광서사범대학(廣西師範大学) 파견 강사 모집</a>
+									<div class="info-gp">
+<span>2024.12.03</span>
+										<span>조회수 5176</span>
+									</div>
+									<a href="#" class="file"><span class="sr-only">첨부파일</span></a>
+										</li>
+							<li class="">
+									<a class="subj" href="javascript:void(0);" onclick="doDetailCheck('1663', 'Y')">
+										[교양 2영역 해외연수사전교육프로그램] 관련 토익응시료 지원 안내</a>
+									<div class="info-gp">
+<span>2024.06.21</span>
+										<span>조회수 4142</span>
+									</div>
+									</li>
+							</ul>
+					</div>
+					<!-- //board-cont -->
+
+				</div>
+				<!-- //board-wrap -->
+
+				<!-- paging -->
+				<div class="paging">
+				        <ul>
+					        <li  class="is-active"><a href="#">1</a></li>&#160;<li><a href="?pageIndex=2" onclick="doList(2);return false; ">2</a></li>&#160;<li><a href="?pageIndex=3" onclick="doList(3);return false; ">3</a></li>&#160;
+</ul>
+					</div>
+				<!-- //paging -->
+			</section>
+
+		</div>
+		<!-- //page-wrap -->
+
+
+
+		<!-- 이동용 폼 시작 -->
+		<form id="FormList" name="FormList" method="post">
+			<input type="hidden" name="bbsId" value="SYSTEM_DEFAULT000028">
+			<input type="hidden" name="currentMenuNo" value="607010000">
+			<input type="hidden" name="pageIndex" value="1">
+		    <input type="hidden" name="searchCondition" value="0">
+		    <input type="hidden" name="searchKeyword" value="">
+		    <input type="hidden" name="extraCode1" value="">
+		    <input type="hidden" name="extraCode2" value="LANG04">
+		    </form>
+
+		<form id="FormDetail" name="FormDetail" method="get">
+			<input type="hidden" name="nttId" >
+			<input type="hidden" name="bbsId" value="SYSTEM_DEFAULT000028">
+			<input type="hidden" name="currentMenuNo" value="607010000">
+		    <input type="hidden" name="pageIndex" value="1">
+		    <input type="hidden" name="searchCondition" value="0">
+		    <input type="hidden" name="searchKeyword" value="">
+		    <input type="hidden" name="extraCode1" value="">
+		    <input type="hidden" name="extraCode2" value="LANG04">
+		    </form>
+		<!-- 이동용 폼 종료 -->
+	</div>
+					</div>
+					<!-- //컨텐츠(일반) -->
+					<!-- footer -->
+		<div id="footer">
+			<div class="inner">
+				<!-- gp -->
+				<div class="gp clearfix">
+					<div class="terms">
+						<ul class="ul-inblock dot">
+<!-- 							<li class="pers"><a href="#persInfo" class="js-openLay">개인정보처리방침</a></li> -->
+							<li class="pers"><a href="https://www.yongin.ac.kr/cmn/wvtex/nibr/main/personDetail.do" target="_blank"><font style="font-weight: bold; color: #ffff00;">개인정보처리방침</font></a></li>
+							<li><a href="#emailCol" class="js-openLay">이메일 무단수집거부</a></li>
+							<li><a href="/cmn/sym/mnu/mpm/601040000/htmlMenuView.do">찾아오시는길</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- //gp -->
+				<!-- gp -->
+				<div class="gp clearfix">
+					<div class="info">
+						<ul class="ul-inblock bar">
+							<li class="lato">17092</li>
+							<li>경기도 용인시 처인구 용인대학로 134 용인대학교</li>
+							<li class="lato">TEL : +82-31-8020-3202, 3203</li>
+							<li class="lato">FAX : +82-31-322-5088</li>
+						</ul>
+						<p class="copy">COPYRIGHT⒞ YONG IN UNIVERSITY, ALL RIGHT RESERVED.</p>
+					</div>
+					<div class="footer-logo">
+						<a href="#"><span class="sr-only">용인대학교</span></a>
+					</div>
+				</div>
+				<!-- //gp -->
+			</div>
+		</div>
+		<!-- //footer -->
+		
+		<div id="overlay"></div>
+		
+		<!-- 개인정보처리방침 -->
+		<div id="persInfo" class="hidden insert full-pop">
+			<div class="title">
+				<h1>개인정보 처리방침 (2018. 04. 25)</h1>
+				<a href="#" class="close-x js-closeLay"><span class="sr-only">창닫기</span></a>
+			</div>
+			<div class="lay-cont">
+				<!-- [S] layer contents -->
+				<div class="lay-inner">
+					<h3>용인대학교가 취급하는 모든 개인정보는 관련법령에 근거하거나<br class="mobile_hidden">
+					정보주체의 동의에 의하여 수집 · 보유 및 처리되고 있습니다.</h3>
+					<br>
+					용인대학교(이하 ‘본교’)가 취급하는 모든 개인정보는 개인정보 보호법 등 관련 법령에 근거하거나 정보주체의 동의에 의하여 수집·보유·처리되고 있습니다. 본교는 개인정보 보호법 제30조에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있으며 개정하는 경우 홈페이지를 통하여 공지할 것입니다.<br>
+					<br>
+					● 제1조(개인정보의 처리목적)<br>
+					본교는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다. <br>
+					1. 서비스 제공<br>
+					본교의 소개 및 공지사항, 교육콘텐츠 제공, 본인인증, 증명서발급(교육 수료증), 입학관련 정보 등의 서비스 제공에 관련한 목적으로 개인정보를 처리합니다.<br>
+					2. 회원가입 및 관리<br>
+					본교에서 제공하는 입시, 학사, 학생, 도서, 교수학습개발, 연구 등의 회원제 서비스 이용에 따른 본인확인, 개인 식별, 불량회원의 부정이용 방지와 비인가 사용방지, 연령확인, 분쟁조정을 위한 기록보존, 불만처리 등 민원처리, 공지사항 전달 등의 목적으로 개인정보를 처리합니다.<br>
+					<br>
+					● 제2조(처리하는 개인정보의 항목, 처리 및 보유기간)<br>
+					① 본교는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집시에 동의받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.<br>
+					② 이용자의 개인정보는 원칙적으로 개인정보의 처리 목적이 달성되면 즉시 파기합니다. 다만, 학칙이나 기타 법률에 의해 이용자의 개인정보를 보존해야할 필요가 있는 경우에는 해당 법률의 규정을 따릅니다.<br>
+					③ 서비스 이용 과정에서 IP 주소, 쿠키, 방문 일시·브라우져 종류 및 OS, 홈페이지 내 이용 기록 등이 생성되어 수집될 수 있습니다.<br>
+					<br>
+					본교에서 각종 서비스 제공을 위해 처리하는 개인정보의 항목, 수집방법, 보유근거, 보유기간은 다음과 같습니다.<br>
+					<br>
+					<div class="scroll-relative">
+						<div class="table-wrap table-scroll">
+							<table>
+								<colgroup>
+									<col style="width: 100px;">
+									<col>
+									<col>
+									<col style="width: 300px;">
+									<col style="width: 90px;">
+								</colgroup>
+								<tbody><tr>
+									<th>보유부서</th>
+									<th>개인정보파일의 명칭</th>
+									<th>운영근거 / 처리목적</th>
+									<th>개인정보파일에 기록되는<br>개인정보의 항목</th>
+									<th>보유기간</th>
+								</tr>
+								<tr>
+									<th>입학관리실</th>
+									<td>
+										<ul class="dot-list">
+											<li><span>학생생활기록부</span></li>
+											<li><span>입시지원자명부</span></li>
+											<li><span>입시지원자</span></li>
+											<li><span>수학능력평가 성적</span></li>
+										</ul>
+									</td>
+									<td>
+										고등교육법 34조 및 동법시행령 제35조, 학칙<br>
+										용인대학교 입시지원자ㆍ학생부ㆍ수능성적 관리
+									</td>
+									<td>
+										<ul class="dot-list">
+											<li><span>성명, 주민번호, 고교코드, 학과코드, 졸업학년, 학적변동일</span></li>
+											<li><span>성명, 주민번호, 주소, 전화번호, 수험번호, 출신고교, 졸업년월, 보호자명, 관계, 보호자 연락처, 보호자 주소, 수험번호</span></li>
+											<li><span>성명, 주민번호, 수험번호, 응시구분/등급, 응시유형</span></li>
+										</ul>
+									</td>
+									<td>4년</td>
+								</tr>
+								<tr>
+									<th>교무처<br>학사관리과</th>
+									<td>학적부</td>
+									<td>학칙 및 학사관리에 관한 규정<br>
+									졸업생 및 재학생의 학사관리</td>
+									<td>성명, 학번, 주민번호, 학과, 학년, 주소, 전화번호, 이메일, 병역사항, 상벌사항, 성적, 취득학점, 휴ㆍ복학사항, 퇴ㆍ제적사항, 출신대학교, 출신학과, 졸업년월일, 출신교고, 졸업년월일, 보호자 성명, 관계, 직업, 전화번호, 주소</td>
+									<td>영구</td>
+								</tr>
+								<tr>
+									<th>학생처<br>장학과</th>
+									<td>장학정보</td>
+									<td>학칙 및 학사관리에 관한 규정<br>
+									졸업생 및 재학생의 장학관리</td>
+									<td>성명, 주민번호, 학번, 소속, 수납금액, 계좌번호, 보호자 성명, 관계, 직업, 주소, 월수입, 재산, 전화번호 지도교수명, 보증인(성명, 관계, 주민번호, 주소, 전화번호)</td>
+									<td>영구</td>
+								</tr>
+								<tr>
+									<th>사무처<br>비상계획과</th>
+									<td>학적보유자 및 졸업생 명부(남학생)</td>
+									<td>병역법 제80조 및 예비군실무편람 제4-3항 가-(3)호<br>
+									대학직장예비군 자원정비를 위한 병무청 제공</td>
+									<td>성명, 주민번호, 학적보유사항, 학적보유 변동일자, 졸업일자</td>
+									<td>영구</td>
+								</tr>
+								<tr>
+									<th>생활관</th>
+									<td>생활관 입주자 정보</td>
+									<td>생활관 규정<br>사생관리</td>
+									<td>학번, 성명, 주민번호, 주소, 부모연락처, 계좌번호, 성적, 포상, 징계, 동/호실, 학적변동사항, 관리비수납정보, 입퇴사정보</td>
+									<td>준영구</td>
+								</tr>
+								<tr>
+									<th>중앙도서관</th>
+									<td>도서관 이용자 정보</td>
+									<td>학칙 및 학사관리에 관한 규정 도서관 도서 분실 방지 및 양질의 서비스 제공</td>
+									<td>성명, 학번, 주민번호, 신부, 학과, 주소, 전화번호, 이메일, 휴ㆍ복학상태, 퇴.제적사항, 대출ㆍ반납ㆍ연체ㆍ예약사항, 연체료 납부여부</td>
+									<td>영구</td>
+								</tr>
+								<tr>
+									<th>취업지원센터</th>
+									<td>취업정보</td>
+									<td>대통령령 20593호 학생진로, 취업통계 관리</td>
+									<td>학번, 성명, 주민번호, 주소, 전화번호, 이메일, 입학년월, 졸업연월 등</td>
+									<td>준영구</td>
+								</tr>
+								<tr>
+									<th>정보관리실</th>
+									<td>홈페이지 / 종합정보서비스 계정정보</td>
+									<td>정보관리실규정<br>
+									교내 각 시스템 이용을 위한 인증</td>
+									<td>성명, 주민번호, 아이디, 비밀번호, 주소, 전화번호, 학번, 교직원번호</td>
+									<td>준영구</td>
+								</tr>
+								<tr>
+									<th>총동문회</th>
+									<td>졸업후 동문회원관리</td>
+									<td>졸업 후 동문회원관리</td>
+									<td>성명, 주민번호, 아이디, 비밀번호, 주소, 전화번호, 학번</td>
+									<td>영구</td>
+								</tr>
+							</tbody></table>
+						</div>
+					</div>
+					<br>
+					※ 개인정보파일의 자세한 등록사항은 행정자치부 개인정보보호 종합지원 포털(www.privacy.go.kr) → 개인정보민원 → 개인정보 열람등 요구 → 개인정보파일 목록검색 → 기관명에 ‘용인대학교’ 입력 후 조회를 통하여 확인하실 수 있습니다.
+					<br>
+					<br>
+					● 제3조(개인정보의 제3자 제공)<br>
+					본교는 정보주체의 개인정보를 제1조(개인정보의 처리 목적)에서 명시한 범위 내에서만 처리하며, 다음의 경우를 제외하고는 정보주체의 사전 동의 없이 본래의 목적 범위를 초과하여 처리하거나 제3자에게 제공하지 않습니다.<br><br>
+					1. 정보주체로부터 사전에 제3자 제공 및 별도의 동의를 받는 경우<br>
+					2. 법률에 특별한 규정이 있는 경우 <br>
+					3. 정보주체 또는 법정대리인이 의사표시를 할 수 없는 상태에 있거나 주소불명 등으로 사전 동의를 받을 수 없는 경우로서 명백히 정보주체 또는 제3자의 급박한 생명, 신체, 재산의 이익을 위하여 필요하다고 인정되는 경우<br>
+					4. 통계작성 및 학술연구 등의 목적을 위하여 필요한 경우로서 특정 개인을 알아 볼 수 없는 형태로 개인정보를 제공하는 경우<br>
+					5. 개인정보를 목적 외의 용도로 이용하거나 이를 제3자에게 제공하지 아니하면 다른 법률에서 정하는 소관 업무를 수행할 수 없는 경우로서 보호위원회의 심의·의결을 거친 경우<br>
+					<br>
+					● 제4조(개인정보처리의 위탁)<br>
+					① 본교는 원활한 개인정보 업무처리를 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.<br><br>
+					<div class="table-wrap">
+						<table>
+							<tbody><tr>
+								<th>위탁대상자</th>
+								<th>위탁업무 내용</th>
+								<th>개인정보의 보유·이용기간</th>
+							</tr>
+							<tr>
+								<th>한국대학교육협의회</th>
+								<td>대입 공통원서의 관리 및 전달 등</td>
+								<td>처리목적 달성 시 또는 위탁계약 종료 시까지</td>
+							</tr>
+							<tr>
+								<th>㈜UWAY</th>
+								<td>인터넷 원서접수 대행</td>
+								<td>처리목적 달성 시 또는 위탁계약 종료 시까지</td>
+							</tr>
+							<tr>
+								<th>Microsoft<br>Corporation</th>
+								<td>이메일 및 정품 오피스365 서비스 제공</td>
+								<td>처리목적 달성 시 또는 위탁계약 종료 시까지</td>
+							</tr>
+							<tr>
+								<th>KEB하나은행</th>
+								<td>학생증(체크카드 겸용) 발급</td>
+								<td>처리목적 달성 시 또는 위탁계약 종료 시까지</td>
+							</tr>
+							<tr>
+								<th>㈜디지털존</th>
+								<td>인터넷 증명서 발급</td>
+								<td>처리목적 달성 시 또는 위탁계약 종료 시까지</td>
+							</tr>
+							<tr>
+								<th>씨아이테크</th>
+								<td>증명서 발급기</td>
+								<td>처리목적 달성 시 또는 위탁계약 종료 시까지</td>
+							</tr>
+							<tr>
+								<th>농협, 국민은행</th>
+								<td>등록금 수납대행</td>
+								<td>처리목적 달성 시 또는 위탁계약 종료 시까지</td>
+							</tr>
+							<tr>
+								<th>삼정라이프에셋<br>매니지먼트</th>
+								<td>학생 대외활동 및 본교 대회 개최 시 보험가입</td>
+								<td>처리목적 달성 시 또는 위탁계약 종료 시까지</td>
+							</tr>
+						</tbody></table>
+					</div>
+					<br>
+					② 본교는 위탁계약 체결시 개인정보 보호법 제25조에 따라 위탁업무 수행목적 외 개인정보 처리금지, 기술적·관리적 보호조치, 재위탁 제한, 수탁자에 대한 관리·감독, 손해배상 등 책임에 관한 사항을 계약서 등 문서에 명시하고, 수탁자가 개인정보를 안전하게 처리하는지 교육·감독하고 있습니다. <br>
+					③ 위탁업무의 내용이나 수탁자가 변경될 경우에는 지체없이 본 개인정보 처리방침을 통하여 공개하도록 하겠습니다.<br>
+					<br>
+					● 제5조(정보주체의 권리 · 의무 및 행사방법)<br>
+					① 정보주체는 본교에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를 행사할 수 있습니다. <br>
+					1. 개인정보 열람요구<br>
+					2. 오류 등이 있을 경우 정정 요구<br>
+					3. 삭제요구<br>
+					4. 처리정지 요구<br>
+					② 제1항에 따른 권리 행사는 개인정보보호법 시행규칙 별지 제8호 서식에 따라 작성 후 서면, 전화, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며 본교는 이에 대해 지체없이 조치하겠습니다.<br>
+					③ 정보주체가 개인정보의 오류 등에 대한 정정 또는 삭제를 요구한 경우에는 정정 또는 삭제를 완료할 때까지 당해 개인정보를 이용하거나 제공하지 않습니다.<br>
+					④ 제1항에 따른 권리 행사는 정보주체의 법정대리인이나 위임을 받은 자 등 대리인을 통하여 하실 수 있습니다. 이 경우 개인정보 보호법 시행규칙 별지 제11호 서식에 따른 위임장을 제출하셔야 합니다.<br>
+					⑤ 정보주체는 개인정보 보호법 등 관계법령을 위반하여 본교가 처리하고 있는 정보주체 본인이나 타인의 개인정보 및 사생활을 침해하여서는 아니됩니다.<br>
+					⑥ 개인정보 열람 및 처리정지 요구는 개인정보보호법 제35조 제5항, 제37조 제2항에 의하여 정보주체의 권리가 제한 될 수 있습니다.<br>
+					⑦ 개인정보의 정정 및 삭제 요구는 다른 법령에서 그 개인정보가 수집 대상으로 명시되어 있는 경우에는 그 삭제를 요구할 수 없습니다.<br>
+					* [개인정보보호법 시행규칙 별지 제8호] 개인정보(열람, 정정·삭제, 처리정지) 요구서<br>
+					* [개인정보보호법 시행규칙 별지 제11호] 위임장 (* <a class="a_link" href="#">요구서 및 위임장 서식 다운로드</a>)<br>
+					⑧ 본교는 정보주체가 열람 등 요구에 대한 거절 등 조치에 대하여 불복이 있는 경우 다음의 절차로 이의를 제기할 수 있습니다.<br>
+					1. 불복사유<br>
+					가. 정보공개 청구에 대한 용인대학교의 열람·정정·삭제·처리정지 거절<br>
+					나. 정보공개 청구에 대한 용인대학교의 일부 열람·정정·삭제·처리정지<br>
+					다. 정보공개 청구일로부터 20일 이내에 용인대학교가 공개 여부를 통지하지 않은 경우
+					2. 처리절차<br>
+					가. 이의신청 : 용인대학교로부터 열람·정정·삭제·처리정지 여부의 결정통지를 받은 날 또는 열람·정정·삭제·처리정지 거절의 결정이 있는 것으로 보는 날부터 "30일"이내 제기<br>
+					나. 행정심판 : 처분이 있음을 안 날부터 "90일" 이내 제기(처분이 있은 날로부터 180일을 경과하면 제기 불가)<br>
+					다. 행정소송 : 처분 등이 있음을 안 날부터 "90일" 이내(처분 등이 있는 날로부터 1년을 경과하면 제기 불가) <br>
+					※ 개인정보보호 관련 권리행사 시 본 방침 제8조(개인정보 보호책임자)에 공개된 개인정보 보호 책임자/담당자 또는 분야별 책임자에게 연락할 수 있습니다.<br>
+					<br>
+					● 제6조(개인정보의 파기)<br>
+					① 본교는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다. 다만, 다른 법령에 따라 보존하여야 하는 경우에는 그러하지 않을 수 있습니다.<br>
+					② 개인정보 파기의 절차 및 방법은 다음과 같습니다.<br>
+					1. 파기절차<br>
+					본교는 파기하여야 하는 개인정보(또는 개인정보파일)에 대해 개인정보 파기계획을 수립하여 파기합니다. 파기 사유가 발생한 개인정보(또는 개인정보파일)을 선정하고, 개인정보 보호책임자의 승인을 받아 개인정보(또는 개인정보파일)을 파기합니다.<br>
+					2. 파기방법 <br>
+					본교는 전자적 파일 형태로 기록·저장된 개인정보는 기록을 재생할 수 없도록 기술적 방법을 이용하여 파기하며, 종이 문서에 기록·저장된 개인정보는 분쇄기로 분쇄하거나 소각하여 파기합니다.<br>
+					<br>
+					● 제7조(개인정보의 안전성 확보조치)<br>
+					본교는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다. <br>
+					1. 개인정보 취급 직원의 최소화 및 교육<br>
+					개인정보를 취급하는 직원을 지정하고 담당자에 한정시켜 최소화 하여 개인정보를 관리하는 대책을 시행하고 있습니다.<br>
+					2. 정기적인 자체 감사 실시<br>
+					개인정보 취급 관련 안정성 확보를 위해 정기적(반기 1회)으로 자체 감사를 실시하고 있습니다.<br>
+					3. 내부관리계획의 수립 및 시행<br>
+					개인정보의 안전한 처리를 위하여 내부관리계획을 수립·시행하고 있습니다.<br>
+					4. 개인정보의 암호화<br>
+					개인정보는 암호화 등을 통해 안전하게 저장 및 관리되고 있습니다. 또한 중요한 데이터는 저장 및 전송 시 암호화하여 사용하는 등의 별도 보안기능을 사용하고 있습니다.<br>
+					5. 보안프로그램 설치 및 주기적 점검·갱신<br>
+					본교는 해킹이나 컴퓨터 바이러스 등에 의한 개인정보 유출 및 훼손을 막기 위하여 보안프로그램을 설치하고 주기적인 갱신·점검을 하며 외부로부터 접근이 통제된 구역에 시스템을 설치하고 기술적/물리적으로 감시 및 차단하고 있습니다.<br>
+					6. 개인정보에 대한 접근 제한<br>
+					개인정보를 처리하는 데이터베이스시스템에 대한 접근권한의 부여,변경,말소를 통하여 개인정보에 대한 접근통제를 위하여 필요한 조치를 하고 있으며 침입차단시스템을 이용하여 외부로부터의 무단 접근을 통제하고 있습니다.<br>
+					7. 비인가자에 대한 출입 통제<br>
+					개인정보를 보관하고 있는 물리적 보관 장소를 별도로 두고 이에 대해 출입통제 절차를 수립, 운영하고 있습니다.<br>
+					<br>
+					● 제8조(개인정보 보호책임자)<br>
+					본교는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.<br>
+					<br>
+					▶ 개인정보 보호 책임자 : 정보관리실 실장 이완주<br>
+					▶ 개인정보 보호 담당자 : 정보관리과 담당 손승희<br>
+					▶ 문의/연락처 : 031-8020-3411, sseung@yongin.ac.kr<br>
+					<br>
+					※ 개인정보보호 분야별 책임자<br>
+					본교는 개인정보의 적법성 및 절차의 적정성을 확보하여 국민의 권익보호 및 공공업무의 적정한 수행을 도모하기 위해 개인정보보호 분야별 책임자를 다음과 같이 지정·운영하고 있습니다.<br>
+					<br>
+					<div class="scroll-relative">
+						<div class="table-wrap table-scroll">
+							<table>
+								<colgroup>
+									<col style="width: 120px;">
+									<col style="width: 250px;">
+									<col>
+									<col>
+									</colgroup><tbody><tr>
+										<th>구분</th>
+										<th>분야</th>
+										<th>책임자</th>
+										<th>연락처</th>
+									</tr>
+									<tr>
+										<th>총괄<br>책임자</th>
+										<td>총괄</td>
+										<td>기획처장</td>
+										<td>031-8020-2507</td>
+									</tr>
+									<tr>
+										<th class="no-bor" rowspan="5">부서별<br>책임자</th>
+										<td>교원인사, 연구업적, 학적, 수업, 입학</td>
+										<td>교무처장</td>
+										<td>031-8020-2509</td>
+									</tr>
+									<tr>
+										<td>직원인사, 시설정보(CCTV), 예비군관리</td>
+										<td>사무처장</td>
+										<td>031-8020-2577</td>
+									</tr>
+									<tr>
+										<td>장학정보, 학생상담</td>
+										<td>학생처장</td>
+										<td>031-8020-2520</td>
+									</tr>
+									<tr>
+										<td>학생진로, 취업통계</td>
+										<td>취업지원센터장</td>
+										<td>031-8020-3020</td>
+									</tr>
+									<tr>
+										<td>전산정보</td>
+										<td>정보관리실장</td>
+										<td>031-8020-3411</td>
+									</tr>
+							</tbody></table>
+						</div>
+					</div>
+					<br>
+					<br>
+					● 제9조(권익침해 구제방법)<br>
+					정보주체는 아래의 기관에 대해 개인정보 침해에 대한 피해구제, 상담 등을 문의하실 수 있습니다. <br>
+					&lt;아래의 기관은 용인대학교와는 별개의 기관으로서, 본교의 자체적인 개인정보 불만처리, 피해구제 결과에 만족하지 못하시거나 보다 자세한 도움이 필요하시면 문의하여 주시기 바랍니다&gt;<br>
+					▶ 개인정보 침해신고센터 (한국인터넷진흥원 운영)<br>
+					- 소관업무 : 개인정보 침해사실 신고, 상담 신청<br>
+					- 홈페이지 : privacy.kisa.or.kr<br>
+					- 전화 : (국번없이) 118 <br>
+					- 주소 : (138-950) 서울시 송파구 중대로 135 한국인터넷진흥원 개인정보침해신고센터<br>
+					▶ 개인정보 분쟁조정위원회 (한국인터넷진흥원 운영)<br>
+					- 소관업무 : 개인정보 분쟁조정신청, 집단분쟁조정 (민사적 해결)<br>
+					- 홈페이지 : privacy.kisa.or.kr<br>
+					- 전화 : (국번없이) 118<br>
+					- 주소 : (138-950) 서울시 송파구 중대로 135 한국인터넷진흥원 개인정보침해신고센터<br>
+					▶ 대검찰청 사이버범죄수사단 : 02-3480-3573 (www.spo.go.kr)<br>
+					▶ 경찰청 사이버테러대응센터 : 1566-0112 (www.netan.go.kr)<br>
+					<br>
+					● 제10조(영상정보처리기기 설치 · 운영)<br>
+					용인대학교는 아래와 같이 영상정보처리기기를 설치·운영하고 있습니다.<br>
+					1. 영상정보처리기기 설치근거·목적 : 본교의 범죄예방 및 시설안전·화재예방<br>
+					2. 설치 대수, 설치 위치, 촬영 범위 : 본교 주요시설물을 촬영범위로 220대 설치<br>
+					3. 관리책임자, 담당부서 및 영상정보에 대한 접근권한자<br>
+					- 총무지원과 김돈 주임 (031-8020-2577)<br>
+					4. 영상정보 촬영시간, 보관기간, 보관장소, 처리방법<br>
+					- 촬영시간 : 24시간 촬영<br>
+					- 보관기간 : 촬영시부터 30일<br>
+					- 보관장소 및 처리방법 : 총무지원과 영상정보처리기기 통제실에 보관·처리<br>
+					5. 영상정보처리기기 설치 및 관리 등의 위탁에 관한 사항<br>
+					- 수탁업체 : ㈜에스원<br>
+					- 담당자 : 김재수<br>
+					- 연락처 : 031-321-3112<br>
+					6. 영상정보 확인 방법 및 장소 : 관리책임자에 요구 (총무지원과)<br>
+					7. 정보주체의 영상정보 열람 등 요구에 대한 조치 : 개인영상정보 열람·존재확인 청구서로 신청하여야 하며, 정보주체 자신이 촬영된 경우 또는 명백히 정보주체의 생명·신체·재산 이익을 위해 필요한 경우에 한해 열람을 허용함 <br>
+					8. 영상정보 보호를 위한 기술적·관리적·물리적 조치 : 내부관리계획 수립, 접근통제 및 접근권한 제한, 영상정보의 안전한 저장·전송기술 적용, 처리기록 보관 및 위·변조 방지조치, 보관시설 마련 및 잠금장치 설치 등<br>
+					<br>
+					● 제11조(개인정보 처리방침 변경)<br>
+					① 이 개인정보 처리방침은 2017. 01. 26.부터 적용됩니다.<br>
+					② 이전의 개인정보 처리방침은 아래에서 확인하실 수 있습니다. 
+					<br>
+					<br>
+					<div class="scroll-relative">
+						<div class="table-wrap">
+							<table>
+								<colgroup>
+									<col style="width:15%"/>
+									<col />
+									<col />
+								</colgroup>
+								<tbody><tr>
+									<th>제•개정번호</th>
+									<th>개정내용</th>
+									<th>시행일자</th>
+								</tr>
+								<tr class="active">
+									<td class="center">1.3</td>
+									<td>개인정보 처리방침 개정</td>
+									<td>2018. 04. 25</td>
+								</tr>
+								<tr>
+									<td class="center">1.2</td>
+									<td>개인정보 처리방침 개정</td>
+									<td>2017. 01. 26</td>
+								</tr>
+								<tr>
+									<td class="center">1.1</td>
+									<td>개인정보 처리방침 개정</td>
+									<td>2015. 10. 31</td>
+								</tr>
+								<tr>
+									<td class="center">1.0</td>
+									<td>개인정보 처리방침 개정</td>
+									<td>2012. 06. 01</td>
+								</tr>
+							</tbody></table>
+						</div>
+					</div>
+				</div>
+				<!-- [E] layer contents -->
+				<div class="btn-wrap">
+					<a href="#" class="btn close js-closeLay"><span>닫기</span></a>
+				</div>
+
+			</div>
+		</div>
+		<!-- //이메일무단수집거부 -->
+		
+		<!-- 이메일무단수집거부 -->
+		<div id="emailCol" class="hidden insert full-pop">
+			<div class="title">
+				<h1>이메일 무단수집거부</h1>
+				<a href="#" class="close-x js-closeLay"><span class="sr-only">창닫기</span></a>
+			</div>
+			<div class="lay-cont">
+				<!-- [S] layer contents -->
+				<div class="lay-inner">
+					<h3 class="sub-tit">용인대학교 홈페이지는 이메일 주소 무단수집을 거부합니다.</h2>
+					<p class="desc">용인대학교 홈페이지에 게시된 이메일 주소가 자동수집 되는 것을 거부하며, 이를 위반 시 정보통신망법에 의해 처벌됨을 유념하시기 바랍니다.<br>
+					용인대학교 홈페이지에 게재된 모든 내용은 저작권법에 의해서 보호됨을 알려드립니다.</p>
+				</div>
+				<!-- [E] layer contents -->
+				<div class="btn-wrap">
+					<a href="#" class="btn close js-closeLay"><span>닫기</span></a>
+				</div>
+
+			</div>
+		</div>
+		<!-- //이메일무단수집거부 -->
+		
+		
+				</div>
+
+ 		<script type="text/javaScript" language="javascript" src="/css/yonginUser/lib/js/default.js"></script>
+		<iframe name="hiddenframe" id="hiddenframe" title="저장하기" height="0" width="0" style="display:none;"></iframe>
+	</body>
+</html>

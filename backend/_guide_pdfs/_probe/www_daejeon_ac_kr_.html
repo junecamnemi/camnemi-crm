@@ -1,0 +1,1203 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>대전신학대학교</title> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<meta content="대전신학대학교, 대신대" name="description" />
+<meta content="대전신학대학교, 대신대" name="keywords" />
+<meta content="대전신학대학교" name="subject" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/dtu_new.css" />
+<!--Modal CSS-->
+<style>
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+		/* display: none;  팝업 스크린 비활성화*/
+    }
+    .modal-container {
+        position: relative;
+        max-width: 90%;
+        max-height: 100vh;
+        /* overflow-y: hidden; */
+        overflow-y: auto;
+        background-color: rgba(20, 20, 20, 0.9);
+        border-radius: 8px;
+        padding: 20px;
+    }
+    .image-grid {
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+        grid-template-columns: repeat(3, minmax(250px, 1fr));
+        gap: 40px;
+        padding: 20px;
+        margin-bottom: 60px; /* 하단 버튼을 위한 여백 */
+    }
+    .image-item {
+            max-width: 400px; /* 1열로 변경 */
+        }
+    /* 반응형 디자인 */
+    @media (max-width: 768px) {
+        .image-grid{
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+    }
+    @media (max-width: 480px) {
+        .image-grid{
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+        .image-item {
+            max-width: 100%; /* 1열로 변경 */
+        }
+    }
+    .image-item {
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .image-item:hover {
+        transform: scale(1.05);
+    }
+    .image-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+    /* 하단 버튼 컨테이너 스타일 */
+    .bottom-controls {
+        /* position: absolute; */
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .bottom-controls button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+    }
+    .hide-today-btn {
+        background-color: #666;
+        color: white;
+    }
+    .hide-today-btn:hover {
+        background-color: #888;
+    }
+    .close-btn {
+        background-color: #444;
+        color: white;
+    }
+    .close-btn:hover {
+        background-color: #666;
+    }
+</style>
+
+<script src="https://www.daejeon.ac.kr/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery-latest.js"></script>
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "https://www.daejeon.ac.kr";
+var g5_bbs_url   = "https://www.daejeon.ac.kr/bbs";
+var g5_is_member = "";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "";
+var g5_sca       = "";
+var g5_editor    = "";
+var g5_cookie_domain = ".daejeon.ac.kr";
+</script>
+</head>
+
+<body id="main">
+ 
+	<!--1. dtuswrap Start -->
+	<div id="dtuswrap" style="background:none !important">
+		
+<!-- 팝업레이어 시작 { -->
+<div id="hd_pop">
+<!--    <h2>팝업레이어 알림</h2>  -->
+
+<span class="sound_only">팝업레이어 알림이 없습니다.</span></div>
+
+<script>
+$(function() {
+    $(".hd_pops_reject").click(function() {
+        var id = $(this).attr('class').split(' ');
+        var ck_name = id[1];
+        var exp_time = parseInt(id[2]);
+        $("#"+id[1]).css("display", "none");
+        set_cookie(ck_name, 1, exp_time, g5_cookie_domain);
+    });
+    $('.hd_pops_close').click(function() {
+        var idb = $(this).attr('class').split(' ');
+        $('#'+idb[1]).css('display','none');
+    });
+    $("#hd").css("z-index", 1000);
+});
+</script>
+<!-- } 팝업레이어 끝 -->   
+	
+		<!--2. toparea Start-->	
+		<div class="toparea" style="background:none !important">
+			<!--3. Include Top.php start -->
+			
+<div class="toparea-wrap">
+
+    <h1 class="logo"><a href="/index.php"><img src="../images/common/logo.png" alt="대전신학대학교 로고" /></a></h1>
+
+    <!-- gnb Start -->
+    <p class="gnb">
+                <a href="/index.php"><img src="../images/common/home.jpg" alt="처음으로 가기" /></a>
+        <a href="/bbs/login.php"><img src="../images/common/login.jpg" alt="로그인" /></a>
+            </p>
+    <!-- gnb End -->
+
+    <ul class="topmenu">
+        <li>
+            <a href="#" class="menu"><img src='../images/common/menu01.png' alt="학교소개" /></a>
+            <div>
+                <a href="/contents/contents_100.php"> 총장인사<span class='blnakIcon3'></span></a>
+                <a href="/contents/contents_110.php"> 대신비전</a>
+                <a href="/contents/contents_120.php"> 법인소개</a>
+                <a href="/bbs/board.php?bo_table=In04_01"> 회의록</a>
+                <a href="/contents/contents_140.php"> 연혁</a>
+                <a href="/contents/contents_150.php"> 학교정보</a>
+                <a href="/contents/contents_160.php"> 정보공개</a>
+                <a href="/contents/contents_170.php"> 이자익사료관</a>
+                <a href="/contents/contents_180.php"> 오시는길</a>
+                <a href="/contents/contents_192.php"> 발전기금 안내</a>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="menu"><img src='../images/common/menu02.png' alt="입학안내" /></a>
+            <div>
+                <a href="/contents/contents_200.php"> 대학</a>
+                <a href="/contents/contents_210.php"> 신학대학원</a>
+                <a href="/contents/contents_220.php"> 일반대학원</a>
+                <a href="/bbs/board.php?bo_table=A01_04"> 학부 입학서식</a> 
+                <a href="/bbs/board.php?bo_table=A01_03"> 대학원 입학서식</a>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="menu"><img src='../images/common/menu03.png' alt="대학/대학원" /></a>
+            <div>
+                <a href="/contents/contents_300.php"> 대학</a>
+                <a href="/contents/contents_310.php"> 신학대학원</a>
+                <a href="/contents/contents_320.php"> 일반대학원</a>
+                <a href="/contents/contents_330.php"> 교수소개</a>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="menu"><img src='../images/common/menu04.png' alt="학사안내" /></a>
+            <div>
+                <a href="/contents/contents_400.php"> 학사일정</a>
+                <a href="/bbs/board.php?bo_table=In06_01&sca=%ED%97%8C%EC%9E%A5%EB%B0%8F%ED%95%99%EC%B9%99">학칙안내</a>
+                <a href="/contents/contents_420.php"> 수강신청안내</a>
+                <a href="/contents/contents_430.php"> 장학안내</a>
+                <a href="/contents/contents_440.php"> 병무안내</a>
+                <a href="/contents/contents_450.php"> 교목안내</a>
+                <a href="/contents/contents_460.php"> 생활관안내</a>
+                <a href="/contents/contents_470.php"> 시설안내</a>
+                <!--				<a href="/bbs/board.php?bo_table=C01_01"> Q&A</a>-->
+            </div>
+        </li>
+        <li>
+            <a href="#" class="menu"><img src='../images/common/menu05.png' alt="학교기관" /></a>
+            <div>
+                <a href="/contents/contents_500.php"> 부속기관</a>
+                <a href="/contents/contents_510.php"> 부설연구기관</a>
+                <a href="/contents/contents_520.php"> 부설교육기관</a>
+                <a href="/contents/contents_530.php"> 행정부서</a>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="menu"><img src='../images/common/menu06.png' alt="커뮤니티" /></a>
+            <div>
+                <a href="/bbs/board.php?bo_table=N01_01"> 대신소식</a>
+                <a href="/bbs/board.php?bo_table=B01_01"> 게시판</a>
+                <a href="/bbs/board.php?bo_table=I01_01">정보센터</a>
+                <a href="/contents/contents_630.php"> 성폭력신고센터</a>
+            </div>
+        </li>
+        <span class="allmenuview"><a href="#"><img src="../images/common/allmenuview.png" alt="전체메뉴 보기" /></a></span>
+    </ul>
+</div>
+<!-- toparea End -->
+
+<div class="allmenubox">
+    <div class="listwrap">
+
+        <dl>
+            <dt>
+                <a href="#">학교소개</a>
+            </dt>
+            <dd>
+                <a href="/contents/contents_100.php"> 총장인사<span class='blnakIcon3'></span></a>
+                <a href="/contents/contents_110.php"> 대신비전</a>
+                <a href="/contents/contents_120.php"> 법인소개</a>
+                <a href="/bbs/board.php?bo_table=In04_01"> 회의록</a>
+                <a href="/contents/contents_140.php"> 연혁</a>
+                <a href="/contents/contents_150.php"> 학교정보</a>
+                <a href="/contents/contents_160.php"> 정보공개</a>
+                <a href="/contents/contents_170.php"> 이자익사료관</a>
+                <a href="/contents/contents_180.php"> 오시는길</a>
+                <a href="/contents/contents_192.php"> 발전기금 안내</a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>
+                <a href="#">입학안내</a>
+            </dt>
+            <dd>
+                <a href="/contents/contents_200.php"> 대학</a>
+                <a href="/contents/contents_210.php"> 신학대학원</a>
+                <a href="/contents/contents_220.php"> 일반대학원</a>
+                <a href="/bbs/board.php?bo_table=A01_03"> 대학원 입학서식</a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>
+                <a href="#">대학/대학원</a>
+            </dt>
+            <dd>
+                <a href="/contents/contents_300.php"> 대학</a>
+                <a href="/contents/contents_310.php"> 신학대학원</a>
+                <a href="/contents/contents_320.php"> 일반대학원</a>
+                <a href="/contents/contents_330.php"> 교수소개</a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>
+                <a href="#">학사안내</a>
+            </dt>
+            <dd>
+                <a href="/contents/contents_400.php"> 학사일정</a>
+                <a href="/bbs/board.php?bo_table=In06_01&sca=%ED%97%8C%EC%9E%A5%EB%B0%8F%ED%95%99%EC%B9%99">학칙안내</a>
+                <a href="/contents/contents_420.php"> 수강신청안내</a>
+                <a href="/contents/contents_430.php"> 장학안내</a>
+                <a href="/contents/contents_440.php"> 병무안내</a>
+                <a href="/contents/contents_450.php"> 교목안내</a>
+                <a href="/contents/contents_460.php"> 생활관안내</a>
+                <a href="/contents/contents_470.php"> 시설안내</a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>
+                <a href="#">학교기관</a>
+            </dt>
+            <dd>
+                <a href="/contents/contents_500.php"> 부속기관</a>
+                <a href="/contents/contents_510.php"> 부설연구기관</a>
+                <a href="/contents/contents_520.php"> 부설교육기관</a>
+                <a href="/contents/contents_530.php"> 행정부서</a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>
+                <a href="#">커뮤니티</a>
+            </dt>
+            <dd>
+                <a href="/bbs/board.php?bo_table=N01_01"> 대신소식</a>
+                <a href="/bbs/board.php?bo_table=B01_01"> 게시판</a>
+                <a href="/bbs/board.php?bo_table=I01_01"> 정보센터</a>
+                <a href="/contents/contents_630.php"> 성폭력신고센터</a>
+            </dd>
+        </dl>
+    </div>
+    <!-- listwrap End       -->
+
+    <div>
+        <span class="close"><a href="#"><img src="../images/common/btn_close.gif" alt="전체메뉴 닫기" /></a></span>
+    </div>
+
+</div>
+<!-- allmenubox End -->			<!--3. Include Top.php end-->
+
+			<!--3. Main visual Start -->    
+			<!--Carousel :slide-->
+
+		<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+		    <div class="carousel-indicators">
+		      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+		      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+		      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+		      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+		      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+		    </div>
+
+		    <div class="carousel-inner">
+		        <div class="carousel-item active" data-bs-interval="10000">
+		            <img src="images/main/main_img131.png" class="d-block w-100" alt="slide 1">
+		        </div>
+		        <div class="carousel-item" data-bs-interval="10000">
+		            <img src="images/main/main_img132.png" class="d-block w-100" alt="slide 2">
+		        </div>
+				<div class="carousel-item" data-bs-interval="10000">
+		            <img src="images/main/main_img133.png" class="d-block w-100" alt="slide 3">
+		        </div>
+		        <div class="carousel-item" data-bs-interval="10000">
+		            <img src="images/main/main_img134.png" class="d-block w-100" alt="slide 4">
+		        </div>
+		        <div class="carousel-item" data-bs-interval="10000">
+		            <img src="images/main/main_img135.png" class="d-block w-100" alt="slide 5">
+		        </div>
+		    </div>
+
+		    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+		      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		      <span class="visually-hidden">Previous</span>
+		    </button>
+		    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+		      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		      <span class="visually-hidden">Next</span>
+		    </button>
+		  </div>
+		</div>
+  <!--Carousel End-->
+			<!--3. Main Visual End -->
+		</div>   
+		<!--2. TopArea End-->
+		<!--3. Main visual Start -->        
+	
+	</div>
+	<!--1. dtuswrap end -->
+
+	<hr />
+
+	<!--1. midarea start-->
+	<div class="midarea"> 
+  
+		<!--2. maincontents start-->
+  		<div class="maincontents" id="main-contentsarea">
+			
+			<!--3. newsbox start -->
+			<div class="newsbox">
+		 		<!-- <h3></h3> -->
+			  	<div id="contantsWarp1_o">
+<div class="listwrap">
+	<h3><a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_06"><img src="/images/main/tit_notice.jpg" alt="공지사항" /></a></h3>
+		<dl>
+		<dt>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_06&amp;wr_id=2086">2026년 9월 각 군 현역병 모집계획 …</a>		</dt>
+		<dd>
+				</dd>
+	</dl>
+	<dl class='line'>
+		<dt>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_06&amp;wr_id=2085">2026-2학기 비전임교원(겸임/객원교원…</a>		</dt>
+		<dd>
+		2026-2학기 비전임교원 〔겸임/객원교원〕 초빙 공고
+
+&nbsp;
+
+1…		</dd>
+	</dl>
+</div>	
+</div>
+  			  	<div id="contantsWarp3_o">
+<div class="dtugallery">
+  <h3><a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=B01_06"><img src="/images/main/tit_event.jpg" alt="학교행사" /></a></h3>
+
+	<ul>
+	<li><a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=B01_06&amp;wr_id=384"><img src="https://www.daejeon.ac.kr/data/file/B01_06/thumb-3695417108_tidWngfN_ED998DEBB3B4EC9881EC8381_EC9DB4EBAFB8ECA780_100x57.png" alt="" width="100" height="57"></a></li>
+		<li><a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=B01_06&amp;wr_id=385"><img src="https://www.daejeon.ac.kr/data/editor/2609/thumb-3695417115_1788249639.3454_100x57.jpg" alt="1" width="100" height="57"></a></li>
+		<li><a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=B01_06&amp;wr_id=382"><img src="https://www.daejeon.ac.kr/data/editor/2603/thumb-3695417111_1774259705.4857_100x57.jpg" alt="1" width="100" height="57"></a></li>
+		<li><a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=B01_06&amp;wr_id=381"><img src="https://www.daejeon.ac.kr/data/editor/2603/thumb-3695417111_1774259191.2116_100x57.jpg" alt="1" width="100" height="57"></a></li>
+		</ul>
+</div></div>
+			</div>
+			<!--3. newsbox End -->
+
+			<!--3. DTU news Start-->
+			
+<div class="dtunews">
+  <h3><a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_07"><img src="/images/main/mtit_dtunews.jpg" alt="DTU 대전신학대학 NEWS" /></a></h3>
+
+
+  <dl class="tnews">
+		<dt>
+			<strong>
+				<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_07&amp;wr_id=345">금산제일교회(양승백목사) 발전기금 전달식</a>			</strong>
+		</dt>
+		<dd class="news_img">
+			<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_07&amp;wr_id=345"><img src="https://www.daejeon.ac.kr/data/editor/2608/thumb-3695417115_1785978666.0805_96x64.jpg" alt="1" width="96" height="64"></a>		</dd>
+		<dd class="news_txt">
+			<span class="date">2026.08.06</span>	
+		</dd>
+		
+		<!-- <dd class="news_txt"></dd> -->
+
+	</dl>
+	<div style='padding:5px 0 0 0'>
+	<ul>
+				<li style="height:18px;">
+			<!-- <span class="subject" style="float:left; display:block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;";> -->
+			<span class="subject" style="float:left; display:block; overflow: hidden; white-space: nowrap; ";>
+
+			<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_07&amp;wr_id=344">대전노회 여전도회 연합회에서  신학생들에…</a></span>
+			<span class="date">2026.06.08</span>
+		</li>
+				<li style="height:18px;">
+			<!-- <span class="subject" style="float:left; display:block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;";> -->
+			<span class="subject" style="float:left; display:block; overflow: hidden; white-space: nowrap; ";>
+
+			<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_07&amp;wr_id=343">충청노회(노회장 신조우목사) 임원 방문예…</a></span>
+			<span class="date">2026.05.27</span>
+		</li>
+				<li style="height:18px;">
+			<!-- <span class="subject" style="float:left; display:block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;";> -->
+			<span class="subject" style="float:left; display:block; overflow: hidden; white-space: nowrap; ";>
+
+			<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_07&amp;wr_id=342">대전노회남선교회연합회 임원방문 및 발전기…</a></span>
+			<span class="date">2026.05.26</span>
+		</li>
+			</ul>
+</div>
+</div>			<!--3. DTU news End-->
+
+			<div class="latestboard">
+			<!-- <h3 class="hide2">게시판 최신글</h3> -->
+			  	<h3 class="latesttitle"><a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_01" style="color:#1b5fb2;">대신소식</a></h3>
+				<div class="entrancelist">
+					<h4><a href='#' ondblclick="location.href='https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_02'">대학원</a></h4>
+					
+<!-- 대학원 최신글 시작 { -->
+<ul>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_02&amp;wr_id=635">2026학년도 하계 성경종합고사 합격자 안내(신대…</a>		 <span class="date">2026-08-24</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_02&amp;wr_id=634">2026학년도 하계 성경종합고사 고사실 안내(신대…</a>		 <span class="date">2026-08-20</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_02&amp;wr_id=633">2026-2학기 수강신청 안내(일반대학원-석,박사…</a>		 <span class="date">2026-08-18</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_02&amp;wr_id=632">2026-2학기 수강신청 안내(신대원-SQ)</a>		 <span class="date">2026-08-18</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_02&amp;wr_id=631">2026-2학기 수강신청 안내(신대원-주말반)</a>		 <span class="date">2026-08-18</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_02&amp;wr_id=630">2026-2학기 수강신청 안내(신대원-주중반)</a>		 <span class="date">2026-08-18</span>
+	</li>
+</ul>	
+			   	</div>
+			  	
+				<div class="noticelist on"> <!-- on 클래스가 붙을때 해당 게시판 컨텐츠 보여짐 -->
+					<h4><a href='#' ondblclick="location.href='https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_01'">학부</a></h4>
+					
+<!-- 학부 최신글 시작 { -->
+<ul>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_01&amp;wr_id=521">2026-2학기 수강신청 변경기간 안내</a>		 <span class="date">2026-08-31</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_01&amp;wr_id=520">2026학년도 하계 성경종합고사 합격자 안내(학부…</a>		 <span class="date">2026-08-24</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_01&amp;wr_id=519">2026학년도 하계 성경종합고사 고사실 안내(학부…</a>		 <span class="date">2026-08-20</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_01&amp;wr_id=518">2026-2학기 수강신청 안내(학부)</a>		 <span class="date">2026-08-18</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_01&amp;wr_id=517">성경종합고사(구약)출제범위 전체 최종자료 안내</a>		 <span class="date">2026-07-23</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_01&amp;wr_id=516">2026-2학기 복학 및 재입학 신청 안내</a>		 <span class="date">2026-07-21</span>
+	</li>
+</ul>		
+			  	</div>	
+				
+				<div class="janghaklist">
+					<h4><a href='#' ondblclick="location.href='https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_03'">실천</a></h4>
+					
+<!-- 학생실천 최신글 시작 { -->
+<ul>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_03&amp;wr_id=408">2026학년도 가을신앙사경회</a>		 <span class="date">2026-09-01</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_03&amp;wr_id=407">2026-1학기 교회봉사활동보고서 제출 안내</a>		 <span class="date">2026-04-28</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_03&amp;wr_id=406">2026 상봉제 안내</a>		 <span class="date">2026-04-20</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_03&amp;wr_id=404">연극 &lt;스크루테이프 &gt; 대전 공연 안내</a>		 <span class="date">2026-03-10</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_03&amp;wr_id=403">대학내 성범죄 예방</a>		 <span class="date">2026-03-10</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_03&amp;wr_id=402">2026년 학생단체(동아리) 등록 신청 안내</a>		 <span class="date">2026-03-05</span>
+	</li>
+</ul>	
+			   	</div>
+				
+				<div class="scholarship">
+					<h4><a href='#' ondblclick="location.href='https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_04'">장학</a></h4>
+					
+<!-- 장학 최신글 시작 { -->
+<ul>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_04&amp;wr_id=508">2026년 하반기 인재육성 장학생 선발 안내</a>		 <span class="date">2026-09-02</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_04&amp;wr_id=507">국가장학금 학자금 지원 구간 개편 안내</a>		 <span class="date">2026-08-27</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_04&amp;wr_id=506">2026-2학기 보훈(가족) 장학 신청 안내</a>		 <span class="date">2026-08-26</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_04&amp;wr_id=505">2026-2학기 국가근로 선발안내</a>		 <span class="date">2026-07-24</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_04&amp;wr_id=504">2026 한경직 해외유학 장학생 선발 공고</a>		 <span class="date">2026-06-10</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_04&amp;wr_id=503">2026-2학기 국가장학금 신청 안내</a>		 <span class="date">2026-05-18</span>
+	</li>
+</ul>	
+				</div>
+				
+				<div class="registlist">
+					<h4><a href='#' ondblclick="location.href='https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_05'">등록</a></h4>
+					
+<!-- 등록 최신글 시작 { -->
+<ul>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_05&amp;wr_id=70">2026-2학기 재학생(학부 / 대학원 통합) 등…</a>		 <span class="date">2026-08-18</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_05&amp;wr_id=69">2026-1학기 분납자 등록 마감일 안내</a>		 <span class="date">2026-05-06</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_05&amp;wr_id=68">2026-1학기 재학생(학부 / 대학원 통합) 추…</a>		 <span class="date">2026-03-13</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_05&amp;wr_id=67">2026-1학기 재학생(학부 / 대학원) 등록 안…</a>		 <span class="date">2026-02-09</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_05&amp;wr_id=66">2025-2학기 학부/대학원 분납자 납부 마감일 …</a>		 <span class="date">2025-11-10</span>
+	</li>
+	<li>
+		<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_05&amp;wr_id=65">2025-2학기 학부/대학원 재학생 추가등록 기간…</a>		 <span class="date">2025-09-01</span>
+	</li>
+</ul>	
+				</div>
+			</div>
+
+			<div class="banner">
+     	 		<!-- <h3><img src="images/main/mtit_banner.jpg" alt="배너존" /></h3> -->
+	  			<ul class="circletab">
+<li class='sub1 on'>
+<strong><a href="#" class="tab" target="_blank"></a></strong>
+<p class="imgarea"><a href="http://haksa.daejeon.ac.kr" target="_blank"><img src="https://www.daejeon.ac.kr/data/banner/4" alt="" width="288" height="140" class=""></a>
+</p>
+</li>
+</ul>
+<script type="text/javascript">
+var popListCount = "2";
+</script>				    <div class=banner_2nd>
+                    <a href="https://daejeon.ac.kr/contents/contents_190.php">
+                        <img src="../images/main/banner-2nd.png" alt="대전신학대학교 후원운동">
+                    </a>
+                </div>
+			</div>
+
+			
+			<div class="bannerbox1">
+	  			<p>
+	  				<a href="/contents/contents_170.php"><img src="https://www.daejeon.ac.kr/data/banner/1" alt="이자익목사" width="288" height="82" class=""></a>
+	  			</p>
+			</div>
+
+			<div class="quickguide">
+	  			<h3><img src="images/main/mtit_quick.jpg" alt="QUICK GUIDE" /></h3>
+	
+	  			<div class="actionarea" id="obj">
+					<span>
+						<p>
+							<a href="/contents/contents_100.php" title="열린총장실"><img src="images/main/quick01_up.jpg" alt="열린총장실" /></a> 
+							<a href="http://haksa.daejeon.ac.kr/index.jsp" title="새창" target="_blank"><img src="images/main/quick02_up.jpg" alt="학사정보시스템" /></a> 
+							<a href="https://lib.daejeon.ac.kr/" title="새창" target="_blank"><img src="images/main/quick03_up.jpg" alt="학술정보관" /></a>
+							<a href="/contents/contents_180.php"><img src="images/main/quick05_up.jpg" alt="찾아오시는 길" /></a>
+						</p>
+					</span>
+					<span style="display:none;">
+					</span>
+	  			</div>
+			</div>
+			
+		</div>
+  <!-- //maincontents End-->
+  		<hr />
+	</div>
+<!-- //midarea End-->
+
+	<hr />
+	
+<!-- bottomarea -->
+	<div class="bottomarea">
+		
+<ul class="bmenu">
+	<li><a href="/contents/contents_621.php"><strong class="color05">개인정보처리방침</strong></a> ㅣ</li>
+	<li><a href="http://www.academyinfo.go.kr/pubinfo/pubinfo1600/doInit.do?schlId=0000238" title="새창" target="_blank">대학정보공시</a>ㅣ</li>
+	<li><a href="http://www.kosaf.go.kr" title="새창" target="_blank">한국장학재단</a>ㅣ</li>
+	<!-- <li><a href="/down/2015_daejeon.zip" title="새창" target="_blank">대학자체평가</a>ㅣ</li> -->
+	<li><a href="/bbs/board.php?bo_table=In03_01&sca=%EC%98%88%EC%82%B0%EA%B3%B5%EA%B3%A0">예결산공고</a>ㅣ</li>
+	<li><a href="/bbs/board.php?bo_table=In04_01">이사회회의록</a>ㅣ</li>
+	<li><a href="/contents/contents_180.php">찾아오시는길</a></li>
+</ul>
+
+
+<span class="quick">
+
+<form name="form" id="form">
+  	<select name="jumpMenu" id="jumpMenu" onchange="openLink()">
+		<option value="#">관련기관 사이트</option>
+		<option value="https://new.pck.or.kr">대한예수교장로회총회</option>
+		<option value="http://djpck.org/" >대전노회</option>
+		<option value="http://www.dspck.or.kr/" >대전서노회</option> 
+		<option value="http://www.cnpck.org/" >충남노회</option>
+		<option value="http://www.chchp.or.kr/" >충청노회</option>
+		<option value="https://www.pckcb.org/" >충북노회</option>
+		<option value="http://cjpck.org/" >충주노회</option>
+		<option value="http://www.pckca.net/" >천안아산노회</option>
+		<option value="http://www.kwnh.net/" >강원노회</option>
+		<option value="https://www.gangwondong.kr/">강원동노회</option>
+		<option value="https://www.pckworld.com" >한국기독공보</option>
+ 	 </select>
+</form>
+</span>
+
+
+
+ <address>
+ [34432] 대전광역시 대덕구 한남로 41(오정동 226-22), <strong class="color03">대표전화번호</strong> <u>042-606-0114</u>, <strong class="color05">팩스</strong> <u>042-621-0820  </u>
+  </address>
+  <p class="copyright">COPYRIGHT ⓒ 2014 by  DAEJEON THEOLOGICAL UNIVERSITY all rights reserved.</p>
+</div>
+<script type="text/javascript">
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+</script>
+<script type="text/javascript">
+
+$(".topmenu li a.menu").toggle(function() {
+	$(".topmenu li").removeClass("on");
+	$(this).parent().addClass("on");
+},function(){
+	$(this).parent().removeClass("on");
+});
+$(".topmenu li a.menu").focus(function() {
+	$(".topmenu li").removeClass("on");
+	$(this).parent().addClass("on");
+});
+var layerstatus = 0;
+$(".pagenavi li a.depth").click(function() {
+	if (layerstatus == 0){
+		$(".pagenavi li").removeClass("on");
+		$(this).parent().addClass("on");
+		layerstatus == 1;
+	} else {
+		$(this).parent().removeClass("on");
+	}
+});
+
+$(".allmenuview a").click(function() {
+	$(".allmenubox").slideDown();
+});
+$(".allmenuview a").focus(function() {
+	$(".allmenubox").slideDown();
+});
+$(".allmenubox .close a").click(function() {
+	$(".allmenubox").slideUp();
+	$(".contentsarea").focus();
+});
+$(".allmenubox .close a").focus(function() {
+	$(".allmenubox").slideUp();
+	$(".contentsarea").focus();
+});
+$(".ctgtype button.btn_close").click(function() {
+	$(this).parent().fadeOut(300);
+	$(this).parent().parent().removeClass("on");
+});
+$(".history-contents h4 a").click(function() {
+	$(".history-contents > div").removeClass("on");
+	$(this).parent().parent().addClass("on");
+	return false;
+});
+$(".history-contents h4 a").focus(function() {
+	$(".history-contents > div").removeClass("on");
+	$(this).parent().parent().addClass("on");
+	return false;
+});
+
+</script>
+
+<script>
+      function openLink() {
+        var selectBox = document.getElementById("jumpMenu");
+        var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+        if (selectedValue !== "") {
+          window.open(selectedValue, '_blank');
+           selectBox.selectedIndex = 0; // 다시 기본값으로 선택
+        }
+      }
+    </script><!-- //bottomarea End-->
+</div>
+
+	<!-- -->
+<!-- 모달 -->
+<div class="modal-overlay" id="modalOverlay">
+        <div class="modal-container">
+			<div class="image-grid">
+				
+				<a href="https://ipsi.daejeon.ac.kr" class="image-item" target="_blank">
+					<img src="images\modal\dtu_early.png" alt="Banner 1">
+				</a>
+				<a href="https://www.daejeon.ac.kr/bbs/board.php?bo_table=N01_03&wr_id=408" class="image-item" target="_blank">
+					<img src="images\modal\2026-Fall-Bible.png" alt="Banner 2">
+				</a>
+				<!-- <a href="https://mwpt.mma.go.kr/caisBMHS/" class="image-item" target="_blank">
+					<img src="images\modal\military.png" alt="Banner 5">
+				</a> -->
+        	</div>
+            <!-- 하단 컨트롤 버튼 -->
+            <div class="bottom-controls">
+                <!-- <button class="hide-today-btn" onclick="hideModalForToday()">오늘 하루 동안 보지 않기</button> -->
+                <button class="close-btn" onclick="closeModal()">닫기</button>
+            </div>
+        </div>
+</div>
+	<script>
+        // 쿠키 설정 함수
+        function setCookie(name, value, hours) {
+            const date = new Date();
+            date.setTime(date.getTime() + (hours * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        // 쿠키 가져오기 함수
+        function getCookie(name) {
+            const cookieName = name + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const cookieArray = decodedCookie.split(';');
+            
+            for(let i = 0; i < cookieArray.length; i++) {
+                let cookie = cookieArray[i];
+                while (cookie.charAt(0) === ' ') {
+                    cookie = cookie.substring(1);
+                }
+                if (cookie.indexOf(cookieName) === 0) {
+                    return cookie.substring(cookieName.length, cookie.length);
+                }
+            }
+            return "";
+        }
+
+        // 오늘 하루 동안 모달 숨기기
+        function hideModalForToday() {
+            setCookie('modalHidden', 'true', 24); // 24시간 동안 유효
+            closeModal();
+        }
+
+        // 모달 닫기 함수
+        function closeModal() {
+            const modal = document.getElementById('modalOverlay');
+            modal.style.display = 'none';
+        }
+
+        // 페이지 로드 시 쿠키 확인
+        window.onload = function() {
+            const modalHidden = getCookie('modalHidden');
+            if (modalHidden === 'true') {
+                document.getElementById('modalOverlay').style.display = 'none';
+            }
+        }
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // 모달 외부 클릭 시 닫기
+        document.getElementById('modalOverlay').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+
+<!-- Slide Script-->
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<!-- Banner script start-->
+<script type="text/javascript">
+var nowList = 1;
+var rotfun;
+var nowList;
+var pbuttonsrc = "/rfcimages/chumdannet/main/popup_btn_s1_";
+var isRot = false;
+function rotatePopup()
+{
+	if (nowList == popListCount)
+	{
+		nowList = 1;
+	}
+	$(".circletab p").each(function(index) {
+		var row = index + 1;
+		if (row == nowList)
+		{
+			$(this).css("display", "inline");
+			$(".sub" +row).addClass("on");
+			//$("#pbutton" + index).attr("src", pbuttonsrc + "o.gif");
+		}
+		else
+		{
+			$(this).css("display", "none");
+			$(".sub" +row).removeClass("on");
+			//$("#pbutton" + index).attr("src", pbuttonsrc + "n.gif");
+		}
+	});
+	nowList ++;
+}
+function startRotPopup()
+{
+	if (popListCount > 1 && !isRot)
+	{
+		rotfun = setInterval(rotatePopup, 2000);
+		isRot = true;
+	}
+}
+function stopRotPopup()
+{
+	if (popListCount > 1 && isRot)
+	{
+		clearInterval(rotfun);
+		isRot = false;
+	}
+}
+$(document).ready(function() {
+   startRotPopup();
+});
+
+function open_popup(popup_link,popup_name,width,height,top,left,scroll) {
+	newWin(popup_link,popup_name,width,height,left,top,scroll);
+}
+
+
+</script>
+
+<!-- Banner script end-->
+<script type="text/javascript">
+$('.quickguide p img').mouseover(function(){ this.src = this.src.replace('_off','_on') });
+$('.quickguide p img').mouseout(function(){	this.src = this.src.replace('_on','_off') });
+$('.rightarea .quickwrap img').mouseover(function(){ this.src = this.src.replace('_off','_on') });
+$('.rightarea .quickwrap img').mouseout(function(){	this.src = this.src.replace('_on','_off') });
+$(".latestboard h4 a").click(function() {
+	$(".latestboard > div").removeClass("on");
+	$(this).parent().parent().addClass("on");
+	return false;
+});
+$(".latestboard h4 a").focus(function() {
+	$(".latestboard > div").removeClass("on");
+	$(this).parent().parent().addClass("on");
+	return false;
+});
+$(".topmenu li a.menu").toggle(function() {
+	$(".topmenu li").removeClass("on");
+	$(this).parent().addClass("on");
+},function(){
+	$(this).parent().removeClass("on");
+});
+$(".topmenu li a.menu").focus(function() {
+	$(".topmenu li").removeClass("on");
+	$(this).parent().addClass("on");
+});
+
+
+// 팝업존 미니링크
+
+//클릭시
+$(".popzone .circletab a.tab").click(function() {
+	$(".popzone .circletab li").removeClass("on");
+	$(this).parent().parent().addClass("on");
+	$(".popzone .circletab a.tab").parent().parent().children("p").attr("style", "display:none");
+	$(this).parent().parent().children("p").attr("style", "display:inline");
+	return false;
+});
+//포커스온
+$(".popzone .circletab a.tab").focus(function() {
+	$(this).parent().parent().addClass("on");
+	return false;
+});
+//포커스아웃
+$(".popzone .circletab a.tab").focusout(function() {
+	$(".popzone .circletab li").removeClass("on");
+	return false;
+});
+
+
+$("#tab01").click(function() {
+		$(".sideon_1").fadeIn(200);
+		$(".sideon_2").fadeOut(200);
+		$(".sideon_3").fadeOut(200);
+		return false;
+});
+$("#tab02").click(function() {
+		$(".sideon_1").fadeOut(200);
+		$(".sideon_2").fadeIn(200);
+		$(".sideon_3").fadeOut(200);
+		return false;
+});
+$("#tab03").click(function() {
+		$(".sideon_1").fadeOut(200);
+		$(".sideon_2").fadeOut(200);
+		$(".sideon_3").fadeIn(200);
+		return false;
+});
+$(".ctgtype ul a.tab").focus(function() {
+	$(".ctgtype ul li").removeClass("on");
+	$(this).parent().addClass("on");
+	return false;
+});
+$(".allmenuview a").click(function() {
+	$(".allmenubox").slideDown();
+});
+$(".allmenuview a").focus(function() {
+	$(".allmenubox").slideDown();
+});
+$(".allmenubox .close a").click(function() {
+	$(".allmenubox").slideUp();
+	$(".maincontents").focus();
+});
+$(".allmenubox .close a").focus(function() {
+	$(".allmenubox").slideUp();
+	$(".maincontents").focus();
+});
+$(".ctgtype button.btn_close").click(function() {
+	$(this).parent().fadeOut(300);
+	$(this).parent().parent().removeClass("on");
+});
+
+ function toggleWarp( idx, onoff ) {
+	 if( onoff ) {
+		 jQuery("#contantsWarp" + idx).hide();
+		 jQuery("#contantsWarp" + idx + "_o").show();
+	 }
+	 else {
+		 jQuery("#contantsWarp" + idx).show();
+		 jQuery("#contantsWarp" + idx + "_o").hide();
+	 }
+ }
+ 
+jQuery(document).ready(function (){
+		toggleWarp('1', true );
+});
+
+
+
+
+
+//퀵 가이드 좌우이동 스크립트
+$(document).ready(function() {
+	$("span").click(function() {
+	   var objID = $(this).attr("id");
+		
+		if( objID == 'prev') {
+			MoveDiv('prev');   
+		}
+		else if( objID == 'next') {
+			MoveDiv('next');
+		}
+	});
+});
+
+
+var nShow = 0;
+var MoveDiv = function(str) {
+	var divCnt = 0;
+
+	$("#obj span").each(function(index) {
+		if ($(this).is("visible")) {
+			nShow = index;
+		}
+		divCnt++;
+	});
+
+	if (str == 'prev') {
+		if (nShow - 1 < 0) {
+			nShow = divCnt - 1;
+		}
+		else {
+			nShow = nShow - 1;
+		}
+	}
+	else {
+		if (nShow + 1 > 1) {
+			nShow = 0;
+		}
+		else {
+			nShow = nShow + 1;
+		}
+
+	}
+
+	$("#obj span").hide();
+	$("#obj span").eq(nShow).show();
+};
+
+//퀵 가이드 좌우이동 스크립트
+
+function opneCenterPopup() {
+ 
+ var popWidth = 430; //팝업 넓이
+ var popHeight = 192; //팝업 높이
+ 
+ var winHeight = document.body.clientHeight; //현재창의 높이 
+ var winWidth = document.body.clientWidth; //현재창의 너비 
+ var winX = window.screenLeft; //현재창의 x좌표 
+ var winY = window.screenTop; //현재창의 y좌표 
+
+ var x = winX + (winWidth - popWidth)/2; 
+ var y = winY + (winHeight - popHeight)/2;
+ 
+ popup("/research/sb.php", "sb", x, y, popWidth, popHeight, 0, 0, 0, 0, 0);
+}
+
+
+function goLink() {
+	var frm = document.link_form;
+	
+	if(frm.link.value != "") {
+		window.open(frm.link.value);
+	}
+	
+
+	if(frm.link2.value != "") {
+		window.open(frm.link2.value);
+	}
+	
+
+	if(frm.link3.value != "") {
+		window.open(frm.link3.value);
+	}
+	
+	if(frm.link.value == "" && frm.link2.value == "" && frm.link3.value == "") {
+		alert("준비중입니다.");
+	}
+
+
+}
+// 새창으로 열기 
+
+function check_go_site(frm) {
+	if(checkNull(frm.post_url.value)) {
+		alert("이동할 사이트를 선택하세요.");
+		return false;
+	}
+	frm.target = "_blank";
+	return true;
+}
+</script>
+
+/*
+<script type="text/javascript">//<![CDATA[
+(function(){
+ var cancel=function(e){
+  if (window.event) {
+   window.event.cancelBubble = true;
+   window.event.returnValue = false;
+  }
+  if (e && e.stopPropagation && e.preventDefault) {
+   e.stopPropagation();
+   e.preventDefault();
+  }
+  return false;
+ };
+ var block=function(e){
+  e = e || window.event;
+  var t=e.srcElement || e.target;
+  var tag=t.tagName;
+  if (e && tag==='HTML' || tag==='INPUT' || tag==='TEXTAREA' || tag==='BUTTON' || tag==='SELECT' || tag==='OPTION' || tag==='EMBED' || tag==='OBJECT') { return; }
+  if (e.type==='keydown' || e.type=='keyup') {
+   // keyboard event : only block ctrl-A, ctrl-a, ctrl-C, ctrl-c, meta-A, meta-a, meta-C, meta-c
+   if ((e.ctrlKey || e.metaKey) && (e.keyCode == 65 || e.keyCode == 97 || e.keyCode == 67 || e.keyCode == 99)) { return cancel(e); }
+  } else if(e.type == "contextmenu"){
+   alert('무단복사를 막기 위해 마우스 드래그 금지가 설정되어 있습니다');
+   return cancel(e);
+  } else {
+   return cancel(e);
+  }
+ }
+ var addEvent = function(el, type, fn){
+     if (window.addEventListener) {
+         el.addEventListener(type, fn, false);
+     }
+     else if (window.attachEvent) {
+         el.attachEvent('on' + type, fn);
+     }
+     else {
+         el['on' + type] = fn;
+     }
+ }
+ var addBlockEvent = function(){
+  addEvent(document.body,'keydown',block);
+  addEvent(document.body,'keyup',block);
+  addEvent(document.body,'mouseup',block);
+  addEvent(document.body,'mousedown',block);
+  addEvent(document.body,'dragstart',block);
+  addEvent(document.body,'selectstart',block);
+  addEvent(document.body,'copy',block);
+  addEvent(document.body,'contextmenu', block);
+ }
+ addEvent(window,'load',addBlockEvent);
+})();
+//]]>
+</script>
+*/
+
+
+
+
+</body>
+</html>
+
+

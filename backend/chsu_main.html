@@ -1,0 +1,226 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/resources/admin/js/itsScript/css/datatables.css">
+<link rel="stylesheet" href="/resources/admin/js/itsScript/css/itsdatatable.css">
+<link rel="stylesheet" href="/resources/admin/js/itsScript/css/itsframework.css">
+
+<script src='/resources/admin/js/jquery/jquery-3.7.1.js'></script>
+<script src='/resources/admin/js/jquery/jquery-migrate-3.4.1.js'></script>
+<script src='/resources/admin/js/jquery/jquery.mousewheel-3.1.13.js'></script>
+
+<link rel="stylesheet" href='/resources/admin/js/jquery/jquery-ui.css'>
+<script src='/resources/admin/js/jquery/jquery-ui-1.13.2.js'></script>
+
+<link rel="stylesheet" href="/resources/admin/js/jquery/easyui/easyui.css">
+<script src='/resources/admin/js/jquery/easyui/jquery.easyui.min.js'></script>
+
+
+<link rel="stylesheet" href="/resources/admin/js/jquery/multiple-select/multiple-select.css">
+<script src='/resources/admin/js/jquery/multiple-select/multiple-select.js'></script>
+
+<script src='/resources/admin/js/jquery/jquery.inputmask.bundle.js'></script>
+
+
+<link rel="stylesheet" href="/resources/admin/js/jquery/modal/jquery.modal.css">
+<script src="/resources/admin/js/jquery/modal/jquery.modal.js"></script>
+<script src="/resources/admin/js/jquery/modal/alertBox.js"></script>
+
+
+
+<script src="/resources/admin/js/cryptJS/aes.js"></script>
+<script src="/resources/admin/js/cryptJS/sha256.js"></script>
+
+
+<script>
+    var contextRoot = "";
+    var defaultUrl  = "/index.do";
+   
+</script>
+<script src="/resources/admin/js/itsScript/itsGlobal.js"></script> 
+<script src="/resources/admin/js/jquery-Layout.js"></script>
+<script src="/resources/admin/js/itsScript/itsStrings.js"></script>
+<script src="/resources/admin/js/itsScript/itsCommon.js"></script>
+<script src="/resources/admin/js/itsScript/itsMath.js"></script>
+<script src="/resources/admin/js/itsScript/itsDateTime.js"></script>
+<script src="/resources/admin/js/itsScript/itsValidCheck.js"></script>
+<script src="/resources/admin/js/itsScript/itsControl.js"></script>
+<script src="/resources/admin/js/itsScript/itsDataService.js"></script>
+<script src="/resources/admin/js/itsScript/itsDataPacket.js"></script>
+<script src="/resources/admin/js/itsScript/itsExcelPacket.js"></script>
+<script src="/resources/admin/js/itsScript/itsButtonBar.js"></script>
+
+
+<link rel="stylesheet" href="/resources/admin/js/smartPop/jquery.smartPop.css">
+<script src="/resources/admin/js/smartPop/jquery.smartPop.js"></script>
+
+
+<script src="/resources/admin/js/ohh/form-design.js"></script>
+<script src="/resources/admin/js/ohh/ohh.js"></script>
+<script src="/resources/enter/js/script.js"></script>
+
+
+<link rel="stylesheet" href="/resources/admin/css/style.css">
+
+
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>충북보건과학대학교</title>
+    
+    <script src="/resources/admin/js/default.js"></script>
+    <link rel="stylesheet" href="/resources/admin/css/login.css">
+   
+<script>
+    let strTaskDeptNm = "";
+    let strTaskTelNo = "";
+    let strParamMenuId = "4000000106";
+    
+    const S_MENU_CD = "1000000001";
+    function getMenuList() {
+        var QP = new RequestPacket("sqlSession");
+        QP.addService("SELECT",'poPYw6WYUdQFhouNr893OmfYud1p8m8y0q+kgBccKcc=',"SELECT");
+        QP.getService(QP.length()-1).setParam("MENU_CD", strParamMenuId);
+        QP.getService(QP.length()-1).setParam("LOCALE","");
+        selectService(QP.paramJson(), successGetMenuList);   
+    }
+
+    function successGetMenuList(data) {
+        let strSelMenu = "";
+        try {
+            var strParamUpMenuId = "";
+            var strHmHtml = "";
+            var intIdx = 0;
+            var strMenuNm = "";
+            var strMenuCd = "";
+            var strMenuCd2 = "";
+            var strUrlMenuCd = "";
+            var strMenuCnt = "";
+            var strUpMenuCd = "";
+            var strMenuLvl = "";
+            var strRunYn = "";
+            var strRunUrl = "";
+            var strAsR = "";
+            var strDeR = "";
+            var strPathMenuCd = "";
+            var strPathMenuNm = "";
+            var strSelMenuOrd = "";
+            var firstMenuCd = "";
+            var firstMenuNm = "";
+            var strLinkUrl = "";
+            var strSustCd = "";
+            for (var i=0; i < data.SELECT.length; i++) {
+                strMenuNm = data.SELECT[i].KOR_NM;
+                strMenuCd = data.SELECT[i].MENU_CD;
+                strUpMenuCd = data.SELECT[i].UP_MENU_CD;
+                strMenuLvl = data.SELECT[i].MENU_LEVEL;
+                strRunYn = data.SELECT[i].RUN_YN;
+                console.log(strMenuCd+"::--::"+strMenuNm);
+                if(strRunYn == "Y"){
+                    strUrlMenuCd = strMenuCd;
+                }else{
+                    strUrlMenuCd = strMenuCd2;
+                }
+                strSustCd = data.SELECT[i].SUST_CD;
+                
+                
+                if(toBlank(data.SELECT[i].MENU_GBN) == "A01001") {
+                    if(toBlank(data.SELECT[i].RUN_URL) == "") {
+                        alert("실행할 프로그램이 등록되지 않았습니다.. 관리자에게 문의하시기 바랍니다.");
+                        strRunUrl = "/";
+                    } else {
+                        strRunUrl = "contView.do?menuId="+strUrlMenuCd;
+                    }
+                } else if(toBlank(data.SELECT[i].MENU_GBN) == "A01002") {
+                    if(toBlank(data.SELECT[i].CNTNTS_ID) == "") {
+                        alert("실행할 콘텐츠가 등록되지 않았습니다.. 관리자에게 문의하시기 바랍니다.");
+                        strRunUrl = "/";
+                    } else {
+                        strRunUrl = "contView.do?menuId="+strUrlMenuCd;
+                    }
+                } else if(toBlank(data.SELECT[i].MENU_GBN) == "A01003") {
+                    if(toBlank(data.SELECT[i].BOARD_ID) == ""){
+                        alert("실행할 게시판이 등록되지 않았습니다.. 관리자에게 문의하시기 바랍니다.");
+                        strRunUrl = "/";
+                    } else {
+	                    var strParam = "";
+	                    var subParam = toBlank(data.SELECT[i].SUB_PARAM);
+	                    if(toBlank(data.SELECT[i].RUN_URL) == "") { strRunUrl = "boardPage.do"; } else { strRunUrl = data.SELECT[i].RUN_URL; }
+	                    if(toBlank(data.SELECT[i].RUN_PARAM) == "") { strParam = "jspPage=/common/boardList"; } else { strParam = data.SELECT[i].RUN_PARAM; }
+	                    if(subParam != "") {
+	                        if(subParam.substring(0,1) != "&") { subParam = "&" + subParam; }
+	                        strParam += subParam; 
+	                    }
+	                    strRunUrl = "/" + strRunUrl +"?" + strParam + "&BOARD_ID=" + data.SELECT[i].BOARD_ID + "&menuId="+strUrlMenuCd;
+                    }
+                } else if(toBlank(data.SELECT[i].MENU_GBN) == "A01004") {
+                    strRunUrl = "/sitemap.do?menuId="+strUrlMenuCd;
+                } else if(toBlank(data.SELECT[i].MENU_GBN) == "A01009") {
+                    strRunUrl = "/staffList.do?menuId="+strUrlMenuCd;
+                } else if(toBlank(data.SELECT[i].MENU_GBN) == "A01007") { 
+                	var runParam = data.SELECT[i].RUN_PARAM;
+                	//strRunUrl = "/defaultCallPage.do?jspPage=/common/curriculum&menuId="+strUrlMenuCd + runParam;
+                	strRunUrl = "/defaultCallPage.do?jspPage=/common/curriView&menuId="+strUrlMenuCd + runParam + "&S_DEPART_CODE=" + strSustCd;
+                } else {
+                    var runParam = data.SELECT[i].RUN_PARAM;
+                    if(runParam.substring(0,1) != "&") { runParam = "&" + runParam; }
+                    strRunUrl = "/defaultCallPage.do?jspPage=" + data.SELECT[i].JSP_PAGE + "&menuId="+strUrlMenuCd + runParam;
+                }
+            }
+            location = strRunUrl;
+            console.log(":::::::::::::::::::::::::::::::::::::::" +strRunUrl);
+
+            //console.log( strHmHtml);
+        } catch(e) {
+        } finally {
+        }
+    
+    }
+    $(document).ready(function(){
+        getMenuList();
+    });
+</script>
+</head>
+<body>
+
+</body>
+</html>

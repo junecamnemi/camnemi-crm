@@ -1,0 +1,1735 @@
+/******************************************
+	bbs
+******************************************/
+
+	//이미지 원본보기
+	winObj=null; // 초기화
+	function ViewBigImg(Val)
+	{
+		img = new Image(); //이미지 로딩. 이미지를 웹서버로부터 전송. 출력 안함
+		img.src= Val;
+		draw();
+		return false;
+	}
+	
+	function draw()
+	{
+		if(img.complete == false) {
+			setTimeout("draw()", "200");
+			return;
+		}
+			
+		width=img.width;
+		height=img.height;
+		swidth=screen.width;
+		sheight=screen.height;
+		scr = "no";
+		
+		if(width > (swidth-20)) {
+			width=swidth-100;
+			scr = "yes";
+		}
+		if(height > (sheight-20)) {
+			height=sheight-100;
+			scr = "yes";
+		}
+		var attr = "scrollbars="+scr+",width="+ width+ ",height=" + height;
+	
+		// 윈도우를 열고 이미지 출력.
+		if(winObj != null && winObj.closed == false) {winObj.close();}
+		winObj = window.open('',"imgwindow",attr);
+		winObj.document.write("<html><head><title>원본 이미지 확대보기</title>");
+		winObj.document.write("<s" + "cript>self.moveTo(30,30);</s" + "cript>");
+		winObj.document.write("<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'><center>");
+		winObj.document.write("<a href='javascript:window.close();'><img src='"+ img.src +"' border='0' alt='닫기'></a>");
+		winObj.document.write("</center></body></html>");
+	}
+	
+	
+	/** 이미지 관련***********************************************************************************************************/
+	
+	function imgviewer(link)
+	{
+		if(uidx == "undefined") { var uidx="";}
+		var win = window.open(link,'iwin','width=100,height=100,scrollbars=yes,status=yes');
+	}
+	
+	function imgpreview(xbrd,uidx,xidx)
+	{
+		if(uidx == "undefined") { var uidx="";}
+		var win = window.open('','iwin','width=100,height=100,scrollbars=yes,status=yes');
+		win.document.write("<title>미리보기</title>\<script\>function getImageWin(ob){window.resizeTo(ob.width+27,ob.height+58);document.body.innerHTML=\"<table cellspacing=0 cellpadding=3 background='./lib/include/image_view.php?id="+xbrd+"&uid="+uidx+"&xbrd_uid="+xidx+"' width='\"+ob.width+\"' height='\"+ob.height+\"'><tr><td align=right valign=bottom></td></tr></table>\";}\</script\><body leftmargin=0 topmargin=0 onclick='self.close()' oncontextmenu='return false'><img src='./lib/include/image_view.php?id="+xbrd+"&uid="+uidx+"&xbrd_uid="+xidx+"' onload=\"getImageWin(this)\"></body>");
+	}
+	
+	
+	/********************************************************************************************************** 첨부,링크 파일 */
+	
+	// 다운로드
+	function fdown(xs,xbrd,idx)
+	{
+		var xurl = root_path+"/lib/include/down.php?xsite="+xs+"&id="+xbrd+"&xid=" + idx;
+		frames.iframe_blank.location.href = xurl;
+	}
+	
+	
+	//파일레이어 show
+	function showLayerUpfile(enable , files , table , uid , where , cols , num , link , skin , down , e)
+	{
+		if (!enable)
+		{
+			alert('죄송합니다. 다운로드 권한이 없습니다.       ');
+			return false;
+		}
+		var x = (e.pageX) ? e.pageX : document.body.scrollLeft+event.clientX;
+		var y = (e.pageY) ? e.pageY : document.body.scrollTop+event.clientY;
+		var to = "";
+		var tl = document.getElementById('tmp_Upfile_Show_Layer');
+		var ly = LayerUpfile(enable , files + link , table, uid , where , cols , 'return');
+		var wt = parseInt(num/cols) > 0 ? cols * 220 : (num%cols) * 220;
+			wt = num == 1 ? 270 : wt;
+		tl.style.position = 'absolute';
+		tl.style.left = x;
+		tl.style.top  = y;
+		
+		to += "<TABLE WIDTH='"+wt+"' CELLSPACING=0 CELLPADDING=0 STYLE='border:1 solid #EFEFEF;'>";
+		to += "<TR HEIGHT=1 BGCOLOR='#B6944A'><TD COLSPAN=2></TD></TR>";
+		to += "<TR HEIGHT=3 BGCOLOR='#E9BB59'><TD COLSPAN=2></TD></TR>";
+		to += "<TR BGCOLOR='#DFDFDF' HEIGHT=25><TD>";
+		to += "&nbsp;&nbsp;<IMG SRC='./bbs/image/ico_down.gif' ALIGN=absmiddle> <FONT COLOR='#009B96'>첨부파일 <B>" + num + "</B>개</FONT>";
+		to += "<FONT COLOR='#84CF3D'>(다운로드 <B>"+commaSplit(down)+"</B>건)</FONT>";		
+		to += "</TD><TD ALIGN=RIGHT><A HREF='javascript:hideLayerUpfile()'><IMG SRC='./bbs/image/ico_close.gif' ALIGN=absmiddle><FONT COLOR=GRAY>닫기</FONT></A>&nbsp;&nbsp;";
+		to += "</TD></TR>";
+		to += "<TR HEIGHT=1 BGCOLOR='#D7D5D5'><TD COLSPAN=2></TD></TR>";
+		to += "<TR><TD COLSPAN=2>" + ly + "</TD></TR>";
+		to += "</TABLE>";
+	
+		tl.innerHTML = to;
+	
+		document.getElementById('upFile_Tmp_Layer').style.background = '#F5F3F5';
+		document.getElementById('upFile_Tmp_Layer').style.width = '100%';
+	}
+	
+	//파일레이어 제거
+	function hideLayerUpfile()
+	{
+		document.getElementById('tmp_Upfile_Show_Layer').innerHTML = "";
+	}
+	
+	
+	//파일첨부체크
+	function getUpfileNumIcon(enable , files , num , down , table, uid, skin , link , where , cols)
+	{
+		if (num > 0)
+		{
+			var string = "";
+			string += "<A STYLE='cursor:pointer;' onclick=\"showLayerUpfile("+enable+",'"+files+"','"+table+"',"+uid+",'"+where+"',"+cols+","+num+",'"+link+"','"+skin+"',"+down+",event);\">";
+			string += "<IMG SRC='./bbs/image/ico_ldown.gif' ALIGN=absmiddle> <FONT COLOR='#009B96'>첨부파일 <B>" + num + "</B>개</FONT>";
+		//	string += "<FONT COLOR='#84CF3D' style='font-size:11px'>(다운 "+commaSplit(down)+"건)</FONT>";
+			string += "</A><DIV ID='tmp_Upfile_Show_Layer'></DIV>";
+			document.write(string);
+		}
+	}
+	
+	
+	
+	//첨부파일
+	function LayerUpfile(enable,files,xbrd,uid,where,colnum,type)
+	{
+		if(enable)
+		{
+			var Layer_Tag = "";
+			var Tmp_FileNum = files.split(';');
+			
+			if (Tmp_FileNum.length > 1)
+			{
+				Layer_Tag += "<IFRAME NAME='TmpFrameForDownload' WIDTH=0 HEIGHT=0 FRAMEBORDER=0 SCROLLING=0></IFRAME>";
+				Layer_Tag += "<TABLE ID='upFile_Tmp_Layer' CELLSPACING=0 CELLPADDING=3 STYLE='border:1 solid dfdfdf;'><TR><TD>";
+				Layer_Tag += "<TABLE CELLSPACING=1 CELLPADDING=1 STYLE='color:#404040;'>";
+				Layer_Tag += "<TR>";
+				
+				for (var i = 0; i < Tmp_FileNum.length; i++)
+				{
+					if (Tmp_FileNum[i] == "") continue;
+	
+					var fname_arr = getFileName(Tmp_FileNum[i]).split('=');
+					
+					if(fname_arr[1])
+					{
+						Layer_Tag += "<TD>";
+						Layer_Tag += "<IMG SRC='./bbs/image/file/small/" + getFileExt(fname_arr[0]) + ".gif' VSPACE=2 ALIGN=absmiddle> ";
+						Layer_Tag += "<A TARGET='TmpFrameForDownload' HREF=\"./quick.php?xbrd="+xbrd+"&action=down&where="+where+"&dtype=up&uid="+uid+"&file="+fname_arr[0]+"\">" + fname_arr[0];
+						Layer_Tag += " (" + getFileSize(fname_arr[1],'K') + ")</A>";
+						Layer_Tag += "</TD>";
+					}
+					else {
+						Layer_Tag += "<TD>";
+						Layer_Tag += "<IMG SRC='./bbs/image/file/small/" + getFileExt(fname_arr[0]) + ".gif' VSPACE=2 ALIGN=absmiddle> ";
+						Layer_Tag += "<A TARGET='TmpFrameForDownload' HREF=\"./quick.php?xbrd="+xbrd+"&action=down&where="+where+"&dtype=link&uid="+uid+"&file="+Tmp_FileNum[i]+"\">" + fname_arr[0];
+						Layer_Tag += " (Link)";
+						Layer_Tag += "</TD>";
+					}
+	
+					if (((i+1)%colnum) == 0)
+					{
+						Layer_Tag += "</TR><TR>";
+					}
+				}
+	
+				Layer_Tag += "</TR>";
+				Layer_Tag += "</TABLE>";
+				Layer_Tag += "</TD></TR></TABLE>";
+			}
+			if (type == 'write')
+			{
+				document.write(Layer_Tag);
+			}
+			else {
+				return Layer_Tag;
+			}
+		}
+	}
+	
+	
+	/********************************************************************************************************** 코멘트 */
+	//코멘트등록 체크
+	function CommentCheck(f)
+	{
+		if (f.write_perm.value == '0')
+		{
+			alert('죄송합니다. 의견등록 권한이 없습니다.    ');
+			f.RP_CONTENT.disabled = true;
+			f.RP_CONTENT.style.background = '#EFEFEF';
+			return false;
+		}
+		if (f.RP_CONTENT.value == "")
+		{
+			alert('의견이 입력되지 않았습니다.         ');
+			f.RP_CONTENT.focus();
+			return false;
+		}
+		if (CheckWords(f.RP_CONTENT.value) != '') 
+		{
+			alert('\n관리자에 의해 제한된 단어가 사용되었습니다.        \n');
+			return false;
+		}
+		if (!f.RP_NAME.value || f.RP_NAME.value == '이름' )
+		{
+			alert('이름이 입력되지 않았습니다.         ');
+			f.RP_NAME.focus();
+			return false;
+		}
+		if (!f.isPass.value)
+		{
+			if (!f.RP_PASS.value || f.RP_PASS.value == '비밀번호')
+			{
+				if (!confirm('\n비밀번호를 입력하지 않으시면 삭제가 불가능합니다.     \n\n비밀번호 입력없이 등록하시겠습니까?\n'))
+				{
+					f.RP_PASS.focus();
+					return false;
+				}
+			}
+		}
+	
+		if (!confirm('\n입력하신 코멘트를 등록하시겠습니까?        \n'))
+		{
+			return false;
+		}
+	
+		if (f.useup.value != '0')
+		{
+			f.RP_FILE.value = getUploadFiles();
+		}
+		if (f.uselink.value != '0')
+		{
+			f.RP_LINK.value = getLinkFiles();
+		}
+	
+		f.Nparam.value = getThisUrl() + '&xque=view&uid=' + getUriString('uid') + '&p=' + getUriString('p');
+	}
+	//코멘트점수선택 출력
+	function getCommentVote(use)
+	{
+		if (use)
+		{
+			var tag = "";
+			tag += "<SELECT NAME='RP_VOTE' ID='RP_VOTE'>";
+			tag += "<OPTION VALUE=''> 평가점수 : </OPTION>";
+			tag += "<OPTION VALUE='10'>★★★★★</OPTION>";
+			tag += "<OPTION VALUE='9'>★★★★☆</OPTION>";
+			tag += "<OPTION VALUE='8'>★★★★</OPTION>";
+			tag += "<OPTION VALUE='7'>★★★☆</OPTION>";
+			tag += "<OPTION VALUE='6'>★★★</OPTION>";
+			tag += "<OPTION VALUE='5'>★★☆</OPTION>";
+			tag += "<OPTION VALUE='4'>★★</OPTION>";
+			tag += "<OPTION VALUE='3'>★☆</OPTION>";
+			tag += "<OPTION VALUE='2'>★</OPTION>";
+			tag += "<OPTION VALUE='1'>☆</OPTION>";
+			tag += "</SELECT>";
+	
+			document.write(tag);
+			if(navigator.userAgent.indexOf('Opera') == -1 && navigator.userAgent.indexOf('Netscape') == -1)
+			{
+				getSelectToLayer(document.getElementById('RP_VOTE'),100,'');
+			}
+		}
+	}
+	
+	//코멘트비저블
+	function getCommentVisible(obj)
+	{
+		var l = document.getElementById('Comment_Layer');
+	
+		if(obj.src.indexOf('_show.gif') != -1)
+		{
+			obj.src = obj.src.replace('_show.gif', '_hide.gif');
+			l.style.display = 'block';
+		}
+		else
+		{
+			obj.src = obj.src.replace('_hide.gif', '_show.gif');
+			l.style.display = 'none';
+		}
+	}
+	
+	//코멘트등록권한 체크-비권한-> display : none
+	function CommentWritePermCheck()
+	{
+		var f = document.CommentForm;
+		var l = document.getElementById('CommentTable');
+	
+		if (f.write_perm.value == '0')
+		{
+			l.style.display = 'none';
+		}
+		else{
+			l.style.display = 'block';
+		}
+	}
+	
+	
+	//코멘트 웹에디터링크출력체크
+	function getCommentEditLink(op,skinimg)
+	{
+		if (op)
+		{
+			document.write("&nbsp;<IMG SRC='"+skinimg+"/dot_write_01.gif'>");
+			document.write("<A HREF='#.' onclick=\"window.open('./bbs/lib/module/htmledit/winit.php','editwin','width=600,height=550');\">");
+			document.write("<FONT COLOR=BLUE>[에디터]</FONT></A>");
+		}
+	}
+	
+	/********************************************************************************************************** 멀티체크 */
+	var Multi_Check_Uid = '';
+	function Multi_Check(obj,e,skindir,isRoot,isAdmin)
+	{
+		var ml = document.getElementById('MultiCheckLayer');
+		var tg = '';
+		var x = (e.pageX) ? e.pageX : document.body.scrollLeft+event.clientX;
+		var y = (e.pageY) ? e.pageY : document.body.scrollTop+event.clientY;
+		x += 10; y -= 20;
+	
+		if (obj.checked == true) Multi_Check_Uid += obj.value + ';';
+		else Multi_Check_Uid = Multi_Check_Uid.replace(obj.value + ';' , '');
+	
+		if (Multi_Check_Uid)
+		{
+			var multiarr = Multi_Check_Uid.split(';');
+	
+			tg += "<TABLE WIDTH=220 BGCOLOR='#DAF383' CELLSPACING=0 CELLPADDING=3 STYLE='position:absolute;left:"+x+";top:"+y+";border:1 solid #90B64B;'>";
+			tg += "<TR><TD NOWRAP>";
+			tg += "<IMG SRC='"+skindir+"/btn_check.gif' onclick=Multi_Check_Que(1); STYLE='cursor:pointer;'> ";
+			tg += "<IMG SRC='"+skindir+"/btn_ncheck.gif' onclick=Multi_Check_Que(2); STYLE='cursor:pointer;'> ";
+			tg += "<IMG SRC='"+skindir+"/btn_reverse.gif' onclick=Multi_Check_Que(3); STYLE='cursor:pointer;'> ";
+			tg += "</TD></TR>";
+			tg += "<TR><TD>";
+			tg += "<A STYLE='cursor:pointer;' onclick=\"Multi_Check_Que(4)\"><img src='<?=$gSkinImg?>/ico_hit.gif' align=absmiddle></A> ";		
+			
+			if(isRoot != 0 || isAdmin != 0)
+			{
+				tg += "<A STYLE='cursor:pointer;' onclick=\"Multi_Check_Que(5)\"><img src='<?=$gSkinImg?>/ico_del.gif' align=absmiddle></A> ";
+			
+				if (isRoot != 0)
+				{
+					tg += "<A STYLE='cursor:pointer;' onclick=\"Multi_Check_Que(6)\"><img src='<?=$gSkinImg?>/ico_move.gif' align=absmiddle></A> ";
+					tg += "<A STYLE='cursor:pointer;' onclick=\"Multi_Check_Que(7)\"><img src='<?=$gSkinImg?>/ico_copy.gif' align=absmiddle></A>";
+				}
+			}
+			if(isRoot == 0 && isAdmin == 0)
+			{
+				tg += "<font color=gray>(선택된 자료 : "+(multiarr.length-1)+")</font> ";
+			}
+	
+			tg += "</TD></TR>";
+			tg += "</TABLE>";
+	
+			ml.innerHTML = tg;
+		}
+		else {
+			ml.innerHTML = '';
+		}
+	}
+	function  Multi_Check_Que(n)
+	{
+		var i;
+		var l = document.getElementsByName('At[]');
+		switch (n)
+		{
+			case 1 :
+			Multi_Check_Uid = '';
+			for ( i = 0; i < l.length; i++)
+			{
+				l[i].checked = true;
+				Multi_Check_Uid += l[i].value + ';';
+			}
+			break;
+	
+			case 2 :
+			Multi_Check_Uid = '';
+			for ( i = 0; i < l.length; i++)
+			{
+				l[i].checked = false;
+				Multi_Check_Uid = Multi_Check_Uid.replace(l[i].value + ';' , '');
+			}
+			break;
+	
+			case 3 :
+			Multi_Check_Uid = '';
+			for ( i = 0; i < l.length; i++)
+			{
+				if(l[i].checked == true)
+				{
+					l[i].checked = false;
+					Multi_Check_Uid = Multi_Check_Uid.replace(l[i].value + ';' , '');
+				}
+				else {
+					l[i].checked = true;
+					Multi_Check_Uid += l[i].value + ';';
+				}
+			}
+			break;
+	
+			case 4 : 
+			if (!Multi_Check_Uid) return false;
+			location.href = getThisUrl() + '&xque=multi&p=' + getUriString('p') + '&MultiUid=' + Multi_Check_Uid;
+			break;
+	
+			case 5 : 
+			if (!Multi_Check_Uid) return false;
+			if (!confirm('삭제된 데이터는 복구가 불가능합니다.         \n\n정말로 삭제하시겠습니까?')) return false;
+			location.href = getThisUrl() + '&action=multi_delete&p=' + getUriString('p') + '&MultiUid=' + Multi_Check_Uid;
+			break;
+	
+			case 6 : 
+			if (!Multi_Check_Uid) return false;
+			window.open('./bbs/lib/module/mvcopy/mvcopy.php?table='+getUriString('table')+'&type=move&MultiUid='+Multi_Check_Uid,'mvcopywin','left=0,top=0,width=300,height=450');
+			break;
+	
+			case 7 : 
+			if (!Multi_Check_Uid) return false;
+			window.open('./bbs/lib/module/mvcopy/mvcopy.php?table='+getUriString('table')+'&type=copy&MultiUid='+Multi_Check_Uid,'mvcopywin','left=0,top=0,width=300,height=450');
+			break;
+		}
+	}
+	
+	/********************************************************************************************************** 리스트 */
+	//카테고리출력
+	function getPrintCategory(cat)
+	{
+		if(cat) document.write("<FONT COLOR='#D45111'>[" + cat + "]</FONT>");
+	}
+	
+	//번호출력
+	function getPrintNumber(total,i,recnum,p)
+	{
+		document.write(total - (i + (recnum*(p - 1))));
+	}
+	
+	//비공개체크
+	function getPrintSecretCheck(secret , skin)
+	{
+		if (secret) document.write("<IMG SRC='./bbs/image/dot_key.gif'>");
+	}
+	
+	//리플라이체크
+	function getPrintReplyCheck(re,skin)
+	{
+		if (re) document.write("<IMG SRC='./bbs/image/dot_re.gif'>");
+	}
+	/********************************************************************************************************** 내용조회 */
+	//폰트확대
+	function FontPlus(uid)
+	{
+		var l = document.getElementById('ContentsLayer');
+		var nSize = l.style.fontSize   ? l.style.fontSize   : '9pt';
+		var iSize = parseInt(nSize.replace('pt',''));
+		
+		if (iSize < 20)
+		{
+			l.style.fontSize   = (iSize + 1) + 'pt';
+			l.style.lineHeight = '140%';
+		}
+	}
+	//폰트축소
+	function FontMinus(uid)
+	{
+		var l = document.getElementById('ContentsLayer');
+		var nSize = l.style.fontSize ? l.style.fontSize : '9pt';
+		var iSize = parseInt(nSize.replace('pt',''));
+		
+		if(iSize < 9) {iSize = 9;}
+		
+		if (iSize > 6)
+		{
+			l.style.fontSize = (iSize - 1) + 'pt';
+			l.style.lineHeight = '140%';
+		}
+	}
+	
+	//문서인쇄
+	function PagePrint(sbj,uid)
+	{
+		var img = document.getElementById('func_img'+uid);
+		img.style.position= 'relative';
+		img.style.left = 0;
+		img.style.top  = 0;
+		window.open('./bbs/lib/module/print/print.htm?sbj='+escape(sbj)+'&uid='+uid,'printwin','width=650,height=600,scrollbars=yes');
+	}
+	//기능이미지
+	function getFuncImg(e,img)
+	{
+		var x = (e.pageX) ? e.pageX : document.body.scrollLeft+event.clientX;
+		var y = (e.pageY) ? e.pageY : document.body.scrollTop+event.clientY;
+	
+		var img = document.getElementById(img);
+		if (img.style.position != 'absolute')
+		{
+			img.style.position= 'absolute';
+			img.style.left = x;
+			img.style.top  = y;
+		}
+		else {
+			img.style.position= 'relative';
+			img.style.left = 0;
+			img.style.top  = 0;
+		}
+	}
+	
+	
+	//옵션출력체크
+	function OptionCheck()
+	{
+		var home = document.getElementById('Option_Url'); 
+		var prev = document.getElementById('Option_Preview');
+		var img  = document.getElementById('Option_Img');
+		var f    = document.WriteForm;
+	
+		if(!f.mbid.value)
+		{
+			if (home.style.display == 'none') { home.style.display = 'block'; } else { home.style.display = 'none'; }
+		}
+		if (prev.style.display == 'none') { prev.style.display = 'block'; } else { prev.style.display = 'none'; }
+		if (img.src.indexOf('dot_option.gif') != -1)
+		{
+			img.src = img.src.replace('dot_option.gif','dot_option1.gif');
+		}
+		else {
+			img.src = img.src.replace('dot_option1.gif','dot_option.gif');
+		}
+	}
+	
+	/********************************************************************************************************** 기본 */
+	
+	
+	//이동경로체크
+	function NparamSetting()
+	{
+		var pam  = getThisUrl();
+			pam += '&xque=' + getUriString('query');
+			pam += '&write_type=' + getUriString('write_type');
+			pam += '&uid=' + getUriString('uid');
+			pam += '&p=' + getUriString('p');
+	
+			return pam;
+	}
+	
+	//요청된 Url(쿼리스트링 제외)
+	function getThisFile()
+	{
+		var QuerySplit = location.href.split('?');
+		return QuerySplit[0];
+		// return './quick.php';
+	}
+	
+	//요청된 파라미터의 Value
+	function getUriString(param)
+	{
+		return eval("document.DataForm." + param).value;
+	}
+	
+	//공통 URL (제어파라미터 query,uid,p 제외 ; 파라미터값은 getUriString('파리미터') )
+	function getThisUrl()
+	{
+		var d		=	document.DataForm;
+		var xbrd		=	d.xbrd.value;
+		var query		=	d.query.value;
+		var p		=	d.p.value;
+		var uid		=	d.uid.value;
+		var where	=	d.where.value;
+		var keyword	=	d.keyword.value;
+		var search_step	=	d.search_step.value;
+		var search_type =   d.search_type.value;
+		var category	=	d.category.value;
+		var sort		=	d.sort.value;
+		var orderby	=	d.orderby.value;
+		var grecnum     =   d.grecnum.value;
+		var mode     =   d.mode.value;
+		var club     =   d.club.value;
+		
+		var fid     =   d.fid.value;
+		var kid     =   d.kid.value;
+		var xid     =   d.xid.value;
+		var delx     =   d.delx.value;
+		
+		
+	
+		var cqurl  = getThisFile();
+		cqurl += xbrd		? '?xbrd='			+ xbrd			: '';
+		cqurl += where		? '&where='			+ where			: '';
+		cqurl += keyword	? '&keyword='		+ keyword		: '';
+		cqurl += search_step? '&search_step='	+ search_step	: '';
+		cqurl += search_type? '&search_type='   + search_type   : '';
+		cqurl += category	? '&category='		+ category		: '';
+		cqurl += sort		? '&sort='			+ sort			: '';
+		cqurl += orderby	? '&orderby='		+ orderby		: '';
+		cqurl += grecnum	? '&grecnum='		+ grecnum		: '';
+		cqurl += mode	? '&mode='		+ mode		: '';
+		cqurl += club	? '&club='		+ club		: '';
+		
+		cqurl += fid	? '&fid='		+ fid		: '';
+		cqurl += kid	? '&kid='		+ kid		: '';
+		cqurl += xid	? '&xid='		+ xid		: '';
+		cqurl += delx	? '&delx='		+ delx		: '';
+	
+		if (where && keyword)
+		{
+			cqurl += '&search_sql=' + getSearchSql(where , keyword);
+		}
+	
+		return cqurl;
+	}
+	
+	//정렬Url (필드명 ASC,DESC지정)
+	function getSort(field)
+	{
+		var d =	document.DataForm;
+	
+		if (d.sort.value == field)
+		{
+			if (d.orderby.value == "DESC")
+			{
+				d.orderby.value = "";
+			}
+			else {
+				d.orderby.value = "DESC";
+			}
+		}
+		else {
+			d.sort.value = field;
+			d.orderby.value = "DESC";
+		}
+		
+		location.href = getThisUrl() + '&p=' + getUriString('p');
+	}
+	
+	//마지막페이지수
+	function LastPage(p)
+	{
+		return document.getElementById('LastPage').value;
+	}
+	
+	//글보기
+	function xbrd_view(uid,secret,dbid,tbl,win,e)
+	{
+		var url   = getThisUrl();
+		var xbrd = tbl != '' ? tbl : getUriString('xbrd');
+		if(secret != '')
+		{
+			var CookieSecret = document.getElementById('CookieSecret').value;
+			var isRoot       = document.getElementById('isRoot').value;
+			var isAdmin      = document.getElementById('isAdmin').value;
+			var mbid         = document.getElementById('mbid').value;
+	
+			if(CookieSecret.indexOf(xbrd + '_' + uid + '_' ) == -1)
+			{
+				if (mbid == '' || (mbid != '' && mbid != dbid))
+				{
+					if (isRoot == '0' && isAdmin == '0')
+					{
+						if (tbl != '') document.DataForm.xbrd.value = tbl;
+						getPassLayer('secret',isRoot,isAdmin,mbid,dbid,uid,0,e);
+						return false;
+					}
+				}
+			}
+		}
+		if (win != '_win')
+		{
+			location.href = url + '&xque=view&uid=' + uid + '&p=' + getUriString('p');
+		}
+		else {
+			var win = URL + '&action=newwin&uid=' + uid;
+			window.open(win , 'output_win','width=650,height=600,scrollbars=yes');
+		}
+	}
+	
+	
+	//목록으로
+	function getListPage()
+	{
+		location.href = getThisUrl() + '&p=' + getUriString('p');
+	}
+	
+	//일반글쓰기
+	function getWritePage()
+	{
+		location.href = getThisUrl() + '&xque=write';
+	}
+	
+	//답변쓰기
+	function getReplyPage(uid)
+	{
+		location.href = getThisUrl() + '&xque=write&write_type=reply&uid=' + uid + '&p=' + getUriString('p');
+	}
+	
+	//패스워드체크 레이어, 수정/삭제
+	function getPassLayer(que,isRoot,isAdmin,mbid,dbid,uid,ruid,e)
+	{
+		if (isRoot != '0' || isAdmin != '0' || (mbid != '' && mbid == dbid))
+		{
+			if (que == 'modify')
+			{
+					location.href = getThisUrl() + '&xque=write&write_type=modify&uid=' + uid + '&p=' + getUriString('p');
+			}
+			if (que == 'delete')
+			{
+				if(confirm('정말로 삭제하시겠습니까?         '))
+				{
+					location.href = getThisUrl() + '&action=delete&uid=' + uid + '&p=' + getUriString('p');
+				}
+			}	
+			return false;
+		}
+		if(!x) var x = e.pageX ? e.pageX : document.body.scrollLeft+event.clientX;
+		if(!y) var y = e.pageY ? e.pageY : document.body.scrollTop+event.clientY;
+		var l = document.getElementById('PassCheckLayer');
+		var f = document.pass_check_form;
+		var t = document.getElementById('PwLayTitle');
+		
+		l.style.display = 'block';
+		l.style.left = x - 80;
+		l.style.top  = y + 20;
+	
+		f.xbrd.value  = getUriString('xbrd');
+		f.action.value = que;
+		f.uid.value    = uid;
+		f.ruid.value   = ruid;
+		f.p.value      = getUriString('p');
+		
+		if (que == 'delete')
+		{
+			t.innerHTML = "<b>게시물을 삭제합니다..</b>";
+			f.Nparam.value = getThisUrl() + '&p=' + getUriString('p');
+		}
+		if (que == 'modify')
+		{
+			t.innerHTML = "<b>게시물을 수정합니다..</b>";
+			f.Nparam.value = getThisUrl() + '&xque=write&write_type=modify&p=' + getUriString('p') + '&uid=' + uid;
+		}
+		if (que == 'secret')
+		{
+			t.innerHTML = "<b>비공개 게시물입니다..</b>";
+			f.Nparam.value = getThisUrl() + '&xque=view&p=' + getUriString('p') + '&uid=' + uid;
+		}
+		if (que == 'cdelete')
+		{
+			t.innerHTML = "<b>코멘트를 삭제합니다..</b>";
+			f.Nparam.value = getThisUrl() + '&xque=view&p=' + getUriString('p') + '&uid=' + uid;
+		}
+		f.COMP_PASS.focus();
+	}
+	
+	//검색SQL
+	function getSearchSql(where , keyword)
+	{
+		var i;
+		var SQL = "";
+		var search_type = document.DataForm.search_type.value;
+			search_type = search_type == 'and' ? 'AND' : 'OR';
+	
+		if (keyword.indexOf(' ') == -1 && keyword.indexOf(',') == -1)
+		{
+			if (where == "ALL") return "BB_NAME LIKE '%"+keyword+"%' "+search_type+" BB_SUBJECT LIKE '%"+keyword+"%' "+search_type+" BB_CONTENT LIKE '%"+keyword+"%'";
+			else				return where + " LIKE '%"+keyword+"%'";
+		}
+		else {
+			keyword = keyword.replace(',' , ' ')
+			var key_exp = keyword.split(' ');
+			if (where == "ALL")
+			{
+				for(i = 0; i < key_exp.length - 1; i++)
+				{
+					SQL += "(BB_NAME LIKE '%"+key_exp[i]+"%' "+search_type+" BB_SUBJECT LIKE '%"+key_exp[i]+"%' "+search_type+" BB_CONTENT LIKE '%"+key_exp[i]+"%') "+search_type+" ";
+				}
+				SQL += "(BB_NAME LIKE '%"+key_exp[i]+"%' "+search_type+" BB_SUBJECT LIKE '%"+key_exp[i]+"%' "+search_type+" BB_CONTENT LIKE '%"+key_exp[i]+"%')";
+			}
+			else {
+				for(i = 0; i < key_exp.length - 1; i++)
+				{
+					SQL += where + " LIKE '%"+key_exp[i]+"%' "+search_type+" ";
+				}
+				SQL += where + " LIKE '%"+key_exp[i]+"%'";
+			}
+			return SQL;
+		}
+	}
+	
+	//검색어체크
+	function getSearchStart()
+	{
+		if(getUriString('where') && getUriString('keyword'))
+		{
+			getKeywordHighLight();
+		}
+	}
+	
+	//검색결과 하이라이트
+	function getKeywordHighLight() 
+	{
+		var where   = getUriString('where');
+		var keyword = getUriString('keyword');
+		var r,i,s=document.selection.createRange().text;
+	
+		if(!where || !keyword) 
+		{ 
+			return false;
+		}
+		
+		keyword = keyword.replace(',' , ' ');
+		var keyexp = keyword.split(' ');
+	
+		for ( var j = 0; j < keyexp.length; j++)
+		{
+			r = document.body.createTextRange();
+			for(i = 0; r.findText(keyexp[j]); i++)
+			{
+				r.execCommand('ForeColor','','#FF0000');
+				r.execCommand('BackColor','','#FFFF00');
+				r.collapse(false);
+			}
+		}
+	}
+	
+	//카테고리셀렉트
+	function getCategoryForm(use , sbj , opt , cat , event)
+	{
+		if (use)
+		{
+			var select = "";
+			var option = opt.split(',');
+			
+			select += "<SELECT NAME='BB_CATEGORY' ID='BB_CATEGORY'";
+			select += event ? " onchange='getCategoryEvent(this);' CLASS='Wfield'>" : " CLASS='Wfield'>";
+			select += "<OPTION VALUE=''>"+ sbj +"</OPTION>";
+			for (var i = 0; i < option.length; i++)
+			{
+				if (option[i]) 
+				{
+					if (cat == option[i])
+					{
+						select += "<OPTION VALUE='"+ option[i] +"' selected>"+ option[i] +"</OPTION>";
+					}
+					else {
+						select += "<OPTION VALUE='"+ option[i] +"'>"+ option[i] +"</OPTION>";
+					}
+				}
+			}
+			select += "</SELECT>";
+			select += "<INPUT TYPE=HIDDEN NAME='is_category' VALUE='1'>";
+			
+			document.write(select);
+		}
+		else {
+			document.write("<INPUT TYPE=HIDDEN NAME='is_category' VALUE=''>");
+		}
+	}
+	
+	//카테고리이벤트
+	function getCategoryEvent(obj)
+	{
+		location.href = getThisUrl().replace('category=' + getUriString('category') + '&' , '') + '&category=' + obj.value;
+	}
+	
+	//비공개체크박스
+	function getSecretCheck(use , que)
+	{
+		if(use == 'checked')
+		{
+			document.write("<INPUT TYPE=CHECKBOX NAME=BB_SECRET VALUE='checked' "+que+" style='border:0'>비공개로 등록합니다. (글작성자와 관리자만 볼수 있습니다.)");
+		}
+		else {
+			document.write("<INPUT TYPE=CHECKBOX NAME=BB_SECRET VALUE='checked' "+que+" STYLE='display:none;'>");
+		}
+	}
+	
+	//답변메일발송체크박스
+	function getRemailCheck(use,email,type)
+	{
+		if (use && email && type == 'reply')
+		{
+			document.write("<INPUT TYPE=hidden NAME=writeer_remail VALUE='"+email+"'>");
+			document.write("<INPUT TYPE=CHECKBOX NAME=remail VALUE='checked'>이메일로 답변발송");
+		}
+	}
+	
+	//등록인선택셀렉트
+	function getIsRootSelect(isRoot,v_LogId)
+	{
+		if (isRoot != '0' && v_LogId != '')
+		{
+			document.write("<SELECT NAME='writer_select' ID='writer_select' CLASS='Wfield'>");
+			document.write("<OPTION VALUE='member'>글쓴이: 사용자로 등록</OPTION>");
+			document.write("<OPTION VALUE='root'>글쓴이: 관리자로 등록</OPTION>");
+			document.write("</SELECT>");
+	        if(navigator.userAgent.indexOf('Opera') == -1 && navigator.userAgent.indexOf('MSIE') != -1)
+			{
+				getSelectToLayer(document.getElementById('writer_select'),150,'');
+			}
+		}
+	}
+	
+	//비밀번호 입력폼(글쓰기)
+	function getPasswdInput(wType,secret,pass,name)
+	{
+		var passinput = "";
+	
+		if (wType)
+		{
+			if (wType == 'reply')
+			{
+				//답변
+				if (secret == 'checked')
+				{
+					passinput = "<INPUT TYPE=PASSWORD NAME='"+name+"' VALUE='"+pass+"' SIZE=15 CLASS='Wfield' readonly STYLE='background:#DFDFDF;'>";
+				}
+				else {
+					passinput = "<INPUT TYPE=PASSWORD NAME='"+name+"' SIZE=15 CLASS='Wfield'>";
+				}
+			}
+			else {
+				//수정
+				passinput = "<INPUT TYPE=PASSWORD NAME='"+name+"' VALUE='"+pass+"' SIZE=15 CLASS='Wfield' readonly STYLE='background:#DFDFDF;'>";	
+			}
+		}
+		else {
+			//일반글
+			passinput = "<INPUT TYPE=PASSWORD NAME='"+name+"' SIZE=15 CLASS='Wfield'>";			
+		}
+	
+		document.write(passinput);
+	}
+	
+	//이름,패스워드 입력폼(코멘트)
+	function getNameInputCmt(mbid,isroot)
+	{
+		var f = document.CommentForm;
+		var wperm   = f.write_perm.value;
+	
+		var yNull   = "<INPUT TYPE='HIDDEN' NAME='RP_NAME' VALUE=''><INPUT TYPE='HIDDEN' NAME='isPass' VALUE=''>";
+		var nNull   = "<INPUT TYPE='HIDDEN' NAME='RP_NAME' VALUE='1'><INPUT TYPE='HIDDEN' NAME='isPass' VALUE='1'>";
+	
+		if (mbid != '' || isroot != '0')
+		{
+			if (wperm != '0')
+			{
+				document.write(nNull);
+			}
+			else {
+				document.write(yNull);
+			}
+		}
+		else {
+			if (wperm != '0')
+			{
+				document.write("<font style='color:#B6852E;font-size:11px'>이름</font> <INPUT TYPE='TEXT' NAME='RP_NAME' SIZE='10' VALUE='' CLASS='Wfield'>&nbsp;");
+				document.write("<font style='color:#B6852E;font-size:11px'>비밀번호</font> <INPUT TYPE='TEXT' NAME='RP_PASS' SIZE='15' VALUE='' CLASS='Wfield'><INPUT TYPE='HIDDEN' NAME='isPass' VALUE=''>&nbsp;");
+			}
+			else {
+				document.write(yNull);
+			}
+		}
+	}
+	
+	//코멘트갯수
+	function getCommentNum(num)
+	{
+		if (num)
+		{
+			document.write("("+num+"개)");
+		}	
+	}
+	
+	//코멘트삭제 권한
+	function getCommentDeletePerm(isRoot,isAdmin,v_LogId,skin,uid,rp_id,ruid)
+	{
+		var pass = (isRoot != '0'  || isAdmin != '0' || (v_LogId != '' && v_LogId == rp_id)) ? 1 : 0;
+		document.write("<IMG SRC='./bbs/image/ico_delete.gif' ALIGN=absmiddle STYLE='cursor:hand;' onclick=\"doCommentDelete("+uid+","+ruid+","+pass+",event);\">");
+	}
+	
+	//코멘트삭제
+	function doCommentDelete(uid,ruid,pass,e)
+	{
+		if (pass == 1)
+		{
+			if (!confirm('\n정말로 삭제하시겠습니까?        \n'))
+			{
+				return false;
+			}
+	
+			var f = document.pass_check_form;
+			f.xbrd.value  = getUriString('xbrd');
+			f.action.value = 'cdelete';
+			f.uid.value    = uid;
+			f.ruid.value   = ruid;
+			f.p.value      = getUriString('p');
+	
+			f.Nparam.value = getThisUrl() + '&xque=view&p=' + getUriString('p') + '&uid=' + uid;
+			f.submit();
+		}
+		else {
+			getPassLayer('cdelete',0,0,'','',uid,ruid,e);
+			return false;
+		}
+	}
+	
+	//이모션아이콘
+	function getEmotionIcon(color)
+	{
+		var icon = "";
+		
+		icon += "<TABLE CELLSPACING=0 CELLPADDING=1>";
+		icon += "<TR BGCOLOR='"+color+"'>";
+	
+		for(var i = 1; i < 19; i++)
+		{
+			icon += "<TD ID='emotion_td_"+i+"' STYLE='border:1 solid "+color+";' onclick=\"getSelectEm("+i+",'"+color+"')\"><IMG ID='emotion_img_"+i+"' SRC='./bbs/image/em/"+i+".gif' STYLE='cursor:hand;filter:gray();' HSPACE=2 VSPACE=2></TD>";
+		}
+		
+		icon += "</TR>";
+		icon += "</TABLE>";
+	
+		document.write(icon);
+	}
+	
+	//이모션선택
+	function getSelectEm(g,color)
+	{
+	
+		for(var i = 1; i < 19; i++)
+		{
+			if(i == g)
+			{
+				document.getElementById('emotion_td_' + i).style.border = '1 solid gray';
+				document.getElementById('emotion_td_' + i).style.background = '#ffffff';
+				document.getElementById('emotion_img_' + i).style.filter = 'none';
+				document.CommentForm.RP_EMOTION.value = i;
+			}
+			else {
+				document.getElementById('emotion_td_' + i).style.border = '1 solid '+color;
+				document.getElementById('emotion_td_' + i).style.background = color;
+				document.getElementById('emotion_img_' + i).style.filter = 'gray()';
+			}
+		}
+	}
+	
+	//코멘트필드 리사이즈
+	function CommentLayResize(que)
+	{
+		var area = document.getElementById('CommentTextAreaLay');
+		var heit = parseInt(area.style.height.replace('px',''));
+		if (que == '-')
+		{
+			if (heit - 100 >= 60) area.style.height = heit - 100;
+		}
+		else if (que == '+')
+		{
+			if (heit + 100 <= 600) area.style.height = heit + 100;
+		}
+		else {
+			area.style.height = 60;
+		}
+	}
+	
+	//링크파일
+	function LayerLinkfile(enable,files,xbrd,uid,where,colnum,type)
+	{
+		if(enable)
+		{
+			var fname;
+			var Layer_Tag = "";
+			var Tmp_FileNum = files.split(';');
+			
+			if (Tmp_FileNum.length > 1)
+			{
+				Layer_Tag += "<IFRAME NAME='TmpFrameForDownload' WIDTH=0 HEIGHT=0 FRAMEBORDER=0 SCROLLING=0></IFRAME>";
+				Layer_Tag += "<TABLE ID='linkFile_Tmp_Layer' CELLSPACING=0 CELLPADDING=3 STYLE='border:1 solid dfdfdf;'><TR><TD>";
+				Layer_Tag += "<TABLE CELLSPACING=1 CELLPADDING=1 STYLE='color:#404040;'>";
+				Layer_Tag += "<TR>";
+				
+				for (var i = 0; i < Tmp_FileNum.length; i++)
+				{
+					if (Tmp_FileNum[i] == "") continue;
+	
+					fname = Tmp_FileNum[i];
+	
+					Layer_Tag += "<TD>";
+					Layer_Tag += "<IMG SRC='./bbs/image/file/small/" + getFileExt(getFileName(fname)) + ".gif' VSPACE=2 ALIGN=absmiddle> ";
+					Layer_Tag += "<A TARGET='TmpFrameForDownload' HREF=\"./quick.php?xbrd="+xbrd+"&action=down&where="+where+"&dtype=link&uid="+uid+"&file="+fname+"\">" + getFileName(fname);
+					Layer_Tag += " (링크)";
+					Layer_Tag += "</TD>";
+	
+					if (((i+1)%colnum) == 0)
+					{
+						Layer_Tag += "</TR><TR>";
+					}
+				}
+	
+				Layer_Tag += "</TR>";
+				Layer_Tag += "</TABLE>";
+				Layer_Tag += "</TD></TR></TABLE>";
+			}
+			if (type == 'write')
+			{
+				document.write(Layer_Tag);
+			}
+			else {
+				return Layer_Tag;
+			}
+		}
+	}
+	
+	//----------------------------------------------------------------------------------------------
+	// 파일처리 관련
+	//----------------------------------------------------------------------------------------------
+	
+	//파일명
+	function getFileName(name)
+	{
+		var FileFullStr = name.split('?');
+		var FileUrliArr = FileFullStr[0].split('/');
+		return FileUrliArr[FileUrliArr.length - 1];
+	}
+	
+	//파일확장자->아이콘
+	function getFileExt(name)
+	{
+		var ExtSet  = "gif,jpg,jpeg,bmp,png,swf,fla,pds,ai,tif,pcx,ppj,"; //이미지,플래쉬
+			ExtSet += "mid,wav,mp3,"; //사운드
+			ExtSet += "asf,asx,avi,mpg,mpeg,wmv,wma,ra,ram,mov,"; //동영상
+			ExtSet += "doc,xls,ppt,hwp,hlp,eml,"; //오피스
+			ExtSet += "zip,tar,trz,gz,rar,alz,"; //압축
+			ExtSet += "exe,dll,reg,ini,"; //실행
+			ExtSet += "php,php3,class,java,htm,html,txt,cgi,pl,jsp,asp,xml,";//web 총53개
+	
+		var FileNameArr = name.split('.');
+		var ext = FileNameArr[FileNameArr.length - 1].toLowerCase()
+		
+		if (ExtSet.indexOf(ext) != -1)
+		{
+			return ext;
+		}
+		else {
+			return "unknown";
+		}
+	}
+	
+	//파일사이즈
+	function getFileSize(bt , type)
+	{
+		if (type == "M")
+		{
+			var btn = parseInt(bt)/(1024*1024);
+			var bt_split = btn.toString().split('.');
+			var subnum = bt_split[1] ? '.' + bt_split[1].substring(0,2) : '';
+			var bt_num   = commaSplit(bt_split[0]) + '.' + subnum;
+			return  bt_num + "M";
+		}
+		if (type == "K")
+		{
+			var btn = parseInt(bt)/1024;
+			var bt_split = btn.toString().split('.');
+			var subnum = bt_split[1] ? '.' + bt_split[1].substring(0,2) : '';
+			var bt_num   = commaSplit(bt_split[0]) + subnum;
+			return  bt_num + "K";
+		}
+		if (type == "B")
+		{
+			return commaSplit(bt) + "B";
+		}
+	}
+	
+	//스크랩
+	function Scrab(xbrd,uid,id)
+	{
+		if (id == '')
+		{
+			alert('\n회원으로 로그인해야 이용하실 수 있습니다.       \n');
+			return false;
+		}
+	
+		alert('스크랩하였습니다.       ');
+	
+		frames.iframe_blank.location.href = './quick.php?xbrd='+xbrd+'&xact=scrab&uid='+uid;
+	}
+	
+	//메일
+	function SendMail(xbrd,uid)
+	{
+		window.open('./quick.php?action=mailwin&xbrd='+xbrd+'&uid='+uid , 'mwin' , 'left=0,top=0,width=500,height=500');
+	}
+	
+	
+	//----------------------------------------------------------------------------------------------
+	// 코멘트갤러리 처리 관련
+	//----------------------------------------------------------------------------------------------
+	
+	//코멘트갤러리 삭제 권한
+	function getGalleryDeletePerm(isRoot,isAdmin,v_LogId,skin,uid,rp_id,ruid)
+	{
+		var pass = (isRoot != '0'  || isAdmin != '0' || (v_LogId != '' && v_LogId == rp_id)) ? 1 : 0;
+		document.write("<IMG SRC='./bbs/image/ico_delete.gif' ALIGN=absmiddle STYLE='cursor:hand;' onclick=\"doGalleryDelete("+uid+","+ruid+","+pass+",event);\">");
+	}
+	
+	//코멘트갤러리 삭제
+	function doGalleryDelete(uid,ruid,pass,e)
+	{
+		if (pass == 1)
+		{
+			if (!confirm('\n정말로 삭제하시겠습니까?        \n'))
+			{
+				return false;
+			}
+	
+			var f = document.pass_check_form;
+			f.xbrd.value  = getUriString('xbrd');
+			f.action.value = 'gallery_delete';
+			f.uid.value    = uid;
+			f.ruid.value   = ruid;
+			f.p.value      = getUriString('p');
+	
+			f.Nparam.value = getThisUrl() + '&xque=view_gallery&p=' + getUriString('p') + '&uid=' + uid;
+			f.submit();
+		}
+		else {
+			getPassLayer('gallery_delete',0,0,'','',uid,ruid,e);
+			return false;
+		}
+	}
+
+/******************************************
+	init
+******************************************/
+	//스트링 끊기
+	function getCutString(str,num,ss)
+	{
+		if(str.length > num) {
+			return str.substring(0,num) + ss;
+		}
+		else {
+			return str;
+		}
+	}
+	//타입비교 (비교문자 , 비교형식 ; ex: getTypeCheck(string , "1234567890") ) 
+	function getTypeCheck (s, spc)
+	{
+		var i;
+	
+		for(i=0; i< s.length; i++) 
+		{
+			if (spc.indexOf(s.substring(i, i+1)) < 0) 
+			{
+				return false;
+			}
+		}        
+		return true;
+	}
+	
+	
+	//날짜format - getDateFormat('20040605121212' , 'xxxx-xx-xx [xx:xx:xx]');
+	function getDateFormat(date , type)
+	{
+		var ck;
+		var rtstr = "";
+		var j = 0;
+		for(var i = 0; i < type.length; i++) 
+		{
+			if(type.substring(i,i+1) == 'x')
+			{
+				rtstr += date.substring(j,j+1);
+			}
+			else {
+				j--;
+				rtstr += type.substring(i,i+1);
+			}
+			j++;
+		}
+		document.write(rtstr);	
+	}
+	//단어 필터링
+	function CheckWords(words)
+	{
+	
+		if(words.length < 1) return '';
+	
+		var BadWordSet = frames.WordFilterFrame.document.body.innerHTML;
+		var BadWordArr = BadWordSet.split(',');	
+		var BadWordNum = BadWordArr.length;
+	
+		for (var i = 0; i < BadWordNum; i++)
+		{
+			if(words.indexOf(BadWordArr[i]) != -1) return BadWordArr[i];
+		}
+		return '';
+	}
+	//페이징처리
+	function getPageLink1(lnum,p,tpage,imgpath)
+	{
+		var g_p1 = "<IMG src='"+imgpath+"/prev1.gif' border='0' ALIGN=ABSMIDDLE>";
+		var g_p2 = "<IMG src='"+imgpath+"/prev2.gif' border='0' ALIGN=ABSMIDDLE>";
+		var g_n1 = "<IMG src='"+imgpath+"/next1.gif' border='0' ALIGN=ABSMIDDLE>";
+		var g_n2 = "<IMG src='"+imgpath+"/next2.gif' border='0' ALIGN=ABSMIDDLE>";
+		var g_cn = "<IMG src='"+imgpath+"/cutln.gif' border='0' ALIGN=ABSMIDDLE>";
+		var g_q  = "";
+	
+		if(p < lnum+1) { g_q += g_p1; }
+		else{ var pp = parseInt((p-1)/lnum)*lnum; g_q += "<A HREF='javascript:getPageGo1("+pp+");'>"+g_p2+"</A>";} g_q += g_cn;
+	
+		var st1 = parseInt((p-1)/lnum)*lnum + 1;
+		var st2 = st1 + lnum;
+	
+		for(var jn = st1; jn < st2; jn++)
+		if ( jn <= tpage)
+		(jn == p)? g_q += "<FONT COLOR=RED>"+jn+"</FONT>"+g_cn : g_q += "<A HREF='javascript:getPageGo1("+jn+");'>"+jn+"</A>"+g_cn;
+	
+		if(tpage < lnum || tpage < jn) { g_q += g_n1; }
+		else{var np = jn; g_q += "<A HREF='javascript:getPageGo1("+np+");'>"+g_n2+"</A>"; }
+		
+		document.write(g_q);
+	}
+	//페이지클릭
+	function getPageGo1(n)
+	{ 
+		var p   = getUriString1('p');
+		var que = location.href.replace('&p='+p,'');
+			que = que.indexOf('?') != -1 ? que : que + '?';
+	
+		location.href= que + '&p=' + n; 
+	}
+	
+	//파라미터값
+	function getUriString1(param)
+	{
+		var QuerySplit = location.href.split('?');
+		var ResultQuer = QuerySplit[1] ? QuerySplit[1].split('&') : '';
+	
+		for (var i = 0; i < ResultQuer.length; i++)
+		{
+			var keyval = ResultQuer[i].split('=');
+			if (param == keyval[0]) return keyval[1];
+		}
+		return "";
+	}
+	function outCheck() 
+	{ 
+		if (!confirm('정말로 탈퇴하시겠습니까?\n\n[확인]을 클릭하면 재확인 없이 탈퇴처리됩니다.       '))
+		{
+			return false; 
+		}
+	}
+
+/******************************************
+	user
+******************************************/
+function getMemberWin(que)
+	{
+		window.open(root_path+'/lib/module/member/member.php?xsite='+xsite+'&id=' + que,'','left=0,top=0,width=500,height=380,status=yes,scrollbars=no');
+	}
+	
+	var klayer_flag=0;
+	var XwebUserName;
+	var XwebUserUrl;
+	var XwebUserId;
+	var XwebMyId;
+	
+	//루트 레이어생성
+	function getRootLayer(table,e)
+	{
+		
+		var T = "";
+		var L = document.getElementById('UserIdLayer');
+		var x = (e.pageX) ? e.pageX : document.body.scrollLeft+event.clientX;
+		var y = (e.pageY) ? e.pageY : document.body.scrollTop+event.clientY;
+	
+		klayer_flag  = 1;
+		XwebUserName = '관리자';
+		XwebUserId   = 'root';
+	
+		T += "<TABLE ID='UserIdTable' BGCOLOR='#C0C0C0' WIDTH=120 CELLSPACING=1 CELLPADDING=0><TR><TD>";
+		T += "<TABLE BGCOLOR='#EFEFEF' WIDTH=100% CELLSPACING=0 CELLPADDING=3 STYLE='cursor:default;'>";
+		T += "<TR onclick=getRootQue('mail'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD>⊙ 메일 보내기</TD></TR>";
+		T += "<TR onclick=getRootQue('msg'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD>⊙ 쪽지 보내기</TD></TR>";
+		if (table ) T += "<TR onclick=getRootQue('search'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD>⊙ 등록글 검색</TD></TR>";
+		T += "</TABLE></TD></TR></TABLE>";
+		T += "<INPUT ID='UserTableFocusField' onBlur='getUserIdLayerBlur();' STYLE='left:-100,top:0;width:0;height:0;border:0;'>";
+	
+		L.innerHTML = T;
+	
+		L.style.top     = y;
+		L.style.left    = x + 10;
+		L.style.display = 'block';
+		document.getElementById('UserTableFocusField').focus();
+	}
+	
+	//Writer 레이어생성
+	function getUserIdLayer(user_name,user_id,home_url,friend_type,table,myid,e)
+	{
+		
+		var T = "";
+		var L = document.getElementById('UserIdLayer');
+		var x = (e.pageX) ? e.pageX : document.body.scrollLeft+event.clientX;
+		var y = (e.pageY) ? e.pageY : document.body.scrollTop+event.clientY;
+		
+		klayer_flag  = 1;
+		XwebUserName = user_name
+		XwebUserUrl  = home_url;
+		XwebUserId   = user_id;
+		XwebMyId	 = myid;
+	
+		T += "<iframe name='xwebidlayerframe' width=0 height=0 frameborder=0 scrolling=0></iframe>";
+		T += "<TABLE ID='UserIdTable' BGCOLOR='#C0C0C0' WIDTH=120 CELLSPACING=1 CELLPADDING=0><TR><TD>";
+		T += "<table bgcolor='#efefef' width=100% cellspacing=0 cellpadding=3 style='cursor:default;'>";
+	
+		T += "<TR onclick=getIdQueToMember('info'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD>⊙ 사용자 정보</TD></TR>";
+		T += "<TR onclick=getIdQueToMember('mail'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD>⊙ 메일 보내기</TD></TR>";
+		T += "<TR onclick=getIdQueToMember('msg'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD>⊙ 쪽지 보내기</TD></TR>";
+		if (home_url != '') T += "<TR onclick=getIdQueToMember('home'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD>⊙ 홈페이지 방문</TD></TR>";
+		if (friend_type != 'me')
+		{
+		if(friend_type == '') T += "<TR onclick=getIdQueToMember('friend_Y'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD>⊙ 친구로 등록</TD></TR>";
+		if(friend_type == 'friend') T += "<TR onclick=getIdQueToMember('friend_N'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD>⊙ 친구에서 제외</TD></TR>";
+		if(friend_type == '') T += "<TR onclick=getIdQueToMember('black_Y'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD>⊙ 블랙맨 등록</TD></TR>";
+		if(friend_type == 'black') T += "<TR onclick=getIdQueToMember('black_N'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD>⊙ 블팩맨에서 제외</TD></TR>";	
+		}
+	//	if(table   ) T += "<TR onclick=getIdQueToMember('search'); onmouseover='getIdTrOver(this)' onmouseout='getIdTrOut(this)'><TD>⊙ 등록글 검색</TD></TR>";
+	
+		T += "</table></td></tr></table>";
+		T += "<input id='UserTableFocusField' onBlur='getUserIdLayerBlur();' STYLE='left:-100px,top:0;width:0;height:0;border:0;'>";
+	
+		L.innerHTML = T;
+		
+		L.style.top     = y + "px";
+		L.style.left    = x + 10 + "px";
+		L.style.display = 'block';
+		document.getElementById('UserTableFocusField').focus();
+	}
+	function getRootQue(que)
+	{
+		switch (que)
+		{
+			case 'mail' : 
+				getUserPaperWin('','mail');
+			break;
+	
+			case 'msg' : 
+				getUserPaperWin('','send');
+			break;
+	
+			case 'search' :
+			
+			break;
+		}
+	}
+	//요청
+	function getIdQueToMember(que)
+	{
+		switch (que)
+		{
+			case 'info' :
+				getUserInfoWin(XwebUserId,'main');
+			break;
+			case 'mail' :
+				getUserPaperWin(XwebUserId,'mail');
+			break;	
+			case 'msg' :
+				getUserPaperWin(XwebUserId,'send');
+			break;
+			case 'home' :
+				if(XwebUserUrl != '') window.open(XwebUserUrl);
+				else alert('홈페이지가 등록되어 있지 않습니다.      ');
+			break;
+			case 'friend_Y' :
+				if (!confirm('정말로 친구로 등록하시겠습니까?      '))
+				{
+					return false;
+				}
+				getUserAction(XwebUserId,'friend_in','friend');
+			break;
+			case 'black_Y' :
+				if (!confirm('정말로 블랙리스트에 등록하시겠습니까?      '))
+				{
+					return false;
+				}
+				getUserAction(XwebUserId,'friend_in','black');
+			break;
+			case 'friend_N' :
+				if (!confirm('정말로 친구에서 제외하시겠습니까?      '))
+				{
+					return false;
+				}
+				getUserAction(XwebUserId,'friend_out','friend');
+			break;
+			case 'black_N' :
+				if (!confirm('정말로 블랙리스트에서 제외하시겠습니까?      '))
+				{
+					return false;
+				}
+				getUserAction(XwebUserId,'friend_out','black');
+			break;
+			case 'search' :
+				if (XwebUserId != '')
+				{
+					document.DataForm.where.value    = 'BB_MB_ID';
+					document.DataForm.keyword.value  = XwebUserId;
+				}
+				else {
+					document.DataForm.where.value    = 'BB_NAME';
+					document.DataForm.keyword.value  = XwebUserName;
+				}
+				location.href = getThisUrl();
+			break;
+		}
+	}
+	
+	//마우스오버
+	function getIdTrOver(obj)
+	{
+		obj.style.background = '#FA5F02';
+		obj.style.color = '#ffffff';
+	}
+	
+	//마우스아웃
+	function getIdTrOut(obj)
+	{
+		obj.style.background = '#EFEFEF';
+		obj.style.color = '#000000';
+	}
+	
+	//BlurAct
+	function getUserIdLayerBlur()
+	{
+		klayer_flag  = 0;
+		setTimeout("getUserIdLayerBlurQ(document.getElementById('UserIdTable'))" , 150);
+	}
+	//BlurQue
+	function  getUserIdLayerBlurQ(obj)
+	{
+		if (klayer_flag) return false;
+		document.getElementById('UserIdLayer').innerHTML = "";
+	
+		klayer_flag  = 0;
+		XwebUserName = ''
+		XwebUserUrl  = '';
+		XwebUserId   = '';
+		XwebMyId     = '';
+	
+		obj.style.left = 0;
+		obj.style.top  = 0;
+		obj.style.display = 'none';
+	}
+	
+	function getUserInfoWin(hisid,query)
+	{
+		window.open(root_path+'/lib/module/member/member.php?xsite='+xsite+'&query='+query+'&id='+hisid , 'userwin' , 'left=0,top=0,width=480,height=455');
+	}
+	function getUserPaperWin(hisid,query)
+	{
+		window.open(root_path+'/lib/module/paper/paper.php?xsite='+xsite+'&query='+query+'&id='+hisid,'msgwin','left=0,top=0,width=435,height=310');
+	}
+	function getUserAction(hisid,action,type)
+	{
+		frames.xwebidlayerframe.location.href = root_path+'/lib/module/member/member.php?xsite='+xsite+'&action='+action+'&id='+hisid+'&type='+type+'&stop=1';
+		setTimeout("location.reload();" , 100);
+	}
+	function getMailWin(name,email)
+	{
+		if(name == "undefined") { name = "";}
+		if(email == "undefined") { email = "";}
+		window.open(root_path+'/lib/module/mailer/mailer.php?name='+name+'&email='+email,'mailwin','left=0,top=0,width=435,height=450');
+	}
+
+
+/******************************************
+	select
+******************************************/
+
+	//SELECT -> LAYER변환
+	function getSelectToLayer(obj,lwidth,href)
+	{
+	    if(navigator.userAgent.indexOf('Opera') != -1 || navigator.userAgent.indexOf('MSIE') == -1) { return false; }
+	
+		obj.style.display = 'none';
+		var newsb = obj.id + "_sbj";
+		var newid = obj.id + "_tmp";
+		var newim = obj.id + "_img";
+		var LayerTag = "";
+	
+		LayerTag += "<TABLE WIDTH='"+lwidth+"' CELLSPACING=0 CELLPADDING=0 STYLE='position:absolute;cursor:default;'>";
+		LayerTag += "<TR HEIGHT=1><TD></TD></TR><TR><TD>";
+		LayerTag += "<TABLE BGCOLOR='#FFFFFF' HEIGHT=15 WIDTH=100% CELLSPACING=1 CELLPADDING=0 STYLE='border:1 solid #C0C0C0;line-height:117%;' onmouseover=\"getSelectLayerOver(this,document.getElementById('"+newim+"'),document.getElementById('"+newid+"'));\" onmouseout=\"getSelectLayerOut(this,document.getElementById('"+newim+"'),document.getElementById('"+newid+"'));\">";
+		
+		LayerTag += "<TR WIDTH=100% onclick=\"getSelectSubLayer(document.getElementById('"+newid+"'),document.getElementById('"+newsb+"'));\">";
+		LayerTag += "<TD ID='"+newsb+"' WIDTH=95% onblur='getSelectLayerBlur(this);'>&nbsp;" + obj.options[obj.selectedIndex].text + "</TD>";
+		LayerTag += "<TD ALIGN=RIGHT><IMG ID='"+newim+"' SRC='./image/ico/dot_select.gif' ALIGN=absmiddle STYLE='filter:gray();'></TD></TR>";
+		
+		LayerTag += "</TABLE>";
+	
+		LayerTag += "<TABLE onblur='getSubLayerClose(this);' ID='"+newid+"' WIDTH=100% CELLSPACING=0 CELLPADDING=0 STYLE='display:none;border:1 solid #C0C0C0;' BGCOLOR='#FFFFFF'>";
+		for (var i = 0 ; i < obj.length; i++)
+		{
+			LayerTag += "<TR onmouseover='getSelectMoveLayer(this);' onmouseout='getSelectMoveLayer1(this);' onclick=\"getSelectChangeLayer(document.getElementById('"+obj.id+"'),document.getElementById('"+newid+"'),document.getElementById('"+newsb+"'),'"+obj.options[i].text+"','"+obj.options[i].value+"','"+href+"');\" ";
+	
+			if (obj.value == obj.options[i].value)
+			{
+				LayerTag += "STYLE='background:#225588;color:#FFFFFF;'><TD>&nbsp;";
+			}
+			else {
+				LayerTag += "STYLE='background:#FFFFFF;color:#000000;'><TD>&nbsp;";
+			}
+	
+			LayerTag += obj.options[i].text;
+			LayerTag += "</TD></TR>";
+		}
+		LayerTag += "</TABLE>";
+		LayerTag += "</TD></TR></TABLE><IMG SRC='' WIDTH='"+lwidth+"' HEIGHT=0>";
+	
+		document.write(LayerTag);
+	}
+	
+	//서브레이어보이기
+	function getSelectSubLayer(obj,sobj)
+	{
+		if(obj.style.display == 'none')
+		{
+			sobj.style.background = '#FFFFFF';
+			sobj.style.color = '#000000';	
+			obj.style.display = 'block';
+			NowSelectedLayer = obj;
+			obj.focus();
+		}
+		else {
+			sobj.style.background = '#225588';
+			sobj.style.color = '#FFFFFF';
+			obj.style.display = 'none';
+		}
+	}
+	
+	//서브레이어체크
+	function getSelectSubLayer1(obj)
+	{
+		if(obj.style.display != 'none')
+		{
+			obj.style.display = 'none';
+		}
+	}
+	
+	//타이틀레이어 MouseOver
+	function getSelectLayerOver(obj,img,nobj)
+	{
+		if (nobj.style.display == 'none')
+		{
+			obj.style.border = '1 solid #225588';
+			img.style.filter = '';
+		}
+	}
+	
+	//타이틀레이어 MouseOut
+	function getSelectLayerOut(obj,img)
+	{
+		obj.style.border = '1 solid #C0C0C0';
+		img.style.filter = 'gray()';
+	}
+	
+	
+	//서브레이어 MouseOver
+	function getSelectMoveLayer(obj)
+	{
+		if (obj.style.color == '#000000')
+		{
+			obj.style.background = '#225588';
+			obj.style.color = '#FFFFFF';
+		}
+	}
+	//서브레이어 MouseOut
+	function getSelectMoveLayer1(obj)
+	{
+		obj.style.background = '#FFFFFF';
+		obj.style.color = '#000000';
+	}
+	
+	//새레이어선택
+	function getSelectChangeLayer(obj,fobj,sobj,text,value,href)
+	{
+		if (href)
+		{
+			eval("document.DataForm." + href).value = value;
+			location.href = getThisUrl();
+			return false;
+		}
+		else {
+			fobj.style.display = 'none';
+			sobj.innerHTML = '&nbsp;' + text;
+			sobj.style.background = '#225588';
+			sobj.style.color = '#FFFFFF';
+			sobj.focus();
+			obj.value = value;
+		}
+		/*
+		if (href)
+		{
+			if (href.indexOf('submit()') != -1)
+			{
+				eval(href);
+			}
+			else {
+				location.href = href + value;
+			}
+			return false;
+		}
+		*/
+	}
+	
+	//타이틀레이어 blur
+	function getSelectLayerBlur(obj)
+	{
+		obj.style.background = '#FFFFFF';
+		obj.style.color = '#000000';
+	}
+	
+	//서브레이어 닫기
+	function getSubLayerClose(obj)
+	{
+		if (obj.style.display != 'none')
+		{
+			setTimeout("document.getElementById('" + obj.id + "').style.display = 'none';" , 150);
+		}
+	}
+	

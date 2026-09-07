@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<title>KNU site move</title>
+		<script language="JavaScript">
+			var str_url = window.location.hostname; 
+			if ( str_url == "new.gwnu.ac.kr") {
+				location.href="https://new.gwnu.ac.kr/sites/kr/index.do";								//임시 정보화본부
+			} else if ( str_url == "new.kangwon.ac.kr") {
+				location.href="https://new.kangwon.ac.kr/sites/kr/index.do";
+			} else if ( str_url == "cc.gwnu.ac.kr") {
+				location.href="https://cc.gwnu.ac.kr/sites/cc/index.do";								//정보화본부
+			} else if ( str_url == "oits.kangwon.ac.kr") {
+				location.href="https://oits.kangwon.ac.kr/sites/cc/index.do";							// 강원대 도메인 정보화본부
+			} else if ( str_url == "gwnucs.gwnu.ac.kr") {
+				location.href="https://gwnucs.gwnu.ac.kr/sites/gwnucs/index.do";							//컴퓨터공학과
+			} else if ( str_url == "gwnucs.kangwon.ac.kr") {
+				location.href="https://gwnucs.kangwon.ac.kr/sites/gwnucs/index.do";
+			} else if ( str_url == "naturetech.gwnu.ac.kr") {
+				location.href="https://naturetech.gwnu.ac.kr/sites/naturetech/index.do";							//자연기술센터
+			} else if ( str_url == "naturetech.kangwon.ac.kr") {
+				location.href="https://naturetech.kangwon.ac.kr/sites/naturetech/index.do";
+			} else if ( str_url == "ece.gwnu.ac.kr") {
+				location.href="https://ece.gwnu.ac.kr/sites/ece/index.do";								//유아교육과
+			} else if ( str_url == "ece.kangwon.ac.kr") {
+				location.href="https://ece.kangwon.ac.kr/sites/ece/index.do";
+			} else if ( str_url == "dentistry.gwnu.ac.kr") {
+				location.href="https://dentistry.gwnu.ac.kr/sites/dentistry/index.do";					//치의예과/치의학과
+			} else if ( str_url == "dentistry.kangwon.ac.kr") {
+				location.href="https://dentistry.kangwon.ac.kr/sites/dentistry/index.do";
+			} else if ( str_url == "pe.gwnu.ac.kr") {
+				location.href="https://pe.gwnu.ac.kr/sites/pe/index.do";									//체육학과
+			} else if ( str_url == "pe.kangwon.ac.kr") {
+				location.href="https://pe.kangwon.ac.kr/sites/pe/index.do";
+			} else if ( str_url == "ee.gwnu.ac.kr") {
+				location.href="https://ee.gwnu.ac.kr/sites/ee/index.do";									//전자공학과
+			} else if ( str_url == "ese.kangwon.ac.kr") {
+				location.href="https://ese.kangwon.ac.kr/sites/ee/index.do";
+			} else if ( str_url == "mfb.gwnu.ac.kr") {
+				location.href="https://mfb.gwnu.ac.kr/sites/mfb/index.do";								//해양바이오식품학과(신규)
+			} else if ( str_url == "mfb.kangwon.ac.kr") {
+				location.href="https://mfb.kangwon.ac.kr/sites/mfb/index.do";
+			} else if ( str_url == "mf.gwnu.ac.kr") {
+				location.href="https://mf.gwnu.ac.kr/sites/mf/index.do";									//해양바이오식품학과 해양바이오전공
+			} else if ( str_url == "mf.kangwon.ac.kr") {
+				location.href="https://mf.kangwon.ac.kr/sites/mf/index.do";
+			} else if ( str_url == "fpd.gwnu.ac.kr") {
+				location.href="https://fpd.gwnu.ac.kr/sites/fpd/index.do";								//해양바이오식품학과 해양식품융합전공
+			} else if ( str_url == "fpd.kangwon.ac.kr") {
+				location.href="https://fpd.kangwon.ac.kr/sites/fpd/index.do";
+			} else if ( str_url == "stat.gwnu.ac.kr") {
+				location.href="https://stat.gwnu.ac.kr/sites/stat/index.do";								//정보통계학과
+			} else if ( str_url == "stat.kangwon.ac.kr") {
+				location.href="https://stat.kangwon.ac.kr/sites/stat/index.do";
+			} else if ( str_url == "tourism.gwnu.ac.kr") {
+				location.href="https://tourism.gwnu.ac.kr/sites/tourism/index.do";						//관광경영학과
+			} else if ( str_url == "tourism-mgt.kangwon.ac.kr") {
+				location.href="https://tourism-mgt.kangwon.ac.kr/sites/tourism/index.do";
+			} else if ( str_url == "gukmun.gwnu.ac.kr") {
+				location.href="https://gukmun.gwnu.ac.kr/sites/gukmun/index.do";							//국어국문학과
+			} else if ( str_url == "gukmun.kangwon.ac.kr") {
+				location.href="https://gukmun.kangwon.ac.kr/sites/gukmun/index.do";
+			} else if ( str_url == "scitech.gwnu.ac.kr") {
+				location.href="https://scitech.gwnu.ac.kr/sites/scitech/index.do";						//과학기술대학
+			} else if ( str_url == "scitech.kangwon.ac.kr") {
+				location.href="https://scitech.kangwon.ac.kr/sites/scitech/index.do";
+			} else if ( str_url == "healthwelfare.gwnu.ac.kr") {
+				location.href="https://healthwelfare.gwnu.ac.kr/sites/healthwelfare/index.do";			//보건복지대학
+			} else if ( str_url == "healthwelfare.kangwon.ac.kr") {
+				location.href="https://healthwelfare.kangwon.ac.kr/sites/healthwelfare/index.do";
+			} else if ( str_url == "dnt.gwnu.ac.kr") {
+				location.href="https://dnt.gwnu.ac.kr/sites/dnt/index.do";								//치과대학
+			} else if ( str_url == "dnt.kangwon.ac.kr") {
+				location.href="https://dnt.kangwon.ac.kr/sites/dnt/index.do";
+			} else if ( str_url == "art.gwnu.ac.kr") {
+				location.href="https://art.gwnu.ac.kr/sites/art/index.do";								//예술체육대학
+			} else if ( str_url == "art-gw.kangwon.ac.kr") {
+				location.href="https://art-gw.kangwon.ac.kr/sites/art/index.do";
+			} else if ( str_url == "eng.gwnu.ac.kr") {
+				location.href="https://eng.gwnu.ac.kr/sites/eng/index.do";								//공과대학
+			} else if ( str_url == "eng-gw.kangwon.ac.kr") {
+				location.href="https://eng-gw.kangwon.ac.kr/sites/eng/index.do";
+			} else if ( str_url == "lifescience.gwnu.ac.kr") {
+				location.href="https://lifescience.gwnu.ac.kr/sites/lifescience/index.do";				//생명과학대학
+			} else if ( str_url == "lifescience.kangwon.ac.kr") {
+				location.href="https://lifescience.kangwon.ac.kr/sites/lifescience/index.do";
+			} else if ( str_url == "naturalsci.gwnu.ac.kr") {
+				location.href="https://naturalsci.gwnu.ac.kr/sites/naturalsci/index.do";					//자연과학대학
+			} else if ( str_url == "naturalsci.kangwon.ac.kr") {
+				location.href="https://naturalsci.kangwon.ac.kr/sites/naturalsci/index.do";
+			} else if ( str_url == "nussc.gwnu.ac.kr") {
+				location.href="https://nussc.gwnu.ac.kr/sites/nussc/index.do";							//사회과학대학
+			} else if ( str_url == "nussc.kangwon.ac.kr") {
+				location.href="https://nussc.kangwon.ac.kr/sites/nussc/index.do";
+			} else if ( str_url == "human.gwnu.ac.kr") {
+				location.href="https://human.gwnu.ac.kr/sites/human/index.do";							//인문대학
+			} else if ( str_url == "human.kangwon.ac.kr") {
+				location.href="https://human.kangwon.ac.kr/sites/human/index.do";
+			} else if ( str_url == "aquamed.gwnu.ac.kr") {
+				location.href="https://aquamed.gwnu.ac.kr/sites/aquamed/index.do";						//수산생명의학과
+			} else if ( str_url == "aquamed.kangwon.ac.kr") {
+				location.href="https://aquamed.kangwon.ac.kr/sites/aquamed/index.do";
+			} else if ( str_url == "ind.gwnu.ac.kr") {
+				location.href="https://ind.gwnu.ac.kr/sites/ind/index.do";								//산업대학원
+			} else if ( str_url == "ind.kangwon.ac.kr") {
+				location.href="https://ind.kangwon.ac.kr/sites/ind/index.do";
+			} else if ( str_url == "gse.gwnu.ac.kr") {
+				location.href="https://gse.gwnu.ac.kr/sites/gse/index.do";								//교육대학원
+			} else if ( str_url == "gse.kangwon.ac.kr") {
+				location.href="https://gse.kangwon.ac.kr/sites/gse/index.do";
+			} else if ( str_url == "mps.gwnu.ac.kr") {
+				location.href="https://mps.gwnu.ac.kr/sites/mps/index.do";								//경영정책과학대학원
+			} else if ( str_url == "mps.kangwon.ac.kr") {
+				location.href="https://mps.kangwon.ac.kr/sites/mps/index.do";
+			} else if ( str_url == "gradeng.gwnu.ac.kr") {
+				location.href="https://gradeng.gwnu.ac.kr/sites/gradeng/index.do";						//일반대학원 영어
+			} else if ( str_url == "gradeng.kangwon.ac.kr") {
+				location.href="https://gradeng.kangwon.ac.kr/sites/gradeng/index.do";
+			} else if ( str_url == "grad.gwnu.ac.kr") {
+				location.href="https://grad.gwnu.ac.kr/sites/grad/index.do";								//일반대학원
+			} else if ( str_url == "gradgn.kangwon.ac.kr") {
+				location.href="https://gradgn.kangwon.ac.kr/sites/grad/index.do";
+			} else if ( str_url == "bce.gwnu.ac.kr") {
+				location.href="https://bce.gwnu.ac.kr/sites/bce/index.do";								//의료기기융복합학과
+			} else if ( str_url == "bce.kangwon.ac.kr") {
+				location.href="https://bce.kangwon.ac.kr/sites/bce/index.do";
+			} else if ( str_url == "wellness.gwnu.ac.kr") {
+				location.href="https://wellness.gwnu.ac.kr/sites/wellness/index.do";						//웰니스바이오산업학과
+			} else if ( str_url == "wellness.kangwon.ac.kr") {
+				location.href="https://wellness.kangwon.ac.kr/sites/wellness/index.do";
+			} else if ( str_url == "ie.gwnu.ac.kr") {
+				location.href="https://ie.gwnu.ac.kr/sites/ie/index.do";									//산업경영공학과
+			} else if ( str_url == "iems.kangwon.ac.kr") {
+				location.href="https://iems.kangwon.ac.kr/sites/ie/index.do";
+			} else if ( str_url == "ice.gwnu.ac.kr") {
+				location.href="https://ice.gwnu.ac.kr/sites/ice/index.do";								//정보통신공학과
+			} else if ( str_url == "ice.kangwon.ac.kr") {
+				location.href="https://ice.kangwon.ac.kr/sites/ice/index.do";
+			} else if ( str_url == "electhome.gwnu.ac.kr") {
+				location.href="https://electhome.gwnu.ac.kr/sites/electhome/index.do";					//전기공학과
+			} else if ( str_url == "electhome.kangwon.ac.kr") {
+				location.href="https://electhome.kangwon.ac.kr/sites/electhome/index.do";
+			} else if ( str_url == "auto.gwnu.ac.kr") {
+				location.href="https://auto.gwnu.ac.kr/sites/auto/index.do";								//자동차공학과
+			} else if ( str_url == "auto.kangwon.ac.kr") {
+				location.href="https://auto.kangwon.ac.kr/sites/auto/index.do";
+			} else if ( str_url == "me.gwnu.ac.kr") {
+				location.href="https://me.gwnu.ac.kr/sites/me/index.do";									//기계공학과
+			} else if ( str_url == "mce.kangwon.ac.kr") {
+				location.href="https://mce.kangwon.ac.kr/sites/me/index.do";
+			} else if ( str_url == "mcs.gwnu.ac.kr") {
+				location.href="https://mcs.gwnu.ac.kr/sites/mcs/index.do";								//멀티미디어공학과
+			} else if ( str_url == "mcs.kangwon.ac.kr") {
+				location.href="https://mcs.kangwon.ac.kr/sites/mcs/index.do";
+			} else if ( str_url == "multiculture.gwnu.ac.kr") {
+				location.href="https://multiculture.gwnu.ac.kr/sites/multiculture/index.do";				//다문화학과
+			} else if ( str_url == "multiculture.kangwon.ac.kr") {
+				location.href="https://multiculture.kangwon.ac.kr/sites/multiculture/index.do";
+			} else if ( str_url == "welfare.gwnu.ac.kr") {
+				location.href="https://welfare.gwnu.ac.kr/sites/welfare/index.do";						//사회복지학과
+			} else if ( str_url == "welfare.kangwon.ac.kr") {
+				location.href="https://welfare.kangwon.ac.kr/sites/welfare/index.do";
+			} else if ( str_url == "nursing.gwnu.ac.kr") {
+				location.href="https://nursing.gwnu.ac.kr/sites/nursing/index.do";						//간호학과
+			} else if ( str_url == "nursing-gw.kangwon.ac.kr") {
+				location.href="https://nursing-gw.kangwon.ac.kr/sites/nursing/index.do";
+			} else if ( str_url == "dh.gwnu.ac.kr") {
+				location.href="https://dh.gwnu.ac.kr/sites/dh/index.do";									//치위생학과
+			} else if ( str_url == "dh.kangwon.ac.kr") {
+				location.href="https://dh.kangwon.ac.kr/sites/dh/index.do";
+			} else if ( str_url == "fdesign.gwnu.ac.kr") {
+				location.href="https://fdesign.gwnu.ac.kr/sites/fdesign/index.do";						//패션디자인학과
+			} else if ( str_url == "fdesign.kangwon.ac.kr") {
+				location.href="https://fdesign.kangwon.ac.kr/sites/fdesign/index.do";
+			} else if ( str_url == "music.gwnu.ac.kr") {
+				location.href="https://music.gwnu.ac.kr/sites/music/index.do";							//음악학과
+			} else if ( str_url == "music-gw.kangwon.ac.kr") {
+				location.href="https://music-gw.kangwon.ac.kr/sites/music/index.do";
+			} else if ( str_url == "icd.gwnu.ac.kr") {
+				location.href="https://icd.gwnu.ac.kr/sites/icd/index.do";								//조형예술·디자인학과
+			} else if ( str_url == "icd.kangwon.ac.kr") {
+				location.href="https://icd.kangwon.ac.kr/sites/icd/index.do";
+			} else if ( str_url == "fineart.gwnu.ac.kr") {
+				location.href="https://fineart.gwnu.ac.kr/sites/fineart/index.do";						//조형예술·디자인학과(미술전공)
+			} else if ( str_url == "fineart.kangwon.ac.kr") {
+				location.href="https://fineart.kangwon.ac.kr/sites/fineart/index.do";
+			} else if ( str_url == "biochemeng.gwnu.ac.kr") {
+				location.href="https://biochemeng.gwnu.ac.kr/sites/biochemeng/index.do";					//생명화학공학과
+			} else if ( str_url == "biochemeng.kangwon.ac.kr") {
+				location.href="https://biochemeng.kangwon.ac.kr/sites/biochemeng/index.do";
+			} else if ( str_url == "civil.gwnu.ac.kr") {
+				location.href="https://civil.gwnu.ac.kr/sites/civil/index.do";							//건설환경공학과
+			} else if ( str_url == "civil-gw.kangwon.ac.kr") {
+				location.href="https://civil-gw.kangwon.ac.kr/sites/civil/index.do";
+			} else if ( str_url == "mme.gwnu.ac.kr") {
+				location.href="https://mme.gwnu.ac.kr/sites/mme/index.do";								//신소재금속공학과
+			} else if ( str_url == "mme.kangwon.ac.kr") {
+				location.href="https://mme.kangwon.ac.kr/sites/mme/index.do";
+			} else if ( str_url == "ceramic.gwnu.ac.kr") {
+				location.href="https://ceramic.gwnu.ac.kr/sites/ceramic/index.do";						//세라믹신소재공학과
+			} else if ( str_url == "ceramic.kangwon.ac.kr") {
+				location.href="https://ceramic.kangwon.ac.kr/sites/ceramic/index.do";
+			} else if ( str_url == "ceramic2.gwnu.ac.kr") {
+				location.href="https://ceramic2.gwnu.ac.kr/sites/ceramic2/index.do";						//세라믹신소재공학과2
+			} else if ( str_url == "ceramic2.kangwon.ac.kr") {
+				location.href="https://ceramic2.kangwon.ac.kr/sites/ceramic2/index.do";
+			} else if ( str_url == "ela.gwnu.ac.kr") {
+				location.href="https://ela.gwnu.ac.kr/sites/ela/index.do";								//환경조경학과
+			} else if ( str_url == "ela.kangwon.ac.kr") {
+				location.href="https://ela.kangwon.ac.kr/sites/ela/index.do";
+			} else if ( str_url == "plant88.gwnu.ac.kr") {
+				location.href="https://plant88.gwnu.ac.kr/sites/plant88/index.do";						//식물생명과학과
+			} else if ( str_url == "plant88.kangwon.ac.kr") {
+				location.href="https://plant88.kangwon.ac.kr/sites/plant88/index.do";
+			} else if ( str_url == "mb.gwnu.ac.kr") {
+				location.href="https://mb.gwnu.ac.kr/sites/mb/index.do";									//해양생명과학과
+			} else if ( str_url == "mb.kangwon.ac.kr") {
+				location.href="https://mb.kangwon.ac.kr/sites/mb/index.do";
+			} else if ( str_url == "marinebio.gwnu.ac.kr") {
+				location.href="https://marinebio.gwnu.ac.kr/sites/marinebio/index.do";					//수산생명의학과
+			} else if ( str_url == "marinebio.kangwon.ac.kr") {
+				location.href="https://marinebio.kangwon.ac.kr/sites/marinebio/index.do";
+			} else if ( str_url == "marine.gwnu.ac.kr") {
+				location.href="https://marine.gwnu.ac.kr/sites/marine/index.do";							//해양생태환경학과
+			} else if ( str_url == "marine.kangwon.ac.kr") {
+				location.href="https://marine.kangwon.ac.kr/sites/marine/index.do";
+			} else if ( str_url == "nutrition.gwnu.ac.kr") {
+				location.href="https://nutrition.gwnu.ac.kr/sites/nutrition/index.do";					//식품영양학과
+			} else if ( str_url == "nutrition.kangwon.ac.kr") {
+				location.href="https://nutrition.kangwon.ac.kr/sites/nutrition/index.do";
+			} else if ( str_url == "english.gwnu.ac.kr") {
+				location.href="https://english.gwnu.ac.kr/sites/english/index.do";						//영어영문학과
+			} else if ( str_url == "english-gw.kangwon.ac.kr") {
+				location.href="https://english-gw.kangwon.ac.kr/sites/english/index.do";
+			} else if ( str_url == "german.gwnu.ac.kr") {
+				location.href="https://german.gwnu.ac.kr/sites/german/index.do";							//독어독문학과
+			} else if ( str_url == "germangn.kangwon.ac.kr") {
+				location.href="https://germangn.kangwon.ac.kr/sites/german/index.do";
+			} else if ( str_url == "zhongwen.gwnu.ac.kr") {
+				location.href="https://zhongwen.gwnu.ac.kr/sites/zhongwen/index.do";						//중어중문학과
+			} else if ( str_url == "zhongwen.kangwon.ac.kr") {
+				location.href="https://zhongwen.kangwon.ac.kr/sites/zhongwen/index.do";
+			} else if ( str_url == "japan.gwnu.ac.kr") {
+				location.href="https://japan.gwnu.ac.kr/sites/japan/index.do";							//일본학과
+			} else if ( str_url == "japan-gw.kangwon.ac.kr") {
+				location.href="https://japan-gw.kangwon.ac.kr/sites/japan/index.do";
+			} else if ( str_url == "phil.gwnu.ac.kr") {
+				location.href="https://phil.gwnu.ac.kr/sites/phil/index.do";								//철학과
+			} else if ( str_url == "phil.kangwon.ac.kr") {
+				location.href="https://phil.kangwon.ac.kr/sites/phil/index.do";
+			} else if ( str_url == "history.gwnu.ac.kr") {
+				location.href="https://history.gwnu.ac.kr/sites/history/index.do";						//사학과
+			} else if ( str_url == "history-gw.kangwon.ac.kr") {
+				location.href="https://history-gw.kangwon.ac.kr/sites/history/index.do";
+			} else if ( str_url == "sahak.kangwon.ac.kr") {
+				location.href="https://sahak.kangwon.ac.kr/sites/history/index.do";
+			} else if ( str_url == "gwnuedu.gwnu.ac.kr") {
+				location.href="https://gwnuedu.gwnu.ac.kr/sites/gwnuedu/index.do";						//교직과정
+			} else if ( str_url == "gwnuedu.kangwon.ac.kr") {
+				location.href="https://gwnuedu.kangwon.ac.kr/sites/gwnuedu/index.do";
+			} else if ( str_url == "biz.gwnu.ac.kr") {
+				location.href="https://biz.gwnu.ac.kr/sites/biz/index.do";								//경영학과
+			} else if ( str_url == "kwbiz.kangwon.ac.kr") {
+				location.href="https://kwbiz.kangwon.ac.kr/sites/biz/index.do";
+			} else if ( str_url == "acc.gwnu.ac.kr") {
+				location.href="https://acc.gwnu.ac.kr/sites/acc/index.do";								//회계학과
+			} else if ( str_url == "acc.kangwon.ac.kr") {
+				location.href="https://acc.kangwon.ac.kr/sites/acc/index.do";
+			} else if ( str_url == "eco.gwnu.ac.kr") {
+				location.href="https://eco.gwnu.ac.kr/sites/eco/index.do";								//경제학과
+			} else if ( str_url == "eco.kangwon.ac.kr") {
+				location.href="https://eco.kangwon.ac.kr/sites/eco/index.do";
+			} else if ( str_url == "trade.gwnu.ac.kr") {
+				location.href="https://trade.gwnu.ac.kr/sites/trade/index.do";							//무역학과
+			} else if ( str_url == "trade.kangwon.ac.kr") {
+				location.href="https://trade.kangwon.ac.kr/sites/trade/index.do";
+			} else if ( str_url == "icas.gwnu.ac.kr") {
+				location.href="https://icas.gwnu.ac.kr/sites/icas/index.do";								//국제통상학과
+			} else if ( str_url == "icas.kangwon.ac.kr") {
+				location.href="https://icas.kangwon.ac.kr/sites/icas/index.do";
+			} else if ( str_url == "upre.gwnu.ac.kr") {
+				location.href="https://upre.gwnu.ac.kr/sites/upre/index.do";								//도시계획ㆍ부동산학과
+			} else if ( str_url == "upre.kangwon.ac.kr") {
+				location.href="https://upre.kangwon.ac.kr/sites/upre/index.do";
+			} else if ( str_url == "law.gwnu.ac.kr") {
+				location.href="https://law.gwnu.ac.kr/sites/law/index.do";								//법학과
+			} else if ( str_url == "law-gw.kangwon.ac.kr") {
+				location.href="https://law-gw.kangwon.ac.kr/sites/law/index.do";
+			} else if ( str_url == "law-policy.gwnu.ac.kr") {
+				location.href="https://law-policy.gwnu.ac.kr/sites/law-policy/index.do";				//법률정책학과
+			} else if ( str_url == "law-policy.kangwon.ac.kr") {
+				location.href="https://law-policy.kangwon.ac.kr/sites/law-policy/index.do";
+			} else if ( str_url == "knlga.gwnu.ac.kr") {
+				location.href="https://knlga.gwnu.ac.kr/sites/knlga/index.do";							// 자치행정학과
+			} else if ( str_url == "knlga.kangwon.ac.kr") {
+				location.href="https://knlga.kangwon.ac.kr/sites/knlga/index.do";
+			} else if ( str_url == "math.gwnu.ac.kr") {
+				location.href="https://math.gwnu.ac.kr/sites/math/index.do";								//수학물리학부 수학전공
+			} else if ( str_url == "mathgn.kangwon.ac.kr") {
+				location.href="https://mathgn.kangwon.ac.kr/sites/math/index.do";
+			} else if ( str_url == "physics.gwnu.ac.kr") {
+				location.href="https://physics.gwnu.ac.kr/sites/physics/index.do";						//수학물리학부 물리‧에너지전공
+			} else if ( str_url == "physics.kangwon.ac.kr") {
+				location.href="https://physics.kangwon.ac.kr/sites/physics/index.do";
+			} else if ( str_url == "bio.gwnu.ac.kr") {
+				location.href="https://bio.gwnu.ac.kr/sites/bio/index.do";								//생물학과
+			} else if ( str_url == "bio-science.kangwon.ac.kr") {
+				location.href="https://bio-science.kangwon.ac.kr/sites/bio/index.do";
+			} else if ( str_url == "atmos.gwnu.ac.kr") {
+				location.href="https://atmos.gwnu.ac.kr/sites/atmos/index.do";							//대기환경과학과
+			} else if ( str_url == "atmenv.kangwon.ac.kr") {
+				location.href="https://atmenv.kangwon.ac.kr/sites/atmos/index.do";
+			} else if ( str_url == "chemistry.gwnu.ac.kr") {
+				location.href="https://chemistry.gwnu.ac.kr/sites/chemistry/index.do";					//화학신소재학과
+			} else if ( str_url == "chemmat.kangwon.ac.kr") {
+				location.href="https://chemmat.kangwon.ac.kr/sites/chemistry/index.do";
+			} else if ( str_url == "iacg.gwnu.ac.kr") {
+				location.href="https://iacg.gwnu.ac.kr/sites/iacg/index.do";								//산학협력단
+			} else if ( str_url == "iacg.kangwon.ac.kr") {
+				location.href="https://iacg.kangwon.ac.kr/sites/iacg/index.do";
+			} else if ( str_url == "fund.gwnu.ac.kr") {
+				location.href="https://fund.gwnu.ac.kr/sites/fund/index.do";								//발전기금재단
+			} else if ( str_url == "knugfund.kangwon.ac.kr") {
+				location.href="https://knugfund.kangwon.ac.kr/sites/fund/index.do";
+			} else if ( str_url == "museum.gwnu.ac.kr") {
+				location.href="https://museum.gwnu.ac.kr/sites/museum/index.do";							//박물관
+			} else if ( str_url == "gcmuseum.kangwon.ac.kr") {
+				location.href="https://gcmuseum.kangwon.ac.kr/sites/museum/index.do";
+			} else if ( str_url == "oia.gwnu.ac.kr") {
+				//location.href="https://oia.gwnu.ac.kr/sites/oia/oia_intro/oia_intro.jsp";
+	                          location.href="https://global.kangwon.ac.kr";
+			} else if ( str_url == "oia.kangwon.ac.kr") {
+				//location.href="https://oia.kangwon.ac.kr/sites/oia/oia_intro/oia_intro.jsp";
+                                  location.href="https://global.kangwon.ac.kr";
+			} else if ( str_url == "oiaen.gwnu.ac.kr") {
+				//location.href="https://oiaen.gwnu.ac.kr/sites/oiaen/index.do";							//국제교류원 영어
+                                  location.href="https://global.kangwon.ac.kr";
+			} else if ( str_url == "oiaen.kangwon.ac.kr") {
+				//location.href="https://oiaen.kangwon.ac.kr/sites/oiaen/index.do";
+                                  location.href="https://global.kangwon.ac.kr";
+			} else if ( str_url == "oiach.gwnu.ac.kr") {
+				//location.href="https://oiach.gwnu.ac.kr/sites/oiach/index.do";							//국제교류원 중국어
+                                  location.href="https://global.kangwon.ac.kr";
+			} else if ( str_url == "oiach.kangwon.ac.kr") {
+				//location.href="https://oiach.kangwon.ac.kr/sites/oiach/index.do";
+                                  location.href="https://global.kangwon.ac.kr";
+			} else if ( str_url == "oiavn.gwnu.ac.kr") {
+				//location.href="https://oiavn.gwnu.ac.kr/sites/oiavn/index.do";							//국제교류원 베트남어
+                                  location.href="https://global.kangwon.ac.kr";
+			} else if ( str_url == "oiavn.kangwon.ac.kr") {
+				//location.href="https://oiavn.kangwon.ac.kr/sites/oiavn/index.do";
+                                  location.href="https://global.kangwon.ac.kr";
+			} else if ( str_url == "sports.gwnu.ac.kr") {
+				location.href="https://sports.gwnu.ac.kr/sites/sports/index.do";							//생활스포츠지도자 연수원
+			} else if ( str_url == "sports-gw.kangwon.ac.kr") {
+				location.href="https://sports-gw.kangwon.ac.kr/sites/sports/index.do";
+			} else if ( str_url == "jangae.gwnu.ac.kr") {
+				location.href="https://jangae.gwnu.ac.kr/sites/jangae/index.do";							//장애학생지원센터
+			} else if ( str_url == "jangae.kangwon.ac.kr") {
+				location.href="https://jangae.kangwon.ac.kr/sites/jangae/index.do";
+			} else if ( str_url == "supporter.gwnu.ac.kr") {
+				location.href="https://supporter.gwnu.ac.kr/sites/jangae/index.do";						//장애학생지원센터 추가 도메인
+			} else if ( str_url == "supporter.kangwon.ac.kr") {
+				location.href="https://supporter.kangwon.ac.kr/sites/jangae/index.do";
+			} else if ( str_url == "professorrecruit.gwnu.ac.kr") {
+				location.href="https://professorrecruit.gwnu.ac.kr/sites/professorrecruit/index.do";		//전임교원 신규채용
+			} else if ( str_url == "professorrecruit.kangwon.ac.kr") {
+				location.href="https://professorrecruit.kangwon.ac.kr/sites/professorrecruit/index.do";
+			} else if ( str_url == "evaluation.gwnu.ac.kr") {
+				location.href="https://evaluation.gwnu.ac.kr/sites/evaluation/index.do";					//자체평가
+			} else if ( str_url == "evaluation.kangwon.ac.kr") {
+				location.href="https://evaluation.kangwon.ac.kr/sites/evaluation/index.do";
+			} else if ( str_url == "pr.gwnu.ac.kr") {
+				location.href="https://pr.gwnu.ac.kr/sites/pr/index.do";									//홍보관
+			} else if ( str_url == "pr.kangwon.ac.kr") {
+				location.href="https://pr.kangwon.ac.kr/sites/pr/index.do";
+			} else if ( str_url == "pre.gwnu.ac.kr") {
+				location.href="https://pre.gwnu.ac.kr/sites/pre/index.do";								//학생상담센터
+			} else if ( str_url == "pre.kangwon.ac.kr") {
+				location.href="https://pre.kangwon.ac.kr/sites/pre/index.do";
+			} else if ( str_url == "incub.gwnu.ac.kr") {
+				location.href="https://incub.gwnu.ac.kr/sites/incub/index.do";							//창업지원본부
+			} else if ( str_url == "incub.kangwon.ac.kr") {
+				location.href="https://incub.kangwon.ac.kr/sites/incub/index.do";
+			} else if ( str_url == "iie.gwnu.ac.kr") {
+				location.href="https://iie.gwnu.ac.kr/sites/iie/index.do";								//교수학습센터
+			} else if ( str_url == "iie.kangwon.ac.kr") {
+				location.href="https://iie.kangwon.ac.kr/sites/iie/index.do";
+			} else if ( str_url == "ctl.gwnu.ac.kr") {
+				location.href="https://ctl.gwnu.ac.kr/sites/iie/index.do";								//교수학습센터
+			} else if ( str_url == "gnctl.kangwon.ac.kr") {
+				location.href="https://gnctl.kangwon.ac.kr/sites/iie/index.do";
+			} else if ( str_url == "dor.gwnu.ac.kr") {
+				location.href="https://dor.gwnu.ac.kr/sites/dor/index.do";								//강릉학생생활관
+			} else if ( str_url == "dor.kangwon.ac.kr") {
+				location.href="https://dor.kangwon.ac.kr/sites/dor/index.do";
+			} else if ( str_url == "dorw.gwnu.ac.kr") {
+				location.href="https://dorw.gwnu.ac.kr/sites/dorw/index.do";								//원주학생생활관
+			} else if ( str_url == "dorw.kangwon.ac.kr") {
+				location.href="https://dorw.kangwon.ac.kr/sites/dorw/index.do";
+			} else if ( str_url == "mediacenter.gwnu.ac.kr") {
+				location.href="https://mediacenter.gwnu.ac.kr/sites/mediacenter/index.do";				//언론원
+			} else if ( str_url == "mediacenter.kangwon.ac.kr") {
+				location.href="https://mediacenter.kangwon.ac.kr/sites/mediacenter/index.do";
+			} else if ( str_url == "success.gwnu.ac.kr") {
+				location.href="https://success.gwnu.ac.kr/sites/success/index.do";						//학생성공지원과
+			} else if ( str_url == "success.kangwon.ac.kr") {
+				location.href="https://success.kangwon.ac.kr/sites/success/index.do";
+			} else if ( str_url == "inmun.gwnu.ac.kr") {
+				location.href="https://inmun.gwnu.ac.kr/sites/inmun/index.do";							//인문학연구소
+			} else if ( str_url == "inmun-gw.kangwon.ac.kr") {
+				location.href="https://inmun-gw.kangwon.ac.kr/sites/inmun/index.do";
+			} else if ( str_url == "ios.gwnu.ac.kr") {
+				location.href="https://ios.gwnu.ac.kr/sites/ios/index.do";								//구강과학연구소
+			} else if ( str_url == "ios.kangwon.ac.kr") {
+				location.href="https://ios.kangwon.ac.kr/sites/ios/index.do";
+			} else if ( str_url == "humancity.gwnu.ac.kr") {
+				location.href="https://humancity.gwnu.ac.kr/sites/humancity/index.do";					//인문도시강릉
+			} else if ( str_url == "humancity.kangwon.ac.kr") {
+				location.href="https://humancity.kangwon.ac.kr/sites/humancity/index.do";
+			} else if ( str_url == "gifted.gwnu.ac.kr") {
+				location.href="https://gifted.gwnu.ac.kr/sites/gifted/index.do";							//과학영재교육원
+			} else if ( str_url == "gifted-gw.kangwon.ac.kr") {
+				location.href="https://gifted-gw.kangwon.ac.kr/sites/gifted/index.do";
+			} else if ( str_url == "kffec.gwnu.ac.kr") {
+				location.href="https://kffec.gwnu.ac.kr/sites/kffec/index.do";							//농수산인교육원
+			} else if ( str_url == "kffec.kangwon.ac.kr") {
+				location.href="https://kffec.kangwon.ac.kr/sites/kffec/index.do";
+			} else if ( str_url == "icee.gwnu.ac.kr") {
+				location.href="https://icee-gw.gwnu.ac.kr/sites/icee/index.do";								//공학교육혁신센터
+			} else if ( str_url == "icee.kangwon.ac.kr") {
+				location.href="https://icee.kangwon.ac.kr/sites/icee/index.do";
+			} else if ( str_url == "cheongryum.gwnu.ac.kr") {
+				location.href="https://cheongryum.gwnu.ac.kr/sites/cheongryum/index.do";					//청렴센터
+			} else if ( str_url == "cheongryum.kangwon.ac.kr") {
+				location.href="https://cheongryum.kangwon.ac.kr/sites/cheongryum/index.do";
+			} else if ( str_url == "election.gwnu.ac.kr") {
+				location.href="https://election.gwnu.ac.kr/sites/election/index.do";						//총장임용추천위원회
+			} else if ( str_url == "election.kangwon.ac.kr") {
+				location.href="https://election.kangwon.ac.kr/sites/election/index.do";
+			} else if ( str_url == "eri.gwnu.ac.kr") {
+				location.href="https://eri.gwnu.ac.kr/sites/eri/index.do";								//공학연구소
+			} else if ( str_url == "eri.kangwon.ac.kr") {
+				location.href="https://eri.kangwon.ac.kr/sites/eri/index.do";
+			} else if ( str_url == "ir.gwnu.ac.kr") {
+				location.href="https://ir.gwnu.ac.kr/sites/ir/index.do";									//성과관리센터
+			} else if ( str_url == "ir.kangwon.ac.kr") {
+				location.href="https://ir.kangwon.ac.kr/sites/ir/index.do";
+			} else if ( str_url == "dle.gwnu.ac.kr") {
+				location.href="https://dle.gwnu.ac.kr/sites/dle/index.do";								//교양기초교육본부
+			} else if ( str_url == "dle.kangwon.ac.kr") {
+				location.href="https://dle.kangwon.ac.kr/sites/dle/index.do";
+			} else if ( str_url == "cm.gwnu.ac.kr") {
+				location.href="https://cm.gwnu.ac.kr/sites/cm/index.do";									//융합전공
+			} else if ( str_url == "cm.kangwon.ac.kr") {
+				location.href="https://cm.kangwon.ac.kr/sites/cm/index.do";
+			} else if ( str_url == "support.gwnu.ac.kr") {
+				location.href="https://support.gwnu.ac.kr/sites/support/index.do";						//정부재정지원사업
+			} else if ( str_url == "support-gw.kangwon.ac.kr") {
+				location.href="https://support-gw.kangwon.ac.kr/sites/support/index.do";
+			} else if ( str_url == "ingwon.gwnu.ac.kr") {
+				location.href="https://ingwon.gwnu.ac.kr/sites/ingwon/index.do";							//인권센터
+			} else if ( str_url == "ingwon.kangwon.ac.kr") {
+				location.href="https://ingwon.kangwon.ac.kr/sites/ingwon/index.do";
+			} else if ( str_url == "ecriols.gwnu.ac.kr") {
+				location.href="https://ecriols.gwnu.ac.kr/sites/ecriols/index.do";						//동해안생명과학연구원
+			} else if ( str_url == "ecriols.kangwon.ac.kr") {
+				location.href="https://ecriols.kangwon.ac.kr/sites/ecriols/index.do";
+			} else if ( str_url == "artandphysical.gwnu.ac.kr") {
+				location.href="https://artandphysical.gwnu.ac.kr/sites/artandphysical/index.do";			//예술체육연구소
+			} else if ( str_url == "artandphysical.kangwon.ac.kr") {
+				location.href="https://artandphysical.kangwon.ac.kr/sites/artandphysical/index.do";
+			} else if ( str_url == "hnw.gwnu.ac.kr") {
+				location.href="https://hnw.gwnu.ac.kr/sites/hnw/index.do";								//보건복지연구소
+			} else if ( str_url == "hnw.kangwon.ac.kr") {
+				location.href="https://hnw.kangwon.ac.kr/sites/hnw/index.do";
+			} else if ( str_url == "knuriss.gwnu.ac.kr") {
+				location.href="https://knuriss.gwnu.ac.kr/sites/knuriss/index.do";						//사회과학연구소
+			} else if ( str_url == "knuriss.kangwon.ac.kr") {
+				location.href="https://knuriss.kangwon.ac.kr/sites/knuriss/index.do";
+			} else if ( str_url == "sportscomplex.gwnu.ac.kr") {
+				location.href="https://sportscomplex.gwnu.ac.kr/sites/sportscomplex/index.do";			//스포츠콤플렉스
+			} else if ( str_url == "sportscomplex.kangwon.ac.kr") {
+				location.href="https://sportscomplex.kangwon.ac.kr/sites/sportscomplex/index.do";
+			} else if ( str_url == "isp.gwnu.ac.kr") {
+				location.href="https://isp.gwnu.ac.kr/sites/isp/index.do";								//체육진흥원
+			} else if ( str_url == "isp.kangwon.ac.kr") {
+				location.href="https://isp.kangwon.ac.kr/sites/isp/index.do";
+			} else if ( str_url == "eastsea.gwnu.ac.kr") {
+				location.href="https://eastsea.gwnu.ac.kr/sites/eastsea/index.do";						//남북바다자원교류원
+			} else if ( str_url == "eastsea.kangwon.ac.kr") {
+				location.href="https://eastsea.kangwon.ac.kr/sites/eastsea/index.do";
+			} else if ( str_url == "volunteer.gwnu.ac.kr") {
+				location.href="https://volunteer.gwnu.ac.kr/sites/volunteer/index.do";					//사회봉사
+			} else if ( str_url == "volunteer.kangwon.ac.kr") {
+				location.href="https://volunteer.kangwon.ac.kr/sites/volunteer/index.do";
+			} else if ( str_url == "bootcamp.gwnu.ac.kr") {
+				location.href="https://bootcamp.gwnu.ac.kr/sites/bootcamp/index.do";					//부트캠프 사업단
+			} else if ( str_url == "bootcamp.kangwon.ac.kr") {
+				location.href="https://bootcamp.kangwon.ac.kr/sites/bootcamp/index.do";
+			} else if ( str_url == "boot.gwnu.ac.kr") {
+				location.href="https://bootcamp.gwnu.ac.kr/sites/bootcamp/index.do";					//부트캠프 사업단
+			} else if ( str_url == "boot.kangwon.ac.kr") {
+				location.href="https://bootcamp.kangwon.ac.kr/sites/bootcamp/index.do";
+			} else if ( str_url == "dmc.gwnu.ac.kr") {
+				location.href="https://dmc.gwnu.ac.kr/sites/dmc/index.do";									//디지털미디어커뮤니케이션학부
+			} else if ( str_url == "dmc.kangwon.ac.kr") {
+				location.href="https://dmc.kangwon.ac.kr/sites/dmc/index.do";
+			} else if ( str_url == "cls.gwnu.ac.kr") {
+				location.href="https://cls.gwnu.ac.kr/sites/cls/index.do";									//자유전공학부
+			} else if ( str_url == "cols.kangwon.ac.kr") {
+				location.href="https://cols.kangwon.ac.kr/sites/cls/index.do";
+			} else if ( str_url == "md.gwnu.ac.kr") {
+				location.href="https://md.gwnu.ac.kr/sites/md/index.do";									//마이크로디그리
+			} else if ( str_url == "md.kangwon.ac.kr") {
+				location.href="https://md.kangwon.ac.kr/sites/md/index.do";
+			} else if ( str_url == "globalconvergence.gwnu.ac.kr") {
+				location.href="https://globalconvergence.gwnu.ac.kr/sites/globalconvergence/index.do";		//글로벌융합학부
+			} else if ( str_url == "globalconvergence-gw.kangwon.ac.kr") {
+				location.href="https://globalconvergence-gw.kangwon.ac.kr/sites/globalconvergence/index.do";
+			} else if ( str_url == "gla.gwnu.ac.kr") {
+				location.href="https://gla.gwnu.ac.kr/sites/gla/index.do";									//Global Liberal Arts
+			} else if ( str_url == "gla.kangwon.ac.kr") {
+				location.href="https://gla.kangwon.ac.kr/sites/gla/index.do";
+			} else if ( str_url == "gbiz.gwnu.ac.kr") {
+				location.href="https://gbiz.gwnu.ac.kr/sites/gbiz/index.do";                                //Global Business (GWNU)
+			} else if ( str_url == "gbiz.kangwon.ac.kr") {
+				location.href="https://gbiz.kangwon.ac.kr/sites/gbiz/index.do";                                //Global Business (KNU)
+			} else if ( str_url == "geng.gwnu.ac.kr") {
+				location.href="https://geng.gwnu.ac.kr/sites/geng/index.do";                                //General Engineering (GWNU)
+			} else if ( str_url == "geng.kangwon.ac.kr") {
+				location.href="https://geng.kangwon.ac.kr/sites/geng/index.do";                                //General Engineering (KNU)
+			} else if ( str_url == "fsnmbt.gwnu.ac.kr") {
+				location.href="https://fsnmbt.gwnu.ac.kr/sites/fsnmbt/index.do";                            //Food Science (GWNU)
+			} else if ( str_url == "fsnmbt.kangwon.ac.kr") {
+				location.href="https://fsnmbt.kangwon.ac.kr/sites/fsnmbt/index.do";                            //Food Science (KNU)
+			} else if ( str_url == "dmcs.gwnu.ac.kr") {
+				location.href="https://dmcs.gwnu.ac.kr/sites/dmcs/index.do";                            //해양융합과학과 (GWNU)
+			} else if ( str_url == "dmcs.kangwon.ac.kr") {
+				location.href="https://dmcs.kangwon.ac.kr/sites/dmcs/index.do";                            //해양융합과학과 (KNU)
+			} else if ( str_url == "iacg-w.gwnu.ac.kr") {
+				location.href="https://iacg-w.gwnu.ac.kr/sites/iacg-w/index.do";                            //원주산학협력단 (GWNU)
+			} else if ( str_url == "iacg-w.kangwon.ac.kr") {
+				location.href="https://iacg-w.kangwon.ac.kr/sites/iacg-w/index.do";                            //원주산학협력단 (KNU)		
+			} else if ( str_url == "hls.gwnu.ac.kr") {
+				location.href="https://hls.gwnu.ac.kr/sites/hls/index.do";                                    //인문대학 자유전공학과 (GWNU)
+			} else if ( str_url == "hls.kangwon.ac.kr") {
+				location.href="https://hls.kangwon.ac.kr/sites/hls/index.do";                                 //인문대학 자유전공학과 (KNU)
+			} else if ( str_url == "nsfree.gwnu.ac.kr") {
+				location.href="https://nsfree.gwnu.ac.kr/sites/nsfree/index.do";                              //자연과학대학 자유전공학과 (GWNU)
+			} else if ( str_url == "nsfree.kangwon.ac.kr") {
+				location.href="https://nsfree.kangwon.ac.kr/sites/nsfree/index.do";                           //자연과학대학 자유전공학과 (KNU)
+			} else if ( str_url == "clslife.gwnu.ac.kr") {
+				location.href="https://clslife.gwnu.ac.kr/sites/clslife/index.do";                            //생명과학대학 자유전공학과 (GWNU)
+			} else if ( str_url == "clslife.kangwon.ac.kr") {
+				location.href="https://clslife.kangwon.ac.kr/sites/clslife/index.do";                         //생명과학대학 자유전공학과 (KNU)
+			} else if ( str_url == "info.gwnu.ac.kr") {
+				location.href="https://info.gwnu.ac.kr/sites/info/index.do";                                    //정보광장-신규 (GWNU)
+			} else if ( str_url == "info.kangwon.ac.kr") {
+				location.href="https://info.kangwon.ac.kr/sites/info/index.do";                                 //정보광장-신규 (KNU)
+			} else if ( str_url == "www.nukw.ac.kr") {
+				location.href="https://www.gwnu.ac.kr/sites/kr/index.do";                                //www.nukw.ac.kr    
+			} else if ( str_url == "www.kangnung.ac.kr") {
+				location.href="https://www.gwnu.ac.kr/sites/kr/index.do";                                //www.kangnung.ac.kr    
+			} else if ( str_url == "www.wonju.ac.kr") {
+				location.href="https://www.gwnu.ac.kr/sites/kr/index.do";                                //www.wonju.ac.kr                    
+			} else if ( str_url == "wifi.gwnu.ac.kr") {
+				location.href="https://cc.gwnu.ac.kr/cc/377/subview.do";                                //wifi
+			} else if ( str_url == "as.gwnu.ac.kr") {                                                    
+				location.href="https://988.co.kr/gwnu";                                                    //원격지원    
+			} else if ( str_url == "vpn.gwnu.ac.kr") {                                                    
+				location.href="https://gwnuvpn.gwnu.ac.kr:2443";                                        //VPN 리다이렉션
+			} else if ( str_url == "iphak.gwnu.ac.kr") {												
+				location.href="https://admission.kangwon.ac.kr/";							//입학 (GWNU)
+				//location.href="https://iphak.gwnu.ac.kr/sites/iphak/intro/index.html";					//입학 인트로 (GWNU)
+			} else if ( str_url == "iphak.kangwon.ac.kr") {												
+				//location.href="https://iphak.gwnu.ac.kr/sites/iphak/index.do";							//입학 (KNU)
+				location.href="https://iphak.kangwon.ac.kr/sites/iphak/intro/index.html";					//입학 인트로 (KNU)
+			} else if ( str_url == "www.gwnu.ac.kr") {													
+				//location.href="https://www.gwnu.ac.kr/sites/kr/index.do";								//대표
+				//location.href="https://www.gwnu.ac.kr/sites/kr/intro/index.html";						//대표 인트로
+				//location.href="https://www.gwnu.ac.kr/sites/iphak/intro/index.html";					//입학 인트로
+				//location.href="https://wwwg.kangwon.ac.kr/sites/kr/index.do";
+				//location.href="https://wwwg.kangwon.ac.kr/sites/kr/intro2/intro.html";
+				location.href="https://www.kangwon.ac.kr/ko/index.do";
+			} else if ( str_url == "wwwg.kangwon.ac.kr") {
+				//location.href="https://wwwg.kangwon.ac.kr/sites/kr/index.do";							// 강원대 도메인 대표 테스트
+				//location.href="https://wwwg.kangwon.ac.kr/sites/kr/intro2/intro.html";
+				location.href="https://www.kangwon.ac.kr/ko/index.do";
+			} else if (str_url == "https://iphak.gwnu.ac.kr/iphak/7638/subview.do"){ 
+					location.href="https://www.kangwon.ac.kr/ko/conts/941/web.do";
+			}else if (str_url == "https://iphak.gwnu.ac.kr/iphak/7638/subview.do"){ 
+					location.href="https://www.kangwon.ac.kr/ko/conts/941/web.do";
+			} else if (str_url == "iphak.gwnu.ac.kr/sites/iphak/index.do"){ 
+					location.href="https://www.kangwon.ac.kr/ko/conts/941/web.do";
+			} else if (str_url == "https://iphak.gwnu.ac.kr/sites/iphak/index.do"){ 
+					location.href="https://www.kangwon.ac.kr/ko/conts/941/web.do";
+			} else if (str_url == "iphak.gwnu.ac.kr"){ 
+					location.href="https://www.kangwon.ac.kr/ko/conts/941/web.do";
+			}
+			else { 
+				//location.href="https://www.gwnu.ac.kr/sites/kr/intro/index.html";						//대표 인트로
+				//location.href="https://www.gwnu.ac.kr/sites/iphak/intro/index.html";					//입학 인트로
+				//location.href="https://www.gwnu.ac.kr/sites/kr/index.do";
+				//location.href="https://www.kangwon.ac.kr/ko/index.do";
+				location.href="https://www.kangwon.ac.kr/ko/index.do";
+			}
+
+	/*(function() {
+        var configMap = {
+			"kr":"wwwg",
+			"museum": "gcmuseum",
+			"sports": "sports-gw",
+			"fund": "knugfund",
+			"support": "support-gw",
+			"cc": "oits",
+			"ie": "iems",
+			"bio": "bio-science",
+			"german": "germangn",
+			"grad": "gradgn",
+			"japan": "japan-gw",
+			"music": "music-gw",
+			"english": "english-gw",
+			"civil": "civil-gw",
+			"biz": "kwbiz",
+			"history": "history-gw",
+			"me": "mce",
+			"math": "mathgn",
+			"law": "law-gw",
+			"atmos": "atmenv",
+			"chemistry": "chemmat",
+			"tourism": "tourism-mgt",
+			"art": "art-gw",
+			"eng": "eng-gw",
+			"ee": "ese",
+			"ctl": "gnctl",
+			"icee": "icee-gw",
+			"gifted": "gifted-gw",
+			"globalconvergence": "globalconvergence-gw",
+			"edu": "edugn",
+			"inmun": "inmun-gw",
+			"nursing": "nursing-gw"
+        };
+
+		//예외 처리 할때 (인트로 사용시 안에 줄 주석처리하거나 안에 내용 변경하면됨.)
+		var pathMap = {
+            "iphak": "/sites/iphak/intro/index.html",
+            "kr": "/sites/kr/intro/index.html"
+        };
+
+        var sub = window.location.hostname.split('.')[0];
+
+		if (sub === "www" || sub === "new") sub = "kr";
+
+        var targetHost = sub;
+        var siteId = sub;
+
+        for (var key in configMap) {
+            var val = configMap[key];
+            if (sub === key || sub === val) {
+                targetHost = val;
+                siteId = key;
+                break;
+            }
+        }
+
+		var finalPath = pathMap[siteId] || ("/sites/" + siteId + "/index.do");
+        var finalUrl = "https://" + targetHost + ".kangwon.ac.kr" + finalPath;
+        
+        
+        location.href = finalUrl;
+    })();*/
+		</script>
+	</head>
+	<body></body>
+</html>

@@ -1,0 +1,1201 @@
+/**
+ * jquery.wvtex.util.js
+ * author : giant194@gmail.com
+ * created : 2016.06.30
+ * 화면 공통 유틸 스크립트를 작성한다.
+ */
+
+var UT = {
+	/**
+     * language
+     */
+    language : function(country,url) {
+    	// 지역선택
+    	var area = ['en/','cn/','vi/','uz/'];
+
+    	var chnUrl = url;
+    	for(i=0; i<area.length; i++) {
+    		chnUrl = chnUrl.replace(area[i],"");
+    		chnUrl = chnUrl.replace("//","/");
+    	}
+    	if(country != "") chnUrl = chnUrl.replace("/cmn","/cmn/"+country);
+
+    	console.log("기존 : " + chnUrl);
+    	if(chnUrl.indexOf("htmlMenuView.do") > -1) chnUrl = UT.languageCnChn(chnUrl,country);
+    	console.log("변경후 : " + chnUrl);
+    	location.href=chnUrl;
+    },
+    languageCnChn : function(chnUrl,country){
+    	var result = "";
+    	if(country == "") country = "kr";
+    	var menuAddrChn = UT.languageChoose(country);
+    	var menuAddr = new Array();
+    	menuAddr[0] = ['/601','/621','/641','/661','/681'];
+    	menuAddr[1] = ['/602','/622','/642','/662','/682'];
+    	menuAddr[2] = ['/603','/623','/643','/663','/683'];
+    	menuAddr[3] = ['/604','/624','/644','/664','/684'];
+    	menuAddr[4] = ['/605','/625','/645','/665','/685'];
+    	menuAddr[5] = ['/606','/626','/646','/666','/686'];
+    	menuAddr[6] = ['/607','/627','/647','/667','/687'];
+    	for(i=0; i < menuAddr.length; i++) {
+    		for(j=0; j<5; j++){
+    			if(chnUrl.indexOf(menuAddr[i][j]) > 0) {
+    				thisStr =  menuAddr[i][j];
+    				chnStr = menuAddr[i][j].substring(0,2) + menuAddrChn + menuAddr[i][j].substring(3,4);
+    				result = chnUrl.replace(thisStr,chnStr);
+    			}
+    		}
+    	}
+    	return result;
+	},
+	languageChoose : function(country) {
+		var result = "";
+		if(country == "kr") result = '0';
+		else if(country == "en") result = '2';
+		else if(country == "cn") result = '4';
+		else if(country == "vi") result = '6';
+		else if(country == "uz") result = '8';
+		return result;
+	},
+	/**
+     * get cookie
+     */
+    getCookie : function(name) {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var cook = cookies[i].split("=");
+            if (cook.length == 2) {
+                cook[0] = cook[0].trim();
+                cook[1] = cook[1].trim();
+                if (cook[0] == name) {
+                    return unescape(cook[1]);
+                }
+            }
+        }
+        return "";
+    },
+    /**
+     * set cookie
+     */
+    setCookie : function(name, value, seconds, path, domain, secure) {
+        var cookie = [];
+        cookie.push(name + "=" + escape(value));
+        if (path != "") {
+            cookie.push("path=" + path);
+        }
+        if (domain != "") {
+            cookie.push("domain=" + domain);
+        }
+        if (secure != "") {
+            cookie.push("secure");
+        }
+        if (typeof seconds === "number") {
+            var date = new Date((new Date()).getTime() + (seconds * 1000));
+            cookie.push("expires=" + date.toGMTString());
+        } else if (typeof seconds === "object") {
+            cookie.push("expires=" + seconds.toGMTString());
+        }
+        document.cookie = cookie.join(";");
+    },
+    /**
+     * del cookie
+     */
+    delCookie : function(name, path, domain, secure) {
+        var cookie = [];
+        cookie.push(name + "=");
+        if (path != "") {
+            cookie.push("path=" + path);
+        }
+        if (domain != "") {
+            cookie.push("domain=" + domain);
+        }
+        if (secure != "") {
+            cookie.push("secure");
+        }
+        cookie.push("expires=");
+        document.cookie = cookie.join(";");
+    },
+    /**
+     * enter를 쳤을 경우 함수 호출하기
+     * useage : onKeyup="UT.callFunctionByEnter(event, doLogin);"
+     *
+     */
+    callFunctionByEnter : function(event, func) {
+        var args = Array.prototype.slice.call(arguments, 2);
+        if (event.keyCode == 13) {
+            if (typeof func === "function") {
+                func.apply(this, args);
+            }
+        } else {
+            return;
+        }
+    },
+    /**
+     * 메뉴 이동 함수
+     * useage : onclick="UT.moveByMenuUrl(url, currentMenuNo, formId, tabOrdr);"
+     *
+     */
+    moveByMenuUrl : function(url, currentMenuNo, formId) {
+    	if (url == '' || formId == '') {
+    		return;
+    	}
+
+    	if (currentMenuNo == '114040000') {
+    		window.open("http://www.me.go.kr/home/web/index.do?menuId=10225", "_blank")
+    	} else {
+    		var form = $("#" + formId);
+    		form.find("#currentMenuNo").val(currentMenuNo);
+
+    		form.attr("method", "POST");
+    		form.attr("action", url);
+    		form.submit();
+    	}
+
+    },
+    /**
+     * 공통 단일 submit complete 함수
+     * useage : Global.completeFunction = doList 설정. submit 이후 실행할 함수를 설정한다.
+     * 실행할 함수가 없을 경우 null로 지정한다.
+     */
+    commonSave : function(result) {
+    	var resultMessage = "처리하였습니다.";
+
+    	if (result == 'insert') {
+    		resultMessage = "저장하였습니다.";
+    	} else if (result == 'update') {
+    		resultMessage = "수정하였습니다.";
+    	} else if (result == 'delete') {
+    		resultMessage = "삭제하였습니다.";
+    	} else if (result == 'failure') {
+    		resultMessage = "실패하였습니다. 관리자에게 문의바랍니다.";
+    	} else if (result == 'complete') {
+    		resultMessage = "처리되었습니다.";
+    	} else if (result == 'failureCaptcha') {
+	    	resultMessage = "보안문자가 일치하지 않습니다.";
+	    }
+
+    	if (result != 'payment') {
+    		var func = Global.completeFunction;
+    		if (typeof $.fn.dialog === "function") {
+    			$.alert({
+    				message : resultMessage,
+    				button1 : {
+    					callback : function() {
+    						if (result != 'failureCaptcha') {
+    							if (typeof func === "function") {
+    								func.apply(this);
+    							}
+    						}
+    					}
+    				}
+    			});
+    		} else {
+    			alert(resultMessage);
+    			if (typeof func === "function") {
+					func.apply(this);
+				}
+    		}
+    	}
+    },
+     commonSaveEn : function(result) {
+    	var resultMessage = "Processed.";
+
+    	if (result == 'insert') {
+    		resultMessage = "Saved.";
+    	} else if (result == 'update') {
+    		resultMessage = "Modified.";
+    	} else if (result == 'delete') {
+    		resultMessage = "Deleted.";
+    	} else if (result == 'failure.') {
+    		resultMessage = "Failed. Please contact your administrator.";
+    	} else if (result == 'complete') {
+    		resultMessage = "Processed.";
+    	} else if (result == 'failureCaptcha') {
+	    	resultMessage = "Security characters do not match.";
+	    }
+
+    	if (result != 'payment') {
+    		var func = Global.completeFunction;
+    		if (typeof $.fn.dialog === "function") {
+    			$.alert({
+    				message : resultMessage,
+    				button1 : {
+    					callback : function() {
+    						if (result != 'failureCaptcha') {
+    							if (typeof func === "function") {
+    								func.apply(this);
+    							}
+    						}
+    					}
+    				}
+    			});
+    		} else {
+    			alert(resultMessage);
+    			if (typeof func === "function") {
+					func.apply(this);
+				}
+    		}
+    	}
+    },
+    "passClean" : function(target,target2){
+    	$(target).find(target2).val("");
+    },
+     "passEsc" : function(){
+    	console.log("dd");
+    	akert("dd");
+    },
+    /**
+     * excelUpload submit complete 함수
+     * useage : Global.completeFunction = doList 설정. submit 이후 실행할 함수를 설정한다.
+     * 실행할 함수가 없을 경우 null로 지정한다.
+     * 메세지를 내려받아서 나타낸다.
+     */
+    excelSave : function(excelStr) {
+    	var resultMessage = excelStr;
+
+    	var func = Global.completeFunction;
+    	$.alert({
+    		message : resultMessage,
+    		button1 : {
+    			callback : function() {
+    				if (typeof func === "function") {
+    	                func.apply(this);
+    	            }
+    			}
+    		}
+    	});
+    },
+    /**
+     * 에러 페이지 이동하기(iframe submit)
+     * usage : error.jsp 참조
+     */
+    goError : function(errorCode) {
+    	location.href = '/common/error.jsp?param=' + errorCode;
+    },
+    /**
+     * 주어진 form의 checkbox의 check를 toggle 시키기(check -> uncheck, uncheck -> check)
+     * usage : UT.toggleCheckbox('formList', 'checkAll', 'checkkeys', '1')
+     * index 값을 주면 해당 index 만 처리된다.
+     */
+    toggleCheckbox : function(form, checkElement, checkboxName, index) {
+		var $form = null;
+		var $checkElement = null;
+		if (typeof form === "string") {
+			$form = jQuery("#" + form);
+		} else {
+			$form = form;
+		}
+		if (typeof checkElement === "string") {
+			$checkElement = jQuery("#" + checkElement);
+		} else {
+			$checkElement = checkElement;
+		}
+
+		jQuery(":checkbox[name='" + checkboxName + "']", $form).each(function(i) {
+			if (jQuery(this).is(":visible")) {
+				if (typeof index === "undefined" || i === index) {
+					if (this.disabled == false) {
+						if ($checkElement.is(":checked")) {
+							this.checked = true;
+						} else {
+							this.checked = false;
+						}
+					}
+				}
+			}
+		});
+	},
+	/**
+     * 주어진 form의 input내용을 jsonString으로 변환.
+     * usage : UT.formToJsonString('formName')
+     * form명이나 폼객체를 주면 된다.
+     */
+	formToJsonString : function(form) {
+		var $form = null;
+		if (typeof form === "string") {
+			$form = jQuery("#" + form);
+		} else {
+			$form = form;
+		}
+
+		var stringData = $form.serializeArray();
+		var o = {};
+		$.each(stringData, function() {
+	        if (o[this.name] !== undefined) {
+	            if (!o[this.name].push) {
+	                o[this.name] = [o[this.name]];
+	            }
+	            o[this.name].push(this.value || '');
+	        } else {
+	            o[this.name] = this.value || '';
+	        }
+	    });
+
+		return JSON.stringify(o);
+	},
+	/**
+     * 주어진 jsonString을 form의 input내용으로 변환.
+     * usage : UT.jsonStringToForm('jsonString', 'formName')
+     * json구조의 string과 form명을 주면 form에 데이터를 넣는다.
+     */
+	jsonStringToForm : function(jsonString, form) {
+		var $form = null;
+		if (typeof form === "string") {
+			$form = jQuery("#" + form);
+		} else {
+			$form = form;
+		}
+		if (typeof jsonString === 'undefined' || jsonString == null || jsonString == '') {
+			return;
+		}
+
+		var parseData = jQuery.parseJSON(jsonString);
+		var parseDataSize = Object.keys(parseData).length;
+		if (parseDataSize > 0) {
+			for (obj in parseData){
+				$form.find("input[name="+ obj + "]").val( (parseData[obj]) ? parseData[obj] : '' );
+			}
+		}
+	},
+	/**
+     * 달력을 출력한다.
+     * usage : UT.datepicker('#startDate', 'options', 'xoptions')
+     * 특정 옵션을 추가할 필요가 없다면 그냥 selector만 Id를 지정해 주면 된다. 특수 옵션(yearRange etc)
+     */
+	datepicker : function(selector, options, xOptions) {
+		var xDefaults = {
+				language : "ko",
+				readOnly : false,
+				buttonImage : "/images/egovframework/com/cmm/icon/calendar.gif",
+				onClose : null,
+				clearText : {
+					ko : "지우기",
+					en : "Clear"
+				},
+				closeText : {
+					ko : "닫기",
+					en : "Close"
+				},
+				buttonText : {
+					ko : "달력",
+					en : "Calendar"
+				},
+				currentText : {
+					ko : "오늘",
+					en : "Today"
+				},
+				dayNamesMin : {
+					ko : ["일","월","화","수","목","금","토"],
+					en : ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
+				},
+				monthNamesShort : {
+					ko : ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+					en : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+				}
+			};
+			xOptions = jQuery.extend(true, xDefaults, xOptions || {});
+
+			var defaults = {
+				changeYear : true,
+				changeMonth : true,
+				showMonthAfterYear : true,
+				buttonImageOnly : true,
+				showButtonPanel : true,
+				constrainInput : true,
+				dateFormat : "yy.mm.dd",
+				monthNamesShort : xOptions.monthNamesShort[xOptions.language],
+				dayNamesMin : xOptions.dayNamesMin[xOptions.language],
+				showOn : "focus", // focus, button, both
+				buttonImage : xOptions.buttonImage,
+				buttonText : xOptions.buttonText[xOptions.language],
+				currentText : xOptions.currentText[xOptions.language],
+				closeText : xOptions.closeText[xOptions.language],
+				clearText : xOptions.clearText[xOptions.language]
+			};
+			options = jQuery.extend(true, defaults, options || {});
+			options.gotoCurrent = true;
+
+			var $datepickerback = jQuery("#datepickerback");
+			if ($datepickerback.length == 0) {
+				$datepickerback = jQuery("<iframe id='datepickerback'></iframe>");
+				$datepickerback.appendTo(self.document.body);
+				$datepickerback.css({
+					"position"     : "absolute",
+					"filter"       : "alpha(opacity=0)",
+					"-moz-opacity" : "0",
+					"opacity"      : "0",
+					"border"       : "none"
+				});
+				$datepickerback.hide();
+			}
+			var showDatepickerback = function($datepicker) {
+				var $widget = $datepicker.datepicker("widget");
+				$datepickerback.css({
+					"top"    : $widget.css("top"),
+					"left"   : $widget.css("left"),
+					"height" : $widget.height() + "px",
+					"width"  : $widget.width() + "px"
+				});
+				$datepickerback.show();
+			}
+			var showClearButton = function($datepicker, text) {
+				var $widget = $datepicker.datepicker("widget");
+				var $buttonPane = $widget.find( ".ui-datepicker-buttonpane" );
+				if ($buttonPane.find(".customClear").length == 0) {
+					var $btn = jQuery('<button class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all customClear">' + options.clearText  + '</button>');
+					$btn.unbind("click").bind("click", function () {
+							jQuery.datepicker._clearDate($datepicker);
+				  		}
+					);
+					$btn.appendTo($buttonPane);
+				}
+			}
+			var $datepicker = null;
+			var pair = typeof selector === "string" ? selector.split(",") : [];
+			if (pair.length > 1) {
+				options.beforeShow = function(input, inst) {
+					var $this = jQuery(this);
+					var index = -1;
+					for (var i = 0; i < pair.length; i++) {
+						if (("#" + $this.attr("id")) == pair[i].trim()) {
+							index = i;
+						}
+					}
+					if (index < 0) {
+						return;
+					}
+					if (index - 1 >= 0) {
+						var otherDate = jQuery(pair[index - 1].trim()).val();
+						var date = jQuery.datepicker.parseDate(options.dateFormat, otherDate, inst.settings);
+						$this.datepicker("option", "minDate", date);
+					}
+					if (index + 1 < pair.length) {
+						var otherDate = jQuery(pair[index + 1].trim()).val();
+						var date = jQuery.datepicker.parseDate(options.dateFormat, otherDate, inst.settings);
+						$this.datepicker("option", "maxDate", date);
+					}
+					setTimeout(function() {
+						showDatepickerback($this);
+						showClearButton($this, options.clearText);
+						$(".ui-datepicker-year").focus();
+					}, 1);
+				}
+
+			} else {
+				options.beforeShow = function(input, inst) {
+					var $this = jQuery(this);
+					setTimeout(function() {
+						showDatepickerback($this);
+						showClearButton($this, options.clearText);
+						$(".ui-datepicker-year").focus();
+					}, 1);
+				}
+			}
+			options.onChangeMonthYear = function(year, month, inst) {
+				var $this = jQuery(this);
+				setTimeout(function() {
+					showDatepickerback($this);
+					showClearButton($this, options.clearText);
+				}, 1);
+			}
+
+			if (typeof xOptions.onClose === "function") {
+				options.onClose = function(dateText, inst) {
+					xOptions.onClose.call(this, jQuery(inst["input"])[0].name);
+					$datepickerback.hide();
+
+					if (typeof xOptions.afterLocation !== 'string') {
+						jQuery("#" + xOptions.afterLocation).focus();
+					}
+				};
+			} else {
+				options.onClose = function(dateText, inst) {
+					$datepickerback.hide();
+
+					if (typeof xOptions.afterLocation === 'string') {
+						jQuery("#" + xOptions.afterLocation).focus();
+					}
+				};
+			}
+
+			$datepicker = jQuery(selector).datepicker(options);
+
+			if (true == xOptions.readOnly) {
+				jQuery(selector).attr("readOnly", true);
+			}
+			if (options.showOn != "focus") {
+				jQuery(".ui-datepicker-trigger").css("cursor", "pointer");
+			}
+
+			// 포커스 이동
+			jQuery(".ui-datepicker-year").focus();
+	},
+	/**
+     * map data 의 값을 targetForm의 elements로 값을 복사 한다.
+     * map = {"formElementName1" : "value", "formElementName2" : "value"}
+     */
+    copyValueMapToForm : function(map, targetForm) {
+        if (typeof map === "undefined" || typeof targetForm === "undefined") {
+            return;
+        }
+        if (typeof targetForm === "string") {
+            $target = jQuery("#" + targetForm);
+        } else {
+            $target = targetForm;
+        }
+        jQuery(":input", $target).each(function () {
+            if (typeof map[this.name] !== "undefined" ) {
+                var type = this.type.toLowerCase();
+                if ((type === "radio" || type === "checkbox") && this.value == map[this.name]) {
+                    this.checked = true;
+                } else {
+                    jQuery(this).val(map[this.name]);
+                }
+            }
+        });
+    },
+    /**
+     * smarteditor 설정
+     * @param element
+     */
+    setEditor : function(element) {
+    	nhn.husky.EZCreator.createInIFrame({
+			oAppRef: Global.oEditors,
+			elPlaceHolder: element,
+			sSkinURI: "/js/smarteditor/SmartEditor2Skin.html",
+			htParams : {
+				bUseToolbar : true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+				bUseVerticalResizer : true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+				bUseModeChanger : true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+				bSkipXssFilter : true,		// client-side xss filter 무시 여부 (true:사용하지 않음 / 그외:사용)
+				//aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
+				fOnBeforeUnload : function(){
+				}
+			}, //boolean
+			fOnAppLoad : function(){
+			},
+			fCreator: "createSEditor2"
+		});
+    	Global.editorElement = element;
+    },
+    /**
+     * 팝업창 크기 조절
+     * @param element
+     */
+    getWindowWidth : function(setWidth) {
+    	var windowWidth = 0;
+
+    	if ($(window).width() > parseInt(setWidth, 10)) {
+			windowWidth = setWidth;
+		} else {
+			windowWidth = $(window).width();
+		}
+
+    	return windowWidth;
+    },
+    /**
+     * 스크랩 함수 - 각 사이트 조건에 따라 새로 개발
+     * @param menuNo
+     */
+    doScrap: function(menuNo) {
+    	var params = "";
+    	var search = "";
+    	if(location.pathname == '') {
+    		search = "";
+    	} else if(location.pathname == '') {
+    		search = "";
+    	} else if(location.pathname == '') {
+    		search = "";
+    	} else if(location.pathname == '') {
+    		search = "";
+    	}else {
+    		search = location.search;
+    	}
+
+    	var scrapUrl = location.pathname + search;
+
+    	$.ajax({
+    		url: "/usr/mypage/insertMyScrap.do",
+    		type: "POST",
+    		contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+    		data: {
+    			"menuNo"   : menuNo,
+    			"scrapUrl" : scrapUrl
+    		},
+    		dataType: 'json',
+    		success: function(result){
+    			$.alert({
+			    	message : result.err_message
+			    });
+    		},
+    		error:function(xhr, status, error){
+    	    }
+    	});
+    },
+    /**
+     * 페이지 만족도 등록
+       */
+    doInsertCsnst : function() {
+    	var form = $("#FormCsnst");
+    	$.ajax({
+    		url: "/cmn/module/insertMenuCsnst.do",
+    		type: "POST",
+    		contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+    		data: form.serialize(),
+    		dataType: 'json',
+    		success: function(result){
+    			if (result.result == 'SUCCESS') {
+    				$.alert({message: "만족도 조사에 협조해 주셔서 감사합니다."});
+    				form.hide();
+    			}
+    		},
+    		error:function(msg){
+
+    		}
+    	});
+    },
+    /**
+     * 이미지가 존재하지 않을때 처리
+     * @param element
+     * @param function
+     */
+    noImageHeaderError : function(obj, callback) {
+    	obj.src = '/images/wvtex/infra/noImage.png';
+    	if(callback != undefined) {
+    		callback(obj);
+    	}
+    },
+	/**
+     * 메뉴 이동 함수 - 파라미터 추가시 사용
+     * useage : onclick="UT.moveByMenuUrl(url, currentMenuNo, formId, params);"
+     * params = 'searchCondition=1,searchCondition2=2'; 형식
+     *
+     */
+    moveByMenuUrlWithParam : function(url, currentMenuNo, formId, params) {
+    	if (url == '' || formId == '') {
+    		return;
+    	}
+
+    	var form = $("#" + formId);
+    	form.find("#currentMenuNo").val(currentMenuNo);
+
+    	if (typeof params !== 'undefined') {
+    		var paramArray = params.split(',');
+
+    		for (i = 0; i < paramArray.length; i++) {
+    			var inputParam = paramArray[i].split('=');
+    			var html = [];
+
+    			html.push("<input type='hidden' name='" + inputParam[0] + "' value='" + inputParam[1] + "' />");
+    			form.append(html.join(""));
+    		}
+    	}
+
+    	form.attr("method", "POST");
+		form.attr("action", url);
+		form.submit();
+    },
+    /** 폼 데이터 복사
+     * useage : copyValueForm(복사될 폼ID, 복사할폼ID)
+     */
+    copyValueForm : function (defaultForm, targetForm) {
+    	var dForm = $("#" + defaultForm);
+    	var tForm = $("#" + targetForm);
+
+    	dForm.find("input,select").each(function(){
+    		var element = $(this);
+    		tForm.find("input[name='" + element.attr("name") + "']").val(element.val());
+    	});
+
+    	dForm.find("[type='radio'],[type='checkbox']").each(function(){
+    		var element = $(this);
+    		if (this.checked) {
+    			tForm.find("input[name='" + element.attr("name") + "']").val(element.val());
+    		}
+    	});
+    },
+    /** 폼 데이터 복사 - 부모의 폼에 복사
+     * useage : copyValueForm(복사될 폼ID, 복사할폼ID)
+     */
+    copyValueParentForm : function (defaultForm, targetForm) {
+    	var dForm = $("#" + defaultForm);
+    	var tForm = $("#" + targetForm, parent.document);
+    	dForm.find("input").each(function(){
+    		var element = $(this);
+    		tForm.append("<input type='hidden' name='" + element.attr("name") + "' value='" + element.val() + "' />");
+    	});
+    },
+    /** 폼 데이터 리셋
+     * useage : resetForm(리셋할 폼ID,리셋할 input의 class)
+     */
+    resetForm : function(targetForm, targetClass) {
+    	var element = jQuery("#"+targetForm);
+    	element.find("." + targetClass).each(function() {
+    		var inputElement = jQuery(this);
+    		inputElement.val("");
+    	});
+    },
+    /**
+     * 관련 사이트 이동
+     * @param element
+     */
+    pageMove: function(element) {
+    	var selectedVal = $(element).val();
+
+    	if (selectedVal != '') {
+    		window.open(selectedVal,"_blank");
+    	}
+    },
+    /**
+     * 다운로드 파일의 다운로드 수를 증가 시키고 파일을 다운로드 한다.
+     * @param dwldFileId
+     */
+    getDwldFile: function(dwldFileId) {
+    	$.ajax({
+    		url: "/cmn/wvtex/infra/dwldFile/updateDwldFileDwldCoJson.do",
+    		type: "POST",
+    		contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+    		data: {dwldFileId : dwldFileId},
+    		dataType: 'json',
+    		success: function(result){
+    			var atchFileId = result.id;
+    			if (atchFileId.length) {
+    				UT.getDwldFileDownload(atchFileId);
+    			} else {
+    				$.alert({message : "파일이 존재하지 않습니다. 관리자에게 문의하시기 바랍니다."});
+    			}
+    		},
+    		error:function(msg){
+
+    		}
+    	});
+    },
+    /**
+     * 다운로드 파일을 다운로드 한다.
+     * @param atchFileId
+     */
+    getDwldFileDownload: function(atchFileId) {
+    	window.open("/cmn/cmm/fms/FileDown.do?atchFileId="+atchFileId+"&fileSn=0");
+    },
+    /**
+     * 보안문자 새로 고침
+     * @param elementId
+     */
+    refreshCapcha: function(elementId) {
+    	if (typeof elementId !== 'undefined') {
+    		$("#" + elementId).attr("src", "/captcha?id=" + Math.random());
+    	}
+    },
+    /** 과 선택 selectbox
+     * useage : setUpperDeptId(과셀렉트박스, 과선택값, 랩셀렉트박스, 랩선택값, disable boolean)
+     */
+    setUpperDeptId : function(targetId, selectedVal, subTargetId, subSelectVal, disableBln) {
+    	$.ajax({
+			url: "/cmn/wvtex/ems/mberDept/mberDeptListJson.do",
+			type: "POST",
+			contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+			data: {depths: 2},
+			dataType: 'json',
+			success: function(result){
+				var rs = result.resultList;
+				var html = [];
+				if (typeof selectedVal === 'undefined') {
+					html.push("<option value='' selected='selected'>과선택</option>")
+
+					for (var i = 0; i < rs.length; i++) {
+						html.push("<option value='" + rs[i].mberDept.deptId + "'>" + rs[i].mberDept.deptNm + "</option>");
+					};
+
+					$("#" + targetId).html(html.join(""));
+				} else {
+					if (typeof disableBln === 'undefined' || !disableBln) {
+						html.push("<option value=''>과선택</option>")
+					}
+
+					for (var i = 0; i < rs.length; i++) {
+						if (rs[i].mberDept.deptId == selectedVal) {
+							html.push("<option value='" + rs[i].mberDept.deptId + "' selected='selected'>" + rs[i].mberDept.deptNm + "</option>");
+						} else {
+							if (typeof disableBln === 'undefined') {
+								html.push("<option value='" + rs[i].mberDept.deptId + "'>" + rs[i].mberDept.deptNm + "</option>");
+							} else {
+								if (disableBln) {
+									html.push("<option value='" + rs[i].mberDept.deptId + "' disabled='disabled'>" + rs[i].mberDept.deptNm + "</option>");
+								} else {
+									html.push("<option value='" + rs[i].mberDept.deptId + "'>" + rs[i].mberDept.deptNm + "</option>");
+								}
+							}
+						}
+					};
+
+					$("#" + targetId).html(html.join(""));
+					//랩 표시
+					if (typeof subTargetId !== 'undefined' && typeof subSelectVal !== 'undefined') {
+						UT.setDeptId(targetId, subTargetId, subSelectVal, disableBln);
+					}
+				}
+			},
+			error:function(msg){
+		    }
+		});
+    },
+    /** 과 선택 selectbox 영문
+     * useage : setUpperDeptIdEn(과셀렉트박스, 과선택값, 랩셀렉트박스, 랩선택값, disable boolean)
+     */
+    setUpperDeptIdEn : function(targetId, selectedVal, subTargetId, subSelectVal, disableBln) {
+    	$.ajax({
+			url: "/cmn/wvtex/ems/mberDept/mberDeptListJson.do",
+			type: "POST",
+			contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+			data: {depths: 2},
+			dataType: 'json',
+			success: function(result){
+				var rs = result.resultList;
+				var html = [];
+				if (typeof selectedVal === 'undefined') {
+					html.push("<option value='' selected='selected'>select division</option>")
+
+					for (var i = 0; i < rs.length; i++) {
+						html.push("<option value='" + rs[i].mberDept.deptId + "'>" + rs[i].mberDept.deptEnNm + "</option>");
+					};
+
+					$("#" + targetId).html(html.join(""));
+				} else {
+					if (typeof disableBln === 'undefined' || !disableBln) {
+						html.push("<option value=''>select division</option>")
+					}
+
+					for (var i = 0; i < rs.length; i++) {
+						if (rs[i].mberDept.deptId == selectedVal) {
+							html.push("<option value='" + rs[i].mberDept.deptId + "' selected='selected'>" + rs[i].mberDept.deptEnNm + "</option>");
+						} else {
+							if (typeof disableBln === 'undefined') {
+								html.push("<option value='" + rs[i].mberDept.deptId + "'>" + rs[i].mberDept.deptEnNm + "</option>");
+							} else {
+								if (disableBln) {
+									html.push("<option value='" + rs[i].mberDept.deptId + "' disabled='disabled'>" + rs[i].mberDept.deptEnNm + "</option>");
+								} else {
+									html.push("<option value='" + rs[i].mberDept.deptId + "'>" + rs[i].mberDept.deptEnNm + "</option>");
+								}
+							}
+						}
+					};
+
+					$("#" + targetId).html(html.join(""));
+					//랩 표시
+					if (typeof subTargetId !== 'undefined' && typeof subSelectVal !== 'undefined') {
+						UT.setDeptId(targetId, subTargetId, subSelectVal, disableBln);
+					}
+				}
+			},
+			error:function(msg){
+		    }
+		});
+    },
+    /** 랩 선택 selectbox
+     * useage : setDeptId(과셀렉트박스, 랩셀렉트박스, 랩선택값, disable boolean, selectDepth)
+     */
+    setDeptId: function(elementId, targetId, selectedVal, disableBln, selectDepth) {
+    	var $element = $("#" + elementId);
+    	var currentVal = $element.val();
+    	var setDepth = 3;
+    	if (typeof selectDepth !== 'undefined') {
+    		setDepth = selectDepth;
+    	}
+
+    	var html = [];
+		html.push("<option value='' selected='selected'>선택</option>")
+
+    	if (currentVal == '') {
+    		$("#" + targetId).html(html.join(""));
+    	} else {
+    		$.ajax({
+				url: "/cmn/wvtex/ems/mberDept/mberDeptListJson.do",
+				type: "POST",
+				contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+				data: {upperDeptId : currentVal, depths : setDepth},
+				dataType: 'json',
+				success: function(result){
+					var rs = result.resultList;
+
+					for (var i = 0; i < rs.length; i++) {
+						if (rs[i].mberDept.deptId == selectedVal) {
+							html.push("<option value='" + rs[i].mberDept.deptId + "' selected='selected'>" + rs[i].mberDept.deptNm + "</option>");
+						} else {
+							if (typeof disableBln === 'undefined' || selectedVal == '') {
+								html.push("<option value='" + rs[i].mberDept.deptId + "'>" + rs[i].mberDept.deptNm + "</option>");
+							} else {
+								if (disableBln) {
+									html.push("<option value='" + rs[i].mberDept.deptId + "' disabled='disabled'>" + rs[i].mberDept.deptNm + "</option>");
+								} else {
+									html.push("<option value='" + rs[i].mberDept.deptId + "'>" + rs[i].mberDept.deptNm + "</option>");
+								}
+							}
+						}
+					};
+
+					$("#" + targetId).html(html.join(""));
+				},
+				error:function(msg){
+			    }
+			});
+    	}
+    },
+    /**
+     * 통합검색을 실행한다.
+     */
+    totalSearch: function(element) {
+    	var $element;
+    	if (typeof element !== 'undefined') {
+    		$element = jQuery(element);
+    	} else {
+    		$element = jQuery(".total_searchBox").find("button");
+    	}
+    	var form = $("#defaultSearchForm");
+    	var word = $element.closest("div").find("input[name='searchKeyword']").val();
+
+    	if (word != null && word.trim() != '' && word.length > 1) {
+    		form.find("input[name='searchKeyword']").val(word);
+    		form.attr("method", "POST");
+			form.attr("action", "/cmn/main/totalSearch.do");
+			form.submit();
+    	} else {
+    		$.alert({message:"검색어는 최소 두글자 이상 입력해 주세요."})
+    	}
+
+    },
+    /**
+     * 통합검색을 실행한다.
+     */
+    totalSearchM: function(element) {
+    	var $element;
+    	if (typeof element !== 'undefined') {
+    		$element = jQuery(element);
+    	} else {
+    		$element = jQuery(".total_searchBox").find("button");
+    	}
+    	var form = $("#defaultSearchForm");
+    	var word = $element.closest("div").find("input[name='searchKeyword']").val();
+
+    	if (word != null && word.trim() != '' && word.length > 1) {
+    		form.find("input[name='searchKeyword']").val(word);
+    		form.attr("method", "POST");
+			form.attr("action", "/cmn/m/main/totalSearch.do");
+			form.submit();
+    	} else {
+    		$.alert({message:"검색어는 최소 두글자 이상 입력해 주세요."})
+    	}
+
+    },
+    /**
+     * 내외부 모드를 변경한다.
+     */
+    changeViewMode: function(INO) {
+    	console.log("INO:"+INO);
+
+    	if(INO == 'OUT') {
+    		$("#INOOUT").addClass('active');
+    		$("#INOIN").removeClass('active');
+    	} else {
+    		$("#INOOUT").removeClass('active');
+    		$("#INOIN").addClass('active');
+    	}
+
+    	UT.setCookie("INO",INO, 365*60*60*24, "/", "", "");
+
+    	console.log("changeViewMode:6:"+UT.getCookie("INO"));
+
+    	location.reload();
+
+    	/*
+    	$.ajax({
+				url: "/cmn/common/changeMode.do",
+				type: "POST",
+				contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+				dataType: 'json',
+				success: function(result){
+					location.reload();
+				},
+				error:function(msg){
+			    }
+			});
+		*/
+    },
+    /**
+     * 메인 상단 배너 쿠키 설정
+     */
+    setPopupCookie: function(popupid) {
+    	console.log("setPopupCookie11");
+
+    	UT.setCookie(popupid,"no", 1*60*60*24, "/", "", "");
+//    	UT.setCookie(popupid,"no", 1*60, "/", "", "");
+    	var $top_banner = $('#header .top_banner');
+    	$top_banner.removeClass('is-active');
+
+    	//모바일
+    	$(body).removeClass('top_banner_on');
+
+    },
+    /**
+     * 메인 상단 팝업 쿠키 설정
+     */
+    setMainPopupCookie: function(popupid,target) {
+    	console.log("newpop");
+    	console.log(popupid);
+    	console.log(target);
+
+    	UT.setCookie(popupid,"no", 1*60*60*24, "/", "", "");
+    	var $top_banner = $('#' + target);
+    	$top_banner.remove();
+
+    },
+    /**
+     * sns 연동
+     * @param snsType
+     */
+    goSnsRegist : function(snsType) {
+    	var options = {
+			top: 0,
+			left: 0,
+			width: 300,
+			height: 200,
+			title: "SNS",
+			resizeable: "yes",
+			scrollbars: "yes",
+			toolbars:"no",
+			status:"no",
+			menu:"no",
+			mode : "center"
+		};
+
+    	var url = window.location;
+    	var sns = snsType;
+    	var name = document.title;
+    	var link = "";
+		var opt = "";
+
+		switch ( sns ) {
+			case 'twitter'	:
+							options.width = 550;
+							options.height = 450;
+//							url = document.getElementById("twitter").getAttribute("url");
+						//	alert(url);
+						//	url = encodeURIComponent(url);
+						//	alert(url);
+							if(options.mode == "center"){
+						    	options.left = (screen.width - options.width) / 2;
+								options.top = (screen.height - options.height) / 2;
+							}
+
+							if(options.mode == "left"){
+								options.left = 0;
+							}
+
+							if(options.mode == "right"){
+								options.left = screen.width;
+							}
+
+							//link = "/setSns.jsp?url=" + encodeURIComponent (url) + "&text=" + encodeURIComponent ( name );
+							link = "https://twitter.com/return2farm";
+
+//							link = "http://twitter.com/share?url=" + url + "&text=" + encodeURIComponent ( name );
+//							link = "http://twitter.com/home?status=" + encodeURIComponent ( name ) + " " + url;
+							opt = 'width='+options.width+',height='+options.height+',top='+options.top+',left='+options.left+',resizable='+options.resizeable+',scrollbars='+options.scrollbars;
+							opt+= ',toolbars='+options.toolbars+',status='+options.status+',menu='+options.menu;
+							break;
+			case 'facebook'	:
+							options.width = 1000;
+							options.height = 550;
+							if(options.mode == "center"){
+						    	options.left = (screen.width - options.width) / 2;
+								options.top = (screen.height - options.height) / 2;
+							}
+
+							if(options.mode == "left"){
+								options.left = 0;
+							}
+
+							if(options.mode == "right"){
+								options.left = screen.width;
+							}
+							link = "http://www.facebook.com/sharer.php?s=100&p[url]=" +encodeURIComponent(url) + "&p[title]=" + encodeURIComponent ( name );
+							opt = 'width='+options.width+',height='+options.height+',top='+options.top+',left='+options.left+',resizable='+options.resizeable+',scrollbars='+options.scrollbars;
+							opt+= ',toolbars='+options.toolbars+',status='+options.status+',menu='+options.menu;
+							break;
+			case 'me2day'	:
+							options.width = 1000;
+							options.height = 500;
+							if(options.mode == "center"){
+						    	options.left = (screen.width - options.width) / 2;
+								options.top = (screen.height - options.height) / 2;
+							}
+
+							if(options.mode == "left"){
+								options.left = 0;
+							}
+
+							if(options.mode == "right"){
+								options.left = screen.width;
+							}
+							link = "http://me2day.net/posts/new?new_post[body]="+encodeURIComponent('\"'+name+'\"')+":"+url;
+							opt = 'width='+options.width+',height='+options.height+',top='+options.top+',left='+options.left+',resizable='+options.resizeable+',scrollbars='+options.scrollbars;
+							opt+= ',toolbars='+options.toolbars+',status='+options.status+',menu='+options.menu;
+							break;
+			case 'yozm'		:
+							options.width = 490;
+							options.height = 400;
+							if(options.mode == "center"){
+						    	options.left = (screen.width - options.width) / 2;
+								options.top = (screen.height - options.height) / 2;
+							}
+
+							if(options.mode == "left"){
+								options.left = 0;
+							}
+
+							if(options.mode == "right"){
+								options.left = screen.width;
+							}
+							link = "http://yozm.daum.net/api/popup/post?prefix="+encodeURIComponent('\"'+name+'\"')+":"+url;
+							opt = 'width='+options.width+',height='+options.height+',top='+options.top+',left='+options.left+',resizable='+options.resizeable+',scrollbars='+options.scrollbars;
+							opt+= ',toolbars='+options.toolbars+',status='+options.status+',menu='+options.menu;
+							break;
+			case 'kakao'		:
+							options.width = 490;
+							options.height = 400;
+							if(options.mode == "center"){
+						    	options.left = (screen.width - options.width) / 2;
+								options.top = (screen.height - options.height) / 2;
+							}
+
+							if(options.mode == "left"){
+								options.left = 0;
+							}
+
+							if(options.mode == "right"){
+								options.left = screen.width;
+							}
+							link = "https://story.kakao.com/s/share?url="+url;
+							opt = 'width='+options.width+',height='+options.height+',top='+options.top+',left='+options.left+',resizable='+options.resizeable+',scrollbars='+options.scrollbars;
+							opt+= ',toolbars='+options.toolbars+',status='+options.status+',menu='+options.menu;
+							break;
+			case 'urlCopy'		:
+							var t = document.createElement("textarea");
+							document.body.appendChild(t);
+							t.value = url;
+							t.select();
+							document.execCommand('copy');
+							document.body.removeChild(t);
+							alert("클립보드로 URL이 복사되었습니다.");
+							break;
+		}
+
+		// 팝업 열기
+		if (sns != 'urlCopy') {
+			win = window.open(link, sns, opt);
+			if (parseInt(navigator.appVersion) >= 4) {
+				win.focus();
+			}
+		}
+    }
+};

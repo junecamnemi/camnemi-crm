@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<script>
+
+var ssoCheckReloading = false;
+
+function ssoCheckReload()
+{
+	if(ssoCheckReloading)
+	{
+		return;
+	}
+
+	ssoCheckReloading = true;
+	location.reload();
+}
+
+function ssoCheckFrameLoad()
+{
+	if(ssoCheckReloading)
+	{
+		return;
+	}
+
+	// iframe 내부 URL로 이동하지 않고, SSO 리다이렉트가 끝난 뒤
+	// 현재 상위 문서만 다시 요청한다. www 유무가 달라도 load 이벤트는 수신된다.
+	ssoCheckReload();
+}
+</script>
+
+<body>
+<!--
+<div style="width:1000px; height:700px; overflow:hidden">
+	<iframe src="/sso/login_post_proc.jsp?ty=url" width="1000" height="700"></iframe>
+</div>
+-->
+<div style="width:0px; height:0px; overflow:hidden">
+	<iframe src="/sso/login_post_proc.jsp?ty=url" width="0" height="0" onload="ssoCheckFrameLoad()"></iframe>
+</div>
+
+</body>
+</html>

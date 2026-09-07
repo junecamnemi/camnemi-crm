@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<script type="text/javascript" src="/js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="/js/jquery-migrate-1.4.1.min.js"></script>
+	<script>
+		$(function()
+		{
+			var ty = $("iframe[name=__HIDDEN_FRAME__]", parent.document).attr("ssoCheckTy");
+			if(ty == "login")
+			{
+				parent.gotoLoginPage("?redirect_url" + encodeURIComponent(parent.location.pathname + parent.location.search));
+			}
+			else
+			{
+				parent.ssoCheckReload();
+			}
+		});
+	</script>
+</head>
+<body>
+</body>
+</html>

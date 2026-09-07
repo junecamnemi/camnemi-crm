@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko" class="htmlwrapper">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="description" content="연세대학교 한국어학당" />
+	<meta name="Keywords" content="연세대학교 한국어학당" />
+	<title>연세대학교 한국어학당</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/css/default_ko.css?v=20260708" />
+	<script type="text/javascript" src="/script/jquery.min.js"></script>
+	<script type="text/javascript" src="/script/input.js"></script>
+	<script type="text/javascript">
+		jQuery(window).load(function() {
+			jQuery('#loading-image').hide();
+		});
+		$(document).ready(function() {
+			if ($('#wrapper').width() == "760" || $('#wrapper').width() == "480") {
+				if (parseInt($(".htmlwrapper").height()) <= parseInt(window.innerHeight) && (parseInt($("#wrapper").height()) <= parseInt(window.innerHeight))) {
+					$(".htmlwrapper").css({"min-height": window.innerHeight+"px"});
+					$("#wrapper").css({"min-height": window.innerHeight+"px"});
+				}
+			}
+		});
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#contentsarea").find('table').not('td table').each(function() {
+			if ($(this).attr("id") != "Board" && $(this).attr("id") != "memTable1" && $(this).attr("id") != "memTable2" && $(this).attr("id") != "memTable3" && $(this).attr("id") != "memTable4" && $(this).attr("id") != "memTable5" && $(this).attr("id") != "memTable6" && $(this).attr("class") != "memTable") {
+				$(this).css("width", "");
+				$(this).attr("width", "100%");
+				$(this).wrap("<div class='tableOver'>");
+			}
+		});
+	});
+	jQuery(window).load(function() {
+		var divWidth = $("#contentsarea").width();
+		var div = document.getElementById('contentsarea');
+		var imgtag = "";
+		var img = div.getElementsByTagName("img");
+		for (i=0; i < img.length; i++) {
+			ori_imgwidth = img[i].width;
+			ori_imgheight = img[i].height;
+			if (parseInt(ori_imgwidth) > parseInt(divWidth)) {
+				var newWidth = divWidth + "px";
+				$(img[i]).css({"width": newWidth, "height": "auto"});
+			}
+		}
+	});
+	jQuery(window).resize(function() {
+		var divWidth = $("#contentsarea").width();
+		var div = document.getElementById('contentsarea');
+		var imgtag = "";
+		var img = div.getElementsByTagName("img");
+		for (i=0; i < img.length; i++) {
+			ori_imgwidth = img[i].width;
+			ori_imgheight = img[i].height;
+			if (parseInt(ori_imgwidth) > parseInt(divWidth)) {
+				var newWidth = divWidth + "px";
+				$(img[i]).css({"width": newWidth, "height": "auto"});
+			}
+		}
+	});
+</script></head>
+
+<body class="htmlwrapper">
+	<H1 class="notext">연세대학교 한국어학당</H1>
+	<div id="skipnavi">
+		<p><a tabindex="1" href="#contentsarea">본문 바로가기</a></p>
+		<p><a tabindex="1" href="#gnb">주메뉴 바로가기</a></p>
+	</div>
+	<div id="wrapper" style="max-width:100%;">
+		<div id="kli_top" class="sub01">
+			<div id="kli_submenu_area">
+				<div id="kli_top_submenu_area" class="sub"></div>
+			</div>
+						<div id="kli_lang_area" class="sublang" OnMouseOver="Javascript: showSub('0', 'N');" OnBlur="Javascript: showSub('0', 'N');">
+				<a href="/course.php?mid=K01_02" title="한글">한글</a>&nbsp;&nbsp;&nbsp;<a href="/course.php?mid=E01_02" title="English">English</a>&nbsp;&nbsp;&nbsp;<a href="/course.php?mid=C01_02" title="汉语">汉语</a>&nbsp;&nbsp;&nbsp;<a href="/course.php?mid=J01_02" title="日本語">日本語</a>
+			</div>
+			<div id="kli_top_area">
+				<div id="kli_top_logo_area" OnMouseOver="Javascript: showSub('0', 'N');" OnBlur="Javascript: showSub('0', 'N');">
+					<H2 class="notext">로고 및 메뉴버튼</H2>
+					<ul id="kli_top_list">
+						<li id="kli_top_logo" class="sublogo"><a href="index.php?mid=K00" title="연세대학교 한국어학당"></a></li>
+						<li id="kli_fullmenu_btn" class="subbtn"><a href="#" OnClick="Javascript: $('#kli_fullmenuarea').slideToggle(500);">전체메뉴</a></li>
+					</ul>
+				</div>
+				<div id="gnb"></div>
+				<div id="kli_fullmenuarea">
+					<H2 class="notext">전체메뉴</H2>
+					<div id="fullmenu_760_menutitle">
+						<p>전체메뉴<a href="#" OnClick="Javascript: $('#kli_fullmenuarea').slideUp(500); return false;"><img src="/images/kli_hmenuclosebtn.png" alt="닫기버튼"></a></p>
+					</div>
+					<ul class="kli_top_menu_list sub">
+						<li id="kli_top_menu_list_01" class="ko"><a href="/course.php?mid=K01_01" OnMouseOver="Javascript: showSub('1', 'N');" OnFocus="Javascript: showSub('1', 'N');" OnClick="Javascript: if ($('#kli_top_area').width() == '740' || $('#kli_top_area').width() == '460') { $('#kli_top_submenu_list_01').slideToggle(); return false;}" class="kli_top_main_menu sub" id="kli_top_mainmenu_01" title="과정소개">과정소개</a>
+							<ul class="kli_top_submenu_list" id="kli_top_submenu_list_01" OnMouseOver="Javascript: showTopMenu('1', 'N');" OnFocus="Javascript: showTopMenu('1', 'N');" OnMouseOut="Javascript:hideSub('1', 'N');">
+								<li OnMouseOver="Javascript: showTopMenu('1', 'N');" OnFocus="Javascript: showTopMenu('1', 'N');"><a href="/course.php?mid=K01_01" title="정규과정" >정규과정</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('1', 'N');" OnFocus="Javascript: showTopMenu('1', 'N');"><a href="/course.php?mid=K01_02" title="대학한국어과정" >대학한국어과정</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('1', 'N');" OnFocus="Javascript: showTopMenu('1', 'N');"><a href="/course.php?mid=K01_03" title="온라인글로벌한국어과정" style="letter-spacing:-2.5px;">온라인글로벌한국어과정</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('1', 'N');" OnFocus="Javascript: showTopMenu('1', 'N');"><a href="/course.php?mid=K01_04" title="여름특별과정" >여름특별과정</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('1', 'N');" OnFocus="Javascript: showTopMenu('1', 'N');"><a href="/course.php?mid=K01_06" title="여름오후과정(4주)" >여름오후과정(4주)</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('1', 'N');" OnFocus="Javascript: showTopMenu('1', 'N');"><a href="/course.php?mid=K01_05" title="3주 단기과정" >3주 단기과정</a></li>
+							</ul>
+						</li>
+						<li id="kli_top_menu_list_02" class="ko"><a href="/apply.php?mid=K02_01" OnMouseOver="Javascript: showSub('2', 'N');" OnFocus="Javascript: showSub('2', 'N');"  OnClick="Javascript: if ($('#kli_top_area').width() == '740' || $('#kli_top_area').width() == '460') { $('#kli_top_submenu_list_02').slideToggle(); return false;}" class="kli_top_main_menu sub" id="kli_top_mainmenu_02" title="온라인지원">온라인지원</a>
+							<ul class="kli_top_submenu_list" id="kli_top_submenu_list_02" OnMouseOver="Javascript: showTopMenu('2', 'N');" OnFocus="Javascript: showTopMenu('2', 'N');" OnMouseOut="Javascript:hideSub('2', 'N');">
+								<li OnMouseOver="Javascript: showTopMenu('2', 'N');" OnFocus="Javascript: showTopMenu('2', 'N');"><a href="/apply.php?mid=K02_01" title="온라인지원" >온라인지원</a></li>
+							</ul>
+						</li>
+						<li id="kli_top_menu_list_03" class="ko"><a href="/life.php?mid=K03_01" OnMouseOver="Javascript: showSub('3', 'N');" OnFocus="Javascript: showSub('3', 'N');" OnClick="Javascript: if ($('#kli_top_area').width() == '740' || $('#kli_top_area').width() == '460') { $('#kli_top_submenu_list_03').slideToggle(); return false;}" class="kli_top_main_menu sub" id="kli_top_mainmenu_03" title="학교생활">학교생활</a>
+							<ul class="kli_top_submenu_list" id="kli_top_submenu_list_03" OnMouseOver="Javascript: showTopMenu('3', 'N');" OnFocus="Javascript: showTopMenu('3', 'N');" OnMouseOut="Javascript:hideSub('3', 'N');">
+								<li OnMouseOver="Javascript: showTopMenu('3', 'N');" OnFocus="Javascript: showTopMenu('3', 'N');"><a href="/life.php?mid=K03_01" title="문화체험" >문화체험</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('3', 'N');" OnFocus="Javascript: showTopMenu('3', 'N');"><a href="/life.php?mid=K03_02_01" title="상담 및 언어교환" >상담 및 언어교환</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('3', 'N');" OnFocus="Javascript: showTopMenu('3', 'N');"><a href="/life.php?mid=K03_03" title="KLI 일상" >KLI 일상</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('3', 'N');" OnFocus="Javascript: showTopMenu('3', 'N');"><a href="/life.php?mid=K03_04" title="외국인 한글백일장" >외국인 한글백일장</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('3', 'N');" OnFocus="Javascript: showTopMenu('3', 'N');"><a href="/life.php?mid=K03_05" title="증명서" >증명서</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('3', 'N');" OnFocus="Javascript: showTopMenu('3', 'N');"><a href="/life.php?mid=K03_06" title="장학금 및 단체보험" >장학금 및 단체보험</a></li>
+							</ul>
+						</li>
+						<li id="kli_top_menu_list_04" class="ko"><a href="/news.php?mid=K04_01" OnMouseOver="Javascript: showSub('4', 'N');" OnFocus="Javascript: showSub('4', 'N');" OnClick="Javascript: if ($('#kli_top_area').width() == '740' || $('#kli_top_area').width() == '460') { $('#kli_top_submenu_list_04').slideToggle(); return false;}" class="kli_top_main_menu sub" id="kli_top_mainmenu_04" title="소식/공지">소식/공지</a>
+							<ul class="kli_top_submenu_list" id="kli_top_submenu_list_04" OnMouseOver="Javascript: showTopMenu('4', 'N');" OnFocus="Javascript: showTopMenu('4', 'N');" OnMouseOut="Javascript:hideSub('4', 'N');">
+								<li OnMouseOver="Javascript: showTopMenu('4', 'N');" OnFocus="Javascript: showTopMenu('4', 'N');"><a href="/news.php?mid=K04_01" title="공지사항" >공지사항</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('4', 'N');" OnFocus="Javascript: showTopMenu('4', 'N');"><a href="/news.php?mid=K04_02" title="정규과정 소식" >정규과정 소식</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('4', 'N');" OnFocus="Javascript: showTopMenu('4', 'N');"><a href="/news.php?mid=K04_04" title="단기/위탁과정 소식" >단기/위탁과정 소식</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('4', 'N');" OnFocus="Javascript: showTopMenu('4', 'N');"><a href="/news.php?mid=K04_05" title="브로슈어" >브로슈어</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('4', 'N');" OnFocus="Javascript: showTopMenu('4', 'N');"><a href="/news.php?mid=K04_03" title="FAQ" >FAQ</a></li>
+							</ul>
+						</li>
+						<li id="kli_top_menu_list_05" class="ko"><a href="/instructor.php?mid=K05_01" OnMouseOver="Javascript: showSub('5', 'N');" OnFocus="Javascript: showSub('5', 'N');" OnClick="Javascript: if ($('#kli_top_area').width() == '740' || $('#kli_top_area').width() == '460') { $('#kli_top_submenu_list_05').slideToggle(); return false;}"  class="kli_top_main_menu sub" id="kli_top_mainmenu_05" title="한국어교원양성과정" >한국어교원양성과정</a>
+							<ul class="kli_top_submenu_list" id="kli_top_submenu_list_05" OnMouseOver="Javascript: showTopMenu('5', 'N');" OnFocus="Javascript: showTopMenu('5', 'N');" OnMouseOut="Javascript:hideSub('5', 'N');">
+								<li OnMouseOver="Javascript: showTopMenu('5', 'N');" OnFocus="Javascript: showTopMenu('5', 'N');"><a href="/instructor.php?mid=K05_01" title="한국어교원양성과정" >한국어교원양성과정</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('5', 'N');" OnFocus="Javascript: showTopMenu('5', 'N');"><a href="/instructor.php?mid=K05_02" title="온라인 한국어교원양성과정" >온라인 한국어교원양성과정</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('5', 'N');" OnFocus="Javascript: showTopMenu('5', 'N');"><a href="/instructor.php?mid=K05_03" title="원서접수" >원서접수</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('5', 'N');" OnFocus="Javascript: showTopMenu('5', 'N');"><a href="/instructor.php?mid=K05_04" title="공지사항" >공지사항</a></li>
+							</ul>
+						</li>
+						<li id="kli_top_menu_list_06" class="ko"><a href="/about.php?mid=K06_01" OnMouseOver="Javascript: showSub('6', 'N');" OnFocus="Javascript: showSub('6', 'N');" OnClick="Javascript: if ($('#kli_top_area').width() == '740' || $('#kli_top_area').width() == '460') { $('#kli_top_submenu_list_06').slideToggle(); return false;}" class="kli_top_main_menu sub" id="kli_top_mainmenu_06" title="한국어학당">한국어학당</a>
+							<ul class="kli_top_submenu_list" id="kli_top_submenu_list_06" OnMouseOver="Javascript: showTopMenu('6', 'N');" OnFocus="Javascript: showTopMenu('6', 'N');" OnMouseOut="Javascript:hideSub('6', 'N');">
+								<li OnMouseOver="Javascript: showTopMenu('6', 'N');" OnFocus="Javascript: showTopMenu('6', 'N');"><a href="/about.php?mid=K06_01" title="인사말" >인사말</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('6', 'N');" OnFocus="Javascript: showTopMenu('6', 'N');"><a href="/about.php?mid=K06_02" title="한국어학당소개" >한국어학당소개</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('6', 'N');" OnFocus="Javascript: showTopMenu('6', 'N');"><a href="/about.php?mid=K06_03_01" title="학술활동" >학술활동</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('6', 'N');" OnFocus="Javascript: showTopMenu('6', 'N');"><a href="/about.php?mid=K06_04_01" title="교직원" >교직원</a></li>
+								<li OnMouseOver="Javascript: showTopMenu('6', 'N');" OnFocus="Javascript: showTopMenu('6', 'N');"><a href="/about.php?mid=K06_05" title="오시는 길" >오시는 길</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>			<div id="kli_subtitle_area">
+				<H3>과정소개<br><span>KOREAN LANGUAGE INSTITUTE</span></H3>
+			</div>
+		</div>
+		<div id="kli_menu" class="sub01">
+			<div id="kli_menu_area">
+				<ul class="kli_menu_contents sub01">
+					<li class="kli_menulist"><a href="/course.php?mid=K01_01" title="정규과정" >정규과정</a></li>
+					<li class="kli_menuliston"><a href="/course.php?mid=K01_02" title="대학한국어과정" >대학한국어과정</a></li>
+					<li class="kli_menulist"><a href="/course.php?mid=K01_03" title="온라인글로벌한국어과정" >온라인글로벌한국어과정</a></li>
+					<li class="kli_menulist"><a href="/course.php?mid=K01_04" title="여름특별과정" >여름특별과정</a></li>
+					<li class="kli_menulist"><a href="/course.php?mid=K01_06" title="여름오후과정(4주)" >여름오후과정(4주)</a></li>
+					<li class="kli_menulist"><a href="/course.php?mid=K01_05" title="3주 단기과정" >3주 단기과정</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="kli_mid_bottom" OnMouseOver="Javascript: showSub('0', 'N');" OnBlur="Javascript: showSub('0', 'N');">
+			<div id="kli_contents">
+				<div id="contentsarea">
+					<h2><span style="color: #ff0000; background-color: #ffff99;"><strong>2026년 겨울학기부터 대학한국어과정 신입생 모집이 중단됩니다.</strong></span></h2>
+<h2><span style="color: #ff0000; background-color: #ffff99;"><strong>2027년도 봄학기부터 대학한국어과정은 운영되지 않습니다. </strong></span></h2>
+<h2 class="isSelectedEnd"><span style="color: #ff0000; background-color: #ffff99;"><strong>오후 수업을 희망하는 학생은 정규과정 오후반으로 지원해 주시기 바랍니다.</strong></span></h2>
+<p><span><strong>대학한국어과정</strong>은 한국 대학교에 재학 중이거나, 한국 대학교 및 대학원 진학을 목표로 하는 외국인 및 재외동포를 위한 집중 한국어 교육 과정입니다.</span><br /><span>학문 목적 한국어 능력을 집중적으로 향상할 수 있도록 설계된 과정으로, 정규과정과 동일한 학사일정으로 운영되며 수업은 오후에만 진행됩니다.</span></p>
+<ul data-spread="false">
+<li><span><strong>교육기간</strong>: 1학기 10주 과정</span></li>
+<li><span><strong>수업시간</strong>: 학기당 총 200시간</span></li>
+<li><span><strong>운영학기</strong>: 연간 4학기 운영</span></li>
+<li><span><strong>수업<strong>일정</strong></strong>: <span style="color: #0000ff;">월~금, 오후 2시~오후 5시 50분</span></span></li>
+<li><strong><span style="color: #ff0000;">※ 한 반의 등록인원이 11명 미만인 경우 해당 반은 개설되지 않을 수 있습니다.</span></strong></li>
+</ul>		<ul style="width:100%; margin:0; padding:0; border:0; list-style: none;">
+						<li id="c_header_div_1" class="cheader" style="margin:0; padding:0; border:0; list-style: none;"><a href="#" id="c_header_1" OnClick="Javascript: $('#c_1').slideToggle(300); $('#c_button_1').toggleClass('btn_cplus btn_cminus'); $('#c_header_1').toggleClass('citem citemon'); $('#c_header_div_1').toggleClass('cheader cheaderon');  return false;" class="citem"><b>학사 일정</b> <span id="c_button_1" class="btn_cplus"></span></a>
+					<ul id="c_1"  style="width:100%; margin:0; padding:0; border:0; list-style: none; display:none;">
+						<li class="citemans">
+							<ul>
+<li><span style="color: #ff0000; background-color: #ffff99; font-size: small;"><strong>2026년 겨울학기부터 대학한국어과정 신입생 모집이 중단됩니다.</strong></span></li>
+<li><span style="color: #ff0000; background-color: #ffff99; font-size: small;"><strong>2027년도 봄학기부터 대학한국어과정은 운영되지 않습니다.</strong></span></li>
+<li><span style="color: #ff0000; background-color: #ffff99; font-size: small;"><strong>오후 수업을 희망하는 학생은 정규과정 오후반으로 지원해 주시기 바랍니다.</strong></span></li>
+</ul>
+<p style="text-align: center;"><span style="font-size: small;"><strong style="font-size: medium;">2026학년도 학사 일정<span style="color: #0000ff;">(한국시간 기준)</span></strong></span></p>
+<table class="contentsTable">
+<tbody>
+<tr><th><strong>&nbsp;학기</strong></th><th><strong>신입생 서류 제출</strong><strong>(전형료 입금)</strong></th><th><strong>신입생 등록 마감</strong><strong>(수업료 입금)</strong></th><th><strong>신입생 반편성시험(대면)</strong></th><th><strong>오리엔테이션</strong></th><th><strong>개강</strong></th><th><strong>종강</strong></th></tr>
+<tr>
+<td class="bg"><strong>봄</strong></td>
+<td><span style="color: #000000; background-color: #ffffff;">12월 8일 ~&nbsp;2026년 1월 16일&nbsp;5:00PM</span></td>
+<td><span style="color: #000000; background-color: #ffffff;">1월 23일</span></td>
+<td><span style="color: #000000; background-color: #ffffff;">3월 3일, 9:30AM</span></td>
+<td><span style="color: #000000; background-color: #ffffff;">3월 5일, 3:00PM</span></td>
+<td><span style="color: #000000; background-color: #ffffff;">3월 6일</span></td>
+<td><span style="color: #000000; background-color: #ffffff;">5월 18일</span></td>
+</tr>
+<tr>
+<td class="bg"><strong>여름</strong></td>
+<td><span style="background-color: #ffffff; color: #000000;">3월 9일 ~ 4월 17일&nbsp;5:00PM</span></td>
+<td><span style="background-color: #ffffff; color: #000000;">4월 24일</span></td>
+<td><span style="background-color: #ffffff; color: #000000;">6월 1일, 9:30AM</span></td>
+<td><span style="background-color: #ffffff; color: #000000;">6월 4일, 3:00PM</span></td>
+<td><span style="background-color: #ffffff; color: #000000;">6월 5일</span></td>
+<td><span style="background-color: #ffffff; color: #000000;">8월 14일</span></td>
+</tr>
+<tr>
+<td class="bg"><span style="color: #000000; background-color: #ffffff;"><strong>가을</strong></span></td>
+<td><span style="color: #000000; background-color: #ffffff;">6월 8일 ~ 7월 16일&nbsp;5:00PM</span></td>
+<td><span style="color: #000000; background-color: #ffffff;">7월 24일</span></td>
+<td><span style="color: #000000; background-color: #ffffff;">8월 27일, 9:30AM</span></td>
+<td><span style="color: #000000; background-color: #ffffff;">8월 31일, 3:00PM</span></td>
+<td><span style="color: #000000; background-color: #ffffff;">9월 1일</span></td>
+<td><span style="color: #000000; background-color: #ffffff;">11월 13일</span></td>
+</tr>
+<tr>
+<td class="bg"><strong>겨울</strong></td>
+<td><span style="background-color: #ffffff;">&nbsp;</span></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><span style="background-color: #ffffff;">12월 1일</span></td>
+<td><span style="background-color: #ffffff;">2027년 2월 12일</span></td>
+</tr>
+</tbody>
+</table>													</li>
+					</ul>
+				</li>
+					</ul>
+					</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div id="kli_bottom">
+			<H2 class="notext">연세대학교 로고 및 저작권 영역</H2>
+<div id="kli_website_area">
+	<H3 class="notext">주요사이트 영역</H3>
+	<ul class="itemlist">
+		<li><a href="https://www.yonsei.ac.kr" target="_blank" title="연세대학교">연세대학교</a></li>
+		<li><a href="https://admission.yonsei.ac.kr" target="_blank" title="연세대학교 입학처">연세대학교 입학처</a></li>
+		<li><a href="https://summer.yonsei.ac.kr" target="_blank" title="국제하계대학">국제하계대학</a></li>
+		<li><a href="https://winter.yonsei.ac.kr" target="_blank" title="국제동계대학">국제동계대학</a></li>
+		<li><a href="https://hikorea.go.kr" target="_blank" title="Hi Korea">Hi Korea</a></li>
+		<li><a href="https://www.topik.go.kr" target="_blank" title="TOPIK">TOPIK</a></li>
+		<li><a href="https://global.seoul.go.kr" target="_blank" title="서울글로벌센터">서울글로벌센터</a></li>
+		<!--<li><a href="https://foreignerdb.com" target="_blank" title="중앙인스">중앙인스</a></li>-->
+	</ul>
+</div>
+<div id="kli_bottom_area">
+	<ul class="itemlist">
+		<li id="bottom01"></li>
+		<li id="bottom02" class="ko">03722 서울특별시 서대문구 연세로 50 한국어학당 201호<br>50 YONSEI-RO, SEODAEMUN-GU, SEOUL, KOREA 03722<br><span class="opensans" style="color:#acacac; font-size:12px;">COPYRIGHT ⓒ 2024 YONSEI UNIVERSITY KLI. ALL RIGHTS RESERVED</span></li>
+		<li id="bottom03"><a href="https://www.facebook.com/yskli/" target="_blank" title="facebook"><img src="/images/footer_icon_facebook.png" align="absmiddle" width="30"></a> <a href="https://www.youtube.com/@%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90%ED%95%9C%EA%B5%AD%EC%96%B4%ED%95%99%EB%8B%B9" target="_blank" title="YouTube"><img src="/images/footer_icon_youtube.png" align="absmiddle" width="30"></a> <a href="https://www.instagram.com/yonsei_kli" target="_blank" title="Instagram"><img src="/images/footer_icon_instagram.png" align="absmiddle" width="30"></a> <a href="policy.php?mid=K10" style="padding:3px 15px 3px 15px; color:#d1d1d1; border:1px solid #d1d1d1; font-weight:bold;">개인정보처리방침</a></li>
+	</ul>
+</div>		</div>
+	</div>
+	<H2 class="notext">페이지 로딩 이미지 표시</h2>
+<div id="loading-image" style="display:none;">
+	<p id="loading-loader"><img src="/images/loader.gif" alt="Loading..." width="100px;" /><br><br><b style="color:#000000;">처리중입니다</b></p>
+</div>
+<link type="text/css" rel="stylesheet" href="/script/scrolltop/scrolltop.css">
+<a href="#0" class="cd-top">Top</a>
+<script src="/script/scrolltop/scrolltop.js"></script></body>
+</html>

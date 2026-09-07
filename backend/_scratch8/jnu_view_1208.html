@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=1" /><title>
+	전남대학교 한국어강좌 > 강좌소개 > 한국어 정규강좌 > 2026년 가을,겨울학기 한국어 정규강좌 모집요강 국문
+</title><link rel="stylesheet" type="text/css" href="/css/font.css" /><link rel="stylesheet" type="text/css" href="/css/common.css" /><link rel="stylesheet" type="text/css" href="/css/home.css?v=180202" /><link rel="stylesheet" type="text/css" href="/css/layout.css?v=181012" /><link rel="stylesheet" type="text/css" href="/css/content.css?v=180726" /><link rel="stylesheet" type="text/css" href="/css/jquery-ui.css" />
+	
+    <script type="text/javascript" src="/js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>     <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="/js/modernizr.js"></script>
+    <script type="text/javascript" src="/js/ClientValidate.js"></script>
+    <script type="text/javascript" src="/js/util.form.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+
+    <script type="text/javascript">		     
+     $(document).ready(function() {         
+
+         $('nav.side_menu > ul > li > a').click(function (e) {
+             if ($(this).next("ul.side_lnb_menu").length > 0) {
+                 e.preventDefault();
+                 var $this = $(this);
+                 if ($this.next().hasClass('open')) {
+                     $this.next().removeClass('open');
+                     $this.next().slideUp(350);
+                 } else {
+                     $this.parent().parent().find('li .side_lnb_menu').removeClass('open');
+                     $this.parent().parent().find('li .side_lnb_menu').slideUp(350);
+                     $this.next().toggleClass('open');
+                     $this.next().slideToggle(350);
+                 }
+             }
+         });
+
+         $(".m_all_menu_open").click(function () {
+             $('.menu_panel').addClass('on');
+             $('.m_menu_dim').addClass('on');
+         });
+
+         $(".m_all_menu_close").click(function () {
+             $('.menu_panel').removeClass('on');
+             $('.m_menu_dim').removeClass('on');
+         });
+
+         $(".nav_bar .bar_wrap .navigation span").click(function () {
+
+         	$(".nav_bar .bar_wrap .navigation ul").not($(this).children()).slideUp();
+         	$(".nav_bar .bar_wrap .navigation span").not($(this)).removeClass("on");
+         	$(this).toggleClass("on")
+         	$(this).children("ul").slideToggle(200);
+
+         });
+
+     });
+        
+    </script>
+
+
+    
+    <script type="text/javascript" src="/Board/ckeditor/ckeditor.js"></script>
+    
+         <script type="text/javascript">
+         $(function () {
+
+             $(".m_all_menu_open").click(function () {
+                 $('.menu_panel').addClass('on');
+                 $('.m_menu_dim').addClass('on');
+             });
+
+             $(".m_all_menu_close").click(function () {
+                 $('.menu_panel').removeClass('on');
+                 $('.m_menu_dim').removeClass('on');
+             });
+
+             $('.m_menu > ul > li').hover(function () {
+               //  alert();
+                 //$(this).find('> a').removeAttr('href');
+                 $(this).find('div').stop().slideDown();
+             }, function () {
+                 $(this).find('div').stop().slideUp();
+             });
+         });
+        </script>
+
+<link href="/Board/Skin/basic/css/style.css" rel="stylesheet" type="text/css" /></head>
+ <body>    
+    <header>
+	    
+
+<div class="header_top_wrap">
+	<div class="header_top">
+		<div class="header_link">
+			<ul class="language">
+				<li class="korean on"><a href="/kr"><span>한국어</span></a></li>
+				<li class="english"><a href="/en"><span>English</span></a></li>
+				<li class="china"><a href="/cn"><span>中文</span></a></li> 
+			</ul>
+			<ul class="login">
+                
+                       <li class="sign_up"><a href="/kr/User/Join.aspx">회원가입</a></li>
+				       <li class="join"><a href="/kr/User/Login.aspx">로그인</a></li>
+                
+
+			</ul>
+		</div>
+		<h1 class="logo"><a href="/kr"><img src="/images/common/logo.gif" alt="전남대학교 한국어강좌"></a></h1>
+	</div>
+</div>
+
+<a class="m_all_menu_open" href="#">
+<span></span>
+<span></span>
+<span></span>
+</a>
+<div class="menu_panel">
+    <div class="m_login_wrap">
+	     				
+                <a href="/kr/User/Join.aspx">회원가입</a>
+				<a href="/kr/User/Login.aspx">로그인</a>
+                
+    </div>
+    <strong class="title">전체메뉴</strong>
+    <a class="m_all_menu_close" href="#">
+	    <span></span>
+	    <span></span>
+    </a>
+    <div class="m_menu">
+	
+    </div>
+</div>
+<!-- 모바일 메뉴 관련 stop -->
+	 
+        <div class="gnb_wrap">
+<div class="gnb_layout"></div>
+<nav id="gnb">
+	<ul><li class="navi01"><a href='/kr/SubPage.aspx?PageCode=010100' >한국어학당 소개</a>
+<ul><li><a href='/kr/SubPage.aspx?PageCode=010100'>원장 인사말</a><li><a href='/kr/SubPage.aspx?PageCode=010200'>교직원 및 강사</a><li><a href='/kr/SubPage.aspx?PageCode=010300'>교육환경</a><li><a href='/kr/SubPage.aspx?PageCode=010400'>오시는길</a></li>
+</ul>
+</li>
+<li class="navi02"><a href='/kr/SubPage.aspx?PageCode=020101' >강좌소개</a>
+<ul><li><a href='/kr/SubPage.aspx?PageCode=020101'>한국어 정규강좌</a><ul><li><a href='/kr/SubPage.aspx?PageCode=020101'>강좌소개</a></li></ul>
+<ul><li><a href='/kr/SubPage.aspx?PageCode=020102'>교육과정</a></li></ul>
+<ul><li><a href='/kr/SubPage.aspx?PageCode=020103'>학사규정</a></li></ul>
+<ul><li><a href='/kr/SubPage.aspx?PageCode=020104'>지원 및 등록</a></li></ul>
+<ul><li><a href='/kr/SubPage.aspx?PageCode=020105'>모집요강 다운로드</a></li></ul>
+<li><a href='/kr/SubPage.aspx?PageCode=020202'>한국어 특별강좌</a><ul><li><a href='/kr/SubPage.aspx?PageCode=020202'>대학원생 대상 특별강좌</a></li></ul>
+<ul><li><a href='/kr/SubPage.aspx?PageCode=020203'>한국어 능력시험(TOPIK) 대비반</a></li></ul>
+<li><a href='/kr/SubPage.aspx?PageCode=020401'>한국어 위탁강좌</a><ul><li><a href='/kr/SubPage.aspx?PageCode=020401'>소개</a></li></ul>
+</li>
+</ul>
+</li>
+<li class="navi03"><a href='/kr/SubPage.aspx?PageCode=030100' >학교생활</a>
+<ul><li><a href='/kr/SubPage.aspx?PageCode=030100'>체류관련</a><li><a href='/kr/SubPage.aspx?PageCode=030200'>보험 및 의료서비스</a><li><a href='/kr/SubPage.aspx?PageCode=030300'>기숙사</a><li><a href='/kr/SubPage.aspx?PageCode=030400'>학습도우미</a><li><a href='/kr/SubPage.aspx?PageCode=030500'>문화체험</a></li>
+</ul>
+</li>
+<li class="navi05"><a href='/Board/Board.aspx?BoardID=1' >게시판</a>
+<ul><li><a href='/Board/Board.aspx?BoardID=1'>공지사항</a><li><a href='/Board/Board.aspx?BoardID=4'>FAQ</a><li><a href='/Board/Board.aspx?BoardID=5'>Q&A</a><li><a href='/Board/Board.aspx?BoardID=6'>자료실</a><li><a href='/Board/Board.aspx?BoardID=8'>증명서 발급신청</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+    </header>
+    <div class="content_wrap">	         
+             <div class="nav_bar">
+                 <div class="bar_wrap">
+                     <div class="navigation">
+		               <span class="nav_home"><a href="#"><img src='/images/common/nav_home.png' alt="HOME"/></a></span>
+                       <span><a id="ctl00_hy_subnavi_arrow1" href="javascript:;">강좌소개</a></span>
+		               <span><a id="ctl00_hy_subnavi_arrow2" class="now" href="javascript:;">한국어 정규강좌</a>
+						   	 <ul>
+								<li><a href='/kr/SubPage.aspx?PageCode=020101' class="on on2dep">한국어 정규강좌</a>
+<ul class="side_lnb_menu on on2dep">
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020101' >강좌소개</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020102' >교육과정</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020103' >학사규정</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020104' >지원 및 등록</a></li>
+<li  class="on"><a href='/Board/Board.aspx?BoardID=3' >모집요강 다운로드</a></li>
+
+</ul>
+</li>
+<li><a href='/kr/SubPage.aspx?PageCode=020202' class="">한국어 특별강좌</a>
+<ul class="side_lnb_menu ">
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020202' >대학원생 대상 특별강좌</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020203' >한국어 능력시험(TOPIK) 대비반</a></li>
+
+</ul>
+</li>
+<li><a href='/kr/SubPage.aspx?PageCode=020401' class="">한국어 위탁강좌</a>
+<ul class="side_lnb_menu ">
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020401' >소개</a></li>
+
+</ul>
+</li>
+						
+							</ul>
+		               </span>
+                       <span><a id="ctl00_hy_subnavi_arrow3" class="now" href="javascript:;">모집요강 다운로드</a>
+						   	<ul>
+								<li  class=""><a href='/kr/SubPage.aspx?PageCode=020101' >강좌소개</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020102' >교육과정</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020103' >학사규정</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020104' >지원 및 등록</a></li>
+<li  class="on"><a href='/Board/Board.aspx?BoardID=3' >모집요강 다운로드</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020202' >대학원생 대상 특별강좌</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020203' >한국어 능력시험(TOPIK) 대비반</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020401' >소개</a></li>
+						
+							</ul>
+					  </span>
+					 </div>           
+	                 </div>
+                 </div>
+            </div>			
+            <div class="content">
+		        <div class="side">
+                    <div class="side_title">
+                        <div id="ctl00_pnlLeftMenuTitle" class="lnbTitle lnbTitle02">
+	
+                            <h2><span id="ctl00_lbl_LeftTitle">강좌소개</span></h2>
+                        
+</div>
+                       </div>
+                    <nav class="side_menu">
+				        <ul class="side_lnb">		
+				        <li><a href='/kr/SubPage.aspx?PageCode=020101' class="on on2dep">한국어 정규강좌</a>
+<ul class="side_lnb_menu on on2dep">
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020101' >강좌소개</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020102' >교육과정</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020103' >학사규정</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020104' >지원 및 등록</a></li>
+<li  class="on"><a href='/Board/Board.aspx?BoardID=3' >모집요강 다운로드</a></li>
+
+</ul>
+</li>
+<li><a href='/kr/SubPage.aspx?PageCode=020202' class="">한국어 특별강좌</a>
+<ul class="side_lnb_menu ">
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020202' >대학원생 대상 특별강좌</a></li>
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020203' >한국어 능력시험(TOPIK) 대비반</a></li>
+
+</ul>
+</li>
+<li><a href='/kr/SubPage.aspx?PageCode=020401' class="">한국어 위탁강좌</a>
+<ul class="side_lnb_menu ">
+<li  class=""><a href='/kr/SubPage.aspx?PageCode=020401' >소개</a></li>
+
+</ul>
+</li>
+
+			            </ul>
+                    </nav>
+                </div> 
+                <div class="sub_text">			
+                        <h3 class="ctype"><span id="ctl00_lbl_PageTitle">모집요강 다운로드</span></h3>                		        	
+				        <div id="sub_text">
+					         <form name="aspnetForm" method="post" action="./Board.aspx?BoardID=3&amp;Mode=View&amp;Seq=1208" id="aspnetForm">
+<div>
+<input type="hidden" name="htxtReportXML" id="htxtReportXML" value="" />
+<input type="hidden" name="ReporRootPath" id="ReporRootPath" value="https://leckor.jnu.ac.kr" />
+<input type="hidden" name="JNURootPath" id="JNURootPath" value="https://leckor.jnu.ac.kr" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMjIyNDkyNzg2DxYEHgdQYWdlTnVtAgEeCFBhZ2VNb2RlBQRWaWV3FgJmD2QWFAIFDxYCHgRUZXh0BZERPHVsPjxsaSBjbGFzcz0ibmF2aTAxIj48YSBocmVmPScva3IvU3ViUGFnZS5hc3B4P1BhZ2VDb2RlPTAxMDEwMCcgPu2VnOq1reyWtO2VmeuLuSDshozqsJw8L2E+Cjx1bD48bGk+PGEgaHJlZj0nL2tyL1N1YlBhZ2UuYXNweD9QYWdlQ29kZT0wMTAxMDAnPuybkOyepSDsnbjsgqzrp5A8L2E+PGxpPjxhIGhyZWY9Jy9rci9TdWJQYWdlLmFzcHg/UGFnZUNvZGU9MDEwMjAwJz7qtZDsp4Hsm5Ag67CPIOqwleyCrDwvYT48bGk+PGEgaHJlZj0nL2tyL1N1YlBhZ2UuYXNweD9QYWdlQ29kZT0wMTAzMDAnPuq1kOycoe2ZmOqyvTwvYT48bGk+PGEgaHJlZj0nL2tyL1N1YlBhZ2UuYXNweD9QYWdlQ29kZT0wMTA0MDAnPuyYpOyLnOuKlOq4uDwvYT48L2xpPgo8L3VsPgo8L2xpPgo8bGkgY2xhc3M9Im5hdmkwMiI+PGEgaHJlZj0nL2tyL1N1YlBhZ2UuYXNweD9QYWdlQ29kZT0wMjAxMDEnID7qsJXsoozshozqsJw8L2E+Cjx1bD48bGk+PGEgaHJlZj0nL2tyL1N1YlBhZ2UuYXNweD9QYWdlQ29kZT0wMjAxMDEnPu2VnOq1reyWtCDsoJXqt5zqsJXsoow8L2E+PHVsPjxsaT48YSBocmVmPScva3IvU3ViUGFnZS5hc3B4P1BhZ2VDb2RlPTAyMDEwMSc+6rCV7KKM7IaM6rCcPC9hPjwvbGk+PC91bD4KPHVsPjxsaT48YSBocmVmPScva3IvU3ViUGFnZS5hc3B4P1BhZ2VDb2RlPTAyMDEwMic+6rWQ7Jyh6rO87KCVPC9hPjwvbGk+PC91bD4KPHVsPjxsaT48YSBocmVmPScva3IvU3ViUGFnZS5hc3B4P1BhZ2VDb2RlPTAyMDEwMyc+7ZWZ7IKs6rec7KCVPC9hPjwvbGk+PC91bD4KPHVsPjxsaT48YSBocmVmPScva3IvU3ViUGFnZS5hc3B4P1BhZ2VDb2RlPTAyMDEwNCc+7KeA7JuQIOuwjyDrk7HroZ08L2E+PC9saT48L3VsPgo8dWw+PGxpPjxhIGhyZWY9Jy9rci9TdWJQYWdlLmFzcHg/UGFnZUNvZGU9MDIwMTA1Jz7rqqjsp5HsmpTqsJUg64uk7Jq066Gc65OcPC9hPjwvbGk+PC91bD4KPGxpPjxhIGhyZWY9Jy9rci9TdWJQYWdlLmFzcHg/UGFnZUNvZGU9MDIwMjAyJz7tlZzqta3slrQg7Yq567OE6rCV7KKMPC9hPjx1bD48bGk+PGEgaHJlZj0nL2tyL1N1YlBhZ2UuYXNweD9QYWdlQ29kZT0wMjAyMDInPuuMgO2VmeybkOyDnSDrjIDsg4Eg7Yq567OE6rCV7KKMPC9hPjwvbGk+PC91bD4KPHVsPjxsaT48YSBocmVmPScva3IvU3ViUGFnZS5hc3B4P1BhZ2VDb2RlPTAyMDIwMyc+7ZWc6rWt7Ja0IOuKpeugpeyLnO2XmChUT1BJSykg64yA67mE67CYPC9hPjwvbGk+PC91bD4KPGxpPjxhIGhyZWY9Jy9rci9TdWJQYWdlLmFzcHg/UGFnZUNvZGU9MDIwNDAxJz7tlZzqta3slrQg7JyE7YOB6rCV7KKMPC9hPjx1bD48bGk+PGEgaHJlZj0nL2tyL1N1YlBhZ2UuYXNweD9QYWdlQ29kZT0wMjA0MDEnPuyGjOqwnDwvYT48L2xpPjwvdWw+CjwvbGk+CjwvdWw+CjwvbGk+CjxsaSBjbGFzcz0ibmF2aTAzIj48YSBocmVmPScva3IvU3ViUGFnZS5hc3B4P1BhZ2VDb2RlPTAzMDEwMCcgPu2Vmeq1kOyDne2ZnDwvYT4KPHVsPjxsaT48YSBocmVmPScva3IvU3ViUGFnZS5hc3B4P1BhZ2VDb2RlPTAzMDEwMCc+7LK066WY6rSA66CoPC9hPjxsaT48YSBocmVmPScva3IvU3ViUGFnZS5hc3B4P1BhZ2VDb2RlPTAzMDIwMCc+67O07ZeYIOuwjyDsnZjro4zshJzruYTsiqQ8L2E+PGxpPjxhIGhyZWY9Jy9rci9TdWJQYWdlLmFzcHg/UGFnZUNvZGU9MDMwMzAwJz7quLDsiJnsgqw8L2E+PGxpPjxhIGhyZWY9Jy9rci9TdWJQYWdlLmFzcHg/UGFnZUNvZGU9MDMwNDAwJz7tlZnsirXrj4TsmrDrr7g8L2E+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7KKM7IaM6rCcPC9hPjwvbGk+CjxsaSAgY2xhc3M9IiI+PGEgaHJlZj0nL2tyL1N1YlBhZ2UuYXNweD9QYWdlQ29kZT0wMjAxMDInID7qtZDsnKHqs7zsoJU8L2E+PC9saT4KPGxpICBjbGFzcz0iIj48YSBocmVmPScva3IvU3ViUGFnZS5hc3B4P1BhZ2VDb2RlPTAyMDEwMycgPu2VmeyCrOq3nOyglTwvYT48L2xpPgo8bGkgIGNsYXNzPSIiPjxhIGhyZWY9Jy9rci9TdWJQYWdlLmFzcHg/UGFnZUNvZGU9MDIwMTA0JyA+7KeA7JuQIOuwjyDrk7HroZ08L2E+PC9saT4KPGxpICBjbGFzcz0ib24iPjxhIGhyZWY9Jy9Cb2FyZC9Cb2FyZC5hc3B4P0JvYXJkSUQ9MycgPuuqqOynkeyalOqwlSDri6TsmrTroZzrk5w8L2E+PC9saT4KCjwvdWw+CjwvbGk+CjxsaT48YSBocmVmPScva3IvU3ViUGFnZS5hc3B4P1BhZ2VDb2RlPTAyMDIwMicgY2xhc3M9IiI+7ZWc6rWt7Ja0IO2KueuzhOqwleyijDwvYT4KPHVsIGNsYXNzPSJzaWRlX2xuYl9tZW51ICI+CjxsaSAgY2xhc3M9IiI+PGEgaHJlZj0nL2tyL1N1YlBhZ2UuYXNweD9QYWdlQ29kZT0wMjAyMDInID7rjIDtlZnsm5Dsg50g64yA7IOBIO2KueuzhOqwleyijDwvYT48L2xpPgo8bGkgIGNsYXNzPSIiPjxhIGhyZWY9Jy9rci9TdWJQYWdlLmFzcHg/UGFnZUNvZGU9MDIwMjAzJyA+7ZWc6rWt7Ja0IOuKpeugpeyLnO2XmChUT1BJSykg64yA67mE67CYPC9hPjwvbGk+Cgo8L3VsPgo8L2xpPgo8bGk+PGEgaHJlZj0nL2tyL1N1YlBhZ2UuYXNweD9QYWdlQ29kZT0wMjA0MDEnIGNsYXNzPSIiPu2VnOq1reyWtCDsnITtg4HqsJXsoow8L2E+Cjx1bCBjbGFzcz0ic2lkZV9sbmJfbWVudSAiPgo8bGkgIGNsYXNzPSIiPjxhIGhyZWY9Jy9rci9TdWJQYWdlLmFzcHg/UGFnZUNvZGU9MDIwNDAxJyA+7IaM6rCcPC9hPjwvbGk+Cgo8L3VsPgo8L2xpPgpkAhUP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" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="291D02AA" />
+</div>
+                                <div id="ctl00_pnl_Tab">
+
+</div>
+                                
+    <div id="board_con">
+    <div id="boardContent">
+     
+     <div id="ctl00_PageContentPlaceHolder_pnl_Board">
+	
+     
+<script type="text/javascript">
+$(function() {    
+    $("a[rel=lightbox]").fancybox({
+		'transitionIn'	: 'elastic',
+		'transitionOut'	: 'none',
+		'overlayColor'		: '#000',
+		'overlayOpacity'	: 0.9
+	}); 
+});
+</script>
+<table border="0" class="boardView" style="width:100%">
+<colgroup>
+    <col style="width:18%" />
+    <col style="width:32%" />
+    <col style="width:18%" />
+    <col style="width:32%" />
+</colgroup>
+<thead>
+<tr>
+	<th colspan="4" class="boardviewtitle"><span id="ctl00_PageContentPlaceHolder_ctl00_lbl_title">2026년 가을,겨울학기 한국어 정규강좌 모집요강 국문</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+       <th>글번호</th>
+       <td><span id="ctl00_PageContentPlaceHolder_ctl00_lbl_No">1208</span></td>
+       <th>조회수</th>
+       <td class="td_noline"><span id="ctl00_PageContentPlaceHolder_ctl00_lbl_hits">469</span></td>
+</tr>
+
+<tr>      
+	   <th>작성자</th>
+       <td><span id="ctl00_PageContentPlaceHolder_ctl00_lbl_name">관리자</span></td>
+	   <th>작성일</th>
+       <td class="td_noline"><span id="ctl00_PageContentPlaceHolder_ctl00_lbl_date">2026-05-20</span></td>
+</tr>
+<tr id="ctl00_PageContentPlaceHolder_ctl00_tr_file">
+		<th>첨부파일</th>
+		<td colspan="3" class="td_noline"><a href="/Board/ByteToFile.aspx?Seq=1883&filename=%ea%b5%ad%eb%ac%b8)26+%ea%b0%80%ec%9d%84%2c%ea%b2%a8%ec%9a%b8%ed%95%99%ea%b8%b0+%ed%95%9c%ea%b5%ad%ec%96%b4+%ec%a0%95%ea%b7%9c%ea%b0%95%ec%a2%8c+%eb%aa%a8%ec%a7%91%ec%9a%94%ea%b0%95_%ec%a0%84%eb%82%a8%eb%8c%80_0709.pdf" title=국문)26 가을,겨울학기 한국어 정규강좌 모집요강_전남대_0709.pdf>국문)26 가을,겨울학기 한국어 정규강좌 모집요강_전남대_0709.pdf</a><span class="file_title"> [ 다운로드 : 296 ] 818KB</span><br /></td>
+	</tr>
+	
+</tbody>
+</table>
+<div class="text">
+    2026년도 가을/겨울학기 한국어 정규강좌 신입생 모집요강(한국어 버전)을 첨부파일과 같이 공지합니다.&nbsp;<br />
+모집요강을 참고해 많은 지원 바랍니다.&nbsp;<br />
+감사합니다.<br />
+<br />
+관련문의: 베트남 담당자 062)530-3641<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 중화권,일본,몽골 담당자 062)530-3649<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 그 외 국가 담당자 062)530-3643
+</div>
+<div class="sns_output">
+
+</div>
+
+ <div class="btn">
+        <div class="bleft">
+            <a id="ctl00_PageContentPlaceHolder_ctl00_hl_List" class="button" href="/Board/Board.aspx?BoardID=3&amp;Mode=List&amp;PageNum=1&amp;Key=&amp;Value=&amp;Cate="><span>목록</span></a>
+            
+            
+        </div>
+        <div class="bright">
+            
+            
+        </div>
+</div>
+<div class="clear"></div>
+
+
+</div>
+     
+    </div> 
+    </div>
+     
+                            </form> 				
+				        </div>
+		        </div>	
+            </div>
+    </div> 	
+        <!-- footer -->
+        
+
+<footer id="footer">
+	<div class="footer_wrap">
+		<div class="footer_menu">
+			<div class="footer_box callbox">
+				<span class="call_title">대표전화</span>
+				<div class="call">
+					<img src="/images/common/call.png">
+					<p class="call_number">
+						<a href="tel:062-530-3649">정규강좌  +82-62-530-3649</a><br/>
+						<a href="tel:062-530-3643">특별강좌  +82-62-530-3643</a><br/>
+					</p>
+				</div>
+				<p class="time">업무시간 평일 09:00~18:00, 점심시간 12:00~13:00</p>
+			</div>
+			<div class="footer_box" style="cursor:pointer;" onclick="location.href='/kr/SubPage.aspx?PageCode=010400'";>
+				<span>오시는길</span>
+				<div class="location"  >
+					<a href="#">
+						<img src="/images/common/map.png">
+						<p>전남대학교 언어교육원<br/>오시는길</p>
+					</a>
+				</div>
+			</div>
+			<div class="footer_box" style="cursor:pointer" onclick="location.href='/Board/Board.aspx?BoardID=5'";>
+				<span>Q&amp;A</span>
+				<div class="qna">
+					<a href="#">
+						<img src="/images/common/qna.png">
+						<p>Q&amp;A 게시판<br/>바로가기</p>
+					</a>
+				</div>
+			</div>	
+		</div>
+	</div>
+    
+	<div class="footer_name">
+		<ul class="footer_copy">
+			<li><a href="http://jnu.ac.kr/" target="_blank">전남대학교</a></li>
+			<li><a href="http://lec.jnu.ac.kr/" target="_blank">언어교육원</a></li>
+			<li><a href="http://www.jnu.ac.kr/MainGuide/Rejection/Rejection" target="_blank">이메일무단수집거부</li>
+			<li><a href="http://www.jnu.ac.kr/MainGuide/Policy/Protection" target="_blank">개인정보보호정책</a></li>
+		</ul>
+		<a href="https://www.youtube.com/@%EC%A0%84%EB%82%A8%EB%8C%80%EC%96%B8%EC%96%B4%EA%B5%90%EC%9C%A1%EC%9B%90" target="_blank">
+			<img src="/images/main/youtube.png" width="25" />
+		</a>
+		<a href="https://www.instagram.com/cnulec_korean_official/" target="_blank">
+			<img src="/images/main/instagram.png" width="25" />
+		</a>
+		<div class="family_site">
+			<div class="family_site linkfamily">
+				<button type="button">관련사이트 바로가기</button>
+				<ul class="familysite_lst">
+                    <li><a href="http://jnu.ac.kr/" target="_blank">전남대학교</a></li>
+                    <li><a href="http://lec.jnu.ac.kr" target="_blank">언어교육원</a></li>
+					<li><a href="http://international.jnu.ac.kr" target="_blank">국제협력본부</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer_i">
+		<div class="footer_logo">
+			<a href="#"><img src="/images/common/footer_logo.png" alt=""></a>
+		</div>
+		<div class="footer_text">
+			<address>61186 전남광주통합특별시 북구 용봉로 77  TEL : +82-62-530-3643,3649  FAX : +82-62-530-3629</address>
+			<span>COPYRIGHT(C) 2018 BY LANGUAGE EDUCATION CENTER, ALL RIGHT RESERVED</span>
+		</div>
+	</div>
+</footer> <div class="m_menu_dim"></div> 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-167539326-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-167539326-1');
+</script>		
+		<!--// footer --> 
+</body>
+</html>

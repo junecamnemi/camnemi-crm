@@ -1,0 +1,1079 @@
+<script>
+var sso_url = "https://home.knu.ac.kr";
+</script>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=1200">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Cache-Control"  content="No-Cache">
+<meta http-equiv="Pragma" content="No-Cache">
+<meta name="format-detection" content="telephone=no">
+<title>경북대학교 국제처</title>
+<link rel="stylesheet" type="text/css" href="../old_data/css/common.css?1729476650">
+<link rel="stylesheet" type="text/css" href="../old_data/css/board.css?1614141536">
+<!-- <link rel="stylesheet" type="text/css" href="../old_data/css/content.css?1730794565"> -->
+<link rel="stylesheet" type="text/css" href="../old_data/css/global/content.css?1770950179">
+
+
+<script src="../../../../js/jquery-3.1.1.min.js"></script>
+<script src="../old_data/js/jquery.cycle_main.js?1614054496"></script>
+<script src="../old_data/js/common.js?1770797429"></script>
+<script src="../old_data/js/menu.js?1614054496"></script>
+<script type="text/javascript" language = "/javascript">
+
+function view_chart(num){
+	var cnt=15;//메뉴갯수
+	for(i=1; i<=cnt; i++){
+		 if(i==num){
+			document.getElementById("chall_tab_"+i).style.display="block";
+			//document.getElementById("p_sub"+i).style.display="none";
+			document.getElementById("tmn"+i).className="tab_on";
+
+
+		}else{
+			document.getElementById("chall_tab_"+i).style.display="none";
+			document.getElementById("tmn"+i).className="tab_off";
+		}
+	}
+}
+</script>
+
+<script type="text/javascript">
+<!--
+$(function(){
+	/**
+	 *	GNB Initialize
+	 */
+	var fe_gnbInit = function(){
+		var $gnb = $("#gnb");
+		
+		//1depth control
+		//alert(max_2menu);
+		h_px = (max_2menu * 20);
+		//mouseover
+		$gnb.find("> div > div > ul > li > a")
+		.bind("mouseenter", function(){ 
+			$(".depth2").show().stop().animate({opacity:'1',height:h_px+40},400);
+			$("#id_gnb_bg").stop().animate({opacity:'1',height:h_px+40},200);
+		});
+
+
+		$gnb.mouseleave(function(){
+			$(".depth2").stop().animate({height:'0px',opacity:'1'},200,function() {$(".depth2").hide();});
+			$("#id_gnb_bg").stop().animate({height:'0px',opacity:'1'},400);
+		});
+
+		$gnb.find("> div > div > ul > li > a")
+		.focus(function(){ 
+			$(".depth2").show().stop().animate({opacity:'1',height:h_px+40},400);
+			$("#id_gnb_bg").stop().animate({opacity:'1',height:h_px+40},200);
+		});
+		
+		
+
+		$gnb.find("li:last > a").blur(function(){
+			$(".depth2").stop().animate({height:'0px',opacity:'1'},200,function() {$(".depth2").hide();});
+			$("#id_gnb_bg").stop().animate({height:'0px',opacity:'1'},400);
+		});
+		$("#menu_out_check").focus(function(){ 
+			$(".depth2").stop().animate({height:'0px',opacity:'1'},200,function() {$(".depth2").hide();});
+			$("#id_gnb_bg").stop().animate({height:'0px',opacity:'1'},400);
+		});
+	}
+	fe_gnbInit(); //excute
+
+});
+
+//-->
+</script>
+<style>
+	
+	#topwrap{background:inherit; color:#fff;}
+	#topwrap a{color:#fff;}
+	#header	{background:rgba(0, 0, 0, 0.2);}
+	#logo .name_c{color:#fff; font-weight:bold;}
+</style>
+</head>
+<body class="bbg">
+
+<div id="wrap" class="sbg">
+
+	<div id="skipwrap">
+	<div id="skipnavi">
+		<ul>
+		<li><a href="#content" title="본문 내용으로 바로가기" style="height:32px;">본문 내용으로 바로가기</a></li>
+		<li><a href="#gnb" title="주 메뉴로 바로가기" style="height:32px;">주 메뉴로 바로가기</a></li>
+		</ul>
+	</div>
+	</div>
+
+	<div id="login_layer_bg" style="position:absolute; left:0px; top:0px; width:100%; height:100%; z-index:999999; display:none; background:#000;opacity:0.5;filter:alpha(opacity=50, style=2, finishopacity=50);" onclick="login_close();"></div>
+<div id="login_layer" style="position:fixed;width:700px;left:50%;top:250px;margin-left:-350px;padding:20px;z-index:9999999;background:#fff;display:none;border:2px solid;border-color:#DA2128;">
+<div class="toptxt">자신의 신분에 맞는 로그인화면을 선택하세요.</div>
+<div class="login_section">
+<a href="https://my.knu.ac.kr/stpo/comm/support/loginPortal/loginForm.action?redirUrl=https%3A%2F%2Fhome.knu.ac.kr%2FHOME%2Fglobal" class="ico1" title="학생포털시스템 로그인 페이지로 이동"><p class="tit">학생<p class="txt">학생 및 졸업생은<br>학생포털시스템을 통해 로그인 됩니다.</p></p></a>
+<a href="https://hi.knu.ac.kr//portal/comm/support/loginPortal/loginForm.action?redirUrl=https%3A%2F%2Fhome.knu.ac.kr%2FHOME%2Fglobal" class="ico2" title="교직원 업무포털시스템 로그인 페이지로 이동"><p class="tit">교직원<p class="txt">교수 및 교직원은<br>업무포털시스템을 통해 로그인 됩니다.</p></p></a>
+</div>
+<div class="tac"><a href="#" onclick="login_close();" class="btn_d">닫기</a></div>
+</div>	
+			<div id="svisual">
+	<div id="svslide" style="background-image:url(../old_data/bbsData/global/SUB_1549936410);">
+		<div id="header">
+	<!-- topwrap -->
+	<div id="topwrap">
+	<div class="d_width">
+		<div id="logo">
+		<a href="./index.htm">
+			<img src="../old_data/staticObj/global/knu_logo_241021.png" class="png24" alt="KNU경북대학교"/>			<span class="name_c">국제처</span></a>
+		</div>
+		<div class="right">
+			<a href="index.htm" title="홈으로 이동">HOME</a>
+						<a href="#" onclick="login_show()" title="로그인">LOGIN</a>
+						<a href="http://en.knu.ac.kr/" class="lang" target="_blank">ENG</a>
+			<a href="http://cn.knu.ac.kr/" class="lang" target="_blank">中文</a>
+			<!-- <a href="" title="사이트맵 페이지로 이동" class="sitemap"></a> -->
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+	<!-- //topwrap -->
+	<!-- gnb -->
+	<div id="gnb"><a name="gnb"></a>
+	<div class="d_width">
+						<div id="gnbmn">
+			<h2>주메뉴</h2>
+			<ul id="top1menu" class="depth1">
+								
+				<li style="width:14%;"><a href="./sub.htm?nav_code=glo1549934404"  id="top1m1" title ='About Us > About OIA 페이지로 이동합니다.'>About Us</a>
+				
+					
+										<ul id="top2m1" class="depth2 fst">
+
+					
+															<li id="top2m1m1"><a href="./sub.htm?nav_code=glo1549934404"  title ='About OIA 페이지로 이동합니다.'>About OIA</a></li>
+															<li id="top2m1m2"><a href="./sub.htm?nav_code=glo1549934408"  title ='OIA Staff 페이지로 이동합니다.'>OIA Staff</a></li>
+															<li id="top2m1m3"><a href="./sub.htm?nav_code=glo1763598206"  title ='International Partners 페이지로 이동합니다.'>International Partners</a></li>
+															<li id="top2m1m4"><a href="./sub.htm?nav_code=glo1549934425"  title ='Contact Us 페이지로 이동합니다.'>Contact Us</a></li>
+					
+					</ul>
+									</li>
+								
+				<li style="width:14%;"><a href="./sub.htm?nav_code=glo1549934904"  id="top1m2" title ='Outbound Programs > 교환학생제도란? 페이지로 이동합니다.'>Outbound Programs</a>
+				
+					
+										<ul id="top2m2" class="depth2">
+
+					
+															<li id="top2m2m1"><a href="./sub.htm?nav_code=glo1549934904"  title ='교환학생(Student Exchange) 페이지로 이동합니다.'>교환학생(Student Exchange)</a></li>
+															<li id="top2m2m2"><a href="./sub.htm?nav_code=glo1593427599"  title ='복수학위제(Double Degree) 페이지로 이동합니다.'>복수학위제(Double Degree)</a></li>
+															<li id="top2m2m3"><a href="./sub.htm?nav_code=glo1549934977"  title ='해외인턴(Internship) 페이지로 이동합니다.'>해외인턴(Internship)</a></li>
+															<li id="top2m2m4"><a href="./sub.htm?nav_code=glo1743486238"  title ='글로벌챌린저(Global Challenger) 페이지로 이동합니다.'>글로벌챌린저(Global Challenger)</a></li>
+															<li id="top2m2m5"><a href="./sub.htm?nav_code=glo1549934691"  title ='외국대학 Summer/Winter School 페이지로 이동합니다.'>외국대학 Summer/Winter School</a></li>
+															<li id="top2m2m6"><a href="./sub.htm?nav_code=glo1606986376"  title ='해외 명문대 썸머스쿨 페이지로 이동합니다.'>해외 명문대 썸머스쿨</a></li>
+															<li id="top2m2m7"><a href="./sub.htm?nav_code=glo1549935295"  title ='기타 프로그램(Other Programs) 페이지로 이동합니다.'>기타 프로그램(Other Programs)</a></li>
+					
+					</ul>
+									</li>
+								
+				<li style="width:14%;"><a href="https://en.knu.ac.kr/admission/exchange01.htm" target='_blank' id="top1m3" title ='새창으로 Inbound Programs 페이지가 열립니다.'>Inbound Programs</a>
+				
+					
+										<ul id="top2m3" class="depth2">
+
+					
+															<li id="top2m3m1"><a href="https://en.knu.ac.kr/admission/exchange01.htm" target='_blank' title ='새창으로 Exchange Student Program 페이지가 열립니다.'>Exchange Student Program</a></li>
+															<li id="top2m3m2"><a href="https://en.knu.ac.kr/admission/double01.htm" target='_blank' title ='새창으로 Double Degree Program 페이지가 열립니다.'>Double Degree Program</a></li>
+															<li id="top2m3m3"><a href="https://en.knu.ac.kr/admission/visiting01.htm" target='_blank' title ='새창으로 Visiting Student Program 페이지가 열립니다.'>Visiting Student Program</a></li>
+															<li id="top2m3m4"><a href="https://en.knu.ac.kr/admission/summer01.htm" target='_blank' title ='새창으로 Summer School Program 페이지가 열립니다.'>Summer School Program</a></li>
+															<li id="top2m3m5"><a href="https://en.knu.ac.kr/admission/visiting02.htm" target='_blank' title ='새창으로 Visiting Scholar Program 페이지가 열립니다.'>Visiting Scholar Program</a></li>
+					
+					</ul>
+									</li>
+								
+				<li style="width:14%;"><a href="./sub.htm?nav_code=glo1549935033"  id="top1m4" title ='Degree Program > 외국인 특별전형<br>(Undergraduate, Graduate) 페이지로 이동합니다.'>Degree Program</a>
+				
+					
+										<ul id="top2m4" class="depth2">
+
+					
+															<li id="top2m4m1"><a href="./sub.htm?nav_code=glo1549935033"  title ='외국인 특별전형<br>(Undergraduate, Graduate) 페이지로 이동합니다.'>외국인 특별전형<br>(Undergraduate, Graduate)</a></li>
+															<li id="top2m4m2"><a href="./sub.htm?nav_code=glo1711940030"  title ='정부초청장학<br>(Global Korea Scholarship) 페이지로 이동합니다.'>정부초청장학<br>(Global Korea Scholarship)</a></li>
+															<li id="top2m4m3"><a href="./sub.htm?nav_code=glo1549935049"  title ='한국어연수과정<br>(Korean Language Program) 페이지로 이동합니다.'>한국어연수과정<br>(Korean Language Program)</a></li>
+					
+					</ul>
+									</li>
+								
+				<li style="width:14%;"><a href="./sub.htm?nav_code=glo1730012369"  id="top1m5" title ='E-Help > Visa 페이지로 이동합니다.'>E-Help</a>
+				
+					
+										<ul id="top2m5" class="depth2">
+
+					
+															<li id="top2m5m1"><a href="./sub.htm?nav_code=glo1730012369"  title ='LIFE 페이지로 이동합니다.'>LIFE</a></li>
+															<li id="top2m5m2"><a href="./sub.htm?nav_code=glo1729752163"  title ='Special Programs 페이지로 이동합니다.'>Special Programs</a></li>
+															<li id="top2m5m3"><a href="./sub.htm?nav_code=glo1730012177"  title ='Scholarship 페이지로 이동합니다.'>Scholarship</a></li>
+															<li id="top2m5m4"><a href="./sub.htm?nav_code=glo1729835413"  title ='Int'l Students Guidebook 페이지로 이동합니다.'>Int'l Students Guidebook</a></li>
+					
+					</ul>
+									</li>
+								
+				<li style="width:14%;"><a href="./sub.htm?nav_code=glo1769497210"  id="top1m6" title ='ICRC > About ICRC(국제협력연구센터) 페이지로 이동합니다.'>ICRC</a>
+				
+					
+										<ul id="top2m6" class="depth2">
+
+					
+															<li id="top2m6m1"><a href="./sub.htm?nav_code=glo1769497210"  title ='About ICRC(국제협력연구센터) 페이지로 이동합니다.'>About ICRC(국제협력연구센터)</a></li>
+															<li id="top2m6m2"><a href="./sub.htm?nav_code=glo1769497229"  title ='대학원생 지원 프로그램(Programs for Graduates) 페이지로 이동합니다.'>대학원생 지원 프로그램(Programs for Graduates)</a></li>
+															<li id="top2m6m3"><a href="./sub.htm?nav_code=glo1769497265"  title ='KNU 글로벌 인사이트(KNU Global Insight: Seminars) 페이지로 이동합니다.'>KNU 글로벌 인사이트(KNU Global Insight: Seminars)</a></li>
+															<li id="top2m6m4"><a href="./sub.htm?nav_code=glo1769497297"  title ='Research Network 페이지로 이동합니다.'>Research Network</a></li>
+					
+					</ul>
+									</li>
+								
+				<li style="width:16%;"><a href="./sub.htm?nav_code=glo1729572883"  id="top1m7" title ='Community > 국제화프로그램 페이지로 이동합니다.'>Community</a>
+				
+					
+										<ul id="top2m7" class="depth2">
+
+					
+															<li id="top2m7m1"><a href="./sub.htm?nav_code=glo1729572883"  title ='국제화프로그램 페이지로 이동합니다.'>국제화프로그램</a></li>
+															<li id="top2m7m2"><a href="./sub.htm?nav_code=glo1729648656"  title ='International  Students 페이지로 이동합니다.'>International  Students</a></li>
+															<li id="top2m7m3"><a href="./sub.htm?nav_code=glo1744778533"  title ='KNU Alumni 페이지로 이동합니다.'>KNU Alumni</a></li>
+					
+					</ul>
+									</li>
+											</ul>
+			</div>
+			<div class="clear"></div>
+	</div>	
+	<script type="text/javascript">initTopMenu(4,1);max_2menu=7;</script>
+	</div>
+	<!-- //gnb -->
+</div>
+<div id="id_gnb_bg" class="gnb_bg"></div>
+<div class="clear"></div>		<div id="svimg">Degree Program<!-- <img src="../old_data/bbsData/global/SUB_1549936410"> --></div>
+	</div>
+	</div>
+	<!-- container -->
+	<div id="scontainer">
+	<div class="d_width cbg">
+		<div>
+					<div id="snb"><a name="snb"></a>
+			
+			<h2>Degree Program</h2>
+			<div id="snbmn">
+			
+			<ul id="snb2m">
+			
+			
+
+						<li id="snb2m1"><a href="./sub.htm?nav_code=glo1549935033"  title ='외국인 특별전형<br>(Undergraduate, Graduate) 페이지로 이동합니다.'>외국인 특별전형<br>(Undergraduate, Graduate)</a>
+							</li>
+						<li id="snb2m2"><a href="./sub.htm?nav_code=glo1711940030"  title ='정부초청장학<br>(Global Korea Scholarship) 페이지로 이동합니다.'>정부초청장학<br>(Global Korea Scholarship)</a>
+							</li>
+						<li id="snb2m3"><a href="./sub.htm?nav_code=glo1549935049"  title ='한국어연수과정<br>(Korean Language Program) 페이지로 이동합니다.'>한국어연수과정<br>(Korean Language Program)</a>
+							</li>
+						</ul>
+			</div>
+			<script type="text/javascript">initsnbMenu(1,0);</script>
+			<noscript><p>자바스크립트를 사용할 수 없는 환경에서는 현재 페이지에 해당되는 메뉴활성화를 보실 수 없습니다.</p></noscript>
+					</div>
+		<div id="content">
+
+			<div id="body_head">
+				<div id="location">
+				<h4>현재위치</h4>
+				<ul>
+				<li><a href='./index.htm'>홈</a></li><li><a href='./sub.htm?nav_code=glo1549935033'>Degree Program</a></li><li><a href='./sub.htm?nav_code=glo1549935033'>외국인 특별전형<br>(Undergraduate, Graduate)</a></li><li><a href='./sub.htm?nav_code=glo1729758639'>외국인 특별전형 (Undergraduate, Graduate)</a></li>				</ul>
+				<div class="clear"></div>
+				</div>
+				<div id="pnb">
+					<div class="pnb_bx">
+					<ul>
+					<li><a href="#pnb_bx" onclick="zoomFont(1);return false;" onkeypress="if(event.keyCode == 13){this.onclick}" title="글씨크기를 확대합니다"><img src="../old_data/staticObj/btn_font_p.png" alt="글씨크기확대" /></a></li>
+					<li><a href="#pnb_bx" onclick="zoomFont(0);return false;" onkeypress="if(event.keyCode == 13){this.onclick}" title="글씨크기를 기본값으로 합니다"><img src="../old_data/staticObj/btn_font_d.png" alt="글자크기기본" /></a></li>
+					<li><a href="#pnb_bx" onclick="zoomFont(-1);return false;" onkeypress="if(event.keyCode == 13){this.onclick}" title="글씨크기를 축소합니다"><img src="../old_data/staticObj/btn_font_m.png" alt="글씨크기축소" /></a></li>
+					<li><a href="#pnb_bx"  onclick="contentPrint(1);return false;" title="새창을 띄워 화면을 프린트합니다"><img src="../old_data/staticObj/btn_print.png" alt="인쇄"/></a></li>
+					</ul>
+					<div class="clear"></div>
+					<noscript>자바스크립트를 사용할 수 없는 환경에서는 글쓰크기 확대 및 축소, 프린트기능을 사용하실 수 없습니다.</noscript>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div id="body_title">
+					<h1>외국인 특별전형 (Undergraduate, Graduate)</h1>
+				</div>
+			</div>
+
+			<div id="body_content">
+								
+								<!-- 컨텐츠 -->
+				
+
+										<div style="margin-bottom:20px;">
+								<div id="lang_kor" class="tab_txt">
+	<ul>
+		<li>
+			<a href="./sub.htm?nav_code=glo1549935033" title="학부(Undergraduate)탭으로 이동">학부(Undergraduate)</a>
+		</li>
+		<li>
+			<a href="./sub.htm?nav_code=glo1738646172" title="학부 모집요강(Admissions Guide_Undergraduate) 탭으로 이동">학부 모집요강(Admissions Guide_Undergraduate)</a>
+		</li>
+		<li class="on">
+			<a href="./sub.htm?nav_code=glo1729758639" title="대학원(Graduate) 탭으로 이동">대학원(Graduate)</a>
+		</li>
+		
+		<li>
+			<a href="./sub.htm?nav_code=glo1758006922" title="대학원 모집요강(Admissions_Graduate) 탭으로 이동">대학원 모집요강(Admissions_Graduate)</a>
+		</li>
+	</ul>
+	<div class="clear"></div>
+</div>								</div>
+					
+	
+
+						<h2>대학원 (Graduate)</h2>
+		
+
+
+	
+
+										<div style="margin-bottom:20px;">
+								<!-- <div class="staff">
+        <div class="staff-executive" style="height:260px;">
+                <div class="cont">
+                        <div class="txt">
+                                <p class="tit">담당자</p>
+                                <p class="name">국제처 전지윤 </p>
+                                <p>주소: 대한민국 대구광역시 북구 대학로 80 경북대학교 국제처(첨성인미래관 2층) / 우편번호 41566</p>
+                                <p>근무시간: 평일 오전 9시~오후 6시(점심시간 12시~1시)</p>
+                        </div>
+                        <div class="txt">
+                                <p class="tit">Person in charge</p>
+                                <p class="name">Jiyoon Jeon</p>
+                                <p>Address: 80 Daehak-ro, Buk-gu, Daegu, 41566, Republic of Korea</p>
+                                <p>Working hours: 9 AM to 6 PM (Lunch Time 12PM to 1PM)<br> on weekdays</p>
+                        </div>
+                </div>
+                <div class="clear"></div>
+                <div class="info">
+                        <span class="ico-tel">+82-53-950-2435</span>
+                        <span class="ico-mail ico-mail2"><a href="mailto:knu2024150@knu.ac.kr"
+                                        style="color:#9F9F9F; padding-left:20px;">admission@knu.ac.kr</a></span>
+                </div>
+        </div>
+</div>
+-->								</div>
+					
+	
+
+						<h3>1. Admission Process</h3>
+		
+
+
+	
+
+										<div style="margin-bottom:20px;">
+								<table class="tc1">
+	<colgroup>
+		<col style="width:*">
+		<col style="width:12%;">
+		<col style="width:12%;">
+		<col style="width:12%;">
+		<col style="width:12%;">
+		<col style="width:12%;">
+		<col style="width:12%;">
+		<col style="width:12%;">
+	</colgroup>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Admissions Guide Announcement</th>
+			<th>Online Application & Document Upload</th>
+			<th>Departmental Screening</th>
+			<th>Admissions Result Announcement</th>
+			<th>Tuition Fee Payment</th>
+			<th>Original Document Submission</th>
+			<th>Issuance of Certificate of Admission</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Spring 2027</th>
+			<td>Early September 2026</td>
+			<td>
+				Sep. 28, 2026 (Mon) 09:00<br>
+				~ Oct. 30, 2026 (Fri) 18:00
+			</td>
+			<td>
+				Nov. 18, 2026 (Wed)<br>
+				~ Nov. 27, 2026 (Fri)
+			</td>
+			<td>
+				Jan. 6, 2027 (Wed)<br>
+				(Expected)
+			</td>
+			<td>Mid-January 2027</td>
+			<td>By Feb. 19, 2027 (Fri)</td>
+			<td>From Mid-January 2027</td>
+		</tr>
+		<tr>
+			<th>Fall 2027</th>
+			<td>Early March 2027</td>
+			<td>
+				March 29, 2027 (Mon) 09:00<br>
+				~ Apr. 30, 2027 (Fri) 18:00
+			</td>
+			<td>
+				May 19, 2027 (Wed)<br>
+				~ May 28, 2027 (Fri)
+			</td>
+			<td>
+				July 7, 2027 (Wed)<br>
+				(Expected)
+			</td>
+			<td>Mid-July 2027</td>
+			<td>By Aug. 20, 2027 (Fri)</td>
+			<td>From Mid-July 2027</td>
+		</tr>
+	</tbody>
+</table>								</div>
+					
+	
+
+						<h3>2. Eligibility</h3>
+		
+
+
+	
+
+										<div style="margin-bottom:20px;">
+								<table class="t1 tac">
+            <colgroup>
+			<col style="width:25%">
+			<col style="width:*">
+			</colgroup>
+            <tbody>
+              <tr>
+              <th scope="row">Master's Programs and Integrated Master’s & Doctoral Programs</th>
+              <td><ul class="bu">
+	<li>A. International applicants must meet all of the following requirements:
+<ul>
+    <li>① Holds (or is about to hold) a Bachelor’s degree.</li>
+    <li>② Must be a non-Korean national.</li>
+    <li>③ Both parents must be non-Korean nationals.</li>
+</ul>
+</li>
+	<li>B. Applicants of Korean origin (entire education completed abroad) must meet all of the following requirements:
+<ul>
+    <li>① Holds (or is about to hold) a Bachelor’s degree.</li>
+    <li>② Must be a non-Korean national.</li>
+    <li>③ Received their entire elementary, junior high, high school, and undergraduate education outside of Korea at a comparable and equivalent level to that which is provided in Korea.)</li>
+</ul>
+</li>
+	</ul></td>
+              </tr>
+              <tr>
+              <th scope="row">Doctoral
+Programs</th>
+              <td><ul class="bu">
+	<li>A. International applicants must meet all of the following requirements:
+<ul>
+    <li>① Holds (or is about to hold) a Master’s degree</li>
+    <li>② Must be a non-Korean national.</li>
+    <li>③ Both parents must be non-Korean nationals.</li>
+</ul>
+</li>
+	<li>B. Applicants of Korean origin (entire education completed abroad) must meet all of the following requirements: 
+<ul>
+    <li>① Holds (or is about to hold) a Master’s degree</li>
+    <li>② Received their entire elementary, junior high, high school, and undergraduate education
+  outside of Korea at a comparable and equivalent level to that which is provided in Korea.</li>
+    <li>③ Must be a non-Korean national.</li>
+</ul>
+</li>
+	</ul></td>
+              
+              
+              </tr>
+            <tr>
+              <th scope="row">Language Proficiency</th>
+              <td><ul class="bu">
+	<li>A. Applicants must provide one of the following as proof of language proficiency:
+<ul>
+    <li>① Korean language proficiency: a TOPIK certificate for Level 3 or higher</li>
+    <li>② English language proficiency: TOEFL  iBT 59, IELTS (Academic) 5.5, CEFR B2, NEW TEPS 202 or higher</li>
+    <li>③ Native speakers of English<br>
+     *Applicants do not need to submit an English score report if they are from a country whose official language is English (USA, UK, Canada, Australia, New Zealand, Republic of South Africa, and Ireland).</li>
+<li>④ Non-native speakers of English or Korean, with required ability but no test score<br>* In this case, the required ability will be separately evaluated during the department interview and reported to the OIA with a confirmation letter.</li></ul>
+</li>
+	<li>B. Certain departments require applicants to meet specific language proficiency standards in order to apply.<br>
+For example, the Department of Korean Language and Literature requires a minimum of TOPIK level 5, and the Department of Business Administration requires a minimum of TOPIK level 4.<br>
+For detailed information, please check the Admissions Guide.
+</li>
+	</ul></td>
+              </tr></tbody>
+            </table>								</div>
+					
+	
+
+						<h3>3. Required Documents</h3>
+		
+
+
+	
+
+										<div style="margin-bottom:20px;">
+								<table class="tc1">
+<colgroup>
+<col style="width:85%;">
+<col style="width:*">
+</colgroup>
+<thead>
+<tr>
+<th>Documents</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tal">① Completed Application Form</td>
+<td>○</td>
+</tr>
+<tr>
+<td class="tal">② Statement of Purpose and Study Plan</td>
+<td>○</td>
+</tr><tr>
+<td class="tal">③ Recommendation Letter
+</td>
+<td>△</td>
+</tr><tr>
+<td class="tal">④ Degree Certificate or
+   Certificate of (Expected) Graduation from Universities Attended Previously</td>
+<td>○</td>
+</tr><tr>
+<td class="tal">⑤ Official Transcripts from 
+   Universities Attended Previously</td>
+<td>○</td>
+</tr><tr>
+<td class="tal">⑥ Language Proficiency Test Results 
+ (TOPIK, IELTS, TOEFL iBT, etc.)</td>
+<td>△</td>
+</tr><tr>
+<td class="tal">⑦ Certificate of Enrollment and Transcript at a Korean Language Institute</td>
+<td>△</td>
+</tr><tr>
+<td class="tal">⑧ Copy of Applicant's Alien Registration Card (front & back)</td>
+<td>△</td>
+</tr><tr>
+<td class="tal">⑨ Copy of Applicant's Passport</td>
+<td>○</td>
+</tr><tr>
+<td class="tal">➉ Birth Certificate or Family Census Register</td>
+<td>○</td>
+</tr><tr>
+<td class="tal">⑪ Portfolio (Department of Fine Art or Design)</td>
+<td>△</td>
+</tr></tbody>
+</table>								</div>
+					
+	
+
+										<div style="margin-bottom:20px;">
+								<div class="graybg">
+								<ul class="bu">
+    <li>All documents should be in Korean or English. Documents in other languages should be accompanied by a notarized Korean or English translation.</li>
+    <li>The original documents submitted after the final result announcement will be compared with the scanned copies submitted at the time of application. <span class="fwb">Admission will be cancelled if any discrepancy or falsification is found.</span></li>
+    <li>Additional documents may be required, and for detailed information, be sure to check the Admissions Guide.</li>
+    <li>All submitted documents will not be returned.</li>
+</ul>								</div>
+								</div>
+					
+	
+
+						<h3>4. Admission Quotas</h3>
+		
+
+
+	
+
+										<div style="margin-bottom:20px;">
+								<ul class="bu">
+    <li>For the <span class="fwb">＜Department Availability＞</span>, please be sure to check the Admissions Guide for the specific semester.</li>
+    <li>For Colleges and Departments, please refer at <a href="/HOME/old_data/download/global/2027 학년도 외국인 대학원 특별전형 지원가능학과_국영.xlsx" target="_blank" class="btn_d btn_xsmall">download</a>
+    </li>
+    <li>Contact</li>
+</ul>								</div>
+					
+	
+
+										<div style="margin-bottom:20px;">
+								<div class="graybg">
+								<p class="fwb">Person in charge</p>
+<p class="fwb">Sejin PARK</p><ul class="bu">
+<li>Address: 80 Daehak-ro, Buk-gu, Daegu, 41566, Republic of Korea</li>
+<li>Working housrs: 9 AM to 6 PM (Lunch Time 12PM to 1PM on weekdays)</li>
+<li>Tel +82-53-950-2435</li><li>Email admission@knu.ac.kr</li></ul>								</div>
+								</div>
+					
+	
+
+						<h3>1. 전형 일정</h3>
+		
+
+
+	
+
+										<div style="margin-bottom:20px;">
+								<table class="tc1">
+	<colgroup>
+		<col style="width:*">
+		<col style="width:12%;">
+		<col style="width:14%;">
+		<col style="width:12%;">
+		<col style="width:12%;">
+		<col style="width:12%;">
+		<col style="width:12%;">
+		<col style="width:12%;">
+	</colgroup>
+	<thead>
+		<tr>
+			<th></th>
+			<th>모집요강<br>공지</th>
+			<th>원서접수 및<br>지원서류 업로드<br>(온라인)</th>
+			<th>학과심사</th>
+			<th>합격자 발표</th>
+			<th>등록금 납부</th>
+			<th>원본서류 제출</th>
+			<th>표준입학허가서 발부</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>2027학년도<br>1학기</th>
+			<td>2026년 9월 초</td>
+			<td>
+				2026. 9. 28.(월) 09:00<br>
+				~ 2026. 10. 30.(금) 18:00
+			</td>
+			<td>
+				2026. 11. 18.(수)<br>
+				~ 2026. 11. 27.(금)
+			</td>
+			<td>
+				2027. 1. 6.(수)<br>
+				예정
+			</td>
+			<td>2027년 1월 중순</td>
+			<td>2027. 2. 19.(금)까지</td>
+			<td>2027년 1월 중순부터</td>
+		</tr>
+		<tr>
+			<th>2027학년도<br>2학기</th>
+			<td>2027년 3월 초</td>
+			<td>
+				2027. 3. 29.(월) 09:00<br>
+				~ 2027. 4. 30.(금) 18:00
+			</td>
+			<td>
+				2027. 5. 19.(수)<br>
+				~ 2027. 5. 28.(금)
+			</td>
+			<td>
+				2027. 7. 7.(수)<br>
+				예정
+			</td>
+			<td>2027년 7월 중순</td>
+			<td>2027. 8. 20.(금)까지</td>
+			<td>2027년 7월 중순부터</td>
+		</tr>
+	</tbody>
+</table>								</div>
+					
+	
+
+						<h3>2. 지원 자격</h3>
+		
+
+
+	
+
+										<div style="margin-bottom:20px;">
+								<table class="t1 tac">
+            <colgroup>
+			<col style="width:25%">
+			<col style="width:*">
+			</colgroup>
+            <tbody>
+              <tr>
+              <th scope="row">석사과정, 
+석·박사통합과정</th>
+              <td><ul class="bu">
+	<li>가. 부모가 모두 외국인인 외국인으로서 국내‧외 대학의 학사학위 취득(예정)자</li>
+	<li>나. 본인이 외국인으로서 외국에서 한국의 초‧중등교육과 대학교육에 상응하는          교육과정을 전부 이수한 학사학위 취득(예정)자(전교육과정 해외 이수자)</li>
+	</ul></td>
+              </tr>
+              <tr>
+              <th scope="row">박사과정</th>
+              <td><ul class="bu">
+	<li>가. 부모가 모두 외국인인 외국인으로서 국내‧외 대학의 석사학위 취득(예정)자</li>
+	<li>나. 본인이 외국인으로서 외국에서 한국의 초‧중등교육과 대학교육에 상응하는           교육과정을 전부 이수한 국내·외 대학의 석사학위 취득(예정)자(전교육과정 해외 이수자)</li>
+	</ul></td>
+              </tr>
+            <tr>
+              <th scope="row">언어능력</th>
+              <td><ul class="bu">
+	<li>가. 아래의 언어능력을 하나 이상 충족하는 자
+    <ul>
+        <li>① 한국어능력시험(TOPIK) 3급 이상</li>
+        <li>② 영어능력시험 TOEFL iBT 59, IELTS (Academic) 5.5, CEFR B2, NEW TEPS 202점 이상</li>
+        <li>③ 모국어가 영어인 자<br>
+            ※ 영어 모국어 국가: 미국, 영국, 캐나다, 남아공, 뉴질랜드, 호주, 아일랜드
+        </li>
+        <li>④ 공인 어학능력평가시험 점수는 없으나 한국어 또는 영어로 수학 가능한 자<br>
+        ※학과심사(수학능력심사)시 학과에서 지원자의 언어능력을 평가하여                
+        『수학능력확인서』를 국제처로 제출하는 경우에 한함(지원자가 제출하는 것이 아님)</li>
+    </ul>
+</li>
+	<li>나. <span class="fwb">특정 학과는 각 언어능력 자격 기준을 반드시 충족하는 경우에만 지원 가능</span><br>
+    예시) 국어국문학과-TOPIK 5급 이상, 경영학과-TOPIK 4급 이상 등<br>
+    <span class="fwb">자세한 내용은 모집요강 확인</span>
+</li>
+	</ul></td>
+              </tr></tbody>
+            </table>								</div>
+					
+	
+
+						<h3>3. 제출 서류</h3>
+		
+
+
+	
+
+										<div style="margin-bottom:20px;">
+								<table class="tc1">
+<colgroup>
+<col style="width:85%;">
+<col style="width:*">
+</colgroup>
+<thead>
+<tr>
+<th>지원 서류</th>
+<th>제출</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tal">① 입학신청서</td>
+<td>○</td>
+</tr>
+<tr>
+<td class="tal">② 자기소개서 및 수학계획서(본교 양식)</td>
+<td>○</td>
+</tr><tr>
+<td class="tal">③ 출신대학 교수 또는
+   지도예정교수의 추천서 1부</td>
+<td>△</td>
+</tr><tr>
+<td class="tal">④ 학위증명서 또는 졸업(예정)증명서</td>
+<td>○</td>
+</tr><tr>
+<td class="tal">⑤ 하위 학위과정 성적증명서</td>
+<td>○</td>
+</tr><tr>
+<td class="tal">⑥ 언어능력 입증서류
+   (TOPIK, IELTS, TOEFL iBT 등)</td>
+<td>△</td>
+</tr><tr>
+<td class="tal">⑦ 어학연수기관의 재학증명서 및 성적증명서</td>
+<td>△</td>
+</tr><tr>
+<td class="tal">⑧ 외국인등록증 사본(앞, 뒷면)</td>
+<td>△</td>
+</tr><tr>
+<td class="tal">⑨ 여권 사본</td>
+<td>○</td>
+</tr><tr>
+<td class="tal">➉ 가족관계 입증서류</td>
+<td>○</td>
+</tr><tr>
+<td class="tal">⑪ 포트폴리오(미술학과, 디자인학과)</td>
+<td>△</td>
+</tr></tbody>
+</table>								</div>
+					
+	
+
+										<div style="margin-bottom:20px;">
+								<div class="graybg">
+								<ul class="bu">
+    <li>모든 제출서류는 <span class="fwb">한국어 또는 영어</span>로 작성, <span class="fwb">타 언어로 표기된 경우, 번역공증본 제출</span></li>
+    <li>지원 당시 업로드한 서류와 합격 후 제출한 원본 서류 대조 확인 후, <span class="fwb">내용이 상이하거나 허위로 확인될 경우 입학이 취소됨</span>
+    </li>
+    <li>이 외 추가 서류가 요구될 수 있으며, 자세한 내용은 <span class="fwb">모집 요강을 반드시 확인</span>할 것</li>
+    <li><span class="fwb">제출한 서류는 반환 불가</span>함</li>
+</ul>								</div>
+								</div>
+					
+	
+
+						<h3>4. 기타 사항</h3>
+		
+
+
+	
+
+										<div style="margin-bottom:20px;">
+								<ul class="bu">
+    <li><span class="fwb"><모집 단위></span>은 해당 학기 모집요강을 반드시 확인</li>
+    <li>단과대학 및 학과 정보<a href="/HOME/old_data/download/global/2027 학년도 외국인 대학원 특별전형 지원가능학과_국영.xlsx" target="_blank" class="btn_d btn_xsmall">download</a>
+    </li>
+    <li>담당자 연락처</li>
+</ul>								</div>
+					
+	
+
+										<div style="margin-bottom:20px;">
+								<div style="margin-bottom:20px;" id="lang_eng">
+<div class="graybg">
+<p class="fwb">국제처 박세진</p>
+<ul class="bu">
+<li>주소: 대한민국 대구광역시 북구 대학로 80 경북대학교 국제처(첨성인미래관 2층) / 우편번호 41566</li>
+<li>업무시간: 평일 09:00 – 18:00 (점심시간: 12:00 - 13:00)</li>
+<li>Tel +82-53-950-2435</li>
+<li>Email admission@knu.ac.kr</li>
+</ul>	
+</div>
+</div>								</div>
+					
+	
+
+										<div style="margin-bottom:20px;">
+								<div class="btn_lang">
+        <a href="#lang_kor">KOR</a>
+        <a href="#lang_eng">ENG</a>
+</div>								</div>
+					
+					<!-- //컨텐츠 -->
+			</div>
+		</div>
+		<div class="aside"></div>
+	<div class="clear"></div>
+	</div>
+	</div>
+	<!-- //container -->
+</div>
+
+<!-- [FOOTER AREA] : FOOTER 공간(site_mainfooter) -->
+<script src="../old_data/js/jquery_selectric/jquery.selectric.min.js"></script>
+<script type="text/javascript">
+<!--
+$(function(){//셀렉트박스
+	$('.Script_select_ui').selectric({
+	  onChange: function() {
+		var url = $(this).val();
+		if(url!=""){
+			var openNewWindow = window.open("about:blank");
+			openNewWindow.location.href = url;
+			$(this).val("");
+		}
+	  }
+	});
+});
+/*
+$(document).ready(function(){
+$('.Script_select_ui').selectric().on('change', function() {
+  alert($(this).val());
+});
+});
+*/
+function policy_pop(){
+	window.open("../old_bbs/template_policy_pop.htm", "","scrollbars=yes,width=860,height=600");
+}
+function private_pop(){
+	window.open("../old_bbs/template_private_pop.htm", "","scrollbars=yes,width=860,height=600");
+}
+//바로가기 목록 열고 닫기
+$(document).ready(function() {
+	$(this).find('#f_related span.tit, #f_related a.arr').bind('click',function(){
+		//alert($(this).attr("class"));
+		if($(this).attr("class") == "tit"){
+			//alert($(this).next().attr("display"));
+			if($(this).next().css("display") == "none"){
+				$("#f_related .select_ul").hide();
+				$("#f_related a.arr img").attr({
+					src:"../old_data/staticObj/support/f_select_arr.png",
+					alt:"바로가기 목록 열기"
+				});
+				$(this).next().show();
+				$(this).parent().find('a.arr img').attr({
+					src:"../old_data/staticObj/support/f_select_arr2.png",
+					alt:"바로가기 목록 닫기"
+				});
+			}else{
+				$(this).next().hide();
+				$(this).parent().find('a.arr img').attr({
+					src:"../old_data/staticObj/support/f_select_arr.png",
+					alt:"바로가기 목록 열기"
+				});
+			}
+		}else{
+			if($(this).prev().css("display") == "none"){
+				$("#f_related .select_ul").hide();
+				$("#f_related a.arr img").attr({
+					src:"../old_data/staticObj/support/f_select_arr.png",
+					alt:"바로가기 목록 열기"
+				});
+				$(this).prev().show();
+				$(this).find('img').attr({
+					src:"../old_data/staticObj/support/f_select_arr2.png",
+					alt:"바로가기 목록 닫기"
+				});
+			}else{
+				$(this).prev().hide();
+				$(this).find('img').attr({
+					src:"../old_data/staticObj/support/f_select_arr.png",
+					alt:"바로가기 목록 열기"
+				});
+			}
+		}
+	});
+
+});
+//-->
+</script>
+<link rel="stylesheet" href="../old_data/js/jquery_selectric/selectric.css">
+
+<div id="footer">
+<div class="d_width">
+		<div class="left">
+			<div class="dpb mbp10"><img src="../old_data/staticObj/footer_logo.png" alt="KNU"></div>
+			<a href="#" onclick="private_pop();return false;" class="point">개인정보처리방침</a>
+			<a href="#" onclick="policy_pop();return false;">이메일무단수집거부</a>
+			<address>41566 대구광역시 북구 대학로80 (산격동) 경북대학교 국제처 (첨성인 미래관 2층) 건물번호 108<br>Tel. 053-950-2413, 2423 (교환학생), 2425, 2427 (내교 외국인 교환학생), 2426 (해외인턴십), 2434(외국인 학부입학), 2435(외국인 대학원입학)<br>Fax. 053-950-2419</address>
+			<div id="copyright">COPYRIGHT (c) KYUNGPOOK NATIONAL UNIVERSITY. ALL RIGHTS RESERVED.</div>
+		</div>		
+		<div id="f_related">
+						
+			<div class="list1">
+				<span class="tit" id="f_select01">대학/대학원 홈페이지</span>
+				<ul class="f_select01 select_ul" style="display:none;">
+					<li><a href="http://humanities.knu.ac.kr/" target="_blank" title="새창으로 인문대학 홈페이지가 열립니다.">인문대학</a></li>
+					<li><a href="http://social.knu.ac.kr/" target="_blank" title="새창으로 사회과학대학 홈페이지가 열립니다.">사회과학대학</a></li>
+					<li><a href="http://cns.knu.ac.kr/" target="_blank" title="새창으로 자연과학대학 홈페이지가 열립니다.">자연과학대학</a></li>
+					<li><a href="http://cec.knu.ac.kr/" target="_blank" title="새창으로 경상대학 홈페이지가 열립니다.">경상대학</a></li>
+					<li><a href="http://eng.knu.ac.kr/" target="_blank" title="새창으로 공과대학 홈페이지가 열립니다.">공과대학</a></li>
+					<li><a href="http://cite.knu.ac.kr/" target="_blank" title="새창으로 IT대학 홈페이지가 열립니다.">IT대학</a></li>
+					<li><a href="http://cals.knu.ac.kr/" target="_blank" title="새창으로 농업생명과학대학 홈페이지가 열립니다.">농업생명과학대학</a></li>
+					<li><a href="http://mvarts.knu.ac.kr/" target="_blank" title="새창으로 예술대학 홈페이지가 열립니다.">예술대학</a></li>
+					<li><a href="http://knutc.knu.ac.kr/" target="_blank" title="새창으로 사범대학 홈페이지가 열립니다.">사범대학</a></li>
+					<li><a href="http://med.knu.ac.kr/" target="_blank" title="새창으로 의과대학 홈페이지가 열립니다.">의과대학</a></li>
+					<li><a href="http://dent.knu.ac.kr/" target="_blank" title="새창으로 치과대학 홈페이지가 열립니다.">치과대학</a></li>
+					<li><a href="http://vet.knu.ac.kr/" target="_blank" title="새창으로 수의과대학 홈페이지가 열립니다.">수의과대학</a></li>
+					<li><a href="http://cohe.knu.ac.kr/" target="_blank" title="새창으로 생활과학대학 홈페이지가 열립니다.">생활과학대학</a></li>
+					<li><a href="http://nurs.knu.ac.kr/" target="_blank" title="새창으로 간호대학 홈페이지가 열립니다.">간호대학</a></li>
+					<li><a href="http://pharmacy.knu.ac.kr/" target="_blank" title="새창으로 약학대학 홈페이지가 열립니다.">약학대학</a></li>
+					<li><a href="http://cee.knu.ac.kr/" target="_blank" title="새창으로 생태환경대학 홈페이지가 열립니다.">생태환경대학</a></li>
+					<li><a href="http://cst.knu.ac.kr/" target="_blank" title="새창으로 과학기술대학 홈페이지가 열립니다.">과학기술대학</a></li>
+					<li><a href="http://gls.knu.ac.kr/" target="_blank" title="새창으로 글로벌인재학부 홈페이지가 열립니다.">글로벌인재학부</a></li>
+					<li><a href="http://puad.knu.ac.kr/" target="_blank" title="새창으로 행정학부 홈페이지가 열립니다.">행정학부</a></li>
+					<li><a href="http://udm.knu.ac.kr/" target="_blank" title="새창으로 자율전공부 홈페이지가 열립니다.">자율전공부</a></li>
+					<li><a href="http://tbudm.knu.ac.kr/" target="_blank" title="새창으로 과학기술생명자원자율학부 홈페이지가 열립니다.">과학기술생명자원자율학부</a></li>
+					<li><a href="http://shw.knu.ac.kr/" target="_blank" title="새창으로 보건복지학부 홈페이지가 열립니다.">보건복지학부</a></li>
+					<li><a href="http://grad.knu.ac.kr" target="_blank" title="새창으로 일반대학원 홈페이지가 열립니다.">일반대학원</a></li>
+					<li><a href="http://med.knu.ac.kr/" target="_blank" title="새창으로 의학전문대학원 홈페이지가 열립니다.">의학전문대학원</a></li>
+					<li><a href="http://dent.knu.ac.kr/" target="_blank" title="새창으로 치의학전문대학원 홈페이지가 열립니다.">치의학전문대학원</a></li>
+					<li><a href="http://lawschool.knu.ac.kr/" target="_blank" title="새창으로 법학전문대학원 홈페이지가 열립니다.">법학전문대학원</a></li>
+					<li><a href="http://gse.knu.ac.kr/" target="_blank" title="새창으로 교육대학원 홈페이지가 열립니다.">교육대학원</a></li>
+					<li><a href="http://webbuild.knu.ac.kr/~gspa/" target="_blank" title="새창으로 행정대학원 홈페이지가 열립니다.">행정대학원</a></li>
+					<li><a href="http://cec.knu.ac.kr/main01.asp" target="_blank" title="새창으로 경영대학원 홈페이지가 열립니다.">경영대학원</a></li>
+					<li><a href="http://health.knu.ac.kr/" target="_blank" title="새창으로 보건대학원 홈페이지가 열립니다.">보건대학원</a></li>
+					<li><a href="http://ind.knu.ac.kr/" target="_blank" title="새창으로 산업대학원 홈페이지가 열립니다.">산업대학원</a></li>
+					<li><a href="/wbbs/wbbs/contents/index.action?menu_url=edu/school04_01&menu_idx=41" target="_blank" title="새창으로 농업생명융합대학원 홈페이지가 열립니다.">농업생명융합대학원</a></li>
+					<li><a href="http://gsis.knu.ac.kr/" target="_blank" title="새창으로 국제대학원 홈페이지가 열립니다.">국제대학원</a></li>
+					<li><a href="http://social.knu.ac.kr/kor/subpage.php?Pcode=About&Ccode=06&PageNum=010501" target="_blank" title="새창으로 정책정보대학원 홈페이지가 열립니다.">정책정보대학원</a></li>
+					<li><a href="/wbbs/wbbs/contents/index.action?menu_url=edu/school04_02&menu_idx=41" target="_blank" title="새창으로 수사과학대학원 홈페이지가 열립니다.">수사과학대학원</a></li>
+					<li><a href="http://seoksa.knu.ac.kr/" target="_blank" title="새창으로 과학기술대학원 홈페이지가 열립니다.">과학기술대학원</a></li>
+				</ul>
+			<a href="#f_select01" class="arr"><img src="../old_data/staticObj/support/f_select_arr.png" alt="대학/대학원 홈페이지 바로가기 목록 열기"></a>
+			</div>
+			<div class="list2">
+				<span class="tit" id="f_select02">교내 주요홈페이지</span>
+				<ul class="f_select02 select_ul" style="display:none;">
+					<li><a href="http://iac.knu.ac.kr/" target="_blank" title="새창으로 산학연구처(산학협력단) 홈페이지가 열립니다.">산학연구처(산학협력단)</a></li>
+					<li><a href="http://kudos.knu.ac.kr/" target="_blank" title="새창으로 도서관 홈페이지가 열립니다.">도서관</a></li>
+					<li><a href="http://international.knu.ac.kr/" target="_blank" title="새창으로 국제교류원 홈페이지가 열립니다.">국제교류원</a></li>
+					<li><a href="http://knujob.knu.ac.kr/" target="_blank" title="새창으로 인재개발원 홈페이지가 열립니다.">인재개발원</a></li>
+					<li><a href="http://linc.knu.ac.kr/" target="_blank" title="새창으로 LINC사업단 홈페이지가 열립니다.">LINC사업단</a></li>
+					<li><a href="http://fle.knu.ac.kr" target="_blank" title="새창으로 기초교육원 홈페이지가 열립니다.">기초교육원</a></li>
+					<li><a href="http://uicc.knu.ac.kr/" target="_blank" title="새창으로 정보화본부 홈페이지가 열립니다.">정보화본부</a></li>
+					<li><a href="http://dorm.knu.ac.kr/" target="_blank" title="새창으로 생활관 홈페이지가 열립니다.">생활관</a></li>
+					<li><a href="http://clinic.knu.ac.kr" target="_blank" title="새창으로 보건진료소 홈페이지가 열립니다.">보건진료소</a></li>
+					<li><a href="http://kpcl.knu.ac.kr/" target="_blank" title="새창으로 공동실험실습관 홈페이지가 열립니다.">공동실험실습관</a></li>
+					<li><a href="http://lang.knu.ac.kr" target="_blank" title="새창으로 외국어교육원 홈페이지가 열립니다.">외국어교육원</a></li>
+					<li><a href="http://sports.knu.ac.kr/" target="_blank" title="새창으로 체육진흥센터 홈페이지가 열립니다.">체육진흥센터</a></li>
+					<li><a href="http://lifelong.knu.ac.kr/" target="_blank" title="새창으로 평생교육원 홈페이지가 열립니다.">평생교육원</a></li>
+					<li><a href="http://ctl.knu.ac.kr" target="_blank" title="새창으로 교수학습센터 홈페이지가 열립니다.">교수학습센터</a></li>
+					<li><a href="http://support.knu.ac.kr/" target="_blank" title="새창으로 장애학생지원센터 홈페이지가 열립니다.">장애학생지원센터</a></li>
+					<li><a href="http://knuclar.knu.ac.kr/" target="_blank" title="새창으로 실험동물자원관리센터 홈페이지가 열립니다.">실험동물자원관리센터</a></li>
+					<li><a href="http://globalplaza.knu.ac.kr/" target="_blank" title="새창으로 글로벌플라자 홈페이지가 열립니다.">글로벌플라자</a></li>
+					<li><a href="http://museum.knu.ac.kr/" target="_blank" title="새창으로 박물관 홈페이지가 열립니다.">박물관</a></li>
+					<li><a href="http://mnh.knu.ac.kr/" target="_blank" title="새창으로 자연사박물관 홈페이지가 열립니다.">자연사박물관</a></li>
+					<li><a href="http://vmc.knu.ac.kr/" target="_blank" title="새창으로 수의과대학부속동물병원 홈페이지가 열립니다.">수의과대학부속동물병원</a></li>
+					<li><a href="http://artmuseum.knu.ac.kr/" target="_blank" title="새창으로 미술관 홈페이지가 열립니다.">미술관</a></li>
+					<li><a href="http://oz.knu.ac.kr/" target="_blank" title="새창으로 IT교육센터 홈페이지가 열립니다.">IT교육센터</a></li>
+					<li><a href="http://prfa.knu.ac.kr" target="_blank" title="새창으로 교수회 홈페이지가 열립니다.">교수회</a></li>
+					<li><a href="http://fund.knu.ac.kr/" target="_blank" title="새창으로 발전기금 홈페이지가 열립니다.">발전기금</a></li>
+					<li><a href="http://ipsi1.knu.ac.kr/" target="_blank" title="새창으로 입학안내 홈페이지가 열립니다.">입학안내</a></li>
+					<li><a href="http://ssw.knu.ac.kr/" target="_blank" title="새창으로 장학복지 홈페이지가 열립니다.">장학복지</a></li>
+					<li><a href="/wbbs/wbbs/user/yearSchedule/index.action?menu_idx=43" target="_blank" title="새창으로 학사일정 홈페이지가 열립니다.">학사일정</a></li>
+					<li><a href="/wbbs/wbbs/contents/index.action?menu_url=edu/academic03&menu_idx=44" target="_blank" title="새창으로 학사행정 홈페이지가 열립니다.">학사행정</a></li>
+					<li><a href="http://prad.knu.ac.kr/" target="_blank" title="새창으로 교수초빙 홈페이지가 열립니다.">교수초빙</a></li>
+					<li><a href="http://www.knu.ac.kr/bbs/xml/kmap.jsp"" target="_blank" title="새창으로 캠퍼스맵 홈페이지가 열립니다.">캠퍼스맵</a></li>
+					<li><a href="http://knupr.knu.ac.kr/sub.php?menu=5&sub=2&sn=1" target="_blank" title="새창으로 견학안내 홈페이지가 열립니다.">견학안내</a></li>
+					<li><a href="/wbbs/wbbs/contents/index.action?menu_url=intro/search03&menu_idx=32" target="_blank" title="새창으로 교내사이트안내 홈페이지가 열립니다.">교내사이트안내</a></li>
+					<li><a href="/wbbs/wbbs/device_center/main.jsp" target="_blank" title="새창으로 친절/불친절신고 홈페이지가 열립니다.">친절/불친절신고</a></li>
+					<li><a href="/wbbs/wbbs/contents/index.action?menu_url=siteinfo/knu119&menu_idx=92"" target="_blank" title="새창으로 KNU119 홈페이지가 열립니다.">KNU119</a></li>
+					<li><a href="/wbbs/wbbs/contents/index.action?menu_url=intro/about05_03&menu_idx=12" target="_blank" title="새창으로 예·결산회계 홈페이지가 열립니다.">예·결산회계</a></li>
+					<li><a href="http://ufis.knu.ac.kr/" target="_blank" title="새창으로 대학시설공간종합관리시스템 홈페이지가 열립니다.">대학시설공간종합관리시스템</a></li>
+					<li><a href="http://safe.knu.ac.kr/" target="_blank" title="새창으로 연구실안전관리시스템 홈페이지가 열립니다.">연구실안전관리시스템</a></li>
+				</ul>
+				<a href="#f_select02" class="arr"><img src="../old_data/staticObj/support/f_select_arr.png" alt="교내 주요홈페이지 바로가기 목록 열기"></a>
+			</div>
+		</div>
+		<div class="clear"></div>
+</div>
+</div>
+<!-- [FOOTER AREA] : FOOTER 공간(site_mainfooter) -->
+</body>
+</html><script type="text/javascript">
+<!--
+/*프레임 새로고침시 현재페이지 유지 */
+document.onkeydown = function(e) {
+    var evtK = (e) ? e.which : window.event.keyCode;
+    var isCtrl = ((typeof isCtrl != 'undefined' && isCtrl) || ((e && evtK == 17) || (!e && event.ctrlKey))) ? true : false;
+
+    if ((isCtrl && evtK == 82) || evtK == 116) {
+        if (e) { evtK = 505; } else { event.keyCode = evtK = 505; }
+    }
+    if (evtK == 505) {
+        location.reload(location.href);
+        return false;
+    }
+}
+//-->
+</script><script>
+function confirmLink() {
+    alert("2026학년도 자료 추후 업로드 예정 ");
+    return true;
+}
+document.querySelectorAll('.confirmLink').forEach(element => {
+    element.addEventListener('click', () => {
+        confirmLink();
+    });
+});
+</script>

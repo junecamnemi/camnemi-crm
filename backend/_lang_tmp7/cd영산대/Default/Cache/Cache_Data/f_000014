@@ -1,0 +1,526 @@
+var mnTitBoxContent ={
+    "sText0":"<span>와이즈 유</span><span>교육을 교육답게!</span>",
+    "sText1":"<span>와이즈 유</span><span>교육을 교육답게!</span>",
+    "sText2":"<span>와이즈 유</span><span>교육을 교육답게!</span>",
+    "sText3":"<span>와이즈 유</span><span>교육을 교육답게!</span>",
+    "sText4":"<span>와이즈 유</span><span>교육을 교육답게!</span>",
+    "sText5":"<span>와이즈 유</span><span>교육을 교육답게!</span>",
+    "sText6":"<span>와이즈 유</span><span>교육을 교육답게!</span>"
+};
+$(".depth1-ul > li ").each(function(){
+    var n = $(this).index();
+	//$(".depth2-wrap",this).prepend("<div class='depth1-tit mn-tbox"+(n+1)+"'><strong>"+$(".mn_a1 span",this).text()+"</strong><span class='stxt'>" + mnTitBoxContent["sText"+n] + "</span></div>");
+	$(".depth2-wrap",this).prepend("<div class='depth1-tit mn-tbox"+(n+1)+"'><strong>"+$(".mn_a1 span",this).text()+"</strong></div>");
+});
+var mnOvNum = [];
+var mainNavi_W = {
+	mnObj : $("#mainNavi"),Timer:null,subTimer:null,isOver:false,initNum:[],
+	_init:function(){
+		var this_s = this;
+		//alert(this.mnObj.length);
+		$("li",$(this.mnObj)).each(function(){
+			if($("ul",$(this)).length>0 && !$(this).hasClass("has-sub")) $(this).addClass("has-sub");
+			$("#mainNavi li button.tgl-btn").remove();
+		});
+		this._initOvNum();
+		this.setEvt();
+	},
+	_set:function(){
+	},
+	_unset:function(){
+	},
+	_retset:function(){
+		this.setEvt();
+	},
+	isOpen:function(){
+		return this.mnObj.hasClass("mn-h-open");
+	},
+	clearEvt:function(){
+		$(".depth2-wrap").hide();
+		$("a",$(this.mnObj)).unbind("mousedown mouseover focus click mouseout blur");
+		$(".depth2-wrap",$(this.mnObj)).unbind("mousedown mouseover click focus mouseout blur");
+		$("> li > .depth2-wrap",$(this.mnObj)).unbind("mousedown mouseover click focus mouseout blur");
+	},
+	setEvt:function(){
+		var this_s = this;
+		this.clearEvt();
+
+		$(".depth2-wrap",$(this.mnObj)).bind("mouseover focus", function(){	clearTimeout(this_s.subTimer); this_s.isSubOver = true;	});
+		$(".depth2-wrap",$(this.mnObj)).bind("mouseout blur", function(){	clearTimeout(this_s.subTimer); this_s.isSubOver = false;this_s.setSubMenuOutSet(500);	});
+		$("a",$(this.mnObj)).bind("mouseover focus", function(){	 clearTimeout(this_s.subTimer); this_s.isOver = true;	});
+		$("> li > .depth2-wrap",$(this.mnObj)).bind("mouseover focus", function(){	clearTimeout(this_s.subTimer);  this_s.isOver = true;	});
+		$("a",$(this.mnObj)).bind("mouseout blur", function(){	clearTimeout(this_s.subTimer); this_s.isSubOver = false;this_s.setSubMenuOutSet(500); this_s.setMenuOut();	});
+		$("> li > .depth2-wrap",$(this.mnObj)).bind("mouseout blur", function(){	this_s.setMenuOut();	});
+		var tmpItems = $(".mn_li1",$(this.mnObj)) ;
+		for (i=0; i<tmpItems.length; i++){
+			var thisSubObj = $(".depth2-wrap",$(tmpItems[i]));
+			//var subH = $(thisSubObj).stop().show().css({"visibility":"visible","height":"auto"}).outerHeight();
+			//thisSubObj.prop("sHeight",$(".depth2-wrap",$(tmpItems[i])).outerHeight()).css({"overflow":"hidden"});
+		}
+		var mnItems = $(".mn_a1",$(this.mnObj)) ;
+		for (var i=0; i<mnItems.length; i++){
+			mnItems[i].seq = i + 1;
+			$($(mnItems[i]).parents("li").get(0)).attr("seq",mnItems[i].seq);
+			$(mnItems[i]).bind("mouseover focus",function(){
+				var seq = $($(this).parents("li").get(0)).index() + 1;
+				this_s.setMenuOn(seq);
+			});
+			$(".depth2 a",$(mnItems[i])).each(function(){
+				var li2 = $($(this).parents("li.mn_l2").get(0));
+				var li1 = $($(li2).parents("li.mn_li1").get(0));
+				var n = $(li1).attr("seq");
+				$(this).attr("seq",n);
+				$(this).attr("seq2",$(li2).index()+1);
+				$(this).bind("mouseover focus",function(){
+					var n =$(this).attr("seq");
+					var n2 = $(this).attr("seq2");
+					this_s.setMenuOn(n,n2);
+				});
+			});
+		}
+		var chkMn =  (this.initNum[0]>0)? $(".mn_li1:eq(" +(this.initNum[0]-1)+")", this.mnObj) : null;
+		if(chkMn!=null && chkMn.length>0){
+			 this.isFirstOpen = true;
+		}else{
+			this.isFirstOpen = false;
+		}
+		if(this.initNum[0]<1) {
+		}else{
+			this.setMenuOn(this.initNum[0],this.initNum[1],this.initNum[2]);
+		}
+	},
+	resetMenuBar:function(){
+		this.setMenuBar(this.currentSeq);
+	},
+	setMenuBar:function(n){
+		var thisMenu = (n>0)? $(".mn_li1:eq(" + (n-1)+")", this.mnObj):null;
+		var otherMenu = $(".mn_li1", this.mnObj).not(thisMenu);
+		$(thisMenu).addClass("over");
+		$(otherMenu).removeClass("over");
+		if(this.ovbar!=undefined){
+			this.ovbar.stop().animate({
+				width: (thisMenu!=null)? thisMenu.width()  -30 : 0,
+				left:(thisMenu!=null)? $(this.mnObj).position().left + thisMenu.position().left + 15 : 0
+			},300);
+		}
+
+		//IE8 메뉴바 사이즈 오류 보정
+		var this_s = this;	try{			if(!lowReloadCheck(function(){ this_s.setMenuBar(n); },{cnt:0,Timer:null,limit:5})){			}			}catch(e){}
+	},
+	setMenuOn:function(){
+		clearTimeout(this.Timer);
+		var this_s = this;
+		var s  = new Array();
+		for(var i=0; i<arguments.length;i++){
+			s[i] = arguments[i];
+		}
+		if(parseInt(s[1])<1 || s[1]==undefined) s[1] = 0;
+		var thisMenu = (s[0]>0)? $(".mn_li1:eq(" + (s[0]-1)+")", this.mnObj) : null;
+		var subMenu = $("> .depth2-wrap",$(thisMenu));
+		var otherMenu = $(".mn_li1", this.mnObj).not(thisMenu);
+		var otherSubMenu = $("> .depth2-wrap",$(otherMenu));
+		if(this.currentSeq !=s[0]  || this.isSubClose){
+			this.setSubMenuOut(this.currentSeq);
+			$(thisMenu).addClass("over");
+			if(!this.isFirstOpen) this.setSubMenuOn(s[0]);
+		}
+		$(otherMenu).removeClass("over");
+		if(!this.isFirstOpen) this.currentSeq = s[0];
+		this.isFirstOpen = false;
+		this.setMenuBar(s[0]);
+	},
+
+	getSubMenuHeight:function(subMn){
+		var tmpItems = $(".mn_li1",$(this.mnObj)) ;
+		var maxSubHeight = 0;
+		for (i=0;i<tmpItems.length ;i++){
+			var thisSubObj = $(".depth2-wrap",$(tmpItems[i]));
+			var subH = $(thisSubObj).stop().show().css({"visibility":"visible","height":"auto"}).outerHeight();
+			if(maxSubHeight <=subH) maxSubHeight = subH;
+		}
+		return maxSubHeight;
+	},
+	setSubMenuOn:function(seq){
+		clearTimeout(this.subTimer);
+		var this_s = this;
+		this_s.isSubClose = false;
+		var subMenu = (seq>0)? $(".mn_li1:eq(" +  (seq -1) +")  .depth2-wrap",this.mnObj) : null;
+
+		//서브메뉴 박스 높이에 맞게 wrap 높이 조절
+		$(".mn_li1 .depth2-wrap").not(subMenu).hide();
+		if(subMenu!=null && subMenu.length>0){
+			// ** 열릴때
+			$(subMenu).show().css({"opacity":0});
+			$("#header-wrap").addClass("over");
+			var toH = $("#mainNavi").height() + $(subMenu).outerHeight();
+			$("#mainNavi-wrap").stop().addClass('over').animate({"height":toH},300);
+			$(subMenu).animate({"opacity":1},300);
+		}else{
+			$("#mainNavi-wrap").stop().animate({"height":$("#mainNavi").height()},300);
+		}
+		this.setSubMenuOutSet(4000);
+	},
+	setSubMenuOut:function(seq){
+		clearTimeout(this.subTimer);
+		var this_s = this;
+		var subMenu = $("> li:eq(" +  (seq -1) +") .depth2-wrap",this.mnObj);
+		$("#mainNavi-wrap").stop().animate({"height":$("#mainNavi").height()},300);
+	},
+	setSubMenuOutSet:function(time){
+		var this_s = this;
+		this.subTimer = setTimeout(function(){
+			if(!this_s.isSubOver){
+				this_s.isSubClose = true;
+
+				//** 닫힐때
+				$("#mainNavi-wrap").stop().animate({height: _getLayoutHeaderHeight()},300,function(){});
+				$("#mainNavi-wrap").stop().removeClass('over').animate({"height":$("#mainNavi").height()},300,
+					function() {
+						$("#header-wrap").delay(300).removeClass("over");
+					}
+				);
+				$(".depth2-wrap").stop().animate({
+					opacity:1
+				}, 300,
+					function(){
+						if($("#mainNavi-wrap").hasClass("over")){
+
+						} else {
+							$(this).hide();
+						}
+					}
+				);	//전체 서브메뉴 숨김
+				// */
+
+				var thisMn =  (this_s.initNum[0]>0)? $("> li:eq(" + (this_s.initNum[0]-1)+")",this_s.mnObj) :null;
+				var otherMenu = $("> li", this_s.mnObj).not(thisMn);
+				if(thisMn!=null) thisMn.addClass("over");
+				otherMenu.removeClass("over");
+				this_s.setMenuBar(this_s.initNum[0]);
+			}else{
+			}
+		},time);
+	},
+	setMenuOut:function(){
+		clearTimeout(this.Timer);
+		var this_s = this;
+		this.isOver = false;
+		this.Timer = setTimeout(function(){
+			if(this_s.isOver==false) {
+			}
+		},400);
+	},
+	_initOvNum:function(initNum){
+		if(initNum!=undefined) this.initNum = initNum;
+		else{
+			//Over Number Search
+			this.initNum[0] =($(".mn_li1.over",this.mnObj).length> 0)? $(".mn_li1.over",this.mnObj).index() + 1 : 0;
+			this.initNum[1] =($(".mn_l2.over",this.mnObj).length> 0)? $(".mn_l2.over",this.mnObj).index() + 1 : 0;
+			this.initNum[2] =($(".mn_l3.over",this.mnObj).length> 0)? $(".mn_l3.over",this.mnObj).index() + 1 : 0;
+		}
+	}
+}
+
+
+
+var mainNavi_H = {
+	mnObj : $("#menu-wrap"),Timer:null,subTimer:null,isOver:false,initNum:[],
+	_init:function(){
+		// ** li.mn_l2 높이 일치화 해제. MOBILE
+		$(".depth2-ul > li.mn_li2").css({ "height":"auto" });
+
+		var this_s = this;
+		this.setBodyContainer();
+		$("li",$(this.mnObj)).each(function(){
+			var sLI = $("ul",$(this));
+			if(sLI.length>0){
+				if($(">.tgl-btn",this).length<1)
+				$(this).prepend("<button class='tgl-btn' type='button'><span class='blind'>하위메뉴보기</span></button>");
+				$(this).addClass("has-sub");
+				$(this).addClass("is-close");
+				if($(this).hasClass("over")){
+					if(this_s.isOpen)	this_s.openSubMenu($(this));
+				}
+			}
+		});
+		$("#btn-open-mn").click(function(){ this_s.toggleMenu(); });
+		this._initOvNum();
+		this.setEvt();
+	},
+	_set:function(){},
+	_unset:function(){
+		this.closeMenu();
+	},
+	_retset:function(){
+		this.setEvt();
+	},
+	isOpen:function(){
+		return this.mnObj.hasClass("mn-h-open");
+	},
+	clearEvt:function(){
+		$("a",$(this.mnObj)).unbind("mousedown mouseover focus click mouseout blur");
+		$(".depth2-wrap",$(this.mnObj)).unbind("mousedown mouseover click focus mouseout blur");
+		$("> li > .depth2-wrap",$(this.mnObj)).unbind("mousedown mouseover click focus mouseout blur");
+	},
+	setEvt:function(){
+		var this_s = this;
+		this.clearEvt();
+
+		$("a",$(this.mnObj)).unbind("mousedown mouseover focus click mouseout blur");
+		$(".depth2-wrap",$(this.mnObj)).unbind("mouseover focus mouseout blur");
+		$("> li > .depth2-wrap",$(this.mnObj)).unbind("mouseover focus mouseout blur");
+		$("a",$(this.mnObj)).bind("focus", function(){
+			this_s.isOver = true;
+			if(!this_s.isOpen()){				this_s.openMenu();			}
+		});
+		$("a",$(this.mnObj)).bind("blur", function(){		});
+		$("*",$(this.mnObj)).bind("mouseover", function(){
+			this_s.isOver = true;
+		});
+		$("*",$(this.mnObj)).bind("mouseout", function(){
+			this_s.isOver = false;
+			this_s.clearTimer();
+			//this_s.setCloseMenu();
+		});
+		$(".tgl-btn",$(this.mnObj)).bind("click", function(){
+			var thisParentEl = $($(this).parents("li").get(0));
+			if(thisParentEl.hasClass("has-sub")){
+				this_s.toggleSubMenu(thisParentEl);
+			}else{
+				return;
+			}
+		});
+		$("a",$(this.mnObj)).bind("click", function(){
+			var thisParentEl = $($(this).parents("li").get(0));
+			if(thisParentEl.hasClass("has-sub")){
+				if(thisParentEl.hasClass("is-open")){
+					return true;
+				}else{
+					this_s.openSubMenu(thisParentEl);
+				}
+				return false;
+			}else{
+				return true;
+			}
+		});
+		//this.setMenuOn(this.initNum[0]);
+	},
+	setMenuOn:function(){
+		var this_s = this;
+		var s  = new Array();	for(var i=0; i<arguments.length;i++){			s[i] = arguments[i];			}
+		var li = (s[0]>0)? $(".mn_l1:eq(" + (s[0]-1)+")", this.mnObj) : null;
+		//this_s.openSubMenu(li);
+	},
+	openSubMenu:function(selLi){
+		var this_s = this;
+		var li = $(selLi);
+		li.addClass("is-open");
+		$(">div",li).slideDown("fast",function(){  this_s.setContentHeight(); });
+		var parentUL = $(li).parent();
+		$(" > li",parentUL).not(li).each(function(){
+			this_s.closeSubMenu($(this));
+		});
+	},
+	closeSubMenu:function(li){
+		var this_s = this;
+		li.removeClass("is-open");
+		$(">div",li).slideUp("fast",function(){  this_s.setContentHeight(); });
+	},
+	toggleSubMenu:function(li){
+		var this_s = this;
+		if($(li).hasClass("is-open")){
+			this_s.closeSubMenu($(li));
+		}else{
+			this_s.openSubMenu($(li));
+		}
+	},
+	setContentHeight:function(){
+		this.clearTimer();
+		this.subTimer = setTimeout(function(){
+			try{setLayoutMinHeight();}catch(e){}
+		},300);
+	},
+	toggleMenu:function(){
+		if(this.isOpen()){
+			this.closeMenu();
+		}else{
+			this.openMenu();
+		}
+	},
+	openMenu:function(){
+		var this_s = this;
+		if(!this.mnObj.hasClass("mn-h-open")){
+			this.mnObj.addClass("mn-h-open");
+		}
+		if($(".body-slider-ovclick").length<1) $("body").append("<div class='body-slider-ovclick'/>");
+		var $back = 	$(".body-slider-ovclick");
+		var $back_btn = $(".btn-close-mn");
+		$back.unbind("click").bind("click",function(){
+			this_s.closeMenu();
+		}).stop().css({"left":-400}).show();
+		$back_btn.unbind("click").bind("click",function(){
+			this_s.closeMenu();
+		});
+
+		//$("body").css({"overflow":"hidden"});
+		$(".body-slide-wr").addClass("off").bind("touchmove");
+		$("#global-wrap").addClass("over");
+		$("#mn-ctr-toggle").hide();
+	},
+	closeMenu:function(){
+		if(this.mnObj.hasClass("mn-h-open")){
+			this.mnObj.removeClass("mn-h-open");
+		}
+		$(".body-slider-ovclick").hide();
+
+		//$("body").css({"overflow":"visible"});
+		$(".body-slide-wr").css({"margin-left":0});
+		$("#t-logo").css({"z-index":15});
+		$("#global-wrap").removeClass("over");
+		$("#mn-ctr-toggle").show();
+	},
+	setBodyContainer:function(){
+		/*
+		if($(".body-slide-wr").length<1){
+			$(".doc-pg").wrapInner("<div class='body-slide-wr'/>");
+			$(".body-slide-wr").wrapInner("<div class='body-slide'/>");
+			$(".body-slide-wr").css({"overflow":"hidden"});
+		}
+		*/
+	},
+	clearTimer:function(){
+		try{clearTimeout(this.Timer);clearTimeout(this.subTimer);}catch(e){}
+	},
+	_initOvNum:function(initNum){
+		if(initNum!=undefined) this.initNum = initNum;
+		else{
+			//Over Number Search
+			this.initNum[0] =($(".mn_li1.over",this.mnObj).length> 0)? $(".mn_li1.over",this.mnObj).index() + 1 : 0;
+			this.initNum[1] =($(".mn_l2.over",this.mnObj).length> 0)? $(".mn_l2.over",this.mnObj).index() + 1 : 0;
+			this.initNum[2] =($(".mn_l3.over",this.mnObj).length> 0)? $(".mn_l3.over",this.mnObj).index() + 1 : 0;
+		}
+	},
+	setMenuOn:function(){
+		clearTimeout(this.Timer);
+		var this_s = this;
+		var s  = new Array();
+		for(var i=0; i<arguments.length;i++){
+			s[i] = arguments[i];
+		}
+		var thisMenu = (s[0]>0)? $(".mn_li1:eq(" + (s[0]-1)+")", this.mnObj) : null;
+		var subMenu = $("> .depth2-wrap",$(thisMenu));
+		var otherMenu = (s[0]>0)? $(".mn_li1", this.mnObj).not(thisMenu): $(".mn_li1", this.mnObj);
+		var otherSubMenu = $("> .depth2-wrap",$(otherMenu));
+		$(thisMenu).addClass("over");
+		this_s.setSubMenuOn(s[0],0);
+		var toH = this_s.getSubMenuHeight(subMenu);
+		$(subMenu).stop().css({"visibility":"visible"}).hide();
+		subMenu.slideDown();
+		if(s[0]==this.initNum[0]){
+			this_s.setSubMenuOn(s[0],this.initNum[1]);
+		}
+		$(otherMenu).removeClass("over");
+		$(otherSubMenu).hide();
+		this.currentSeq = s[0];
+	},
+	setMenuOut:function(){
+		clearTimeout(this.Timer);
+		var this_s = this;
+		this.isOver = false;
+		this.Timer = setTimeout(function(){
+			if(this_s.isOver==false) {
+				this_s.setMenuOn(this_s.initNum[0]);
+			}
+		},400);
+	},
+	menuOnAction:function(obj){
+		var thisParentEl = $($(obj).parents("li").get(0));
+		var thisSubObj = $(".depth2-wrap",thisParentEl);
+		//alert(this.seq +"click");
+		if(thisSubObj.length>0 && this_s.currentSeq!=obj.seq){
+			this_s.setMenuOn(obj.seq);
+			return false;
+		}
+	},
+	setSubMenuOn:function(n1,n2){
+		return;
+		var subMns = $(".depth3-wrap",$(this.mnObj));
+		if(n2>0){
+			var thisSubMns = $(" .mn_li1:eq("+(n1-1)+") .depth2-wrap .mn_l2:eq("+(n2-1)+") .depth3-wrap",$(this.mnObj));
+			var toH = $(".depth3",thisSubMns).outerHeight();
+			thisSubMns.stop().animate({"height":toH},300);
+			subMns.not(thisSubMns).stop().css({"height":0});
+		}else{
+			subMns.stop().css({"height":0});
+		}
+	},
+	getSubMenuHeight:function(subMn){
+		$(subMn).css({"visibility":"hidden","height":"auto","padding-top":"0px","padding-bottom":"0px"});
+		return $(".depth2",subMn).outerHeight();
+	}
+}
+
+
+var mainNavi = {
+	mnObj : $("#menu-wrap"),
+	initNum:Array(), currNum:Array(), Timer:null, mnType:"",
+	_init:function(mn,initNum){
+		var this_s = this;
+		$(".doc-pg").wrapInner("<div class='body-slide-wr'/>");
+		$(".body-slide-wr").wrapInner("<div class='body-slide'/>");
+		$(".body-slide-wr").css({"overflow":"hidden"});
+		this.checkMenuType();
+		this.setMenu();
+		var mnToggleBtn = $("#mn-ctrs-btns");
+		$("#menu-wrap .btn-close").click(function(){
+			if(this_s.mnType!="H") return;
+			mainNavi_H.closeMenu();
+		});
+		//버튼 초기화
+		mnToggleBtn.click(function(){
+			if(this_s.mnType!="H") return;
+			mainNavi_H.toggleMenu();
+		});
+	},
+	_reset:function(){
+
+		this.resetMenu();
+	},
+	setMenu:function(){
+		if(this.mnType=="W"){
+			mainNavi_W._init();
+		}else{
+			mainNavi_W._unset();
+		}
+
+		if(this.mnType=="H"){
+			mainNavi_H._init();
+		}else{
+			mainNavi_H._unset();
+		}
+		//console.log("setMenu" + this.mnType);
+	},
+	resetMenu:function(){
+		var orgMnType = this.mnType;
+		this.checkMenuType();
+		if(orgMnType!=this.mnType){
+			//console.log("resetMenu : "+ orgMnType +" ->" + this.mnType);
+			this.setMenu();
+		}
+	},
+	checkMenuType:function(){
+		//var chkWinW = wsize.win.w;
+		var chkContW = $("body").width();
+		if(chkContW >= 1000){
+			this.mnType = "W";
+		}else{
+			this.mnType = "H";
+		}
+	},
+	clearTimer:function(){
+	}
+}
+
+function initNavigation() {
+	mainNavi._init();
+}

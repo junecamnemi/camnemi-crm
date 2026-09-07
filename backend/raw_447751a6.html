@@ -1,0 +1,740 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+    <title>강동대학교</title>
+    
+        <link rel="shortcut icon" type="image/x-icon" href="/cubersc/03_favicon.ico" />
+    
+    
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/cubersc/03_favicon.ico" />
+    <!-- <meta name="robots" content="noindex,nofollow"> -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <link href="/cubersc/templete/common/css/subcommon.css"  rel="stylesheet" type="text/css" />
+    <link href="/cubersc/templete/common/css/itg.css"  rel="stylesheet" type="text/css" />
+    <link href="/cheditor/css/editareaView.css"  rel="stylesheet" type="text/css" />
+    <link href="/cubersc/templete/common/css/jquery-ui.css"  rel="stylesheet" type="text/css" />
+    <link href="/cubersc/templete/common/css/owl.carousel.css"  rel="stylesheet" type="text/css" />
+    <link href="/cubersc/templete/common/css/base.css"  rel="stylesheet" type="text/css" />
+    <link href="/cubersc/common/css/loading-spiner.css" rel="stylesheet" type="text/css" />
+    <link href="/cubersc/common/plugins/validation/validator.css" rel="stylesheet" type="text/css" />
+    <link href="/cubersc/templete/intro/css/layout.css"  rel="stylesheet" type="text/css" />
+    
+    <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
+	<!--<link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">-->
+
+    <link rel="stylesheet" href="/cubersc/templete/intro/css/intro02.css" type="text/css">
+	<link rel="stylesheet" href="/cubersc/templete/intro/css/media02.css" type="text/css">
+    
+    <script src="/cubersc/templete/common/js/jquery-1.12.0.min.js"></script>
+    <script src="/cubersc/templete/common/js/jquery-ui.min.js"></script>
+    <script src="/cubersc/templete/common/js/owl.carousel.min.js"></script>
+    <script src="/cubersc/templete/common/js/common.js"></script>
+    <script src="/cheditor/cheditor.js"></script>
+    <script src="/cubersc/common/itg-popwin.js"></script>
+    <script src="/cubersc/templete/intro/js/common.js"></script>
+    <script src="/cubersc/gangdong/js/common/gf_util.js"></script>
+	<!--   입학처 방문자수 스크립트 23.12.13 -->
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+	<script type="text/javascript">
+	if(!wcs_add) var wcs_add = {};
+	wcs_add["wa"] = "15601022c174e10";
+	if(window.wcs) {
+	wcs_do();
+	}
+	</script>
+	<!-------------------------------------->
+
+
+    <script src="/cubersc/common/itg-js.js"></script>
+    <script src="/cubersc/common/plugins/validation/validator.js"></script>
+    <script src="/cubersc/common/plugins/validation/accessability.js"></script>
+    <script>
+        
+        
+    </script>
+</head>
+<body>
+    
+
+
+	<!--modalpopup-->
+    <script>
+    var leftPos=367;
+    var topPos=21;
+    var maxZ = 100;
+
+	function fn_popupWin(obj,popupImg,popupAlt){
+		var img = $(obj).find("img");
+		var width,height;
+		if(img){
+			width = img[0].naturalWidth;
+			height = img[0].naturalHeight;
+		}else{
+			width = 600;
+			height = 600;
+		}
+
+		ItgJs.popupScrollbars('/intro/popContents.do?url=popImg&opt1='+popupImg+'&opt2='+popupAlt,'popImg',width,height);
+	}
+  	</script>
+    <!--modalpopup 끝-->
+	
+	<section class="intro02">
+		<div class="intro_ci">
+			<img src="/cubersc/templete/intro/img/intro/intro_ci_w.png" alt="강동대학교">
+		</div>
+		<div class="intro_con_wrap">
+			<div class="leftzone">
+				<div class="leftzone_inner">
+					<div class="search_bar">
+						<button type="button" class="popup_num_btn" onclick="fn_menuPopupView();">POPUP</button>
+						<input type="text" id="search_number" name="search_number" onkeydown="if(event.keyCode==13){fn_menuNumberSearch();}" placeholder="메뉴 단축번호 입력">
+						<button type="button" class="search_num_btn" onclick="fn_menuNumberSearch();">search</button>
+					</div>
+				<div class="i_btn_wrap">
+					<div class="shortcut page_btn">
+						<ul>
+							<li>
+								<a href="/gangdong/main/index.do" class="uni" target="_blank">
+									<div class="text_box">
+										<p class="t_ko">1. 대학홈페이지</p>
+										<p class="t_eng">University Homepage</p>
+									</div>
+									<img src="/cubersc/templete/intro/img/intro/arrow.png">
+								</a>
+							</li>
+							<li>
+								<a href="/ipsi/main/index.do" class="ip" target="_blank">
+									<div class="text_box">
+										<p class="t_ko">2. 입학홈페이지<br>문의(1577-3310)</p>
+										<p class="t_eng">Admissions Homepage</p>
+									</div>
+									<img src="/cubersc/templete/intro/img/intro/arrow.png">
+								</a>
+							</li>
+							<div class="r_ban01">
+								<div class="i_title">
+									<h4>외국인입학안내</h4>
+									<p class="t_eng_b">Foreigners' Admissions Guide</p>
+								</div>
+								<a href="javascript:fn_openpopup('foreigners');" class="foreigner_banner"><img src="/cubersc/templete/intro/img/intro/intro_b03.png" alt="외국인입학안내"></a>
+							</div>
+							<!--<li>
+								<a onclick="return false;" class="ipsi" target="_blank">
+									<div class="text_box sec">
+										<p class="t_iphak"><strong>입학</strong>문의</p>
+										<p class="t_eng_b">Admission Inquiry</p>
+										<p class="t_iphak">1577-3310</p>
+									</div>
+								</a>
+							</li>-->
+						</ul>
+					</div>
+				</div>
+				<div class="i_btn_wrap">
+					<div class="shortcut">
+						<div class="i_title">
+							<h4><strong>바로</strong>가기</h4>
+						</div>
+						<div class="susi">
+							<a href="/ipsi/contents/IPSI06-05-01.do" target="_blank">
+								<div class="text_box sec">
+									<p style="font-weight: 600;">2074. 합격자 조회</p>
+									<p class="t_eng_b">Inquiries about Successful Applicants</p>
+								</div>
+								</a>
+						</div>
+
+								<!--<div class="susi">
+							<a href="/ipsi/contents/IPSI06-01.do" target="_blank">
+								<div class="text_box sec">
+									<p style="font-weight: 600;">2071. 원서접수</p>
+									<p class="t_eng_b">Search for successful applicants</p>
+								</div>
+							</a>
+						</div>-->
+						<div class="susi baro">
+							<a href="/dorm/main/index.do" target="_blank" >
+								<!--<img src="/images/sc01.png" alt="기숙사">-->
+								<div class="text_box sec">
+									<p style="font-weight: 600;">402. 기숙사 홈페이지</p>
+									<p class="t_eng_b">Dormitory</p>
+								</div>
+							</a>
+						</div>
+						<div class="susi baro">
+							<a href="https://stu.gangdong.ac.kr/" target="_blank" >
+								<!--<img src="/images/sc02.png" alt="학생포털시스템">-->
+								<div class="text_box sec">
+									<p style="font-weight: 600;">403. 학생포털 시스템</p>
+									<p class="t_eng_b">Student Portal</p>
+								</div>
+							</a>
+						</div>
+						<div class="susi baro">
+							<a href="https://lxp.gangdong.ac.kr" target="_blank" >
+								<!--<img src="/images/sc03.png" alt="LXP(LMS)">-->
+								<div class="text_box sec">
+									<p style="font-weight: 600;">404. LXP(LMS)</p>
+									<p class="t_eng_b">Learning Experience Platform</p>
+								</div>
+							</a>
+						</div>
+                       <!--4.24 수정중-->
+                          <div class="susi baro">
+							<a href="https://www.gangdong.ac.kr/edulife/main/index.do" target="_blank" >								
+								<div class="text_box sec">
+									<p style="font-weight: 600;">418.평생교육원/장애인활동지원사교육</p>
+									<p class="t_eng_b">Lifelong Education Center</p>
+								</div>
+							</a>
+						</div>
+
+
+						<div class="susi baro">
+							<a href="/global/main/index.do" target="_blank" >
+								<!--<img src="/images/sc04.png" alt="국제교류센터">-->
+								<div class="text_box sec">
+									<p style="font-weight: 600;">419. 글로벌교육원</p>
+									<p class="t_eng_b">Global Education Center</p>
+								</div>
+							</a>
+						</div>
+
+                       <div class="susi baro">
+							<a href="https://www.gangdong.ac.kr/professorInfo/main/index.do?url=PR0801-A01" target="_blank" >								
+								<div class="text_box sec">
+									<p style="font-weight: 600;">101고전 교수진</p>
+									<p class="t_eng_b">Faculty of 101 Classic Books</p>
+								</div>
+							</a>
+						</div>
+
+						<ul class="btn_area">
+						     <li>
+								<a href="/quantum/main/index.do" target="_blank" class="si_btn">
+									<div class="text_box">
+										<p class="si_text"><strong>401. 한국양자<br>물리의학 연구소</strong></p>
+										<p class="t_eng_b">GIQM</p>
+									</div>
+								</a>
+							</li>							
+							
+							<li>
+								<a href="/gangdong/contents/MENU0401.do" target="_blank" class="si_btn">
+									<div class="text_box">
+										<p class="si_text"><strong>1051. 강동대<br>뉴스</strong></p>
+										<p class="t_eng_b">GDU NEWS</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="https://gangdong.certpia.com" target="_blank" class="si_btn">
+									<div class="text_box">
+										<p class="si_text"><strong>증명서발급</strong></p>
+										<p class="t_eng_b">Issuance of certificates</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.988.co.kr/gangdong" target="_blank" class="si_btn">
+									<div class="text_box">
+										<p class="si_text"><strong>원격지원</strong></p>
+										<p class="t_eng_b">Remote support</p>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="rightzone">
+				<div class="text_wrap">
+						<img src="/cubersc/templete/intro/img/intro/intro_text.png">
+						<!--<div class="text_ko">
+							<p>
+								<span style="font-size: 20px;">101고전으로</span><br>
+								<strong>어떤 분야</strong>에서도<br>
+								<strong>성공</strong>할 수있는<br>
+								<strong>통찰력</strong> 육성 
+							</p>
+						</div>
+						<div class="text_logo"><img src="/cubersc/templete/intro/img/intro/intro_ci_w.png" alt="강동대학교"></div>
+						<div class="text_eng">
+							<p>Cultivating insight to succeed in any field with 101 classic books. <br>
+								GANGDONG UNIVERSITY </p>
+						</div>-->
+				</div>
+				<!--하버드 배너 시작
+				<div class="r_banner_wrap">
+					<div class="r_banner_inner">
+						<!~~<div class="r_ban01">
+							<div class="i_title">
+								<h4>외국인입학안내</h4>
+								<p class="t_eng_b">Foreigners' Admissions Guide</p>
+							</div>
+							<a href="https://www.gangdong.ac.kr/ipsi/contents/IPSI10-01-01-01.do"><img src="/images/intro_b01.png" alt="외국인입학안내"></a>
+						</div>~~>
+						<div class="r_ban02">
+							<div class="i_title">
+								<h4>하버드 과정안내<a href="https://us06web.zoom.us/j/4350067386?pwd=R1Z1QUVDdGZpM2ZpLzZ0Nkt2U056Zz09" target="_blank"><img src="/cubersc/templete/intro/img/intro/i_call.png"></a></h4>
+								<p class="t_eng_b">Harvard Course Guide</p>
+							</div>
+							<a href="http://183.111.79.106/globalhmp_com/join_step2.php"><img src="/cubersc/templete/intro/img/intro/intro_b02.png" alt="외국인입학안내"></a>
+						</div>
+					</div>
+				</div>
+				하버드 배너 끝-->
+			</div>
+		</div>
+		<div class="modal">
+			<div class="bg"></div>
+			<div class="popup">
+				<div class="head">
+				  <h3>메뉴 바로가기(Ctrl + F 로 검색)<br>Go to menu (Search with Ctrl + F)</h3>
+				  <button type="button" class="modal_close" onClick="fn_menuPopupClose();">닫기</button>
+				</div>
+				<div class="body">
+					<table class="menu_table menu_table_title">
+						<colgroup>
+							<col style="">
+							<col style="">
+							<col style="">
+							<col style="">
+						</colgroup>
+						<thead>
+							<tr>
+								<th colspan="4">주요 메뉴<br>The Main Menu</th>
+							</tr>
+						</thead>
+					</table>
+					<table class="menu_table">
+						<colgroup>
+							<col style="">
+							<col style="">
+							<col style="">
+							<col style="">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>번호<br>Number</th>
+								<th>국문<br>Korean</th>
+								<th>영문<br>English</th>
+								<th>바로가기<br>Link</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<tr>
+									<td>1</td>
+									<td>대학 홈페이지</td>
+									<td>University Homepage</td>
+									<td><a href="/gangdong/main/index.do" class="button">바로가기</a></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>입학 홈페이지</td>
+									<td>Admission Homepage</td>
+									<td><a href="/ipsi/main/index.do" class="button">바로가기</a></td>
+								</tr>
+								<tr>
+									<td>10611</td>
+									<td>대학소개</td>
+									<td>About GDU</td>
+									<td><a href="/gangdong/contents/MENU050101.do" class="button">바로가기</a></td>
+								</tr>
+								<tr>
+									<td>2071</td>
+									<td>원서접수</td>
+									<td>Application Submission</td>
+									<td><a href="/ipsi/contents/IPSI06-01.do" class="button">바로가기</a></td>
+								</tr>
+								<tr>
+									<td>2061</td>
+									<td>해외유학생</td>
+									<td>Overseas Trainee</td>
+									<td><a href="/ipsi/contents/IPSI10-01-01-01.do" class="button">바로가기</a></td>
+								</tr>
+								<tr>
+									<td>41923</td>
+									<td>한국어과정 입학안내</td>
+									<td>Korean Language Course Admission Guide</td>
+									<td><a href="/global/contents/GLO0303.do" class="button">바로가기</a></td>
+								</tr>
+								<tr>
+									<td>41931</td>
+									<td>외국인유학생 입학안내</td>
+									<td>Foreign Student Admisson Guide</td>
+									<td><a href="/global/contents/GLO0604.do" class="button">바로가기</a></td>
+								</tr>
+								<tr>
+									<td>104421</td>
+									<td>통학버스 이용안내</td>
+									<td>Long Distance School Buses Usage Information</td>
+									<td><a href="/gangdong/contents/MENU03050201.do" class="button">바로가기</a></td>
+								</tr>
+								<tr>
+									<td>104423</td>
+									<td>통학버스 승차장소안내</td>
+									<td>Long Distance School Buses Boarding Locations Information</td>
+									<td><a href="/gangdong/contents/MENU03050203.do" class="button">바로가기</a></td>
+								</tr>
+								<tr>
+									<td>10651</td>
+									<td>캠퍼스투어</td>
+									<td>Campus Tour</td>
+									<td><a href="/gangdong/contents/MENU050501.do" class="button">바로가기</a></td>
+								</tr>
+								<tr>
+									<td>1048</td>
+									<td>주간식단표</td>
+									<td>Weekly Menu</td>
+									<td><a href="/gangdong/contents/MENU0312.do" class="button">바로가기</a></td>
+								</tr>
+							</tr>
+						</tbody>
+					</table>
+					<table class="menu_table menu_table_title">
+						<colgroup>
+							<col style="">
+							<col style="">
+							<col style="">
+							<col style="">
+						</colgroup>
+						<thead>
+							<tr>
+								<th colspan="4">전체 메뉴<br>Full Menu</th>
+							</tr>
+					</table>
+					<table class="menu_table data">
+						<colgroup>
+							<col style="">
+							<col style="">
+							<col style="">
+							<col style="">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>번호<br>Number</th>
+								<th>국문<br>Korean</th>
+								<th>영문<br>English</th>
+								<th>바로가기<br>Link</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<tr><td colspan="4">조회된 메뉴가 없습니다.</td></tr>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!--외국인입학안내-->
+		<div class="modal3" id="foreigners">
+		<div class="bg"></div>
+		<div class="foreigner_popup">
+			<div class="head">
+				<button type="button" onclick="fn_closepopup();" class="modal_close">닫기</button>
+			</div>
+			<div class="fg_wrap">
+				<div class="fg_inner">
+					<div class="fg_box">
+						<div class="fg_text">
+							<p>외국인입학안내</p>
+							<p class="t_eng">Foreigners' Admission Guide</p>
+							<p class="t_etc">Гадаад элсэлтийн мэдээлэл</p>
+						</div>
+						<a class="baro" href="https://www.gangdong.ac.kr/global/contents/GLO0303.do">바로가기</a>
+					</div>
+					<div class="fg_box">
+						<div class="fg_text">
+							<p>한국어 어학연수 모집요강</p>
+							<p class="t_eng">Language Trainee Admission Guideline</p>
+							<p class="t_etc">Солонгос хэлний сургалтын хөтөлбөрт хамрагдах заавар</p>
+						</div>
+						<div>
+							<a class="baro" href="/cubersc/upload/down/intro/Korean_language_training.pdf" download="">한국어</a>
+							<a class="baro" href="/cubersc/upload/down/intro/Korean_language_training_mo.pdf" download="" style="margin-left:5px">Монгол хэл</a>
+						</div>
+					</div>
+					<div class="fg_box">
+						<div class="fg_text">
+							<p>외국인 입학 지원서</p>
+							<p class="t_eng">Application for admission Document</p>
+							<p class="t_etc">Гадаадын иргэн элсүүлэх өргөдлийн маягт</p>
+						</div>
+						<a class="baro" href="/cubersc/upload/down/intro/form.hwp" download="">다운로드</a>
+					</div>
+					<div class="fg_box">
+						<div class="fg_text">
+							<p>지원서 샘플</p>
+							<p class="t_eng">Application Sample for admission Document</p>
+							<p class="t_etc">Гадаадын иргэн элсүүлэх өргөдлийн жишээ</p>
+						</div>
+						<a class="baro" href="/cubersc/upload/down/intro/form_sample.pdf" download="">다운로드</a>
+					</div>
+				</div>
+				<div class="fg_call">
+					<div class="fg_call_title">
+						<p>문의</p>
+						<p class="t_eng">Inquiry</p>
+						<p class="t_etc">лавлагаа</p>
+					</div>
+					<div class="fg_call_num">
+						<span>043-879-1791</span>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	</section>
+		
+	
+	<script>
+		m_broshur();
+
+		/**
+		 * <a href="#">링크</a>
+		 * 위와 같은 형태로 된 링크를 '#'동작이 먹지 않게 막는다.
+		 */
+		$(document).delegate("a[href='#']","click",function(event){
+			event.preventDefault();
+		});
+	</script>
+
+
+	<script>
+		function fn_openpopup(id){
+			$("#"+id).show();
+		}
+		
+		function fn_closepopup(){
+			$(".modal3").hide();
+		}
+	
+	</script>
+
+	
+	<script type="text/javascript">
+		
+		fn_menuPopup();	
+		//fn_boardDataCall();
+	
+		function fn_boardDataCall(){
+			
+			//변수선언
+			var data = [];
+
+			$.ajax({
+				url : "/gangdong/board/rctBbsList.json",
+				dataType : "json",
+			}).done( function( response ) {
+				//console.log("data2 : " + JSON.stringify(response));
+				//console.log("MENU030101 : " + JSON.stringify(response.MENU030101));
+				
+				data = gf_nvl(response.MENU030101, "");
+				fn_boardDataList(data);
+			});
+			
+			//return data;
+		}
+		
+		function fn_boardDataList(data){
+			var html = "";
+			if(!gf_isNull(data)){
+				data.forEach(function(item, index){
+					//console.log(index + " : " + JSON.stringify(item));
+					//console.log(index + " : " + item.bdContent.replace(/(<([^>]+)>)/ig,""));
+					if(index == 0){
+						html += "<li>";
+						html += "<a href='/gangdong/contents/" + gf_nvl(item.etc1, '') + ".do?schM=view&id=" + gf_nvl(item.bdIdx, '') +"' target='_blank'>";
+						html += "<strong class='title'>" + gf_nvl(item.bdTitle, '') + "</strong>";
+						//html += "<span class='subs'>" + gf_nvl(item.bdContent, '') + "</span>";
+						html += "</a>";
+						html += "<span class='date'>";
+						html += fn_dataCvt(gf_nvl(item.regdt, ''), gf_nvl(index, ''));
+						html += "</span>";
+						html += "</li>";
+					} else{
+						html += "<li>";
+						html += "<a href='/gangdong/contents/" + gf_nvl(item.etc1, '') + ".do?schM=view&id=" + gf_nvl(item.bdIdx, '') +"' target='_blank' class='txt'>" + gf_nvl(item.bdTitle, '') + "</a>";
+						html += "<span class='date'>" + fn_dataCvt(item.regdt, index) + "</span>";
+						html += "</li>";
+					}
+				});
+			}else{
+				html += "<li>등록된 내용이 없습니다.</li>"
+			}
+			
+			$("ul.news_list").append(html);
+
+
+			//$(".news_list li:eq(0) > .subs img").remove();
+		} 
+		
+		function fn_dataCvt(date, i){
+			
+			var regDt = "";
+			if(gf_nvl(date, "") != ""){
+				regDt = new Date(date);
+				
+				year = regDt.getFullYear();
+				//두자리 SET
+				month =("0" + (regDt.getMonth()+1)).slice(-2);
+				date = ("0" + regDt.getDate()).slice(-2);
+				if(i != 0){
+					regDt = year + "-" + month + "-" + date;
+				} else{
+					year = (year.toString()).slice(-2);
+					regDt = "<strong>"+ date +"</strong>"+ year.slice(-2) + "." + month;
+				}
+			}
+			
+			return regDt;
+		}
+
+		//메뉴번호 검색
+		function fn_menuNumberSearch(){
+			
+			var number = $("input[name='search_number']").val();
+			if(gf_isNull(number)){
+				alert("메뉴 단축번호를 입력하세요.");
+				return;
+			}
+			
+			$.ajax({
+				url : "/intro/menu/search.json",
+				type : "POST",
+				data : {
+					menuNumber : number
+				},
+				dataType : "json",
+				beforeSend : function() {
+					var loadingImg = "";
+					loadingImg += "<div id='loadingImg' style='min-width: 400px;'>";
+					loadingImg += " <img src='/cubersc/common/img/1488.gif' style='position: relative; display: block; margin: 0px auto;'/>";
+					loadingImg += "</div>";  
+					
+					$('div.intro').append(loadingImg);
+				}
+			}).done( function( response ) {
+				
+				$('div.intro').remove("loadingImg");
+				//console.log("data2 : " + JSON.stringify(response));
+				
+				var data = response.result || [];
+				if(!gf_isNull(response)){
+					if(gf_nvl(response.errorCd, "") == "M01" || gf_nvl(response.errorCd, "") == "M02"){
+						alert("조회된 메뉴가 없습니다.");
+						return;
+					} else{
+						
+						//도메인 선언
+						var url = 'https://ipsi.gangdong.ac.kr';
+						
+						if(gf_nvl(data.MENU_TYPE, "") == "0" || gf_nvl(data.MENU_TYPE, "") == "4"){
+							if(gf_nvl(data.MENU_URL, "").includes('http')){
+								url = data.MENU_URL
+							} else{
+								url +=  gf_nvl(data.MENU_URL, "");	
+							}
+						} else if(gf_nvl(data.MENU_TYPE, "") == "1" || gf_nvl(data.MENU_TYPE, "") == "2" || gf_nvl(data.MENU_TYPE, "") == "3"){
+							url += "/" + gf_nvl(data.MENU_SITECODE, "") + "/contents/" + gf_nvl(data.MENU_CODE, "") + ".do";	
+						} else{
+							alert("조회된 메뉴가 없습니다.");
+							return;
+						}
+						
+						location.href=url;
+					}
+				}
+			});
+		}
+
+		//메뉴 팝업
+		function fn_menuPopupView(){
+			$(".modal").addClass("on");
+		}
+		
+		//메뉴 팝업
+		function fn_menuPopupClose(){
+			$(".modal").removeClass("on");
+		}
+		
+		function fn_menuPopup(){
+			
+			$.ajax({
+				url : "/intro/menu/popSearch.json",
+				type : "POST",
+				//data : {},
+				//dataType : "json",
+				beforeSend : function() {
+					var loadingImg = "";
+					loadingImg += "<div id='loadingImg' style='min-width: 400px;'>";
+					loadingImg += " <img src='/cubersc/common/img/1488.gif' style='position: relative; display: block; margin: 0px auto;'/>";
+					loadingImg += "</div>";  
+					
+					$('div.intro').append(loadingImg);
+				}
+			}).done( function( response ) {
+				
+				$('div.intro').remove("loadingImg");
+				
+				var data = response.result || [];
+				if(!gf_isNull(response) && !gf_isNull(response.result)){
+					//console.log("data2 : " + JSON.stringify(response.result));
+					$(".menu_table.data tbody").empty();
+					if(gf_nvl(response.errorCd, "") == "M02"){
+						$(".menu_table.data tbody").append("<tr><td colspan='4'>조회된 메뉴가 없습니다.</td></tr>");
+
+					} else{
+						var menuHtml = "";
+						var url="";
+						data.forEach(function(item, i){
+							if(gf_nvl(item.MENU_TYPE, "") == "0" || gf_nvl(item.MENU_TYPE, "") == "4"){
+								//if(gf_nvl(data.MENU_URL, "").includes('http')){
+								//	url = item.MENU_URL
+								//} else{
+								//	url =  gf_nvl(item.MENU_URL, "");	
+								//}
+								url = gf_nvl(item.MENU_URL, "");
+							} else if(gf_nvl(item.MENU_TYPE, "") == "1" || gf_nvl(item.MENU_TYPE, "") == "2" || gf_nvl(item.MENU_TYPE, "") == "3"){
+								url = "/" + gf_nvl(item.MENU_SITECODE, "") + "/contents/" + gf_nvl(item.MENU_CODE, "") + ".do";	
+							} else{
+								url = "#"
+							}
+							
+							menuHtml += "<tr>";
+							menuHtml += "	<td>"+ gf_nvl(item.MENU_NUMBER, "") +"</td>";
+							menuHtml += "	<td>"+ gf_nvl(item.MENU_KOR_NM, "") +"</td>";
+							menuHtml += "	<td>"+ gf_nvl(item.MENU_ENG_NM, "") +"</td>";
+							menuHtml += "	<td><a href="+ url +" class='button'>바로가기</a></td>";
+							menuHtml += "</tr>";
+						});
+						
+						$(".menu_table.data tbody").append(menuHtml);
+					}
+				}
+			});
+		}
+	</script>
+
+
+</body>
+</html>

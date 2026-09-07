@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chea Siek Ai, MD — Director of Medical Service</title>
+<style>
+  @page {
+    size: A4;
+    margin: 6mm 10mm 8mm 10mm;
+    @bottom-center {
+      content: "Camnemi Medical Tourism Concierge · Curriculum Vitae · Page " counter(page) " / " counter(pages);
+      font-family: 'Malgun Gothic';
+      font-size: 6pt;
+      color: #9aa5b1;
+    }
+  }
+  @font-face {
+    font-family: 'Malgun Gothic';
+    src: url('C:/Windows/Fonts/malgun.ttf');
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'Malgun Gothic';
+    src: url('C:/Windows/Fonts/malgunbd.ttf');
+    font-weight: bold;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', sans-serif; color: #1f2937; }
+
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 1.5mm; border-bottom: 2pt solid #0b5394; margin-bottom: 3mm;
+  }
+  .header .logo { height: 7.5mm; }
+  .header .titles { text-align: right; }
+  .header .titles .kr { font-size: 12pt; font-weight: bold; color: #0b5394; }
+  .header .titles .en { font-size: 6.5pt; color: #6b7280; margin-top: 0.3mm; }
+
+  /* ── Identity card: photo + name ── */
+  .identity {
+    display: flex; align-items: center; gap: 5mm;
+    background: linear-gradient(135deg, #0b5394 0%, #1d6fc4 60%, #2e8bd8 100%);
+    border-radius: 6px; padding: 4mm 5mm; margin-bottom: 3mm;
+    color: #fff;
+  }
+  .identity img {
+    width: 26mm; height: 28mm; object-fit: cover;
+    border-radius: 4px; border: 1.5pt solid rgba(255,255,255,0.7);
+  }
+  .identity .nm { font-size: 17pt; font-weight: bold; line-height: 1.2; }
+  .identity .tl { font-size: 9.5pt; margin-top: 1mm; opacity: 0.95; }
+  .identity .ct { font-size: 7.5pt; margin-top: 2mm; opacity: 0.9; line-height: 1.5; }
+
+  .meta {
+    display: flex; justify-content: space-between; align-items: center;
+    background: #f3f6fb; border-radius: 4px; padding: 1.2mm 3mm; margin-bottom: 3mm;
+    font-size: 6.8pt; color: #6b7280;
+  }
+  .meta b { color: #0b5394; }
+
+  .package {
+    background: #fff; border: 0.8pt solid #dbe3ee; border-radius: 5px;
+    margin-bottom: 2.5mm; overflow: hidden; page-break-inside: avoid;
+  }
+  .package .head {
+    background: linear-gradient(135deg, #0b5394 0%, #1d6fc4 60%, #2e8bd8 100%);
+    color: #fff; padding: 1.4mm 3mm;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .package .head .name { font-size: 9pt; font-weight: bold; }
+  .package .head .name small { font-size: 6pt; font-weight: normal; opacity: 0.9; margin-left: 1.5mm; }
+
+  .item { padding: 1.6mm 3mm; border-bottom: 0.5pt solid #eef1f6; }
+  .item:last-child { border-bottom: none; }
+  .item .top { display: table; width: 100%; }
+  .item .tt { display: table-cell; font-size: 8pt; font-weight: bold; color: #0b5394; }
+  .item .ty { display: table-cell; text-align: right; font-size: 6.8pt; font-weight: bold; color: #b8860b; white-space: nowrap; padding-left: 3mm; }
+  .item .sub { font-size: 7pt; color: #5b6570; margin-top: 0.6mm; line-height: 1.45; }
+
+  .cert { padding: 1.4mm 3mm; border-bottom: 0.5pt solid #eef1f6; }
+  .cert:last-child { border-bottom: none; }
+  .cert .cn { font-size: 7.8pt; font-weight: bold; color: #111827; }
+  .cert .cy { float: right; font-size: 6.8pt; font-weight: bold; color: #b8860b; padding-left: 3mm; }
+  .cert .cd { font-size: 6.8pt; color: #5b6570; margin-top: 0.5mm; line-height: 1.45; }
+  .cert .clist { margin: 0.8mm 0 0 0; padding-left: 4mm; }
+  .cert .clist li { font-size: 6.8pt; color: #5b6570; line-height: 1.5; }
+
+  .goldhead {
+    display: inline-block; background: #fff7e6; color: #b8860b;
+    font-weight: bold; font-size: 7pt; padding: 0.8mm 2.5mm;
+    border: 0.8pt solid #f0b429; border-radius: 3px; margin-bottom: 1.2mm;
+  }
+  .specialty { padding: 1.5mm 3mm; }
+  .spc {
+    display: inline-block; background: #eef3fa; color: #0b5394;
+    font-weight: bold; font-size: 6.5pt; padding: 0.8mm 2mm;
+    border: 0.8pt solid #c6d4e8; border-radius: 10px; margin: 0.5mm 0.8mm 0 0;
+    line-height: 1.3;
+  }
+  .note {
+    margin-top: 2mm; font-size: 6pt; color: #6b7280; line-height: 1.4;
+    background: #fafbfc; border-left: 1.5pt solid #0b5394; padding: 1.2mm 2.5mm; border-radius: 0 3px 3px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img class="logo" src="C:/Users/USER/camnemi-crm/asan_assets/amc_logo_hi.png" alt="Asan Medical Center">
+  <div class="titles">
+    <div class="kr">Curriculum Vitae</div>
+    <div class="en">Asan Medical Center · Camnemi Medical Tourism Concierge</div>
+  </div>
+</div>
+
+<!-- Identity -->
+<div class="identity">
+  <img src="C:/Users/USER/camnemi-crm/asan_assets/dr_chea_photo_final.png" alt="Chea Siek Ai">
+  <div>
+    <div class="nm">Chea Siek Ai, MD</div>
+    <div class="tl">Director of Medical Service</div>
+    <div class="ct">📞 +82-10-9839-7855 &nbsp;·&nbsp; ✉️ medical@camnemi.com</div>
+  </div>
+</div>
+
+<!-- Education -->
+<div class="package">
+  <div class="head"><span class="name">🎓 Education <small>— Academic Background</small></span></div>
+  <div class="item">
+    <div class="top"><div class="tt">Master degree of Plastic &amp; Reconstructive Surgery</div><div class="ty">2025 ~</div></div>
+    <div class="sub">University of Ulsan College of Medicine</div>
+  </div>
+  <div class="item">
+    <div class="top"><div class="tt">Bachelor of Medicine</div><div class="ty">2020</div></div>
+    <div class="sub">Faculty of Medicine, University of Puthisastra</div>
+  </div>
+</div>
+
+<!-- Experience -->
+<div class="package">
+  <div class="head"><span class="name">💼 Working Experience <small>— Clinical Career</small></span></div>
+  <div class="item">
+    <div class="top"><div class="tt">Asan Medical Center</div><div class="ty">2025 ~</div></div>
+    <div class="sub">Training &amp; Fellowship — Department of Plastic and Reconstructive Surgery</div>
+  </div>
+  <div class="item">
+    <div class="top"><div class="tt">Sunrise Janpan Hospital</div><div class="ty">2021 – 2024</div></div>
+    <div class="sub">Junior Surgeon</div>
+  </div>
+  <div class="item">
+    <div class="top"><div class="tt">Sihanouk Hospital Center of Hope</div><div class="ty">2020 – 2021</div></div>
+    <div class="sub">Trainee Surgeon</div>
+  </div>
+</div>
+
+<!-- Certificates -->
+<div class="package">
+  <div class="head"><span class="name">📜 Certificates <small>— Licenses &amp; Recognition</small></span></div>
+  <div class="cert">
+    <div class="cn">Certificate of International Ambassador</div><div class="cy">03/2021</div>
+    <div class="cd">Master Series Microsurgery for Residents 2 — Online course</div>
+  </div>
+  <div class="cert">
+    <div class="cn">Certificate of Attendance</div>
+    <ul class="clist">
+      <li>25th Annual Conference of Cambodian Society of Surgery (11/2019)</li>
+      <li>1st APSARA Course on General Medicine — "Infectious Disease" (12/2018)</li>
+      <li>24th Annual Conference of Cambodian Society of Surgery (11/2018)</li>
+      <li>23rd Annual Conference of Cambodian Society of Surgery (11/2017)</li>
+      <li>Emergency Medicine, University of Puthisastra, Phnom Penh (06/2017)</li>
+    </ul>
+  </div>
+  <div class="cert">
+    <div class="cn">Certificate of Appreciation</div><div class="cy">01/2018</div>
+    <div class="cd">Outstanding Volunteer Accomplishment — 8th CHPAA Medical, Dental, Surgical, Prosthetic Hand (LN-4) / Disability Referral Mission, Prey Veng Province, Cambodia</div>
+  </div>
+</div>
+
+<!-- Specialties -->
+<div class="package">
+  <div class="head"><span class="name">🩺 Clinical Focus <small>— Areas of Expertise</small></span></div>
+  <div class="specialty">
+    <span class="spc">🫀 Plastic &amp; Reconstructive Surgery</span>
+    <span class="spc">🔬 Microsurgery</span>
+    <span class="spc">🩻 General Surgery</span>
+    <span class="spc">🚑 Emergency Medicine</span>
+    <span class="spc">🧠 Surgical Care</span>
+  </div>
+</div>
+
+<div class="note">
+  ※ Curriculum Vitae of <b>Dr. Chea Siek Ai, MD</b> · Director of Medical Service · Camnemi Medical Tourism Concierge · Contact : <b>medical@camnemi.com</b>
+</div>
+
+</body>
+</html>

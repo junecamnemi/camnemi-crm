@@ -1,0 +1,800 @@
+@charset "euc-kr";
+
+@media all and (max-width:400px) {
+
+	.main .ad .ad_give_wrap .ad_give .br {display: block;}
+	.main .division--v1 .board .article__head {height: 2.5rem;}
+	.main .division--v1 .board .tab > button {font-size: 14.5px;}
+	.main .division--v1 .board .action {top:-2.625rem !important;}
+
+	/* 학부 2.0 */
+	.school1115 .article .brd--pro {position: relative; right: auto; top: auto; margin-top:10px;}
+
+	.layerpopup4 {position: absolute;left: 280px;top: 255px; z-index: 999; box-shadow: 1px 1px 2px rgba(0,0,0,0.3);transition:1s;}
+
+	.layerpopup4 img {width: 100px;}
+
+	.popup__close_4 {display: none;}
+
+}
+
+@media all and (max-width:480px) {
+
+	/* 상단 팝업 */
+	#hdPopup .col-3 {display: none;}
+	#hdPopup .col-9 {width: 100%;}
+
+	.lnb__list {width: 100%;}
+	.lnb__menu.first {display: none;}
+	.lnb__menu{width: 46%}
+	.lnb__menu.third {width: 54%;}
+	
+
+	/*
+	.lnb__list {width: 100%;}
+	.lnb__menu.first {display: none;}
+	.lnb__menu{width: 50%}
+	*/
+
+	.footer .sns {bottom: 2.75rem;right: 5%;}
+	.footer__bnr {text-align: left;}
+
+/* 	.main .mainVisual__list > li {height: 15rem;} */
+	.main .division--v1 .board .action {top:-3.125rem;}
+	.main .history__slider > li {margin-bottom: 5px;padding: 0 1.5rem;text-align: center;}
+	.main .promote .article {margin-top: 1rem;}
+	.main .promote .article:not(.people) br {display: none;}
+	.main .quick__list{margin: 0 -10px; }
+	.main .quick__list > li {float: left; width: calc(25% - 10px); margin: 5px; padding: 0; box-sizing:border-box;}
+	.main .quick__list > li:last-child {display: none;}
+	.main .quick__item {padding: 0.875rem 0;}
+	.main .quick__ico {width: 65px; height: 49px; -webkit-background-size: contain !important; background-size: contain !important;}
+	.quick__name  {height: 2.25rem;}
+ .main .division--v5 .row .row > div {padding-right: 0;padding-left: 0;}
+	.main .ad .ad_give_wrap .ad_give {font-size: 12px; width:90%;max-width: 160px; padding: 10px 0 10px 10px;bottom: 10px;}
+	.main .ad .ad_give_wrap .ad_give p {line-height: 1.25rem;}
+	.main .slogan__tit {font-size: 2.1em;letter-spacing:-0.5px;}
+	.main .slogan__bg {background: linear-gradient(125deg, rgba(0,140,153,0.8) 50%, transparent 50%);}
+	.main .sns.pc_ver {display: none;}
+	.main .sns.mb_ver {display: block;}
+	.main .sns.mb_ver .snsList {box-sizing:border-box; border: 1px solid #a52576; padding: 1.5rem 1rem 1.5rem 2rem;}
+	.main .sns.mb_ver .snsList li {float: left; width: 50%; }
+	.main .sns.mb_ver .snsList li:nth-child(3), .main .sns.mb_ver .snsList li:last-child {margin-top: 1.5rem;}
+	.main .sns.mb_ver .snsList li a {display: block;line-height: 46px; font-size: 1.25rem; letter-spacing: -0.5px;}
+	.main .sns.mb_ver .snsList li a img {margin-right: 0.75rem;}
+	.main .promote__txt {margin: 5% 0;}
+ 
+
+	/* MAIN */
+	/*.main .mainVisual__list > li img { left: 60% !important; transform: translate(-49%, -50%) !important;}*/
+
+	/* 서브비주얼 */
+	.subVisual {background-size: cover;}
+	.subVisual__txt {bottom: 1.8rem;}
+	img.subVisual__txt {bottom: 2.8rem;}
+	#intro .subVisual {background-position: center; }
+	#school .subVisual {background-position:center;}
+	#grad .subVisual {background-position: 30%; }
+
+	/* 연혁 */
+	.history .history__list dl dt {width: 100% !important; padding-left: 3% !important;}
+	.history .history__list dl dd {width: 95% !important;}
+
+	/* 역대총장 */
+	.professor__info ul > li {padding-left: 0;}
+
+	/* 학교법인 */
+	.intro010401 .txt2 {font-size: 1.5rem;}
+
+	/* 부속기관 */
+	.intro030201 .banner__list li {width: 100%;}
+	.intro03030702 .sec__info {word-break:keep-all; line-height: 1.5em;}
+
+	/* 부설연구기관 */
+	.intro030403 .link__list li {width: 100%; float: none;}
+	.intro030403 .btn, .grad.grd010801 .board__btn .btn {width: 80%;}
+
+	/* 부설교육기관 */
+	.intro030504 .program:after, .intro030504 .program:nth-child(2):after { right: 42%;}
+	.intro030504 .m-version .vision li {text-align: center; background: #0588b8; color: #fff; width: 90%; margin: auto; padding: 0.5rem; font-size: 1rem; border-radius: 10px;}
+	.intro030504 .m-version .vision li:nth-child(2) {background: #0a839b;}
+	.intro030504 .m-version .vision li:nth-child(3) {background: #1c9992;}
+	.intro030504 .m-version .vision li:nth-child(4) {background: #34aa6d;}
+	.intro030504 .m-version .vision li:last-child {background: #5ec62c;}
+
+	/* 학사안내 */
+	.grad .board__btn .btn {margin: 5px 0;}
+
+	/* 학사안내 > 연계전공 이수 과목표 210429 */
+	.major_table thead tr th{padding:0.8rem 0.3rem; font-size:1rem;}
+	.major_table tbody tr td.sel_type_1{font-size:1rem;}
+
+	/* 사회봉사활동 신청안내  */
+	.life070302 .m-version .apply {margin: 1rem;}
+	.life070302 .m-version .apply li {text-align: center; background: #0588b8; color: #fff; width: 90%; margin: auto; padding: 0.5rem; font-size: 1rem; border-radius: 10px;}
+	.life070302 .m-version .apply li:nth-child(2) {background: #0a839b;}
+	.life070302 .m-version .apply li:nth-child(3) {background: #1c9992;}
+	.life070302 .m-version .apply li:nth-child(4) {background: #23995b;}
+	.life070302 .m-version .apply li:nth-child(5) {background: #34aa6d;}
+	.life070302 .m-version .apply li:last-child {background: #5ec62c;}
+	.life010701 .notice {font-size: 1.3rem;}
+
+	/* 시설안내 */
+	.life060202 .professor__info ul > li {padding-left: 0;}
+	
+	/* 상담소안내 */
+	.life070102 dl dt {width: 50% !important; }
+
+	/* 셔틀버스 */
+	.intro020301 .shuttle .tbl--vert span {display: block; margin: 0;}
+	.intro020301 .shuttle .tbl--vert span.color--sub {display: inline-block;}
+
+	/* 학과, 학부 */
+	.school1114 .article .brd--tit {font-size: 22px !important; letter-spacing:-1px;}
+	.school1114 .article .c-txt {font-size: 14px !important; margin-top: 1.2rem;}
+	.school1113.school1114 .article .c-txt {margin-top: 0.5rem;}
+	.school1114 .article .btn--list {margin-top: 1.2rem;}
+	.school1114 .article .btn--list li {width: 100%; margin-right: 0;}
+	.school1114 .article .btn--list li a {font-size: 15px; padding: 0.5rem 2rem 0.6rem;}
+	.school1114 .article .brd--pro a { font-size: 15px; padding: 0.5rem 1rem;}
+	.school1114 .article .brd--pro a img {width: 18px;}
+	
+	/* 학부 2.0 */
+	.school1115 .article .brd--tit {font-size: 22px !important; letter-spacing:-1px;}
+	.school1115 .article .c-txt {font-size: 14px !important; margin-top: 1.2rem;}
+	.school1115 .article .btn--list {margin-top: 1.2rem;}
+	.school1115 .article .btn--list li {width: 100%; margin-right: 0;}
+	.school1115 .article .btn--list li a {font-size: 15px; padding: 0.5rem 2rem 0.6rem;}
+	.school1115 .article .brd--pro a { font-size: 15px; padding: 0.5rem 1rem;}
+	.school1115 .article .brd--pro a img {width: 18px;}
+	.school1115 .article > img{width:100%;}
+
+	/* 글로벌융합리더학부 - 사회복지 트랙 */
+	.school11111112 .floatImg .f-left, .school11111112 .floatImg .f-right {float: none; width: 100%;}
+	.school11111112 .floatImg .txt {position: inherit; margin: auto; width: 100%; left: 0; top: 0; transform: none;}
+
+	/* 경력개발센터 - 채용정보 */
+	.recruit.boardList col, .recruit.boardList th, .recruit.boardList td {display: table-cell;}
+
+	/* 총장 소개 */
+	.presidentInfo .f-left { margin-bottom: 5.5rem !important; }
+	.presidentInfo .presidentImg {max-width:160px !important; }
+	
+	/* 청탁금지제도 */
+	.prohibitgion-wr .article__big_tit {font-size: 1.375rem;}
+	.prohibitgion-wr .article__big_tit:before {width:2.75rem;}
+	.prohibitgion-wr .notice {padding:1.25rem 1.5rem;}
+	.prohibitgion-wr .btn { padding: 0.5rem 1rem;}
+	.prohibitgion-wr .btn + .btn { margin-left: 0;}
+	.prohibitgion-wr .tag {font-size: 12px;}
+	.prohibitgion-wr .list--num { padding: 1.25rem 1.25rem 1.25rem 2.5rem;}
+	.prohibitgion-wr .btn_wrap.btn3 { display: flex; flex-direction: column; text-align: center; gap: 5px;}
+	.prohibitgion-wr .meta {flex-direction:column;  align-items: center; gap: 3px;}
+	.prohibitgion-wr .refer {font-size:12px; line-height: 1.3;}
+
+} 
+
+@media all and (min-width:481px) {
+	/* FOOTER */
+	.footer  {text-align: left;}
+	.footer__top {position: relative;}
+	.footer .sns {transform:translateY(50%)}
+	.footer__cont {padding-top: 1.875rem;}
+	.footer .address {margin: 0 -0.625rem;}
+	.footer .address > li {float: left;padding: 0 0.625rem;border-right: 1px solid #eee;line-height: 1rem;}
+	.footer .address > li br {display: none;}	
+	.footer__bnr  {padding-top: 1.875rem; margin: 0;}
+
+	
+	/* MAIN */
+	.main .mainVisual__list > li img { left: 50%; transform: translateX(-50%);}
+	 .main .schedule {margin-top: 0;}
+	 .main .schedule__list, .main .schedule__list .empty {height: 222px; min-height: 222px;}
+	 .main .schedule__list .empty {padding: 0; position: relative; }
+	 .main .schedule__list .empty .tit {position: absolute; left: 50%; top:50%; transform:translate(-50%,-50%);}
+
+	.main .history .history__thumb {float: left;width: 53.75%;border: 0.625rem solid #fff;}
+	.main .history__desc {float: left;width: 46.25%;padding-left:0.9375rem;}
+	.main .history__year:after {margin: 0;}
+
+	/* .main .promote .article {float: left;width: 23.5%;height: 20rem;margin-left: 2%;}
+	.main .promote .article:first-child {margin-left: 0;} */
+
+	.main .focusyoutube .youtube__list li iframe { height: 210px;}
+	.main .focusyoutube .youtube_info {}
+	.main .focusyoutube .youtube_info .youtube_tit {-webkit-box-orient: vertical;  line-clamp:2; -webkit-line-clamp: 2;}
+	.main .focusyoutube .youtube_info {padding:0.5625rem 0.9375rem}
+	.main .focusyoutube .youtube_info .youtube_con {height:6em; max-height: 6em; line-clamp:4; -webkit-line-clamp: 4;}
+
+	/* 부속기관 */
+	.intro030201 .banner__list li {width: 50%;}
+
+	/* 부설연구기관 */
+	.intro030403 .link__list li {width: 50%; float: left;}
+	.intro030403 .btn, .grad.grd010801 .board__btn .btn {width: 95%;}
+	.intro030201 .eduPub .edupub_item {width: 33.33%;margin-bottom: 15px;}
+	.intro030201 .eduPub .edupub_item span {margin-bottom: 2rem;}
+	/* .intro030201 .eduPub .edupub_item .p_br {display: inline-block; width: 3px;} */
+
+	/* 사제동행 */
+	.accompany .accomList .tit_wrap {position: relative;}
+	.accompany .accomList .point {position: absolute; top:3px; right: 0;}
+	.accompany .accomList .btn_wrap {text-align: right;}
+	.accompany.accompany_desc .section__head .accom--img {min-height:250px;}
+	.accompany .section__head .accom--desc {margin-top: 1rem;}
+
+	/* 교육혁신센터 - AICE 소개 */
+	.unilife16121410 .work .article--desc {float: left; width: 49%; margin-right: 2%;}
+	.unilife16121410 .work .article--desc:nth-child(2n) {margin-right: 0;}
+	.life.unilife16121410 .work .article--desc:nth-child(2) {margin-top: 0;}
+
+}
+
+@media all and (max-width:540px) {
+	.main .board .article__head {height: 3rem;font-size: 15.4px;}
+	.main .division--v1 .board  .tab {padding: 0 5px;}
+ .main .division--v1 .board  .tab__bar{left: 5px;width: 28px;}
+ .main .division--v5 .board .tab__bar{left: 12.6719px;width: 56px;}
+	.main .focusyoutube .youtube__list li iframe { height: 150px;}
+}
+
+@media all and (max-width:575px) {
+
+	/* header */
+	.hd_popup li img {width: 100%;/*  max-width:100%; */}
+	.header__top .relateSite {display: none;}
+}
+
+@media all and (max-width:640px) {
+	/* 경력개발센터 - 채용정보 */
+	.recruit .search--wrap {text-align: center;}
+	.recruit .search--wrap > dl:first-child {display:block; margin-bottom: 1rem; margin-right: 0; width: 245px; margin: 0 auto 1rem;}
+
+	.main .mainVisual__list > li a img { left: 50%; top : 50%; transform: translate(-50%,-50%); width: 100%; height: 100%;}
+
+	/* 총장 소개 */
+	.presidentInfo .f-left { float: none; width: 100% !important; margin-bottom: 6.25rem; position: relative;}
+	.presidentInfo .f-right {float: none; width: 100% !important;}
+	.sub .presidentInfo .f-right .article__tit {margin-bottom: 1rem;}
+	.presidentInfo .presidentImg {max-width:190px; margin: auto;}
+	.sub .presidentInfo .article__desc dl {margin-bottom: 1.5rem;}
+	.presidentInfo .presidentTit {font-size: 1.25rem; padding-left: 0; position: absolute; left: 0; bottom:-3rem; width: 100%; text-align: center;}
+	.presidentInfo .presidentTit:before {display: none;}
+	.presidentInfo .presidentTit small {display: inline-block; margin-right:10px; }
+
+}
+
+@media all and (min-width:641px) {
+	
+	.main .focusyoutube .youtube__list li iframe {}
+
+	/*.main .focusyoutube .youtube_info .youtube_tit {margin-bottom: 1.75rem;}*/
+	.main .focusyoutube .youtube_info .youtube_con {margin-top: 0.75rem;}
+
+	/* ACTS 사이버 홍보단 */
+	.prom171015 .cyberItem {float: left; width: 49%;}
+	.prom171015 .cyberItem:nth-child(2n) {margin-left: 2%; margin-top: 0;}
+	.prom171015 .cyberItem .cyberImg {width:120px;}
+	.prom171015 .cyberItem .cyberInfo {width: calc(100% - 120px);}
+	.prom171015 .cyberItem .cyberInfo .cyberID {margin-top: 1rem;}
+
+}
+
+@media all and (max-width:768px) {	
+
+	#hdPopup .closebox {padding-right: 10px}
+	#hdPopup .bx-controls {left: 10px;}
+	/* .main .focus__list {margin: 0 -5px;} */
+	/* .main .focus__list > li {margin: 5px 0;padding: 0 5px;} */
+	.main .focusyoutube .youtube__list {margin: auto;}
+	/* .main .focusyoutube iframe {width: 70%;}
+	.main .focusyoutube .youtube_info {width: 30%;} */
+	.brochure__list {margin-top: 2rem;}
+	.header__top {height: auto;}
+	.header .topMenu > li {height: 46px;}
+	.header .topMenu > li > a {line-height: 46px; font-size: 13px;}
+	.header__top .relateSite .relateSite_sel {height: 46px; line-height: 46px;}
+	.header__top .relateSite .relateSite_btn {height: 46px;}
+
+	/* 연혁 */
+	.history {margin: 2rem auto;}
+	.history .history__tit {float: none;}
+	.history .history__tit span {text-align: left;}
+	.history .history__list {width: 100%;}
+	.history .history__list li:before {left: -2%;top: 5px;}
+	.history .history__list li:after {display: none;}
+	.history .history__list dl dt {width: 13%; padding-left: 2%;}
+	.history .history__tit span:after {display: none;}
+	.history .history__tit:after {display: none;}
+
+	/* 교육이념 및 비전 */
+	.intro010303 .box--brd {padding: 1rem;}
+
+	/* ACTS UI */
+	.intro0105 .img_list li, .intro0105 .color--sysytem .img_list li {width: 100%; float: none;}
+	.intro0105 .img_list li.area--img {margin: 1.5rem auto; text-align: center; max-width: 90%;}
+	.intro0105 .img_list li.area--img + .area--img {margin-top: 3rem;}
+	.intro0105 .color--sysytem p {height:80px;}
+	.intro0105 .color--sysytem .img_list li:nth-child(2n) {margin-left: 0;}
+
+	/* 부설교육기관 */
+	.intro030504 .program:after, .intro030504 .program:nth-child(2):after { top: 90%; right: 44%; transform: rotate(90deg);}
+	.intro030504 .program:first-child dl, .intro030504 .program:last-child dl {margin: 2rem 1rem;}
+	.intro030504 .program:nth-child(2) dl {width: auto; margin: 2rem 1rem;}
+	.intro030504 .program dl {min-height:130px;}
+
+	/* 국외 학점교류 */
+	.grd011103 .step {padding: 1rem;}
+	.grd011103 .step li, .grd011103 .step li:nth-child(2n) {padding: 1rem 2rem;}
+	.grd011103 .step li:after {display: none;}
+	.grd011103 .step li p span:after {margin-top: 0;}
+
+	/* 강의실 및 게시물 신청 */
+	.life011001 dl  {width: 100%; height: auto;}
+	.life011001 dt, .life011001 dd {float: none; width: 100%; margin-left: 0; line-height: 1.5em;}
+	.life011001 dt {height: auto; padding: 10px;}
+	.life011001 dd {border: 1px solid #d7d7d7; padding: 1rem;}
+	.life011001 dd li {line-height: 1.5em;}
+
+	/* 상담소안내 */
+	.life070102 dl {margin-bottom: 1.5rem;}
+	.life070102 dl dt {width: 30%; height: auto; background: #0588b8;padding: 5px 1rem;line-height: inherit;}
+	.life070102 dl dt span {font-size: 1.2rem;}
+	.life070102 dl dd{width: 100%; padding-top: 10px;}
+
+	/* 심리상담 */
+	.life070201 dl dd {min-height:auto !important;}
+
+	/* 학사일정안내 */
+	.academic .cal_con > div {margin: 3rem 0;}
+	.fc-border-separate tbody tr td.fc-sun > div {min-height:40px !important;}
+	.academic #schedule .tbl--comm .con .br {display: block; height: 0; text-indent: -9999px;}
+	.academic #schedule .tbl--comm .con .title {font-size: 16px;}
+
+	/* 학과, 학부 */
+	.school1114 .article .brd--tit {font-size: 24px;}
+	.school1114 .article .c-txt {font-size: 15px;}
+	.sub .school1114 .section__tit small {margin-left: 0px; display: block;}
+
+	/* 글로벌융합리더학부 - 사회복지 트랙 */
+	.school11111011.school11111112 .area--img {margin: 1.5rem;}
+
+	/* 경력개발센터 - 채용정보 */
+	.recruit .search--wrap dt {font-size: inherit; line-height: 33px; }
+	.recruit .search--wrap dd input[type="text"] {width: 110px !important; padding: 6px;}
+	.recruit .search--wrap dd input[type="submit"] {padding: 6px 0.75rem; }
+	.recruit .search--wrap dd select {padding: 5px 2px; font-size: inherit;}
+
+	/* 부설교육기관 */ 
+	.intro030201 .actsOnline_imglist img { width: 45%; max-width: inherit;}
+
+	/* 총장 소개 */
+	.presidentInfo .f-left { width: 20%;}
+	.presidentInfo .f-right { width:60%;}
+	.presidentInfo .presidentImg {max-width:190px;}
+	.presidentInfo .f-right b {width: 75px;}
+
+	
+	/* 팝업 */
+	.popup__close_4 img {width:24px}
+	
+	/* 청탁금지제도 */
+	.prohibitgion-wr  .article { margin-bottom: 3rem;}
+	.prohibitgion-wr .steps li .num { top: 2px; width: 18px; height: 18px; line-height: 18px; font-size: 11px;}
+
+}
+@media (max-width:1000px){
+	.main .banner {padding-top:0}
+		.main .focusyoutube .youtube__list.youtube_flex li {width:49%}
+	.main .focusyoutube .youtube__list.youtube_flex li:nth-child(1){margin-bottom:1rem}
+	.main .focusyoutube .youtube__list.youtube_flex li:nth-child(2){margin-bottom:1rem}
+}
+@media all and (min-width:768px) {	
+
+	/* header */
+	.header__top .relateSite {width: 196px;}
+	.header__top .relateSite .relateSite_sel {height: 46px;line-height: 46px;}
+	.header__top .relateSite .relateSite_btn{width:46px;height: 46px;}
+
+	/* Footer */
+	.footer__bnr .relateSite {width: 195px;}
+	.footer__bnr .relateSite .relateSite_sel {max-width:150px;}
+
+	/* MAIN */
+	.main .noticeZone {font-size: 0;}
+	.main .noticeZone__list {display: inline-block;vertical-align: top;}
+	/*.main .noticeZone__list > li {padding: 1.5625rem 2rem}*/
+	.main .noticeZone__list > li {padding: 1.0625rem 2rem}
+	
+	.main .noticeZone__tit {display: block;float: none;font-size: 1.375rem;}
+	.main .noticeZone__btn{display: block;float: none;width: auto;max-width: 6.5rem;height: auto;margin-top: 1rem;margin-left: 0;border-radius: 0;font-size: 0.9rem;}
+	.main .noticeZone__btn:after {display: none;}
+	.main .mainVisual__list > li {/*height: 630px;*/padding-bottom: 0;}	
+	.main .mainVisual__list > li img {width:1970px;}
+	.main .mainVisual .bx-pager {/*bottom: 6rem;*/ bottom: 7%;}
+
+	.main .col--v1 {display: block;}	
+	.main .division--v5 .board .tab__bar {width: 76px;}
+
+	.main .schedule__list, .main .schedule__list .empty {min-height: 255px; height: 255px;}
+
+	.main .brochure__tit {width: 10.6875rem;height: 12.625rem;padding: 1.25rem 1.5625rem;background: url(/design/images/mainpage/brochure_bg2.jpg) 50% 50% no-repeat;background-size: cover;}
+	.main .brochure__tit span {display: block;}
+	.main .brochure__list  {padding-left: 11rem;}
+
+	.main .quick__list > li.col-sm-2 {width: 20%;}
+
+	.main .focus__list > li:last-child {display: block;} 
+
+	.main .focusyoutube .youtube__list li iframe {float: none; width: 100%; height: 200px;}
+	.main .focusyoutube .youtube_info {float: none; width: 100%;}
+	.main .focusyoutube .youtube_info .youtube_tit {height: inherit; max-height: inherit; white-space: nowrap; display: block;}
+	.main .focusyoutube .youtube_info .youtube_name {line-height: inherit;}
+	.main .focusyoutube .youtube_info .youtube_name span {line-height: 1.375;}
+	.main .focusyoutube .youtube_info .youtube_con {margin-top: 0.625rem; height: 3em; max-height:3em; line-clamp: 2;   -webkit-line-clamp: 2;}
+
+
+	/* 행정부서 */
+	.sub .tabList.w6 > li {width: 16.666%;}
+	.sub .tabList.w8 > li {width: 25%;}
+	.linkList li {margin: 0;}
+
+	/* 부속기관 */
+	.intro030201 .banner__list li {width: 33.333%;}
+
+	/* 부설연구기관 */
+	.intro030403 .link__list li {width: 33.333%;}
+	.intro030201 .eduPub .edupub_item {width: 20%; }
+	.intro030201 .eduPub .edupub_item .p_br {display: block;}
+	.intro030201 .eduPub .edupub_item span {margin-bottom: 0;}
+	.intro030201 .eduPub .edupub_item { border-right: 1px solid #d7d7d7;}
+	.intro030201 .eduPub .edupub_item:last-child {border-right: none;}
+
+
+	/* 부설교육기관 */
+	.intro030504 .program dl {min-height:215px;}
+
+	/* 사제동행 */
+	.accompany .accomList .col-sm-3 {padding: 0 20px 0 0;}
+	/* .accompany .accomList .col-sm-3 .accom--img {width: auto;}  */
+	.accompany .accomList .col-sm-9 {padding: 0 0 0 25px;}
+	.accompany .accomList .accom_tit {font-size: 22px; }
+	.accompany .section__head .accom--txt {font-size:17px;}
+	.accompany .section__head .accom--tit {font-size: 30px;}
+	.accompany .accomList .point {top:10px;}
+	.accompany .accomList .point p {margin-left: 1rem;}
+	.accompany .accomList .btn_wrap a {width: 140px; height: 46px; padding-top: 9px; font-size: 16px; }
+	.accompany .accomList > div.clearfix {margin-bottom: 4rem; border-bottom: none; padding-bottom: 0;} 
+	.accompany .section__head .accom--desc {font-size: 17px; line-height: 1.8; }
+	.accompany.accompany_desc .section__head .accom--img {min-height:320px;}
+	.accompany .accom--board.article .article__tit {font-size: 30px;}
+	.accompany .section__head .accom--pro {font-size: 17px;}
+
+	/* 온라인 비공개 상담실 */
+	.life141513 .sNum .btn {margin-top: 0;}
+	.life141513 .c-txt.txt-right {text-align: right;}
+
+	/* 동아리 */
+	.unilife16101110 .circles dt {font-size: 1.5rem; margin: 1rem 1rem 0.5rem;}
+	.unilife16101110 .circles dd .c-txt {font-size: 1em;}
+
+	/* 편의시설 */
+	.unilife161111 .circles dt {margin: 0 1rem 0.7rem;}
+	.unilife161111 .circles dd li {margin-bottom: 0;}
+	.unilife161111 .circles dd .c-txt {font-size: 1em;}
+
+	/* 교육혁신센터 - AICE 소개 */
+	.unilife16121410 .work .article--desc {width: 31.333%; margin-right: 3%;}
+	.unilife16121410 .work .article--desc ul {min-height:258px;}
+	.unilife16121410 .work > .article--desc:nth-child(2n) {margin-right: 3%;}
+	.unilife16121410 .work > .article--desc:nth-child(3n) {margin-right: 0;}
+	.life.unilife16121410 .work .article--desc:nth-child(3) {margin-top: 0;}
+
+	/* 소셜미디어 */
+	.prom1715 .article--desc {margin-top: 5rem; border-top: none; padding-top: 0;}
+	.prom1715 .article--desc .snsImg {display: block; padding: 3.5rem 2rem;}
+	.prom1715 .article--desc .snsInfo {text-align: left; padding: 0 2rem;}
+
+	/* 경력개발센터 */
+	.sub .unilife16122210.csrd_board .tabList > li {width: 16.66%;}
+
+	/* 학과 학부 */
+	.sub .school11111011 .tabList > li {width: 25%;}
+
+	/* ACTS 사이버 홍보단 */
+	.prom171015 .box--bd2 {font-size: 17px;}
+	.prom171015 .cyberItem {width: 49%;}
+	.prom171015 .cyberItem:nth-child(2n) {margin-left: 2%; margin-top: 0;}
+	.prom171015 .cyberItem .cyberImg {width:130px; padding: 15px;}
+	.prom171015 .cyberItem .cyberInfo {width: calc(100% - 130px);}
+	.prom171015 select {font-size: 16px;}
+	
+	/* 청탁금지제도 */
+	.prohibitgion-wr  .tbl--vert tbody td {padding:0.5rem 1.25rem;	}
+
+}
+
+@media all and (max-width:991px) {
+	/* HEADER */
+	.header .wrapper {width: 100%;}
+	.header .header__top {background-color: #a52576;}
+	.header .topMenu > li {border-left-color: #fff;}
+	.header .topMenu a{color:#fff}
+	.header .logo {padding: 10px 0 10px 45px;text-align: center;}
+	.header__cont {position: relative;}
+	.header .gnb  {position: fixed;left: -60%;z-index: 100;width: 60%;height: 100%;border-top: 2px solid #f58233;background-color: #fff;transition:left 0.5s linear}	
+	/* .header .gnb .wrapper {overflow-y:auto;width: 100%;height: 83.5%;height:calc(95% - 76px);padding-top: 3.5rem;} */
+	.header .action {position: absolute;top: 0%;left: 0%;width: 45px;height: 100%;background-color: #f58233;font-size: 0;text-align: center;}
+	.header .action:before {content: '';display: inline-block;height: 100%;vertical-align: middle;}
+	.header .gnb .depth1__menu > a{position: relative;padding:3% 6%;border-bottom: 1px solid #f1f1f1;line-height: 3rem;}
+	.header .gnb .depth1__menu > a:before {content: '+';position: absolute;top: 50%;right: 6%;width: 15px;height: auto;font-weight: 400;font-size: 1.75rem;line-height: 0;color:#999;text-align: center;}
+	.header .gnb__inner {overflow: hidden;z-index: 30; height: 0;opacity: 0;transition: height 0.5s linear,opacity 0.5s linear;}
+	.header .gnb .depth1__tit {display: none;}
+	.header .gnb .depth2__tit {display: block;padding: 0.4rem 10%;background-color: #f7f7f7;}
+	.header .gnb .depth2__menu:first-child {border-top: 0;}
+	.header .gnb .depth3 {overflow: hidden;height: 0;background-color: #eee;opacity: 0;}
+	.header .gnb .depth3__menu {padding: 1px 0;padding-left: 14%;font-weight: 100;}
+	.header .btn--gnb {display: inline-block;position: relative;width: 25px;height: 19px;vertical-align: middle;}	
+	.header .btn--gnb > .bar, .header .btn--gnb > .bar:before,.header .btn--gnb > .bar:after {position: absolute;left: 0;width: 100%;height: 3px;background-color: #fff;}
+	.header .btn--gnb > .bar:before,.header .btn--gnb > .bar:after {content: '';}
+	.header .btn--gnb > .bar {top: 50%;margin-top: -1.5px;padding-left: 0;}
+	.header .btn--gnb > .bar:before {top: -8px;}
+	.header .btn--gnb > .bar:after {bottom: -8px;}
+	.header .gnb .depth2--one .depth3 {overflow: visible;height: auto;opacity: 1;}
+	.header .gnb .depth2--one .depth3__menu {padding-left: 10%;}
+	body.gnb--active {overflow: hidden;}
+	body.gnb--active #container:before {content: '';position: fixed;z-index: 95;width: 100%;height: 100%;background-color: rgba(0,0,0,0.6);}	
+	body.gnb--active .gnb {left: 0;}
+	body.gnb--active .gnb .action {padding-left: 0;}
+	body.gnb--active .gnb li.active > div, body.gnb--active .gnb li.active > ul{height: auto;opacity: 1;}
+	body.gnb--active .gnb .depth1__menu.active > a:before {content: '-';margin-top: -3px;}
+	body.gnb--active .btn--gnb > .bar {transform:rotate(45deg);transition:transform 0.5s}
+	body.gnb--active .btn--gnb > .bar:before {top: 0;opacity:0;transition:top 0.5s, opacity  0.5s 0.1s}
+	body.gnb--active .btn--gnb > .bar:after {bottom: 0;transform:rotate(-90deg);transition:transform 0.5s}	
+
+	/* MAIN */	
+	.container {overflow: hidden;}
+	.main .shortcut {padding-right: 40px;}
+	.main .shortcut__btn {width: 40px}
+	.layerpopup, .layerpopup2, .layerpopup3 {left: 2% !important; max-width: 96%;}
+	.main .quick__list > li:first-child{display:none;}
+
+
+ /*.main .mainVisual__list > li a img { position: absolute; display: block;max-width: none;  max-height: none;  left: 0;  top: 50%;transform: translate(0,-50%);width: 100%;height: auto; min-height: 100%;}*/
+
+	/* 연혁 */
+	.history .history__tit:after { width: 25%;}
+	.history .history__list dl dt {width: 15%;}
+	.history .history__list dl dd {width: 82%;}
+
+	/* qn*/
+	.intro030403 .link__list li {margin-bottom: 5px;}
+
+	/* 강의실 및 게시물 신청 */
+	.life011001 dl  {width: 100%;}
+	.life011001 dd li {line-height: 1.5em; vertical-align: middle; height: 100%;}
+
+	/* 생활관 소개 */
+	.life060101 .intro {background: none;}
+
+	/* 심리상담 */
+	.life .tree, .life.life070203 .tree  {background: none; min-height:auto;}
+	.life .tree .c-txt {position: relative; width: 100%; left: 0%;}
+
+	/* 아신4C인증제 */
+	.grd13102510 table tr td ul .intble_link_btn{position:relative !important; right:auto !important; top:auto !important; transform:translateY(0) !important; text-align:left; padding-left:0.8rem; padding-top:0.5rem;}
+	.grd13102510 table tr td ul .intble_link_btn a{display:inline-block; font-size:13px !important; padding:0.3rem !important;}
+
+	/* 경력개발센터 - 채용정보 */
+	.recruit .search--wrap > dl {margin-right: 3%;}
+	.recruit .search--wrap dt {margin-right: 0.75rem;}
+	.recruit .search--wrap dd input[type="text"] {width: 140px;}
+
+	/* 총장 인사말 */
+	.greeting .greet__img { width: 100%; float:unset; text-align:center; margin-bottom: 3rem;}
+	.greeting .greet__img img {max-width:260px;}
+	.greeting .greet__text {width: 100%; float:unset; }
+	.greeting .sign {font-size: 17px;}
+	.greeting .sign span {font-size: 15px;}
+
+	/* 총장 소개 */
+	.presidentInfo .f-left { width: 30%;}
+	.presidentInfo .f-right { width:60%;}
+	.presidentInfo .article__desc dl {float: none; width: 100%;}
+
+	/* 팝업 */
+	.layerpopup4 {top:270px}
+}
+
+@media all and (min-width:992px) {
+	/* HEADER */	
+	.header {position: absolute;z-index: 100;width: 100%;border-bottom: 1px solid #ddd;font-size: 0;}
+	.header .wrapper {overflow: hidden;white-space: nowrap;}
+	.header .modules {position: absolute;top: -64px;right: 0;z-index: 20;}
+	.header .logo, .header .gnb {display: inline-block;vertical-align: middle;}
+	.header .gnb a {display: block;}
+	.header .gnb .depth1__menu {float: left;position: static;text-align: center;}
+	.header .gnb .depth1__menu > a {padding: 1.563rem 0;padding-left: 3.75rem;}
+	.header .gnb__inner {overflow: hidden;position: absolute;top: 128px;left: 0;width: 100%;height: 0;border-top: 1px solid #ddd;background-color: #fff;opacity: 0;transition:height 0.1s linear, opacity 0.1s linear;}
+	.header .gnb__inner .wrapper {position: relative;padding: 25px 25px 25px 240px;}
+	.header .gnb .depth1__tit {position: absolute;top: 21px;left: 0;width: 240px;font-weight: 900;font-size: 22px;color:#a52576; text-align: center;}
+	.header .gnb .depth2 {margin:0 -15px;padding-left: 40px;text-align: left;}
+	.header .gnb .depth2__menu {float: left;width: 25%;padding:0 15px 20px;}
+	.header .gnb .depth2__menu.fl--right {float: right;}
+	.header .gnb .depth2__tit {margin-bottom: 7px;padding-bottom: 7px;border-bottom: 1px solid #e9e9e9;}
+	.header .gnb .depth3__menu a {font-size: 15px;line-height: 1.8;color:#999}
+	.header .gnb .depth2--two .depth2__menu {width: 50%;}
+	.header .gnb .depth2--two .depth3__menu {float: left;width: 50%;}
+	.header .gnb .depth2--one .depth2__menu {width: 100%;}
+	.header .gnb .depth2--one .depth3__menu {float: left;width: 20%;}
+	.header .btn--gnb {display: none;}
+	.header .gnb .depth1__menu:hover > a {color:#a52576}
+	.header .gnb .depth2__menu:hover .depth2__tit{color:#f89c1c}
+	.header .gnb .depth3__menu:hover a {color:#000}
+	body.gnb--hover #container:before {content: '';position: fixed;z-index: 95;width: 100%;height: 100%;background-color: rgba(0,0,0,0.6);}	
+
+	/* footer */
+	.footer__cont {text-align: left;}
+	.footer__bnr {text-align: right;}
+	.footer__bnr {position: absolute;right: 0; bottom:2rem;}
+
+	/* 메인페이지 */
+	.main .mainVisual__list > li {/*height: 680px;*/ height: 630px;}
+	.main .noticeZone {top: 35%;transform:translateY(-50%);}
+	/*.main .noticeZone {top: 45%;transform:translateY(-50%);}*/
+	.main .shortcut__txt {padding: 1.25rem 1.5625rem;}
+	.main .shortcut__btn p {overflow: hidden;font-size: 1.125rem;}
+	.main .shortcut__btn .arr {display: inline-block;position: relative;width: 2.5rem;padding-right: 3px;text-align: right;}
+	.main .shortcut__btn .arr:before {content: '';position: absolute;top: 50%;right: 1px;width: 1.875rem;height: 2px;margin-top: 0.5px;background-color: #fff;}
+	.main .shortcut > a:hover .arr:before {width: 0;transition:width 0.2s linear}
+	.main .shortcut > a:hover .icoArr {margin-left: 2.5rem;transition:margin 0.2s 0.1s linear;}
+	.main .board .board__list > li{margin-top: 0.85rem;}
+
+	.main .division {padding: 4.375rem 0;}
+	.main .division--v1 .board .tab {/* padding:0 5.7px; */padding: 0 10px;}
+	.main .division--v1 .board .tab__bar {/* left: 5.7px; */ left: 20px;width: 40.5px;}
+	.main .division--v1 .article__head {height: 3.5rem;}
+	.main .calender {margin-top: 0}
+	.main .schedule__list, .main .schedule__list .empty {min-height: 270px; height: 270px;}
+	
+	.main .ad {margin-top: 0;}
+
+	.main .quick__tit {display: none;}
+	.main .quick__list > li.col-sm-2 {width: 14.28%;}
+/* 	.main .quick__tit {display: table-cell;width: 13.5%;border: 10px solid #fff;vertical-align: middle;} 
+	.main .quick__tit h3 {display: block;margin-top: 5px;margin-left: 0;}
+	.main .quick__list {display: table-cell;vertical-align: middle;}*/
+
+	.main .brochure__list > li {padding:1rem 1.5rem;}
+
+	.main .division--v8 .wrapper {height: 23.3125rem;}
+	.main .division--v8 div {height: 100%;}
+	/* .main .promote .article {position: absolute;right: 0;width: 48%;height: 46%;} */
+	.main .promote .people {left: 0;}
+	.main .promote .media {background-image: url(/design/images/mainpage/promote_ico2.png);}
+	.main .promote .movie {left: 0;bottom: 0;background-image: url(/design/images/mainpage/promote_ico4.png); margin-left: 0;}
+	.main .promote .gallery {right: 0;bottom: 0;background-image: url(/design/images/mainpage/promote_ico3.png); background-position: 95% 94%;}
+
+	.main .focusyoutube .youtube__list li iframe {height: 225px;}
+	.main .focusyoutube .youtube_info {}
+	.main .focusyoutube .youtube_info .youtube_tit {-webkit-box-orient: vertical;  line-clamp:2; -webkit-line-clamp: 2;}
+	.main .focusyoutube .youtube_info {padding:0.5625rem 0.9375rem}
+	.main .focusyoutube .youtube_info .youtube_con {height:4.5em; max-height: 4.5em; line-clamp:3; -webkit-line-clamp: 3;}
+	.main .focusyoutube .youtube_info .youtube_date {text-align:right; color:#999; font-size:0.9375rem}
+
+	/* 서브비주얼 */
+	.subVisual {height: 17.5rem;}
+
+	/* 연혁 */
+	.intro0102 .section__sub__tit { width: 70%; text-align: left;}
+	.intro0102 .box--bd { background: url('/images/university/history_img01.png') 97% center no-repeat;}
+	.intro0102 .box--bd .c-txt {width: 70%; text-align: left;}
+	.history .history__list dl dt {width: 15%;}
+	.history .history__list dl dd {width: 82%;}
+
+	/* 행정부서 */
+	.sub .tabList.w8 > li {width: 12.5%;}
+
+	/* 부속기관 */
+	.intro030201 .banner__list li {width: 20%;}
+
+	/* 부설연구기관 */
+	.intro030403 .link__list li {width: 20%;margin-bottom: 0;}
+	.intro030403 .link__list .btn, .grad.grd010801 .board__btn .btn {width: 100%;}
+
+	/* 부설교육기관 */
+	.intro030504 .program dl {min-height:185px;}
+
+	/* 심리상담 */
+	.life070202 dl dd {min-height:160px;}
+
+	/* 사제동행 */
+	.accompany .accomList .accom_tit {font-size: 25px; }
+	.accompany .section__head .accom--tit {font-size: 30px;}
+	.accompany .accomList .accom_tit a {width: 85%;}
+	.accompany .section__head .accom--txt {font-size:19px;}
+	.accompany.accompany_desc .section__head .accom--img {min-height:auto;}
+	.accompany .section__head .accom--desc {margin-top: 1rem;} {margin-top: 1.5rem;}
+
+	/* 온라인 비공개 상담실 */
+	.life .consult {background: url('/images/university/life_online_con.png') no-repeat left bottom; min-height:330px; text-align: left;}
+	.life .consult .c-txt {position: relative; width: 57%; left:38%}
+	.life .consult ul {position: relative; width: 57%; left: 38%;}
+	.life141513 .sNum .article__tit {padding-left: 1.4rem; margin-bottom: 0; border-bottom: none;}
+	.life141513 .sNum .article__tit:before {display: block; top: 5px; width: 5px; height: 40px;}
+
+	/* 동아리 */
+	.unilife16101110 .circles dt {font-size: 1.6rem; margin: 1rem 1rem 0.7rem;}
+	.unilife16101110 .circles dd li {margin-bottom: 3px;}
+	.unilife16101110 .circles dd .c-txt {font-size: 1.1em;}
+
+	/* 편의시설 */
+	.unilife161111 .circles dt {margin: 0 1rem 0.7rem;}
+
+	/* 체육시설 */
+	/* .unilife161112 .physical {position: relative;}
+	.unilife161112 dl {position: absolute; left: calc(41.66666667% + 10px); bottom: 0;} */
+
+	/* 교육혁신센터 - AICE 소개 */
+	.unilife16121410 .work .article--desc {width: 18.4%; margin-right: 2%;}
+	.unilife16121410 .work .article--desc:nth-child(2n), .unilife16121410 .work .article--desc:nth-child(3n) {margin-right: 2%;}
+	.unilife16121410 .work .article--desc:last-child {margin-right: 0;}
+	.life.unilife16121410 .work .article--desc:nth-child(4), .life.unilife16121410 .work .article--desc:last-child {margin-top: 0;}
+
+	/* 소셜미디어 */
+	.prom1715 .article--desc .snsInfo {padding: 0 3rem;}
+	.prom1715 .article--desc .snsInfo dd .c-txt {line-height: 1.8;}
+	.prom1715 .article--desc .snsInfo dd .sns_btn {margin-top: 2.15rem; }
+	.prom1715 .article--desc .snsInfo dt {margin-bottom: 1.2rem;}
+
+	/* 총장 소개 */
+	.presidentInfo .f-left {width: 20%;}
+	.presidentInfo .f-right { width:75%;}
+
+	
+}
+
+@media all and (min-width:1200px) {
+	
+	/* 온라인 비공개 상담실 */
+	.life141513 .sNum {width: 75%; }
+
+
+}
+
+@media all and (min-width:1280px) {
+	
+	/* .main .division--v1 .board .tab {padding:0 13.5px;}
+	.main .division--v1 .board .tab__bar {left: 15.4px;} */
+		
+	.main .focusyoutube .youtube__list li iframe {height: 220px;}
+	.main .focusyoutube .youtube_info .youtube_con {height: 6em; max-height: 6em; line-clamp: 4; -webkit-line-clamp: 4;}
+	.main .focus .bx-wrapper {;padding: 0;}
+	.main .focus .bx-controls-direction > a.bx-prev {left: -3rem;}
+	.main .focus .bx-controls-direction > a.bx-next {right: -3rem;}
+
+	/* 연혁 */
+	.history {width: 90%;}
+
+	/* 상담소안내 */
+	.life070102 dl dd {line-height: 4rem;}
+	.life070102 dl dd.line2 {line-height: 2rem;}
+	.life070202 dl dd {min-height:135px;}
+
+	/*.intro010303  .box--brd img {width: 40%;}
+	.intro010304 .article:nth-of-type(2) .box--brd {background-color: #f7f7f7;}
+	.intro010304 .article:nth-of-type(2) img {width: 30%;}*/
+
+	/* 총장소개 */
+	.presidentInfo .f-left { width: 25%;}
+	.presidentInfo .f-right { width:70%;}
+}
+
+@media all and (min-width:1680px) { 
+
+}
+
+@media (max-width:760px){
+	.symbol .tabmenu li a {font-size:0.95rem}
+	.symbol .tabmenu li {margin-top:5px;}
+}

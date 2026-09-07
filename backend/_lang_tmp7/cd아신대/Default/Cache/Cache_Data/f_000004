@@ -1,0 +1,906 @@
+@charset "euc-kr";
+
+/* 공통 */
+.tbl--vert th {padding: 10px 5px;}
+.area--video {max-width:955px;}
+.area--video > iframe {width: 100%;}
+.area--video > embed {position: absolute;width: 100%;height: 100%;}
+.category > li {margin: 5px 0;}
+
+
+/* 각 서브 비주얼*/
+.subVisual__txt {font-size: 2.5rem; color: #fff; font-weight: 800; text-shadow: 0px 1px 5px rgba(0,0,0,0.7);}
+#intro .subVisual {background-image: url('/images/university/bg_visual_intro.jpg');}
+#school .subVisual {background-image: url('/images/university/bg_visual_school.jpg');}
+#grad .subVisual {background-image: url('/images/university/bg_visual_grad.jpg');}
+#life .subVisual {background-image: url('/images/university/bg_visual_life.jpg');}
+#board .subVisual {background-image: url('/images/university/bg_visual_board.jpg');}
+#support .subVisual {background-image: url('/images/university/bg_visual_support.jpg');}
+
+
+/* ACTS NEWS */
+.actsNews__list {margin: 0 -1rem;}
+.actsNews__list > li {float: left;width: 20%;padding: 0 1rem;}
+.actsNews__list > li a {display: block;max-width: 160px;margin: auto;border: 1px solid #dfdfdf;}
+.actsNews__list > li a:hover {box-shadow:0 0 500px rgba(0,0,0,0.2) inset}
+
+/* 총장 인사말 */
+.intro010101 .intro__tit {margin-bottom: 1rem; font-size: 16px;}
+.greeting {margin-bottom: 2rem;padding-bottom: 3rem; border-bottom: 1px dashed #dfdfdf; text-align: center;}
+.greeting .article__tit {font-size: 16px; font-weight:900;}
+.greeting .article__tit:before {top:0.2em;}
+.greeting .greet__img { width: 26%; float:left; position: relative;}
+.greeting .greet__img img { border: 1px solid #d7d7d7;}
+.greeting .greet__text {width: 67%; float:right; }
+.greeting .greet__tit {font-size: 16px; color: #a52576; font-weight: 900; margin: 2rem 0 1.5rem;}
+.greeting .c-txt {text-align: left;}
+.greeting .c-txt+.article__tit {margin-top:2rem;}
+.greeting .sign {text-align: center; /*font-size: 1.375rem;*/ font-weight: 700; margin-top: 1.25rem; font-weight: 800;}
+.greeting .sign span {vertical-align: middle; display: block; font-size: 16px; font-weight: 400; }
+.intro010104 .professor__profile {text-align: center; margin: 1rem 0;}
+.intro010104 .professor__profile img {max-width:149px;}
+.sub .intro010104 .article__desc ul {padding: 0 1rem;}
+
+/* 총장 소개 */
+.presidentInfo {}
+.presidentInfo .f-left {float: left; width: 25%;}
+.presidentInfo .f-right {float: right; width:70%;}
+.sub .presidentInfo .f-right .article__tit {vertical-align: top; line-height: 1.3; margin-bottom: 2.125rem;}
+.sub .presidentInfo .f-right .article__tit:before {top: 0; height: 1.7125rem;}
+.presidentInfo .presidentTit {font-size: 1.125rem; line-height: 1.4; letter-spacing:-0.5px; padding-left: 0.75rem; position: relative;}
+.presidentInfo .presidentTit:before {content: ''; position: absolute; top:0rem; left: 0; width: 3px; height: 3rem; background-color: #f58233;}
+.presidentInfo .presidentTit small {display: block;line-height: 1.4; }
+.presidentInfo .presidentTit b {}
+.presidentInfo .presidentImg {margin-top: 1rem; max-width:205px;}
+.presidentInfo .f-right b {font-weight: 800; margin-right: 10px; width: 90px; display: inline-block;}
+.sub .presidentInfo .article__desc {}
+.sub .presidentInfo .article__desc dl {margin-top: 0; margin-bottom: 2rem;}
+.presidentInfo .article__desc dl {float: left; width: 50%;} 
+
+/* 연혁 */
+.intro0102 .c-txt {text-align: center;}
+.intro0102 .section__sub__tit {font-size: 1.5rem;margin-bottom: 0.875rem; line-height: 2.2rem;text-align: center;}
+.intro0102 .box--bd {padding: 2rem;}
+.sub .intro0102 .article__tit {text-align: center;font-size: 1.5rem;}
+.sub .intro0102 .article__tit:before {display: none;}
+.history {margin: 0 auto 5rem;}
+.history:after, .history .history__list dl:after {content:''; clear:both; display: block; height: 0;}
+.history .history__tit {float: left;width: 25%;position: relative;}
+.history .history__tit:after {content: ""; position: absolute;right: 0; top: 29px; width: 30%; height: 1px; background-color: #cfcfcf;}
+.history .history__tit span {font-size: 2rem; color: #a9a9a9;text-align: center;display: block;}
+.history .history__tit span:after {content:''; width: 12px; height: 12px; display: inline-block; border-radius:50%; background: #cfcfcf; vertical-align: middle; margin-left: 15px;}
+.history .history__list {float: left;width:73%;padding-left: 2%;margin-top: 1.05rem;}
+.history .history__list li {position: relative;}
+.history .history__list li:before {content:''; width: 6px; height: 6px; background: #fff; border-radius: 50%; border: 3px solid #a52576; position: absolute; left: -4%; top:7px;}
+.history .history__list li:after {content: ''; width: 1px; height: 5rem; background: #cfcfcf; position: absolute; left:-3.4%; top: 10px; z-index: -1;}
+.history .history__list li:last-child:after {height: 12rem;}
+.history .history__list li.last_be:after  {height: 2rem;}
+.history .history__list li.last:after  {display: none;}
+.history .history__list dl dt {float: left; width: 10%;font-weight: 900;color: #a52576;}
+.history .history__list dl dd {float: left; width: 87%;margin-left: 3%; margin-bottom: 10px;}
+
+/* 교육이념 및 비전 */
+.intro010301 .bg--main {text-align: center; padding: 1rem; font-size: 1.2rem;margin-bottom: 3rem;}
+.intro010301 .bg--main span {display: block;font-size: 2rem;}
+.intro010303 .box--brd {text-align: center; padding: 2rem;}
+.intro010301.intro010303 .bg--main {margin-bottom: 0;}
+.intro010301 .article > .c-txt {text-align: center; margin: 1rem 0; padding-bottom: 1rem;}
+.intro010301 .line {margin-bottom: 1rem;}
+.intro010301 .line:last-child {margin-bottom: 2rem;}
+.intro010303 .article > .c-txt {border-bottom: 1px dashed #ddd; }
+
+/* ACTS 신앙고백서 */
+.intro0110 .c-txt {font-size: 1.1rem; text-align: center;}
+.intro0110 .list--num {margin: 2rem 0;}
+.intro0110 .list--num li {margin-bottom: 1rem;}
+.intro0110 .list--num li:last-child {margin-bottom: 0;}
+
+/* 학교법인 */
+.intro010401 .area--img {margin: 0 0 1.5rem;}
+.intro010401 .txt1 {font-weight: 600; font-size: 1.5rem; line-height: 2.5rem;}
+.intro010401 .txt2 {font-weight: 900; font-size: 1.7rem; line-height: 2.3rem; margin-bottom: 1rem;}
+.intro010402 .professor__profile {text-align: center; margin: 1rem 0;}
+.intro010402 .professor__profile > img {height: auto; border: none; }
+.intro010403 .tbl--vert tbody tr > th {border-left: 1px solid #ddd;}
+.intro010403 .tbl--vert tbody tr > td {text-align: center; vertical-align: middle;}
+.intro010406 .box--bd {text-align: center; margin-top: 40px;}
+
+/* ACTS UI */
+.intro0105 .img_list li {width: 50%; float: left;}
+.intro0105 .img_list li.area--img {margin-bottom: 3rem;}
+.intro0105 .img_list li.area--img:last-child {margin-bottom: 1.5rem;}
+.intro0105 .bg--green {background: #006d76;}
+.intro0105 .bg--brown {background: #7c2f27;}
+.intro0105 .bg--orange {background: #f58233;}
+.intro0105 .bg--red {background: #b70050;}
+.intro0105 .bg--gray {background: #e9e3db;}
+.intro0105 .bg--blue {background: #164194;}
+.intro0105 .bg--green2 {background: #eef6e7;}
+.intro0105 .bg--silver {background: #a7a9ac;}
+.intro0105 .bg--gold {background: #a39161;}
+.intro0105 .bg--black {background: #000;}
+.intro0105 .bg--light--green {background: #00a9b9;}
+.intro0105 .bg--light--blue {background: #69acdf;}
+.intro0105 .bg--pink {background: #ee7684;}
+.intro0105 .bg--yellow {background: #f8a823;}
+.intro0105 .bg--light--purple {background: #9c87bf;}
+.intro0105 .color--sysytem .area--img {padding:0 0 1.5rem;}
+
+.intro0105 .color--sysytem p span {position: absolute; left: 15px; bottom: 10px; line-height: 1.3em;text-shadow: 0px 0px 3px rgba(0,0,0,0.5);}
+.intro0105 .color--sysytem .img_list li {width: 49.5%;}
+.intro0105 .color--sysytem .img_list li:nth-child(2n) {margin-left: 1%;}
+.sub .intro0105 .color--sysytem .article__desc p {margin: 0;}
+.intro0105 .txt-center .btn {padding: 0.7rem 1.5rem;margin: 0 0.5rem;}
+.intro0105 .box--bd {background: #fff;}
+
+.symbol h5 {margin-top:2rem}
+
+/* 개교 40주년 기념 */
+.intro0105 .btn {margin-top: 1rem;padding:0.5rem 0; font-size: 1rem; }
+
+/* 발전기금 */
+.fund .box--bd {margin:2rem 0;}
+.fund .board__btn {text-align: center;}
+.fund .board__btn .btn {font-size: 1.1rem;width: 12rem;padding: 0.85rem; margin: 0 0.5rem;}
+.fund span {display: block; font-weight: 800; font-size: 1.2rem; margin-top: 1rem;}
+.fund .tbl--vert {margin-top: 1rem;}
+.fund .tbl--vert th {text-align: center;border-right: 1px solid #d7d7d7;}
+.fund .tbl--vert td {text-align: center; padding-left: 0.5rem; border-right: 1px solid #d7d7d7;}
+.fund .tbl--vert th:last-child, .fund .tbl--vert td:last-child {border-right: none;}
+.btn_nanum {position: relative; margin-top: 3.75em;}
+.btn_nanum a {position: absolute;left: 5%; bottom: 14%; width: 19%; height: 23%; }
+
+/* 캠퍼스맵 */
+.intro0201 { text-align: center;}
+.intro0201 .tbl--vert {max-width: 960px;margin-right: auto;margin-left: auto;}
+
+/* 약도/교통안내 */
+.intro020201 .map {display: inline-block;margin: auto;position: relative;}
+.intro020201 .map_desc {position: absolute;right: 0;bottom: 8%;width: 100%;padding-right: 2rem;font-size: 1.1rem;text-align: right;white-space: nowrap;}
+.intro020201 .map_desc .color--main {padding-right: 10%;}
+.intro020201 .area--img {padding: 1.5rem 0;}
+.intro020201 .tbl--vert th {padding: 0.75rem 3px;text-align: center;}
+.intro020201 .tbl--vert td {vertical-align: middle;}
+.intro020201 .square {margin-top: 1.5rem;}
+.intro020202 .traffic__list {margin-left: 1rem;}
+.intro020202 .traffic__list > li {margin-top: 1rem;}
+.intro020202 .traffic__list > li:first-child {margin-top: 0.5rem;}
+.intro020201 .category button {height: 39px;}
+
+/* 스쿨버스 안내 */
+.intro020301 .box--bd2.section__tit {margin-bottom: 2rem;padding: 2rem;font-size: 2rem;}
+.intro020301 .box--bd3 .section__tit {margin-bottom: 2rem;}
+.intro020301 .tbl--vert td {text-align: center; vertical-align: middle; padding-left: 0.5rem;}
+.intro020301 .tbl--vert .bd--right {border-right: 1px solid #d7d7d7;}
+.intro020301 .square {margin-top: 10px; font-size: 18px;}
+.intro020301 .btn { margin-top: 3rem; padding: 0.5rem 1.5rem; font-size: 1rem;}
+.intro020301.intro020303 .tbl--vert td.txt-left {text-align: left;}
+.intro020301.schoolbus .tbl--vert th, .intro020301.schoolbus .tbl--vert td {border-right: 1px solid #d7d7d7;}
+.intro020301.schoolbus .tbl--vert th.last, .intro020301.schoolbus .tbl--vert td.last {border-right: none;}
+.intro020301 .shuttle .tbl--vert span {margin:0  1rem;}
+.intro020301 .shuttle .tbl--vert span.color--sub {margin:0;}
+
+/* 전화번호 안내 */
+.intro0204 .bg--gray {text-align: center; vertical-align: middle;}
+
+/* 조직표 */
+.intro0301 .bg--main {background: #02525b !important;}
+.intro0301 .bg--main2 {background: #097e8f !important;}
+.intro0301 .bg--gray {background: #d7d7d7 !important; margin-bottom: 10px;}
+.intro0301 .bg--sub, .intro0301 .bg--point {display: block; padding: 5px 0; font-size: 1.3em; margin-top: 30px;}
+.intro0301 .m-version p {text-align: center; padding: 8px 0; font-size: 1.3em; margin-bottom:35px; color: #fff;}
+.intro0301 ul li {text-align: center;}
+.intro0301 ul > li > ul > li {border: 1px solid #d7d7d7; border-top: none;}
+.intro0301 ul li span {display: block; }
+.intro0301 ul li ul li ul li{background: #fff; padding: 5px 0;}
+.intro0301 .bg--gray span {display: block; padding: 5px 0;}
+
+/* 보직소개 */
+.intro030201 .tbl--vert th {text-align: center;}
+.intro030201 .tbl--vert tbody td {padding-left: 0.5rem; text-align: center;vertical-align: middle;}
+.intro030201 .tbl--vert tbody td.txt-left {padding-left: 1.25rem;text-align: left;}
+.intro030201 .tbl--vert tbody td:last-child {text-align: left;padding-left: 1.25rem;}
+.intro030201 .square ul {margin-bottom: 1rem;}
+.intro030201 .square + table {margin-top: 1rem;}
+.intro030201 .bull > table {margin: 1rem 0 2rem;}
+.intro030201 .article__desc .bull ul {margin-top: 0;}
+.intro030201 .article__desc li.line {margin-bottom: 0;margin-top: 0.3rem;}
+.intro030201 .banner__list li { width: 20%; text-align: center; float: left; margin: 1rem 0;min-height: 102px;}
+.intro030201 .board__btn {text-align: center; margin-top: 1rem;}
+.intro030201 .btn {width: 12.75rem;font-size: 1.1rem; padding: 0.85rem;}
+.intro030201 .tbl--vert.edutable tr {border-bottom: none;}
+.intro030201 .tbl--vert.edutable th, .intro030201 .tbl--vert.edutable td {border-bottom: 1px solid #d7d7d7;}
+.intro030201 .tbl--vert.edutable td:last-child {text-align: center; padding-left: 0.5rem;}
+.intro030201 .tbl--vert.edutable th {width: inherit;}
+
+/* 부속기관 -출판부 */
+.intro03030702 .sec__tit {font-size: 1.5rem; margin-top: 1rem; margin-bottom: 1.5rem; text-align: center; color: #a52576; font-weight: 600;}
+.intro03030702 .sec__info {text-align: center; line-height: 2.5em; margin-bottom: 1rem;}
+.intro03030702 .sec__info a:after {content:''; width: 2px; height: 15px; margin: 0 20px; background: #ccc; display: inline-block;vertical-align: middle;}
+.intro03030702 .box--bd3 p {font-size: 1.2rem;}
+
+/* 부설연구기관 */
+.intro030403 .board__btn {text-align: center; margin-top: 1rem;}
+.intro030403 .btn {width: 100%;font-size: 1.1rem; padding: 0.85rem;}
+.intro030403 .link__list {margin-top: 2rem;}
+.intro030403 .link__list li {float: left; width: 20%;}
+
+/* 부설교육기관 */
+.intro030201 .row {padding: 1rem 0; border-bottom: 1px dashed #ddd;}
+.intro030201 .row .intro__tit {font-size: 1.2rem; font-weight: 800; color: #4eacc5;}
+.sub .intro030201 .article__desc .row p {margin-top: 0;}
+.intro030201.intro030504  .row {border-bottom: none;}
+.intro030504 .p-version.area--img {padding: 2rem 0;}
+.intro030504 .col-xs-5 .area--img img {border: 1px solid #ddd; padding: 1.2rem 2rem;}
+.intro030504 .program {position: relative; text-align: center;}
+.intro030504 .program:after {content:''; width: 50px; height: 50px; position: absolute; top:50%; right: -1.25rem; transform:translateY(-50%); background: url('/images/university/icon_arrow.png') no-repeat;}
+.intro030504 .program:nth-child(2):after {right: -2rem;}
+.intro030504 .program dl {background: #eef4fb;; margin: 2rem 1rem; border-radius: 10px 10px; min-height: 185px;}
+.intro030504 .program:first-child dl {margin: 2rem 2rem 2rem 1rem;}
+.intro030504 .program:nth-child(2) dl {width: 90%;margin: 2rem auto;}
+.intro030504 .program:last-child dl {margin: 2rem 1rem 2rem 2rem;}
+.intro030504 .program:last-child:after {display: none;}
+.intro030504 .program dt, .intro030504 .program dd {}
+.intro030504 .program dt {padding: 0.4rem 0; background: #0588b8; color: #fff; border-radius: 10px 10px 0 0;}
+.intro030504 .program dd {padding: 5px 1rem 0;}
+.intro030504 .article__desc:last-child .box--brd {margin: 1rem 0;}
+.intro030201 .eduPub {}
+.intro030201 .eduPub .edupub_item {float: left; width: 50%; text-align: center; box-sizing:border-box;}
+.intro030201 .eduPub .edupub_item img {display: block; margin: 0 auto 0.75rem;}
+.intro030201 .eduPub .edupub_item span {display: block; font-size: 1rem; font-weight: 400; word-break:keep-all; line-height: 1.4;margin-bottom: 2rem; padding: 0 1rem;}
+.intro030201 .eduPub .edupub_item .p_br {display: block;}
+.intro030201 .actsOnline {margin-top: 2rem;}
+.intro030201 .actsOnline .article__desc {padding: 0;}
+.intro030201 .actsOnline .article__desc ul {margin: 0.5rem 0 1rem;}
+.intro030201 .actsOnline_imglist {text-align: center; margin-top: 1rem;}
+.intro030201 .actsOnline_imglist img { display: inline-block; width: 50%; max-width:300px;}
+.intro030201 .actsOnline_imglist img + img {margin-left: 5%;}
+.intro030201 .edutable td {border-right: 1px solid #d7d7d7;}
+.intro030201 .edutable td.last {border-right: none;}
+.intro030201 .actsOnline .article__desc .edutable ul {margin: 0.5rem 0;}
+.intro030201 .edutable td .bull {padding-left: 0; text-align: center; margin-bottom: 0; margin-top: 0;}
+.intro030201 .edutable td .bull + .bull {margin-top: 0.25rem;}
+.intro030201 .edutable td .bull:before {position: inherit; margin-right: 0.25rem;}
+
+/* 행정부서 */
+.linkContents {display: none;}
+.linkContents.active {display: block;}
+.linkList li {margin: 0.5rem 0;}
+.linkList .links.active {padding: 3px 1.5rem 5px; background: #a52576; color: #fff;}
+.linkList .links2.active {padding: 3px 1.5rem 5px; background: #a52576; color: #fff;}
+
+/* 행정 */
+.intro030601 .square + table { margin-top: 1rem;}
+.intro030601 .tbl--vert tbody th {text-align: left; padding-left: 2.5rem;}
+.intro030601 .tbl--vert tbody td {text-align: center; padding-left: 0.5rem;}
+
+/* 교수정보 */
+.intro040111_sub .square {font-size: 1.5rem; font-weight: 900; padding-left: 0;} 
+.intro040111_sub .square:before {display: none;} 
+.intro040111_sub .square + iframe {margin-top: -3.5rem;}
+
+/* 국내외교류 */
+.intro050102 .tbl--vert tbody tr td {text-align: center; padding-left: 0.5rem;border-right: 1px solid #d7d7d7;}
+.intro050102 .tbl--vert tbody tr td:first-child {background: #f4f4f4;}
+.intro050102 .tbl--vert tbody tr td:nth-child(2) {text-align: left; padding-left: 1.25rem; }
+.intro050102 .tbl--vert tbody tr td:last-child {border-right: none;}
+
+/* 대학 공통 */
+.story {margin: 1rem;padding: 1.5rem;}
+.story > p {margin: 0.5rem 0;line-height: 180%;}
+.story .tit {margin-bottom: 1rem;font-weight: 700;font-size: 1.15rem;color:#a52576}
+.roadmap tbody + tbody {border-top: 4px double #666;}
+.roadmap .tbl--vert {margin-top: 1.5rem;}
+.roadmap .tbl--vert tbody:last-child tr:last-child {border-bottom: 3px solid #cf5fa6}
+.roadmap .tbl--vert tbody th  {background-color: transparent;}
+.roadmap .tbl--vert tbody td {text-align: center;vertical-align: middle;}
+.roadmap__box {position: relative;margin-top: 1.5rem;padding: 2px 0.5rem;border-radius:10px;background-color: #cf5fa6;color:#fff;text-align: center;}
+.roadmap__box ul > li {display: inline-block;margin: 0;padding: 0 1rem;vertical-align: middle;}
+.roadmap__box .tit {display: inline-block;font-weight: 700;font-size: 1.5rem;vertical-align: middle;}
+.roadmap__box .emph {display: inline-block;padding:0.5rem 1rem;border-radius:10px;background-color: #fff; color:#cf5fa6;text-align: center;vertical-align: middle;}
+
+/* 학과소개 */
+.major .qna > dl {margin-top: 0;padding: 1rem 1.5rem;border-top: 1px dashed #ddd;}
+.major .qna > dl > dt, .major .qna > dl > dd {position: relative;padding-left: 2rem;}
+.major .qna > dl > dt:before, .major .qna > dl > dd:before {position: absolute;top: 0;left: 0;width: 1.5rem;height: 1.5rem;border-radius: 4px;color:#fff;text-align: center;}
+.major .qna > dl > dt:before {content: 'Q';background-color: #008c99;line-height: 1.2}
+.major .qna > dl > dd:before {content: 'A';background-color: #6da6d9;line-height: 1.5}
+
+/* 교육과정 */
+.curriculum .tbl--comm th {border-right: 1px solid #ddd;}
+.curriculum .tbl--comm th:last-child {border-right: none;}
+.curriculum .eng {display: inline-block;margin-right: 1rem;}
+.curriculum .code {display: inline-block;padding: 0 0.5rem;border: 1px solid #000;background-color: #2f354f;font-size: 0.95rem;color:#fff;vertical-align: middle;}
+
+/* 교수진 */
+.professor > .row {padding-right: 2rem;padding-left: 2rem;}
+.professor__cont {position: relative;border-color:#bbb;}
+.professor__profile {padding: 1rem 0px;text-align: center;}
+.professor__profile > img {width: auto;height: 162px;border: 1px solid #ccc;}
+.professor__info {padding:0 1rem;}
+.professor__info .square {font-size: 1.15rem;}
+.professor__info ul > li {position: relative;padding-left:6rem;}
+.professor__info ul > li > span {display: inline-block;margin-left: 1rem;vertical-align: middle;}
+.professor__info .title {position: absolute;left: 0;width: 5rem;font-size: 1.05rem;text-align: justify;letter-spacing: 0.225rem;}
+.professor__info .title:after{content: '';display: inline-block;width: 100%;}
+.professor__info .email:after {content: '';display: inline-block;width: 1px;height: 1rem;margin-left: 1rem;background-color: #ddd;vertical-align: -2px;}
+.professor__info .office {padding: 0 0.5rem;border: 1px solid #ddd;border-radius:2px;background-color: #f4f4f4;font-size: 0.95rem;}
+.professor__btn {position: absolute;bottom: 0;right: 0;padding: 0.35rem 1rem;padding: 3px 6px;background-color: #666;font-size: 0.85rem;color:#fff}
+
+/* 중국어학과 */
+.chinese .intro h4{font-size: 1.25rem;color: #b70050;text-align: center;}
+
+/*   교양과정 */
+.general .row {position: relative;margin: 0;background-color: #f7f7f7;}
+.general .row > div {padding: 0;}
+.general .name {padding:0.5rem 0;color:#fff;text-align: center;}
+.general .tit {padding:0.5rem 0;background-color: #6da6d9;color:#fff;text-align: center;}
+.general .desc {padding: 0.5rem 1rem;}
+.general__head .tit {background-color: #6da6d9;}
+.general__head .desc {margin: auto;-webkit-writing-mode: vertical-lr;-ms-writing-mode: tb-lr; }
+.general__head .desc:before {content: '';display: inline-block;height: 100%;vertical-align: middle;}
+.general__cont .name {background-color: #008c99;}
+.general__cont .row > div:before {content: '';position: absolute;top: 0;width: 2px;height: 100%;background-color: #fff;}
+
+/* 학사안내 - 공통 */
+.grad .tbl--vert thead th {text-align: center;border-right: 1px solid #d7d7d7;}
+.grad .tbl--vert tbody td {text-align: center; padding-left: 0.5rem; vertical-align: middle; border-right: 1px solid #d7d7d7;}
+.grad .tbl--vert tbody td.txt-left {text-align: left; padding-left: 1.25rem;}
+.grad .tbl--vert th.last, .grad .tbl--vert td.last {border-right: none;}
+.grad .tbl--vert thead th {text-align: center;}
+.grad li > table {margin: 0.5rem 0;}
+.grad ol {margin-bottom: 0.5rem;}
+.grad .square + ul {margin-bottom: 1rem;}
+.grad .article + .article--desc {margin-top: 0.5rem;}
+.grad .article--desc + .article--desc {margin-top: 1rem;}
+.grad .board__btn {text-align: center; margin: 2rem 0;}
+.grad .article--desc.board__btn { margin: 2rem 0;}
+.grad .board__btn .btn {width: 15rem; font-size: 1rem; padding: 0.5rem 1rem;}
+
+/* 학사일정안내 */
+.academic .cal_top {text-align: center;padding: 2rem 10px; border-top: 2px solid #a52576;}
+.academic .cal_top .cur_year {font-size: 2rem; font-weight: 900;}
+.academic .cal_top .cal_year {position: relative;}
+.academic .cal_top .cal_year button {position: absolute;top:8px;}
+.academic .cal_top .cal_year #cal_prev {left: 0;}
+.academic .cal_top .cal_year #cal_next {right: 0;}
+.academic .cal_top .cal_mon {padding: 1.8rem 0; margin-top: 2rem; background: #f5f5f5;}
+.academic .cal_top .cal_mon ul li a {padding: 10px 12px; border-bottom: 2px solid transparent; font-size: 1.1rem;display: inline-block;}
+.academic .cal_top .cal_mon ul li a.active {border-color:#fd7f2b;color: #fd7f2b; font-weight: 800;}
+.academic .cal_con > div {margin: 1rem 0;}
+.academic .fc-header .fc-button {display: none;}
+.academic .fc-header-left, .academic .fc-header-right, .academic .fc .fc-header-space {display: none;}
+.academic .fc-header-title {display: block; width: 100%;color: #fff; background: #a52576;}
+.academic .fc-header-title h2 {padding: 0.8rem 0; font-size: 1.3rem;}
+.academic .fc-grid th {background: #fff;color: inherit; font-weight: 600; font-size: 1rem; border-bottom: 1px solid #d7d7d7;}
+.academic .fc-widget-content {border: none; border-bottom: 1px solid #d7d7d7;}
+.academic .fc-sun, .academic .fc-sun .fc-day-number {color: #f00 !important;}
+.academic .fc-sat, .academic .fc-sat .fc-day-number {color: #00f !important;}
+.academic .fc-grid .fc-day-number {float: none; text-align: center; padding-right: 0;}
+.academic .fc-grid .fc-day-content {padding: 0;height: 2px; width: 100%; margin: 3px auto 0;}
+/*.academic .fc-grid .fc-day-content div {height: 2px; background: #fd8c52;}*/
+/* .academic table.fc-border-separate + div {height: 2px; background: #fd8c52;} */
+/* .fc-border-separate tbody tr td.fc-sun > div {min-height:45px !important;} */
+.academic #schedule .tbl--comm {border-top-color: #a52576;}
+.academic #schedule .tbl--comm thead th {background-color: #f5f5f5; color: inherit;}
+.academic #schedule .thead--bg thead th {padding:0.8rem 10px; font-size: 1.3rem;font-weight: 800;}
+/*원본 .academic #schedule .tbl--comm .day {width: 60px; height: 60px; border-radius: 50%; background: #008c99; color: #fff; line-height: 58px; margin-right: 16px; margin: auto; font-size: 1.2rem;} */
+.academic #schedule .tbl--comm .day {width: 60px; height: 60px; border-radius: 50%; background: #0b7176; color: #fff; line-height: 58px; margin-right: 16px; margin: auto; font-size: 1.2rem;}
+.academic #schedule .tbl--comm .con {font-size: 16px;}
+.academic #schedule .tbl--comm .con .date {color: #fd8c52;}
+.academic #schedule .tbl--comm .con .title {font-size: 18px;}
+.academic #schedule .tbl--comm .con .br {display: inline-block; margin: 0 0.5rem; vertical-align: top;}
+#schedule .cal_color, #scheduleList .cal_color {display: inline-block; width: 10px; height: 10px; vertical-align: middle; margin-right: 5px; margin-top: -5px;}
+
+/* 학사안내 > 연계전공 이수 과목표 210429 */
+.major_table{width:100%; table-layout:fixed;}
+.major_table thead tr{border-bottom:1px solid #fff;}
+.major_table thead tr th{background-color:#a52576; color:#fff; padding:0.8rem 0.5rem; font-size:1.125rem;}
+.major_table tbody tr{border-bottom:1px solid #d9d9d9;}
+.major_table tbody tr td{vertical-align:middle; padding:1rem 0.5rem;}
+.major_table tbody tr td:last-child{text-align:center; border-left:1px solid #f1f1f1; word-break:keep-all;}
+.major_table tbody tr td.sel_type_1{background-color:#dcedf5; color:#125880; text-align:center; font-weight:900; font-size:1.125rem;}
+.major_table tbody tr td.sel_type_2{background-color:#f5f5f5; color:#333; text-align:center;}
+.major_table tbody tr td.sel_type_2 + td{padding:1rem 1.2rem; word-break:keep-all;}
+
+/* 국내 학점교류 */
+.grd010801 .box--bd {padding: 2rem;}
+.grad.grd010801 .board__btn .btn {font-size: 1.1rem; padding: 0.85rem;}
+.grd010801 .program:after {content:''; width: 100%; height: 50px; display: block; text-align: center; transform: rotate(90deg); background: url('/images/university/icon_arrow.png') no-repeat center;}
+.grd010801 .program:last-child:after {display: none;}
+.grd010801 .program dl {margin: 1.5rem 2rem;padding:1rem; background: #eef4fb; border-radius:10px;}
+.grd010801 .program dd {text-align: center;word-break: keep-all; font-size: 1.1rem; font-weight: 700;}
+
+/* 국외 학점교류 */
+.grd011103 .step {padding: 1rem 2rem 1rem 0;}
+.grd011103 .step li {padding: 0.8rem 3rem 0.8rem 2rem; position: relative;}
+.grd011103 .step li:nth-child(2n) {padding:0.8rem 3rem 0.8rem 1.3rem;}
+.grd011103 .step li:after {content:'';width: 25px; height: 34px; background: url('/images/university/icon_arrow2.png') no-repeat center; position: absolute; right: 0; top:50%; transform:translateY(-50%);}
+.grd011103 .step li:last-child {padding:1rem 0rem 1rem 1.3rem;}
+.grd011103 .step li:last-child:after {display: none;}
+.grd011103 .step li p {padding: 1rem 2rem; border: 1px solid #a52576; border-radius:15px;}
+.grd011103 .step li p span {color: #f58233; display: inline-block; font-weight: 900; margin-right: 1rem;} 
+.grd011103 .step li p span:after {content:''; width: 1px; height: 22px; background: #000;display: inline-block; vertical-align: top; margin-left: 1rem; margin-top: 2px;}
+
+/* 자격증 */
+.grd010901 table {margin: 10px 0;}
+.grd010901 .article--desc + .article--desc {margin-top: 2rem;}
+.grd010902 .box--brd {margin: 2rem 0 1rem;padding: 2rem;}
+.grd010902 .box--brd h5 {font-size: 1.5rem;color: #a52576;padding-bottom: 1.5rem;margin-bottom: 1.5rem;}
+.grd010905 .choice li {position: relative;padding-left: 2rem;}
+.grd010905 .choice li span {position: absolute;left: 0; }
+
+/* 연계전공 */
+.grd010101 .box--bd p {text-align: center;line-height: 1.8em; font-size: 1.05rem; word-break:keep-all;}
+.grd010101 .btn {font-size: 1rem; background: #a52576; padding: 0.5rem 2rem; margin-top: 1rem}
+.grd010101 .btn a {color: #fff;}
+
+
+/* 대학생활 - 공통 */
+.life .tbl--vert thead th {text-align: center;}
+.life .tbl--vert tbody td {text-align: center; padding-left: 0.5rem; vertical-align: middle;}
+.life .tbl--vert tbody td.txt-left {text-align: left; padding-left: 1.25rem;}
+.life .tbl--vert th.last, .life .tbl--vert td.last {border-right: none;}
+.life .tbl--vert thead th {text-align: center;}
+.life .boardPost .tbl--vert tbody td {text-align: left;}
+.life .board__btn .btn {width: 15rem; font-size: 1rem; /* padding: 0.5rem 1rem; */}
+.life .article--desc + .article--desc {margin-top: 1rem;}
+.life .boardView .board__btn .btn {width:8.75rem;}
+.life .viewer {position: relative;height: 0;padding-bottom: 90%;border: 1px solid #aaaa;}
+.life .viewer__pdf {position: absolute;width: 100%;height: 100%;}
+
+/* 학생활동지원 */
+.life010401 .board__action .board__btn .btn { width: 8.75rem; padding: 1rem 0.5rem; font-size: 1.125rem;}
+.life010402 .tbl--vert th, .life010402 .tbl--vert td {border-right: 1px solid #d7d7d7;}
+.life010402 .tbl--vert th.last, .life010402 .tbl--vert td.last {border-right: none;}
+.life010403 .article--desc {margin-top: 1rem;}
+.life010403 .article--desc ul > li.bull {margin-top: 10px;}
+.life010403 .article--desc:last-child ul li {margin-top: 0;}
+.life010403 .article--desc:last-child ul li:first-child {margin-top: 10px;}
+
+/* 병무-예비군 */
+.life010901 .article--desc + .article--desc {margin-top: 1rem;}
+.intro030403.life010901 .link__list {margin-top: 1rem;}
+.intro030403.life010901 .link__list li {text-align: center; margin-bottom: 1rem;}
+.intro030403.life010901 .btn {padding: 0;}
+.life010901 .btn:hover {box-shadow: none;}
+.life010901 .tbl--vert th, .life010901 .tbl--vert td {border-right: 1px solid #d7d7d7;}
+.life010901 .tbl--vert th.last, .life010901 .tbl--vert td.last {border-right: none;}
+
+/* 강의실 및 게시물 신청 */
+.life011001 dl {margin: 1rem auto; width: 90%; height: 50px;}
+.life011001 dt {float: left; width: 25%; background: #a52576; text-align: center; color: #fff; height: 100%; line-height: 50px;}
+.life011001 dd {float: left; width: 65%; margin-left: 5%; height: 100%; line-height: 50px;}
+.life011001 dd li {height: 100%; line-height: 50px;}
+.life011001 dd.two li {line-height: 1.5em;}
+.life011002 .box--bd {padding: 2rem;}
+.life011002 .box--bd h4 {font-weight: 900; font-size: 1.3rem;margin-bottom: 10px;}
+
+/* 편의시설 */
+.life010603 .link li {padding-left: 1rem;}
+.life010603 .link li a:hover {color: #6da6d9;}
+
+/* 학생증 */
+.life010701 .notice {font-size: 1.5rem; font-weight: 900; vertical-align: middle; margin-bottom: 1rem;color: #0a839b;}
+.life010701 .notice:before {content:''; width: 40px; height: 35px; display: inline-block; background: url('/images/university/icon_notice.png') no-repeat center; vertical-align: bottom; margin-right: 0.5rem;}
+.life010703 dl {margin-bottom: 1rem;}
+.life010703 .article--desc div + div {margin-top: 1rem;}
+.underline {border-bottom: 1px solid #343434;}
+.color--main .underline {border-color: #a52576;}
+.life010703 table {margin: 10px 0;}
+.sub .life010703 .c-txt {line-height: 1.5rem;}
+
+/* 센터소개 */
+.life030101 .box--bd2 {padding: 2rem;}
+.life030101 h4 {font-size: 1.3rem;}
+/* .life030101 strong {font-size: 1.2rem;} */
+.life030101 .txt-right {margin-top: 2.5rem; font-size: 1.2rem;}
+.unilife16121410 .box--bd {background: #fff;}
+.unilife16121410 .square + ul {margin-left: 1rem;}
+.unilife16121410 .work {}
+.unilife16121410 .work .article--desc:last-child {margin-right: 0;}
+.unilife16121410 .work .article--desc .square {padding-left: 0; text-align: center; padding: 0.65rem 0; background: #a52576; color: #fff; font-size: 1.1rem; letter-spacing:-0.5px;}
+.unilife16121410 .work .article--desc .square:before {display: none;}
+.unilife16121410 .work .article--desc ul {margin-left: 0; padding: 8%;border: 1px solid #d7d7d7;}
+.unilife16121410 .work .article--desc .bull {margin-bottom: 7px; letter-spacing:-0.5px;}
+.life.unilife16121410 .work .article--desc + .article--desc {margin-top: 0;}
+.life.unilife16121410 .work .article--desc:not(:first-child) {margin-top: 3rem;}
+
+/* 교수학습센터 - For Faculty */
+.unilife .category > li {padding: 0 3px;}
+.unilife16121411 .c-txt + ul{margin-top: 1rem;}
+.unilife16121411 .c-txt + ul li {margin-bottom: 3px;}
+.unilife16121411 .circle:before {background: #f58233;}
+.unilife16121411 li.circle b {font-weight: 800; margin-left: 3px; margin-right: 3px;}
+
+/* 사회봉사 교과목 */
+.life070302 .area--img {padding: 2rem 1rem;}
+
+/* 교수학습센터 - 교육성과관리 */
+.unilife16121414 .tbl--vert thead th { background: #a52576; color: #fff;}
+.unilife16121414 .tbl--vert td { text-align: center; vertical-align: middle; border-right: 1px solid #ddd;}
+.unilife16121414 .tbl--vert td.last { border-right: none;}
+.unilife16121414 .tbl--vert td.txt-left {text-align: left;}
+.unilife16121414 .article--desc {margin: 1rem;}
+.unilife16121414 .article--desc ol {margin-left: 1rem;}
+.unilife16121414 .list--num.CQI > li {margin-bottom: 1rem;}
+
+/* 비교과목 사회봉사 */
+.unilife16121515 b {padding-bottom: 2px;}
+.unilife16121515 .box--brd {padding: 2rem;}
+.unilife16121515 .step {}
+.unilife16121515 .step li {word-break:keep-all; margin-bottom: 1.5rem;}
+.unilife16121515 .step li:last-child {margin-bottom: 0;}
+.unilife16121515 .step li ul {margin-top: 5px;}
+.unilife16121515 .step li ul li {margin-bottom: 3px;}
+.unilife16121515 .refer {margin-top: 1rem;}
+
+/* 서비스 안내 */
+.life0401 .notice {color: #f89c1c;margin-bottom: 0.5rem;}
+.life0401 .notice:before {width: 40px; height: 33px; background: url('/images/university/icon_notice2.png') no-repeat center; vertical-align: middle;}
+.life0402 .notice {margin-bottom: 0;}
+.life0406 .notice:before {display: none;}
+.life0406 .banner a {margin: 0.5rem 1rem;border: 2px solid #4eacc5; padding: 10px 20px; border-radius: 15px;display: inline-block;}
+.function_box {}
+.function_box ul {border: 1px solid #d7d7d7;float: right;}
+.function_box ul li {float: left; margin: 0.5rem 1rem;}
+.function_box ul li a:hover {color: #f89c1c;}
+.function_box img {vertical-align: middle; margin-top: -3px; margin-left: 3px;}
+
+/* 생활관소개 */
+.life060101 .intro {min-height:425px; background: url('/images/university/life060101_img01.png') no-repeat 95% top;}
+.life060101 .intro .c-txt {word-break:keep-all;}
+.life060102 .article .article--desc {margin-top: 2rem;}
+.life060102 .box--bd {padding: 2rem; background: #fff;}
+
+/* 시설안내 */
+.life060202 .professor__profile > img {height: auto;}
+
+/* 상담소안내 */
+.life070102 .box--bd2 {padding: 2rem;}
+.life070102 dl {margin-bottom: 10px;}
+.life070102 dl:after {content:'';display: block;clear: both;height: 0;}
+.life070102 dl dt {float: left; width: 20%; height: 65px; margin-right: 2%; background: url('/images/university/bg_line.png') no-repeat center; border-radius: 10px; text-align: center; font-size: 1.2rem; color: #fff;line-height:4rem;}
+.life070102 dl dt span {margin-right: 10px;font-size: 1.7rem;}
+.life070102 dl dd {float: left; width: 78%; padding-top: 1rem;}
+.life070102 dl dd.line2 {padding-top: 5px;}
+
+/* 심리상담 */
+.life .tree {background: url('/images/university/life070201_img01.jpg') no-repeat 5% bottom; min-height: 360px;}
+.life.life070203 .tree {background: url('/images/university/life070203_img01.jpg') no-repeat 5% bottom;}
+.life .tree .c-txt {position: relative; width: 70%; left: 28%;}
+.life070201 dl dt {text-align: center; background: #008c99; color: #fff;padding: 7px 0;font-size: 1.2rem;}
+.life070201 dl dt span {margin-right: 10px;}
+.life070201 dl dd{border:1px solid #ddd; padding: 1rem 1.5rem; min-height: 135px; margin-bottom: 20px;}
+
+/* 양성평등상담 */
+.life070301 .p-version.area--img {padding: 2rem 0;}
+.life070301 .m-version .vision {margin: 1rem;}
+.life070303 #link01 ul > li {margin-bottom: 10px;}
+.life070303 .box--bd {padding: 2rem;}
+.life070303 .notice {font-size: 1.3rem; text-align: center; padding-bottom: 1.5rem; margin-bottom: 1.5rem ;border-bottom: 1px dotted #d7d7d7;}
+.life070303 .notice img {margin-right: 10px;}
+.life070303 .box--bd {margin-top: 2rem;}
+.life070303 .box--bd ul > li {margin-bottom: 10px;}
+
+/* 온라인 비공개 상담실 */
+.life .consult {text-align: center;}
+.life .consult .c-txt { font-size: 1.5rem; margin-bottom: 1.3rem;}
+.life .consult ul {}
+.life .consult ul li {margin-bottom: 0.5rem;}
+.life141513 .box--bd2 {padding: 2rem;}
+.life141513 .box--bd2 .c-txt {font-size: 1.2rem;}
+.life141513 .c-txt.txt-right {font-size: 1rem; text-align: center;}
+.life141513 .sNum {margin: 2.5rem auto 2rem; width: 90%; }
+.life141513 .sNum .article__tit {margin-bottom: 0; font-size: 1.5rem; line-height: 50px; padding-left: 10px; margin-bottom: 1rem;text-align: center; border-bottom: 1px dotted #aaa;}
+.life141513 .sNum .article__tit:before {display: none;}
+.life141513 .sNum input {width: 100%;}
+.life141513 .sNum .btn {width: 100%; text-align: center; font-size: 1.3rem; height: 50px; line-height: 50px; padding: 0;margin-top: 1rem;}
+.life141513 .box--brd { margin-top: 1rem; padding: 2rem;}
+.life141513 .article--desc .box--brd  { margin-top: 0.5rem; padding: 1rem 1.5rem;}
+.life141513 .box--brd dl {margin-left: 1rem; margin-bottom: 1rem;}
+.life141513 .box--brd dt + dd {margin-left: 1rem;}
+.life141513 .box--brd .list--num {margin-top: 0.5rem; margin-left: 1rem; }
+.life141513 .box--brd .list--num li {margin: 2px 0;}
+.life141513 .box--brd .list--num.last > li {margin: 8px 0;}
+
+/* 사제동행 */
+.accompany {}
+.accompany .section__head {position: relative;}
+.accompany .section__head .accom--txt  {/*position: absolute; left: 50%; top:50%; transform:translate(-50%,-50%); */width: 100%;font-size: 16px; /* text-shadow: 1px 3px 5px rgba(0,0,0,0.8); font-weight: 600; */line-height: 1.5;  /*padding: 0 10px; */margin-top: 1.5rem;}
+.accompany .section__head .accom--txt span {line-height: 1.5;}
+.accompany .section__head .accom--wrap {position: absolute; left: 0; top:0; padding: 2rem;}
+.accompany .section__head .accom--tit {font-size: 16px;color: #ffab51;text-shadow: 1px 3px 5px rgba(0,0,0,1); font-weight: 600; line-height: 1.2;}
+.accompany .section__head .accom--desc {font-size: 14px; color: #fff; line-height: 1.5; margin-top: 1.5rem;text-shadow: 1px 3px 5px rgba(0,0,0,0.8);}
+.accompany .section__head .accom--img {min-height:110px;}
+.accompany .section__head .accom--pro {position: absolute; right: 2rem; bottom: 2rem; color: #fff; font-size: 14px;}
+.accompany.accompany_desc .section__head .accom--img {width: 100%;min-height:320px;}
+.accompany .accomList > div.clearfix {margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px dashed #008c99;}
+.accompany .accomList > div.clearfix:last-child {border-bottom: none;}
+.accompany .accomList .col-sm-3 {text-align: center; margin-bottom: 2rem;}
+.accompany .accomList .col-sm-3 .accom--img {/* width: 70%; */ border: 1px solid #d7d7d7; box-sizing:content-box;}
+.accompany .accomList .accom_tit {font-size: 18px; border-bottom: 1px solid #02525b; letter-spacing: -0.5px; padding-bottom: 10px; margin-bottom: 1rem;}
+.accompany .accomList .accom_tit a {display: block; width: 75%;white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.accompany .accomList .point {text-align: right; margin-bottom: 10px; font-size: 12px;}
+.accompany .accomList .point p {display: inline-block;margin-left: 0.5rem;}
+.accompany .accomList .point p img {vertical-align: middle;}
+.accompany .accomList .guide_wrap {margin-left: 10px;min-height:152px;}
+.accompany .accomList .guide li {margin-bottom: 2px;}
+.accompany .accomList .guide li.square:before {top: 0.6rem;}
+.accompany .accomList .btn_wrap {text-align: center;margin-top: 1rem;}
+.accompany .accomList .btn_wrap a {width: 125px; height: 40px; padding-top: 8px; text-align: center; font-size: 14px; margin-left: 5px;}
+.accompany .accomList .btn_wrap a img {vertical-align: middle; margin-right: 5px;}
+.accompany .accom--board.article {position: relative;}
+.accompany .accom--board.article .action {position: absolute; right: 0; top: 0.5rem; border: 1px solid #d7d7d7; padding: 5px;}
+.accompany .accom--board.article .article__tit {font-size: 23px;padding-left: 1rem;letter-spacing:-0.5px;}
+.accompany .accom--board.article .article__tit:before {top:0.5rem; height: 2.2rem;}
+.accompany .tbl--comm td.txt-left {padding-left: 0.75rem;}
+.accompany .tbl--comm td.txt-left a {display: block;width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.accompany .clubList {margin: 0 -10px;}
+.accompany .clubList li {margin: 0 0 0.625rem;}
+.accompany .clubList a {display: block; background-color: #fff; transition: border-color 0.5s linear;}
+.accompany .clubList a:hover {border-color: #008c99;}
+.accompany .clubList .area--thumb {padding-bottom: 70%;}
+.accompany .clubList .tit {overflow: hidden; padding: 0.5625rem 0.9375rem; white-space: nowrap;text-overflow: ellipsis;}
+.accompany .clubList .date {display: block; font-size: 0.9375rem; color: #999; text-align: right;}
+.life .board__btn.action .btn {width: 8.75rem; font-size: 1.125rem; padding: 1rem 0.5rem;}
+
+#accompany .album__list > li {margin-bottom: 20px;}
+#accompany .album__list > li a {background: #fff;}
+#accompany .album__thumb {overflow: hidden;padding-bottom: 75%;}
+#accompany .album__tit {padding: 0.5rem 0.75rem 0;}
+#accompany .album__date {padding: 0 0.75rem 0.5rem; text-align: right; color: #999; font-weight: 400;}
+
+/* Focus on Acts - 인물 */
+#accompany .character .album__tit {padding-bottom: 0.5rem;}
+#accompany .character .album__date {display: none;}
+
+/* ACTS 사이버 홍보단 */
+.prom171015 {}
+.prom171015 .box--bd2 {text-align: center; padding: 1.5rem 0; line-height: 2;}
+.prom171015 select {border: 1px solid #ddd; padding: 0.25rem 10px;}
+.prom171015 .cyberList {width: 100%; padding-left: 1rem;}
+.prom171015 .cyberItem {width: 100%; border: 1px solid #ddd;margin-bottom: 1.25rem;}
+.prom171015 .cyberItem .cyberImg, .prom171015 .cyberItem .cyberInfo {display: table-cell; vertical-align: middle;}
+.prom171015 .cyberItem .cyberImg {width:110px; padding: 10px;}
+.prom171015 .cyberItem .cyberImg img {border: 1px solid #ddd;}
+.prom171015 .cyberItem .cyberInfo {width: calc(100% - 110px); padding: 1rem;}
+.prom171015 .cyberItem .cyberInfo .cyberTxt { word-break:keep-all;}
+.prom171015 .cyberItem .cyberInfo .cyberID {margin-top: 0.5rem; color: #999;}
+.prom171015 .termCon {display: none;}
+.prom171015 .termCon.on {display: block;}
+
+/* 홍보영상 */
+.promotion .area--video {padding-bottom: 55%; margin: 0 auto; border-color: #d7d7d7;}
+.promotion .promList li {margin-bottom: 1rem;}
+.promotion .promList .prom_tit {text-align: center; padding: 0.725rem 0; font-size: 1.1rem; font-weight: 600;width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; border: 1px solid #d7d7d7; border-top: none;}
+
+/* 학교행사 */
+.unilife161010 .event {margin-bottom: 3rem;}
+.unilife161010 .event dt {font-size: 1.5rem; margin: 0.5rem 0; font-weight: 600; text-align: center;}
+.unilife161010 .event dd li {margin-bottom: 5px;}
+.unilife161010 .event dd li.circle:before {top: 0.6rem;background: #f89c1c;}
+
+/* 동아리 */
+.unilife16101110 .circles {margin-bottom: 3rem;}
+.unilife16101110 dt {font-size: 1.6rem; margin: 1rem 1rem 0.7rem;font-weight: 800;}
+.unilife16101110 dd {margin: 0 1rem;}
+.unilife16101110 dd .c-txt {font-size: 1.1em;margin-bottom: 1rem;word-break: keep-all;line-height: 1.5;}
+.unilife16101110 dd li.circle:before {top: 0.6rem;background: #f89c1c;}
+
+/* 식당안내 */
+.unilife16111010 .food {margin-bottom: 3rem;}
+.unilife16111010 dd li {margin-bottom: 5px;}
+.unilife16111010 dd li ul {margin-bottom: 10px;}
+.unilife16111010 dd li ul li {margin-bottom: 0;}
+.unilife16111010 dd li ul li b {margin-right: 5px;}
+
+/* 체육시설 */
+.unilife161112 .physical {margin-bottom: 3rem;}
+
+/* 산책로 */
+.unilife161113 .load {margin-bottom: 3rem;}
+
+/* 경력개발센터 - 센터소개 */
+.unilife16122210 .box--bd2 {padding: 2rem 1rem;}
+.unilife16122210 .box--bd2 .color--sub {font-size: 1.2rem; margin-bottom: 1rem;}
+.unilife16122210 .box--bd2 .box-bd3 { border: 1px solid #d8e2ec; background-color: #e7f3ff; text-align: left; margin: 2rem 0; padding: 1.5rem;}
+.unilife16122210 .box--bd2 .box-bd3 .list--num li {margin-bottom: 5px;}
+.unilife16122210 .box--bd2 .box-bd3 .list--num li:last-child {margin-bottom: 0;}
+.unilife16122210 .tbl--vert th, .unilife16122210 .tbl--vert td {border-right: 1px solid #d7d7d7;}
+.unilife16122210 .tbl--vert td.last, .unilife16122210 .tbl--vert td.last {border-right: none;}
+.unilife16122210 .square {font-size: 17px;}
+.unilife16122210 .list--num {padding-left: 2rem;}
+.unilife16122210 .careerbtn { margin-top: 2rem; border: 1px solid #d7d7d7; padding: 0 0.5rem; float: right;}
+.unilife16122210.careear_intro .careerbtn {float: none;}
+.unilife16122210 .careerbtn:hover {box-shadow: none;}
+.unilife16122210 .careerbtn:after {content:''; clear: both; height: 0; display: block;}
+
+/* 소셜미디어 */
+.prom1715 {}
+.prom1715 .article--desc {margin-top: 3rem; border-top: 2px dotted #d7d7d7; padding-top: 2rem;}
+.prom1715 .article--desc.facebook {margin-top: 0; padding-top: 0; border-top: none;}
+.prom1715 .article--desc .snsImg {display: none; border: 1px solid #d7d7d7; text-align: center; padding: 4rem 2rem;}
+.prom1715 .article--desc.facebook .snsImg {background: #3b5998;}
+.prom1715 .article--desc .snsInfo {text-align: center;padding: 2rem 0;}
+.prom1715 .article--desc .snsInfo dt {font-size: 2rem; margin-bottom: 0.75rem; font-weight: 800; line-height: 1; letter-spacing:-0.5px;}
+.prom1715 .article--desc .snsInfo dd .c-txt {line-height: 1.6; word-break:keep-all;}
+.prom1715 .article--desc .snsInfo dd .sns_btn {display: inline-block; font-size: 1.125rem; margin-top: 1.9rem; }
+.prom1715 .article--desc .snsInfo dd .sns_btn .btn {line-height: 26px; padding: 0.75rem 1.5rem;}
+.prom1715 .article--desc .snsInfo dd .sns_btn img {margin-right: 10px;}
+
+/* 학부 (2021학년도 이후) */
+.school1114 {}
+.school1114 .article {}
+.sub .school1114 .section__tit small {margin-left: 10px;}
+.school1114 .article .brd {border: 1px solid #d7d7d7; box-sizing:border-box; background: #fcf0e8; padding: 2rem; position: relative;}
+.school1114 .article .brd--tit {font-size: 28px; font-weight: 600;}
+.school1114 .article .brd--pro {position: absolute; right: 2rem; top: 2rem;}
+.school1114 .article .brd--pro a {background: #b70050; color: #fff; font-size: 18px;padding: 0.5rem 1.75rem;}
+.school1114 .article .brd--pro a img {vertical-align: middle; margin-right: 3px; margin-top: -3px;}
+.school1114 .article .c-txt {margin-top: 1.5rem; font-size: 17px;}
+.school1114 .article .btn--list {margin-top: 1.7rem;}
+.school1114 .article .btn--list li {float: left; margin-right: 1.2%;}
+.school1114 .article .btn--list li:last-child {margin-right: 0;}
+.school1114 .article .btn--list li a {text-align: center; background: #f58233; color: #fff; font-size: 17px; display: block; padding: 0.5rem 3rem 0.6rem; margin-top: 0.5rem; border: 1px solid #d7d7d7; box-sizing: border-box; border-radius: 25px;}
+.school1114 .article .btn--list li a:hover {box-shadow: 0 0 500px rgba(0,0,0,0.15) inset}
+
+/* 학부 (2021학년도 입학생부터) */
+.sub .school1115 .section__tit small {margin-left: 10px;}
+.school1115 .box--bd p {text-align: left; line-height: 1.8em; font-size: 1.05rem; /* word-break: keep-all; */}
+.school1115 .article .brd {border: 1px solid #d7d7d7; box-sizing:border-box; background: rgba(165,37,118,0.07); padding: 2rem; position: relative;}
+.school1115 .article .brd--tit {font-size: 28px; font-weight: 600;}
+.school1115 .article .brd--pro {position: absolute; right: 2rem; top: 2rem;}
+.school1115 .article .brd--pro a {background: #a52576; color: #fff; font-size: 18px;padding: 0.5rem 1.75rem;}
+.school1115 .article .brd--pro a img {vertical-align: middle; margin-right: 3px; margin-top: -3px;}
+.school1115 .article .c-txt {margin-top: 1.5rem; font-size: 17px;}
+.school1115 .article .btn--list {margin-top: 1.7rem;}
+.school1115 .article .btn--list li {float: left; margin-right: 1.2%;}
+.school1115 .article .btn--list li:last-child {margin-right: 0;}
+.school1115 .article .btn--list li a {text-align: center; background: rgba(165,37,118,0.6); color: #fff; font-size: 17px; display: block; padding: 0.5rem 3rem 0.6rem; margin-top: 0.5rem; border: 1px solid #d7d7d7; box-sizing: border-box; border-radius: 25px;}
+.school1115 .article .btn--list li a:hover {box-shadow: 0 0 500px rgba(0,0,0,0.15) inset}
+.school1115 .article .before_btn a {text-align: center; background: rgba(165,37,118,0.6); color: #fff; font-size: 17px; display: block; padding: 0.5rem 3rem 0.6rem; margin-top: 0.5rem; border: 1px solid #d7d7d7; box-sizing: border-box; border-radius: 25px; width : 50%; margin : 0 auto;}
+
+/* 학과 (2020학년도까지) */
+.school1113 {}
+.school1113.school1114 .article .brd {background: #eaf5ff;}
+.school1113.school1114 .article .c-txt {margin-top: 1rem;}
+
+/* 글로벌미션신학부 - 선교트랙 */
+.school11111011 {}
+.sub .school11111011 .tabList > li {width: 50%;}
+.sub .school11111011 .article__desc ul, .school11111011 .article__desc ol {margin: 0;}
+.school11111011 .tbl--vert th, .school11111011 .tbl--vert td {border-right: 1px solid #d7d7d7;}
+.school11111011 .tbl--vert th.last, .school11111011 .tbl--vert td.last {border-right: none;}
+.school11111011 .tbl--vert tbody td {padding-left: 0.5rem; vertical-align: middle;}
+.school11111011 .tbl--vert.vam .txt-center{ vertical-align: middle;}
+.school11111011 .tbl--vert.vam td.last{ padding: 1rem;}
+.school11111011 .area--img {margin: 3rem 0;}
+
+/* 국제개발협력학부_2021 05 */
+.sub .c-txt .slogan{display:block; font-size:2rem; font-weight:900; text-align:center; margin-bottom:20px; color:rgba(165,37,118,0.8)}
+.sub .table-added{line-height:1.8; margin-top:15px;}
+
+/* 글로벌융합리더학부 - 기독교교육과 미디어 트랙 */
+.school11111111 {}
+.sub .school11111111 .article__desc dl p.c-txt {margin: 0.5rem 0; line-height: 1.6;}
+
+/* 글로벌융합리더학부 - 사회복지 트랙 */
+.school11111112 {}
+.school11111011.school11111112 .area--img {margin: 3rem;}
+.school11111112 .floatImg {position: relative; border: 1px solid #d7d7d7; box-sizing:border-box;}
+.school11111112 .floatImg .txt {position: absolute; font-size: 25px; width: 100px; font-weight:800; left: 50%; top:50%; transform:translate(-50%, -50%);}
+.school11111112 .floatImg .f-left {float: left; width: calc((100% - 100px) / 2);}
+.school11111112 .floatImg .f-right {float: right; width: calc((100% - 100px) / 2);}
+.tbl--vert.mt10 {margin-top: 0.75rem;}
+.tbl--vert.mt10 td {vertical-align: middle;}
+.tbl--vert.mt10 .bd-line {border-bottom: 1px solid #444;}
+
+/* 경력개발센터 - 채용안내 */
+.recruit .search--wrap {border-top: 2px solid #008c99; padding:1rem 0 2rem;}
+.recruit .search--wrap > dl {display: inline-block; margin-right: 4%;}
+.recruit .search--wrap > dl:last-child {margin-right: 0;}
+.recruit .search--wrap dt {float: left; margin-right: 1rem; font-size: 17px; line-height: 42px;}
+.recruit .search--wrap dd {float: left;}
+.recruit .search--wrap dd input[type="text"] {border: 1px solid #d7d7d7; box-sizing:border-box; padding: 10px;}
+.recruit .search--wrap dd input[type="submit"] {border: 1px solid #545454; padding: 10px 1rem;}
+.recruit .search--wrap dd select {border: 1px solid #d7d7d7; padding: 6px 10px 8px; font-size: 16px;}
+.recruit .tbl--comm .con_tit {width: 98%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;display: block;}
+
+
+/*졸업생 소개*/
+.sub .school11111011 .article__desc .student__box .mt10 {margin-top:10px;}
+.sub .school11111011 .article__desc .student__box .mt10 li {margin:0; font-size:14px;}
+.sub .school11111011 .article__desc .student__box .line:before{top:0.6rem;}
+
+
+/* 심볼 */
+
+.symbol .tabmenu {display:flex; justify-content:center; gap:10px; flex-wrap:wrap;}
+.symbol .tabmenu li.on {}
+.symbol .tabmenu li {text-align:center; } 
+.symbol .tabmenu li a:hover {border-color:#f89c1c; color:#f89c1c}
+.symbol .tabmenu li a {padding:0.313rem 4px; font-size:1.125rem; padding-left:2rem; padding-right:2rem;background-color:transparent; color:#777; border:1px solid #e7e7e6; border-radius:30px}
+.symbol .tabmenu li.active a {background-color:#f89c1c; color:#fff; border-color:transparent}
+.symbol .tabcon.on {display:block;}
+.symbol .tabcon {display:none}
+.symbol .tabcon .article img {max-width:50%}
+
+
+/* 공익신고 및 신고자 보호제도 */
+.theology .steps ul {display:flex; gap:3rem; align-items:center;}
+.theology .steps ul li {flex:1; position:relative;}
+.theology .steps ul li+li::after {border-bottom-width:0;border-right-width:0;position:absolute; content:''; top:50%; left:calc(-1.5rem - 0.5rem); transform:translateY(-50%); border-top-width:2px; border-left-width:2px; width:0.750rem; height:0.750rem; border-color:#444; border-style:solid; display:inline-block; padding:0; transform:rotate(135deg)} 
+.theology .steps ul li .box {border:1px solid #ddd;  box-sizing:border-box; height:142px}
+.theology .steps ul li .box.auto {height:auto}
+.theology .steps ul li .box .title {padding:.75rem 1rem; background:rgba(165,37,118,0.6); color:#fff; text-align:center; font-weight:bold;}
+.theology .steps ul li .box .dec {padding:.5rem 1rem; font-size:0.975em}
+.theology .steps ul li .box-wrap {border:2px solid #a52576;padding:10px; box-sizing:border-box; display:flex; flex-direction: column;gap:.5rem 1rem;}
+.theology .steps ul li .warning {text-align:center; color:#a52576; margin-top:4px; padding:4px; border-radius:4px; padding-bottom:40px; position:relative;}
+.theology .steps ul li .warning::after {border-bottom-width:0;border-right-width:0;position:absolute; content:''; bottom:20px; left:calc(50% - 0.325rem); border-top-width:2px; border-left-width:2px; width:0.750rem; height:0.750rem; border-color:#a52576; border-style:solid; display:inline-block; padding:0; transform:rotate(225deg)}
+.theology .scroll {display:none}
+
+@media (max-width:1024px) {
+	.theology .steps {overflow-x:scroll; position:relative; padding-bottom:10px}
+	.theology .steps ul {width:1024px;}
+	.theology .scroll {display:block}
+}
+
+@media (max-width: 768px) {
+	.theology .steps ul li .box {height:104px}
+}
+
+/* 청탁금지제도 */
+.prohibitgion-wr {}
+.prohibitgion-wr .article__big_tit {border-bottom: 1px solid #ddd;  font-size: 1.5rem;  font-weight: 800;  padding-bottom: 0.875rem;  margin-bottom: 1.5rem;  position: relative;}
+.prohibitgion-wr .article__big_tit:before {content:''; width: 3.75rem; height:3px; background: #a52576; position: absolute; left:0; bottom:0;}
+.prohibitgion-wr .article__big_tit small {font-size:15px;margin-left: 0.25rem; color: #888; letter-spacing:-0.2px;}
+.prohibitgion-wr .notice { box-sizing: border-box; border: 1px solid #ddd; padding: 1.5rem 1.75rem; text-align: left; border-left: 5px solid #a52576; background: #fff7fc; margin-bottom: 1rem;}
+.prohibitgion-wr .notice.warn {border-color:#f89c1c; background: #fff8ef;}
+.prohibitgion-wr .btn { padding: 0.625rem 1.25rem;}
+.prohibitgion-wr.board .action .btn {padding: 1rem 0.5rem;}
+.prohibitgion-wr .btn + .btn {margin-left: 0.5rem;}
+.prohibitgion-wr .tbl--vert tbody td {vertical-align: middle;}
+.prohibitgion-wr .tbl--vert tbody td .small {font-size:0.85rem; color: #999;}
+.prohibitgion-wr .tbl--vert caption.show { visibility: visible; width: auto; height: auto; font-size: inherit; line-height: inherit; text-align: left; font-size: 0.85rem; margin-bottom: 0.5rem; color: #888;}
+.prohibitgion-wr .tbl--vert .btn_wrap {margin-top: 0;}
+.prohibitgion-wr .article-sub {margin-top: 2rem;}
+.prohibitgion-wr .article-sub.first {margin-top: 0;}
+.prohibitgion-wr .article__desc {padding: 0 0 1rem;}
+.prohibitgion-wr .btn_wrap {margin-top: 1rem;}
+.prohibitgion-wr .btn.bg--gray {color: #333;}
+.prohibitgion-wr li .btn {padding: 0.35rem 1rem;}
+.prohibitgion-wr .link__list {display: flex; flex-direction: column; gap: 5px;}
+.prohibitgion-wr .link__list li .link {text-decoration: underline;  text-underline-offset: 3px; transition:0.2s all linear;}
+.prohibitgion-wr .link__list li .link:hover {color:#a52576; transition:0.2s all linear;}
+.prohibitgion-wr .meta {box-sizing: border-box; border: 1px solid #ddd; padding: 1rem 1.5rem; font-size: 0.9rem; display: flex; justify-content: space-between; background: #fff7fc;}
+.prohibitgion-wr .meta > div {display: flex; gap:1rem;}
+.prohibitgion-wr .tag {font-weight:500;  background: #a52576; color: #fff; display: inline-block; font-size: 12px; vertical-align: middle; margin-top: -3px; margin-left: 5px; padding: 0.25rem 0.5rem 0.375rem; border-radius: 5px; line-height: 1;}
+
+.prohibitgion-wr strong {font-weight:800; color: #000;}
+.prohibitgion-wr .list--num  {box-sizing: border-box; padding: 1.25rem 1.5rem 1.25rem 3rem; border: 1px solid #ddd; word-break:keep-all; display: flex; flex-direction:column; gap:5px;}
+
+.article-exception {margin-top: 1.5rem;}
+.article-exception .square {margin-bottom: 0.5rem; font-weight: 800;}
+.article-exception + .notice {margin-top: 2rem;}
+
+.prohibitgion-wr .steps {display: flex; flex-direction:column; }
+.prohibitgion-wr .steps li {position: relative; padding-left: 1.875rem; border-bottom: 1px dashed #ddd; padding-bottom: 0.75rem; margin-bottom: 0.75rem;}
+.prohibitgion-wr .steps li:last-child {margin-bottom: 0;}
+.prohibitgion-wr .steps li .num {position: absolute; left: 0; top: 3px; background: #a52576; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 20px; font-size: 13px; color: #fff;}
+
+.qna-item {box-sizing: border-box; border-top: 1px solid #ddd; padding: 1rem 0;}
+.qna-item:last-child {border-bottom:1px solid #ddd;}
+.qna-item dl {display: flex; flex-direction:column;gap:0.25rem;}
+.qna-item dl dt {font-weight:800; color: #a52576;}
+.qna-item dl dd {padding-left: 1.25rem; word-break:keep-all;}
+
+.prohibitgion-wr .refer { margin-top: 1rem; color: #666; font-size: 0.85rem; word-break: keep-all;line-height: 1.4;}
+.prohibitgion-wr .refer + .refer {margin-top: 0.5rem;}
+.prohibitgion-wr .square + .square {margin-top:0.5rem;}
+.prohibitgion-wr .circle + .circle {margin-top:0.5rem;}
+.prohibitgion-wr ul li ul {margin-top:0.25rem;}
+.prohibitgion-wr ul li ul .circle + .circle {margin-top:0.25rem;}
+.prohibitgion-wr .square + ul {padding-left:1rem;}
+
+.prohibitgion-wr .section__foot {border-top:1px solid #ddd; padding-top:1.5rem; margin-top:2rem; letter-spacing:-0.5px; font-size:90%; color:#888; text-align: center; word-break:keep-all;}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>서울아산병원 외국인 건강검진 프로그램 가격표</title>
+<style>
+  @page {
+    size: A4;
+    margin: 14mm 12mm 14mm 12mm;
+    @bottom-center {
+      content: "Seoul Asan Medical Center · Comprehensive Health Evaluation Program — Page " counter(page) " / " counter(pages);
+      font-family: 'Malgun Gothic';
+      font-size: 7pt;
+      color: #9aa5b1;
+    }
+  }
+  @font-face {
+    font-family: 'Malgun Gothic';
+    src: url('C:/Windows/Fonts/malgun.ttf');
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'Malgun Gothic';
+    src: url('C:/Windows/Fonts/malgunbd.ttf');
+    font-weight: bold;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', sans-serif; color: #1f2937; }
+
+  /* ── Header ── */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 4mm;
+    border-bottom: 2.5pt solid #0b5394;
+    margin-bottom: 5mm;
+  }
+  .header .logo { height: 12mm; }
+  .header .titles { text-align: right; }
+  .header .titles .kr { font-size: 16pt; font-weight: bold; color: #0b5394; letter-spacing: 0.5pt; }
+  .header .titles .en { font-size: 8pt; color: #6b7280; margin-top: 1mm; }
+  .meta {
+    display: flex; justify-content: space-between;
+    font-size: 8pt; color: #6b7280;
+    background: #f3f6fb; border-radius: 6px; padding: 2mm 4mm; margin-bottom: 5mm;
+  }
+  .meta b { color: #0b5394; }
+
+  /* ── Program card ── */
+  .program {
+    background: #ffffff;
+    border: 1pt solid #dbe3ee;
+    border-radius: 8px;
+    margin-bottom: 4mm;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+  .program .head {
+    background: linear-gradient(135deg, #0b5394 0%, #1d6fc4 60%, #2e8bd8 100%);
+    color: #fff;
+    padding: 2.5mm 4mm;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .program .head .name { font-size: 10.5pt; font-weight: bold; letter-spacing: 0.2pt; }
+  .program .head .name .num {
+    display: inline-block; min-width: 6mm; text-align: center;
+    background: rgba(255,255,255,0.25); border-radius: 4px; padding: 0.5mm 1.5mm;
+    margin-right: 2mm; font-size: 9pt;
+  }
+  .program .head .name small { font-size: 7.5pt; font-weight: normal; opacity: 0.85; margin-left: 2mm; }
+  .program .head .badge { font-size: 7pt; background: rgba(255,255,255,0.22); padding: 1mm 2.5mm; border-radius: 10px; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 2mm 3mm; vertical-align: top; text-align: left; }
+  thead th {
+    background: #eef3fa; color: #0b5394; font-size: 8pt;
+    border-bottom: 1pt solid #dbe3ee;
+  }
+  thead th:nth-child(2), thead th:nth-child(3) { text-align: center; width: 25mm; }
+  tbody tr { border-bottom: 0.5pt solid #eef1f6; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #f9fbfd; }
+  td.item { font-size: 8pt; line-height: 1.55; color: #374151; }
+  td.item .title { font-weight: bold; color: #0b5394; }
+  .includes {
+    display: inline-block; background: #fde8e8; color: #b91c1c;
+    font-weight: bold; font-size: 7.5pt; padding: 0.5mm 2mm;
+    border: 0.8pt solid #f5b5b5; border-radius: 3px; margin-left: 1.5mm;
+    vertical-align: middle;
+  }
+  td.price { text-align: center; white-space: nowrap; }
+  td.price .krw { font-size: 9.5pt; font-weight: bold; color: #0b5394; display: block; white-space: nowrap; }
+  td.price .usd { font-size: 8pt; font-weight: bold; color: #4b5563; }
+  td.price .dash { color: #c0c8d4; font-size: 9pt; }
+
+  .note {
+    margin-top: 4mm; font-size: 7pt; color: #6b7280; line-height: 1.6;
+    background: #fafbfc; border-left: 2pt solid #0b5394; padding: 2mm 3mm; border-radius: 0 4px 4px 0;
+  }
+  .pagebreak { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img class="logo" src="C:/Users/USER/camnemi-crm/asan_assets/amc_logo_hi.png" alt="서울아산병원">
+  <div class="titles">
+    <div class="kr">외국인 건강검진 프로그램</div>
+    <div class="en">Asan Medical Center · Comprehensive Health Evaluation Program</div>
+  </div>
+</div>
+
+<div class="meta">
+  <span>금액 : <b>원 (KRW)</b></span>
+  <span>USD : 1$ ≈ <b>1,380원</b> 기준 · <b>100달러 단위 올림</b></span>
+  <span>문의 : <b>medical@camnemi.com</b></span>
+</div>
+
+<!-- 1 -->
+<div class="program">
+  <div class="head"><span class="name"><span class="num">1</span>기본 검진 프로그램 <small>Fundamental Check-up Program</small></span><span class="badge">5시간</span></div>
+  <table>
+    <thead><tr><th>검사 항목</th><th>남성</th><th>여성</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="item"><span class="title">◎ 필수 A (Essential A)</span><br>복부초음파 · 수면 위내시경 · 혈압 · 심전도 · 흉부 X-ray · 안과 · 소변 · 청력 · 체성분 · 치과 검진 · 전문의 결과상담<br>혈액검사(당뇨·고콜레스테롤·간기능·간염 A/B/C·신장기능·전해질·요산·빈혈·혈액응고·혈액형·염증·갑상선·헬리코박터·AIDS·매독·류마티스·종양표지자)</td>
+        <td class="price"><span class="krw">1,980,000원</span><span class="usd">$1,500</span></td>
+        <td class="price"><span class="krw">2,860,000원</span><span class="usd">$2,100</span></td>
+      </tr>
+      <tr>
+        <td class="item"><span class="title">추가 (40세 미만)</span><br>남: 테스토스테론·전립선 표지자·갑상선초음파<br>여: 골반초음파·유방초음파(35세↑)·Pap Smear·유방촬영(35세↑)·HPV·난소 표지자</td>
+        <td class="price"><span class="dash">—</span></td>
+        <td class="price"><span class="dash">—</span></td>
+      </tr>
+      <tr>
+        <td class="item"><span class="title">◎ 필수 B (Essential B)</span> <span class="includes">필수 A 포함</span><br>수면 대장내시경 · 비타민 D · 골밀도 · 흉추/요추 X-ray(40세 이상)</td>
+        <td class="price"><span class="krw">2,870,000원</span><span class="usd">$2,100</span></td>
+        <td class="price"><span class="krw">3,240,000원</span><span class="usd">$2,400</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 2 -->
+<div class="program">
+  <div class="head"><span class="name"><span class="num">2</span>암 조기 발견 전문 검진 <small>Cancer for Early Detection</small></span></div>
+  <table>
+    <thead><tr><th>검사 항목</th><th>남성</th><th>여성</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="item">흉부 CT · 복부·골반 CT<br>남: 전립선초음파 + 직장수지검사 · 갑상선초음파</td>
+        <td class="price"><span class="krw">3,810,000원</span><span class="usd">$2,800</span></td>
+        <td class="price"><span class="krw">3,820,000원</span><span class="usd">$2,800</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 3 -->
+<div class="program">
+  <div class="head"><span class="name"><span class="num">3</span>심혈관 질환 검진 <small>Cardiovascular System</small></span></div>
+  <table>
+    <thead><tr><th>검사 항목</th><th>남성</th><th>여성</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="item">관상동맥 CT · 경동맥초음파 · 트레드밀 검사 · 동맥경화·말초동맥 협착 · 심장기능(혈액검사)</td>
+        <td class="price"><span class="krw">4,020,000원</span><span class="usd">$3,000</span></td>
+        <td class="price"><span class="krw">4,460,000원</span><span class="usd">$3,300</span></td>
+      </tr>
+      <tr>
+        <td class="item"><span class="title">추가</span><br>남: 전립선초음파 + 직장수지검사 · 갑상선초음파<br>여: 심초음파</td>
+        <td class="price"><span class="dash">—</span></td>
+        <td class="price"><span class="dash">—</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 4 -->
+<div class="program">
+  <div class="head"><span class="name"><span class="num">4</span>암·심장 종합 정밀 검진 <small>Cancer &amp; Heart</small></span></div>
+  <table>
+    <thead><tr><th>검사 항목</th><th>남성</th><th>여성</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="item">복부·골반 CT · 관상동맥 CT · 경동맥초음파 · 트레드밀 검사 · 동맥경화·말초동맥 협착 · 심장기능(혈액검사) · 치과 X-ray<br>남: 전립선초음파 + 직장수지검사 · 갑상선초음파<br>여: 흉부 CT · 심초음파</td>
+        <td class="price"><span class="krw">4,840,000원</span><span class="usd">$3,600</span></td>
+        <td class="price"><span class="krw">5,280,000원</span><span class="usd">$3,900</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="pagebreak"></div>
+
+<!-- 5 -->
+<div class="program">
+  <div class="head"><span class="name"><span class="num">5</span>플래티넘 프로그램 <small>Platinum Program</small></span><span class="badge">7시간</span></div>
+  <table>
+    <thead><tr><th>검사 항목</th><th>남성</th><th>여성</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="item">뇌 MRA &amp; MRI · 복부·골반 CT · 관상동맥 CT · 경동맥초음파 · 트레드밀 검사 · 동맥경화·말초동맥 협착 · 치과 X-ray<br>혈액검사(심장기능·알레르기 3종·골다공증 3종·빈혈 3종)<br>남: 전립선초음파 + 직장수지검사 · 갑상선초음파<br>여: 흉부 CT · 심초음파</td>
+        <td class="price"><span class="krw">8,000,000원</span><span class="usd">$5,800</span></td>
+        <td class="price"><span class="krw">8,450,000원</span><span class="usd">$6,200</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 6 -->
+<div class="program">
+  <div class="head"><span class="name"><span class="num">6</span>프리미엄 2일 1박 <small>Premium · 2 Days &amp; 1 Night</small></span><span class="badge">숙박 포함</span></div>
+  <table>
+    <thead><tr><th>검사 항목</th><th>남성</th><th>여성</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="item">2일 1박 객실에서 진행되는 종합 검진 (플래티넘 + 뇌 MR 포함)<br>전문의 상담 · 간호사 동행 · 식사 · 뇌 MRI+MRA · 수면 위내시경·대장내시경 · 복부초음파 · 경동맥초음파 · 복부·골반 CT · 흉부 CT · 갑상선초음파 · 심초음파 · 트레드밀 · 동맥경화 · 관상동맥 CT · 흉부 X-ray · 심전도 · 혈압 · 골밀도 · 흉추/요추 X-ray · 체성분 · 치과 X-ray · 안과 · 소변 · 요알부민/크레아티닌 · 청력 · 혈액검사 · 종양표지자 · 결과상담<br>남: 전립선초음파 + 직장수지검사 · 테스토스테론 · 전립선 표지자<br>여: 골반초음파 · Pap Smear · 유방초음파 · 유방촬영 · HPV · 난소 표지자</td>
+        <td class="price"><span class="krw">9,250,000원</span><span class="usd">$6,800</span></td>
+        <td class="price"><span class="krw">9,750,000원</span><span class="usd">$7,100</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 7 -->
+<div class="program">
+  <div class="head"><span class="name"><span class="num">7</span>프리미엄 플러스 <small>Premium Plus</small></span><span class="badge">VIP 개인실</span></div>
+  <table>
+    <thead><tr><th>검사 항목</th><th>남성</th><th>여성</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="item">프리미엄 + VIP 개인실 · PET-CT · 피부 관리 · 치석 제거(스케일링)</td>
+        <td class="price"><span class="krw">15,000,000원</span><span class="usd">$10,900</span></td>
+        <td class="price"><span class="krw">15,500,000원</span><span class="usd">$11,300</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 8 -->
+<div class="program">
+  <div class="head"><span class="name"><span class="num">8</span>청소년 전문 검진 <small>Teen Health Screening</small></span><span class="badge">2시간</span></div>
+  <table>
+    <thead><tr><th>검사 항목</th><th colspan="2" style="text-align:center;">가격 (남·여 동일)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="item">복부초음파 · 흉부 X-ray · 심전도 · 혈압 · 안과 · 청력 · 체성분 · 소변 · 치과 검진<br>혈액검사(빈혈·당뇨·고콜레스테롤·간기능·간염 A/B/C·신장기능·전해질·혈액응고·혈액형·CBC·갑상선·헬리코박터·홍역·풍진·볼거리·수두·비타민 D·알레르기)</td>
+        <td class="price" colspan="2"><span class="krw">1,320,000원</span><span class="usd">$1,000</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="note">
+  ※ 모든 가격은 원(KRW) 단위이며, USD는 1$ ≈ 1,380원 기준 100달러 단위로 올림한 참고 금액입니다.<br>
+  실제 청구액은 검사 항목·환율에 따라 달라질 수 있습니다. 예약 및 문의 : <b>+82-2-3010-5005</b>
+</div>
+
+</body>
+</html>

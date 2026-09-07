@@ -1,0 +1,603 @@
+jQuery(function($) {
+
+	/* 접근성: Swiper 의 aria-live 알림 문구가 전부 영문 기본값이라 화면낭독기가
+	   "This is the last slide" 처럼 읽는다(화면엔 opacity:0 이라 안 보여도 낭독은 된다).
+	   인스턴스마다 넣는 대신 기본값을 한 번에 한글로 바꾼다 — 이 파일의 모든 슬라이더에 적용된다. */
+	if(window.Swiper && Swiper.extendDefaults){
+		Swiper.extendDefaults({ a11y: {
+			prevSlideMessage: '이전 슬라이드',
+			nextSlideMessage: '다음 슬라이드',
+			firstSlideMessage: '첫 번째 슬라이드입니다',
+			lastSlideMessage: '마지막 슬라이드입니다',
+			paginationBulletMessage: '{{index}}번째 슬라이드로 이동'
+		}});
+	}
+
+	$('.qnav  li > a').click(function (){
+	    event.preventDefault();
+    	 $('html,body').animate({scrollTop:$(this.hash).offset().top - 100}, 500);
+		 $(".active").removeClass("active");
+		 $(this).parent().addClass("active");
+    });
+	
+	
+	$('.videoS').click(function(){	
+		$('.videoPop').show();	
+	});
+	
+	$('.videoPop .closeBtn>a').click(function(){
+		video = $('.videoSw').find('video');
+		video.get(0).pause();
+	});	
+	
+	
+	$('.hundclose').click(function(){	
+		$('.hund').toggle();		
+		$(this).toggleClass("rotate");
+	});
+	
+
+
+	$(".tab_content").hide();
+   	$("#tab1").show();
+	$("#tab11").show();
+    $(".sec02tab .tabs li").click(function () {
+        $(".sec02tab .tabs li").removeClass("active");      
+		$(".sec02tab .tabs li a").removeAttr("title");
+        $(this).addClass("active");
+		$(".sec02tab .tabs li.active a").attr("title","선택됨");
+		/* 접근성: 선택 상태는 aria-selected 로만 알린다.
+		   ⚠️ 2026-08-05(사용자심사 u63): 숨김텍스트 "선택됨"을 함께 붙였더니 심사에서 상태 중복 제공으로 지적됐다.
+		      append 를 제거한다. 남은 find(".blind").remove() 는 이전 배포본이 붙여 둔 것을 걷어내는 청소용이다. */
+		$(".sec02tab .tabs li[rel] > button").attr("aria-selected","false").find(".blind").remove();
+		$(this).find("> button").attr("aria-selected","true").find(".blind").remove();
+        $(".sec02tab .tab_content").hide()
+        var activeTab = $(this).attr("rel");
+        $("#" + activeTab).fadeIn()
+    });	
+	
+	 $(".sec07tab .tabs li").click(function () {
+        var activeTab = $(this).attr("rel");
+        if(activeTab != undefined){
+        	$(".sec07tab .tabs li").removeClass("active");      
+			$(".sec07tab .tabs li:first-child a").removeAttr("title");
+			$(".sec07tab .tabs li:nth-child(2) a").removeAttr("title");
+            $(this).addClass("active");
+			$(".sec07tab .tabs li.active a").attr("title","선택됨");
+			/* 접근성: 이 ul 에는 탭이 아닌 외부링크(블로그·페이스북)가 섞여 있어 role="tablist" 를
+			   쓸 수 없다(tablist 는 tab 만 자식으로 가져야 함). 선택 상태는 숨김텍스트로만 알린다.
+			   (위 title 줄들은 li 안에 a 가 있는 경우용 원본 코드 — 탭에는 a 가 없어 무해하게 지나간다) */
+			$(".sec07tab .tabs li[rel] > button").find(".blind").remove();
+			$(this).find("> button").append('<span class="blind">선택됨</span>');
+        	$(".sec07tab .tab_content").hide()
+        	$("#" + activeTab).fadeIn();
+        }
+    });	
+	
+	var swiper = new Swiper(".proSwiper", {
+        slidesPerView: 3,
+		/* A11Y(2026-07-23): 공지 탭 6개 중 5개(tab2~tab6)가 글 3개 = slidesPerView 3 이라
+		   PC 폭에서 이전/다음이 아무 동작도 안 하면서 자리만 차지한다.
+		   watchOverflow 가 넘칠 때만 버튼을 살리고, 안 넘치면 swiper-button-lock 으로 숨긴다.
+		   폭이 바뀌어 slidesPerView 가 줄면 Swiper 가 자동으로 다시 켠다. */
+		watchOverflow: true,
+		loop:false, watchSlidesVisibility:true,
+        spaceBetween: 0,
+        observer: true,
+		/* A11Y-HIDE: 자동재생 끔 (2026-07-23) — 정지 버튼 숨김과 한 세트.
+		   런타임 stop() 에만 의존하면 그 블록이 원복될 때 정지 버튼 없이 자동재생이 되살아난다.
+		   원복 = autoplay: { delay: 8000, }, */
+		autoplay: false,
+        observeParents: true,
+		centeredSlides: false,
+		 navigation: {
+          nextEl: '.pro-button-next',
+          prevEl: '.pro-button-prev',
+         },
+        pagination: {
+          el: ".pro-pagination",
+          clickable: true,
+        },
+		breakpoints: {
+		320: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
+        
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 35,
+          },
+        },
+      });
+	
+	
+		var mSswiper = new Swiper(".medswiper", {
+        slidesPerView: 1,      
+        observer: true,
+		/* A11Y-HIDE: 자동재생 끔 (2026-07-23) — 정지 버튼 숨김과 한 세트. 원복 = autoplay: { delay: 3000, }, */
+		autoplay: false,
+        observeParents: true,
+        pagination: {
+          el: ".med-pagination",
+          clickable: true,
+        },
+			loop:false, watchSlidesVisibility:true, /* A11Y: 복제·비가시 슬라이드 초점 유입 방지 */
+      });
+	
+	$('.medswiper #btn1, .medswiper #btn2').click(function(){
+	    var isBtn1 = this.id === 'btn1';
+	    
+	    $('.medswiper #btn1 img').attr("src", "img/main/main_slider_stop2" + (isBtn1 ? "_on" : "") + ".png");
+	    $('.medswiper #btn2 img').attr("src", "img/main/main_slider_play2" + (!isBtn1 ? "_on" : "") + ".png");
+	    
+	    $('.medswiper #contrast a').removeClass("on");
+	    $(this).addClass("on");
+	    
+	    mSswiper.autoplay[isBtn1 ? "stop" : "start"]();
+	});
+	
+	var bAswiper = new Swiper(".baswiper", {
+        slidesPerView: 1,      
+		/* A11Y-HIDE: 자동재생 끔 (2026-07-23) — 정지 버튼 숨김과 한 세트. 원복 = autoplay: { delay: 3000, }, */
+		autoplay: false,
+        observer: true,
+        observeParents: true,
+        pagination: {
+          el: ".babox-pagination",
+          clickable: true,
+        },
+		loop:false, watchSlidesVisibility:true, /* A11Y: 복제·비가시 슬라이드 초점 유입 방지 */
+      });
+	
+	
+	$('.baswiper #btn1, .baswiper #btn2').click(function(){
+	    var isBtn1 = this.id === 'btn1';
+	    
+	    $('.baswiper #btn1 img').attr("src", "img/main/main_slider_stop2" + (isBtn1 ? "_on" : "") + ".png");
+	    $('.baswiper #btn2 img').attr("src", "img/main/main_slider_play2" + (!isBtn1 ? "_on" : "") + ".png");
+	    
+	    $('.baswiper #contrast a').removeClass("on");
+	    $(this).addClass("on");
+	    
+	    bAswiper.autoplay[isBtn1 ? "stop" : "start"]();
+	});
+	
+	
+	
+var nOswiper = new Swiper('.nowswiper', {
+	  /* A11Y-HIDE: 자동재생 끔 (2026-07-23) — 정지 버튼 숨김과 한 세트. 원복 = autoplay: { delay: 3000, }, */
+	  autoplay: false,
+     slidesPerView: 4, 
+      spaceBetween:25,    
+      loop:false, watchSlidesVisibility:true, /* A11Y: 복제·비가시 슬라이드 초점 유입 방지 */
+      /* A11Y: 슬라이드가 전부 보이는 폭에서는 이전/다음·스크롤바가 아무 동작도 안 하면서
+         초점만 받는다. watchOverflow 가 그때만 swiper-*-lock 클래스를 붙여 숨기고 비활성화한다.
+         폭(breakpoints)과 글 개수 변화에 자동으로 따라간다. 정지 버튼은 대상이 아니라 그대로 남는다. */
+      watchOverflow: true,
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+	  scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: true,
+      },
+      navigation: {
+        nextEl: '.swiper-now-next',
+        prevEl: '.swiper-now-prev',
+      },
+      /* 접근성: Swiper 기본 라벨이 영문("Previous slide")이라 한글 사이트에서 이질적이다.
+         ready 시점에 jQuery 로 덮어써도 lock/재초기화 때 Swiper 가 다시 영문으로 되돌리므로
+         옵션 자체를 한글로 준다(다른 슬라이더와 문구 통일). */
+      a11y: {
+        prevSlideMessage: '이전 슬라이드',
+        nextSlideMessage: '다음 슬라이드',
+      },
+	   breakpoints: {
+		300: {
+          slidesPerView: 1,
+          spaceBetween: 5,
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 5,
+        },
+		 1024: {
+          slidesPerView:3,
+          
+        },    
+      }
+    });
+	$('.nowswiper #btn1, .nowswiper #btn2').click(function(){
+	    var isBtn1 = this.id === 'btn1';
+	    
+	    $('.nowswiper #btn1 img').attr("src", "img/main/main_slider_stop" + (isBtn1 ? "_on" : "") + ".png");
+	    $('.nowswiper #btn2 img').attr("src", "img/main/main_slider_play" + (!isBtn1 ? "_on" : "") + ".png");
+	    
+	    $('.nowswiper #contrast a').removeClass("on");
+	    $(this).addClass("on");
+	    
+	    nOswiper.autoplay[isBtn1 ? "stop" : "start"]();
+	});
+	
+	var hAswiper = new Swiper('.hakswiper', {
+	  /* 2026-08-28 자동재생 원복(우석PRIDE 만) — 정지 버튼 노출과 한 세트 */
+	  autoplay: { delay: 3000 },
+     slidesPerView: 4, 
+      spaceBetween: 20,    
+      loop:false, watchSlidesVisibility:true, /* A11Y: 복제·비가시 슬라이드 초점 유입 방지 */
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-hak-next',
+        prevEl: '.swiper-hak-prev',
+      },
+	   breakpoints: {
+		300: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+        },
+        640: {
+          slidesPerView: 1,
+          spaceBetween:5,
+        },
+        768: {
+          slidesPerView: 3,
+         
+        },  
+		 1024: {
+          /* A11Y: .haks 폭을 화면 안으로 줄이면서 4개는 카드가 192px 로 너무 좁아진다. 3개로 조정. */
+          slidesPerView:3,
+
+        },
+      }
+    });
+
+	
+	$('.hakw #btn1, .hakw #btn2').click(function(){
+	    var isBtn1 = this.id === 'btn1';
+	    
+	    $('.hakw #btn1 img').attr("src", "img/main/main_slider_stop2" + (isBtn1 ? "_on" : "") + ".png");
+	    $('.hakw #btn2 img').attr("src", "img/main/main_slider_play2" + (!isBtn1 ? "_on" : "") + ".png");
+	    
+	    $('.hakw #contrast a').removeClass("on");
+	    $(this).addClass("on");
+	    
+	    hAswiper.autoplay[isBtn1 ? "stop" : "start"]();
+	});
+	
+	var swiper = new Swiper('.snsSwiper', { 
+		  autoplay: false,
+	      slidesPerView: 4, 
+	      spaceBetween: 20,    
+	      loop:false, watchSlidesVisibility:true, /* A11Y: 복제·비가시 슬라이드 초점 유입 방지 */
+	      loopFillGroupWithBlank: true,
+	      pagination: {
+	        el: '.swiper-pagination',
+	        clickable: true,
+	      },
+	      /* A11Y: 여기 있던 navigation({nextEl:'.swiper-button-next', prevEl:'.swiper-button-prev'}) 을 제거했다.
+	         전역 셀렉터라 document.querySelector 가 페이지 첫 요소 = 뉴스우석 버튼(.swiper-button-prev.swiper-now-prev)
+	         을 잡아, snsSwiper 가 남의 버튼을 자기 것으로 물고 있었다. 그 상태에서 snsSwiper 는 watchOverflow 가
+	         꺼져 있어(isLocked=undefined) update() 마다 뉴스우석 버튼의 swiper-button-lock 을 지웠고, 그 때문에
+	         뉴스우석이 더 넘길 수 없는 폭(1024↑)에서도 무동작 버튼이 초점을 계속 받았다(6.1.1).
+	         SNS 이전/다음은 아래 .sns-nav-prev/.sns-nav-next 커스텀 핸들러가 담당하므로 기능 손실 없음. */
+	      observer: true,
+	      observeParents: true,
+		   breakpoints: {
+			300: {
+	          slidesPerView: 1,
+	          spaceBetween: 5,
+	        },
+	        640: {
+	          slidesPerView: 2,
+	          spaceBetween:5,
+	        },
+	        768: {
+	          slidesPerView: 4,
+	         
+	        },  
+			 1024: {
+	          slidesPerView:4,
+	          
+	        },    
+	      }
+	    });
+	
+
+  $('.noticetit li a').click(function(){
+    
+    index =  $(this).parent().index();
+    $('.noticetit li').removeClass('on');
+    $(this).parent('li').addClass('on');
+
+    $('.noticew .noticeboxw').hide();
+    $('.noticew .noticeboxw').eq(index).show();
+    return false;
+
+  });
+  
+  $('#calendar_box').on('click', '.btn-prev, .btn-next', function(){
+
+  date = $(this).data('date');
+
+	/* 접근성(6.1.2 초점 이동): 아래 html() 로 달력을 통째 교체하면 지금 초점을 쥐고 있는
+	   이 버튼도 DOM 에서 사라져 초점이 body 로 떨어진다. 어느 방향 버튼이었는지 기억해
+	   새로 그려진 같은 버튼으로 초점을 되돌린다. */
+	var a11yDir = $(this).hasClass('btn-prev') ? '.btn-prev' : '.btn-next';
+
+	if(date == undefined) return false;
+	$.ajax({
+		url : 'layout/maincalendar.ajax.php',
+		type : 'get',
+		dateType : 'html',
+		data : {
+
+			date : date
+
+		},
+		success : function(html){
+			$('#calendar_box').html(html);
+
+			/* 초점 복귀 */
+			var $btn = $('#calendar_box').find(a11yDir).first();
+			if ($btn.length) $btn.focus();
+
+			/* 화면을 못 보는 사용자에게 "몇 년 몇 월로 바뀌었는지" 알린다.
+			   알림 영역은 #calendar_box 바깥에 둔다 — 안에 두면 교체될 때 같이 지워져 안 읽힌다. */
+			var $live = $('#calendarLive');
+			if (!$live.length) {
+				$live = $('<div id="calendarLive" class="blind" aria-live="polite" aria-atomic="true"></div>');
+				$('#calendar_box').after($live);
+			}
+			var y = $.trim($('#calendar_box .calerc1').text());
+			var m = $.trim($('#calendar_box .calerc2').text());
+			if (y || m) $live.text(y + '년 ' + m + '월 학사일정');
+		}
+	});
+	 return false;
+
+  });
+  
+  
+  $.ajax({
+	  url : 'sns/sns_cache.php',
+	  type : 'get',
+	  dateType : 'html',
+	  success : function(html){
+			
+	  }
+  })
+  
+
+  /*AOS*/
+  AOS.init({
+  	offset: 150, // offset (in px) from the original trigger point
+  	delay: 0, // values from 0 to 3000, with step 50ms
+  	duration: 600, // values from 0 to 3000, with step 50ms
+  	easing: 'ease', // default easing for AOS animations
+  	//once: true, // whether animation should happen only once - while scrolling down
+  	mirror: false, // whether elements should animate out while scrolling past them
+  	anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+   });
+});
+
+$(document).ready(function() {
+    $('img[usemap]').rwdImageMaps();
+
+});
+
+
+
+/* == a11y: 슬라이더 컨트롤 (2026-07-19, 추가형 — 기존 코드 무개조) ============ */
+$(function(){
+	/* 자동재생 정지/재생 토글 — 이름을 상태에 맞춰 바꾸고 aria-pressed 는 쓰지 않는다(재생 컨트롤 표준 패턴).
+	   꼬리 단어만 갈아끼우므로 "자동재생"의 '재생'이 먼저 걸려 "자동정지 정지"가 되던 replace 버그는 없다. */
+	function autoplayLabel(btn, verb){
+		var $b = $(btn), base = $b.data('a11yBase');
+		if(base === undefined){ base = ($b.attr('aria-label') || '').replace(/\s*(정지|시작)$/, ''); $b.data('a11yBase', base); }
+		return base + ' ' + verb;
+	}
+	$(document).on('click', '.swiper-autoplay-toggle', function(){
+		var sel = $(this).attr('data-swiper');
+		var el = sel ? document.querySelector(sel) : $(this).closest('.swiper, .swiper-container')[0];
+		var sw = el && el.swiper;
+		if(!sw || !sw.autoplay) return;
+		if(sw.autoplay.running){
+			sw.autoplay.stop();
+			$(this).addClass('is-paused').attr('aria-label', autoplayLabel(this, '시작'));
+		} else {
+			sw.autoplay.start();
+			$(this).removeClass('is-paused').attr('aria-label', autoplayLabel(this, '정지'));
+		}
+	});
+	/* SNS 슬라이더 이전/다음 (인스턴스는 el.swiper) */
+	function snsActiveSwiper(){
+		var el = $('.tab_content:visible .snsSwiper')[0] || $('.snsSwiper')[0];
+		return el && el.swiper;
+	}
+	/* A11Y(6.1.1): SNS 이전/다음은 Swiper navigation 이 아니라 커스텀 버튼이라 Swiper 의 비활성 처리
+	   (swiper-button-disabled + aria-disabled)를 못 받는다. 그대로 두면 첫/마지막 슬라이드에서도
+	   활성처럼 보이고 초점을 받으면서 아무 동작도 하지 않는다 — 다른 슬라이더 3종과 동작이 어긋난다.
+	   → 슬라이드 변경·탭 전환 때마다 aria-disabled 를 맞춘다(표시는 CSS 가 담당). */
+	function syncSnsNav(){
+		var sw = snsActiveSwiper();
+		if(!sw) return;
+		$('.sns-nav-prev').attr('aria-disabled', sw.isBeginning ? 'true' : 'false');
+		$('.sns-nav-next').attr('aria-disabled', sw.isEnd ? 'true' : 'false');
+	}
+	$('.snsSwiper').each(function(){
+		var sw = this.swiper;
+		if(sw) sw.on('slideChange', syncSnsNav);
+	});
+	/* 탭을 바꾸면 조작 대상 스와이퍼가 바뀌므로 다시 맞춘다(fadeIn 뒤라 약간 늦춤) */
+	$(document).on('click', '.sec07tab .tabs li, .sns_tab li', function(){ setTimeout(syncSnsNav, 150); });
+	syncSnsNav();
+	$(document).on('click', '.sns-nav-prev, .sns-nav-next', function(){
+		if($(this).attr('aria-disabled') === 'true') return;   /* 끝에 도달한 버튼은 동작시키지 않는다 */
+		/* 버튼이 sns_tab 아래(스와이퍼 밖)로 이동 — 활성 탭의 스와이퍼를 조작 */
+		var el = $(this).closest('.snsSwiper')[0] || $('.tab_content:visible .snsSwiper')[0], sw = el && el.swiper;
+		if(!sw) return;
+		if($(this).hasClass('sns-nav-prev')) sw.slidePrev(); else sw.slideNext();
+		syncSnsNav();
+	});
+	/* div 화살표 키보드 조작 보장 — 보이는(폭>0) 화살표만. 안 보이는 화살표에 tabindex를 주면 초점 유실됨 */
+	$('.swiper-button-prev, .swiper-button-next').each(function(){
+		if(this.offsetWidth > 0){
+			$(this).attr({'role':'button','tabindex':'0'});
+			$(this).attr('aria-label', $(this).hasClass('swiper-button-prev') ? '이전 슬라이드' : '다음 슬라이드');
+		}
+	});
+	$(document).on('keydown', '.swiper-button-prev, .swiper-button-next', function(e){
+		if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); $(this).trigger('click'); }
+	});
+	/* slick 구버전이 붙이는 잘못된 listbox/option role 제거 (axe: aria-*-field-name).
+	   슬라이드는 캐러셀이지 목록상자가 아님 — role 제거가 정석. 재초기화 대비 이벤트도 바인딩 */
+	function stripSlickRoles(){
+		$('.slick-track[role="listbox"]').removeAttr('role');
+		$('.slick-slide[role="option"]').removeAttr('role');
+	}
+	stripSlickRoles();
+	$(document).on('init reInit breakpoint', '.slick-slider', function(){ setTimeout(stripSlickRoles, 0); });
+
+	/* A11Y-HIDE */
+	/* ⚠️ 2026-07-23 이후 이 블록은 평상시 아무 일도 하지 않는다 — 위에서 autoplay 를 옵션 레벨(autoplay:false)로
+	   껐기 때문에 stop() 은 이미 멈춘 것을 다시 멈추고, 토글 버튼도 마크업에서 숨겨져 대상이 없다.
+	   그래도 남겨두는 이유: 누군가 옵션만 autoplay:{delay:N} 으로 되돌리면 정지 버튼이 숨겨진 채
+	   자동재생만 되살아난다. 이 블록이 그때 다시 전수 정지를 걸어주는 안전망이다.
+	   (Swiper 는 params.autoplay 가 false 여도 create() 에서 swiper.autoplay 객체를 만들므로 호출 자체는 정상)
+	   완전 원복 = 이 블록 삭제 + 위 autoplay 값 4곳 복구 + main_body.php 토글 주석 3쌍 해제, 셋을 함께.
+	   (2026-08-28 .hakswiper 는 자동재생을 되살려 아래 배열에서 뺐다 — 정지 버튼도 함께 노출) */
+	/* querySelector(단수)였을 때 .proSwiper 는 탭마다 있어 첫 탭만 꺼지고 나머지 5개가 계속 돌았다 → All 로 전수 정지 */
+	['.proSwiper', '.medswiper', '.baswiper', '.nowswiper'].forEach(function(sel){
+		document.querySelectorAll(sel).forEach(function(el){
+			if (el.swiper && el.swiper.autoplay) el.swiper.autoplay.stop();
+		});
+	});
+	/* 정지시켰으면 토글 버튼 표시도 정지 상태로 맞춘다 — 안 맞추면 아이콘은 "정지"인데 실제는 멈춰 있고
+	   눌렀을 때 이름과 반대로 재생이 시작된다. 이 블록을 통째로 지우면(원복) 버튼 상태도 원래대로 돌아간다.
+	   .pop-toggle 은 제외 — 위 전수 정지 대상이 아니고, 팝업 Swiper 초기화보다 먼저 돌면 오판한다. */
+	$('.swiper-autoplay-toggle').not('.pop-toggle').each(function(){
+		var sel = $(this).attr('data-swiper');
+		var el = sel ? document.querySelector(sel) : $(this).closest('.swiper, .swiper-container')[0];
+		var sw = el && el.swiper;
+		if (sw && sw.autoplay && !sw.autoplay.running) $(this).addClass('is-paused').attr('aria-label', autoplayLabel(this, '시작'));
+	});
+
+	/* 접근성(6.1.1 키보드 사용): 슬라이드가 전부 보여 넘길 것이 없으면(isLocked) 이전/다음은 아무 동작도
+	   안 하면서 초점만 받는다. Swiper 5 의 navigation 모듈은 init·toEdge·fromEdge 에만 update() 를 걸어
+	   두고 lock/unlock 이벤트는 듣지 않아, 초기화 뒤 isLocked 가 바뀌어도 swiper-button-lock 이 안 붙는다
+	   (scrollbar 는 updateSize() 마다 갱신돼 lock 이 걸리므로 스크롤바만 숨겨지던 상태였다).
+	   → init 직후와 resize 마다 navigation.update() 를 직접 불러 lock 클래스를 반영한다.
+	   watchOverflow 가 꺼진 슬라이더에는 lock 이 붙지 않으므로(조건이 watchOverflow && isLocked) 무해하다. */
+	['.proSwiper', '.medswiper', '.baswiper', '.nowswiper', '.hakswiper'].forEach(function(sel){
+		document.querySelectorAll(sel).forEach(function(el){
+			var sw = el.swiper;
+			/* watchOverflow 가 켜진 슬라이더만 다룬다 — 꺼진 쪽은 isLocked 가 undefined 라 lock 을 지우기만 하는데,
+			   버튼을 공유하는 구조가 있으면 남의 lock 까지 벗겨낸다(위 snsSwiper 사례). */
+			if (!sw || !sw.params.watchOverflow || !sw.navigation) return;
+			var syncLock = function(){
+				var lock = !!sw.isLocked;
+				[sw.navigation.$prevEl, sw.navigation.$nextEl].forEach(function($e){
+					if ($e && $e.length) $e[lock ? 'addClass' : 'removeClass']('swiper-button-lock');
+				});
+			};
+			syncLock();
+			sw.on('resize', syncLock);
+		});
+	});
+
+	/* 접근성(6.1.2 초점 이동 · 6.4.1 키보드 사용): 슬라이드 안 링크에 Tab 초점이 들어갔는데
+	   그 슬라이드가 화면에 안 보이면 초점이 시야에서 사라진다.
+	   → "안 보이면 탭에서 뺀다"가 아니라 "초점이 가면 보이는 자리로 옮긴다"로 처리한다.
+	     앞의 방식은 초점 유실은 막지만 그 슬라이드 내용에 키보드로 영영 도달할 수 없게 된다.
+
+	   ⚠️ .swiper-slide-visible 만 믿으면 안 된다 — 그건 "슬라이더 컨테이너 기준" 이다.
+	      hakswiper 는 컨테이너(1400px)가 x:830~2230 으로 뷰포트(1920) 밖까지 나가 있어,
+	      4번째 슬라이드는 visible 클래스가 붙어 있는데도 실제 화면에서는 잘려 있었다.
+	      그래서 뷰포트와 잘라내는 조상 전부의 가시 구간 교집합으로 판정한다. */
+	(function(){
+		var SEL = ['.proSwiper', '.medswiper', '.baswiper', '.nowswiper', '.hakswiper', '.snsSwiper'];
+
+		/* 이전 방식이 남겨둔 tabindex="-1" 를 걷어낸다(캐시된 옛 스크립트·재실행 대비) */
+		function clearOldMarkers(root){
+			$(root).find('[data-a11y-slidetab="1"]').removeAttr('tabindex').removeAttr('data-a11y-slidetab');
+		}
+
+		/* 뷰포트만 보면 안 된다 — overflow 로 잘라내는 조상 안에 들어와야 실제로 보인다.
+		   (2404폭에서 슬라이드가 tab_content 에 잘렸는데 뷰포트 기준으론 "보임"이라 한 박자 늦었다) */
+		function fullyOnScreen(el){
+			var r = el.getBoundingClientRect();
+			var L = 0, R = (window.innerWidth || document.documentElement.clientWidth);
+			var n = el.parentElement;
+			while (n && n !== document.body) {
+				var ox = window.getComputedStyle(n).overflowX;
+				if (ox === 'hidden' || ox === 'clip' || ox === 'auto' || ox === 'scroll') {
+					var nr = n.getBoundingClientRect();
+					if (nr.left > L) L = nr.left;
+					if (nr.right < R) R = nr.right;
+				}
+				n = n.parentElement;
+			}
+			return r.left >= L - 1 && r.right <= R + 1;   /* 1px 은 반올림 오차 여유 */
+		}
+
+		/* overflow:hidden 인 조상은 스크롤바가 없어 사용자가 되돌릴 수 없는데, 브라우저는 초점을
+		   보이게 하려고 그런 조상도 가로로 밀어버린다. 밀렸으면 즉시 제자리로 돌린다.
+		   (레이아웃이 음수 오프셋으로 배치된 구간에서 제목·버튼이 화면 밖으로 사라지는 것 방지) */
+		function resetHiddenScroll(el){
+			var n = el.parentElement;
+			while (n && n !== document.body) {
+				var ox = window.getComputedStyle(n).overflowX;
+				if ((ox === 'hidden' || ox === 'clip') && n.scrollLeft !== 0) n.scrollLeft = 0;
+				n = n.parentElement;
+			}
+		}
+
+		function bindFocusFollow(sw, el){
+			el.addEventListener('focusin', function(e){
+				var slide = e.target.closest ? e.target.closest('.swiper-slide') : null;
+				if (!slide) return;
+				var idx = Array.prototype.indexOf.call(slide.parentElement.children, slide);
+				if (idx < 0) return;
+				/* ⚠️ 순서 주의 — 되돌린 뒤에 판정해야 한다.
+				   브라우저는 focusin 이 오기 전에 이미 숨은 조상을 밀어 슬라이드를 보이게 해 둔다.
+				   그 상태에서 먼저 판정하면 "화면 안"으로 나와 조기 return 하고, 그 다음 되돌리기가
+				   브라우저가 민 것을 취소해 슬라이드가 다시 화면 밖으로 나간다(slideTo 도 못 함). */
+				resetHiddenScroll(slide);
+				if (fullyOnScreen(slide)) return;
+				/* 초점 간 슬라이드를 보이는 자리로 — 끝단이면 Swiper 가 알아서 최대치까지만 민다.
+				   speed 0 = 즉시. 300ms 면 초점 간 슬라이드가 그 사이 화면 밖이라 한 박자 늦어 보인다 */
+				if (typeof sw.slideTo === 'function') sw.slideTo(idx, 0);
+				/* ⚠️ 여기서 scrollIntoView 를 쓰면 안 된다 — overflow:hidden 인 조상도 스크립트로는
+				   스크롤되기 때문에 섹션 전체가 옆으로 밀려버리고, 스크롤바가 없어 되돌아오지도 않는다.
+				   (hakswiper 에서 #sec05 가 310px 밀려 제목·조작버튼이 화면 밖으로 나간 사고) */
+				resetHiddenScroll(slide);
+				/* 브라우저 기본 스크롤이 우리 다음에 일어나는 경우까지 잡는다 */
+				if (window.requestAnimationFrame) window.requestAnimationFrame(function(){ resetHiddenScroll(slide); });
+				setTimeout(function(){ resetHiddenScroll(slide); }, 350);
+			});
+		}
+
+		/* 같은 클래스의 슬라이더가 여럿이다(.proSwiper 6 · .snsSwiper 2 — 탭 패널마다 하나).
+		   querySelector 는 첫 하나만 잡아, 탭을 바꾸면 그 패널 슬라이더엔 핸들러가 없었다 */
+		SEL.forEach(function(sel){
+			var els = document.querySelectorAll(sel);
+			if (!els.length) return;
+			Array.prototype.forEach.call(els, function(el){
+				clearOldMarkers(el);
+				if (!el.swiper) return;
+				bindFocusFollow(el.swiper, el);
+			});
+		});
+	})();
+});
