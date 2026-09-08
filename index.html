@@ -1112,7 +1112,7 @@
   function submitAgencyContact() {
     const ap = document.getElementById('agency-page');
     if (!ap) return;
-    const name = (ap.querySelector('#ap-name').value || '').trim();
+    let name = (ap.querySelector('#ap-name').value || '').trim();
     const contact = (ap.querySelector('#ap-contact').value || '').trim();
     const program = pickedValue('ap-program') || 'Not Yet';
     const note = (ap.querySelector('#ap-note').value || '').trim();
@@ -1134,13 +1134,14 @@
     else { let hp=document.getElementById('hidden-cards'); if(!hp){hp=document.createElement('div');hp.id='hidden-cards';hp.style.display='none';document.body.appendChild(hp);} hp.appendChild(card); }
     refreshCardBody(card); applyCardBorder(card);
     if (typeof attachCard==='function') attachCard(card);
+    customerQueueCreate(card.id);
     logAction(name, 'Add card (agency '+agency+')');
     saveNow(); saveDatabase();
     // Reliable cross-browser push: write directly to the Google Sheet backend
     // (avoids the Apps Script read-cache race that caused submissions to be lost).
     try {
       const url = backendUrl();
-      if (url) {
+      if (url && !useSupabase()) {
         fetch(url + '?cb=' + Date.now(), { method:'POST', mode:'cors',
           headers:{'Content-Type':'application/json'},
           body: JSON.stringify({ action:'addAgencyContact', student:{
@@ -3358,6 +3359,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     attachCard(card);
     closeModal();
     refreshCounts();
+    customerQueueCreate(card.id);
     logAction(name, 'Add card');
     bumpCardRecent(card); reorderAllByRecent();
     saveNow();
@@ -3420,6 +3422,8 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     changeCount(stage, +1);
     refreshCardBody(card);
     attachCard(card);
+    customerQueueCreate(card.id);
+    saveNow();
     closeModal();
   }
 
@@ -4606,7 +4610,9 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     const card = overlay._card;
     const stage = card.dataset.stage;
     const nm = logStudentName(card);
+    try { customerQueueDelete(card.id); } catch(e) { customerSyncStatus('Delete not saved: ' + e.message); return; }
     card.remove();
+    saveNow();
     changeCount(stage, -1);
     closeModal();
     logAction(nm, 'Delete student (permanent)', 'student', { stage: stage });
@@ -4636,6 +4642,8 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     applyCardBorder(card);
     closeModal();
     logAction(nm, 'Archive: ' + from + ' → archived', 'student', { from: from, to: 'archived' });
+    bumpCardRecent(card);
+    saveNow();
     if (currentView === 'list') renderList();
   }
   function closeModal() { const m = document.querySelector('.modal-overlay'); if (m) m.remove(); }
@@ -4743,6 +4751,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       card.classList.remove('selected');
     });
     updateBatchBar();
+    saveNow();
     if (currentView === 'list') renderList();
   }
   function batchArchive() { batchMove('archived'); }
@@ -4872,10 +4881,10 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
   }
   // value of a custom column for a card (reads card.dataset.<col> or stored extra fields)
   function listCustomValue(card, col){
-    const key = col.replace(/[^a-z0-9]/gi,'').toLowerCase();
+    const key = customerCustomDatasetKey(col);
     if(!card) return '';
-    if(card.dataset && card.dataset[key]) return card.dataset[key];
-    if(card.dataset && card.dataset[col]) return card.dataset[col];
+    if(key && card.dataset && Object.hasOwn(card.dataset,key)) return card.dataset[key];
+    if(key && card.dataset && Object.hasOwn(card.dataset,col)) return card.dataset[col];
     // check customFields stored on the card element (restored from backend)
     if(card.dataset && card.dataset.customFields){
       try{ const cf=JSON.parse(card.dataset.customFields); if(cf[col]!==undefined) return cf[col]; }catch(e){}
@@ -4919,7 +4928,11 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     input.focus();
     const commit=()=>{
       const val = input.value.trim();
-      card.dataset[key] = val;
+      const customFields = JSON.parse(card.dataset.customFields || '{}');
+      Object.defineProperty(customFields, key, {value:val, enumerable:true, configurable:true, writable:true});
+      card.dataset.customFields = JSON.stringify(customFields);
+      const legacyKey = customerCustomDatasetKey(key);
+      if (legacyKey) card.dataset[legacyKey] = val;
       saveNow();
       renderList();
     };
@@ -5161,8 +5174,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         else cells += `<td>${escapeHtml(String(baseVal(r,col.key)||''))}</td>`;
       });
       LIST_CUSTOM_COLS.forEach(c=>{ if(!HIDDEN_LIST_COLS.includes('custom:'+c)) {
-        const k = c.replace(/[^a-z0-9]/gi,'').toLowerCase();
-        cells += `<td class="lst-edit" data-colkey="${k}" data-cardid="${r.card.id}" onclick="event.stopPropagation()" ondblclick="editListField(this)" title="Double-click to edit">${escapeHtml(listCustomValue(r.card, c))}</td>`;
+        cells += `<td class="lst-edit" data-colkey="${escapeHtml(c)}" data-cardid="${r.card.id}" onclick="event.stopPropagation()" ondblclick="editListField(this)" title="Double-click to edit">${escapeHtml(listCustomValue(r.card, c))}</td>`;
       }});
       tr.innerHTML = cells;
       tr._card = r.card;
@@ -5594,12 +5606,12 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         name: d.name || '', url: d.link || d.url || ''
       })), 'id');
     }
-    if (Array.isArray(WIKI_CATS) && WIKI_CATS.length) {
+    if ((payload.wikiNotes || payload.wikiDocs) && Array.isArray(WIKI_CATS) && WIKI_CATS.length) {
       await sbUpsert('wiki_cats', WIKI_CATS.map((c,i) => ({
         id: c.id, icon: c.icon || '', title: c.title || '', sort: i
       })), 'id');
     }
-    await sbUpsert('app_settings', [{
+    if (payload.listCustomCols || payload.hiddenListCols || payload.listColOrder) await sbUpsert('app_settings', [{
       key: 'list_view',
       value: {
         listCustomCols: payload.listCustomCols || LIST_CUSTOM_COLS || [],
@@ -5607,47 +5619,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         listColOrder: payload.listColOrder || LIST_COL_ORDER || []
       }
     }], 'key');
-    // customers: upsert rows (do not wipe if local is empty)
-    if (Array.isArray(payload.customers) && payload.customers.length) {
-      // Defensive dedupe by name (case-insensitive) before writing — the same
-      // student can exist under multiple random client ids (multi-device sync,
-      // re-adds). Prefer richer/more-recent row, mirroring the merge in syncPush.
-      const custMap = new Map();
-      for (const c of payload.customers) {
-        const key = String(c.name || '').trim().toUpperCase();
-        if (!key) { custMap.set(c.id || Math.random(), c); continue; }
-        const prev = custMap.get(key);
-        if (!prev) { custMap.set(key, c); continue; }
-        const prevScore = (prev.passport?1:0) + (prev.notes&&prev.notes.length?1:0) + (prev.birthdate?1:0);
-        const curScore  = (c.passport?1:0) + (c.notes&&c.notes.length?1:0) + (c.birthdate?1:0);
-        const prevUpd = new Date(prev.updated_at||0).getTime();
-        const curUpd  = new Date(c.updated_at||0).getTime();
-        if (curScore > prevScore || (curScore === prevScore && curUpd > prevUpd)) {
-          custMap.set(key, c);
-        }
-      }
-      const deduped = Array.from(custMap.values());
-      await sbUpsert('customers', deduped.map(c => ({
-        id: c.id, pipe: c.pipe || 'new', stage: c.stage || 'contact', name: c.name || '',
-        age: c.age || '', agency: c.agency || '', program: c.program || '', school: c.school || '',
-        appdate: c.appdate || '', contact: c.contact || '', email: c.email || '', loan: c.loan || '',
-        topik: c.topik || '', ielts: c.ielts || '', notes: c.notes || [], birthdate: c.birthdate || '',
-        noqr: c.noqr || '', illegal: c.illegal || '', denied: c.denied || '',
-        loan_flag: c.loanFlag || c.loan_flag || '',
-        payments: typeof c.payments === 'string' && c.payments
-          ? (function(){ try { return JSON.parse(c.payments); } catch(e){ return []; } })()
-          : (c.payments || []),
-        recent: c.recent || '', folder_id: c.folderId || '', folder_url: c.folderUrl || '',
-        docs: c.docs || [],
-        hidden: c.hidden || '', siemreap: c.siemreap || '', custom_fields: c.customFields || {},
-        major: c.major || '', parent_contact: c.parentContact || '', parent_name: c.parentName || '',
-        school_en: c.schoolEn || '', passport: c.passport || '',
-        highschool: c.highschool || '', gradmonth: c.gradmonth || '',
-        appdocs: c.appdocs || '[]', visadocs: c.visadocs || '[]',
-        camnemi_id: c.camnemiId || c.camnemi_id || '',
-        assigned: c.assigned || ''
-      })), 'id');
-    }
+    // Customer writes are exclusively handled by the per-ID outbox.
     return true;
   }
   async function supabaseLoadUniversities() {
@@ -5682,202 +5654,235 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     try { document.querySelectorAll('.customer-card').forEach(c=>refreshCardBody(c)); } catch(e){}
     return true;
   }
-  let __syncing = false;
-  let __bootDone = false;  // suppress auto-push until initial sync completes
-  let __suppressSave = false;  // suppress ALL saves during initial boot render
-  // Pull data from the Drive backend (Apps Script). Falls back to localStorage.
-  async function syncPull() {
-    if (!useSupabase()) return false;
-    try {
+  // CUSTOMER SYNC OUTBOX START
+  function customerCustomDatasetKey(col) {
+    const key = col.replace(/[^a-z0-9]/gi,'').toLowerCase();
+    // Legacy custom dataset aliases are allowed only outside the core namespace.
+    // Keep even absent core fields reserved; a custom column is never a core edit.
+    const reserved = 'id pipe stage name age agency program school appdate contact topik ielts email loan birthdate noqr illegal recent folderid folderurl folderfiles docs denied payment payments hidden siemreap major parentcontact parentname schoolen passport highschool gradmonth appdocs visadocs camnemiid assigned loanflag notes note updatedat stageorder customfields embassy enteredkorea koreaexpanded photoloading proto constructor prototype';
+    return key && !reserved.split(' ').includes(key) ? key : '';
+  }
+  // Only differences from this tab's rendered baseline are edits. Missing DOM
+  // cards are NOT deletions, and unknown IDs are NOT implicit inserts.
+  let __customerObserved = new Map();
+  let __customerOps = new Map();
+  let __customerRevision = 0;
+  let __customerStorageKey = null;
+  function customerSyncStatus(message) {
+    let el = document.getElementById('customer-sync-status');
+    if (!el) {
+      el = document.createElement('button'); el.id = 'customer-sync-status';
+      el.setAttribute('role', 'status');
+      el.style.cssText = 'position:fixed;bottom:12px;left:12px;z-index:10001;max-width:90vw;padding:10px;background:#fff7ed;color:#9a3412;border:1px solid #fdba74;border-radius:6px';
+      el.onclick = () => syncPush();
+      document.body.appendChild(el);
+    }
+    el.textContent = message ? message + ' — click to retry' : '';
+    el.style.display = message ? 'block' : 'none';
+  }
+  function customerLoadOutbox() {
+    if (__customerStorageKey) return;
+    // Separate writers prevent one tab's acknowledgement from erasing another
+    // tab's pending edits. sessionStorage keeps the writer through refresh.
+    let writer = sessionStorage.getItem('camnemi_customer_writer');
+    if (!writer) { writer = crypto.randomUUID(); sessionStorage.setItem('camnemi_customer_writer', writer); }
+    const key = 'camnemi_customer_outbox_v1:' + writer;
+    const saved = JSON.parse(localStorage.getItem(key) || '[]');
+    __customerOps = new Map(saved);
+    __customerRevision = Math.max(0, ...saved.map(([,op]) => op.revision || 0));
+    __customerStorageKey = key;
+  }
+  function customerPersistOutbox() {
+    customerLoadOutbox();
+    localStorage.setItem(__customerStorageKey, JSON.stringify(Array.from(__customerOps)));
+  }
+  function customerIsDeleted(id) {
+    return localStorage.getItem('camnemi_customer_deleted_v1:' + id) === 'true';
+  }
+  function customerQueueCreate(id) {
+    customerLoadOutbox();
+    if (customerIsDeleted(id)) throw new Error('Deleted customer ID cannot be reused: ' + id);
+    const customer = exportAllData().customers.find(c => c.id === id);
+    if (!customer) throw new Error('New customer card not found: ' + id);
+    const row = customerRow(customer);
+    __customerOps.set(id, {kind:'insert', row, revision:++__customerRevision});
+    customerPersistOutbox();
+    __customerObserved.set(id, row);
+  }
+  function customerQueueDelete(id) {
+    customerLoadOutbox();
+    __customerOps.set(id, {kind:'delete', revision:++__customerRevision});
+    customerPersistOutbox();
+    localStorage.setItem('camnemi_customer_deleted_v1:' + id, 'true');
+  }
+  let __otherObserved = null;
+  let __customerSyncQueue = Promise.resolve();
+  function customerEnqueue(work) {
+    const job = __customerSyncQueue.then(async () => {
       __syncing = true;
-      let db;
-      db = await supabaseReadTables();
-      if (!db || !Array.isArray(db.customers)) throw new Error('Bad data shape');
-      // BACKEND IS THE SOURCE OF TRUTH: use cloud data as-is (no local merge),
-      // so local demo/pollution can never re-enter. Local-only new cards added
-      // by THIS user (non-demo) are appended after the cloud list.
-      const localCustomers = [];
-      document.querySelectorAll('.customer-card').forEach(card => {
-        localCustomers.push({
-          id: card.id, pipe: card.dataset.pipe, stage: card.dataset.stage,
-          name: card.dataset.name || (card.querySelector('h4')?card.querySelector('h4').textContent:''),
-          age: card.dataset.age, agency: card.dataset.agency, program: card.dataset.program,
-          school: card.dataset.school, appdate: card.dataset.appdate, contact: card.dataset.contact,
-          email: card.dataset.email, loan: card.dataset.loan, birthdate: card.dataset.birthdate,
-          topik: card.dataset.topik, ielts: card.dataset.ielts, noqr: card.dataset.noqr, illegal: card.dataset.illegal,
-          notes: card.dataset.notes ? JSON.parse(card.dataset.notes) : [],
-          folderId: card.dataset.folderId||'', folderUrl: card.dataset.folderUrl||'',
-          recent: card.dataset.recent || '',
-          major: card.dataset.major||'', parentContact: card.dataset.parentContact||'',
-          parentName: card.dataset.parentName||'', schoolEn: card.dataset.schoolEn||'',
-          passport: card.dataset.passport||''
-        });
-      });
-      let merged = (db.customers||[]).slice();
-      const cloudIds = new Set(merged.map(c=>c.id));
-      // A locally-moved/edited card must beat the stale cloud row for the SAME
-      // student, otherwise refreshing reverts the move. Match by id OR name and
-      // prefer whichever row has the newer `recent` (move/edit timestamp) /
-      // updated_at. The local DOM is what the user just acted on.
-      const localByKey = new Map();
-      localCustomers.forEach(lc => {
-        const k = String(lc.name || '').trim().toUpperCase();
-        if (k) { const prev = localByKey.get(k); if (!prev || (parseInt(lc.recent||'0',10)||0) > (parseInt(prev.recent||'0',10)||0)) localByKey.set(k, lc); }
-      });
-      merged = merged.map(c => {
-        const k = String(c.name || '').trim().toUpperCase();
-        if (!k) return c;
-        const lc = localByKey.get(k);
-        if (!lc) return c;
-        const lr = parseInt(lc.recent||'0',10)||0;
-        const cr = parseInt(c.recent||'0',10)||0;
-        const lu = new Date(lc.updated_at||0).getTime();
-        const cu = new Date(c.updated_at||0).getTime();
-        // Only a card the user actually moved/edited (local recent set) may
-        // override cloud; untouched cards keep the cloud row so other devices'
-        // changes still propagate. local recent newer → keep local state.
-        if (lr > 0 && (lr > cr || (lr === cr && lu > cu))) {
-          return Object.assign({}, c, lc, { id: c.id });  // keep cloud id, take local state
-        }
-        return c;
-      });
-      // append local-only cards that are NOT demo and NOT already in cloud (real new adds by this user)
-      const DEMO_NAMES_LOCAL = new Set(['JAMES SMITH','SARAH JOHNSON','OLIVIA BROWN','LIAM JOHNSON','SOPHIA GARCIA','NOAH MILLER','ISABELLA DAVIS','ETHAN WILSON','MIA MOORE','LUCAS TAYLOR','AMELIA ANDERSON','MASON THOMAS','HARPER JACKSON','ELIJAH WHITE','EVELYN HARRIS','BENJAMIN MARTIN','AVA THOMPSON','HENRY LEE','CHARLOTTE WALKER','ALEXANDER HALL','EMILY ALLEN','DANIEL YOUNG','GRACE KING','MATTHEW WRIGHT','CHLOE SCOTT','SAMUEL GREEN','ZOE BAKER','JOHN ADAMS','LILY NELSON','RYAN HILL','NORA CARTER','EMMA RODRIGUEZ','MICHAEL CHEN','DAVID KIM','MARIA GARCIA','YUSUF AHMED','AISHA KHAN','ㄴㄴㅇ','코스타','KYUNGJUNE JO','SRY VANDADD','ARCHIVE TEST2','VISA DENY FULL','VISA DENY ACTION','VISA DENY ACTION2','DENIED BADGE CHECK','BADGE FINAL','BADGE FINAL2','VISA MOVE TEST','MODAL TEST','PROBE TEST','TEST IMPORT']);
-      localCustomers.forEach(lc => {
-        const nm = String(lc.name||'').trim().toUpperCase();
-        if(!cloudIds.has(lc.id) && !DEMO_NAMES_LOCAL.has(nm) && !/TEST|AUTOPULL|PROBE|BADGE|VISA\s?DENY|MODAL\s?TEST|NSDASDASD|^X$/.test(nm)) merged.push(lc);
-      });
-      // remove known demo/pollution students (never real data)
-      const DEMO_NAMES = new Set(['JAMES SMITH','SARAH JOHNSON','OLIVIA BROWN','LIAM JOHNSON','SOPHIA GARCIA','NOAH MILLER','ISABELLA DAVIS','ETHAN WILSON','MIA MOORE','LUCAS TAYLOR','AMELIA ANDERSON','MASON THOMAS','HARPER JACKSON','ELIJAH WHITE','EVELYN HARRIS','BENJAMIN MARTIN','AVA THOMPSON','HENRY LEE','CHARLOTTE WALKER','ALEXANDER HALL','EMILY ALLEN','DANIEL YOUNG','GRACE KING','MATTHEW WRIGHT','CHLOE SCOTT','SAMUEL GREEN','ZOE BAKER','JOHN ADAMS','LILY NELSON','RYAN HILL','NORA CARTER','EMMA RODRIGUEZ','MICHAEL CHEN','DAVID KIM','MARIA GARCIA','YUSUF AHMED','AISHA KHAN','ㄴㄴㅇ','코스타','KYUNGJUNE JO','SRY VANDADD','ARCHIVE TEST2','VISA DENY FULL','VISA DENY ACTION','VISA DENY ACTION2','DENIED BADGE CHECK','BADGE FINAL','BADGE FINAL2','VISA MOVE TEST','MODAL TEST','PROBE TEST','TEST IMPORT']);
-      merged = merged.filter(c => {
-        const nm = String(c.name || '').trim().toUpperCase();
-        if(!nm) return true;
-        if(DEMO_NAMES.has(nm)) return false;
-        // substring match for obvious test/pollution names
-        if(/TEST|AUTOPULL|PROBE|BADGE|VISA\s?DENY|MODAL\s?TEST|NSDASDASD|^X$/.test(nm)) return false;
-        return true;
-      });
-      // dedupe by name (uppercase) so duplicates never persist
-      const seenName = new Set();
-      const deduped = [];
-      merged.forEach(c => {
-        const nm = String(c.name || (c.dataset && c.dataset.name) || '').trim().toUpperCase();
-        if(!nm) { deduped.push(c); return; }
-        if(!seenName.has(nm)){ seenName.add(nm); deduped.push(c); }
-      });
-      merged = deduped;
-      db.customers = merged;
-      try { localStorage.setItem(DB_KEY, JSON.stringify(db)); } catch(e){}
-      applyDbToState(db);
-      return (db.customers && db.customers.length > 0);  // true only if real data came back
-    } catch(e) { console.warn('Backend pull failed', e); return false; }
-    finally {
-      __syncing = false;
-      // Flush any save that arrived while this pull was running (after sync flag released)
-      flushPendingPush();
+      try { return await work(); }
+      finally { __syncing = false; }
+    });
+    __customerSyncQueue = job.catch(() => false);
+    return job;
+  }
+  function customerRow(c) {
+    return {
+        id: c.id, pipe: c.pipe || 'new', stage: c.stage || 'contact', name: c.name || '',
+        age: c.age || '', agency: c.agency || '', program: c.program || '', school: c.school || '',
+        appdate: c.appdate || '', contact: c.contact || '', email: c.email || '', loan: c.loan || '',
+        topik: c.topik || '', ielts: c.ielts || '', notes: c.notes || [], birthdate: c.birthdate || '',
+        noqr: c.noqr || '', illegal: c.illegal || '', denied: c.denied || '',
+        loan_flag: c.loanFlag || c.loan_flag || '',
+        payments: typeof c.payments === 'string' && c.payments
+          ? (function(){ try { return JSON.parse(c.payments); } catch(e){ return []; } })()
+          : (c.payments || []),
+        recent: c.recent || '', folder_id: c.folderId || '', folder_url: c.folderUrl || '',
+        docs: c.docs || [],
+        hidden: c.hidden || '', siemreap: c.siemreap || '', custom_fields: c.customFields || {},
+        major: c.major || '', parent_contact: c.parentContact || '', parent_name: c.parentName || '',
+        school_en: c.schoolEn || '', passport: c.passport || '',
+        highschool: c.highschool || '', gradmonth: c.gradmonth || '',
+        appdocs: c.appdocs || '[]', visadocs: c.visadocs || '[]',
+        camnemi_id: c.camnemiId || c.camnemi_id || '',
+        assigned: c.assigned || ''
+    };
+  }
+  function customerObserve() {
+    customerLoadOutbox();
+    __customerObserved = new Map(exportAllData().customers.map(c => [c.id, customerRow(c)]));
+  }
+  function customerCapture(snapshot) {
+    customerLoadOutbox();
+    for (const c of snapshot.customers || []) {
+      const row = customerRow(c), previous = __customerObserved.get(c.id);
+      if (!previous || customerIsDeleted(c.id) || __customerOps.get(c.id)?.kind === 'delete') continue;
+      const changes = {};
+      for (const key of Object.keys(row)) {
+        if (key !== 'id' && JSON.stringify(row[key]) !== JSON.stringify(previous[key])) changes[key] = row[key];
+      }
+      if (Object.keys(changes).length) {
+        const old = __customerOps.get(c.id);
+        __customerOps.set(c.id, {...old, kind:old?.kind || 'update', row:Object.assign({}, old && old.row, changes), revision:++__customerRevision});
+        customerPersistOutbox();
+        __customerObserved.set(c.id, row);
+      }
     }
   }
-  // Push all current data to the Drive backend.
+  function customerApplyPatch(customer, row) {
+    const aliases = {loan_flag:'loanFlag', folder_id:'folderId', folder_url:'folderUrl',
+      custom_fields:'customFields', parent_contact:'parentContact', parent_name:'parentName',
+      school_en:'schoolEn', camnemi_id:'camnemiId'};
+    const result = Object.assign({}, customer);
+    for (const [key, value] of Object.entries(row)) result[aliases[key] || key] = value;
+    return result;
+  }
+  function customerMergePull(customers) {
+    customerLoadOutbox();
+    const merged = customers.filter(c => !customerIsDeleted(c.id) && __customerOps.get(c.id)?.kind !== 'delete')
+      .map(c => { const op = __customerOps.get(c.id); return op?.row ? customerApplyPatch(c, op.row) : c; });
+    const ids = new Set(customers.map(c => c.id));
+    for (const [id, op] of __customerOps) {
+      if (op.kind === 'insert' && !ids.has(id) && !customerIsDeleted(id)) merged.push(customerApplyPatch({}, op.row));
+    }
+    return merged;
+  }
+  function otherSnapshot(payload) {
+    const result = Object.assign({}, payload);
+    delete result.customers; delete result.savedAt; delete result.activityLog; delete result.version;
+    return JSON.parse(JSON.stringify(result)); // baseline must not share mutable app state
+  }
+  async function customerFlush() {
+    const errors = [];
+    for (const [id, op] of Array.from(__customerOps)) {
+      try {
+      if (op.kind === 'delete') {
+        await sbDelete('customers', 'id=eq.' + encodeURIComponent(id));
+        const remaining = await sbSelect('customers', 'id=eq.' + encodeURIComponent(id) + '&select=id');
+        if (remaining.length) throw new Error('Customer delete was not confirmed: ' + id);
+      } else if (op.kind === 'insert') {
+        let rows;
+        if (op.sentRow) {
+          // A lost response is ambiguous: read the exact ID, never POST again.
+          // If it disappeared it may have been deleted after the commit.
+          rows = await sbSelect('customers', 'id=eq.' + encodeURIComponent(id) + '&select=*');
+          const actual = rows.find(r => r.id === id);
+          if (!actual || !Object.keys(op.sentRow).every(k => JSON.stringify(actual[k]) === JSON.stringify(op.sentRow[k]))) {
+            throw new Error('Unconfirmed insert / ID conflict; pending data retained for review: ' + id);
+          }
+        } else {
+          op.sentRow = JSON.parse(JSON.stringify(op.row));
+          customerPersistOutbox(); // remember the attempt BEFORE it can commit
+          rows = await supabaseFetch('/rest/v1/customers', {
+            method:'POST', headers:{Prefer:'return=representation'}, body:JSON.stringify([op.sentRow])
+          });
+        }
+        if (!Array.isArray(rows) || !rows.some(r => r.id === id)) throw new Error('Customer insert was not confirmed: ' + id);
+      } else {
+        const rows = await supabaseFetch('/rest/v1/customers?id=eq.' + encodeURIComponent(id), {
+          method:'PATCH', headers:{Prefer:'return=representation'}, body:JSON.stringify(op.row)
+        });
+        if (!Array.isArray(rows) || !rows.some(r => r.id === id)) throw new Error('Customer no longer exists: ' + id);
+      }
+      const current = __customerOps.get(id);
+      if (op.kind === 'insert' && current?.kind === 'insert') {
+        const changes = {};
+        for (const key of Object.keys(current.row)) {
+          if (key !== 'id' && JSON.stringify(current.row[key]) !== JSON.stringify(op.sentRow[key])) changes[key] = current.row[key];
+        }
+        if (Object.keys(changes).length) {
+          __customerOps.set(id, {kind:'update', row:changes, revision:++__customerRevision});
+        } else __customerOps.delete(id);
+        customerPersistOutbox();
+      } else if (current === op) { __customerOps.delete(id); customerPersistOutbox(); }
+      } catch(e) { errors.push(id + ': ' + e.message); }
+    }
+    if (errors.length) throw new Error(errors.join('; '));
+  }
+  // CUSTOMER SYNC OUTBOX END
+  let __syncing = false;
+  let __bootDone = false;
+  let __suppressSave = false;
+  async function syncPull() {
+    if (!useSupabase()) return false;
+    return customerEnqueue(async () => {
+      try {
+        const db = await supabaseReadTables();
+        if (!db || !Array.isArray(db.customers)) throw new Error('Bad data shape');
+        // Capture again AFTER the read: a user may have edited during the fetch.
+        customerCapture(exportAllData());
+        db.customers = customerMergePull(db.customers);
+        applyDbToState(db);
+        restoreCustomers();
+        __otherObserved = otherSnapshot(exportAllData());
+        localStorage.setItem(DB_KEY, JSON.stringify(exportAllData()));
+        return true;
+      } catch(e) { console.warn('Backend pull failed', e); customerSyncStatus('Pull failed: ' + e.message); return false; }
+    });
+  }
   async function syncPush(snapshot) {
     if (!useSupabase()) return false;
-    if (!__bootDone) return false;  // don't push seeded/empty state during boot
-    if (__syncing) return false;
     try {
-      __syncing = true;
-      let payload = snapshot || exportAllData();
-      // MERGE with existing backend data instead of replacing, so that
-      // an agency (or any client) with a partial local copy cannot wipe
-      // the shared customers. New local customers are added; existing ones kept.
+      // Capture before queueing, not after a pull has replaced the DOM.
+      customerCapture(snapshot || exportAllData());
+      localStorage.setItem(DB_KEY, JSON.stringify(exportAllData()));
+    } catch(e) { customerSyncStatus('Edits not saved locally: ' + e.message); return false; }
+    if (!__bootDone) { __pendingPush = true; return false; }
+    return customerEnqueue(async () => {
       try {
-        let remoteCust = [];
-        const remote = await sbSelect('customers', 'select=*&limit=2000');
-        remoteCust = Array.isArray(remote) ? remote : [];
-        if (Array.isArray(remoteCust) && remoteCust.length) {
-          const local = payload.customers || [];
-          const localIds = new Set(local.map(c=>c.id));
-          const extras = remoteCust.filter(c=>!localIds.has(c.id));
-          let merged;
-          if (local.length === 0 && extras.length) {
-            merged = remoteCust;
-          } else {
-            merged = local.concat(extras);
+        await customerFlush();
+        const other = otherSnapshot(exportAllData()), changed = {};
+        if (__otherObserved) {
+          for (const key of Object.keys(other)) {
+            if (JSON.stringify(other[key]) !== JSON.stringify(__otherObserved[key])) changed[key] = other[key];
           }
-          // DEDUPE BY NAME (case-insensitive): the same real student can exist
-          // under different random client ids (multiple devices / re-adds). Keep
-          // one row per name, preferring the row with a passport/notes (richer)
-          // and then the most recently updated, so duplicates stop accumulating.
-          // The NEWER row wins — NOT "local always wins". Otherwise a stale tab
-          // (opened before a move) would push its old pipeline/stage and silently
-          // revert the move that another tab just made.
-          const byName = new Map();
-          for (const c of merged) {
-            const key = String(c.name || '').trim().toUpperCase();
-            if (!key) { byName.set(c.id || Math.random(), c); continue; }
-            const prev = byName.get(key);
-            if (!prev) { byName.set(key, c); continue; }
-            const cRecent = parseInt(c.recent || '0', 10) || 0;
-            const pRecent = parseInt(prev.recent || '0', 10) || 0;
-            const cUpd = new Date(c.updated_at || 0).getTime();
-            const pUpd = new Date(prev.updated_at || 0).getTime();
-            // newer recent (explicit move/edit timestamp) always wins
-            if (cRecent !== pRecent) {
-              if (cRecent > pRecent) byName.set(key, c);
-              continue;
-            }
-            // richer row wins, then newer updated_at
-            const prevScore = (prev.passport?1:0) + (prev.notes&&prev.notes.length?1:0) + (prev.birthdate?1:0);
-            const curScore  = (c.passport?1:0) + (c.notes&&c.notes.length?1:0) + (c.birthdate?1:0);
-            if (curScore > prevScore) { byName.set(key, c); continue; }
-            if (curScore === prevScore && cUpd > pUpd) byName.set(key, c);
-          }
-          payload.customers = Array.from(byName.values());
         }
-      } catch(e){ /* merge best-effort; push local if remote unavailable */ }
-      // remove known demo/pollution students before pushing
-      if (Array.isArray(payload.customers)) {
-        const DEMO_NAMES = new Set(['JAMES SMITH','SARAH JOHNSON','OLIVIA BROWN','LIAM JOHNSON','SOPHIA GARCIA','NOAH MILLER','ISABELLA DAVIS','ETHAN WILSON','MIA MOORE','LUCAS TAYLOR','AMELIA ANDERSON','MASON THOMAS','HARPER JACKSON','ELIJAH WHITE','EVELYN HARRIS','BENJAMIN MARTIN','AVA THOMPSON','HENRY LEE','CHARLOTTE WALKER','ALEXANDER HALL','EMILY ALLEN','DANIEL YOUNG','GRACE KING','MATTHEW WRIGHT','CHLOE SCOTT','SAMUEL GREEN','ZOE BAKER','JOHN ADAMS','LILY NELSON','RYAN HILL','NORA CARTER','EMMA RODRIGUEZ','MICHAEL CHEN','DAVID KIM','MARIA GARCIA','YUSUF AHMED','AISHA KHAN','ㄴㄴㅇ','코스타','KYUNGJUNE JO','SRY VANDADD','ARCHIVE TEST2','VISA DENY FULL','VISA DENY ACTION','VISA DENY ACTION2','DENIED BADGE CHECK','BADGE FINAL','BADGE FINAL2','VISA MOVE TEST','MODAL TEST','PROBE TEST','TEST IMPORT']);
-        // A card that has NO camnemi_id but whose name already exists in the cloud
-        // WITH a camnemi_id is a stale seed / re-push from an old browser — never let
-        // it overwrite or duplicate the real row (the real row owns the ID).
-        const remoteByName = new Map();
-        (remoteCust||[]).forEach(c => {
-          const k = String(c.name||'').trim().toUpperCase();
-          if (k && !remoteByName.has(k)) remoteByName.set(k, c);
-        });
-        payload.customers = payload.customers.filter(c => {
-          const nm = String(c.name || '').trim().toUpperCase();
-          if(!nm) return true;
-          if(DEMO_NAMES.has(nm)) return false;
-          if(/TEST|AUTOPULL|PROBE|BADGE|VISA\s?DENY|MODAL\s?TEST|NSDASDASD|^X$/.test(nm)) return false;
-          // stale seed guard: local row without an ID vs remote row with an ID, same name
-          const localId = c.camnemiId || c.camnemi_id || '';
-          const remoteRow = remoteByName.get(nm);
-          const remoteId = remoteRow && (remoteRow.camnemi_id || '');
-          if (!localId && remoteId) {
-            // this local card is a duplicate of an existing real student → drop it
-            return false;
-          }
-          return true;
-        });
-      }
-      // dedupe by name before pushing so the backend never accumulates duplicates
-      if (Array.isArray(payload.customers)) {
-        const seenNm = new Set();
-        payload.customers = payload.customers.filter(c => {
-          const nm = String(c.name || '').trim().toUpperCase();
-          if(!nm) return true;
-          if(seenNm.has(nm)) return false;
-          seenNm.add(nm); return true;
-        });
-      }
-      await supabaseWriteTables(payload);
-      return true;
-    } catch(e) { console.warn('Backend push failed', e); return false; }
-    finally {
-      __syncing = false;
-      // Flush any save that arrived while this push was running (after sync flag released)
-      flushPendingPush();
-    }
+        if (Object.keys(changed).length) await supabaseWriteTables(changed);
+        __otherObserved = other;
+        customerSyncStatus(__customerOps.size ? 'Customer edits pending' : '');
+        return true;
+      } catch(e) { console.warn('Backend push failed', e); customerSyncStatus('Not synced: ' + e.message); return false; }
+    });
   }
   // Pull data that was edited in the Google Sheet back into the app.
   async function syncFromSheet() {
@@ -6665,6 +6670,9 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
   // Debounced push (called after any data change)
   let __pushTimer = null;
   function scheduleSyncPush() {
+    if (__suppressSave) return;
+    try { customerCapture(exportAllData()); }
+    catch(e) { customerSyncStatus('Edits not saved locally: ' + e.message); return; }
     clearTimeout(__pushTimer);
     __pushTimer = setTimeout(() => { syncPush(); }, 800);
   }
@@ -6845,6 +6853,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         folderId: card.dataset.folderId || '',
         folderUrl: card.dataset.folderUrl || '',
         docs: (function(){ try { return JSON.parse(card.dataset.folderFiles || '[]'); } catch(e){ return []; } })(),
+        loanFlag: card.dataset.loanFlag || '',
         denied: card.dataset.denied || '',
         siemreap: card.dataset.siemreap || '',
         payments: card.dataset.payments || '',
@@ -6860,7 +6869,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         visadocs: card.dataset.visadocs || '[]',
         camnemiId: card.dataset.camnemiId || '',
         assigned: card.dataset.assigned || '',
-        customFields: (LIST_CUSTOM_COLS.reduce((o,c)=>{ const k=c.replace(/[^a-z0-9]/gi,'').toLowerCase(); o[c]=card.dataset[k]||''; return o; },{}))
+        customFields: (LIST_CUSTOM_COLS.reduce((o,c)=>{ const k=customerCustomDatasetKey(c); const value=k && Object.hasOwn(card.dataset,k) ? card.dataset[k] : (Object.hasOwn(o,c) ? o[c] : ''); Object.defineProperty(o,c,{value,enumerable:true,configurable:true,writable:true}); return o; },JSON.parse(card.dataset.customFields || '{}')))
       });
     });
     return {
@@ -6940,7 +6949,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
   // Rebuild customer cards from serialized data (call after renderPipeline + seed)
   function restoreCustomers() {
     const data = window.__RESTORE_CUSTOMERS__;
-    if (!data || !data.length) { window.__RESTORE_CUSTOMERS__ = null; return; }
+    if (!Array.isArray(data)) { window.__RESTORE_CUSTOMERS__ = null; return; }
     // clear seeded cards
     document.querySelectorAll('.customer-card').forEach(c=>c.remove());
     // rebuild
@@ -6948,9 +6957,11 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       const card = document.createElement('div');
       card.className = 'customer-card';
       card.id = c.id;
-      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact','parentName','schoolEn','passport','highschool','gradmonth','appdocs','visadocs','camnemiId','assigned'].forEach(k=>{
-        if(c[k]!==undefined) card.dataset[k]=c[k];
+      ['pipe','stage','age','agency','program','school','appdate','contact','topik','ielts','email','loan','birthdate','noqr','illegal','recent','folderId','folderUrl','denied','payments','hidden','siemreap','major','parentContact','parentName','schoolEn','passport','highschool','gradmonth','appdocs','visadocs','camnemiId','assigned','loanFlag'].forEach(k=>{
+        if(c[k]!==undefined) card.dataset[k] = (k === 'payments' && Array.isArray(c[k])) ? JSON.stringify(c[k]) : c[k];
       });
+      card.dataset.customFields = JSON.stringify(c.customFields || {});
+      Object.entries(c.customFields || {}).forEach(([key,value]) => { const k=customerCustomDatasetKey(key); if(k) card.dataset[k] = value; });
       if (Array.isArray(c.docs) && c.docs.length) card.dataset.folderFiles = JSON.stringify(c.docs);
       card.dataset.name = c.name||'';
       card.dataset.notes = JSON.stringify(c.notes||[]);
@@ -6988,7 +6999,9 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       attachCard(card);
     });
     window.__RESTORE_CUSTOMERS__ = null;
+    customerObserve();
     refreshCounts();
+    if (currentView === 'list') renderList();
   }
   // ---- Google Sheets export (CSV) ----
   function csvEscape(v){ const s=String(v===undefined||v===null?'':v); if(/[",\n]/.test(s)) return '"'+s.replace(/"/g,'""')+'"'; return s; }
@@ -7061,8 +7074,10 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       window.__RESTORE_CUSTOMERS__=customers;
       // merge with existing
       const existing=exportAllData().customers;
+      customerCapture(exportAllData());
       window.__RESTORE_CUSTOMERS__=existing.concat(customers);
       restoreCustomers();
+      customers.forEach(c => customerQueueCreate(c.id));
       saveDatabase();
       alert('Imported '+customers.length+' customers'+(skipped?' ('+skipped+' skipped)':''));
       ev.target.value='';
@@ -7134,28 +7149,9 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
   }
   // Silent auto-pull of agency submissions (no alerts) - runs on boot
   async function autoPullAgencySubmissions(){
-    if (!__bootDone) return;
-    try {
-      const subs = await sbSelect('agency_submissions', '?select=id,name,contact,agency,program,note,time&order=created_at.asc&limit=500');
-      if(!subs.length) return;
-      let added=0; const existing=[];
-      document.querySelectorAll('.customer-card[data-pipe="new"]').forEach(c=>{existing.push((c.dataset.name||'').toUpperCase());});
-      subs.forEach(s=>{
-        const nm=(s.name||'').toUpperCase(); if(!nm||existing.includes(nm)) return;
-        const card=document.createElement('div'); card.className='customer-card'; card.id=s.id||('c'+Date.now()+Math.floor(Math.random()*1000));
-        card.dataset.pipe='new'; card.dataset.stage='registration';
-        card.dataset.name=nm; card.dataset.agency=s.agency||'CAMNEMI';
-        card.dataset.program=s.program||'Not Yet'; card.dataset.contact=s.contact||'';
-        card.dataset.school='Not Yet Specified'; card.dataset.appdate='Not Specified';
-        card.dataset.notes=s.note?JSON.stringify([{text:s.note,time:s.time||''}]):'[]';
-        card.dataset.recent=Date.now();
-        const container=document.querySelector('.cards[data-cards="registration"]');
-        if(container) container.appendChild(card); else {let hp=document.getElementById('hidden-cards'); if(!hp){hp=document.createElement('div');hp.id='hidden-cards';hp.style.display='none';document.body.appendChild(hp);} hp.appendChild(card);}
-        refreshCardBody(card); applyCardBorder(card); if(typeof attachCard==='function') attachCard(card);
-        existing.push(nm); added++;
-      });
-      if(added){ saveNow(); saveDatabase(); if(document.querySelector('.customer-card[data-pipe="new"]')) reorderAllByRecent(); }
-    } catch(e){}
+    // Historical submissions are not a source of live customers. An automatic
+    // replay cannot distinguish a moved/deleted student from a new submission.
+    return false;
   }
 
   // Pull agency submissions from Supabase into the Contact list
@@ -7164,11 +7160,10 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       const subs = await sbSelect('agency_submissions', '?select=id,name,contact,agency,program,note,time&order=created_at.asc&limit=500');
       if(!subs.length){ alert('No submissions found yet. Ask agencies to use their link.'); return; }
       let added=0;
-      const existing=[];
-      document.querySelectorAll('.customer-card[data-pipe="new"]').forEach(c=>{ existing.push((c.dataset.name||'').toUpperCase()); });
+      const existing = new Set(Array.from(document.querySelectorAll('.customer-card'), c => c.id));
       subs.forEach(s=>{
         const nm=(s.name||'').toUpperCase();
-        if(!nm || existing.includes(nm)) return;
+        if(!nm || !s.id || existing.has(s.id) || customerIsDeleted(s.id)) return;
         const card=document.createElement('div');
         card.className='customer-card'; card.id=s.id||('c'+Date.now()+Math.floor(Math.random()*1000));
         card.dataset.pipe='new'; card.dataset.stage='registration';
@@ -7179,7 +7174,8 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         const container=document.querySelector('.cards[data-cards="registration"]');
         if(container) container.appendChild(card); else { let hp=document.getElementById('hidden-cards'); if(!hp){hp=document.createElement('div');hp.id='hidden-cards';hp.style.display='none';document.body.appendChild(hp);} hp.appendChild(card); }
         refreshCardBody(card); applyCardBorder(card); if(typeof attachCard==='function') attachCard(card);
-        existing.push(nm); added++;
+        customerQueueCreate(card.id);
+        existing.add(card.id); added++;
       });
       if(added){ saveNow(); saveDatabase(); renderPipeline(); refreshCounts(); alert('Added '+added+' student(s) from agency submissions.'); }
       else alert('No new submissions to add (all already in your list).');
@@ -7521,21 +7517,23 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       restoreCustomers();          // restore saved local cards
     } else if (agencyMode) {
       // Agency share-link: no demo seed, just keep empty (they only submit)
-    } else {
-      seed();                      // else seed defaults
+    } else if (!useSupabase()) {
+      seed();                      // offline demo only
     }
     // Migrate: merge 'application' stage into 'registration' (Regist & Application)
     document.querySelectorAll('.customer-card[data-pipe="new"][data-stage="application"]').forEach(c => {
       c.dataset.stage = 'registration';
       applyCardBorder(c);
     });
-    // Always ensure the Students in Korea pipeline is populated from our built-in list
+    // Cloud emptiness is authoritative; never re-create historical students.
     const koreaCards = document.querySelectorAll('.customer-card[data-pipe="korea"]').length;
-    if (koreaCards === 0) seedKoreaStudents();
+    if (!useSupabase() && !hasDB && koreaCards === 0) seedKoreaStudents();
     reorderAllByRecent();  // order cards by most recent first
     refreshCounts();
     setTimeout(rebuildFilterBar, 50);  // populate Agency + School pills from databases
-    __bootDone = true;  // now allow pushes
+    customerObserve(); // legacy cache is a display baseline, never implicit new rows
+    __otherObserved = otherSnapshot(exportAllData());
+    __bootDone = true;  // now allow explicit edits to flush
     __suppressSave = false;  // release the boot hold after everything is rendered
     // Start with the filter pill section collapsed on phones so cards get screen space
     if (window.innerWidth <= 860) {
@@ -7571,15 +7569,12 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     // (does NOT block first paint — cards already shown)
     setTimeout(async () => {
       try {
-        // PUSH local state to cloud FIRST so moved/edited/new cards are persisted
-        // before any stale cloud data is pulled back. This fixes reload reverting moves.
-        await syncPush();
+        // Pull first. Only durable explicit operations may survive cloud deletion.
         const synced = await syncPull();
+        if (synced && __customerOps.size) await syncPush();
         if (synced) {
           restoreCustomers();
           reorderAllByRecent();  // keep most-recently-moved cards first after pull
-          // Re-seed Korea students if the backend restore left none (protects against data gaps)
-          if (document.querySelectorAll('.customer-card[data-pipe="korea"]').length === 0) seedKoreaStudents();
           syncAgencies(); syncFees(); syncPartners(); syncTasks(); syncRecommendation(); syncProfit();
           refreshCounts();
           setTimeout(rebuildFilterBar, 50);
@@ -7589,45 +7584,18 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
 
     // Load university/guide data lazily (deferred so the UI is fast first)
     setTimeout(loadDataFile, 300);
-    // AUTO-PULL agency submissions silently (no alert) a few seconds after boot
-    setTimeout(autoPullAgencySubmissions, 4000);
+    // Agency submission import is deliberate, never a historical boot replay.
 
-    // auto-save on window unload (belt & suspenders)
+    // Unload cannot reliably await/ack network writes. Persist the durable outbox
+    // synchronously and retry after next boot; never start competing upserts.
     window.addEventListener('beforeunload', () => {
-      // Persist locally AND push to the cloud immediately (not debounced).
-      // A debounced push dies with the page on refresh, which made card moves
-      // silently revert to their old pipeline/stage on reload.
-      try { localStorage.setItem(DB_KEY, JSON.stringify(exportAllData())); } catch(e){}
-      if (__bootDone && useSupabase()) {
-        clearTimeout(__pushTimer);
-        __syncing = false;
-        // Lightweight keepalive push: ONLY recently-moved cards (id/pipe/stage).
-        // The full export is often hundreds of KB — over the 64KB keepalive limit
-        // and cancelled by the browser on unload. This slim row always fits and
-        // survives the refresh, so the move can never be lost.
-        try {
-          const cutoff = Date.now() - 30000;
-          const moved = [];
-          document.querySelectorAll('.customer-card').forEach(card => {
-            const r = parseInt(card.dataset.recent || '0', 10) || 0;
-            if (r >= cutoff) {
-              moved.push({ id: card.id, pipe: card.dataset.pipe || '', stage: card.dataset.stage || '', name: card.dataset.name || '', recent: String(r) });
-            }
-          });
-          if (moved.length) {
-            fetch(supabaseUrl() + '/rest/v1/customers?on_conflict=id', {
-              method: 'POST', keepalive: true,
-              headers: {
-                'apikey': supabaseKey(), 'Authorization': 'Bearer ' + supabaseKey(),
-                'Content-Type': 'application/json', 'Prefer': 'resolution=merge-duplicates,return=minimal'
-              },
-              body: JSON.stringify(moved)
-            }).catch(()=>{});
-          }
-        } catch(e){}
-        // full best-effort push as well (may be cancelled, but the slim push above is not)
-        syncPush().catch(()=>{});
-      }
+      if (!__bootDone) return;
+      try {
+        const snapshot = exportAllData();
+        customerCapture(snapshot);
+        customerPersistOutbox();
+        localStorage.setItem(DB_KEY, JSON.stringify(snapshot));
+      } catch(e) { console.warn('Pending edits could not be saved', e); }
     });
     // MutationObserver: auto-save whenever customer cards change
     const obs = new MutationObserver(() => { setTimeout(saveDatabase, 200); });
@@ -7658,30 +7626,15 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
   let __pendingPush = false;    // a save arrived while a sync was in flight
   let __pendingPayload = null;  // snapshot of that save, so a concurrent pull can't clobber it
   function saveNow() {
-    // Always persist locally first (boot suppression only guards the boot render
-    // path via saveDatabase(); real user actions always write to localStorage).
-    try { localStorage.setItem(DB_KEY, JSON.stringify(exportAllData())); } catch(e){}
-    if (!backendUrl() || !__bootDone) {
-      // Boot still in progress (or no backend): snapshot so it flushes after boot/sync.
-      try { __pendingPayload = exportAllData(); } catch(e){}
-      __pendingPush = true;
-      return;
-    }
-    if (__syncing) {
-      // A pull/push is running: snapshot the exact current state so the change
-      // isn't lost when that sync finishes and re-renders from cloud data.
-      try { __pendingPayload = exportAllData(); } catch(e){}
-      __pendingPush = true;
-      return;
-    }
     clearTimeout(__pushTimer);
-    syncPush();
+    if (useSupabase()) return syncPush();
+    try { localStorage.setItem(DB_KEY, JSON.stringify(exportAllData())); return Promise.resolve(true); }
+    catch(e) { customerSyncStatus('Edits not saved locally: ' + e.message); return Promise.resolve(false); }
   }
-  // Flush a pending save (called after __syncing is released / boot completes)
   function flushPendingPush() {
-    if (!__pendingPush || !__pendingPayload) return;
-    const p = __pendingPayload; __pendingPush = false; __pendingPayload = null;
-    try { syncPush(p); } catch(e){}
+    if (!__bootDone || !useSupabase() || !__pendingPush) return;
+    __pendingPush = false;
+    return syncPush();
   }
 </script>
   <!-- Activity Log slide-in panel -->
