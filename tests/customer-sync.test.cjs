@@ -276,3 +276,21 @@ test('moving one card PATCHes only that ID and leaves untouched customers and an
   assert.deepEqual(writes[0].body,{stage:'visa'});
   assert.ok(writes[0].url.includes('id=eq.fixture-a'));
 });
+test('signOut clears the prior account cache but keeps shared Supabase settings', async()=>{
+  const f=fixture([a]);
+  await f.context.syncPull();
+  f.storage.set('camnemi_auth','{"email":"j@camnemi.com","hd":"camnemi.com"}');
+  f.storage.set('camnemi_customer_outbox_v1:w1','[]');
+  f.storage.set('camnemi_customer_deleted_v1:abc','true');
+  f.storage.set('camnemi_supabase_url','https://zjdvzpylxazfbazioxto.supabase.co');
+  f.storage.set('camnemi_supabase_key','fake-anon');
+  f.context.location={reload(){ this._reloaded=true; }};
+  f.loadFunction('signOut');
+  f.context.signOut();
+  assert.ok(!f.storage.get('camnemi_auth'),'auth cleared');
+  assert.ok(!f.storage.get('camnemi_db_v1'),'customer db cache cleared');
+  assert.ok(!f.storage.get('camnemi_customer_outbox_v1:w1'),'pending outbox cleared');
+  assert.ok(!f.storage.get('camnemi_customer_deleted_v1:abc'),'deleted markers cleared');
+  assert.equal(f.storage.get('camnemi_supabase_url'),'https://zjdvzpylxazfbazioxto.supabase.co','supabase url kept');
+  assert.equal(f.storage.get('camnemi_supabase_key'),'fake-anon','supabase key kept');
+});

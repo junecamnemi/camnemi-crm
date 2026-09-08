@@ -22,7 +22,7 @@ function fixture(initial = [], storage = new Map(), session = new Map()) {
     getElementById(id) { return id === 'quick-add-modal' ? overlay : cards.find(c => c.id === id) || null; },
     createElement: node, body: { appendChild(){} }, addEventListener(){}
   };
-  const local = map => ({ getItem:k=>map.get(k)||null, setItem:(k,v)=>map.set(k,String(v)), removeItem:k=>map.delete(k) });
+  const local = map => ({ getItem:k=>map.get(k)||null, setItem:(k,v)=>map.set(k,String(v)), removeItem:k=>map.delete(k), get length(){return map.size;}, key:(i)=>Array.from(map.keys())[i]||null });
   const context = vm.createContext({ document, localStorage:local(storage), sessionStorage:local(session),
     console:{warn:(...args)=>warnings.push(args.map(String).join(' ')),log(){}}, Date, URLSearchParams,
     crypto:require('node:crypto').webcrypto, setTimeout:(fn,delay)=>{timers.push({fn,delay});return timers.length;},clearTimeout(){},
@@ -52,7 +52,8 @@ function fixture(initial = [], storage = new Map(), session = new Map()) {
   });
   context.window = context;
   vm.runInContext(`let __pushTimer=null; let __pendingPush=false; let __pendingPayload=null;
-    const DB_KEY='camnemi_db_v1'; let AGENCIES=[],FEES=[],PARTNERS=[],TASKS=[],TRANS=[],RECS=[],WIKI_NOTES=[],WIKI_DOCS=[],WIKI_CATS=[],ACTIVITY_LOG=[],LIST_CUSTOM_COLS=[],HIDDEN_LIST_COLS=[],LIST_COL_ORDER=[];`,context);
+    const DB_KEY='camnemi_db_v1'; const ACTIVITY_KEY='camnemi_activity_log';
+    let AGENCIES=[],FEES=[],PARTNERS=[],TASKS=[],TRANS=[],RECS=[],WIKI_NOTES=[],WIKI_DOCS=[],WIKI_CATS=[],ACTIVITY_LOG=[],LIST_CUSTOM_COLS=[],HIDDEN_LIST_COLS=[],LIST_COL_ORDER=[];`,context);
   const engine = html.match(/  \/\/ CUSTOMER SYNC OUTBOX START[^]*?  \/\/ CUSTOMER SYNC OUTBOX END/);
   if(engine) vm.runInContext(engine[0],context);
   const names=['sbSelect','sbUpsert','sbDelete','supabaseReadTables','supabaseWriteTables','exportAllData','applyDbToState','restoreCustomers','deleteCustomer','saveNow','saveDatabase','scheduleSyncPush','flushPendingPush'];

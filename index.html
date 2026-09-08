@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Cache-busting: the single-file app is redeployed often; never serve a stale
+       cached copy that would keep old sync logic running after a rollout. -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Customer Pipeline — D2D4 in Process / D2D4 in Korea</title>
   <link rel="preconnect" href="https://zjdvzpylxazfbazioxto.supabase.co">
   <link rel="preconnect" href="https://drive.google.com">
@@ -7371,7 +7376,19 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     }
   }
   function signOut() {
-    localStorage.removeItem('camnemi_auth');
+    // Clear the previous user's local app-data caches so a different account
+    // never sees stale cards/activity from the prior session. Keep only the
+    // shared Supabase URL/key (server data reloads on next login).
+    try {
+      const keys = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && (k === DB_KEY || k === ACTIVITY_KEY || k === 'camnemi_auth' ||
+                  (k.indexOf('camnemi_customer_outbox_v1:') === 0) ||
+                  (k.indexOf('camnemi_customer_deleted_v1:') === 0))) keys.push(k);
+      }
+      keys.forEach(k => localStorage.removeItem(k));
+    } catch(e) { /* best-effort */ }
     location.reload();
   }
   // Restore an existing session on load; otherwise keep the login overlay up
