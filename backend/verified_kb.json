@@ -29365,7 +29365,7 @@
   },
   "lang_programs": {
     "note": "한국어연수(D-4) 프로그램. 170개 학교 PDF 스캔(2026-09-06). tuition_range=수업료(학기). 대부분 1학기 10주/200시간 표준.",
-    "updated": "2026-09-06",
+    "updated": "2026-09-08 (가톨릭대·이화여대 2027 어학연수 요강 확정 반영; 서강대·연세대는 2027 미확정 유지)",
     "schools": {
       "가천대": {
         "region": "경기도",
@@ -29399,18 +29399,29 @@
       },
       "가톨릭대": {
         "region": "경기도",
-        "tuition_range": null,
-        "tuition_note": "수업료(학기/term) 원본 PDF 기반",
-        "structure": {
-          "per_term": "10주(기본)",
-          "total_hours": "200h(표준 10주)",
-          "per_day": null
+        "tuition_range": {
+          "min": 1500000,
+          "max": 1500000
         },
-        "is_200h_10wk": false,
-        "d4_eligible": false,
-        "dorm": false,
+        "tuition_note": "수강료 1,500,000원/학기 (전형료 80,000원) — 2027 모집요강",
+        "structure": {
+          "per_term": "10주",
+          "total_hours": "200h",
+          "per_day": "4h"
+        },
+        "is_200h_10wk": true,
+        "d4_eligible": true,
+        "dorm": true,
         "period": null,
-        "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\가톨릭대_한국어교육원.pdf"
+        "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\가톨릭대_한국어교육원.pdf",
+        "guide_2027": true,
+        "guide_pdf_2027": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2027_어학연수_모집요강\\가톨릭대_한국어교육원_2027.pdf",
+        "year2027": {
+          "spring_class": "2027.03.08~2027.05.14",
+          "summer_class": "2027.06.07~2027.08.13",
+          "note": "2027 모집요강 PDF 기준 (2026 겨울 접수 후 2027 봄/여름)"
+        },
+        "period_2027": "2027 봄: 접수 2026.12 / 2027 여름: 접수 2027.3~4"
       },
       "강남대": {
         "region": "경기도",
@@ -29465,18 +29476,27 @@
       },
       "건양대": {
         "region": "충청남도",
-        "tuition_range": null,
-        "tuition_note": "수업료(학기/term) 원본 PDF 기반",
+        "tuition_range": {
+          "min": 4400000,
+          "max": 4400000
+        },
+        "tuition_note": "₩4,400,000/1년 (입학금 10만 + 전형료 10만 + 기숙사 91만/15주 + 보험 15만 별도, 총 약 ₩5,660,000)",
         "structure": {
           "per_term": "15주",
-          "total_hours": "200h(표준 10주)",
+          "total_hours": "학위과정 1학기 6개월",
           "per_day": null
         },
         "is_200h_10wk": false,
-        "d4_eligible": false,
+        "d4_eligible": true,
         "dorm": true,
-        "period": null,
-        "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\건양대_한국어교육원.pdf"
+        "period": "2026 4쿼터: 원서접수 2026.9.1~10.10(유웨이 kyuklc.uway.com), 서류 10.21, 등록금 10.21까지, 표준입학허가서 10.30, 지정입국 11.27/12.11, 학기시작 11.30",
+        "guide_url": "https://interedu.konyang.ac.kr/interedu/sub05_03.do",
+        "qualification": "부모 모두 외국인 + 모국 12년 정규교육 이수. 고교 졸업 후 2년 이내(성적 100점만점 70점+) 또는 대학 졸업 후 2년 이내(GPA 4.5만점 3.0+). 결석 5회 이하. 비자심사 무결격.",
+        "documents": "입학신청서, 여권·신분증, 가족관계증명, 학력증명+아포스티유, 부모 재직·수입증명, 은행잔고 USD 5,000+(6개월 동결), 사진 5매",
+        "scholarship": "정착지원금 50만원/1년, TOPIK 2급 보유자 2쿼터 등록금 30%(66만원) 할인",
+        "visa": "D-4 입국, 6개월마다 연장(최장 2년). D-4 외 비자로 변경 시 환불 불가",
+        "note": "2026학년도 4쿼터(겨울) 모집 2026.9.2 공고. 입국 시 결핵·홍역확인서 필수. 3+1, 2+2 제도 운영.",
+        "verified": "2026-09-07"
       },
       "경기대": {
         "region": "경기도",
@@ -31290,17 +31310,38 @@
           "min": 1800000,
           "max": 1850000
         },
-        "tuition_note": "수업료(학기/term) 원본 PDF 기반",
+        "tuition_note": "수강료 학기당 약 180~185만원 — 2027 학사일정",
         "structure": {
-          "per_term": "2주",
-          "total_hours": "200h(표준 10주)",
-          "per_day": null
+          "per_term": "10주",
+          "total_hours": "200h",
+          "per_day": "4h"
         },
-        "is_200h_10wk": false,
+        "is_200h_10wk": true,
         "d4_eligible": true,
         "dorm": true,
         "period": null,
-        "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\이화여자대학교_한국어교육원.pdf"
+        "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\이화여자대학교_한국어교육원.pdf",
+        "guide_2027": true,
+        "guide_pdf_2027": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2027_어학연수_모집요강\\이화여자대학교_한국어교육원_2027.pdf",
+        "year2027": {
+          "spring": {
+            "class": "2027.03.05~05.18",
+            "apply": "2026.12.07~2027.01.26"
+          },
+          "summer": {
+            "class": "2027.06.03~08.12",
+            "apply": "2027.03.08~04.27"
+          },
+          "fall": {
+            "class": "2027.09.02~11.17",
+            "apply": "2027.06.07~07.27"
+          },
+          "winter": {
+            "class": "2027.12.02~2028.02.15",
+            "apply": "2027.09.06~10.26"
+          }
+        },
+        "period_2027": "봄 접수 12.7~1.26 / 여름 3.8~4.27 / 가을 6.7~7.27 / 겨울 9.6~10.26"
       },
       "인덕대학교": {
         "region": "서울특별시",
