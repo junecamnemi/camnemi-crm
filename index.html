@@ -1046,12 +1046,28 @@
     { name: 'Din Lina', commission: '—', policy: 'Partner agency.' }
   ];
   function mergeAgencies(loaded){
-    const base = DEFAULT_AGENCIES.slice();
-    const names = new Set(base.map(a=>a.name));
-    (Array.isArray(loaded)?loaded:[]).forEach(a=>{
-      if(a && a.name && !names.has(a.name)){ base.push(a); names.add(a.name); }
+    // The loaded list (DB + localStorage) is the source of truth. DEFAULT_AGENCIES
+    // only seed the very first run (when nothing is loaded yet); once data exists,
+    // an agency the user deleted must stay deleted and not be re-added from the
+    // hardcoded defaults.
+    const arr = Array.isArray(loaded) ? loaded : [];
+    let base;
+    if (arr.length) {
+      base = arr.slice();
+    } else {
+      base = DEFAULT_AGENCIES.slice();
+    }
+    // always ensure CAMNEMI (in-house default) is present
+    if (!base.some(a => a && a.name === 'CAMNEMI')) {
+      base.unshift({ name:'CAMNEMI', commission:'—', policy:'In-house / direct (no external agency). Default.', note:'' });
+    }
+    // dedupe by exact name
+    const names = new Set();
+    const out = [];
+    base.forEach(a => {
+      if (a && a.name && !names.has(a.name)) { names.add(a.name); out.push(a); }
     });
-    return base;
+    return out;
   }
   function openAgencies() {
     currentSection='other'; updateLogButton();
@@ -1232,9 +1248,16 @@
 
   function deleteAgency(idx) {
     if (!confirm('Delete this agency?')) return;
+    const target = AGENCIES[idx];
+    if (!target) return;
     AGENCIES.splice(idx, 1);
     renderAgencies();
     syncAgencies();
+    saveDatabase();  // persist locally + schedule push (only CAMNEMI guaranteed re-added)
+    // Also remove it from the shared DB so it does not return on reload / other devices.
+    if (typeof useSupabase === 'function' && useSupabase() && target.name && typeof sbDelete === 'function') {
+      try { sbDelete('agencies', 'name=eq.' + encodeURIComponent(target.name)).catch(()=>{}); } catch(e){}
+    }
   }
 
   // AGENCIES is the single reference:
@@ -1344,6 +1367,15 @@
       }).join('');
       adtPills.innerHTML = `<span class="click-filter ${anyActive('appdate')}" data-ftype="appdate" data-fval="" onclick="toggleClickFilter(this)">Any</span>` + pills;
     }
+    // --- Program pills: static HTML (D4/BA/MA/Online). They are NOT re-created
+    // here (they live in the filter markup), so restore active state explicitly
+    // after a pipeline switch cleared every pill's active class. Without this,
+    // the Program "Any" pill loses its highlight and appears deselected. ---
+    document.querySelectorAll('.click-filter[data-ftype="program"]').forEach(p => {
+      const fv = p.dataset.fval || '';
+      p.classList.toggle('active', (fv === '' && (!Array.isArray(filterState.program) || filterState.program.length === 0))
+        || (fv !== '' && Array.isArray(filterState.program) && filterState.program.includes(fv)));
+    });
     // --- Assigned dropdown: All / Unassigned / team members ---
     const asgSel = document.getElementById('filter-assigned');
     if (asgSel) {

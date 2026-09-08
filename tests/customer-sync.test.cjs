@@ -309,3 +309,42 @@ test('signOut clears the prior account cache but keeps shared Supabase settings'
   assert.equal(f.storage.get('camnemi_supabase_url'),'https://zjdvzpylxazfbazioxto.supabase.co','supabase url kept');
   assert.equal(f.storage.get('camnemi_supabase_key'),'fake-anon','supabase key kept');
 });
+test('deleted agency does not resurrect from DEFAULT_AGENCIES on merge', async()=>{
+  // DB (source of truth) no longer contains an agency the user deleted.
+  // mergeAgencies must NOT re-add hardcoded DEFAULT agencies that were removed.
+  const f=fixture([]);
+  f.loadFunction('mergeAgencies');
+  const loaded=[
+    {name:'CAMNEMI',commission:'—'},
+    {name:'Kimsous',commission:'—'},
+    {name:'Global Study',commission:'0.12'}
+  ];
+  const merged=f.context.mergeAgencies(loaded);
+  const names=merged.map(a=>a.name);
+  // CAMNEMI must stay (in-house default), but deleted DEFAULT agencies must NOT return.
+  assert.ok(names.includes('CAMNEMI'),'CAMNEMI always present');
+  assert.ok(!names.includes('COSTA'),'deleted COSTA must not resurrect');
+  assert.ok(!names.includes('Khema'),'deleted Khema must not resurrect');
+  assert.ok(!names.includes('JK'),'deleted JK must not resurrect');
+  assert.ok(!names.includes('Din Lina'),'deleted Din Lina must not resurrect');
+  assert.ok(names.includes('Kimsous'),'existing loaded agency kept');
+  assert.ok(names.includes('Global Study'),'existing loaded agency kept');
+});
+test('deleteAgency sends a server DELETE and persists locally', async()=>{
+  const f=fixture([]);
+  // Seed the in-vm AGENCIES array with two agencies.
+  f.run("AGENCIES=[{name:'CAMNEMI'},{name:'Sunrise Edu'}];");
+  f.context.renderAgencies=()=>{};
+  f.context.syncAgencies=()=>{};
+  f.context.confirm=()=>true;
+  f.context.saveDatabase=()=>{ f.context.__saved=true; };
+  f.context.sbDelete=async (table, q)=>{ f.context.__deleted.push({table,q}); return []; };
+  f.context.__deleted=[];
+  f.loadFunction('deleteAgency');
+  f.context.deleteAgency(1); // delete 'Sunrise Edu'
+  assert.deepEqual(JSON.parse(JSON.stringify(f.run("AGENCIES.map(a=>a.name)"))),['CAMNEMI'],'removed locally');
+  assert.equal(f.context.__deleted.length,1,'issued a DB delete');
+  assert.ok(f.context.__deleted[0].table==='agencies','deletes from agencies table');
+  assert.ok(f.context.__deleted[0].q.includes('Sunrise'),'targets the right agency');
+  assert.ok(f.context.__saved,'persisted');
+});

@@ -53,7 +53,8 @@ function fixture(initial = [], storage = new Map(), session = new Map()) {
   context.window = context;
   vm.runInContext(`let __pushTimer=null; let __pendingPush=false; let __pendingPayload=null;
     const DB_KEY='camnemi_db_v1'; const ACTIVITY_KEY='camnemi_activity_log';
-    let AGENCIES=[],FEES=[],PARTNERS=[],TASKS=[],TRANS=[],RECS=[],WIKI_NOTES=[],WIKI_DOCS=[],WIKI_CATS=[],ACTIVITY_LOG=[],LIST_CUSTOM_COLS=[],HIDDEN_LIST_COLS=[],LIST_COL_ORDER=[];`,context);
+    let AGENCIES=[],FEES=[],PARTNERS=[],TASKS=[],TRANS=[],RECS=[],WIKI_NOTES=[],WIKI_DOCS=[],WIKI_CATS=[],ACTIVITY_LOG=[],LIST_CUSTOM_COLS=[],HIDDEN_LIST_COLS=[],LIST_COL_ORDER=[];
+    const DEFAULT_AGENCIES=[{name:'CAMNEMI'},{name:'COSTA'},{name:'Khema'},{name:'Kimsous'},{name:'Sen Chao'},{name:'JK'},{name:'Din Lina'}];`,context);
   const engine = html.match(/  \/\/ CUSTOMER SYNC OUTBOX START[^]*?  \/\/ CUSTOMER SYNC OUTBOX END/);
   if(engine) vm.runInContext(engine[0],context);
   const names=['sbSelect','sbUpsert','sbDelete','supabaseReadTables','supabaseWriteTables','exportAllData','applyDbToState','restoreCustomers','deleteCustomer','saveNow','saveDatabase','scheduleSyncPush','flushPendingPush'];

@@ -225,6 +225,22 @@ async function main() {
     await reload(page); await page.evaluate(() => autoPullAgencySubmissions()); await settle(page);
     check('agency poll after reload still cannot resurrect customer', await page.locator('.customer-card[data-name="SYNTHETIC BETA"]').count() === 0);
   });
+  await scenario('Program Any filter stays active on boot, pipeline switch and reload', async ({ page, db, check }) => {
+    const programAny = () => page.locator('.click-filter[data-ftype="program"][data-fval=""]').evaluate(el => el.classList.contains('active'));
+    check('Program Any active after boot', await programAny());
+    await openPipe(page, 'korea');
+    check('Program Any active after pipeline switch', await programAny());
+    await reload(page);
+    check('Program Any active after reload', await programAny());
+    // selecting a program value deactivates Any, and clearing re-activates it
+    await page.locator('.click-filter[data-ftype="program"][data-fval="D4"]').click();
+    await settle(page);
+    check('Program D4 active when selected', await page.locator('.click-filter[data-ftype="program"][data-fval="D4"]').evaluate(el => el.classList.contains('active')));
+    check('Program Any inactive when a value is selected', !(await programAny()));
+    await page.locator('.click-filter[data-ftype="program"][data-fval=""]').click();
+    await settle(page);
+    check('Program Any re-activated after clearing', await programAny());
+  });
   const passed = report.scenarios.filter(s => s.pass).length;
   console.log(`SUMMARY ${passed}/${report.scenarios.length} scenarios passed; ${report.scenarios.reduce((n, s) => n + s.checks.filter(c => !c.pass).length, 0)} failed checks; source SHA256 ${sha256}`);
   if (process.env.CRM_UI_REPORT) { fs.writeFileSync(process.env.CRM_UI_REPORT, JSON.stringify(report, null, 2)); console.log('REPORT ' + process.env.CRM_UI_REPORT); }
