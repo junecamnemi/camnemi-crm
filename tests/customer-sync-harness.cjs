@@ -66,9 +66,11 @@ function fixture(initial = [], storage = new Map(), session = new Map()) {
   return {context,calls,warnings,timers,events,storage,session,setCards,
     loadFunction:name=>vm.runInContext(sourceFunction(name),context),
     setOverlay:value=>{overlay=value;},
-    bootSetup() {
+    bootSetup(authReturn = true) {
+      let authed = authReturn;
       for(const name of ['loadActivityLog','loadActivityFromDb','normalizeAgencyData','loadWiki','syncWikiCount','syncAgencies','syncFees','initPartners','syncPartners','seedTasks','syncTasks','seedRecs','syncRecommendation','syncProfit','syncUniv','syncGksCount','syncMarketingCount','syncKoreaLifeCount','renderPipeline','reorderAllByRecent','rebuildFilterBar','onHashChange','routeFromHash','loadDataFile','autoPullAgencySubmissions']) context[name]=()=>{};
-      Object.assign(context,{initAuth:()=>true,loadDatabase:()=>false,location:{hash:'',search:''},innerWidth:1200,addEventListener:(name,fn)=>events.set(name,fn),MutationObserver:class {observe(){}},ROUTES:{}});
+      Object.assign(context,{initAuth:()=>authed,loadDatabase:()=>false,location:{hash:'',search:''},innerWidth:1200,addEventListener:(name,fn)=>events.set(name,fn),MutationObserver:class {observe(){}},ROUTES:{}});
+      context.__setAuthed=v=>{authed=v;};
       vm.runInContext(sourceFunction('bootApp'),context);
     },
     cards:()=>cards, remote:()=>clone(remote), setRemote:rows=>{remote=clone(rows);},

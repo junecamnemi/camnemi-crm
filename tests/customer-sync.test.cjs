@@ -276,6 +276,21 @@ test('moving one card PATCHes only that ID and leaves untouched customers and an
   assert.deepEqual(writes[0].body,{stage:'visa'});
   assert.ok(writes[0].url.includes('id=eq.fixture-a'));
 });
+test('login after booting unauthenticated re-boots the app instead of blank screen', async()=>{
+  // Boot once while NOT authenticated: bootApp must stop at the auth gate but
+  // must NOT permanently mark the app as booted.
+  const f=fixture([]);
+  f.bootSetup(false); // initAuth() -> false (login required)
+  assert.equal(f.context.renderPipeline.calls||0,0,'bootApp stopped before rendering when logged out');
+  // Simulate successful login: auth now passes, then hideLogin() re-invokes bootApp.
+  f.context.__setAuthed(true);
+  f.context.authUser={email:'j@camnemi.com',name:'J',hd:'camnemi.com'};
+  f.context.renderPipeline=()=>{ f.context.renderPipeline.calls=(f.context.renderPipeline.calls||0)+1; };
+  f.context.updateAuthBadge=()=>{};
+  f.loadFunction('hideLogin');
+  f.context.hideLogin();
+  assert.ok((f.context.renderPipeline.calls||0)>0,'hideLogin must re-boot the app after login (no blank screen)');
+});
 test('signOut clears the prior account cache but keeps shared Supabase settings', async()=>{
   const f=fixture([a]);
   await f.context.syncPull();

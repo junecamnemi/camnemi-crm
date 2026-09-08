@@ -7244,9 +7244,10 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     const o=document.getElementById('login-overlay'); if(o){ o.style.display='none'; }
     if (authUser) localStorage.setItem('camnemi_user', authUser.name||authUser.email);
     updateAuthBadge();
-    // Boot the app now that we are authenticated
+    // Boot the app now that we are authenticated. Do NOT set __bootStarted here:
+    // bootApp sets it itself, so a login after an unauthenticated boot still
+    // runs the full boot instead of returning early (which caused a blank screen).
     if (typeof bootApp === 'function' && !window.__bootStarted) {
-      window.__bootStarted = true;
       bootApp();
     }
   }
@@ -7504,6 +7505,10 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       if (!tryRender()) {
         setTimeout(function(){ if(!tryRender()) setTimeout(tryRender, 500); }, 300);
       }
+      // Not authenticated: stop booting but do NOT permanently mark the app as
+      // started. Otherwise hideLogin() (after the user signs in) sees
+      // __bootStarted already true and never re-invokes bootApp -> blank screen.
+      window.__bootStarted = false;
       return;  // stop boot until signed in
       }
     }
