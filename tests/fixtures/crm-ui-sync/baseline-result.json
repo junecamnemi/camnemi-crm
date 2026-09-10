@@ -1,0 +1,2074 @@
+{
+  "source": "git HEAD:index.html",
+  "sha256": "34f1be27bc09f7cd102e192fd06cfd3732a4a72426527c61308d110675977147",
+  "fixture": "local backend defaults + removed DNS hints; real localhost auth/boot/UI/sync",
+  "scenarios": [
+    {
+      "name": "Process rich modal stage Save -> list -> cloud -> reload",
+      "checks": [
+        {
+          "label": "card moved to VISA",
+          "pass": true
+        },
+        {
+          "label": "list reflects VISA",
+          "pass": true
+        },
+        {
+          "label": "fake cloud stage persisted",
+          "pass": false
+        },
+        {
+          "label": "stage survives reload/pull",
+          "pass": true
+        },
+        {
+          "label": "list stage survives reload",
+          "pass": true
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)"
+      ],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "student_folder_index",
+          "method": "GET",
+          "query": "?select=name,folder_id",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "POST",
+          "query": "?on_conflict=id",
+          "body": [
+            {
+              "id": "fixture_process",
+              "pipe": "new",
+              "stage": "visa",
+              "name": "SYNTHETIC ALPHA",
+              "recent": "1788872971317"
+            }
+          ]
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": false
+    },
+    {
+      "name": "Archived Delete button -> list absence -> cloud deletion -> reload",
+      "checks": [
+        {
+          "label": "deleted row gone immediately from list",
+          "pass": true
+        },
+        {
+          "label": "fake cloud row actually deleted",
+          "pass": false
+        },
+        {
+          "label": "DELETE customers request was sent",
+          "pass": false
+        },
+        {
+          "label": "deleted row does not resurrect after reload",
+          "pass": false
+        },
+        {
+          "label": "unrelated customer retained",
+          "pass": true
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)"
+      ],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": false
+    },
+    {
+      "name": "Cloud deletion absent on pull in second preloaded tab",
+      "checks": [
+        {
+          "label": "second tab started with customer",
+          "pass": true
+        },
+        {
+          "label": "pull removes remotely deleted card",
+          "pass": false
+        },
+        {
+          "label": "already-open list updates without toggling",
+          "pass": false
+        },
+        {
+          "label": "stale second tab does not reinsert cloud deletion",
+          "pass": true
+        },
+        {
+          "label": "first stale tab reload does not resurrect deletion",
+          "pass": false
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async <anonymous>:337:30",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)"
+      ],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": false
+    },
+    {
+      "name": "Batch Hide preserves DB row but excludes kanban/list after refresh",
+      "checks": [
+        {
+          "label": "hidden customer not visible in kanban",
+          "pass": true
+        },
+        {
+          "label": "hidden customer excluded from list",
+          "pass": true
+        },
+        {
+          "label": "hide persisted, not DELETE",
+          "pass": false
+        },
+        {
+          "label": "hidden customer remains nonvisible after reload",
+          "pass": false
+        },
+        {
+          "label": "hidden customer excluded from reloaded list",
+          "pass": false
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)"
+      ],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": false
+    },
+    {
+      "name": "Archive customer via modal explicitly persists and reloads",
+      "checks": [
+        {
+          "label": "archive persisted to fake DB",
+          "pass": false
+        },
+        {
+          "label": "archive survives reload",
+          "pass": false
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)"
+      ],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": false
+    },
+    {
+      "name": "Batch archive moves persist through reload",
+      "checks": [
+        {
+          "label": "batch archive persisted to fake DB",
+          "pass": false
+        },
+        {
+          "label": "batch archive survives reload",
+          "pass": false
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)"
+      ],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": false
+    },
+    {
+      "name": "Agency submission already in Korea must not reimport into Process",
+      "checks": [
+        {
+          "label": "single card across all pipelines",
+          "pass": false
+        },
+        {
+          "label": "Korea customer not recreated in Process",
+          "pass": false
+        },
+        {
+          "label": "fake cloud retains Korea pipeline",
+          "pass": true
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)"
+      ],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agency_submissions",
+          "method": "GET",
+          "query": "?select=id,name,contact,agency,program,note,time&order=created_at.asc&limit=500",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": false
+    },
+    {
+      "name": "Deleted customer is not recreated from retained agency submission",
+      "checks": [
+        {
+          "label": "agency poll does not resurrect deleted customer",
+          "pass": false
+        },
+        {
+          "label": "fake cloud customer stays deleted",
+          "pass": false
+        },
+        {
+          "label": "agency poll after reload still cannot resurrect customer",
+          "pass": false
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)\n    at async http://127.0.0.1:62062/:7576:9",
+        "Backend push failed ReferenceError: remoteCust is not defined\n    at syncPush (http://127.0.0.1:62062/:5843:9)"
+      ],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agency_submissions",
+          "method": "GET",
+          "query": "?select=id,name,contact,agency,program,note,time&order=created_at.asc&limit=500",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agency_submissions",
+          "method": "GET",
+          "query": "?select=id,name,contact,agency,program,note,time&order=created_at.asc&limit=500",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "POST",
+          "query": "",
+          "body": [
+            {
+              "time": "2026-09-08T13:10:07.029Z",
+              "user_name": "BETA TEST",
+              "student": "SYNTHETIC BETA",
+              "action": "Delete student (permanent)",
+              "section": "student",
+              "extra": {
+                "stage": "archived"
+              }
+            }
+          ]
+        },
+        {
+          "table": "customers",
+          "method": "POST",
+          "query": "?on_conflict=id",
+          "body": [
+            {
+              "id": "fixture_archive",
+              "pipe": "new",
+              "stage": "registration",
+              "name": "SYNTHETIC BETA",
+              "recent": "1788873008640"
+            }
+          ]
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agency_submissions",
+          "method": "GET",
+          "query": "?select=id,name,contact,agency,program,note,time&order=created_at.asc&limit=500",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": false
+    }
+  ]
+}

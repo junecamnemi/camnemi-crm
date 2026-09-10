@@ -1,0 +1,1748 @@
+{
+  "source": "working index.html",
+  "sha256": "8e705429be34ecc9dcd19d452be6f0805241c1ab9fa5903903468fa505e19d34",
+  "fixture": "local backend defaults + removed DNS hints; real localhost auth/boot/UI/sync",
+  "scenarios": [
+    {
+      "name": "Process rich modal stage Save -> list -> cloud -> reload",
+      "checks": [
+        {
+          "label": "card moved to VISA",
+          "pass": true
+        },
+        {
+          "label": "list reflects VISA",
+          "pass": true
+        },
+        {
+          "label": "fake cloud stage persisted",
+          "pass": true
+        },
+        {
+          "label": "stage survives reload/pull",
+          "pass": true
+        },
+        {
+          "label": "list stage survives reload",
+          "pass": true
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "student_folder_index",
+          "method": "GET",
+          "query": "?select=name,folder_id",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "PATCH",
+          "query": "?id=eq.fixture_process",
+          "body": {
+            "stage": "visa",
+            "recent": "1788873087847",
+            "passport": "{\"name\":\"\",\"num\":\"\",\"dob\":\"\",\"exp\":\"\",\"sex\":\"\"}"
+          }
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": true
+    },
+    {
+      "name": "Archived Delete button -> list absence -> cloud deletion -> reload",
+      "checks": [
+        {
+          "label": "deleted row gone immediately from list",
+          "pass": true
+        },
+        {
+          "label": "fake cloud row actually deleted",
+          "pass": true
+        },
+        {
+          "label": "DELETE customers request was sent",
+          "pass": true
+        },
+        {
+          "label": "deleted row does not resurrect after reload",
+          "pass": true
+        },
+        {
+          "label": "unrelated customer retained",
+          "pass": true
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "DELETE",
+          "query": "?id=eq.fixture_archive",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?id=eq.fixture_archive&select=id",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": true
+    },
+    {
+      "name": "Cloud deletion absent on pull in second preloaded tab",
+      "checks": [
+        {
+          "label": "second tab started with customer",
+          "pass": true
+        },
+        {
+          "label": "pull removes remotely deleted card",
+          "pass": true
+        },
+        {
+          "label": "already-open list updates without toggling",
+          "pass": false
+        },
+        {
+          "label": "stale second tab does not reinsert cloud deletion",
+          "pass": true
+        },
+        {
+          "label": "first stale tab reload does not resurrect deletion",
+          "pass": true
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": false
+    },
+    {
+      "name": "Batch Hide preserves DB row but excludes kanban/list after refresh",
+      "checks": [
+        {
+          "label": "hidden customer not visible in kanban",
+          "pass": true
+        },
+        {
+          "label": "hidden customer excluded from list",
+          "pass": true
+        },
+        {
+          "label": "hide persisted, not DELETE",
+          "pass": true
+        },
+        {
+          "label": "hidden customer remains nonvisible after reload",
+          "pass": true
+        },
+        {
+          "label": "hidden customer excluded from reloaded list",
+          "pass": true
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "PATCH",
+          "query": "?id=eq.fixture_process",
+          "body": {
+            "hidden": "true"
+          }
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": true
+    },
+    {
+      "name": "Archive customer via modal explicitly persists and reloads",
+      "checks": [
+        {
+          "label": "archive persisted to fake DB",
+          "pass": true
+        },
+        {
+          "label": "archive survives reload",
+          "pass": true
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "PATCH",
+          "query": "?id=eq.fixture_consult",
+          "body": {
+            "stage": "archived"
+          }
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": true
+    },
+    {
+      "name": "Batch archive moves persist through reload",
+      "checks": [
+        {
+          "label": "batch archive persisted to fake DB",
+          "pass": true
+        },
+        {
+          "label": "batch archive survives reload",
+          "pass": true
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "PATCH",
+          "query": "?id=eq.fixture_process",
+          "body": {
+            "stage": "archived"
+          }
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": true
+    },
+    {
+      "name": "Agency submission already in Korea must not reimport into Process",
+      "checks": [
+        {
+          "label": "single card across all pipelines",
+          "pass": false
+        },
+        {
+          "label": "Korea customer not recreated in Process",
+          "pass": false
+        },
+        {
+          "label": "fake cloud retains Korea pipeline",
+          "pass": true
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agency_submissions",
+          "method": "GET",
+          "query": "?select=id,name,contact,agency,program,note,time&order=created_at.asc&limit=500",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "PATCH",
+          "query": "?id=eq.fixture_korea",
+          "body": {
+            "pipe": "korea",
+            "stage": "stay",
+            "age": "21",
+            "agency": "",
+            "school": "SYNTHETIC UNIVERSITY",
+            "appdate": "",
+            "recent": "1000"
+          }
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "PATCH",
+          "query": "?id=eq.fixture_korea",
+          "body": {
+            "pipe": "korea",
+            "stage": "stay",
+            "age": "21",
+            "agency": "",
+            "school": "SYNTHETIC UNIVERSITY",
+            "appdate": "",
+            "recent": "1000"
+          }
+        }
+      ],
+      "blocked": [],
+      "pass": false
+    },
+    {
+      "name": "Deleted customer is not recreated from retained agency submission",
+      "checks": [
+        {
+          "label": "agency poll does not resurrect deleted customer",
+          "pass": false
+        },
+        {
+          "label": "fake cloud customer stays deleted",
+          "pass": true
+        },
+        {
+          "label": "agency poll after reload still cannot resurrect customer",
+          "pass": false
+        },
+        {
+          "label": "no uncaught page JavaScript errors",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "requests": [
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "DELETE",
+          "query": "?id=eq.fixture_archive",
+          "body": null
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?id=eq.fixture_archive&select=id",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        },
+        {
+          "table": "agency_submissions",
+          "method": "GET",
+          "query": "?select=id,name,contact,agency,program,note,time&order=created_at.asc&limit=500",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "POST",
+          "query": "",
+          "body": [
+            {
+              "time": "2026-09-08T13:12:03.519Z",
+              "user_name": "BETA TEST",
+              "student": "SYNTHETIC BETA",
+              "action": "Delete student (permanent)",
+              "section": "student",
+              "extra": {
+                "stage": "archived"
+              }
+            }
+          ]
+        },
+        {
+          "table": "customers",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agencies",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "fees",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "partners",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "tasks",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "transactions",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "recs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_notes",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_docs",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "wiki_cats",
+          "method": "GET",
+          "query": "?select=*&order=sort.asc",
+          "body": null
+        },
+        {
+          "table": "app_settings",
+          "method": "GET",
+          "query": "?select=*",
+          "body": null
+        },
+        {
+          "table": "universities",
+          "method": "GET",
+          "query": "?select=*&limit=500",
+          "body": null
+        },
+        {
+          "table": "university_guides",
+          "method": "GET",
+          "query": "?select=*&limit=2000",
+          "body": null
+        },
+        {
+          "table": "agency_submissions",
+          "method": "GET",
+          "query": "?select=id,name,contact,agency,program,note,time&order=created_at.asc&limit=500",
+          "body": null
+        },
+        {
+          "table": "activity_log",
+          "method": "GET",
+          "query": "?select=id,time,user_name,student,action,section&order=id.desc&limit=3000",
+          "body": null
+        }
+      ],
+      "blocked": [],
+      "pass": false
+    }
+  ]
+}
