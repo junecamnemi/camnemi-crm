@@ -1,0 +1,44 @@
+[
+  {
+    "school": "강릉영동대학교",
+    "found": true,
+    "file_or_url": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_전문대학_모집요강\\real\\강릉영동대학교_전문학사_모집요강_실제.pdf",
+    "note": "공식 입학사이트(www.gyu.ac.kr/ipsi) '모집요강 다운로드' 링크로 수집한 2027학년도 수시모집 모집요강 PDF(683KB, 텍스트 추출 가능). 모집학과/인원에 외국인(6,7호) 정원외 전형 포함. 별도 순수외국인 전용 요강은 없고 일반 모집요강 내 외국인 전형으로 운영."
+  },
+  {
+    "school": "경기과학기술대학교",
+    "found": true,
+    "file_or_url": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_전문대학_모집요강\\real\\경기과학기술대학교_전문학사_모집요강_실제.pdf",
+    "note": "공식 PDF '2026학년도 후기 정원외(외국인)전형 신입학 모집요강'(244KB, 17p). 출처: https://www.gtec.ac.kr/ajaxfile/CmnFileCpnt/fileView.do?gbn=p01&SITE_NO=26&MENU_NO=500&CONTENTS_NO=1&TYPE_CODE=C0601 (사이트 TLS 이슈로 curl 불가 → Python urllib로 수집)."
+  },
+  {
+    "school": "경민대학교",
+    "found": true,
+    "file_or_url": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_전문대학_모집요강\\real\\경민대학교_전문학사_모집요강_실제.pdf",
+    "note": "공식 입학홈페이지(iphak.kyungmin.ac.kr, Vue SPA)의 API(https://iphak.kyungmin.ac.kr:8081/v1/guest/main-category)에서 수집한 외국인 카테고리 '2026 9월학기 모집요강.pdf'(1.7MB, 6p 스캔본). 직접 다운로드 URL: https://iphak.kyungmin.ac.kr:8081/assets/main/457e86275670bfabb5d00eb0c3211a09.pdf"
+  },
+  {
+    "school": "경북과학대학교",
+    "found": true,
+    "file_or_url": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_전문대학_모집요강\\real\\경북과학대학교_전문학사_모집요강_실제.pdf",
+    "note": "국제교류처 공지 첨부 '외국인 모집요강.pdf' = '2023학년도 9월학기 경북과학대학교 순수외국인 모집 요강'(130KB, 3p, 텍스트 추출 가능). 출처 게시글: http://www.kbsc.ac.kr/korean/HOME/iie/sub/sub.htm?nav_code=iie1591175690 . 가장 최신 외국인 전용 요강이 2023년 자료임."
+  },
+  {
+    "school": "광주보건대학교",
+    "found": true,
+    "file_or_url": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_전문대학_모집요강\\real\\광주보건대학교_전문학사_모집요강_실제.pdf",
+    "note": "공식 입학사이트 자료실 '외국인 전형 지원자격 및 제출서류.pdf'(513KB, 1p 스캔/이미지본, 텍스트 없음). 출처: https://ipsi.ghu.ac.kr/DataRoom/1/read/99568 . 외국인·재외국인 전형은 서류 100% 반영. 스캔본이라 이미지 OCR 필요."
+  },
+  {
+    "school": "광양보건대학교",
+    "found": false,
+    "file_or_url": "",
+    "note": "학교법인 파산으로 폐교 확정(전남 광양). 공식 도메인(gy.ac.kr 등) 응답 없음(timeout) → 공식 입학사이트/외국인 모집요강 수집 불가. (재적생들은 한국사학진흥재단 주관 특별편입으로 타 전문대에 수용)"
+  },
+  {
+    "school": "군산간호대학교",
+    "found": false,
+    "file_or_url": "https://ipsi.kcn.ac.kr/",
+    "note": "공식 입학사이트(ipsi.kcn.ac.kr)에 외국인/재외국민 전형 메뉴 없음 — 수시·정시 일반전형(간호학과 단일, 4년제)만 운영. 2025.12 '외국인 유학생 유치 지원사업 홈페이지 개발' 입찰이 있었으나 현재 공개된 외국인 모집요강은 확인되지 않음."
+  }
+]

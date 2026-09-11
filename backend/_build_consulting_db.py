@@ -90,6 +90,8 @@ for n, v in lang.items():
         "dorm": v.get("dorm"),
         "period": v.get("period"),
         "guide_pdf": v.get("guide_pdf"),
+        "topik": v.get("topik_req"),
+        "ielts": v.get("ielts_req"),
     }
 
 # build result with meta

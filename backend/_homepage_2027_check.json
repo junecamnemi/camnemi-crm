@@ -1,5 +1,5 @@
 {
- "date": "2026-09-11",
+ "date": "2026-09-12",
  "ba": [
   {
    "school": "강원대학교",
@@ -636,10 +636,15 @@
    "school": "충북대학교",
    "status_prev": "2026_or_older",
    "url": "https://ipsi.chungbuk.ac.kr/kor.do",
-   "reachable": false,
+   "reachable": true,
    "has_2027": false,
-   "keywords": [],
-   "probe": "error:ConnectionError",
+   "keywords": [
+    "모집요강",
+    "2027",
+    "재외국민",
+    "전형"
+   ],
+   "probe": "http:200",
    "adiga_2027": false
   },
   {
@@ -774,13 +779,10 @@
    "school": "가톨릭관동대학교",
    "status_prev": "not_found",
    "url": "https://www.cku.ac.kr/bbs/cku/414/92249/artclView.do",
-   "reachable": true,
+   "reachable": false,
    "has_2027": false,
-   "keywords": [
-    "외국인",
-    "전형"
-   ],
-   "probe": "http:200",
+   "keywords": [],
+   "probe": "error:ReadTimeout",
    "adiga_2027": false
   },
   {
@@ -956,21 +958,6 @@
    "keywords": [],
    "probe": "http:200",
    "adiga_2027": false
-  },
-  {
-   "school": "계명대학교",
-   "status_prev": "2026_or_older",
-   "url": "https://gs.kmu.ac.kr/gs/8393/subview.do",
-   "reachable": true,
-   "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "2027",
-    "외국인",
-    "전형"
-   ],
-   "probe": "http:200",
-   "adiga_2027": true
   },
   {
    "school": "광신대학교",
@@ -1710,18 +1697,6 @@
    "adiga_2027": false
   },
   {
-   "school": "서울장신대학교",
-   "status_prev": "2026_or_older",
-   "url": "https://www.sjs.ac.kr/admission/w_05ed/5000.php",
-   "reachable": true,
-   "has_2027": false,
-   "keywords": [
-    "2027"
-   ],
-   "probe": "http:200",
-   "adiga_2027": true
-  },
-  {
    "school": "서울한영대학교",
    "status_prev": "2026_or_older",
    "url": "https://grad.shyu.ac.kr/fro_end/html/dep_03/3200.php",
@@ -1903,7 +1878,11 @@
    "url": "https://www.silla.ac.kr/ko/index.php?pCode",
    "reachable": true,
    "has_2027": false,
-   "keywords": [],
+   "keywords": [
+    "모집요강",
+    "2027",
+    "전형"
+   ],
    "probe": "http:200",
    "adiga_2027": false
   },
@@ -2210,7 +2189,7 @@
    "reachable": false,
    "has_2027": false,
    "keywords": [],
-   "probe": "error:SSLError",
+   "probe": "error:ConnectionError",
    "adiga_2027": false
   },
   {
@@ -2371,10 +2350,14 @@
    "school": "충북대학교",
    "status_prev": "2026_or_older",
    "url": "https://ipsi.chungbuk.ac.kr/gra.do",
-   "reachable": false,
+   "reachable": true,
    "has_2027": false,
-   "keywords": [],
-   "probe": "error:ConnectionError",
+   "keywords": [
+    "모집요강",
+    "2027",
+    "전형"
+   ],
+   "probe": "http:200",
    "adiga_2027": false
   },
   {
@@ -2485,20 +2468,6 @@
    ],
    "probe": "http:200",
    "adiga_2027": false
-  },
-  {
-   "school": "한동대학교",
-   "status_prev": "unknown_year",
-   "url": "https://www.handong.edu/kor/admission/gradschool/special_06/",
-   "reachable": true,
-   "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "2027",
-    "전형"
-   ],
-   "probe": "http:200",
-   "adiga_2027": true
   },
   {
    "school": "한림대학교",
@@ -2648,9 +2617,5 @@
   }
  ],
  "new_ba": [],
- "new_ma": [
-  "계명대학교",
-  "서울장신대학교",
-  "한동대학교"
- ]
+ "new_ma": []
 }
