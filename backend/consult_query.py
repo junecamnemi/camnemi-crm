@@ -76,8 +76,50 @@ def main():
     ap.add_argument("--major", type=str)
     ap.add_argument("--max_tuition", type=int, help="max tuition KRW/semester")
     ap.add_argument("--top", type=int, default=15)
+    ap.add_argument("--verdict", action="store_true", help="annotate each school with eligibility verdict/reason")
     args = ap.parse_args()
     lv = LEVEL_MAP[args.level]
+
+    # smart index for verdicts
+    smart = {}
+    if args.verdict:
+        try:
+            smart = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "kb_smart.json"), encoding="utf-8"))["schools"]
+        except Exception:
+            smart = {}
+
+    def verdict_for(name):
+        lvlmap = {"ba": "BA", "ma": "MA", "junior": "jun", "lang": "lang"}
+        k = lvlmap[args.level]
+        # match school key (fuzzy)
+        rec = None
+        if name in smart:
+            rec = smart[name].get(k)
+        else:
+            nm = name.replace("대학교", "").replace("대학", "")
+            for sk, sv in smart.items():
+                skk = sk.replace("대학교", "").replace("대학", "")
+                if nm == skk or (len(nm) >= 3 and (nm in skk or skk in nm)):
+                    rec = sv.get(k); break
+        if not rec:
+            return None
+        if k == "lang":
+            d4 = rec.get("d4_eligible")
+            return ("✅ D-4 가능" if d4 else ("⚠️ D-4 미확인" if d4 is None else "❌ D-4 불가"))
+        e = rec.get("eligibility", {})
+        if args.ielts and e.get("ielts", {}).get("min") and args.ielts >= e["ielts"]["min"]:
+            v = f"✅ IELTS {args.ielts} 충족 (≥{e['ielts']['min']})"
+        elif args.topik and e.get("topik", {}).get("min") and args.topik >= e["topik"]["min"]:
+            v = f"✅ TOPIK {args.topik}급 충족 (≥{e['topik']['min']})"
+        else:
+            alts = []
+            if e.get("selftest"): alts.append("자체시험")
+            if e.get("lang_school"): alts.append("어학원수료")
+            if e.get("kiip") is not None: alts.append("KIIP")
+            if e.get("sejong"): alts.append("세종학당")
+            v = "⚠️ 조건부: " + ("/".join(alts) if alts else "요건 상이")
+        if e.get("ambiguous"): v += " (트랙별 상이)"
+        return v
 
     results=[]
     for name, s in schools.items():
@@ -122,6 +164,9 @@ def main():
         pop = prog.get("popular_majors") or []
         poptxt = ", ".join(pop[:4]) if pop else ""
         print(f"{i}. {en_name(name)} ({s.get('region','')})")
+        if args.verdict:
+            vv = verdict_for(name)
+            if vv: print(f"   ★ {vv}")
         print(f"   TOPIK: {topik} | IELTS: {ielts} | Tuition: {tu}/sem")
         if per != "-": print(f"   Apply: {per}")
         if poptxt: print(f"   인기/유사과: {poptxt}")
