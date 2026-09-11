@@ -1,83 +1,101 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Guide auto-analyzer — NEW 2027 guide PDFs are analyzed the moment they appear.
+"""Guide auto-analyzer (full router) — every COLLECTED guide PDF is analyzed and
+merged into the CORRECT verified_kb.json section (BA / MA / junior / lang).
 
-How it works:
-  1. Scans the adiga 2027 외국인 PDF folder for *.pdf files.
-  2. Compares against a processed-manifest (_processed_guides.json: filename -> hash).
-  3. For each NEW/CHANGED file, extracts from the PDF text:
-       - 모집기간/원서접수 (application period)
-       - IELTS/TOPIK/TOEFL language requirements
-       - major/department names (모집단위)
-       - tuition (등록금) when present
-       - scholarship keywords
-     using pymupdf text extraction + regex.
-  4. Updates verified_kb.json (period/lang_req/majors for the matched school)
-     and appends an entry to _guide_analysis_log.json (audit trail).
-  5. Prints a compact diff so the cron report can list "newly analyzed today".
+Pipeline:
+  1. Scan every guide folder (adiga 외국인, own_site, 2027/2026 대학원, 2026 전문대,
+     2027/2026 어학연수) — see FOLDER_MAP.
+  2. Skip files already processed (md5 in _processed_guides.json).
+  3. Extract: 모집기간/원서접수, IELTS/TOPIK/TOEFL, 전공, 등록금 유무, 장학금.
+  4. Route to the correct KB section and apply SECTION-APPROPRIATE fields:
+        BA   (kb['schools'])                    : period, lang_req, ielts_req/topik_req, guide_analyzed
+        MA   (kb['master']['schools'])          : period, lang_req, topik_req/toefl_req, guide_analyzed
+        jun  (kb['junior']['schools'])          : period, lang_req, topik_req/ielts_req, guide_analyzed
+        lang (kb['lang_programs']['schools'])   : period, d4_eligible, guide_pdf
+  5. YEAR-GATING: a 2027 folder is authoritative (may overwrite); a 2026 folder only
+     fills fields that are still missing, so 2027 data is never clobbered by 2026.
+  6. Image-only PDFs (0 extractable text) are flagged, not merged.
+  7. KB is written ONCE at the end (no per-file churn). Audit trail in
+     _guide_analysis_log.json; processed manifest in _processed_guides.json.
 
-Designed to be called by the daily cron (after daily_2027_check.py / manual_2027_check.py)
-so any guide downloaded since yesterday gets analyzed immediately.
+Called by the daily cron after the guide checks.
 """
 import os, re, json, hashlib, datetime
 
-ADIGA_DIR = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
 BASE = r"C:\Users\USER\camnemi-crm\backend"
 KB_PATH = os.path.join(BASE, "verified_kb.json")
 PROC_PATH = os.path.join(BASE, "_processed_guides.json")
 LOG_PATH = os.path.join(BASE, "_guide_analysis_log.json")
 
-# --- extraction helpers ---
+UP = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project"
+
+ADIGA_FOREIGN = f"{UP}/adiga_2027_외국인_모집요강/외국인"
+
+# folder -> (section, authoritative_year)  section ∈ {BA, MA, jun, lang}
+FOLDER_MAP = {
+    ADIGA_FOREIGN:                                       ("BA",   2027),
+    f"{UP}/adiga_2027_외국인_모집요강/own_site":         ("BA",   2027),
+    f"{UP}/adiga_2027_대학원_모집요강":                  ("MA",   2027),
+    f"{UP}/adiga_2026_대학원_모집요강":                  ("MA",   2026),
+    f"{UP}/adiga_2026_전문대학_모집요강":                ("jun",  2026),
+    f"{UP}/adiga_2027_전문대학_모집요강":                ("jun",  2027),
+    f"{UP}/adiga_2027_어학연수_모집요강":                ("lang", 2027),
+    f"{UP}/adiga_2026_어학연수_모집요강":                ("lang", 2026),
+}
+
+SECTION_CONTAINER = {
+    "BA":   lambda kb: kb["schools"],
+    "MA":   lambda kb: kb["master"]["schools"],
+    "jun":  lambda kb: kb["junior"]["schools"],
+    "lang": lambda kb: kb["lang_programs"]["schools"],
+}
+
+
+# ---------- extraction helpers ----------
 def extract_period(text):
-    """Find 모집기간/원서접수 dates like 2026.09.01~2026.10.07 or 2026.9.1~10.7."""
     pats = [
-        r"(?:원서접수|접수기간|모집기간)[^\n]{0,40}?((?:202[56]|202[67])[.\-년]\s*\d{1,2}[.\-월]\s*\d{1,2}[.\-일]?\s*[~～\-]\s*(?:202[67])?[.\-년]?\s*\d{1,2}[.\-월]\s*\d{1,2}[.\-일]?)",
-        r"((?:202[56]|202[67])[.\-년]\s*\d{1,2}[.\-월]\s*\d{1,2}[.\-일]?\s*[~～\-]\s*(?:202[67])?[.\-년]?\s*\d{1,2}[.\-월]\s*\d{1,2}[.\-일]?)",
+        r"(?:원서접수|접수기간|모집기간)[^\n]{0,40}?((?:202[5-7])[.\-년]\s*\d{1,2}[.\-월]\s*\d{1,2}[.\-일]?\s*[~～\-]\s*(?:202[5-7])?[.\-년]?\s*\d{1,2}[.\-월]\s*\d{1,2}[.\-일]?)",
+        r"((?:202[5-7])[.\-년]\s*\d{1,2}[.\-월]\s*\d{1,2}[.\-일]?\s*[~～\-]\s*(?:202[5-7])?[.\-년]?\s*\d{1,2}[.\-월]\s*\d{1,2}[.\-일]?)",
     ]
     for p in pats:
         m = re.search(p, text)
         if m:
-            return re.sub(r"\s+", "", m.group(1) if m.lastindex else m.group(1))
+            return re.sub(r"\s+", "", m.group(1))
     return None
 
 def extract_ielts(text):
-    m = re.search(r"IELTS\s*(\d+\.?\d*)", text)
-    return m.group(1) if m else None
+    m = re.search(r"IELTS\s*(\d+\.?\d*)", text); return m.group(1) if m else None
 
 def extract_topik(text):
-    m = re.search(r"TOPIK\s*(\d+)\s*급", text)
-    return m.group(1) if m else None
+    m = re.search(r"TOPIK[^\d]{0,6}(\d)\s*급", text); return m.group(1) if m else None
 
 def extract_toefl(text):
-    m = re.search(r"TOEFL\s*(?:iBT)?\s*(\d{2,3})", text)
-    return m.group(1) if m else None
+    m = re.search(r"TOEFL\s*(?:iBT)?\s*(\d{2,3})", text); return m.group(1) if m else None
 
 def extract_majors(text):
-    """Best-effort: lines containing 학과/학부/전공 in the 모집단위 area."""
     hits = []
     for m in re.finditer(r"([가-힣A-Za-z·&()]{2,30}(?:학과|학부|전공))", text):
         s = m.group(1)
         if s not in hits and len(s) >= 4:
             hits.append(s)
-        if len(hits) >= 8:
+        if len(hits) >= 12:
             break
     return hits
 
 def extract_scholarship(text):
     kws = []
-    for m in re.finditer(r"([가-힣A-Za-z]{2,20}장학금)", text):
+    for m in re.finditer(r"([가-힣A-Za-z]{2,20}장학금?)", text):
         if m.group(1) not in kws:
             kws.append(m.group(1))
-        if len(kws) >= 5:
+        if len(kws) >= 6:
             break
     return kws
 
-
 def analyze_pdf(path):
-    """Extract key facts from a guide PDF -> dict."""
     import pymupdf
     doc = pymupdf.open(path)
-    full = "\n".join(p.get_text() for p in doc)
+    full = "\n".join(doc[i].get_text() for i in range(len(doc)))
     doc.close()
     return {
         "period": extract_period(full),
@@ -86,117 +104,174 @@ def analyze_pdf(path):
         "toefl": extract_toefl(full),
         "majors": extract_majors(full),
         "scholarships": extract_scholarship(full),
-        "has_tuition": bool(re.search(r"(등록금|수업료)", full)),
-        "pages": len(full),
+        "has_tuition": bool(re.search(r"(등록금|수업료|tuition)", full, re.I)),
+        "text_len": len(full.strip()),
     }
 
 
 def school_name_from_filename(fn):
-    # adiga naming: 0000138_세종대학교[본교]_2027_외국인.pdf  → parts[1]
-    # own-site naming: 동의대학교_BA_2027.pdf / 경희대학교_MA_2027.pdf → parts[0]
-    parts = fn.split("_")
-    if len(parts) > 2 and re.match(r"^\d", parts[0]):
-        name = parts[1]
-    elif len(parts) >= 2 and parts[-1].startswith("20") and re.match(r"^[A-Za-z]+\d", parts[-1]) is None and fn.endswith(".pdf"):
-        # "{School}_{BA|MA}_2027.pdf" → first part
-        name = parts[0]
-    else:
-        name = parts[1] if len(parts) > 2 else fn
-    return re.sub(r"\[.*?\]", "", name).strip()
+    """Extract school name across all folder namings."""
+    name = fn[:-4] if fn.lower().endswith(".pdf") else fn
+    name = re.sub(r"^\d+[_\-]", "", name)             # strip 0000138_
+    parts = name.split("_")
+    # own-site / MA naming: {School}_{BA|MA}_{year}
+    first = parts[0]
+    first = re.sub(r"\[.*?\]", "", first).strip()      # strip [본교]
+    return first
 
 
-# Folders scanned: adiga 외국인 + own-site (BA) + 2027 대학원 (MA)
-EXTRA_DIRS = [
-    r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/own_site",
-    r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_대학원_모집요강",
-]
-SCAN_DIRS = [ADIGA_DIR] + EXTRA_DIRS
+def norm(s):
+    return re.sub(r"\[.*?\]", "", str(s)).replace("대학교", "").replace("대학", "").replace(" ", "").strip()
+
+
+def find_key(container, school):
+    """Fuzzy-match a school name to a KB key in the given section container."""
+    if school in container:
+        return school
+    ns = norm(school)
+    if not ns:
+        return None
+    for k in container:
+        nk = norm(k)
+        if nk == ns or (len(ns) >= 3 and (ns in nk or nk in ns)):
+            return k
+    return None
+
+
+def apply_update(entry_obj, section, facts, year, today):
+    """Write section-appropriate fields. Returns True if changed."""
+    changed = False
+    authoritative = (year >= 2027)
+
+    if section == "lang":
+        if facts["period"] and (authoritative or not entry_obj.get("period")):
+            entry_obj["period"] = facts["period"]; changed = True
+        if entry_obj.get("d4_eligible") is None:
+            entry_obj["d4_eligible"] = True; changed = True
+        return changed
+
+    if section == "BA":
+        if facts["period"] and (authoritative or not entry_obj.get("period")):
+            entry_obj["period"] = facts["period"]; changed = True
+        if facts["ielts"] and (authoritative or entry_obj.get("ielts_req") in (None, "", "null")):
+            entry_obj["ielts_req"] = float(facts["ielts"]) if re.match(r"^\d", str(facts["ielts"])) else facts["ielts"]
+            changed = True
+        if facts["topik"] and (authoritative or not entry_obj.get("topik_req")):
+            entry_obj["topik_req"] = int(facts["topik"]); changed = True
+        lr = str(entry_obj.get("lang_req") or "")
+        if facts["ielts"] and f"IELTS {facts['ielts']}" not in lr and authoritative:
+            entry_obj["lang_req"] = (f"IELTS {facts['ielts']} / " + lr) if lr else f"IELTS {facts['ielts']}"
+            changed = True
+        if authoritative:
+            entry_obj["guide_analyzed"] = today; changed = True
+        return changed
+
+    if section == "MA":
+        if facts["period"] and (authoritative or not entry_obj.get("period")):
+            entry_obj["period"] = facts["period"]; changed = True
+        if facts["topik"] and (authoritative or not entry_obj.get("topik_req")):
+            entry_obj["topik_req"] = int(facts["topik"]); changed = True
+        if facts["toefl"] and (authoritative or not entry_obj.get("toefl_req")):
+            entry_obj["toefl_req"] = facts["toefl"]; changed = True
+        lr = str(entry_obj.get("lang_req") or "")
+        if facts["ielts"] and f"IELTS {facts['ielts']}" not in lr and authoritative:
+            entry_obj["lang_req"] = (f"IELTS {facts['ielts']} / " + lr) if lr else f"IELTS {facts['ielts']}"
+            changed = True
+        if authoritative:
+            entry_obj["guide_analyzed"] = today; changed = True
+        return changed
+
+    if section == "jun":
+        if facts["period"] and (authoritative or not entry_obj.get("period")):
+            entry_obj["period"] = facts["period"]; changed = True
+        if facts["topik"] and (authoritative or not entry_obj.get("topik_req")):
+            entry_obj["topik_req"] = int(facts["topik"]); changed = True
+        if facts["ielts"] and (authoritative or not entry_obj.get("ielts_req")):
+            entry_obj["ielts_req"] = facts["ielts"]; changed = True
+        if authoritative:
+            entry_obj["guide_analyzed"] = today; changed = True
+        return changed
+    return changed
 
 
 def main():
     today = datetime.date.today().isoformat()
     proc = {}
     if os.path.exists(PROC_PATH):
-        try:
-            with open(PROC_PATH, encoding="utf-8") as f:
-                proc = json.load(f)
-        except Exception:
-            proc = {}
+        try: proc = json.load(open(PROC_PATH, encoding="utf-8"))
+        except Exception: proc = {}
     log = []
     if os.path.exists(LOG_PATH):
-        try:
-            with open(LOG_PATH, encoding="utf-8") as f:
-                log = json.load(f)
-        except Exception:
-            log = []
+        try: log = json.load(open(LOG_PATH, encoding="utf-8"))
+        except Exception: log = []
 
-    if not os.path.isdir(ADIGA_DIR):
-        print("[guide-analyze] adiga dir missing:", ADIGA_DIR)
-        return
+    kb = json.load(open(KB_PATH, encoding="utf-8")) if os.path.exists(KB_PATH) else {}
 
-    new_entries = []
-    for scan_dir in SCAN_DIRS:
-        if not os.path.isdir(scan_dir):
+    new_entries, image_only, no_match = [], [], []
+    kb_changed = False
+
+    for folder, (section, year) in FOLDER_MAP.items():
+        if not os.path.isdir(folder):
             continue
-        for fn in sorted(os.listdir(scan_dir)):
-            if not fn.endswith(".pdf"):
+        container = SECTION_CONTAINER[section](kb)
+        for fn in sorted(os.listdir(folder)):
+            if not fn.lower().endswith(".pdf"):
                 continue
-            path = os.path.join(scan_dir, fn)
+            path = os.path.join(folder, fn)
             try:
                 h = hashlib.md5(open(path, "rb").read()).hexdigest()
             except Exception:
                 continue
-            proc_key = f"{os.path.basename(scan_dir)}/{fn}" if scan_dir != ADIGA_DIR else fn
+            proc_key = fn if folder == ADIGA_FOREIGN else f"{os.path.basename(folder)}/{fn}"
             if proc.get(proc_key) == h:
-                continue  # already processed
+                continue
             school = school_name_from_filename(fn)
             try:
                 facts = analyze_pdf(path)
             except Exception as e:
                 print(f"[guide-analyze] FAIL {fn}: {e}")
                 continue
-            entry = {
-                "date": today, "file": fn, "school": school,
-                "period": facts["period"], "ielts": facts["ielts"],
-                "topik": facts["topik"], "toefl": facts["toefl"],
-                "majors_sample": facts["majors"][:6],
-                "scholarships": facts["scholarships"],
-                "has_tuition": facts["has_tuition"],
-            }
+            proc[proc_key] = h
+
+            if facts["text_len"] < 30:
+                image_only.append(f"{section}:{fn}")
+                log.append({"date": today, "file": fn, "school": school, "section": section,
+                            "year": year, "image_only": True})
+                print(f"[guide-analyze] IMAGE-ONLY {school} ({section}) — flagged, not merged")
+                continue
+
+            key = find_key(container, school)
+            if not key:
+                no_match.append(f"{section}:{school}")
+                log.append({"date": today, "file": fn, "school": school, "section": section,
+                            "year": year, "matched": False})
+                print(f"[guide-analyze] NO-MATCH {school} ({section}) — not in KB section")
+                continue
+
+            entry = {"date": today, "file": fn, "school": school, "section": section,
+                     "year": year, "kb_key": key,
+                     "period": facts["period"], "ielts": facts["ielts"],
+                     "topik": facts["topik"], "toefl": facts["toefl"],
+                     "majors_sample": facts["majors"][:6],
+                     "scholarships": facts["scholarships"], "has_tuition": facts["has_tuition"]}
+            if apply_update(container[key], section, facts, year, today):
+                kb_changed = True
             log.append(entry)
             new_entries.append(entry)
-            proc[proc_key] = h
-            print(f"[guide-analyze] NEW {school}: period={facts['period']} IELTS={facts['ielts']} TOPIK={facts['topik']} majors={len(facts['majors'])}")
+            print(f"[guide-analyze] NEW {school} [{section} {year}]: period={facts['period']} "
+                  f"IELTS={facts['ielts']} TOPIK={facts['topik']} majors={len(facts['majors'])}")
 
-            # --- update verified_kb.json if the school matches ---
-            if os.path.exists(KB_PATH):
-                with open(KB_PATH, encoding="utf-8") as f:
-                    kb = json.load(f)
-                changed = False
-                for sec in ["schools"]:
-                    for name, s in kb.get(sec, {}).items():
-                        base = name.replace("(ERICA)", "").strip()
-                        if school == base or (school in base and len(school) >= 4) or (base in school and len(base) >= 4):
-                            if facts["period"]:
-                                s["period"] = facts["period"]
-                            if facts["ielts"] and "IELTS" not in str(s.get("lang_req", "")):
-                                s["lang_req"] = f"IELTS {facts['ielts']} / " + str(s.get("lang_req", "TOPIK 기반"))
-                            s["guide_analyzed"] = today
-                            changed = True
-                            break
-                if changed:
-                    with open(KB_PATH, "w", encoding="utf-8") as f:
-                        json.dump(kb, f, ensure_ascii=False, indent=2)
-                    print(f"[guide-analyze] → KB updated for {school}")
+    if kb_changed:
+        json.dump(kb, open(KB_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+        print(f"[guide-analyze] KB written ({sum(1 for e in new_entries)} guides applied)")
 
-    with open(PROC_PATH, "w", encoding="utf-8") as f:
-        json.dump(proc, f, ensure_ascii=False, indent=1)
-    with open(LOG_PATH, "w", encoding="utf-8") as f:
-        json.dump(log, f, ensure_ascii=False, indent=1)
+    json.dump(proc, open(PROC_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(log, open(LOG_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
-    print(f"[guide-analyze] done: {len(new_entries)} new guide(s) analyzed today; total processed {len(proc)}")
+    print(f"[guide-analyze] done: {len(new_entries)} new guide(s) merged; "
+          f"{len(image_only)} image-only; {len(no_match)} unmatched; total processed {len(proc)}")
     for e in new_entries:
-        print(f"  ★ {e['school']}: period={e['period']} IELTS={e['ielts']} TOPIK={e['topik']} majors={e['majors_sample'][:3]}")
+        print(f"  ★ [{e['section']}] {e['school']}: period={e['period']} IELTS={e['ielts']} TOPIK={e['topik']}")
 
 
 if __name__ == "__main__":
