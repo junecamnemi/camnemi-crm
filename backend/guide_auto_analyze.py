@@ -92,9 +92,25 @@ def analyze_pdf(path):
 
 
 def school_name_from_filename(fn):
+    # adiga naming: 0000138_세종대학교[본교]_2027_외국인.pdf  → parts[1]
+    # own-site naming: 동의대학교_BA_2027.pdf / 경희대학교_MA_2027.pdf → parts[0]
     parts = fn.split("_")
-    name = parts[1] if len(parts) > 2 else fn
+    if len(parts) > 2 and re.match(r"^\d", parts[0]):
+        name = parts[1]
+    elif len(parts) >= 2 and parts[-1].startswith("20") and re.match(r"^[A-Za-z]+\d", parts[-1]) is None and fn.endswith(".pdf"):
+        # "{School}_{BA|MA}_2027.pdf" → first part
+        name = parts[0]
+    else:
+        name = parts[1] if len(parts) > 2 else fn
     return re.sub(r"\[.*?\]", "", name).strip()
+
+
+# Folders scanned: adiga 외국인 + own-site (BA) + 2027 대학원 (MA)
+EXTRA_DIRS = [
+    r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/own_site",
+    r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_대학원_모집요강",
+]
+SCAN_DIRS = [ADIGA_DIR] + EXTRA_DIRS
 
 
 def main():
@@ -119,55 +135,59 @@ def main():
         return
 
     new_entries = []
-    for fn in sorted(os.listdir(ADIGA_DIR)):
-        if not fn.endswith(".pdf"):
+    for scan_dir in SCAN_DIRS:
+        if not os.path.isdir(scan_dir):
             continue
-        path = os.path.join(ADIGA_DIR, fn)
-        try:
-            h = hashlib.md5(open(path, "rb").read()).hexdigest()
-        except Exception:
-            continue
-        if proc.get(fn) == h:
-            continue  # already processed
-        school = school_name_from_filename(fn)
-        try:
-            facts = analyze_pdf(path)
-        except Exception as e:
-            print(f"[guide-analyze] FAIL {fn}: {e}")
-            continue
-        entry = {
-            "date": today, "file": fn, "school": school,
-            "period": facts["period"], "ielts": facts["ielts"],
-            "topik": facts["topik"], "toefl": facts["toefl"],
-            "majors_sample": facts["majors"][:6],
-            "scholarships": facts["scholarships"],
-            "has_tuition": facts["has_tuition"],
-        }
-        log.append(entry)
-        new_entries.append(entry)
-        proc[fn] = h
-        print(f"[guide-analyze] NEW {school}: period={facts['period']} IELTS={facts['ielts']} TOPIK={facts['topik']} majors={len(facts['majors'])}")
+        for fn in sorted(os.listdir(scan_dir)):
+            if not fn.endswith(".pdf"):
+                continue
+            path = os.path.join(scan_dir, fn)
+            try:
+                h = hashlib.md5(open(path, "rb").read()).hexdigest()
+            except Exception:
+                continue
+            proc_key = f"{os.path.basename(scan_dir)}/{fn}" if scan_dir != ADIGA_DIR else fn
+            if proc.get(proc_key) == h:
+                continue  # already processed
+            school = school_name_from_filename(fn)
+            try:
+                facts = analyze_pdf(path)
+            except Exception as e:
+                print(f"[guide-analyze] FAIL {fn}: {e}")
+                continue
+            entry = {
+                "date": today, "file": fn, "school": school,
+                "period": facts["period"], "ielts": facts["ielts"],
+                "topik": facts["topik"], "toefl": facts["toefl"],
+                "majors_sample": facts["majors"][:6],
+                "scholarships": facts["scholarships"],
+                "has_tuition": facts["has_tuition"],
+            }
+            log.append(entry)
+            new_entries.append(entry)
+            proc[proc_key] = h
+            print(f"[guide-analyze] NEW {school}: period={facts['period']} IELTS={facts['ielts']} TOPIK={facts['topik']} majors={len(facts['majors'])}")
 
-        # --- update verified_kb.json if the school matches ---
-        if os.path.exists(KB_PATH):
-            with open(KB_PATH, encoding="utf-8") as f:
-                kb = json.load(f)
-            changed = False
-            for sec in ["schools"]:
-                for name, s in kb.get(sec, {}).items():
-                    base = name.replace("(ERICA)", "").strip()
-                    if school == base or (school in base and len(school) >= 4) or (base in school and len(base) >= 4):
-                        if facts["period"]:
-                            s["period"] = facts["period"]
-                        if facts["ielts"] and "IELTS" not in str(s.get("lang_req", "")):
-                            s["lang_req"] = f"IELTS {facts['ielts']} / " + str(s.get("lang_req", "TOPIK 기반"))
-                        s["guide_analyzed"] = today
-                        changed = True
-                        break
-            if changed:
-                with open(KB_PATH, "w", encoding="utf-8") as f:
-                    json.dump(kb, f, ensure_ascii=False, indent=2)
-                print(f"[guide-analyze] → KB updated for {school}")
+            # --- update verified_kb.json if the school matches ---
+            if os.path.exists(KB_PATH):
+                with open(KB_PATH, encoding="utf-8") as f:
+                    kb = json.load(f)
+                changed = False
+                for sec in ["schools"]:
+                    for name, s in kb.get(sec, {}).items():
+                        base = name.replace("(ERICA)", "").strip()
+                        if school == base or (school in base and len(school) >= 4) or (base in school and len(base) >= 4):
+                            if facts["period"]:
+                                s["period"] = facts["period"]
+                            if facts["ielts"] and "IELTS" not in str(s.get("lang_req", "")):
+                                s["lang_req"] = f"IELTS {facts['ielts']} / " + str(s.get("lang_req", "TOPIK 기반"))
+                            s["guide_analyzed"] = today
+                            changed = True
+                            break
+                if changed:
+                    with open(KB_PATH, "w", encoding="utf-8") as f:
+                        json.dump(kb, f, ensure_ascii=False, indent=2)
+                    print(f"[guide-analyze] → KB updated for {school}")
 
     with open(PROC_PATH, "w", encoding="utf-8") as f:
         json.dump(proc, f, ensure_ascii=False, indent=1)
