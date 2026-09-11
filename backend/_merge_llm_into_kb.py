@@ -102,6 +102,8 @@ def main():
                 v.setdefault("_llm_parsed", {})["majors_full"] = "LLM(pro)"
         for f, kbk in (("period", "period"), ("topik", "topik_req"), ("ielts", "ielts_req"), ("toefl", "toefl_req")):
             val = r.get(f)
+            if sec == "lang" and f != "period":
+                continue  # 어학연수는 TOPIK/IELTS/TOEFL 입학요건 아님
             if val not in (None, "", "unknown") and not v.get(kbk):
                 v[kbk] = val; stats["period_filled" if f == "period" else "lang_filled"] += 1
                 v.setdefault("_llm_parsed", {})[kbk] = "LLM(pro)"

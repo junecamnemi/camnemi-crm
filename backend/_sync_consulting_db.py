@@ -56,11 +56,12 @@ def main():
             if not prog.get("period") and v.get("period"):
                 prog["period"] = v["period"]; stats[lvl]["period"] += 1
                 prog.setdefault("_kb_sync", {})["period"] = "verified_kb"
-            # topik / ielts (fill-only, keep types)
-            for f, kf in (("topik", "topik_req"), ("ielts", "ielts_req")):
-                if not prog.get(f) and v.get(kf):
-                    prog[f] = v[kf]; stats[lvl]["lang"] += 1
-                    prog.setdefault("_kb_sync", {})[f] = "verified_kb"
+            # topik / ielts (fill-only) — 어학연수는 입학요건 아님
+            if lvl != "어학연수":
+                for f, kf in (("topik", "topik_req"), ("ielts", "ielts_req")):
+                    if not prog.get(f) and v.get(kf):
+                        prog[f] = v[kf]; stats[lvl]["lang"] += 1
+                        prog.setdefault("_kb_sync", {})[f] = "verified_kb"
 
     print("=== consulting_db 동기화 (fill-only) ===")
     for lvl, s in stats.items():
