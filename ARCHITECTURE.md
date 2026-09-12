@@ -63,6 +63,15 @@
 
 **운영 원칙**: 평소 **T1 90% · T2 10% · T3 1% 미만**. T3는 "T1과 T2 결과가 충돌"할 때만.
 
+### ⚠️ 모델 호출 규약 (실측 2026-09-12)
+| 발견 | 내용 | 대응 |
+|---|---|---|
+| **reasoning 모델** | deepseek-v4 flash/pro **둘 다** 추론 토큰을 먼저 소모 | `max_tokens` **≥ 24,000** (작게 잡으면 `finish=length`, content 없음) |
+| 응답 필드 | 추론 텍스트는 `message.reasoning` (≠ `reasoning_content`) | `content or reasoning or reasoning_content` 순서로 취득 |
+| 증상 | `finish_reason=length` + `content=""` | = 토큰 부족. **재시도 시 상향** |
+| 저가 티어 재고 | reasoning 모델은 "싼 모델"이 아닐 수 있음(추론 토큰 과금) | **비추론 모델**(`glm-5.3-flash`, `gemini-3.7-flash`, `qwen3.8-flash`) A/B 티어 대안 검토 |
+| 토큰 만료 | Nous 토큰 **1시간** | 장시간 배치는 `shared/nous_auth.json`에서 **매 호출 재취득** + 401 재시도 |
+
 ---
 
 ## 4. 신뢰도 점수 & 자동 승격 (escalation)

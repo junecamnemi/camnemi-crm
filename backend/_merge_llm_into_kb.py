@@ -16,6 +16,7 @@ BASE = r"C:\Users\USER\camnemi-crm\backend"
 KB = os.path.join(BASE, "verified_kb.json")
 J1 = os.path.join(BASE, "guides_llm_parsed.jsonl")
 J2 = os.path.join(BASE, "guides_llm_parsed_ocr.jsonl")
+J3 = os.path.join(BASE, "guides_llm_parsed_real.jsonl")   # newly-collected REAL guides
 TRUST = os.path.join(BASE, "_llmparse_trust.json")
 UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
 
@@ -56,6 +57,7 @@ def main():
         if p and tlen(p) >= 1000:
             r["_trusted"] = True; recs.append(r)
     recs += load(J2)
+    recs += load(J3)   # REAL guides (already tier-routed + OCR'd at parse time)
     print(f"병합 대상: {len(recs)} (trusted {sum(1 for r in recs if r.get('_trusted'))} + OCR {sum(1 for r in recs if not r.get('_trusted'))})")
 
     stats = {"matched": 0, "unmatched": 0, "majors_added": 0, "period_filled": 0, "lang_filled": 0}
