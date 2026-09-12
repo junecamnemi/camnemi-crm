@@ -74,11 +74,28 @@ def main():
     ap.add_argument("--ielts", type=float)
     ap.add_argument("--topik", type=int)
     ap.add_argument("--major", type=str)
+    ap.add_argument("--program", type=str, choices=["free","intl_stem","intl","convergence","broad"],
+                    help="free=자유전공/자율전공, intl_stem=국제이공/글로벌IT, intl=국제/글로벌학부, convergence=융합학부, broad=광역")
     ap.add_argument("--max_tuition", type=int, help="max tuition KRW/semester")
     ap.add_argument("--top", type=int, default=15)
     ap.add_argument("--verdict", action="store_true", help="annotate each school with eligibility verdict/reason")
     args = ap.parse_args()
     lv = LEVEL_MAP[args.level]
+
+    # free_major/program index from verified_kb
+    def _cat(p):
+        return {"free": "free_major", "intl_stem": "intl_stem", "intl": "intl",
+                "convergence": "convergence", "broad": "broad"}[p]
+    program_index = {}
+    try:
+        _kb = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "verified_kb.json"), encoding="utf-8"))
+        for _n, _v in _kb.get("free_major_programs", {}).get("schools", {}).items():
+            for _u in _v.get("units", []):
+                for _c in _u.get("category", []):
+                    program_index.setdefault(_c, set()).add(_n)
+        # also index short-name variants for matching
+    except Exception:
+        program_index = {}
 
     # smart index for verdicts
     smart = {}
@@ -136,6 +153,16 @@ def main():
             piel = parse_ielts(prog.get("ielts"))
             if piel and args.ielts < piel: continue
         if args.major and not matches_major(prog, args.major): continue
+        if args.program:
+            _want = _cat(args.program)
+            _nn = name.replace("대학교","").replace("대학","").replace(" ","")
+            _ok = name in program_index.get(_want, set())
+            if not _ok:
+                for _cand in program_index.get(_want, set()):
+                    _cn = _cand.replace("대학교","").replace("대학","").replace(" ","")
+                    if _nn == _cn or (len(_cn)>=3 and (_cn in _nn or _nn in _cn)):
+                        _ok = True; break
+            if not _ok: continue
         # tuition
         if args.max_tuition:
             t = prog.get("tuition")
