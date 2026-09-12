@@ -1,0 +1,85 @@
+{
+  "batch": "_pharm_batch3.json",
+  "task": "Verify whether Korean PHARMACY colleges at these schools recruit foreign students via official 외국인 모집요강 (foreigner special admission).",
+  "method": "Scanned official adiga 외국인 모집요강 PDFs (pymupdf full-text) + verified_kb.json + official school admission pages. Verified each school's 모집단위 (recruitment-unit) table for 약학과/약학대학.",
+  "verified_date": "2026-09-12",
+  "headline": "NONE of the 5 schools recruit foreign students into a licensed pharmacy program (약학과/약학대학). In every official 외국인 모집요강 the pharmacy unit is either absent from the 모집단위 table or, where a 2026/2027 guide was held, the school has no pharmacy college at all. Pharmacy in Korea is domestic 수시/정시/편입 only, or TOPIK-only where offered.",
+  "results": [
+    {
+      "school": "국립한국교통대학교",
+      "en_name": "Korea National University of Transportation",
+      "pharmacy_college_exists": false,
+      "recruits_foreign_pharmacy": "NO",
+      "reason": "No pharmacy college/department exists. 2027 and 2026 외국인 모집요강 모집단위 tables contain no 약학과. Closest pharma-adjacent unit is 제약바이오전공 (pharma-bio engineering) under 나노메디컬공학부 (첨단학과) — an engineering major, NOT a pharmacist-license program.",
+      "language_req": "TOPIK 3급 이상 (철도경영·물류학과, 철도AI·데이터공학부 등은 TOPIK 4급 이상); no IELTS/English track for TOPIK-track units",
+      "quota": "모집인원 제한없음 (정원외) for the listed units",
+      "deadline": "2027.1.4(월) 09:00 ~ 1.7(목) (원서접수 및 전형료 납부, 방문/우편접수); 서류 ~1.11, 합격발표 2027.2.5",
+      "guide_year_verified": "2027 (+2026)",
+      "official_source": "2027학년도 재외국민과 외국인 특별전형 신입생 모집요강 — https://www.ut.ac.kr/cop/bbs/BBSMSTR_000000000661/selectBoardArticle.do?nttId=1122317",
+      "local_pdf": "adiga_2027_외국인_모집요강/외국인/0000034_국립한국교통대학교[본교]_2027_외국인.pdf",
+      "notes": "Confidence HIGH — scanned both 2027 and 2026 guides; 약학 = 0 occurrences."
+    },
+    {
+      "school": "동국대학교",
+      "en_name": "Dongguk University",
+      "pharmacy_college_exists": true,
+      "recruits_foreign_pharmacy": "NO",
+      "reason": "약학대학(pharmacy college) exists (pharm.dongguk.edu) but is NOT listed in the 외국인 특별전형 모집단위 table of the 2026 guide (약학 appears 0 times; only 생명과학 계열 majors offered). Pharmacy admission runs through domestic 입학처 수시/정시 and 편입학 only — not the foreigner special admission.",
+      "language_req": "외국인 특별전형: TOPIK(IBT) 3급 이상 또는 세종학당 중급1B / 동국대 한국어교육원 4학기+3급 / 타대 한국어교육원 4학기+4급 / 동국대 한국어 레벨테스트 3단계. No English-track/IELTS option.",
+      "quota": "Per 모집단위; pharmacy unit not listed (no quota)",
+      "deadline": "2026학년도 1학기 1차: 원서접수 2025.9.23~10.13, 서류 ~10.15, 합격발표 11.18. (2027 guide published, period expected Sep–Oct)",
+      "guide_year_verified": "2026 (full guide); 2027 published",
+      "official_source": "동국대 외국인 입학 https://ipsi.dongguk.edu/ ; 약학대학 https://pharm.dongguk.edu/ ; 2027 재외국민과 외국인 특별전형 모집요강 (ipsi.dongguk.ac.kr notice)",
+      "local_pdf": "adiga_2026_외국인_모집요강/외국인/0000100_동국대학교[본교]_2026_외국인.pdf"
+    },
+    {
+      "school": "동덕여자대학교",
+      "en_name": "Dongduk Women's University",
+      "pharmacy_college_exists": true,
+      "recruits_foreign_pharmacy": "NO",
+      "reason": "2026 외국인 모집요강 모집단위 table lists 인문/사회/자연정보과학(식품영양·보건관리·응용화학·화장품)/예술/디자인 등 — no 약학과/약학대학 unit (약학 = 0 occurrences). Pharmacy not open to foreigner special admission. NOTE: women-only university.",
+      "language_req": "TOPIK 3급 이상 (예체능계열 2급 인정) 또는 국내외 한국어교육기관 3급 수료 / 국내 전문대 졸업·4년제 2년 수료 / 동덕 인정 한국어시험 통과 중 1개 이상; 졸업 전 TOPIK 4급 필수",
+      "quota": "Not applicable (pharmacy unit absent)",
+      "deadline": "전기1차 2025.9.29~10.24 / 전기2차 2025.11.26~12.4; 후기1차 2026.3.30~4.17 / 후기2차 2026.5.27~6.11 (전형료 150,000원)",
+      "guide_year_verified": "2026 (full guide); 2027 재외국민과 외국인 모집요강 published",
+      "official_source": "동덕여대 국제교류협력실 외국인 입학 http://intl2.dongduk.ac.kr/page/page23",
+      "local_pdf": "adiga_2026_외국인_모집요강/외국인/0000102_동덕여자대학교[본교]_2026_외국인.pdf"
+    },
+    {
+      "school": "부산대학교",
+      "en_name": "Pusan National University",
+      "pharmacy_college_exists": true,
+      "recruits_foreign_pharmacy": "NO",
+      "reason": "2026 전기 학부 외국인 특별전형 모집요강 모집단위 table lists 자연과학/공과/간호/생활과학/생명자원과학/정보의생명공학/예술/학부대학 units only — no 약학대학/약학과 (약학 = 0 occurrences). Guide states '기재되지 않은 학과는 모집인원 없음' (unlisted units have no quota), so pharmacy is not recruited from foreigners.",
+      "language_req": "Dept-tiered TOPIK: 3급(자연과학·전기공학·건축·도시·사회기반·항공우주·아동가족·식품영양·생명자원·예술) / 4급(인문·사회 및 대부분 공과) / 5급(언어정보·경영·간호 등). 국제학부만 영어: IELTS 5.5 / TOEFL iBT 80 / NewTEPS 327 (pharmacy not in English track).",
+      "quota": "Not applicable (pharmacy unit absent)",
+      "deadline": "2026학년도 전기 신·편입학: 원서접수 2025.10.1 9:00~10.24 18:00, 서류 ~10.31, 면접 12.2, 합격발표 12.19",
+      "guide_year_verified": "2026 (full guide); 2027 재외국민 특별전형 guide published",
+      "official_source": "부산대 국제처 https://go.pusan.ac.kr ; https://international.pusan.ac.kr",
+      "local_pdf": "adiga_2026_외국인_모집요강/외국인/0000014_부산대학교[본교]_2026_외국인.pdf"
+    },
+    {
+      "school": "삼육대학교",
+      "en_name": "Sahmyook University",
+      "pharmacy_college_exists": true,
+      "recruits_foreign_pharmacy": "NO",
+      "reason": "2026학년도 순수외국인 신·편입학 모집요강 모집단위 tables (한국어트랙 & 영어트랙) list 신학과, 간호학과, 영어영문학과, 인공지능융합학부, 화학생명과학과, 동물자원과학과, 물리치료학과, 식품영양학과 등 — no 약학과. 약학과 appears only once in the guide, as an entry in the department PHONE-NUMBER table (p.20, 02-3399-1616), NOT as a recruitment unit.",
+      "language_req": "한국어트랙 TOPIK 2~5급 (계열/학과별); 영어트랙 IELTS/영어 (글로벌문화예술융합학부, 경영학과, 글로벌한국학과, 인공지능융합학부) — pharmacy not in either track",
+      "quota": "Not applicable (pharmacy unit absent)",
+      "deadline": "2026학년도 3월 입학 순수외국인: 1차 원서 2025.9.30~10.14 / 2차 2025.11.11~11.25 / 3차 2026.1.6~1.14 (진학어플라이 온라인)",
+      "guide_year_verified": "2026 (full guide)",
+      "official_source": "삼육대 입학처 외국인 http://ipsi.syu.ac.kr (2026 순수외국인 모집요강)",
+      "local_pdf": "adiga_2026_외국인_모집요강/외국인/0000116_삼육대학교[본교]_2026_외국인.pdf"
+    }
+  ],
+  "summary_counts": {
+    "total": 5,
+    "recruits_foreign_pharmacy_yes": 0,
+    "recruits_foreign_pharmacy_no": 5
+  },
+  "caveats": [
+    "동덕여대·부산대·삼육대·동국대 verified on their 2026 외국인 모집요강 (2027 guides published but not locally held for full 모집단위 re-scan; 2027 not expected to add pharmacy since pharmacy is domestic/TOPIK-only).",
+    "All 5 schools' foreigner guides are TOPIK-based (no licensed-pharmacy English track). Per pharmacy-requirements.md, licensed pharmacy is TOPIK-only industry-wide.",
+    "For a student with IELTS only, route to pharmacy-adjacent majors (제약바이오/제약공학/바이오의약) or a TOPIK track."
+  ]
+}

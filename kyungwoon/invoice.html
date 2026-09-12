@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Invoice — Kyungwoon University International Center Operation</title>
+<style>
+  @page { size: A4; margin: 13mm 15mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Helvetica Neue", Arial, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    color: #111418; font-size: 11px; line-height: 1.55; background: #fff;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .sheet { max-width: 180mm; margin: 0 auto; }
+
+  /* header */
+  .hd { display: flex; align-items: flex-start; justify-content: space-between; padding-bottom: 16px; border-bottom: 1.5px solid #111418; }
+  .brand { font-size: 19px; font-weight: 700; letter-spacing: .04em; }
+  .brand small { display: block; font-size: 9px; font-weight: 500; letter-spacing: .2em; color: #8a8f98; margin-top: 4px; }
+  .hd-right { text-align: right; }
+  .hd-right .doc { font-size: 30px; font-weight: 700; letter-spacing: .2em; }
+  .hd-right .meta { font-size: 10px; color: #5b6068; margin-top: 6px; line-height: 1.8; }
+  .hd-right .meta b { color: #111418; font-weight: 600; }
+
+  /* parties */
+  .parties { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 16px 0 2px; }
+  .pbox .lbl { font-size: 8.5px; font-weight: 700; letter-spacing: .16em; color: #8a8f98; margin-bottom: 7px; }
+  .pbox .nm { font-size: 13px; font-weight: 700; margin-bottom: 5px; }
+  .pbox .ln { font-size: 10.5px; color: #3b4048; line-height: 1.65; }
+  .pbox .ln b { color: #111418; font-weight: 600; }
+
+  /* subject */
+  .subject { margin: 14px 0 10px; padding-bottom: 10px; border-bottom: 1px solid #dfe2e7; }
+  .subject .t { font-size: 12.5px; font-weight: 700; }
+  .subject .d { font-size: 10.5px; color: #5b6068; margin-top: 4px; }
+
+  /* table */
+  table { width: 100%; border-collapse: collapse; }
+  th, td { border-bottom: 1px solid #e6e8ec; padding: 8px 9px; text-align: right; font-variant-numeric: tabular-nums; }
+  thead th { border-top: 1px solid #111418; border-bottom: 1px solid #111418;
+    font-size: 9.5px; font-weight: 700; letter-spacing: .04em; color: #111418; text-align: center; background: none; }
+  th.l, td.l { text-align: left; }
+  tbody td { font-size: 10.5px; color: #2a2e34; }
+  tr.sub td { font-weight: 700; color: #111418; }
+  tr.grand td { border-top: 1px solid #111418; border-bottom: 1.5px solid #111418; font-weight: 700; font-size: 12px; color: #111418; }
+
+  /* conversion */
+  .conv { margin-top: 14px; display: flex; justify-content: flex-end; }
+  .conv table { width: 62%; }
+  .conv td { border: none; padding: 5px 0; }
+  .conv td.k { text-align: left; color: #5b6068; font-size: 10.5px; }
+  .conv td.v { text-align: right; font-weight: 600; }
+  .conv tr.line td { border-top: 1px solid #e6e8ec; }
+  .conv tr.req td { border-top: 1.5px solid #111418; padding-top: 9px; font-size: 13px; font-weight: 700; color: #111418; }
+
+  /* payment */
+  .pay { margin-top: 13px; padding-top: 10px; border-top: 1px solid #dfe2e7; }
+  .pay .lbl { font-size: 8.5px; font-weight: 700; letter-spacing: .16em; color: #8a8f98; margin-bottom: 7px; }
+  .pay .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; font-size: 10.5px; color: #2a2e34; }
+  .pay .grid b { font-weight: 600; color: #111418; }
+
+  /* signature + stamp */
+  .sign { margin-top: 18px; display: flex; justify-content: flex-end; }
+  .sign-box { position: relative; width: 200px; text-align: center; }
+  .stamp { position: absolute; right: -12px; top: -26px; width: 132px; height: auto;
+    opacity: .85; transform: rotate(-6deg); mix-blend-mode: multiply; }
+  .sign-box .co { font-size: 12px; font-weight: 700; }
+  .sign-box .own { font-size: 10.5px; color: #5b6068; margin-top: 3px; }
+  .sigline { margin-top: 26px; border-top: 1px solid #111418; padding-top: 6px; font-size: 9.5px; color: #8a8f98; }
+
+  .foot { margin-top: 14px; border-top: 1px solid #e6e8ec; padding-top: 9px;
+    font-size: 9px; color: #9aa0a8; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- HEADER -->
+  <div class="hd">
+    <div class="brand">CAMNEMI KOREA
+      <small>CO., LTD.</small>
+    </div>
+    <div class="hd-right">
+      <div class="doc">INVOICE</div>
+      <div class="meta">
+        Invoice No. <b>CK-2026-0912</b><br>
+        Invoice Date <b>September 12, 2026</b><br>
+        Period <b>March – August 2026</b>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARTIES -->
+  <div class="parties">
+    <div class="pbox">
+      <div class="lbl">BILL TO</div>
+      <div class="nm">KYUNGWOON UNIVERSITY</div>
+      <div class="ln">International Center (PPIU)<br>Gumi, Gyeongsangbuk-do, Republic of Korea</div>
+    </div>
+    <div class="pbox">
+      <div class="lbl">FROM</div>
+      <div class="nm">CAMNEMI KOREA CO., LTD.</div>
+      <div class="ln">
+        Owner: <b>KYUNGJUNE JO</b><br>
+        Reg. No.: <b>K002-902403977</b><br>
+        Phone: <b>+855-12-890-120</b><br>
+        G1109, Sopheak Mongkul St., Diamond Island, Phnom Penh, Cambodia
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBJECT -->
+  <div class="subject">
+    <div class="t">International Center Operation Services — On-site Staffing, Facility &amp; Marketing</div>
+    <div class="d">Provision of on-site personnel (teacher, assistant), facility rental and marketing support for the operation of the International Center at Kyungwoon University, March to August 2026.</div>
+  </div>
+
+  <!-- DETAIL TABLE -->
+  <table>
+    <thead>
+      <tr>
+        <th class="l" style="width:24%">Category</th>
+        <th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th>
+        <th style="width:14%">Total (USD)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="l">Salary for Teacher</td>
+        <td>$1,000</td><td>$1,000</td><td>$1,000</td><td>$1,000</td><td>$1,000</td><td>$1,000</td>
+        <td><b>$6,000</b></td>
+      </tr>
+      <tr>
+        <td class="l">Salary for Assistant</td>
+        <td>$800</td><td>$800</td><td>$800</td><td>$800</td><td>$800</td><td>$800</td>
+        <td><b>$4,800</b></td>
+      </tr>
+      <tr>
+        <td class="l">Marketing Fee for PPIU</td>
+        <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>$2,700</td>
+        <td><b>$2,700</b></td>
+      </tr>
+      <tr>
+        <td class="l">Rent Fee</td>
+        <td>$880</td><td>$880</td><td>$880</td><td>$880</td><td>$880</td><td>$880</td>
+        <td><b>$5,280</b></td>
+      </tr>
+      <tr class="sub">
+        <td class="l">Monthly Subtotal (USD)</td>
+        <td>$2,680</td><td>$2,680</td><td>$2,680</td><td>$2,680</td><td>$2,680</td><td>$5,380</td>
+        <td>$18,780</td>
+      </tr>
+      <tr class="grand">
+        <td class="l" colspan="7">TOTAL AMOUNT (USD)</td>
+        <td>$18,780</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- CONVERSION -->
+  <div class="conv">
+    <table>
+      <tr><td class="k">Total Amount (USD)</td><td class="v">$18,780</td></tr>
+      <tr class="line"><td class="k">Currency Rate (as of September 11, 2026)</td><td class="v">₩1,344 / $1</td></tr>
+      <tr class="line"><td class="k">Total in KRW</td><td class="v">₩25,240,320</td></tr>
+      <tr class="line"><td class="k">Deduction (rounding)</td><td class="v">− ₩40,320</td></tr>
+      <tr class="req"><td class="k">REQUEST AMOUNT</td><td class="v">₩25,200,000</td></tr>
+    </table>
+  </div>
+
+  <!-- PAYMENT -->
+  <div class="pay">
+    <div class="lbl">PAYMENT DETAILS</div>
+    <div class="grid">
+      <div>Bank: <b>Woori Bank</b></div>
+      <div>Account No.: <b>1002-735-767941</b></div>
+      <div>Account Holder: <b>KYUNGJUNE JO</b></div>
+      <div>Beneficiary: <b>CAMNEMI KOREA CO., LTD.</b></div>
+    </div>
+  </div>
+
+  <!-- SIGNATURE + STAMP -->
+  <div class="sign">
+    <div class="sign-box">
+      <img class="stamp" src="stamp.png" alt="Camnemi Korea Co., Ltd. Seal">
+      <div class="co">CAMNEMI KOREA CO., LTD.</div>
+      <div class="own">KYUNGJUNE JO · Owner</div>
+      <div class="sigline">Authorized Signature</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>CAMNEMI KOREA CO., LTD. · G1109, Sopheak Mongkul St., Diamond Island, Phnom Penh, Cambodia</span>
+    <span>Reg. No. K002-902403977</span>
+  </div>
+
+</div>
+</body>
+</html>
