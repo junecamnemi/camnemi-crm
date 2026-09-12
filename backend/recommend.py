@@ -80,6 +80,9 @@ def fit_score(rec, ielts, topik, major_tags, region):
     """Higher = better fit. rank(낮을수록 좋음) + tuition + region bonus."""
     score = 0.0
     rank = rec.get("rank")
+    if isinstance(rank, str):  # e.g. "#8" → 8
+        m = re.search(r"(\d+)", rank)
+        rank = int(m.group(1)) if m else None
     if isinstance(rank, (int, float)):
         score += max(0, 60 - rank) * 1.5
     else:
@@ -112,10 +115,15 @@ def main():
 
     smart, kb = load()
     lvl = args.level.upper() if args.level != "jun" else "jun"
+    if lvl == "LANG":
+        lvl = "lang"   # kb_smart uses lowercase "lang" key
     rows = []
     for school, lv in smart["schools"].items():
         rec = lv.get(lvl)
         if not rec:
+            continue
+        # exclude visa-restricted / closed / no-foreigner-track schools (KB-level flag)
+        if is_excluded(kb, school, lvl):
             continue
         elig = rec.get("eligibility", {})
         region = rec.get("region")
@@ -161,6 +169,19 @@ def main():
         if tu:
             print(f"   Tuition: {tu}")
 
+
+def is_excluded(kb, school, lvl):
+    """Exclude a school if ANY KB section flags recommend_exclude (visa-restricted/closed/no-foreigner)."""
+    secs = []
+    if "schools" in kb: secs.append(kb["schools"])
+    if "master" in kb: secs.append(kb["master"].get("schools", {}))
+    if "junior" in kb: secs.append(kb["junior"].get("schools", {}))
+    if "lang_programs" in kb: secs.append(kb["lang_programs"].get("schools", {}))
+    for sec in secs:
+        e = sec.get(school)
+        if e and e.get("recommend_exclude"):
+            return True
+    return False
 
 def evaluate_for_level(lvl, elig, ielts, topik, rec):
     """Level-aware verdict. lang level: only D-4 eligibility matters."""
