@@ -1,0 +1,24 @@
+{
+  "note": "Tier→model assignment (ARCHITECTURE §3). Managed by adapt_loop.py. 'last_good' is the rollback target.",
+  "updated": "2026-09-12",
+  "tiers": {
+    "T1": {"model": "deepseek/deepseek-v4-flash-0731", "role": "bulk extraction (tier A/B docs)", "fallback": "google/gemini-3.7-flash"},
+    "T2": {"model": "deepseek/deepseek-v4-pro", "role": "hard extraction (tier C/D, ambiguous)", "fallback": "anthropic/claude-sonnet-5"},
+    "T3": {"model": "anthropic/claude-opus-5", "role": "adjudication + daily inspection", "fallback": "openai/gpt-6-astra-pro"},
+    "V":  {"model": "google/gemini-3.1-pro-preview", "role": "vision OCR fallback", "fallback": null}
+  },
+  "last_good": {
+    "date": "2026-09-12",
+    "T1": "deepseek/deepseek-v4-flash-0731",
+    "T2": "deepseek/deepseek-v4-pro",
+    "T3": "anthropic/claude-opus-5",
+    "golden_pass_rate": 1.0
+  },
+  "guardrails": {
+    "golden_pass_threshold": 0.8,
+    "min_json_success": 0.95,
+    "auto_apply": false,
+    "note": "adapt_loop는 제안만 한다. 적용은 사람 승인(--apply). 통과율이 임계 미만이면 롤백을 제안한다."
+  },
+  "history": []
+}
