@@ -63,8 +63,24 @@ def parse_json(s):
     if s is None:
         return None
     s = re.sub(r"^```(json)?|```$", "", str(s).strip(), flags=re.M).strip()
+    try:
+        return json.loads(s)
+    except Exception:
+        pass
+    # handle concatenated JSON objects / trailing prose: take the first valid object
+    dec = json.JSONDecoder()
+    for m in re.finditer(r"\{", s):
+        try:
+            obj, _ = dec.raw_decode(s[m.start():])
+            if isinstance(obj, dict) and obj.get("school"):
+                return obj
+        except Exception:
+            continue
     m = re.search(r"\{.*\}", s, re.S)
-    return json.loads(m.group(0)) if m else None
+    try:
+        return json.loads(m.group(0)) if m else None
+    except Exception:
+        return None
 
 _OCR = None
 def _get_ocr():
