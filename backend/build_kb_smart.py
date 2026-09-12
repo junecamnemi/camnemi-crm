@@ -230,7 +230,7 @@ def main():
             "guide_pdf": v.get("guide_pdf"),
         }
 
-    json.dump(out, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(out, open(OUT, "w", encoding="utf-8", newline="\n"), ensure_ascii=False, indent=1)
 
     # summary
     from collections import Counter
