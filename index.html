@@ -5622,12 +5622,17 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       }
     }
     if (Array.isArray(payload.transactions)) {
-      await sbDelete('transactions', 'date=neq.');
-      if (payload.transactions.length) {
-        await sbUpsert('transactions', payload.transactions.map(t => ({
-          date: t.date || '', type: t.type || 'income', category: t.cat || t.category || '',
-          amount: Number(t.amount)||0, note: t.note || ''
-        })));
+      // Root-cause fix (2026-09-14): do NOT full-replace when the local ledger
+      // is empty. A fresh cache / new device / logged-out tab has TRANS=[] and
+      // a blind `sbDelete('transactions','date=neq.')` wipes the whole DB table.
+      // Only write when we actually have rows; leave the cloud untouched if empty.
+      const localRows = payload.transactions.map(t => ({
+        date: t.date || '', type: t.type || 'income', category: t.cat || t.category || '',
+        amount: Number(t.amount) || 0, note: t.note || ''
+      }));
+      if (localRows.length) {
+        await sbDelete('transactions', 'date=neq.');
+        await sbUpsert('transactions', localRows);
       }
     }
     if (Array.isArray(payload.recs)) {
@@ -6970,12 +6975,24 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     } catch(e) { console.warn('DB load failed', e); return false; }
   }
   // Apply a backend-fetched db into app state (arrays) and mark for restore
+  // Merge incoming cloud transactions into the local ledger without clobbering.
+  // Local entries win; cloud rows not present locally are appended. Dedupes by
+  // content signature (date|type|category|amount|note) so a boot pull from an
+  // empty/fresh DB never erases locally-entered income/expense rows.
+  function mergeTransactions(local, cloud) {
+    const sig = t => [t.date || '', t.type || '', t.cat || t.category || '', String(Number(t.amount) || 0), t.note || ''].join('|');
+    const map = new Map();
+    (cloud || []).forEach(t => { map.set(sig(t), Object.assign({}, t)); });
+    // local overrides (and any local-only rows) win
+    (local || []).forEach(t => { map.set(sig(t), t); });
+    return Array.from(map.values());
+  }
   function applyDbToState(db) {
     if (db.agencies !== undefined) AGENCIES = mergeAgencies(db.agencies);
     if (Array.isArray(db.fees)) FEES = db.fees;
     if (Array.isArray(db.partners)) PARTNERS = db.partners;
     if (Array.isArray(db.tasks)) TASKS = db.tasks;
-    if (Array.isArray(db.transactions)) TRANS = db.transactions;
+    if (Array.isArray(db.transactions)) TRANS = mergeTransactions(TRANS, db.transactions);
     if (Array.isArray(db.recs)) RECS = db.recs;
     if (Array.isArray(db.wikiNotes)) WIKI_NOTES = db.wikiNotes;
     if (Array.isArray(db.wikiDocs)) WIKI_DOCS = db.wikiDocs;
@@ -7631,6 +7648,14 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         // Pull first. Only durable explicit operations may survive cloud deletion.
         const synced = await syncPull();
         if (synced && __customerOps.size) await syncPush();
+        // Transactions: if the boot pull merged back local income/expense rows
+        // that were missing from the (previously wiped) cloud, push them up so
+        // they are actually persisted — never let locally-entered rows live only
+        // in localStorage. Written directly (bypasses the diff-baseline) and
+        // guarded on the server side against empty full-replace.
+        if (synced && Array.isArray(TRANS) && TRANS.length) {
+          try { await supabaseWriteTables({ transactions: TRANS }); } catch(e){ console.warn('transactions backfill push failed', e); }
+        }
         if (synced) {
           restoreCustomers();
           reorderAllByRecent();  // keep most-recently-moved cards first after pull
