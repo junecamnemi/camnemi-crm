@@ -114,7 +114,7 @@ def main():
     print("unmatched schools:", sorted(list(unmatched))[:20])
     if args.write:
         shutil.copy(KB, KB.replace(".json", f"_bak_llmmerge_{datetime.date.today()}.json"))
-        json.dump(kb, open(KB, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+        json.dump(kb, open(KB, "w", encoding="utf-8", newline="\n"), ensure_ascii=False, indent=1)
         print("저장 완료:", KB)
 
 if __name__ == "__main__":

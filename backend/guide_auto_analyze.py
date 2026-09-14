@@ -262,7 +262,7 @@ def main():
                   f"IELTS={facts['ielts']} TOPIK={facts['topik']} majors={len(facts['majors'])}")
 
     if kb_changed:
-        json.dump(kb, open(KB_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+        json.dump(kb, open(KB_PATH, "w", encoding="utf-8", newline="\n"), ensure_ascii=False, indent=1)
         print(f"[guide-analyze] KB written ({sum(1 for e in new_entries)} guides applied)")
 
     json.dump(proc, open(PROC_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
