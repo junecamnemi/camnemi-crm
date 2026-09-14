@@ -76,6 +76,8 @@ def main():
     ap.add_argument("--major", type=str)
     ap.add_argument("--program", type=str, choices=["free","intl_stem","intl","convergence","broad"],
                     help="free=자유전공/자율전공, intl_stem=국제이공/글로벌IT, intl=국제/글로벌학부, convergence=융합학부, broad=광역")
+    ap.add_argument("--bypass", type=str,
+                    help="언어요건 우회경로 있는 학교만: selftest/recommend_org/recommend_gov/recommend_intl/sejong/kiip/langcourse/eng_exempt/interview/dept_waiver (콤마로 복수, 'any'=아무 우회경로)")
     ap.add_argument("--max_tuition", type=int, help="max tuition KRW/semester")
     ap.add_argument("--top", type=int, default=15)
     ap.add_argument("--verdict", action="store_true", help="annotate each school with eligibility verdict/reason")
@@ -87,15 +89,27 @@ def main():
         return {"free": "free_major", "intl_stem": "intl_stem", "intl": "intl",
                 "convergence": "convergence", "broad": "broad"}[p]
     program_index = {}
+    bypass_index = {}   # norm(school) -> set(types)  and  'any'
     try:
         _kb = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "verified_kb.json"), encoding="utf-8"))
         for _n, _v in _kb.get("free_major_programs", {}).get("schools", {}).items():
             for _u in _v.get("units", []):
                 for _c in _u.get("category", []):
                     program_index.setdefault(_c, set()).add(_n)
-        # also index short-name variants for matching
+        # bypass index (BA/MA/junior)
+        def _bn(x):
+            return re.sub(r"\[.*?\]|\(.*?\)","",str(x)).replace("대학교","").replace("대학","").replace(" ","")
+        for _sec in ["schools","master","junior"]:
+            _node = _kb.get(_sec, {})
+            _sch = _node.get("schools", _node)
+            for _nm, _sv in _sch.items():
+                _lb = _sv.get("lang_bypass")
+                if _lb and _lb.get("paths"):
+                    types = {p.get("type") for p in _lb["paths"] if p.get("type")}
+                    bypass_index.setdefault(_bn(_nm), set()).update(types)
     except Exception:
         program_index = {}
+        bypass_index = {}
 
     # smart index for verdicts
     smart = {}
@@ -163,6 +177,16 @@ def main():
                     if _nn == _cn or (len(_cn)>=3 and (_cn in _nn or _nn in _cn)):
                         _ok = True; break
             if not _ok: continue
+        # bypass filter
+        if args.bypass:
+            _bn = name.replace("대학교","").replace("대학","").replace(" ","")
+            _types = bypass_index.get(_bn)
+            if _types is None:
+                for _k,_tv in bypass_index.items():
+                    if len(_k)>=3 and (_k in _bn or _bn in _k): _types=_tv; break
+            _want = {t.strip() for t in args.bypass.split(",")}
+            if _types is None: continue
+            if "any" not in _want and not (_want & _types): continue
         # tuition
         if args.max_tuition:
             t = prog.get("tuition")
@@ -197,6 +221,13 @@ def main():
         print(f"   TOPIK: {topik} | IELTS: {ielts} | Tuition: {tu}/sem")
         if per != "-": print(f"   Apply: {per}")
         if poptxt: print(f"   인기/유사과: {poptxt}")
+        _bn = name.replace("대학교","").replace("대학","").replace(" ","")
+        _types = bypass_index.get(_bn)
+        if _types is None:
+            for _k,_tv in bypass_index.items():
+                if len(_k)>=3 and (_k in _bn or _bn in _k): _types=_tv; break
+        if _types:
+            print(f"   🔓 언어우회: {', '.join(sorted(_types))}")
         sch = prog.get("scholarship")
         if sch: print(f"   Scholarship: {str(sch)[:120]}")
         print()
