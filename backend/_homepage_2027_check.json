@@ -576,10 +576,14 @@
    "school": "조선대학교",
    "status_prev": "2026_or_older",
    "url": "https://www3.chosun.ac.kr/bbs/global/424/276714/artclView.do",
-   "reachable": false,
+   "reachable": true,
    "has_2027": false,
-   "keywords": [],
-   "probe": "error:ConnectionError",
+   "keywords": [
+    "모집요강",
+    "외국인",
+    "전형"
+   ],
+   "probe": "http:200",
    "adiga_2027": false
   },
   {
@@ -601,15 +605,10 @@
    "school": "중앙승가대학교",
    "status_prev": "2026_or_older",
    "url": "https://admission.sangha.ac.kr/SANGHA/?ACT=BOARD_FAQ&MODE=VIEW&IDX=1241",
-   "reachable": true,
+   "reachable": false,
    "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인",
-    "신입학",
-    "전형"
-   ],
-   "probe": "http:200",
+   "keywords": [],
+   "probe": "error:ConnectionError",
    "adiga_2027": false
   },
   {
@@ -2245,10 +2244,7 @@
    "url": "https://admission.sangha.ac.kr/GRADUATE/?ACT=ADMISSION_GRADUATE",
    "reachable": true,
    "has_2027": false,
-   "keywords": [
-    "외국인",
-    "전형"
-   ],
+   "keywords": [],
    "probe": "http:200",
    "adiga_2027": false
   },
