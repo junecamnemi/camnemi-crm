@@ -33,13 +33,17 @@ for n, v in ba.items():
     s["programs"]["BA"] = {
         "topik": v.get("topik_req") or v.get("lang_req"),
         "ielts": v.get("ielts_req"),
-        "tuition": v.get("tuition_semester") or v.get("tuition_min"),
+        "tuition": v.get("tuition_semester") or v.get("tuition") or v.get("tuition_min"),
         "tuition_max": v.get("tuition_max"),
-        "scholarship": v.get("scholarships"),
+        "scholarship": (v.get("scholarships")
+                        or v.get("scholarships_categorized")
+                        or v.get("scholarship_curated")
+                        or v.get("scholarships_verified")),
         "period": v.get("period"),
         "majors": v.get("majors_ba") or v.get("majors"),
         "track": v.get("track"),
         "guide_status": v.get("guide_analyzed"),
+        "tuition_semester_by_dept": v.get("tuition_semester_by_dept"),
     }
 
 # ---- MA ----
@@ -50,14 +54,18 @@ for n, v in ma.items():
     s["programs"]["MA"] = {
         "topik": v.get("lang_req") or v.get("topik_req"),
         "ielts": v.get("ielts_req"),
-        "tuition": v.get("tuition_semester") or v.get("tuition_min"),
+        "tuition": v.get("tuition_semester") or v.get("tuition") or v.get("tuition_min"),
         "tuition_max": v.get("tuition_max"),
-        "scholarship": v.get("scholarships"),
+        "scholarship": (v.get("scholarships")
+                        or v.get("scholarships_categorized")
+                        or v.get("scholarship_curated")
+                        or v.get("scholarship_topik6_verified")),
         "period": v.get("period"),
         "majors": v.get("majors"),
         "n_majors": v.get("n_majors"),
         "guide_status": v.get("guide_status"),
         "scholarship_topik6": v.get("scholarship_topik6_verified"),
+        "tuition_semester_by_dept": v.get("tuition_semester_by_dept"),
     }
 
 # ---- 전문학사 ----

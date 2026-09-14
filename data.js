@@ -172,6 +172,9 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1300000
     }
+   },
+   "ma": {
+    "min": 4993000
    }
   },
   "en": "Gachon University",
@@ -1252,6 +1255,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1500000
     }
+   },
+   "ma": {
+    "min": 5136000,
+    "max": 7412000
    }
   },
   "en": "The Catholic University of Korea",
@@ -1798,6 +1805,10 @@ window.UNIV_KNOWLEDGE = [
      "공학": 4987000,
      "예능": 5260000
     }
+   },
+   "ma": {
+    "min": 4467000,
+    "max": 9634000
    }
   },
   "en": "Kangnam University",
@@ -2274,6 +2285,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1100000
     }
+   },
+   "ma": {
+    "min": 1152010,
+    "max": 5016000
    }
   },
   "en": "Kangwon National University",
@@ -3000,6 +3015,9 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1800000
     }
+   },
+   "ma": {
+    "min": 5982000
    }
   },
   "en": "Konkuk University",
@@ -3401,6 +3419,9 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 4400000
     }
+   },
+   "ma": {
+    "min": 3867000
    }
   },
   "en": "Konyang University",
@@ -3766,6 +3787,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1250000
     }
+   },
+   "ma": {
+    "min": 4995000,
+    "max": 7500000
    }
   },
   "en": "Kyonggi University",
@@ -4950,6 +4975,9 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1200000
     }
+   },
+   "ma": {
+    "min": 2349000
    }
   },
   "en": "GNU University",
@@ -5540,6 +5568,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1200000
     }
+   },
+   "ma": {
+    "min": 3904000,
+    "max": 5993000
    }
   },
   "en": "KS University",
@@ -5663,6 +5695,27 @@ window.UNIV_KNOWLEDGE = [
     "max": 1200000,
     "fields": {
      "어학연수": 1200000
+    }
+   },
+   "ma": {
+    "min": 3573000,
+    "max": 5439000,
+    "unit": "연간(1년) 등록금",
+    "admission_fee": 732000,
+    "by_dept": {
+     "글로벌한국학과": 3573000,
+     "항공정책경영학과": 3573000,
+     "경찰행정학과": 3858600,
+     "간호학과": 5013000,
+     "물리치료학과": 5013000,
+     "임상병리학과": 5013000,
+     "IT에너지학과": 5013000,
+     "무인기공학과": 5013000,
+     "항공소프트웨어융합학과": 5013000,
+     "산업공정AI융합학과": 5013000,
+     "사회체육학과": 5117000,
+     "안전보안학과": 5439000,
+     "산업정보대학원-글로벌경영학과": 3216000
     }
    }
   },
@@ -6259,6 +6312,9 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1800000
     }
+   },
+   "ma": {
+    "min": 5338000
    }
   },
   "en": "Kyung Hee University",
@@ -6908,6 +6964,9 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1300000
     }
+   },
+   "ma": {
+    "min": 2000000
    }
   },
   "en": "KMU University",
@@ -7559,6 +7618,9 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1800000
     }
+   },
+   "ma": {
+    "min": 6000000
    }
   },
   "en": "Korea University",
@@ -8046,6 +8108,9 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1500000
     }
+   },
+   "ma": {
+    "min": 7090000
    }
   },
   "en": "KW University",
@@ -9027,6 +9092,10 @@ window.UNIV_KNOWLEDGE = [
      "글로벌융합학부 (Global Liberal Arts/Business)": 2100000,
      "글로벌융합학부 (General Engineering/Food Science)": 2460000
     }
+   },
+   "ma": {
+    "min": 2018000,
+    "max": 4265000
    }
   },
   "en": "GWNU University",
@@ -9587,6 +9656,9 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 2300000
     }
+   },
+   "ma": {
+    "min": 1910000
    }
   },
   "en": "KNUG University",
@@ -10088,6 +10160,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1200000
     }
+   },
+   "ma": {
+    "min": 2015200,
+    "max": 2936000
    }
   },
   "en": "Kongju University",
@@ -10269,6 +10345,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1300000
     }
+   },
+   "ma": {
+    "min": 1200000,
+    "max": 3418000
    }
   },
   "en": "KSNU University",
@@ -10795,6 +10875,9 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1100000
     }
+   },
+   "ma": {
+    "min": 2398000
    }
   },
   "en": "KIT University",
@@ -15557,6 +15640,10 @@ window.UNIV_KNOWLEDGE = [
     "min": null,
     "max": null,
     "fields": {}
+   },
+   "ma": {
+    "min": 3700000,
+    "max": 3700000
    }
   },
   "en": "Geumgang University",
@@ -15606,7 +15693,11 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "1",
    "foreign_pct": "1.0"
   },
-  "period": "재외국민과 외국인 전형(수시) 원서접수 2026.09.07~09.11 20:00 (서류 2026.09.21 17:00까지, 면접 2026.09.23~09.24, 합격발표 2026.10.14, 등록 2026.12.21~12.23)"
+  "period": "재외국민과 외국인 전형(수시) 원서접수 2026.09.07~09.11 20:00 (서류 2026.09.21 17:00까지, 면접 2026.09.23~09.24, 합격발표 2026.10.14, 등록 2026.12.21~12.23)",
+  "visa_restricted": {
+   "degree": true,
+   "lang": false
+  }
  },
  {
   "n": "김천대학교",
@@ -15757,6 +15848,10 @@ window.UNIV_KNOWLEDGE = [
     "min": null,
     "max": null,
     "fields": {}
+   },
+   "ma": {
+    "min": 3711000,
+    "max": 5710000
    }
   },
   "en": "Korea Nazarene University",
@@ -18847,6 +18942,10 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "경영학과(영어트랙), IT학과(영어트랙) / 영어를 모국어로 사용하는 국가의 국적"
     }
    ]
+  },
+  "visa_restricted": {
+   "degree": false,
+   "lang": true
   }
  },
  {
@@ -18988,6 +19087,11 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "교환학생·영어권 국가 문구는 해외 파견 교환학생 관련으로 요건 대체 경로 아님"
+  },
+  "scholarships": {
+   "types": "본교 장학금 지급규정에 따라 교내·외 장학금 지급 가능(구체적 명칭·금액 없음)",
+   "enroll": [],
+   "existing": []
   }
  },
  {
@@ -21710,6 +21814,10 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 공용어로"
     }
    ]
+  },
+  "scholarships": {
+   "enroll": [],
+   "existing": []
   }
  },
  {
@@ -22438,6 +22546,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1200000
     }
+   },
+   "ma": {
+    "min": 4231000,
+    "max": 8385000
    }
   },
   "en": "Dongeui University",
@@ -23474,6 +23586,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1300000
     }
+   },
+   "ma": {
+    "min": 3745000,
+    "max": 8888888
    }
   },
   "en": "Mokwon University",
@@ -23952,6 +24068,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1300000
     }
+   },
+   "ma": {
+    "min": 4264000,
+    "max": 5536000
    }
   },
   "en": "Pai Chai University",
@@ -24187,6 +24307,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1300000
     }
+   },
+   "ma": {
+    "min": 4020000,
+    "max": 6485000
    }
   },
   "en": "Baekseok University",
@@ -27099,6 +27223,10 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "이중언어과정"
     }
    ]
+  },
+  "visa_restricted": {
+   "degree": false,
+   "lang": true
   }
  },
  {
@@ -28499,6 +28627,10 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "글로벌경영학과/컴퓨터공학과 ※영어트랙/한국어트랙"
     }
    ]
+  },
+  "scholarships": {
+   "enroll": [],
+   "existing": []
   }
  },
  {
@@ -31137,6 +31269,9 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1780000
     }
+   },
+   "ma": {
+    "min": 7145000
    }
   },
   "en": "Sungkyunkwan University",
@@ -32855,6 +32990,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1000000
     }
+   },
+   "ba": {
+    "min": 2800000,
+    "max": 3550000
    }
   },
   "en": "Songwon University",
@@ -32909,6 +33048,13 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "-어학연수과정 수료 후 진학자"
     }
    ]
+  },
+  "scholarships": {
+   "types": [
+    "외국인 유학생 장학금(TOPIK 급수별 차등)"
+   ],
+   "enroll": [],
+   "existing": []
   }
  },
  {
@@ -32978,6 +33124,14 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "TOPIK 3급 취득 예정자는 입학일 기준 1주일 내 제출 조건"
+  },
+  "scholarships": {
+   "enroll": [],
+   "existing": []
+  },
+  "visa_restricted": {
+   "degree": true,
+   "lang": false
   }
  },
  {
@@ -34968,6 +35122,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 2600000
     }
+   },
+   "ma": {
+    "min": 2132900,
+    "max": 5222000
    }
   },
   "en": "Silla University",
@@ -35138,6 +35296,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1400000
     }
+   },
+   "ba": {
+    "min": 3920000,
+    "max": 4990000
    }
   },
   "en": "Shinhan University",
@@ -37792,6 +37954,10 @@ window.UNIV_KNOWLEDGE = [
      "Natural Sciences & Sports": 4480200,
      "공학예능": 4520000
     }
+   },
+   "ma": {
+    "min": 3111500,
+    "max": 7326000
    }
   },
   "en": "Woosuk University",
@@ -38993,6 +39159,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 2400000
     }
+   },
+   "ba": {
+    "min": 3108000,
+    "max": 4214000
    }
   },
   "en": "Uiduk University",
@@ -42301,7 +42471,11 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "32",
    "foreign_pct": "4.3"
   },
-  "period": "2026.9.7~9.11 (2027-1)"
+  "period": "2026.9.7~9.11 (2027-1)",
+  "scholarships": {
+   "enroll": [],
+   "existing": []
+  }
  },
  {
   "n": "전남대학교",
@@ -46140,6 +46314,10 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어 성적 제출 면제 기준: 영어를 모국어 또는 법적 공용어로 사용하"
     }
    ]
+  },
+  "visa_restricted": {
+   "degree": true,
+   "lang": false
   }
  },
  {
@@ -46170,6 +46348,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1100000
     }
+   },
+   "ma": {
+    "min": 2652000,
+    "max": 4728000
    }
   },
   "en": "Jungwon University",
@@ -46580,6 +46762,10 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "본 대학 부설 한국어교육원 3급 이상을 수료한 자"
     }
    ]
+  },
+  "scholarships": {
+   "enroll": [],
+   "existing": []
   }
  },
  {
@@ -46640,6 +46826,10 @@ window.UNIV_KNOWLEDGE = [
      "공연영상예술대학 연극예술학과(연기)": 4052500,
      "공연영상예술대학 뮤지컬학과": 4360500
     }
+   },
+   "ma": {
+    "min": 2613600,
+    "max": 4500000
    }
   },
   "en": "Chungwoon University",
@@ -47706,6 +47896,11 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어로 사용하는 국가의 국적을 소지한 학생"
     }
    ]
+  },
+  "scholarships": {
+   "types": "언어능력 장학(공인언어능력 자격증 소지자 우대 - 감면율 미기재)",
+   "enroll": [],
+   "existing": []
   }
  },
  {
@@ -47764,6 +47959,14 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1600000
     }
+   },
+   "ba": {
+    "min": 4120000,
+    "max": 6020000
+   },
+   "ma": {
+    "min": 4120000,
+    "max": 8350000
    }
   },
   "en": "Chugye University",
@@ -49484,6 +49687,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1250000
     }
+   },
+   "ma": {
+    "min": 3532000,
+    "max": 5507000
    }
   },
   "en": "Pyeongtaek University",
@@ -50532,6 +50739,10 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "- 영어트랙 지원 가능 / 2학년 전공 선택 시 영어트랙 [영어능력-영어트랙] 요건 충족"
     }
    ]
+  },
+  "scholarships": {
+   "enroll": [],
+   "existing": []
   }
  },
  {
@@ -52804,7 +53015,15 @@ window.UNIV_KNOWLEDGE = [
   "majors": [],
   "tuition": {
    "min": 3354000,
-   "max": 4358000
+   "max": 4358000,
+   "ba": {
+    "min": 3354000,
+    "max": 4358000
+   },
+   "ma": {
+    "min": 4139000,
+    "max": 4886000
+   }
   },
   "en": "Halla University",
   "es": "Halla",
@@ -53590,6 +53809,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1450000
     }
+   },
+   "ba": {
+    "min": 3985000,
+    "max": 5311000
    }
   },
   "en": "Hansung University",
@@ -53801,7 +54024,15 @@ window.UNIV_KNOWLEDGE = [
   "majors": [],
   "tuition": {
    "min": 3764500,
-   "max": 4980000
+   "max": 4980000,
+   "ba": {
+    "min": 3764500,
+    "max": 4980000
+   },
+   "ma": {
+    "min": 3432000,
+    "max": 5582000
+   }
   },
   "en": "Hansei University",
   "es": "Hansei",
@@ -53867,7 +54098,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "법무부 사회통합프로그램 : (신입생) 3단계 이수 또는 사전평가 61점 이상"
     }
    ]
-  }
+  },
+  "period": "2025. 12. 15(월) ~ 2026. 01. 14(수)"
  },
  {
   "n": "한신대학교",
@@ -53883,6 +54115,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1500000
     }
+   },
+   "ba": {
+    "min": 3635500,
+    "max": 4339000
    }
   },
   "en": "Hanshin University",
@@ -54173,6 +54409,10 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어 모국어 또는 법정 공용어 사용 국가의 국적 소지자는 졸업증명서로 대신할"
     }
    ]
+  },
+  "scholarships": {
+   "enroll": [],
+   "existing": []
   }
  },
  {
@@ -54219,6 +54459,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1100000
     }
+   },
+   "ba": {
+    "min": 3464000,
+    "max": 4506000
    }
   },
   "en": "Hyupsung University",
@@ -54377,6 +54621,10 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "* 영어트랙 운영학과 / 영어트랙 지원자의 경우, 공인영어성적 TOEFL 530(iBT71)"
     }
    ]
+  },
+  "visa_restricted": {
+   "degree": true,
+   "lang": false
   }
  },
  {
@@ -54610,6 +54858,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 2430000
     }
+   },
+   "ma": {
+    "min": 3236000,
+    "max": 5506000
    }
   },
   "en": "Hoseo University",
@@ -54886,6 +55138,10 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램(KIIP) 3단계 이상 이수 또는 사전평가 61점 이상 취득"
     }
    ]
+  },
+  "visa_restricted": {
+   "degree": false,
+   "lang": true
   }
  },
  {
@@ -54902,6 +55158,10 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1750000
     }
+   },
+   "ba": {
+    "min": 3619500,
+    "max": 4827000
    }
   },
   "en": "Hongik University",
@@ -55052,7 +55312,21 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "(외국 및 한국 정부 지원 장학생의 경우만 인정)"
     }
    ]
-  }
+  },
+  "scholarships": [
+   {
+    "name": "자비유학생 장학금",
+    "target": "재학생(자비 유학생)",
+    "condition": "자비 유학생, 직전학기 성적 1.5 이상",
+    "benefit": "장학금액 미기재(교내외장학금 안내 페이지 기준)"
+   },
+   {
+    "name": "다문화가족 장학금",
+    "target": "재학생",
+    "condition": "부모 중 1명 이상이 외국 국적이거나 귀화한 가정의 자녀, 직전학기 백분위 70점 이상",
+    "benefit": "학기당 150만원"
+   }
+  ]
  },
  {
   "n": "명지전문대학",
@@ -55124,7 +55398,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "외국인 전담학과"
     }
    ]
-  }
+  },
+  "period": "1차: 2026.09.07.(월)~09.30(수), 2차: 2026.11.09.(월)~11.20(금)"
  },
  {
   "n": "배화여자대학교",
@@ -55182,7 +55457,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "법무부 사회통합프로그램(KIIP) 2단계 이상"
     }
    ]
-  }
+  },
+  "period": "수시1차 2026.09.07.(월) ~ 09.30.(수) 18:00 마감, 수시2차 2026.11.11.(수) ~ 11.25.(수) 18:00 마감, 정시 2027.01.04.(월) ~ 01.20.(수) 18:00 마감"
  },
  {
   "n": "삼육보건대학교",
@@ -55269,7 +55545,16 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "외국인전담학과"
     }
    ]
-  }
+  },
+  "period": "2026.09.07.(월) ~ 09.30.(수) 20:00까지 / 2027.01.04.(월) ~ 01.20.(수) 20:00까지",
+  "scholarships": [
+   {
+    "name": "푸른등대 삼성장학금(생활비)",
+    "target": "재학생(외국인 유학생 포함)",
+    "condition": "소득분위 3분위 이내, 서울시 외 타지역 유학생으로 주거안정이 필요한 학생(자취·고시원·하숙 우선순위), 생활비 형식 무상보조 100만원 이상 수혜자 제외",
+    "benefit": "1,500,000원(생활비)"
+   }
+  ]
  },
  {
   "n": "서울여자간호대학교",
@@ -55351,7 +55636,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "Korea Immigration & Integration Program (KIIP) Level 2 or higher"
     }
    ]
-  }
+  },
+  "period": "Aug. 18 (Mon), 10:00 AM - Sep. 16 (Tue), 18:00 PM 2025"
  },
  {
   "n": "서일대학교",
@@ -55436,7 +55722,34 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "글로벌AI융합학과[외국인전담학과]"
     }
    ]
-  }
+  },
+  "period": "2026.05.11.(월) ~ 05.20.(수) 17:00 마감",
+  "scholarships": [
+   {
+    "name": "외국인장학금",
+    "target": "신입생/재학생(순수외국인전형 입학자, 외국인전담학과 제외)",
+    "condition": "입학 시: 순수외국인전형으로 입학(본 대학 한국어교육원 출신 여부에 따라 차등) / 재학 중: 직전학기 성적 3.0 이상 20%, 3.5 이상 30%, 4.0 이상 40%",
+    "benefit": "입학 시 수업료 40%(본교 한국어교육원 출신), 수업료 30%(비출신); 재학 중 성적별 수업료 20%/30%/40% 추가 감면"
+   },
+   {
+    "name": "TOPIK 장학금",
+    "target": "재학생(순수외국인전형 대상, 외국인전담학과 제외)",
+    "condition": "TOPIK 4급/5급/6급 취득(동일 급수 1회 지급, 이전 취득 급수 수혜자는 차액 지급)",
+    "benefit": "4급 300,000원 / 5급 500,000원 / 6급 700,000원"
+   },
+   {
+    "name": "자매대학 교환 외국인학생 장학금",
+    "target": "재학생(자매대학 교환 외국인학생)",
+    "condition": "자매대학 교환 외국인학생",
+    "benefit": "수업료 100%"
+   },
+   {
+    "name": "외국인전담학과 입학장학금",
+    "target": "신입생(외국인전담학과)",
+    "condition": "외국인전담학과 입학생",
+    "benefit": "수업료 30% (재학 중 성적우수장학금 별도 책정)"
+   }
+  ]
  },
  {
   "n": "숭의여자대학교",
@@ -55520,7 +55833,28 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "정부초청 또는 추천확인서"
     }
    ]
-  }
+  },
+  "period": "수시1차 2023.9.11.(월)~10.5.(목), 수시2차 2023.11.10.(금)~11.24.(금), 정시 2024.1.3.(수)~1.15.(월)",
+  "scholarships": [
+   {
+    "name": "외국인 신입생 장학금",
+    "target": "신입생/편입생(순수외국인전형 합격자)",
+    "condition": "입학전형우수자: 수업료 30% / 본교 한국어교육센터 1학기 이상 수료 또는 TOPIK 3급 취득자: 50% / TOPIK 4급·5급 취득자: 70% / TOPIK 6급 취득자: 100%",
+    "benefit": "수업료 30%~100% 감면(조건별 차등)"
+   },
+   {
+    "name": "외국인 재학생 장학금",
+    "target": "재학생(순수외국인전형 입학자, 편입생 포함)",
+    "condition": "직전학기 평점평균 4.3/4.5 이상: 수업료 전액, 4.0/4.5 이상: 50%, 3.5/4.5 이상: 40%, 3.0/4.5 이상: 30%, 2.5/4.5 이상: 25%, 2.0/4.5 이상: 20% (TOPIK 4급 미소지 시 수업료 20% 초과 수혜 불가)",
+    "benefit": "수업료 20%~100% 감면(성적별 차등) + 입학 후 1년 이내 신규 TOPIK 4급 이상 취득 시 학업장려비 30만원(1회)"
+   },
+   {
+    "name": "글로벌우수 장학금",
+    "target": "외국인 유학생(재학생)",
+    "condition": "가계 곤란 학생 또는 성장 가능성이 있다고 판단된 학생 중 국제교류단장 추천",
+    "benefit": "일정액(성적산출 단위 별도로 정함)"
+   }
+  ]
  },
  {
   "n": "인덕대학교",
@@ -55693,7 +56027,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "외국인 전담학과는 순수외국인 유학생으로만 구성된 학과"
     }
    ]
-  }
+  },
+  "period": "1차 2026.9.10.(목)~9.30.(수) 21:00까지, 2차 2026.11.11.(수)~11.25.(수) 21:00까지, 3차 2026.12.14.(월)~12.29.(화) 21:00까지"
  },
  {
   "n": "한양여자대학교",
@@ -55732,7 +56067,40 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "KIIP(3단계 이상 이수)"
     }
    ]
-  }
+  },
+  "period": "2024. 10. 21.(월) ~ 11. 29.(금) 16:30",
+  "scholarships": [
+   {
+    "name": "신입생 장학금(TOPIK)",
+    "target": "신입생(외국인유학생 특별전형)",
+    "condition": "TOPIK 3급 소지자: 수업료 30% / TOPIK 4급: 40% / TOPIK 5급: 50% / TOPIK 6급: 60% (TOPIK 유효기간 경과 시 혜택 불가)",
+    "benefit": "수업료 30%~60% 감면"
+   },
+   {
+    "name": "신입생 장학금(우수유학생)",
+    "target": "신입생(외국인유학생 특별전형)",
+    "condition": "출신고교장 추천서 제출 + TOPIK 5급 이상 + 고교성적 상위 10% 이내",
+    "benefit": "1년간 수업료 전액"
+   },
+   {
+    "name": "신입생 장학금(한국어교육센터 수료자)",
+    "target": "신입생(외국인유학생 특별전형)",
+    "condition": "본교 한국어교육센터 한국어 정규과정 4학기(1년) 이상 수료 + TOPIK 3급 이상 + 전체 성적 상위 10% + 매 학기 출석 90% 이상 + 한국어교육센터장 추천서(심의 선발)",
+    "benefit": "수업료 전액(입학 첫 학기)"
+   },
+   {
+    "name": "재학생 장학금(TOPIK)",
+    "target": "재학생(외국인 유학생)",
+    "condition": "직전학기 성적 백분율 80점 이상 + TOPIK 4급: 수업료 40% / 5급: 50% / 6급: 60%",
+    "benefit": "수업료 40%~60% 감면"
+   },
+   {
+    "name": "외국인 한국어 인재장학",
+    "target": "신입생(외국인 유학생)",
+    "condition": "본교 한국어교육센터 4학기 수료 후 입학 + TOPIK 3급 이상(중복 허용)",
+    "benefit": "수업료 10%"
+   }
+  ]
  },
  {
   "n": "경기과학기술대학교",
@@ -55812,7 +56180,22 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "한국어학당 수료 급수, 기타 언어능력 급수 등"
     }
    ]
-  }
+  },
+  "period": "2026.5.11.(월) ~ 8.21.(금)",
+  "scholarships": [
+   {
+    "name": "신입생 장학금(한국어능력)",
+    "target": "신입생(정원외 외국인전형)",
+    "condition": "모집요강 한국어자격 해당자(TOPIK 3급 등): 수업료 15% / TOPIK 4급: 25% / TOPIK 5급 이상: 35% / 본교 한국어교육과정 이수자: 25%",
+    "benefit": "수업료 15%~35% 감면(급수별 차등)"
+   },
+   {
+    "name": "재학생 성적장학금",
+    "target": "재학생(외국인 유학생)",
+    "condition": "직전학기 성적 2.0 이상",
+    "benefit": "수업료 10% 감면"
+   }
+  ]
  },
  {
   "n": "경민대학교",
@@ -55939,7 +56322,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "글로벌 융합학과는 외국인 전담학과로서 자체 교육과정 내에 한국어 수업을 포함"
     }
    ]
-  }
+  },
+  "period": "2026.06.22.(월)~2026.07.03.(금), 2026.07.20.(월)~2026.08.12.(수)"
  },
  {
   "n": "계원예술대학교",
@@ -56121,7 +56505,22 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 단계 이상 이수하거나 사전평가"
     }
    ]
-  }
+  },
+  "period": "2025.12.29.(월) ~ 2026.01.14.(수), 평일 08:00~17:00",
+  "scholarships": [
+   {
+    "name": "외국인인재장학",
+    "target": "재학생(정원 내 외국인전형 입학생)",
+    "condition": "정원 내 외국인전형으로 입학한 학생 중 성적 및 인성이 우수한 자(토픽성적 우수자 우대)",
+    "benefit": "등록금(금액 미기재, 학과 신청)"
+   },
+   {
+    "name": "신입생우수인재장학(어학우수)",
+    "target": "신입생",
+    "condition": "국가공인 어학시험 만점 기준 60% 이상 점수 취득자 또는 IELTS 5.0 이상, JLPT N3 이상, HSK 4급 이상, HSKK 중급(입학일 기준 유효 자격증)",
+    "benefit": "등록금(금액 미기재)"
+   }
+  ]
  },
  {
   "n": "김포대학교",
@@ -56231,7 +56630,27 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Kimpo University",
   "es": "KIMPO",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "scholarships": [
+   {
+    "name": "외국인장학",
+    "target": "신입생/재학생(외국인학생, 탈북자)",
+    "condition": "외국인학생 또는 탈북자",
+    "benefit": "수업료 전액 ~ 10% (조건별 차등, 상세 기준 미기재)"
+   },
+   {
+    "name": "어학성적장학",
+    "target": "재학생",
+    "condition": "재학 중 취득 기준: iBT 60점 이상, TEPS 450점 이상, TOEIC 500점 이상, JPT 500점 이상(재학 중 1회)",
+    "benefit": "300,000원"
+   },
+   {
+    "name": "어학우수자 및 대회수상자 신입생장학",
+    "target": "신입생",
+    "condition": "TOEIC 650점 이상, TEPS 550점 이상, iBT 70점 이상, JPT 600점 이상, HSK 5급 이상/HSKK 상급(대학 입학 전 3년 이내 취득, 신입생 중 1회, 중복 불가)",
+    "benefit": "1,000,000원"
+   }
+  ]
  },
  {
   "n": "농협대학교",
@@ -56388,7 +56807,16 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "한국어학당 재학증명서 또는 수료증명서(급수표기)"
     }
    ]
-  }
+  },
+  "period": "2025.11.10.(월) ~ 2026.02.06.(금)",
+  "scholarships": [
+   {
+    "name": "외국인학생 성적장학금",
+    "target": "신입생/재학생(외국인 유학생)",
+    "condition": "TOPIK 3급 이상 수준의 한국어 어학 기준(TOPIK, KIIP 등) 충족 + (전문학사) 직전학기 12학점 이상 / (전공심화) 직전학기 10학점 이상 + 성적 우수자로 국제교류원장 추천",
+    "benefit": "장학금 지급(비율·금액은 페이지에 미기재)"
+   }
+  ]
  },
  {
   "n": "동남보건대학교",
@@ -56500,7 +56928,21 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "외국인 전담학과 모집요강"
     }
    ]
-  }
+  },
+  "scholarships": [
+   {
+    "name": "외국인장학금(신입생)",
+    "target": "신입생(외국인 유학생)",
+    "condition": "본교 국제어학센터 한국어과정 이수자: TOPIK 3급 → 입학금 전액면제+수업료 30% 감면, TOPIK 4급 이상 → 입학금 전액면제+수업료 40% 감면 / 미이수자: TOPIK 3급 → 입학금 전액면제+수업료 20% 감면, TOPIK 4급 이상 → 입학금 전액면제+수업료 30% 감면. 영어능력시험(TOEFL 530(CBT197,iBT71), IELTS 5.5, CEFR B2, TEPS 600) 중 1개 이상 소지 시 수업료 10% 추가 감면",
+    "benefit": "입학금 전액면제 + 수업료 20%~40% 감면(+영어성적 시 10% 추가)"
+   },
+   {
+    "name": "외국인장학금(재학생)",
+    "target": "재학생(외국인 유학생)",
+    "condition": "직전학기 백분율 70점 이상(F학점 포함) + TOPIK 3급: 수업료 30% / TOPIK 4급: 40% / TOPIK 5급 이상: 50%",
+    "benefit": "수업료 30%~50% 감면(수혜 후 TOPIK 급수 상향 시 다음 학기부터 상향 기준 적용)"
+   }
+  ]
  },
  {
   "n": "동서울대학교",
@@ -56553,7 +56995,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 법적 공용어로 사용하는 국가에서 중등·고등"
     }
    ]
-  }
+  },
+  "period": "2026-06-15 09:00 ~ 2026-07-01 15:00"
  },
  {
   "n": "동아방송예술대학교",
@@ -56686,7 +57129,15 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "글로벌K-뮤직콘텐츠과(외국인학생 전담학과)"
     }
    ]
-  }
+  },
+  "scholarships": [
+   {
+    "name": "전문학사 입학 장학금",
+    "target": "신입생(외국인 유학생)",
+    "condition": "본교 K-WAVE 한국어교육원 어학연수 수료 후 전문학사 입학 시",
+    "benefit": "장학금 수여(금액·비율 미공개)"
+   }
+  ]
  },
  {
   "n": "동원대학교",
@@ -56841,7 +57292,45 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Doowon Technical University",
   "es": "Doowon Technical University",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "scholarships": [
+   {
+    "name": "재외국인장학금",
+    "target": "재학생(재외국인 전형으로 입학한 외국인 유학생, 국제교류센터를 통한 입학자)",
+    "condition": "TOPIK 성적에 따라 차등",
+    "benefit": "등록금(입학금 제외)의 30%~50% (등록금/생활비 지원)"
+   },
+   {
+    "name": "두원사랑장학금",
+    "target": "신입생 전원(성인학습자 및 야간학과 제외)",
+    "condition": "당해년도 신입생",
+    "benefit": "30만원 (1학기 1회 지급, 등록금 지원)"
+   },
+   {
+    "name": "지역사랑장학금",
+    "target": "신입생 중 안성·평택·이천·용인·파주·고양 거주자",
+    "condition": "당해년도 신입생 (야간반, 위탁생 등 제외)",
+    "benefit": "20만원 (1학기 1회 지급, 등록금/생활비 지원)"
+   },
+   {
+    "name": "두원후학지원장학금",
+    "target": "당해년도 야간반 신입생 전원",
+    "condition": "야간반 신입생",
+    "benefit": "등록금 30% (매학기 지급)"
+   },
+   {
+    "name": "신입생 학과 수석 장학금",
+    "target": "신입생 학과별 수석",
+    "condition": "당해연도 입시 학과별 수석",
+    "benefit": "등록금 전액 (1학기 1회)"
+   },
+   {
+    "name": "신입생 전체 수석 장학금",
+    "target": "신입생 전체 수석",
+    "condition": "당해연도 입시 전체 수석 (학과 수석 장학금과 중복 불가)",
+    "benefit": "등록금 전액 (1·2학기 2회)"
+   }
+  ]
  },
  {
   "n": "부천대학교",
@@ -56918,7 +57407,40 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "본교 한국어 정규과정 이수한 후 본 대학교에 입학한 외국인 학생"
     }
    ]
-  }
+  },
+  "period": "1차: 2026. 5. 6.(수) ~ 5. 29.(금) 17:00까지, 2차: 2026. 6. 22.(월) ~ 7. 10.(금) 17:00까지",
+  "scholarships": [
+   {
+    "name": "외국인 신입생 장학금",
+    "target": "신입생 (외국인)",
+    "condition": "TOPIK 성적 보유자 또는 세종학당 한국어 이수자, 성적에 따라 차등 지급",
+    "benefit": "성적에 따라 차등 지급"
+   },
+   {
+    "name": "외국인 성적우수 장학금",
+    "target": "재학생 (외국인)",
+    "condition": "외국인 재학생 중 학업 성적이 뛰어난 자",
+    "benefit": "등록금의 20%~60%"
+   },
+   {
+    "name": "학과 수석 장학금",
+    "target": "신입생 (학과 수석 합격자)",
+    "condition": "입학 성적 기준 각 학과 수석 합격자",
+    "benefit": "첫 학기 등록금 100% 면제"
+   },
+   {
+    "name": "전공심화 입학 성적 우수 장학금",
+    "target": "신입생 (전공심화과정)",
+    "condition": "백분위 환산 점수 85점 이상",
+    "benefit": "등록금 30%"
+   },
+   {
+    "name": "재학생 성적우수 장학금",
+    "target": "재학생",
+    "condition": "매 학기 성적 우수자 선발",
+    "benefit": "등록금의 10%~100%"
+   }
+  ]
  },
  {
   "n": "서영대학교",
@@ -56960,7 +57482,15 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Seoyeong University",
   "es": "Seoyeong University",
-  "foreign_guide": "obtained"
+  "foreign_guide": "obtained",
+  "scholarships": [
+   {
+    "name": "외국인 유학생 학위과정 장학금(등록금 감면)",
+    "target": "신입생 (순수외국인 특별전형)",
+    "condition": "학위과정 입학생, 학기별 차등 적용",
+    "benefit": "1학기 50% / 2학기 30% / 3학기 20% / 4학기 20% 수업료 장학금 + 입학금 면제"
+   }
+  ]
  },
  {
   "n": "서정대학교",
@@ -57026,7 +57556,28 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "호텔관광과[영어트랙] / 글로벌테크노경영과[영어트랙] / 스마트모빌리티과[영어트랙]"
     }
    ]
-  }
+  },
+  "period": "2026.05.08.~2026.05.11.",
+  "scholarships": [
+   {
+    "name": "어학 우수자 장려 장학금",
+    "target": "재학생(국제학생)",
+    "condition": "TOPIK 3급~6급 / KIIP 3~5단계(사전평가 61점·81점) / 세종학당 중급1·2 수료, 유효한 증빙서류 제출",
+    "benefit": "TOPIK 3급 30만원, 4급 40만원, 5급 50만원, 6급 60만원 / KIIP·세종학당 30만~50만원"
+   },
+   {
+    "name": "성적우수장학금",
+    "target": "재학생(국제학생)",
+    "condition": "성적 등급별",
+    "benefit": "1급 수업료 100% / 2급 60% / 3급 30% 감면"
+   },
+   {
+    "name": "성적공로장학금",
+    "target": "재학생(국제학생)",
+    "condition": "공로 인정",
+    "benefit": "700,000원"
+   }
+  ]
  },
  {
   "n": "수원과학대학교",
@@ -57116,7 +57667,22 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "국내소재 정규대학 부설 한국어교육원 정규과정 2급 이상 수료(이수)"
     }
    ]
-  }
+  },
+  "period": "2026.05.04.(월) 10:00 ~ 2026.06.26.(금) 17:00",
+  "scholarships": [
+   {
+    "name": "지역인재장학금",
+    "target": "신입생",
+    "condition": "화성시 또는 수원시 소재 고등학교 졸업 후 수시·정시 최초 합격자 (정원외 전형 제외)",
+    "benefit": "300,000원 (등록금 범위 내 선감면)"
+   },
+   {
+    "name": "성인학습과정특별장학금",
+    "target": "신입생",
+    "condition": "성인학습과정으로 입학한 자",
+    "benefit": "등록금 30% (선감면)"
+   }
+  ]
  },
  {
   "n": "수원여자대학교",
@@ -57267,7 +57833,22 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "본교 한국어학당 6개월 이상 수료 후 / 타대학 한국어학당 수료한"
     }
    ]
-  }
+  },
+  "period": "2025.12.29.(월)09:00 ~ 2026.01.14.(수)21:00까지",
+  "scholarships": [
+   {
+    "name": "외국인유학생장학금",
+    "target": "재학생(외국인 유학생)",
+    "condition": "교내장학(대가성)(등록금 범위 외 지급) - 세부 지급 기준 페이지에 명시되지 않음",
+    "benefit": "세부 금액 미공개 (등록금 범위 외 지급)"
+   },
+   {
+    "name": "입학성적장학금",
+    "target": "신입생",
+    "condition": "입학성적 우수자",
+    "benefit": "소정의 장학금"
+   }
+  ]
  },
  {
   "n": "신구대학교",
@@ -57450,7 +58031,28 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Shingu College",
   "es": "Shingu College",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "period": "2026. 6. 1.(월) ~ 2026. 6. 19.(금) 오후 6시",
+  "scholarships": [
+   {
+    "name": "외국인장학금(신입생)",
+    "target": "신입생 (순수 외국인전형 입학자)",
+    "condition": "첫 학기: 수업료 30% (본교 한국어연수과정 수료자는 30% 추가 → 60%)",
+    "benefit": "첫 학기 수업료 30% (수료자 60%)"
+   },
+   {
+    "name": "외국인장학금(재학생)",
+    "target": "재학생 (순수 외국인전형 입학자)",
+    "condition": "① TOPIK 4급 이상 + 직전학기 평점평균 3.0 이상: 수업료 50% (본교 한국어연수과정 수료자 70%) ② TOPIK 3급 이상 + 평점 2.5 이상: 40% (수료자 50%) ③ 그 외: 30%",
+    "benefit": "수업료 30%~70% 감면"
+   },
+   {
+    "name": "신구사랑장학금 B급",
+    "target": "재학생 (다문화가족·외국인 학생 등 소수집단)",
+    "condition": "배정인원만큼 소득 2~8분위 중 학과장 추천자",
+    "benefit": "등록금 50% 감면"
+   }
+  ]
  },
  {
   "n": "신안산대학교",
@@ -57603,7 +58205,34 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "한국어 트랙 지원자는 한국어능력시험 응시 대상이며, 영어트랙은 제외"
     }
    ]
-  }
+  },
+  "period": "1차 2026.04.06.(월)~04.24.(금), 2차 2026.04.27.(월)~06.12.(금), 3차 2026.06.15.(월)~07.17.(금)",
+  "scholarships": [
+   {
+    "name": "입학 장학금",
+    "target": "신입생 (모든 외국인 유학생)",
+    "condition": "최초 입학 시 1회",
+    "benefit": "150만원 (등록금 감면 형태)"
+   },
+   {
+    "name": "외국인 장학금(감면성)",
+    "target": "재학생 (외국인 유학생)",
+    "condition": "12학점 이상 이수 + 평균학점 2.0 이상",
+    "benefit": "매 학기 등록금 100만원 감면"
+   },
+   {
+    "name": "TOPIK 장학금",
+    "target": "재학생 (외국인 유학생)",
+    "condition": "재학 중 1회. TOPIK 3급 이상 / KIIP 3단계 이상·사전평가 61점 이상 / 세종학당 중급1 이상 → 100만원. TOPIK 2급 / KIIP 2단계·사전평가 41점 이상 / 세종학당 초급2 → 50만원",
+    "benefit": "100만원 (TOPIK 3급 이상 등) / 50만원 (TOPIK 2급 등)"
+   },
+   {
+    "name": "화목 장학금",
+    "target": "재학생 (외국인 유학생)",
+    "condition": "직계가족(형제자매) 동시 재학",
+    "benefit": "매 학기 생활비성 장학금 70만원"
+   }
+  ]
  },
  {
   "n": "안산대학교",
@@ -57722,7 +58351,22 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "자체시험은 추가모집에서 운영하지 않음"
-  }
+  },
+  "period": "추가 1차: 2026.7.27.(월) ~ 8.4.(화) 16시, 추가 2차: 2026.8.10.(월) ~ 8.19.(수) 16시",
+  "scholarships": [
+   {
+    "name": "입학장학금",
+    "target": "신입생 (외국인)",
+    "condition": "어학당 출신자, 영어트랙 입학자, 정원내 입학생",
+    "benefit": "1,000,000원"
+   },
+   {
+    "name": "우수외국인장학금",
+    "target": "신입생 (외국인)",
+    "condition": "TOPIK, KIIP 등급별 (TOPIK 2급 기준 30% 감면)",
+    "benefit": "등록금 30%~100% 감면"
+   }
+  ]
  },
  {
   "n": "연성대학교",
@@ -57884,7 +58528,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "대한민국정부초청장학생 및 외국정부장학생에 한해 한국어능력시험(TOPIK) 취득 여부에 관계없이 지원 가능"
     }
    ]
-  }
+  },
+  "period": "2026년 6월 19일(금)"
  },
  {
   "n": "여주대학교",
@@ -58023,7 +58668,8 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Yeoju Institute of Technology",
   "es": "Yeoju Institute of Technology",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "period": "2026.07.20.~ 2026.08.03."
  },
  {
   "n": "오산대학교",
@@ -58105,7 +58751,22 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "'영어권·일어권 해외 어학연수 지원'은 재학생 어학연수 안내로 입학 어학요건 경로 아님 → 제외"
-  }
+  },
+  "period": "수시1차: 2026. 9. 7.(월) ~ 9. 30.(수), 수시2차: 2026. 11. 11.(수) ~ 11. 25.(수), 정시: 2027. 1. 4.(월) ~ 1. 20.(수)",
+  "scholarships": [
+   {
+    "name": "유학생 특별 장학금",
+    "target": "재학생 (외국인 유학생)",
+    "condition": "성적 장학금 외 외국인 유학생 대상 추가 지급",
+    "benefit": "특별 장학금 최대 1,200,000원"
+   },
+   {
+    "name": "정부초청 외국인 장학사업(GKS-U, GKS-UIC)",
+    "target": "신입생 (외국인 유학생)",
+    "condition": "GKS-U/GKS-UIC 선정",
+    "benefit": "3년간 등록금 전액 + 생활비 월 130만원 (정부 장학)"
+   }
+  ]
  },
  {
   "n": "용인예술과학대학교",
@@ -58183,7 +58844,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙"
     }
    ]
-  }
+  },
+  "period": "1차: 2026.06.29.(월) ~ 2026.07.09.(목), 2차: 2026.07.27.(월) ~ 2026.08.06.(목)"
  },
  {
   "n": "웅지세무대학교",
@@ -58251,7 +58913,16 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "외국인전담학과: 글로벌경영학과"
     }
    ]
-  }
+  },
+  "period": "2026.07.01.~2026.07.27",
+  "scholarships": [
+   {
+    "name": "입학생 장학금",
+    "target": "신입생 (수시·정시)",
+    "condition": "수시·정시 모집단위별 우수자 (입학사정원칙)",
+    "benefit": "1~2등: 1학기 수업료 면제(입학금 제외), 3~5등: 1학기 수업료의 50%"
+   }
+  ]
  },
  {
   "n": "유한대학교",
@@ -58322,7 +58993,28 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 법적 공용어로 사용하는 국가의 국적을 소지한 자 / 영어로 수업을 진행하는 학교(고등학교 단계 이상)를 졸업한 자"
     }
    ]
-  }
+  },
+  "period": "2026.06.01.~06.26.",
+  "scholarships": [
+   {
+    "name": "외국인 장학금",
+    "target": "재학생 (외국인 및 재외국민 특별전형 입학자)",
+    "condition": "직전학기 백분위 80점 이상",
+    "benefit": "최대 수업료의 50%"
+   },
+   {
+    "name": "유한글로벌 장학금",
+    "target": "재학생 (다문화 가정)",
+    "condition": "직전학기 성적 2.50 이상",
+    "benefit": "최대 수업료의 30%"
+   },
+   {
+    "name": "성적 장학금(신입생)",
+    "target": "신입생",
+    "condition": "입학사정원칙 전형방법에 따른 성적 우수자",
+    "benefit": "지급기준에 의함"
+   }
+  ]
  },
  {
   "n": "장안대학교",
@@ -58379,7 +59071,40 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Jangan University",
   "es": "JA",
-  "foreign_guide": "no_public_guide"
+  "foreign_guide": "no_public_guide",
+  "period": "2026.09.07 - 2026.09.30",
+  "scholarships": [
+   {
+    "name": "유학생 장학금",
+    "target": "재학생 (외국인 유학생)",
+    "condition": "외국인 학생 대상",
+    "benefit": "각 학기별 수업료의 30% 우선감면"
+   },
+   {
+    "name": "TOPIK 장학금",
+    "target": "재학생 (외국인 유학생)",
+    "condition": "TOPIK 보유 또는 취득 급수에 따라 지급",
+    "benefit": "급수에 따라 지급 (금액 미명시)"
+   },
+   {
+    "name": "입학장려장학금 A",
+    "target": "신입생 (외국인 학생)",
+    "condition": "외국인 학생 입학 시 지급",
+    "benefit": "규정에 의해 지급"
+   },
+   {
+    "name": "입학장려장학금 B",
+    "target": "신입생",
+    "condition": "부설 어학당 학생이 학부로 입학 시 지급",
+    "benefit": "규정에 의해 지급"
+   },
+   {
+    "name": "입학장학생 A",
+    "target": "신입생 (전체 수석·차석)",
+    "condition": "입학 수시 전체 수석 / 차석",
+    "benefit": "수석: 1년간 수업료 100% / 차석: 1학기 수업료 100%"
+   }
+  ]
  },
  {
   "n": "청강문화산업대학교",
@@ -58454,7 +59179,34 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "ChungKang College of Cultural Industries",
   "es": "ChungKang College of Cultural Industries",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "period": "2026.1.21.(수) ~ 2.27.(금)",
+  "scholarships": [
+   {
+    "name": "International Student Scholarship (외국인 유학생 장학금)",
+    "target": "재학생 (외국 국적 입학생)",
+    "condition": "외국 국적으로 재학 중인 학생",
+    "benefit": "수업료 20% 감면"
+   },
+   {
+    "name": "Global Scholarship",
+    "target": "신입생/재학생 (외국인 유학생)",
+    "condition": "TOPIK 3급 이상 제출",
+    "benefit": "수업료 30% 감면"
+   },
+   {
+    "name": "Vision Scholarship",
+    "target": "재학생 (외국인 유학생)",
+    "condition": "TOPIK 4급 이상 + 2학기 이상 이수 + 학업성적 우수 및 교내 활동 참여",
+    "benefit": "별도 결정 (Determined separately)"
+   },
+   {
+    "name": "Work-Study Scholarship",
+    "target": "재학생 (외국인 유학생)",
+    "condition": "교내 근로 활동 참여",
+    "benefit": "근로 시간에 따라 계산 지급"
+   }
+  ]
  },
  {
   "n": "한국관광대학교",
@@ -58592,7 +59344,22 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "외국어 능력 증명서(영어트랙에 한함"
     }
    ]
-  }
+  },
+  "period": "2026.12.07-2027.02.24",
+  "scholarships": [
+   {
+    "name": "글로벌장학",
+    "target": "재학생 (본교에 유학하는 유학생)",
+    "condition": "유학생 대상",
+    "benefit": "소정의 장학금"
+   },
+   {
+    "name": "신입생장학",
+    "target": "신입생",
+    "condition": "각 학과 입학성적 우수자",
+    "benefit": "소정의 장학금"
+   }
+  ]
  },
  {
   "n": "인하공업전문대학",
@@ -58646,7 +59413,34 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 3단계 이상 이수 또는 사전평가 61점 이상 취득"
     }
    ]
-  }
+  },
+  "period": "원서접수 기간 정보 없음",
+  "scholarships": [
+   {
+    "name": "TOPIK 장학금",
+    "target": "신·편입학생 (유학생, 첫 학기만 적용)",
+    "condition": "TOPIK 성적 보유 (TOPIK 4급 이상 / 3급 / 2급 이하)",
+    "benefit": "수업료의 40% (4급 이상) / 30% (3급) / 미지급 (2급 이하)"
+   },
+   {
+    "name": "성적우수 장학금",
+    "target": "재학생 (유학생)",
+    "condition": "직전학기 성적 백분위 (A그룹 25% 이하 / B 50% 이하 / C 75% 이하 / D 초과), 15학점 이상 신청자, 직전학기 평점평균 2.0 이상",
+    "benefit": "수업료의 50% (A) / 30% (B) / 20% (C) / 미지급 (D)"
+   },
+   {
+    "name": "뿌리산업 장학금",
+    "target": "재학생 (뿌리산업양성학과 유학생)",
+    "condition": "뿌리산업 양성학과 재학, 직전학기 평점평균 2.0 이상",
+    "benefit": "전 학기 수업료 30% 감면"
+   },
+   {
+    "name": "협약학교 유학생 장학금",
+    "target": "재학생 (협약학교 유학생)",
+    "condition": "협약학교 출신 유학생, 직전학기 평점평균 2.0 이상",
+    "benefit": "협약에 따라 국가별 별도 지급"
+   }
+  ]
  },
  {
   "n": "재능대학교",
@@ -58834,7 +59628,8 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Gangneung Yeongdong University",
   "es": "Gangneung Yeongdong University",
-  "foreign_guide": "no_public_guide"
+  "foreign_guide": "no_public_guide",
+  "period": "2026. 9. 7.(월) ~ 2027. 2. 27.(토)"
  },
  {
   "n": "강원도립대학교",
@@ -58948,7 +59743,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "온라인 세종학당 수료증 미인정; 글로벌융합학부 글로벌산업기술전공 영어트랙은 KNU예비학부 수료자만 지원가능"
-  }
+  },
+  "period": "26. 09. 07. (월) ~ 09. 30. (수)"
  },
  {
   "n": "세경대학교",
@@ -59034,7 +59830,34 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Saekyung University",
   "es": "Saekyung University",
-  "foreign_guide": "no_public_guide"
+  "foreign_guide": "no_public_guide",
+  "period": "2020.12.14(월)~2021.1.08(금)",
+  "scholarships": [
+   {
+    "name": "신입생 장학금 (수시)",
+    "target": "신입생",
+    "condition": "수시 지원자",
+    "benefit": "수업료 30% 감면"
+   },
+   {
+    "name": "신입생 장학금 (정시)",
+    "target": "신입생",
+    "condition": "정시 지원자",
+    "benefit": "수업료 25% 감면"
+   },
+   {
+    "name": "취업개발장학금",
+    "target": "신입생",
+    "condition": "해당 기준 충족 시",
+    "benefit": "100만원"
+   },
+   {
+    "name": "등록금지원장학금",
+    "target": "신입생",
+    "condition": "해당 기준 충족 시",
+    "benefit": "50만원 (등록금 범위 내)"
+   }
+  ]
  },
  {
   "n": "송곡대학교",
@@ -59165,7 +59988,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "* 어학당과 학부 모두 2 트랙(한국어, 영어) 운영"
     }
    ]
-  }
+  },
+  "period": "매 학기 시작 3개월 전 면접 신청, 2개월 전 서류 제출"
  },
  {
   "n": "한국골프과학기술대학교",
@@ -59328,7 +60152,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "글로벌케어과(정원 외 외국인 전담학과)"
     }
    ]
-  }
+  },
+  "period": "2026. 9. 9(월) ~ 9. 30(수)"
  },
  {
   "n": "대덕대학교",
@@ -59367,7 +60192,81 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Daeduk University",
   "es": "Daeduk University",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "scholarships": [
+   {
+    "name": "입학 장학금",
+    "target": "신입생",
+    "condition": "첫 학기 외국인 신입생",
+    "benefit": "등록금 40% 감면 (첫 학기만)"
+   },
+   {
+    "name": "인재 장학금",
+    "target": "재학생",
+    "condition": "매 학기, 성적 GPA 1.90 이상",
+    "benefit": "300,000원 감면"
+   },
+   {
+    "name": "성적 장학금 (성적우수상)",
+    "target": "재학생",
+    "condition": "둘째 학기부터 성적우수 선발 (100%, 70%, 40%)",
+    "benefit": "등록금 100%, 70%, 40% 감면"
+   },
+   {
+    "name": "한국어능력시험 장학금",
+    "target": "신입생/재학생",
+    "condition": "TOPIK 4급",
+    "benefit": "200,000원"
+   },
+   {
+    "name": "한국어능력시험 장학금",
+    "target": "신입생/재학생",
+    "condition": "TOPIK 5급",
+    "benefit": "300,000원"
+   },
+   {
+    "name": "한국어능력시험 장학금",
+    "target": "신입생/재학생",
+    "condition": "TOPIK 6급",
+    "benefit": "500,000원"
+   },
+   {
+    "name": "CSI 인증 장학금",
+    "target": "재학생",
+    "condition": "CSI Level 1",
+    "benefit": "100,000원"
+   },
+   {
+    "name": "CSI 인증 장학금",
+    "target": "재학생",
+    "condition": "CSI Level 2",
+    "benefit": "200,000원"
+   },
+   {
+    "name": "CSI 인증 장학금",
+    "target": "재학생",
+    "condition": "CSI Level 3",
+    "benefit": "300,000원"
+   },
+   {
+    "name": "E-Test 자격증 장학금",
+    "target": "재학생",
+    "condition": "1급 자격증",
+    "benefit": "300,000원"
+   },
+   {
+    "name": "E-Test 자격증 장학금",
+    "target": "재학생",
+    "condition": "2급 자격증",
+    "benefit": "200,000원"
+   },
+   {
+    "name": "E-Test 자격증 장학금",
+    "target": "재학생",
+    "condition": "3급 자격증",
+    "benefit": "100,000원"
+   }
+  ]
  },
  {
   "n": "대전과학기술대학교",
@@ -59540,7 +60439,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "예체능 학과 및 기술직 학과 입학생 등)의 경우 기준 완화 가능"
     }
    ]
-  }
+  },
+  "period": "2026. 4. 6.(월) ~ 6. 12.(금)"
  },
  {
   "n": "대전보건대학교",
@@ -59598,7 +60498,57 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "법무부 사회통합프로그램... 추가 인정"
     }
    ]
-  }
+  },
+  "scholarships": [
+   {
+    "name": "HIT유학생장학금",
+    "target": "신입생/재학생",
+    "condition": "외국국적 소유자로 외국인등록이 되어있는 자",
+    "benefit": "소정금액"
+   },
+   {
+    "name": "외국인유학생어학장학금 (1종)",
+    "target": "신입생/재학생",
+    "condition": "TOPIK 6급 취득자",
+    "benefit": "수업료 14%"
+   },
+   {
+    "name": "외국인유학생어학장학금 (2종)",
+    "target": "신입생/재학생",
+    "condition": "TOPIK 5급 취득자",
+    "benefit": "수업료 12%"
+   },
+   {
+    "name": "외국인유학생어학장학금 (3종)",
+    "target": "신입생/재학생",
+    "condition": "TOPIK 4급 취득 후 입학한 자",
+    "benefit": "수업료 8%"
+   },
+   {
+    "name": "외국인유학생어학장학금 (4종)",
+    "target": "신입생/재학생",
+    "condition": "TOPIK 3급 취득 후 입학한 자",
+    "benefit": "수업료 6%"
+   },
+   {
+    "name": "외국인유학생성실장학금 (1종)",
+    "target": "재학생",
+    "condition": "직전학기 12학점 이상 이수 및 출석률 95% 이상",
+    "benefit": "수업료 12%"
+   },
+   {
+    "name": "외국인유학생성실장학금 (2종)",
+    "target": "재학생",
+    "condition": "직전학기 12학점 이상 이수 및 출석률 80% 이상",
+    "benefit": "수업료 8%"
+   },
+   {
+    "name": "HIT다문화장학금",
+    "target": "신입생",
+    "condition": "다문화 가정의 구성원으로 입학한 자",
+    "benefit": "소정금액"
+   }
+  ]
  },
  {
   "n": "우송정보대학",
@@ -59733,7 +60683,76 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어능력시험(영어트랙)"
     }
    ]
-  }
+  },
+  "period": "수시1차 2026.09.07~09.30, 수시2차 2026.11.11~11.25, 정시 2027.01.04~01.20",
+  "scholarships": [
+   {
+    "name": "외국어성적 우수자 장학금",
+    "target": "신입생",
+    "condition": "외국어 성적 증빙, 신청자에 한함",
+    "benefit": "등록금 50% 감면"
+   },
+   {
+    "name": "우수장학금 (우수인재)",
+    "target": "신입생",
+    "condition": "입학성적우수자, 자체 선발",
+    "benefit": "등록금 100만원 감면"
+   },
+   {
+    "name": "재능장학금",
+    "target": "신입생",
+    "condition": "자격증 등 증빙 후 신청, 심사",
+    "benefit": "등록금 100만원 감면"
+   },
+   {
+    "name": "입상장학금",
+    "target": "신입생",
+    "condition": "입상 실적, 자체 선발",
+    "benefit": "소정 금액 감면"
+   },
+   {
+    "name": "협약(고교)장학금",
+    "target": "신입생",
+    "condition": "협약 고교 출신, 자체 선정",
+    "benefit": "등록금 100만원 감면"
+   },
+   {
+    "name": "희망드림장학금",
+    "target": "신입생",
+    "condition": "자체 선정",
+    "benefit": "등록금 100만원 감면"
+   },
+   {
+    "name": "뉴스타트장학금",
+    "target": "신입생",
+    "condition": "자체 선정",
+    "benefit": "등록금 100만원 감면"
+   },
+   {
+    "name": "생활지원장학금",
+    "target": "신입생",
+    "condition": "별도 공고 후 심사",
+    "benefit": "1인당 등록금 30만원 감면 또는 지급"
+   },
+   {
+    "name": "우송가족장학금",
+    "target": "신입생",
+    "condition": "우송가족, 별도 공고 후 심사",
+    "benefit": "등록금 100만원 감면"
+   },
+   {
+    "name": "학원추천장학금",
+    "target": "신입생",
+    "condition": "학원 추천, 별도 공고 후 심사",
+    "benefit": "등록금 100만원 감면"
+   },
+   {
+    "name": "동문가족장학금",
+    "target": "신입생",
+    "condition": "동문 가족, 신청 및 증빙",
+    "benefit": "등록금 100만원 감면"
+   }
+  ]
  },
  {
   "n": "한국영상대학교",
@@ -59845,7 +60864,16 @@ window.UNIV_KNOWLEDGE = [
    "ielts": null,
    "selftest": false
   },
-  "foreign_guide": "no_public_guide"
+  "foreign_guide": "no_public_guide",
+  "period": "2026.09.07.(월) ~ 09.30.(수) 20:00 / 2026.11.11.(수) ~ 11.25.(수) 20:00 / 2027.01.04.(월) ~ 01.20.(수) 20:00",
+  "scholarships": [
+   {
+    "name": "우수인재육성장학금 등 교내 장학금",
+    "target": "신입생",
+    "condition": "입학 후 교학팀 선발 규정에 따름",
+    "benefit": "별도 기준 (장학금 최대 수혜금액은 등록금 범위 내)"
+   }
+  ]
  },
  {
   "n": "강동대학교",
@@ -59960,7 +60988,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "2. 사회통합프로그램 3단계 이상 이수하거나 사전평가 61점 이상 취득자"
     }
    ]
-  }
+  },
+  "period": "원서접수 일정은 학기에 따라 공지 사항에 공고 예정"
  },
  {
   "n": "대원대학교",
@@ -60079,7 +61108,22 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 사전평가 41점 이상 취득, 교육과정 2단계 이수자"
     }
    ]
-  }
+  },
+  "period": "2025.05.07.(수) ~ 06.20.(금)",
+  "scholarships": [
+   {
+    "name": "외국인 유학생 전액 장학금",
+    "target": "신입생/재학생",
+    "condition": "외국인 유학생, 매학기 등록 후 학기 종료 시 환급",
+    "benefit": "등록금 전액 환급 (입학금+수업료)"
+   },
+   {
+    "name": "기숙사비 감면",
+    "target": "신입생/재학생",
+    "condition": "외국인 유학생에 한함",
+    "benefit": "기숙사비 50% 감면 (2인 1실/3개월 기준 275,000원)"
+   }
+  ]
  },
  {
   "n": "충북보건과학대학교",
@@ -60207,7 +61251,16 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Chung Cheong University",
   "es": "Chung Cheong University",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "period": "국내: 2026.06.01.(월) ~ 2026.07.10.(금), 해외: 2026.05.11.(월) ~ 2026.06.19.(금)",
+  "scholarships": [
+   {
+    "name": "외국인 유학생 복지장학금",
+    "target": "신입생/재학생",
+    "condition": "본 대학에 입학하는 외국인 유학생",
+    "benefit": "별도 기준 (등록금 범위 초과 지급 가능)"
+   }
+  ]
  },
  {
   "n": "백석문화대학교",
@@ -60240,7 +61293,16 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Baekseok Culture University",
   "es": "Baekseok Culture University",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "period": "전기: 2023.09.01. ~ 2024.01.19, 후기: 2024.03.04. ~ 07.19",
+  "scholarships": [
+   {
+    "name": "TOPIK 장학금 (외국인학생 장학금)",
+    "target": "재학생",
+    "condition": "외국인 학부생, 직전학기 성적 백분위 70점 이상, TOPIK 성적증명서 보유",
+    "benefit": "별도 공지 금액"
+   }
+  ]
  },
  {
   "n": "신성대학교",
@@ -60314,7 +61376,8 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Shinsung University",
   "es": "Shinsung University",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "period": "수시1차: 2026.09.07~09.30 / 수시2차: 2026.11.11~11.25 / 정시: 2027.01.04~01.20"
  },
  {
   "n": "아주자동차대학교",
@@ -60510,7 +61573,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램(KIIP) 사전평가"
     }
    ]
-  }
+  },
+  "period": "수시1차 2026.09.07.(월)~09.30.(수), 수시2차 2026.11.11.(수)~11.25.(수), 수시3차 2026.12.09.(수)~12.23.(수), 정시1차 2027.01.04.(월)~01.20.(수), 정시2차 2027.02.01.(월)~02.05.(금)"
  },
  {
   "n": "경남정보대학교",
@@ -60650,7 +61714,28 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프그램) 2단계 이상 또는 사전평가"
     }
    ]
-  }
+  },
+  "period": "2026.09.07.(월) ~ 09.30.(수)",
+  "scholarships": [
+   {
+    "name": "해외인재 양성장학",
+    "target": "외국인 유학생 (신입생, 매학기 적용)",
+    "condition": "TOPIK 2급(사회통합프로그램 2단계, 세종학당 초급2) 20% / TOPIK 3급(3단계, 세종학당 중급1) 30% / TOPIK 4급(4단계-기본과정, 세종학당 중급2) 50% / TOPIK 5급(5단계-심화과정, 세종학당 고급1) 80%; 단 국내 고등학교 졸업자는 TOPIK 4급 이상 시 40% 감면; 두 번째 학기부터는 직전학기 학업성적 평점 C(2.0) 이상 유지 시 지급",
+    "benefit": "수업료 20%~80% 감면 (매학기)"
+   },
+   {
+    "name": "외국 국적 학생 첫 학기 장학금",
+    "target": "외국 국적 신입생",
+    "condition": "외국 국적의 학생으로 입학 시",
+    "benefit": "첫 학기 수업료 20% 감면 (다른 조건별 감면과 중복적용 불가)"
+   },
+   {
+    "name": "KIT 한국어학당 연계 진학 장학금",
+    "target": "KIT 한국어학당 연계 진학생 및 교환학생",
+    "condition": "KIT 한국어학당 연계 진학생 또는 교환학생",
+    "benefit": "첫 학기 수업료 50% 감면 (중복적용 불가)"
+   }
+  ]
  },
  {
   "n": "대동대학교",
@@ -60706,7 +61791,15 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Daedong University",
   "es": "Daedong University",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "scholarships": [
+   {
+    "name": "외국인 우대 면학 장학금",
+    "target": "외국인 (신입생/재학생)",
+    "condition": "우리 대학에 입학한 외국인",
+    "benefit": "매 학기 500,000원 지급"
+   }
+  ]
  },
  {
   "n": "동의과학대학교",
@@ -60795,7 +61888,34 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 운영"
     }
    ]
-  }
+  },
+  "period": "4차 2026.06.08.(월)~06.11.(목), 5차 2026.06.24.(수)~06.28.(일), 6차 2026.07.11.(토)~07.14.(화), 7차 2026.07.25.(일)~07.30.(목)",
+  "scholarships": [
+   {
+    "name": "신입생 등록금 감면 장학금",
+    "target": "외국인 신입생",
+    "condition": "1학년 1학기 수업료의 30% (선감면)",
+    "benefit": "수업료 30% 감면"
+   },
+   {
+    "name": "출석 장학금",
+    "target": "외국인 신입생",
+    "condition": "교양 포함 출석률 100% 시, 1-2학기 등록 시 지급",
+    "benefit": "500,000원"
+   },
+   {
+    "name": "재학생 등록금 감면 장학금",
+    "target": "외국인 재학생",
+    "condition": "1학년 2학기부터 2학년 2학기 (선감면)",
+    "benefit": "수업료 20% 감면"
+   },
+   {
+    "name": "토픽장학금",
+    "target": "외국인 유학생",
+    "condition": "TOPIK 3급: 300,000원 / TOPIK 4급: 400,000원 / TOPIK 5급: 500,000원 / TOPIK 6급: 600,000원",
+    "benefit": "300,000원 ~ 600,000원"
+   }
+  ]
  },
  {
   "n": "부산보건대학교",
@@ -60939,7 +62059,27 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "국제학부(영어트랙)"
     }
    ]
-  }
+  },
+  "scholarships": [
+   {
+    "name": "TOPIK 장학금 (한국어학당)",
+    "target": "한국어학당 입학생",
+    "condition": "한국어학당 입학 시 TOPIK 2급 이상 소지자",
+    "benefit": "1학기 수업료 면제 (1,000,000원)"
+   },
+   {
+    "name": "TOPIK 취득 장학금 (한국어학당)",
+    "target": "한국어학당 재학생",
+    "condition": "한국어학당 재학 중 TOPIK 2급 취득 시 수업료 20% (200,000원), TOPIK 3급 취득 시 수업료 30% (300,000원)",
+    "benefit": "수업료 20%~30% 감면 (200,000원~300,000원)"
+   },
+   {
+    "name": "학부 유학생 장학금",
+    "target": "학부 외국인 유학생 (재학생)",
+    "condition": "모든 학부 유학생 대상",
+    "benefit": "학기별 500,000원 지급"
+   }
+  ]
  },
  {
   "n": "부산경상대학교",
@@ -60993,6 +62133,10 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "국제학부(영어트랙)"
     }
    ]
+  },
+  "visa_restricted": {
+   "degree": true,
+   "lang": false
   }
  },
  {
@@ -61063,7 +62207,27 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "국제학부(영어트랙)"
     }
    ]
-  }
+  },
+  "scholarships": [
+   {
+    "name": "TOPIK (한국어능력시험) 장려금",
+    "target": "전공과정 외국인 유학생 (재학생)",
+    "condition": "부산과학기술대학교 전공과정 입학 후 신규로 TOPIK 3급 이상(3~6급 동일) 취득한 자, 1회에 한해 지급",
+    "benefit": "100,000원"
+   },
+   {
+    "name": "글로벌 복지 장학금",
+    "target": "전공과정 외국인 유학생",
+    "condition": "교내·외 행사 시 적극적으로 참여하고 학과 성적 및 출결이 우수한 학생 (국제교육원 심사 선발)",
+    "benefit": "장학금 지급 (금액 미공시)"
+   },
+   {
+    "name": "어학연수생 성적 우수 장학금",
+    "target": "어학센터 어학연수생",
+    "condition": "반별 최우수학생 심사 후 선발",
+    "benefit": "장학금 지급 (학기 시작 전 어학센터에서 별도 공지)"
+   }
+  ]
  },
  {
   "n": "부산여자대학교",
@@ -61091,7 +62255,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "국제학부(영어트랙)"
     }
    ]
-  }
+  },
+  "period": "2026. 6. 15.(월)~6. 26.(금)"
  },
  {
   "n": "부산예술대학교",
@@ -61178,6 +62343,10 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "국제학부(영어트랙)"
     }
    ]
+  },
+  "visa_restricted": {
+   "degree": true,
+   "lang": false
   }
  },
  {
@@ -61345,7 +62514,22 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "한국어학당 관련 서류(재학, 성적＆출석, 수료증 등)"
     }
    ]
-  }
+  },
+  "period": "1차 2026.09.07.(월) ~ 2026.09.30.(수), 2차 2026.11.11.(수) ~ 2026.11.25.(수), 3차 2027.01.04.(월) ~ 2027.01.20.(수)",
+  "scholarships": [
+   {
+    "name": "유학생 특별장학금 (신입생)",
+    "target": "외국인 신입생",
+    "condition": "TOPIK 2급~4급 또는 사회통합프로그램 2단계~4단계 이수 또는 세종학당 2B(초급2) 수료 이상 또는 영어(TOEFL iBT 59, IELTS 5.5, CEFR B2, NEW TEPS 202점 등 상응 점수) 50% / TOPIK 5급 또는 사회통합프로그램 5단계(기본) 이수 70% / TOPIK 6급 또는 사회통합프로그램 5단계(심화) 이수 80%",
+    "benefit": "수업료 50%~80% 감면"
+   },
+   {
+    "name": "유학생 특별장학금 (재학생)",
+    "target": "외국인 재학생",
+    "condition": "TOPIK 2급 또는 사회통합프로그램 2단계 이수 20% / TOPIK 3급 또는 3단계 이수 30% / TOPIK 4급 또는 4단계 이수 50% / TOPIK 5급 또는 5단계(기본) 이수 70% / TOPIK 6급 또는 5단계(심화) 이수 80%",
+    "benefit": "수업료 20%~80% 감면"
+   }
+  ]
  },
  {
   "n": "대구공업대학교",
@@ -61459,7 +62643,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 법적 공용어로 사용하는"
     }
    ]
-  }
+  },
+  "period": "2025. 9. 8.(월) ~ 12. 24.(수), 2026. 1. 2.(금) ~ 1. 30.(금), 2026. 2. 6.(금) ~ 2. 27.(금)"
  },
  {
   "n": "대구보건대학교",
@@ -61553,7 +62738,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 2단계 이수, 사전평가 41점"
     }
    ]
-  }
+  },
+  "period": "2026년3월3일~2026년5월14일"
  },
  {
   "n": "수성대학교",
@@ -61648,7 +62834,28 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 / 사전평가 41~60점 / 사전평가 61~80점"
     }
    ]
-  }
+  },
+  "period": "2026.06.01(월) ~ 07.17(금)",
+  "scholarships": [
+   {
+    "name": "글로벌장학금 (입학학기)",
+    "target": "전공과정 외국인 유학생 (신입생)",
+    "condition": "입학학기: TOPIK 2급/사회통합 2단계 이수 또는 사전평가 41~60점/세종학당 초급2 과정 50% / TOPIK 3급/3단계 또는 61~80점/중급1 과정 60% / TOPIK 4급/4단계 또는 81~100점/중급2 과정 70%",
+    "benefit": "수업료 50%~70% 감면"
+   },
+   {
+    "name": "글로벌장학금 (재학 중)",
+    "target": "전공과정 외국인 유학생 (재학생)",
+    "condition": "직전학기 12학점 이상 이수자, 징계사실 없는 자; TOPIK 2급 & 학점 70점 이상 30% / TOPIK 3급 & 학점 75점 이상 50% / TOPIK 4급 & 학점 80점 이상 60%",
+    "benefit": "수업료 30%~60% 감면"
+   },
+   {
+    "name": "외국인학생 역량개발장학금",
+    "target": "전공과정 외국인 유학생 (재학생)",
+    "condition": "재학 중 TOPIK 성적 향상 시: 기존 보유 TOPIK 급수 1단계 향상 300,000원 / 2단계 향상 700,000원 / 3단계 향상 1,000,000원",
+    "benefit": "300,000원 ~ 1,000,000원"
+   }
+  ]
  },
  {
   "n": "영남이공대학교",
@@ -61681,7 +62888,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 / 영어를 모국어로 사용하는 국가의 국적 소지자는 지원 시에 별도 어학"
     }
    ]
-  }
+  },
+  "period": "1차 05.13(수)~05.22(금), 2차 06.15(월)~06.26(금), 3차 07.06(월)~07.10(금), 4차 07.22(수)~07.24(금), 5차 08.03(월)~08.12(수)"
  },
  {
   "n": "영진전문대학교",
@@ -61780,7 +62988,8 @@ window.UNIV_KNOWLEDGE = [
     "fields": {}
    }
   },
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "period": "원서접수 : 외국인 한국어과정 및 유학생 원서접수 클릭"
  },
  {
   "n": "울산과학대학교",
@@ -61837,7 +63046,16 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "'자체 한국어능력시험'은 졸업요건(입학 어학요건 아님) → 제외. '면접·구술'은 일반 안내로 어학요건 대체 근거 불충분 → 제외"
-  }
+  },
+  "period": "2026. 6. 1.(월) ~ 2026. 7. 24.(금)",
+  "scholarships": [
+   {
+    "name": "외국인 유학생 지원 장학",
+    "target": "외국인 유학생",
+    "condition": "TOPIK 3급 이하 30% 감면 / TOPIK 4급 40% / TOPIK 5급 60% / TOPIK 6급 100%; GPA 3.0 이상일 경우 지급",
+    "benefit": "수업료 30%~100% 감면"
+   }
+  ]
  },
  {
   "n": "춘해보건대학교",
@@ -61927,7 +63145,15 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Choonhae College of Health Sciences",
   "es": "Choonhae College of Health Sciences",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "scholarships": [
+   {
+    "name": "어학능력 장학금",
+    "target": "재학 중 외국인 유학생",
+    "condition": "TOPIK 3급 이상 취득자, 등급에 따라 차등 지급 (2026년 지역성장 인재양성체계(앵커) 사업으로 지급)",
+    "benefit": "장학금 지급 (등급별 차등, 금액 미공시)"
+   }
+  ]
  },
  {
   "n": "가톨릭상지대학교",
@@ -62048,7 +63274,15 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어가 모국어인 국가의 지원자는 영어능력시험 성적표 제출 면제 가능"
     }
    ]
-  }
+  },
+  "scholarships": [
+   {
+    "name": "외국인장학",
+    "target": "외국 국적 신입생",
+    "condition": "외국 국적 소유자로 본교 입학전형에 합격한 자",
+    "benefit": "입학학기 등록금 60% 감면, 1년 2학기부터 수업료 20% 감면 (전학년)"
+   }
+  ]
  },
  {
   "n": "경북과학대학교",
@@ -62135,7 +63369,16 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "(군)위탁생 등 (정원 외)"
     }
    ]
-  }
+  },
+  "period": "2023.6.26.(월) ~ 2023.8.04.(금)",
+  "scholarships": [
+   {
+    "name": "외국인면학장학",
+    "target": "외국인 유학생",
+    "condition": "외국인 유학생으로 한국어능력평가 자체시험을 통과한 자 → 수업료 20% (취득일 기준 다음 학기부터 적용) / TOPIK 2급 이상 소지자(재학 중 취득 포함) → 수업료 40% / TOPIK 3급 이상 취득자(재학 중 취득 포함) → 수업료 50% (TOPIK에 준하는 자격: 법무부 사회통합프로그램, 세종학당 과정 이수 등)",
+    "benefit": "수업료 20%~50% 감면"
+   }
+  ]
  },
  {
   "n": "경북보건대학교",
@@ -62259,7 +63502,22 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 법적 공용어로 사용하는 국가의 국적을 소지한 학생"
     }
    ]
-  }
+  },
+  "period": "2026. 6. 1.(월) ~ 7. 10.(금)",
+  "scholarships": [
+   {
+    "name": "전공유학생장학1",
+    "target": "신입생 (K-인더스트리학과, K-서비스학과)",
+    "condition": "외국 국적 소지자. 한국어트랙: TOPIK 2급/KLAT 2급/세종학당 초급2 이상→수업료 25%; TOPIK 3급 이상/KLAT 3급/세종학당 중급1 이상→수업료 35%. 영어트랙: IELTS 5.5→25%, IELTS 6.5→35%",
+    "benefit": "신입학기 수업료 25%~35% 감면"
+   },
+   {
+    "name": "전공유학생장학2",
+    "target": "신입생 (일반학과, K-인더스트리/K-서비스 제외)",
+    "condition": "외국 국적으로 입학한 자",
+    "benefit": "신입학기 수업료 20% 감면"
+   }
+  ]
  },
  {
   "n": "구미대학교",
@@ -62390,7 +63648,8 @@ window.UNIV_KNOWLEDGE = [
     "fields": {}
    }
   },
-  "foreign_guide": "no_public_guide"
+  "foreign_guide": "no_public_guide",
+  "period": "2026.09.07.(월) ~ 2026.09.30.(수)"
  },
  {
   "n": "대경대학교",
@@ -62533,7 +63792,33 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Daekyeung University",
   "es": "Daekyeung University",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "scholarships": [
+   {
+    "name": "신입생 장학금",
+    "target": "신입생",
+    "condition": "외국인 유학생 신입생",
+    "benefit": "금액 별도 안내 (기숙사 전액 무료 지원)"
+   },
+   {
+    "name": "재학생 장학금",
+    "target": "재학생",
+    "condition": "성적 기준",
+    "benefit": "금액 별도 안내"
+   },
+   {
+    "name": "어학 우수 장학금",
+    "target": "신입생/재학생",
+    "condition": "TOPIK 등 어학 성적 우수자",
+    "benefit": "금액 별도 안내"
+   },
+   {
+    "name": "총장 추천 장학금",
+    "target": "신입생/재학생",
+    "condition": "총장 추천을 받은 자",
+    "benefit": "금액 별도 안내"
+   }
+  ]
  },
  {
   "n": "문경대학교",
@@ -62624,7 +63909,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "본교(타대학)한국어연수과정 1년 이상 이수하고 한국어연수과정 2급이상 수료자"
     }
    ]
-  }
+  },
+  "period": "수시 1차: 9월, 수시 2차: 11월"
  },
  {
   "n": "성운대학교",
@@ -62659,7 +63945,15 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "SungWoon University",
   "es": "SungWoon University",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "scholarships": [
+   {
+    "name": "외국인장학금",
+    "target": "외국인 유학생",
+    "condition": "외국인으로서 총장이 필요하다고 인정한 자",
+    "benefit": "일정금액"
+   }
+  ]
  },
  {
   "n": "안동과학대학교",
@@ -62839,7 +64133,8 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Pohang University",
   "es": "Pohang University",
-  "foreign_guide": "no_public_guide"
+  "foreign_guide": "no_public_guide",
+  "period": "2026.08.24~2026.09.11 18:00, 2026.12.22~2027.01.07 18:00"
  },
  {
   "n": "호산대학교",
@@ -62963,7 +64258,28 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "SKA 201 points, King Sejong Institute"
     }
    ]
-  }
+  },
+  "period": "May'26~Aug'26 (2026-2학기), Sep'26~Feb'27 (2027-1학기)",
+  "scholarships": [
+   {
+    "name": "신입생 장학금",
+    "target": "신입생",
+    "condition": "합격자 중 상위 30% 이내",
+    "benefit": "수업료 전액 ~ 수업료 1/3 (차등 지급)"
+   },
+   {
+    "name": "특성화 장학",
+    "target": "신입생/재학생",
+    "condition": "별도 기준",
+    "benefit": "별도 지급"
+   },
+   {
+    "name": "누리장학",
+    "target": "신입생/재학생",
+    "condition": "별도 기준",
+    "benefit": "별도 지급"
+   }
+  ]
  },
  {
   "n": "김해대학교",
@@ -63058,7 +64374,40 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 2단계 이상 이수하거나 사전평가 41점 이상 취득한 자"
     }
    ]
-  }
+  },
+  "period": "2026.03.03~2026.01.30",
+  "scholarships": [
+   {
+    "name": "외국인 유학생 장학금 (특별장학금)",
+    "target": "신입생",
+    "condition": "외국인 유학생 중 국제교류원장 추천 → 총장 승인",
+    "benefit": "등록금 일정금액"
+   },
+   {
+    "name": "TOPIK 장학금 A",
+    "target": "신입생",
+    "condition": "외국인 유학생 중 TOPIK 5급 이상 취득",
+    "benefit": "700,000원 (입학학기)"
+   },
+   {
+    "name": "TOPIK 장학금 B",
+    "target": "신입생",
+    "condition": "외국인 유학생 중 TOPIK 4급 이상 취득",
+    "benefit": "500,000원 (입학학기)"
+   },
+   {
+    "name": "TOPIK 장학금 C",
+    "target": "신입생",
+    "condition": "외국인 유학생 중 TOPIK 3급 이상 취득",
+    "benefit": "300,000원 (입학학기)"
+   },
+   {
+    "name": "TOPIK 장학금 D",
+    "target": "신입생",
+    "condition": "외국인 유학생 중 TOPIK 2급 이상 취득",
+    "benefit": "200,000원 (입학학기)"
+   }
+  ]
  },
  {
   "n": "마산대학교",
@@ -63222,7 +64571,34 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어로 사용하는 국가에서 고등학교 과정을 이수한 자의 경우 어학성적 제출 면제"
     }
    ]
-  }
+  },
+  "period": "1차 2026.6.1.(월) ~ 6.9.(화), 2차 2026.6.29.(월) ~ 7.7.(화), 3차 2026.7.27.(월) ~ 8.13.(목)",
+  "scholarships": [
+   {
+    "name": "입학성적우수 장학금",
+    "target": "신입생",
+    "condition": "입학 당시 수능 및 내신 성적 기준 (수석: 최대4년, 차석: 2년, 삼석: 1년, 학과수석: 1학기), 직전학기 성적 80점 이상 유지",
+    "benefit": "전액 (등록금 감면)"
+   },
+   {
+    "name": "신입생 학업증진 장학금",
+    "target": "신입생",
+    "condition": "마산대학교 입학생 (국가장학금 심사 완료자)",
+    "benefit": "등록금 범위 내 최대 100만원"
+   },
+   {
+    "name": "다문화가정 장학금",
+    "target": "재학생",
+    "condition": "부모 중 1인 이상 외국 국적 또는 귀화 가정 자녀, 직전학기 백분위 70점 이상",
+    "benefit": "500,000원"
+   },
+   {
+    "name": "글로벌어학증진 장학금",
+    "target": "재학생",
+    "condition": "TOEIC, JPT, HSK 성적 상위자 (예산 범위 내 차등 지급)",
+    "benefit": "1,000,000원 / 500,000원 / 300,000원"
+   }
+  ]
  },
  {
   "n": "동원과학기술대학교",
@@ -63477,7 +64853,33 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "K-헬스케어과는 외국인 전담학과임"
     }
    ]
-  }
+  },
+  "scholarships": [
+   {
+    "name": "우수 신입생 장학금 (TOPIK 기반)",
+    "target": "신입생",
+    "condition": "TOPIK 2급/사회통합프로그램 2단계/세종학당 초급2 이수 → 20%; TOPIK 3급/사회통합 3단계/세종학당 중급1 이수 → 30%; TOPIK 4~6급/사회통합 4단계/세종학당 중급2 이수 → 40%",
+    "benefit": "입학학기 등록금 20%~40% 감면"
+   },
+   {
+    "name": "창의 장학금",
+    "target": "신입생",
+    "condition": "입학 학기 등록금 감면",
+    "benefit": "1,000,000원"
+   },
+   {
+    "name": "RISE 장학금",
+    "target": "재학생",
+    "condition": "학기 성적 GPA 3.0 이상",
+    "benefit": "학기당 1,000,000원"
+   },
+   {
+    "name": "TOPIK 등급별 장학금",
+    "target": "재학생",
+    "condition": "TOPIK 2급→20만원, 3급→30만원, 4급→40만원, 5급→50만원, 6급→60만원 (재학 중 TOPIK 취득 시)",
+    "benefit": "200,000원~600,000원"
+   }
+  ]
  },
  {
   "n": "창원문성대학교",
@@ -63689,7 +65091,15 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙"
     }
    ]
-  }
+  },
+  "scholarships": [
+   {
+    "name": "외국인유학생장학금",
+    "target": "신입생",
+    "condition": "외국인유학생 전형으로 입학한 자",
+    "benefit": "졸업 시까지 등록금 50% 지급"
+   }
+  ]
  },
  {
   "n": "기독간호대학교",
@@ -63795,7 +65205,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "●외국인전담학과"
     }
    ]
-  }
+  },
+  "period": "수시 4/1~4/30, 정시 5/11~5/22, 추가 정시 6/1~7/24"
  },
  {
   "n": "조선간호대학교",
@@ -63997,7 +65408,63 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 3단계 이수 또는 사전평가 61점 이상 취득자"
     }
    ]
-  }
+  },
+  "scholarships": [
+   {
+    "name": "한국어 성적우수장학금(외국인학생 장학금)",
+    "target": "신입생",
+    "condition": "TOPIK 4급 이상",
+    "benefit": "등록금 전액 감면"
+   },
+   {
+    "name": "한국어 성적우수장학금(외국인학생 장학금)",
+    "target": "신입생",
+    "condition": "TOPIK 3급 이상",
+    "benefit": "등록금 1/2 감면"
+   },
+   {
+    "name": "국제교류원장 추천장학금",
+    "target": "신입생",
+    "condition": "본교 어학당 수료자",
+    "benefit": "1,500,000원 감면 (한국어 성적우수장학금과 중복 불가)"
+   },
+   {
+    "name": "외국인 특별장학금",
+    "target": "신입생",
+    "condition": "외국인 신입생",
+    "benefit": "1,000,000원 감면"
+   },
+   {
+    "name": "외국인 재학생 학업성적우수 장학금",
+    "target": "재학생",
+    "condition": "평점평균 4.2 이상",
+    "benefit": "등록금 전액 감면"
+   },
+   {
+    "name": "외국인 재학생 학업성적우수 장학금",
+    "target": "재학생",
+    "condition": "평점평균 4.0 이상 4.2 미만",
+    "benefit": "등록금 2/3 감면"
+   },
+   {
+    "name": "외국인 재학생 학업성적우수 장학금",
+    "target": "재학생",
+    "condition": "평점평균 3.8 이상 4.0 미만",
+    "benefit": "등록금 1/2 감면"
+   },
+   {
+    "name": "외국인 재학생 학업성적우수 장학금",
+    "target": "재학생",
+    "condition": "평점평균 3.5 이상 3.8 미만",
+    "benefit": "등록금 1/3 감면"
+   },
+   {
+    "name": "TOPIK 우수 장학금(어학연수)",
+    "target": "어학연수생",
+    "condition": "TOPIK 4급 이상 취득",
+    "benefit": "수강료의 20%"
+   }
+  ]
  },
  {
   "n": "군산간호대학교",
@@ -64028,7 +65495,27 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Kunsan College of Nursing",
   "es": "Kunsan College of Nursing",
-  "foreign_guide": "no_public_guide"
+  "foreign_guide": "no_public_guide",
+  "scholarships": [
+   {
+    "name": "신입생 장학금",
+    "target": "신입생",
+    "condition": "전형별 입학성적이 우수한 자",
+    "benefit": "금액별 분류 적용 (1종 등록금 전액~7종 400,000원)"
+   },
+   {
+    "name": "외국어 성적장학금",
+    "target": "재학생",
+    "condition": "공인외국어 성적 우수자",
+    "benefit": "금액별 분류 적용 (1종 등록금 전액~7종 400,000원)"
+   },
+   {
+    "name": "다문화 가족장학금",
+    "target": "신입생·재학생",
+    "condition": "부 또는 모가 외국인인 자 및 결혼이민자",
+    "benefit": "금액별 분류 적용 (1종 등록금 전액~7종 400,000원)"
+   }
+  ]
  },
  {
   "n": "군장대학교",
@@ -64092,7 +65579,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "외식조리과 (영어트랙 지원가능)"
     }
    ]
-  }
+  },
+  "period": "~ 2025. 11. 21.(금)"
  },
  {
   "n": "백제예술대학교",
@@ -64128,7 +65616,8 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Paekche Institute of the Arts",
   "es": "Paekche Institute of the Arts",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "period": "수시 1차: 09.07(월)~09.30(수) 17:00, 수시 2차: 11.11(수)~11.25(수) 17:00, 정시: 2027.01.04(월)~01.20(수) 17:00, 자율: 01.21(목)~02.27(토) 17:00"
  },
  {
   "n": "전북과학대학교",
@@ -64431,7 +65920,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "IELTS 5.5 이상, TOEFL iBT 59 이상, NEW TEPS 202점 이상"
     }
    ]
-  }
+  },
+  "period": "수시 1차 2026.09.07.(월) ~ 2026.09.30.(수), 수시 2차 2026.11.11.(수) ~ 2026.11.25.(수), 정시 2027.01.04.(월) ~ 2027.01.20.(수), 추가 2027.01.21.(목) ~ 2027.02.27.(토)"
  },
  {
   "n": "전주비전대학교",
@@ -64571,7 +66061,52 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "IELTS 5.5 이상, TOEFL iBT 59 이상, NEW TEPS 202점 이상"
     }
    ]
-  }
+  },
+  "period": "2026.09.07(월) ~ 2026.09.30(수)",
+  "scholarships": [
+   {
+    "name": "외국인 학생 장학금 (TOPIK)",
+    "target": "신입생·재학생",
+    "condition": "TOPIK 6급",
+    "benefit": "수업료 80%"
+   },
+   {
+    "name": "외국인 학생 장학금 (TOPIK)",
+    "target": "신입생·재학생",
+    "condition": "TOPIK 5급",
+    "benefit": "수업료 50%"
+   },
+   {
+    "name": "외국인 학생 장학금 (TOPIK)",
+    "target": "신입생·재학생",
+    "condition": "TOPIK 4급",
+    "benefit": "수업료 40%"
+   },
+   {
+    "name": "외국인 학생 장학금 (TOPIK)",
+    "target": "신입생·재학생",
+    "condition": "TOPIK 3급",
+    "benefit": "수업료 30%"
+   },
+   {
+    "name": "외국인 학생 장학금 (TOPIK)",
+    "target": "신입생",
+    "condition": "TOPIK 2급 이하 (입학한 학기에만 지급)",
+    "benefit": "수업료 20%"
+   },
+   {
+    "name": "국제협력기술과 장학금",
+    "target": "신입생",
+    "condition": "국제협력기술과 입학자",
+    "benefit": "등록금 전액 (수업료 10%는 학과장학금 지원)"
+   },
+   {
+    "name": "다문화가정장학금",
+    "target": "신입생·재학생",
+    "condition": "국제결혼 가정의 본인 및 자녀",
+    "benefit": "매학기 수업료 50%"
+   }
+  ]
  },
  {
   "n": "한국농수산대학교",
@@ -64631,7 +66166,15 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Korea National University of Agriculture and Fisheries",
   "es": "Korea National University of Agriculture and Fisheries",
-  "foreign_guide": "no_public_guide"
+  "foreign_guide": "no_public_guide",
+  "scholarships": [
+   {
+    "name": "지원학비(등록금) 전액 국비 지원",
+    "target": "신입생(전체)",
+    "condition": "국립대학으로 입학생 전원 (졸업 후 일정 요건 시 상환)",
+    "benefit": "학비 등 전액 국비 지원"
+   }
+  ]
  },
  {
   "n": "광양보건대학교",
@@ -64747,7 +66290,16 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Kogryeo College",
   "es": "Kogryeo College",
-  "foreign_guide": "no_public_guide"
+  "foreign_guide": "no_public_guide",
+  "period": "수시 1차: 25.09.08.(월)~25.09.30.(화), 수시 2차: 25.11.07.(금)~25.11.21.(금), 정시모집: 25.12.29.(월)~26.01.14.(수), 자율모집: 2026.02.06.(금)~2026.02.27.(금)",
+  "scholarships": [
+   {
+    "name": "2025년 신입생 특별장학금",
+    "target": "신입생",
+    "condition": "신입생 특별장학금 지급 대상 (세부기준 미공개)",
+    "benefit": "매학기 최대 140만원"
+   }
+  ]
  },
  {
   "n": "동아보건대학교",
@@ -64797,7 +66349,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 - 융합경영학과(IBM) / 영어를 모국어 또는 법적 공용어로 사용하는 국가에서 중등교육 또는 고등교육(대학교 과정)을 이수한 자"
     }
    ]
-  }
+  },
+  "period": "수시1차 2026.09.07(월) ~ 09.30(수), 수시2차 2026.11.11.(수) ~ 11.25.(수), 정시 2027.01.04.(월) ~ 2027.01.20.(수)"
  },
  {
   "n": "목포과학대학교",
@@ -64856,6 +66409,31 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "‘★’학과는 정원외 순수외국인 전담학과임"
     }
    ]
+  },
+  "period": "2026년 7월 6일(월) ~ 8월 21일(금)",
+  "scholarships": [
+   {
+    "name": "신입생 전체 수석 장학금",
+    "target": "신입생",
+    "condition": "신입생 합격자 중 성적이 가장 우수한 자 (매학기 평균평점 3.0 이상 유지)",
+    "benefit": "전 학년 등록금"
+   },
+   {
+    "name": "신입생 특별 장학금",
+    "target": "신입생",
+    "condition": "종류와 등급은 내부 장학 규정에 의함",
+    "benefit": "내부 장학 규정에 의함"
+   },
+   {
+    "name": "다문화 가족 장학금",
+    "target": "신입생·재학생",
+    "condition": "다문화 가정의 본인 및 그 자녀로 직전학기 성적 2.0 이상",
+    "benefit": "내부 장학 규정에 의함"
+   }
+  ],
+  "visa_restricted": {
+   "degree": false,
+   "lang": true
   }
  },
  {
@@ -64947,7 +66525,28 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 가능학과: 기계자동차과, 사회복지과 / 영어를 모국어 또는 법적 공용어로 사용하는 국가의 국적"
     }
    ]
-  }
+  },
+  "period": "2026.6.22.(월)~7.15(수) [1차], 2026.7.20.(월)~8.14.(금) [2차]",
+  "scholarships": [
+   {
+    "name": "토익·토플·JLPT·HSK·TEPS 우수자 장학 (신입생)",
+    "target": "신입생",
+    "condition": "1급: 토익 700점 이상, TOEFL 76점(iBT), JLPT N1, JPT 700점, TEPS 550점, HSK 5급 이상",
+    "benefit": "대학 장학규정에 의함"
+   },
+   {
+    "name": "토익·토플·JLPT·HSK·TEPS 우수자 장학 (신입생)",
+    "target": "신입생",
+    "condition": "2급: 토익 600점 이상, TOEFL 62점(iBT), JLPT N2·3급, JPT 600점, TEPS 450점, HSK 4급 이상",
+    "benefit": "대학 장학규정에 의함"
+   },
+   {
+    "name": "토익·토플·JLPT·HSK·TEPS 우수자 장학 (신입생)",
+    "target": "신입생",
+    "condition": "3급: 토익 550점 이상, TOEFL 55점(iBT), JLPT N4급, JPT 550점, TEPS 350점, HSK 3급 이상",
+    "benefit": "대학 장학규정에 의함"
+   }
+  ]
  },
  {
   "n": "전남과학대학교",
@@ -65041,7 +66640,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "한국어능력시험(TOPIK) 2급 이상, 사회통합프로그램 2단계 이상 이수"
     }
    ]
-  }
+  },
+  "period": "2026년 6월 15일 ~ 2026년 6월 25일"
  },
  {
   "n": "청암대학교",
@@ -65121,7 +66721,22 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 법적 공용어로 사용하는 국가의 국적을 소지한 학생"
     }
    ]
-  }
+  },
+  "period": "2026. 06. 01.(월) ~ 2026. 06. 25.(목)",
+  "scholarships": [
+   {
+    "name": "외국인 유학생 장학",
+    "target": "신입생",
+    "condition": "본교 한국어과정 수료자 / 본교 한국어과정 수료자 외",
+    "benefit": "장학금 지급 (금액 미공개)"
+   },
+   {
+    "name": "글로벌리더 장학",
+    "target": "신입생",
+    "condition": "토익(토플, 탭스), JLPT(JPT, EJU), HSK(CPT), TOPIK 등 외국어 능력이 우수한 자",
+    "benefit": "장학금 지급 (금액 미공개)"
+   }
+  ]
  },
  {
   "n": "한영대학교",
@@ -65155,6 +66770,43 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 사전평가"
     }
    ]
+  },
+  "period": "수시 1차: '26.09.07.(월) ~ 09.30.(수), 수시 2차: '26.11.11.(수) ~ 11.25.(수), 정시: '27.01.04.(월) ~ '27.01.20.(수)",
+  "scholarships": [
+   {
+    "name": "외국인유학생토픽장학",
+    "target": "신입생·재학생",
+    "condition": "순수 외국인으로 입학시 TOPIK 3급 이상 소지 또는 재학 중 TOPIK 3급 이상 취득. A-TOPIK 5급",
+    "benefit": "일반장학 2종 (해당학기 등록금 50%, 입학금 제외)"
+   },
+   {
+    "name": "외국인유학생토픽장학",
+    "target": "신입생·재학생",
+    "condition": "B-TOPIK 4급",
+    "benefit": "일반장학 3종 (700,000원)"
+   },
+   {
+    "name": "외국인유학생토픽장학",
+    "target": "신입생·재학생",
+    "condition": "C-TOPIK 3급",
+    "benefit": "일반장학 5종 (500,000원)"
+   },
+   {
+    "name": "외국어 우수장학(토익/JLPT/HSK)",
+    "target": "신입생",
+    "condition": "토익 800 이상, JLPT 1급, HSK 6급",
+    "benefit": "본 대학 장학규정에 의함"
+   },
+   {
+    "name": "외국어 우수장학(토익/JLPT/HSK)",
+    "target": "신입생",
+    "condition": "토익 700 이상, JLPT 2급, HSK 5급",
+    "benefit": "본 대학 장학규정에 의함"
+   }
+  ],
+  "visa_restricted": {
+   "degree": true,
+   "lang": false
   }
  },
  {
@@ -65282,7 +66934,21 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙"
     }
    ]
-  }
+  },
+  "scholarships": [
+   {
+    "name": "우수신입생장학금",
+    "target": "신입생",
+    "condition": "매년 수시모집 및 정시모집 합격자",
+    "benefit": "장학위원회에서 결정 (등록금 범위 내)"
+   },
+   {
+    "name": "어학우수장학금",
+    "target": "신입생·재학생",
+    "condition": "입학 후 최근 1년 이내 취득한 어학성적 (TOEIC, JPT, HSK, HSKK, JLPT)",
+    "benefit": "장학위원회에서 결정 (등록금 범위 초과 지급 가능)"
+   }
+  ]
  },
  {
   "n": "제주한라대학교",
@@ -65340,8 +67006,24 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어로 사용하는 국가의 국적을 소지한 학생"
     }
    ]
-  }
+  },
+  "scholarships": [
+   {
+    "name": "수석입학장학금",
+    "target": "신입생",
+    "condition": "입학전형에서 전교 수석으로 입학한 자",
+    "benefit": "특별격려금 100만원 및 1학기 장학금(수업료 전액)"
+   },
+   {
+    "name": "성적우수장학금",
+    "target": "재학생",
+    "condition": "학과별 성적순 (특급~F급 배정)",
+    "benefit": "특급 등록금 전액 ~ F급 등록금의 15%"
+   }
+  ]
  }
 ];
 
 window.UNIV_GUIDES = {"가야대학교": {"ba": "https://drive.google.com/file/d/1bJtNj136i69JMOH0QqYm94dwCrhix1RU/view", "ma": "https://drive.google.com/file/d/1o3xlX6I5fsRtYKLo3mUZV4N-t-Sy_bw9/view"}, "가천대학교": {"ba": "https://drive.google.com/file/d/1oJYmzI7N61370oYkuCkeq3tA4gmmkXIF/view", "ma": "https://drive.google.com/file/d/18lDTjpwlTbGss31jy60Qe9pA4zRnyO4q/view", "lang": "https://oia.gachon.ac.kr/international/a/m/klecInfo.do"}, "가톨릭관동대학교": {"ba": "https://drive.google.com/file/d/1wWQ9No5gdtdx1oaod_PoL2vMx7pRxxq_/view", "lang": "http://www.cku.ac.kr/oia/5520/subview.do"}, "가톨릭꽃동네대학교": {"ba": "https://drive.google.com/file/d/1bVoFUN13nYpc2U71C97vuiKIONWbKym8/view"}, "가톨릭대학교": {"ba": "https://drive.google.com/file/d/1wNehCMj3KksA5KkB8gTtkQEmXRrr-EM8/view", "ma": "https://drive.google.com/file/d/1eXbVvIF37IAZ9uMImec1WdMOL1-Ul9j9/view", "lang": "https://kli.catholic.ac.kr/kli/index.do"}, "감리교신학대학교": {"ba": "https://drive.google.com/file/d/1LmR8Ee0HG6cW2Fw1JhoiV7KHbCPlSMXy/view"}, "강남대학교": {"ba": "https://drive.google.com/file/d/1V9r0urc2KH_gUL71xu3iGhQhMz-D4HA1/view"}, "강서대학교": {"ba": "https://drive.google.com/file/d/1QBZUmstn6xsWszulW5la7w2U0n9WvhoV/view", "ma": "https://drive.google.com/file/d/1qYwwL_LBjib0wDgojaCRdvcoRsBhd_9J/view"}, "강원대학교": {"ba": "https://drive.google.com/file/d/1KuCiv2Zqql6KULMcAQ93daAesG5EeYmD/view", "ma": "https://drive.google.com/file/d/1Lpkv3ZOKItjRppi6DintV_O1H4XnYKl1/view", "lang": "https://oiaknu.kangwon.ac.kr/oiaknu/language/korean/guide-chuncheon01.do"}, "건국대학교": {"ba": "https://drive.google.com/file/d/17lkDOEbhw_uJJ1_-l1asy2LLzFYRmRGQ/view", "ma": "https://drive.google.com/file/d/1JhTGgC5caOZTLo2ku8Ict8yNcoKRcgAH/view", "lang": "https://fli.konkuk.ac.kr/ko/regular/"}, "건양대학교": {"ba": "https://drive.google.com/file/d/1Qs2mJQscnzevkCpHuW4Qw5SBvSB7wYX_/view", "ma": "https://drive.google.com/file/d/1avC9jxGpynqNFCB5n9Cc5SolS1c76Z33/view", "lang": "https://interedu.konyang.ac.kr/interedu/sub05_03.do"}, "경기대학교": {"ba": "https://drive.google.com/file/d/1MgrFaEIIquxnS4jTs9RSTsxv2qcKR-DL/view", "ma": "https://drive.google.com/file/d/1lLJUM0YISJKcJSx82gAjaGJJMkX0WwRu/view", "lang": "https://www.kyonggi.ac.kr/IOIE/contents.do?key=1494"}, "경남대학교": {"ba": "https://drive.google.com/file/d/1yBr6aw-kuCmS4Kqi3xT2SWR3SoFOHxXP/view", "ma": "https://drive.google.com/file/d/1sGdHmtd7GAs8ogR4PDh5GvcSDAAXDLt6/view", "lang": "https://www.kyungnam.ac.kr/international/6904/subview.do"}, "경동대학교": {"ba": "https://drive.google.com/file/d/190zjej1Ry22WhV7QAFAgH1MwTVi5v_hA/view"}, "경북대학교": {"ba": "https://drive.google.com/file/d/1ws-lrauAVKS7IxvX9OInIoSBy0D_1MDF/view", "ma": "https://drive.google.com/file/d/1lU40HtfGqXLAh_HKBW5nTT8179onz6c9/view", "lang": "https://lang.knu.ac.kr/hmpg/cms/subPage/MNU0080133.knu"}, "경상국립대학교": {"ba": "https://drive.google.com/file/d/1pWjXAE5HGqcxbiQ03VEoxsAL4_DIMmvs/view", "ma": "https://drive.google.com/file/d/1hFFqgWDLgzk9iSoV895G-wV2Gx-yPUaB/view", "lang": "https://www.gnu.ac.kr/sle/cm/cntnts/cntntsView.do?mi=7772&cntntsId=4140"}, "경성대학교": {"ba": "https://drive.google.com/file/d/1PwDlpcgxzO6rHA0oT9h-l0GiK38ufpIZ/view", "ma": "https://drive.google.com/file/d/1F7cX-dOF7krL5zz959RDc6xfBXxiLP7f/view", "lang": "https://kscms.ks.ac.kr/lec/CMS/Contents/Contents.do?mCode=MN070"}, "경일대학교": {"ba": "https://drive.google.com/file/d/15P_yvxyIAQpCCq0nP8rhNW7fkYOs4fdG/view", "ma": "https://drive.google.com/file/d/1085KK5JlfiupCserVKRDbclYlAwNFF-P/view", "lang": "https://global.kiu.ac.kr/"}, "경희대학교": {"ba": "https://drive.google.com/file/d/1JhD6CkiAU5iYL2DOyROrkmJhHY9DPtcY/view", "ma": "https://drive.google.com/file/d/12XN2dbPZFEd-ffAZRPhJaVroTKsB9G0U/view", "lang": "https://iie.khu.ac.kr/bbs/content.php?co_id=OnCampus"}, "계명대학교": {"ba": "https://drive.google.com/file/d/1hFW4RPKaSupHtD1EVrigZ3dNA4ZwQGYa/view", "ma": "https://drive.google.com/file/d/1PIlv2Jqeb0iAc2AENciJFVQSEdRC7ikc/view", "lang": "https://kintlcenter.kmu.ac.kr/sites/kintlcenter/index.do"}, "고려대학교": {"ba": "https://drive.google.com/file/d/1N5b_3A7V-xlgOK3LK_-RytmiB5yEt0m9/view", "ma": "https://drive.google.com/file/d/1Cn-H3c50lGnEKYgYopkR1OnY3Fak8fOa/view", "lang": "https://klc.korea.ac.kr/klckor/course/regular_guide.do"}, "고신대학교": {"ba": "https://drive.google.com/file/d/1UPVdgHE64mFJdPD0-ePsRe-rz2x6lRaX/view", "lang": "https://global.kosin.ac.kr/korean/bbs/board.php?bo_table=notice&wr_id=137"}, "광신대학교": {"ba": "https://drive.google.com/file/d/1JipyW1w_bzs0vhHNzWjz4UnabgEYielp/view"}, "광운대학교": {"ba": "https://drive.google.com/file/d/1YxGI-nnWcMa_HlCFC7jspqI2uXbr7OQe/view", "ma": "https://drive.google.com/file/d/1YhbD0fSmOLoIZGlPFmpnwFWIQejqiEry/view", "lang": "https://kwiie.kw.ac.kr/"}, "광주대학교": {"ba": "https://drive.google.com/file/d/1lYrUqtAr-F2wo7NtJTNLM_YNdaqyaEFF/view", "ma": "https://drive.google.com/file/d/1wBzOdLhWo-YFfk9VdcvGo0CWy-Ljn2v4/view", "lang": "https://ie.gwangju.ac.kr/board/?board=notice&site=gw_ie&mn=1438&type=view&post_idx=167953"}, "국립강릉원주대학교": {"ba": "https://drive.google.com/file/d/1gSowC-Fy07cYcEoCPIPDK1K4YOkdjqFo/view", "ma": "https://drive.google.com/file/d/1ft6HMaPQO7wvoazlZvhLgsHlS6E6sXbQ/view", "lang": "https://kls.gwnu.ac.kr/application/"}, "국립경국대학교": {"ba": "https://drive.google.com/file/d/1g4MRG-lJB0v1Dr4IwzT1tR_VVi53uNrE/view", "ma": "https://drive.google.com/file/d/1KpKLkpRJ4-N5irNuIUacFYGIWSvAlu_1/view", "lang": "https://ic.gknu.ac.kr/bbs/korean.php"}, "국립공주대학교": {"ba": "https://drive.google.com/file/d/1V1xuIgT1MvdX9KPlfyXUSvZZq4Bdg4nF/view", "ma": "https://drive.google.com/file/d/1jjKJ6bL483cE6gCzd6rnugng3cTid-bv/view", "lang": "https://iile.kongju.ac.kr/"}, "국립군산대학교": {"ba": "https://drive.google.com/file/d/1k2jkuo-7_kDxxyZIEcT6Lw01xcAsraRK/view", "ma": "https://drive.google.com/file/d/1mT_U1Rx53IwxKT0OJfNQXJQwQHcwOX98/view", "lang": "https://www.kunsan.ac.kr/inter/index.kunsan?menuCd=DOM_000013303005000000"}, "국립금오공과대학교": {"ba": "https://drive.google.com/file/d/1XGN8PgGQPhN_f6c2kpeoTFsbwDEE8_pM/view", "ma": "https://drive.google.com/file/d/1lOiJBtH0EGccuwbCz4ia6KACTAg9G-D1/view", "lang": "https://www.kumoh.ac.kr/iplec/sub06010102.do"}, "국립목포대학교": {"ba": "https://drive.google.com/file/d/1Yrg2aJ1cJleanabMUtvgSCALQREAZWDR/view", "ma": "https://drive.google.com/file/d/1hteFQxjUF4MlJvEM3o0zJPGQ9i6v_7XS/view", "lang": "https://oia.mokpo.ac.kr/bbs/iiee/155/280933/artclView.do"}, "국립목포해양대학교": {"ba": "https://drive.google.com/file/d/1mZCjmh6ob3Ixs_OYiymgIySZIcTiDwGP/view", "ma": "https://drive.google.com/file/d/1z6wk5FZLgS1IBrdRVRCZNMJ-exrir8l6/view", "lang": "https://www.mmu.ac.kr/OE/board/185"}, "국립부경대학교": {"ba": "https://drive.google.com/file/d/1xO2Shwfa_71bavZqJENyOrjjK_f6Nezu/view", "ma": "https://drive.google.com/file/d/1RJlhpZfLVcuBaR5ipkbVwsmGdF6WPUVy/view", "lang": "https://admission.pknu.ac.kr/"}, "국립순천대학교": {"ba": "https://drive.google.com/file/d/11e6bsaO7brMATjYBMJHeGK8hNFgdnJBv/view", "ma": "https://drive.google.com/file/d/134PLk6ZSktcSRg1WN_Ie3o99UCo4VBt1/view", "lang": "https://www.scnu.ac.kr/ials/cm/cntnts/cntntsView.do?mi=1844&cntntsId=1583"}, "국립창원대학교": {"ba": "https://drive.google.com/file/d/1wmlRIy0yvNn7M7C2kM2k0UEdJjHYXhw3/view", "ma": "https://drive.google.com/file/d/1_W8Ec5oH45VIVEdZl1xjj9YsSiCC2xqJ/view", "lang": "https://www.changwon.ac.kr/international/cm/cntnts/cntntsView.do?mi=18689&cntntsId=6832"}, "국립한국교통대학교": {"ba": "https://drive.google.com/file/d/1YhKdE3Qzj1v3DxemKCNBQyRfi-B39UaM/view", "ma": "https://drive.google.com/file/d/1JPnb2Z0MA3aJYSYbeu1WyFMn5EyWq63E/view", "lang": "https://www.ut.ac.kr/iec/sub04_05.do"}, "국립한국해양대학교": {"ba": "https://drive.google.com/file/d/19DKDlr_LEjCSXiIAwHIll1DV10Q3IxPd/view", "ma": "https://drive.google.com/file/d/16NHH89_Z-QUtMQQbgpEmUyVH-EKEPSF6/view", "lang": "https://www.kmou.ac.kr/global/cm/cntnts/cntntsView.do?mi=2702&cntntsId=2296"}, "국립한밭대학교": {"ba": "https://drive.google.com/file/d/1lNXsXvLaegvDW3F1r8QGfVb63miTHBvw/view", "ma": "https://drive.google.com/file/d/1ol--C78znRzyergIbvDmEPA_Mvspw9eI/view", "lang": "https://www.hanbat.ac.kr/global/sub05_01.do"}, "국민대학교": {"ba": "https://drive.google.com/file/d/1SlmJtqkza_NSjIuF4hLXRttrn_AfCrrA/view", "ma": "https://drive.google.com/file/d/1cPM5NKDAfgEqG5rcr4VFzth8tYaXTpmx/view", "lang": "https://iie.kookmin.ac.kr/"}, "극동대학교": {"ba": "https://drive.google.com/file/d/1StLshQ2d0GmIVKiko_1BlNjZnlYjwQuk/view", "ma": "https://drive.google.com/file/d/1-P2AF9hR5gwHTz1JDUk3X5d1KyXifp7n/view", "lang": "https://www.kdu.ac.kr/home/sub.do?mncd=2156"}, "금강대학교": {"ba": "https://drive.google.com/file/d/1IUAZWnN9Cjy4Tg6I12a2kzo742G8vFIq/view"}, "김천대학교": {"ba": "https://drive.google.com/file/d/1vUOPhvt8Le-kRyjF4zQfcOrdKq-z5Gop/view", "lang": "https://iec.gimcheon.ac.kr/"}, "나사렛대학교": {"ba": "https://drive.google.com/file/d/1Htj8olRBgKpKyHGR47-oxAKDcsmGgXRG/view"}, "남부대학교": {"ba": "https://drive.google.com/file/d/1Ozl4jYzSStuKuodCKlvevVLfUreJP5t3/view", "ma": "https://drive.google.com/file/d/1Sgj-WuCekegrN9R0okW2KbS5LTCfHx0m/view", "lang": "https://global.nambu.ac.kr/content/view.do?menuCd=dept_globa002003"}, "단국대학교": {"ba": "https://drive.google.com/file/d/1e2E2to5j5uIUlCQq4xqbjzMOwVhu3FuW/view", "ma": "https://drive.google.com/file/d/1dLVfgYj_jYkln3t8AWmKke06O2bctUyf/view", "lang": "https://klc.dankook.ac.kr/"}, "대구가톨릭대학교": {"ba": "https://drive.google.com/file/d/1PRToucvNNH5t5rvmvvl6kqi44Sa6n8ne/view", "ma": "https://drive.google.com/file/d/1FFbinN530QBByWnXkgGjGQe-ROCSo_tZ/view", "lang": "https://academics.cu.ac.kr/home/detail/etc/klei/"}, "대구대학교": {"ba": "https://drive.google.com/file/d/1oYNeTGWtUi12vSY4OONiEzThCWOo8rLW/view", "ma": "https://drive.google.com/file/d/1pUWM8P31kEwUqzYmoD_UG6Ftulq5EYXE/view", "lang": "https://www.daegu.ac.kr/dept/955/detail"}, "대구예술대학교": {"ba": "https://drive.google.com/file/d/1vPp7PEhxER7YnBUWEIAPPxdj5ohfq6H6/view"}, "대구한의대학교": {"ba": "https://drive.google.com/file/d/1MH5jrnU9u8XVk0CllyHc8KnzPAKTZH01/view", "ma": "https://drive.google.com/file/d/1AysaOsDQLNUlE5GN5Ze8CB_ldYeIJZez/view", "lang": "http://www.dhu.ac.kr/HOME/exchange/sub.htm?hmode=p&nav_code=exc1574837612"}, "대신대학교": {"ba": "https://drive.google.com/file/d/1U_trFi5thSaJxU1obzsnetbMZo9y8RGD/view", "lang": "https://www.daeshin.ac.kr/html/03_edu/03_4_1.php"}, "대전가톨릭대학교": {"ba": "https://drive.google.com/file/d/1A6smIYubcbD9U4RoBjCTevL5qJ6AvMpW/view"}, "대전대학교": {"ba": "https://drive.google.com/file/d/1LbZPVL9bdXfuUsboB85cEBywfEaE8ctE/view", "ma": "https://drive.google.com/file/d/18BMusdmPPeJJs_7s3fm5SAyBcSQeNik7/view", "lang": "https://www.dju.ac.kr/intro/global/cntnts.html?mi=7425#lang-center"}, "대진대학교": {"ba": "https://drive.google.com/file/d/1HSCkTtVuCwuZ3YJC6mCKau8fgRObxp1O/view", "ma": "https://drive.google.com/file/d/1Ah_DNhY_5mQur8k7Yr9p45HL61vSpDZP/view", "lang": "https://www.daejin.ac.kr/abroad/5220/subview.do"}, "덕성여자대학교": {"ba": "https://drive.google.com/file/d/1A0HpsdUdvp8RVpbnPtoGBHrNaBW9_V0r/view", "lang": "https://dilc.ds.ac.kr/main/eng_main.php"}, "동국대학교": {"ba": "https://drive.google.com/file/d/1efYIRu4G_K2Nr9MtfQgXpva8aJUCUi1e/view", "ma": "https://drive.google.com/file/d/1pFhOlG7zazgODljiWt08h3mKZsBWAQsw/view", "lang": "https://interlang.dongguk.edu/index_kr.php"}, "동덕여자대학교": {"ba": "https://drive.google.com/file/d/1BI1HN5Cm8CG93KGf1cDp4EuXqE-sSK11/view", "ma": "https://drive.google.com/file/d/1_KZNhT2kTAU73CSb0p8hf0JDQr7vZIct/view", "lang": "https://kli.dongduk.ac.kr/"}, "동명대학교": {"ba": "https://drive.google.com/file/d/1ibetJN1QujTjqjGwilw8n3AryZuzL-6q/view", "ma": "https://drive.google.com/file/d/1B04iIu_tYyqTNy6hPiseEeUZlH0tGcH2/view", "lang": "https://www.tu.ac.kr/kli/index.do"}, "동서대학교": {"ba": "https://drive.google.com/file/d/12A95LJp64ZUW342YW0MdtRBzt8-b6EiE/view", "ma": "https://drive.google.com/file/d/18FHRKbJu5LMMatrcCy8lOpidSCZ614Qt/view", "lang": "https://uni.dongseo.ac.kr/iec/index.php?pCode=admission&mode=view&idx=748"}, "동신대학교": {"ba": "https://drive.google.com/file/d/18dfnXEBEEmjuGV8DtVHsbIFbJLDmeXqF/view", "ma": "https://drive.google.com/file/d/1BoqnGdQWwG4QFjuA0qseYMuQpjrwtQvM/view", "lang": "https://ie.dsu.ac.kr/ie/index.php?pCode=korprogram"}, "동아대학교": {"ba": "https://drive.google.com/file/d/1jHpszZpI15-XqdOwbfYUFTHiQ3ZHCtVE/view", "ma": "https://drive.google.com/file/d/1KeCup3_H0C8dmkWiCSWXC2XopJcSOqix/view", "lang": "http://www.donga.ac.kr/global/CMS/Contents/Contents.do?mCode=MN032"}, "동양대학교": {"ba": "https://drive.google.com/file/d/1dUftDuy2HAQuMF-fEOVYOZUegT-Gyhr3/view", "ma": "https://drive.google.com/file/d/1WQsXfhetRNP9HreVT2pdiA0r26tFGE2N/view", "lang": "https://korean.dyu.ac.kr/"}, "루터대학교": {"ba": "https://drive.google.com/file/d/1_UsSB2vzrMHljK4bHPNUcg1VYWXlWUDs/view"}, "명지대학교": {"ba": "https://drive.google.com/file/d/1vPEymxjQWZWWyMzO3-sqo5mSDdmx7yLz/view", "ma": "https://drive.google.com/file/d/16JCsJqmVqY-sFEdt2Qglt__kdr1-Jj4P/view", "lang": "https://klec.mju.ac.kr/application/application_01.php"}, "목원대학교": {"ba": "https://drive.google.com/file/d/1STdlgPPwP5dyIBFKgAJz6iiBof1PM_nS/view", "lang": "https://www.mokwon.ac.kr/klec/"}, "목포가톨릭대학교": {"ba": "https://drive.google.com/file/d/1qhSPILM_P-7eOzqEjuBXaXbue9jPiOWZ/view"}, "배재대학교": {"ba": "https://drive.google.com/file/d/1j38jgJXe4whUYIoAGj9SwaecsaMjrd2W/view", "lang": "https://www.pcu.ac.kr/eckfl"}, "부산가톨릭대학교": {"ba": "https://drive.google.com/file/d/1dfHFbDa_P-HUWefQXBe1Dx03f7GpdG1T/view", "ma": "https://drive.google.com/file/d/1qY68dXaztPG4GWW1uLlf7-FT_wmwHeEz/view", "lang": "https://text.cup.ac.kr/organ/ext/front/conts/106003001000000.do"}, "부산대학교": {"ba": "https://drive.google.com/file/d/14b9ExOK7_NUiOwwCAFa88UQ_Pwebl4vy/view", "ma": "https://drive.google.com/file/d/1lb1Ux0UX2Ls6moIeo2ecVIQ_4w5GglCa/view", "lang": "https://lei.pusan.ac.kr/"}, "부산외국어대학교": {"ba": "https://drive.google.com/file/d/1DpjPihQrW2LdYsekPnbdT6WEH7_aR9sL/view", "ma": "https://drive.google.com/file/d/1pZ873rHLgWfiaAZvmYMha8IA31rkwU5r/view", "lang": "https://klce.bufs.ac.kr/"}, "부산장신대학교": {"ba": "https://drive.google.com/file/d/1tQHpBzeT8D2GH1KnONbKGucVXH1HuT07/view"}, "삼육대학교": {"ba": "https://drive.google.com/file/d/1CnxAks6KeIXZQDg7kv3qRDpa4b_Pvv0e/view", "ma": "https://drive.google.com/file/d/1CTlOKpeUH3UoKCSrHn9SEOtzm83nZKjq/view", "lang": "https://www.syu.ac.kr/iie/korean-course/course-introduction/"}, "상명대학교": {"ba": "https://drive.google.com/file/d/1cfeMR1pL_eSKiLA9Wj1wSOdnOuZ9n1OP/view", "ma": "https://drive.google.com/file/d/10nrzNIJhPxHdEJBOLNTYZO0aF8Wf5B8l/view", "lang": "https://cklc.smu.ac.kr/"}, "상지대학교": {"ba": "https://drive.google.com/file/d/10YZGbnfglDddk2KgNZcNKRo3kSTUJzIq/view", "ma": "https://drive.google.com/file/d/1oeiBXGeE0r92_HrfqghAWUC7cphb2BJH/view", "lang": "https://www.sangji.ac.kr/global/sub03_01.do"}, "서강대학교": {"ba": "https://drive.google.com/file/d/15_FmRn_qL2xo0QlcZZglTYWL6ktpR2nW/view", "ma": "https://drive.google.com/file/d/1kvgXV-2Tu-_58vD26PLXaaK1fpbISFEu/view", "lang": "https://klec.sogang.ac.kr/"}, "서경대학교": {"ba": "https://drive.google.com/file/d/1IaJerr1iYMDQ6fTscu6ZudDXiOAdu45Z/view", "ma": "https://drive.google.com/file/d/1dATIWdkZ983Our5vnrOd6vK3c3ERFX8A/view", "lang": "https://lcec.skuniv.ac.kr/korean-course"}, "서울기독대학교": {"ba": "https://drive.google.com/file/d/1KPviFRoDAEwyNu2nw95QD665apopG84v/view"}, "서울대학교": {"ba": "https://drive.google.com/file/d/14TgSLvjf-Flv5gHwuIBTOzIrTEAlFGEX/view", "ma": "https://drive.google.com/file/d/1Y2BqVOm15FrHKZks4Ebi0HRTaAB9WsKi/view", "lang": "https://lei.snu.ac.kr/klec/"}, "서울시립대학교": {"ba": "https://drive.google.com/file/d/17BUB1GcMuZEv9ruPhvYhqPYuslkzXz47/view", "ma": "https://drive.google.com/file/d/1UrHFeeEWJet7DYq-K80evvKb4wKTGgoe/view", "lang": "https://klcp.uos.ac.kr/klcp/main.do"}, "서울신학대학교": {"ba": "https://drive.google.com/file/d/1W5P0uTJyexOYvSa8tFN3YMK1jaL9GNOD/view", "ma": "https://drive.google.com/file/d/1QO-hqJkuVzEGp2aWe8q4R4yRBPlIubSr/view", "lang": "https://klei.stu.ac.kr/"}, "서울여자대학교": {"ba": "https://drive.google.com/file/d/1J7Uk07WWaE5M-QfQxnji2Hk3hLG3mR2_/view", "ma": "https://drive.google.com/file/d/1RWQkBIeHM3PICa6HXx_aWKdPVjDqaEpf/view", "lang": "https://klc.swu.ac.kr/"}, "서울장신대학교": {"ba": "https://drive.google.com/file/d/1-Z-JjhY_lSkRlzPt4JiKsy42M8OVAqyt/view", "lang": "https://www.sjs.ac.kr/ht_ml/w_01ed/1321_i1.php"}, "서울한영대학교": {"ba": "https://drive.google.com/file/d/1RPdIymM1y2r4H8qTNM9-qfpyCYnZKAaw/view", "ma": "https://drive.google.com/file/d/1rru-4fGsDXlRzzcy_sjUAfT2E7JZzWRZ/view", "lang": "https://ili.shyu.ac.kr/fro_end/html/dep_03/3200.php"}, "서원대학교": {"ba": "https://drive.google.com/file/d/1FcJ5WoVJzygck1egqXiAfK10goAa9Cgc/view", "lang": "https://www.seowon.ac.kr/kli/index.do"}, "선문대학교": {"ba": "https://drive.google.com/file/d/1zGcxG8dEmv2oEeMcyowh5VcGahcE-goY/view", "ma": "https://drive.google.com/file/d/1YmagHibOtjny22SQl4-1zMaaqBoL3m0e/view", "lang": "https://kli.sunmoon.ac.kr/file/%EC%84%A0%EB%AC%B8%EB%8C%80%ED%95%99%EA%B5%90%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95%2026%EB%85%84_%EC%96%B4%ED%95%99%EC%9B%90_%ED%95%9C%EA%B5%AD%EC%96%B4.pdf"}, "성결대학교": {"ba": "https://drive.google.com/file/d/1k2bozu_7AapD8Txyec1Q2-3SPnDl_5kG/view", "lang": "https://fims.sungkyul.ac.kr/application/"}, "성공회대학교": {"ba": "https://drive.google.com/file/d/1B6coIS6dW9KIsLmZ8l1u2C_qtvC00nlh/view", "ma": "https://drive.google.com/file/d/1J59N42-2qEGcLeBY3VFQ31oXOS55fyIZ/view", "lang": "https://www.skhu.ac.kr/studykorean/5671/subview.do"}, "성균관대학교": {"ba": "https://drive.google.com/file/d/127MIvWuKv0q8mxsAD2j2c12j-zC_b6or/view", "ma": "https://drive.google.com/file/d/1Zs5__wwn2oDeqz3C3S1J8c41zxiixaJW/view", "lang": "https://koreansli.skku.edu/ksli/index2.do"}, "성신여자대학교": {"ba": "https://drive.google.com/file/d/1OhT1j86Z-OwgrXFbP-6hi9qpubUyNC83/view", "ma": "https://drive.google.com/file/d/1Y9kyefdSKsFAuW7QmzmsuBxBbfBOijlu/view", "lang": "https://www.sungshin.ac.kr/siie_kor/20413/subview.do"}, "세명대학교": {"ba": "https://drive.google.com/file/d/1tZn1jpNKJgij1003TwW2w8itnshYbD0K/view", "ma": "https://drive.google.com/file/d/11i6KCb4NXnJMjQ-CCVnafDjjbTKQt8JR/view", "lang": "https://www.semyung.ac.kr/smiie.do"}, "세종대학교": {"ba": "https://drive.google.com/file/d/1guj7CE1tJzC-DagzoXprCO3x2J8mVwN6/view", "ma": "https://drive.google.com/file/d/1ZZbN7xc19do8Sp3I7wYbJdwZK1lnoTnj/view", "lang": "https://sos.sejong.ac.kr/kor/admission/koreaedu/index.do"}, "수원가톨릭대학교": {"ba": "https://drive.google.com/file/d/1TQUKEDZmxAlm8VEkLsnhPzKNnxPnPCNM/view"}, "수원대학교": {"ba": "https://drive.google.com/file/d/15_uQYXXaT4GCTNnyEu4fl6YOA0xmSWqT/view", "ma": "https://drive.google.com/file/d/1Pu04kVfgpQi3LxYeO8eMAM1R4s5SEBjU/view", "lang": "https://koredu.suwon.ac.kr/"}, "숙명여자대학교": {"ba": "https://drive.google.com/file/d/1d6ieBe8zj2V3N9jK76HUzYRO1wCAXKxH/view", "ma": "https://drive.google.com/file/d/1UdZpJKh5x4VJWP-793rqIHABz3awUi9U/view", "lang": "https://lingua.sookmyung.ac.kr/"}, "순천향대학교": {"ba": "https://drive.google.com/file/d/1ESlZmB01VVTAy0hKCLZSUIOlppgSIPHu/view", "ma": "https://drive.google.com/file/d/1NCnIz08oLdULvQ6if5K4Ty-D5KbKj_e2/view", "lang": "https://sgee.sch.ac.kr/guide/guide03.php"}, "숭실대학교": {"ba": "https://drive.google.com/file/d/1Yli-nSTha1wZt_EFTX0elqs8xm-C_BYa/view", "ma": "https://drive.google.com/file/d/169mP0_d_6vpeOc6jEb2i_S1glUjLmEoD/view", "lang": "https://language.ssu.ac.kr/"}, "신경주대학교": {"ba": "https://drive.google.com/file/d/1G5SozN_A6gL21p8WySuq7tt95ljtUrcj/view", "lang": "http://korean.gu.ac.kr/"}, "아신대학교": {"ba": "https://drive.google.com/file/d/1wMaECgfpX4jyWtxJaM9HvW92oW0SJ97Z/view", "lang": "https://www.acts.ac.kr/design/contents10.asp?code=15151115&left=acts6_2"}, "아주대학교": {"ba": "https://drive.google.com/file/d/1m1Mzg-xtx-1s7-ArMBD1b6MfqOgGQQJp/view", "ma": "https://drive.google.com/file/d/1_gs1PT3v_B99X3qUyTy0U3U-0Kw4WV_i/view", "lang": "http://www.ajou.ac.kr/iadmissions/korean/course.do"}, "안양대학교": {"ba": "https://drive.google.com/file/d/1kWe8HM6_TqwkYzehsptVY51uvzwOathQ/view", "ma": "https://drive.google.com/file/d/1tf9CZwASQLzgIo1KQeFvDtWRpxwpXVc6/view"}, "연세대학교": {"ba": "https://drive.google.com/file/d/1lge5cyJgikZdzIfJN-fBdd0AcOgXzrnD/view", "ma": "https://drive.google.com/file/d/1oTKi4-iU1SL7Ly6d0IoBScFjjlTT7CWf/view", "lang": "https://www.yskli.com/course.php?mid=K01_02"}, "영남대학교": {"ba": "https://drive.google.com/file/d/1FGCoMSsX3KMgEfl_S0SQZvMt178pniwP/view", "ma": "https://drive.google.com/file/d/1yaLFB85l_LzzkegR83bLrp6RFwLD9KZ5/view", "lang": "https://www.yu.ac.kr/kli/index.do"}, "영남신학대학교": {"ba": "https://drive.google.com/file/d/15ud_qViiDAiiTnRSHNQpTAhmGQJPFu8F/view", "lang": "http://langytus.tcubemnet.com/content/38"}, "영산대학교": {"ba": "https://drive.google.com/file/d/1-Vk-TUIQB3D-WZH6ONPXo6B8gjgeQlEt/view", "lang": "https://klec.ysu.ac.kr/"}, "영산선학대학교": {"ba": "https://drive.google.com/file/d/1MTb4hKLsV_897ERqXTWRrNDsyzuqo8Ff/view"}, "예수대학교": {"ba": "https://drive.google.com/file/d/1SzzCTzEIyolEqrzNj8ikkkT7wwzyySeJ/view"}, "예원예술대학교": {"ba": "https://drive.google.com/file/d/1ONiyeYsgzimgd7J4SiP9pnyu4Ym-FP0_/view", "lang": "https://www.yewon.ac.kr/main/?menu=495"}, "용인대학교": {"ba": "https://drive.google.com/file/d/1r-Dse5TRu9MxWtuoDojnkpew53ijhbOG/view", "lang": "https://language.yongin.ac.kr/"}, "우석대학교": {"ba": "https://drive.google.com/file/d/1W5PWPJpUK8lVhAOGZhMz5OhyLpmOsdh_/view"}, "우송대학교": {"ba": "https://drive.google.com/file/d/15RRIP2qybRzwDzcPQk2gyhPaDpP9vfSV/view", "ma": "https://drive.google.com/file/d/1GM-hjdMRXN6Amwgmiyhgq2PgYqObLtY-/view", "lang": "https://wkli.wsu.ac.kr/"}, "울산대학교": {"ba": "https://drive.google.com/file/d/1SBW2_LS2AmbsqXEHRcXlKpC0xDLOjFCK/view", "ma": "https://drive.google.com/file/d/1-siT2ZDk2Ku-5IOGOimku5QmaEbiwVMd/view", "lang": "https://international.ulsan.ac.kr/international/405"}, "원광대학교": {"ba": "https://drive.google.com/file/d/1HV5EUbEqbetWnJA60whnfB0IBS0fwMmD/view", "ma": "https://drive.google.com/file/d/13-0xOtWSKILgBYV80HGaVeogcadfjeMJ/view", "lang": "https://ipsi.wku.ac.kr/submenu.do?menuurl=8pYtphfeWm2Bb85hdKCTcQ%3D%3D&"}, "유원대학교": {"ba": "https://drive.google.com/file/d/1BoGHXBFebQ9IgI76OEznNzyTau8j2Ltc/view", "ma": "https://drive.google.com/file/d/13dpa1enYwLZJiXll6JZdRPAoRs8lCpBQ/view", "lang": "https://www.u1.ac.kr/global/education/greetings.do"}, "을지대학교": {"ba": "https://drive.google.com/file/d/1oMJQEgyNNTEDcTkOyFVjha-jk_j6HOr5/view", "ma": "https://drive.google.com/file/d/1v3ZubgRBMJUxbJ4KGjKQ1IpnFSFLJSzn/view", "lang": "http://eulji.ac.kr/cile/"}, "이화여자대학교": {"ba": "https://drive.google.com/file/d/1Kca_KxtMy2dGlbqMP14fxTEvSYcUOvP1/view", "ma": "https://drive.google.com/file/d/1k6RMrUJxhCWrE0ZWU9BbUSgrhmiL99ST/view", "lang": "https://elc.ewha.ac.kr/elc/main.do"}, "인제대학교": {"ba": "https://drive.google.com/file/d/1if0EcSQlpAYb_tjwV8k9UVmF1Oq5CGlj/view", "ma": "https://drive.google.com/file/d/1Htw1gW_ng3Okv6W0SW5ps_L0wPg9HqBj/view", "lang": "https://korean.inje.ac.kr/"}, "인천가톨릭대학교": {"ba": "https://drive.google.com/file/d/1321E0VCU637TfZOrAjQq805JoDgU0450/view"}, "인천대학교": {"ba": "https://drive.google.com/file/d/1E97ROSFnoZg1hR1efhBB1JX29OOX2RPI/view", "ma": "https://drive.google.com/file/d/1s3BjOoFeZfKQOBp78EaM6byeN1eMuzdg/view", "lang": "https://korean.inu.ac.kr/inukli/6853/subview.do"}, "인하대학교": {"ba": "https://drive.google.com/file/d/1ghN_cuQ0VZpff5WchwT3HJpeXATdmPJA/view", "ma": "https://drive.google.com/file/d/1jSg9U3p3D7xKIns8EyPZ6lfJJY_B9Hpi/view", "lang": "https://ltc.inha.ac.kr/"}, "장로회신학대학교": {"ba": "https://drive.google.com/file/d/14wBxTcVpuL-X093jI_enmqpRmK_tnnz_/view", "ma": "https://drive.google.com/file/d/1aUziDoqmgICIYWUCVreWZvcRTH88IKSn/view", "lang": "https://www.puts.ac.kr/pglc/"}, "전남대학교": {"ba": "https://drive.google.com/file/d/1zQfiv0d-EXi5AHv5asjLEs6U_LqkAAoJ/view", "ma": "https://drive.google.com/file/d/1jUo05idO8XXyFfg3zNcJGRybJTCXaJyW/view", "lang": "https://leckor.jnu.ac.kr/"}, "전북대학교": {"ba": "https://drive.google.com/file/d/1DlWJZlIS-2-i9nn4eYE2Gp3Df94q1s6v/view", "ma": "https://drive.google.com/file/d/1grpqOxwz_BSJ9jn2DTtuSfZpPBzGEOED/view", "lang": "https://top.jbnu.ac.kr/sites/lec_korean/index.do"}, "전주대학교": {"ba": "https://drive.google.com/file/d/1zxMbdl3NJbHNJ4YHyCF253LDYbGmkGez/view", "ma": "https://drive.google.com/file/d/1zEhJ-nbzLQB-diowT34v1heojwivnz_9/view", "lang": "https://oia.jj.ac.kr/oia/kec/entrance.do"}, "제주국제대학교": {"ba": "https://drive.google.com/file/d/1TCDb2f-K36zws28u6RVLSM_4kdks2-2_/view", "ma": "https://drive.google.com/file/d/18cS5AJ2-V-AR4PpUVQ4B5qiHWYDHb7ZF/view", "lang": "https://www.jeju.ac.kr/jejuie/korean.htm"}, "제주대학교": {"ba": "https://drive.google.com/file/d/1mwhEpppRTnCuE72Mwwc8w69EXBsUxofc/view", "ma": "https://drive.google.com/file/d/1G9RiLVFZtvHYxNzJ_2FXupuIF_WUcXOc/view", "lang": "https://intl.jejunu.ac.kr/intl/koreanlanguage.htm"}, "조선대학교": {"ba": "https://drive.google.com/file/d/1p4w6hpZZuOqH-6nrUB8WTanhFe-VGU5v/view", "ma": "https://drive.google.com/file/d/1V3X_ck4L0V_GDVBNmHZLmmW7chZdN5X9/view", "lang": "https://lei.chosun.ac.kr/"}, "중부대학교": {"ba": "https://drive.google.com/file/d/1ScbBy4s_3umbv9Xguoo48Amn_76Vzl_x/view", "ma": "https://drive.google.com/file/d/1MMF1Q0aKPvtY7nNZboM3GGfmeq16AM41/view", "lang": "https://www.joongbu.ac.kr/menu.es?mid=a10104050500"}, "중앙대학교": {"ba": "https://drive.google.com/file/d/1xfmfxQy9nnuq02T4XmgiA_hYrudFkVaV/view", "ma": "https://drive.google.com/file/d/1EGvXl9yN_qGoNbYIdwuPjHR0lufi1ukS/view", "lang": "https://korean.cau.ac.kr/korean/index.php"}, "중앙승가대학교": {"ba": "https://drive.google.com/file/d/1iLFy41ArAaDVBt5bO-CYgozZXNAOtqzt/view"}, "중원대학교": {"ba": "https://drive.google.com/file/d/14PgyA3Q3RkuOV20VlSLwBjnSMZfXGWj-/view", "lang": "https://jwukorean.jwu.ac.kr/site/deptSiteView.jwu"}, "차의과학대학교": {"ba": "https://drive.google.com/file/d/150S26IYVt5JPwnnSP0llGwmiehzpwH9-/view"}, "창신대학교": {"ba": "https://drive.google.com/file/d/1E0YA0hS0lGakX-_53NMQaKsN-CYlmiEn/view", "ma": "https://drive.google.com/file/d/1WXUPFrwuq3CjCaZ38GjeUy2_4RBBRHQY/view", "lang": "https://global.cs.ac.kr/"}, "청운대학교": {"ba": "https://drive.google.com/file/d/1S3O21P6DuAc-Ym6Rn9zZcQDdC__Fnv0q/view"}, "청주대학교": {"ba": "https://drive.google.com/file/d/1qEg3Djzkk3aw5pfGEabwxlyBbHzxGR1T/view", "ma": "https://drive.google.com/file/d/1GJCpO3THC0a6JOafVBx9f8_uHYjZcH9n/view", "lang": "https://www.cju.ac.kr/www/contents.do?key=6809&"}, "초당대학교": {"ba": "https://drive.google.com/file/d/1pk9kWuII1WQObfJ_Xid89CCh45Wsigrk/view", "ma": "https://drive.google.com/file/d/1pEDEiJN2dzJGcBuGNYHBnDtb6eMW_OM1/view", "lang": "https://ilec.cdu.ac.kr/"}, "충남대학교": {"ba": "https://drive.google.com/file/d/1GD2MrwkaAzEzQuSYyRaPXv8X57ulN7RL/view", "ma": "https://drive.google.com/file/d/1msqudBRZcVNNcf7KWX1yUJN5DwmFh0MN/view", "lang": "https://dream.cnu.ac.kr/"}, "충북대학교": {"ba": "https://drive.google.com/file/d/1wDWSN49cMkFQEgmnDuhsXhbQZGj9tiL_/view", "ma": "https://drive.google.com/file/d/1MMf8j3vWP_VIQ-XNJCREC3bc9hx8Jw5E/view", "lang": "https://oia.cbnu.ac.kr/language"}, "칼빈대학교": {"ba": "https://drive.google.com/file/d/1DLlQ_-xOE7JBu7hhGsuZT_X5_3Q3kJjg/view", "lang": "https://calvininternational.co.kr/"}, "평택대학교": {"ba": "https://drive.google.com/file/d/1b2UJugLthxtF57rHJ2PtP_6gZTvU_zNl/view", "ma": "https://drive.google.com/file/d/1gW7fRSO1B1nbteLwje6oAa4B9EXpu_UA/view", "lang": "https://global.ptu.ac.kr/global/6275/subview.do"}, "한경국립대학교": {"ba": "https://drive.google.com/file/d/1HiHUNNOOGjolrTcxonHIuFV4Im57b8vR/view", "ma": "https://drive.google.com/file/d/1jA7JdpLrYjQX_x9sH2DL2EL6Ywnb360a/view", "lang": "https://global.hknu.ac.kr/"}, "한국공학대학교": {"ba": "https://drive.google.com/file/d/14ZAjzHE1E7_JIpI-UQUXKit1tK5VwoVu/view", "ma": "https://drive.google.com/file/d/1FfI_GR_8q4Nuu53Ma_2iVlPg2Go4Y9s3/view", "lang": "https://www.tukorea.ac.kr/sites/iec/index..do"}, "한국성서대학교": {"ba": "https://drive.google.com/file/d/1bgOdOumm4_2QNbRgOUDRndXuTbaCpfaj/view", "lang": "https://www.bible.ac.kr/ko/center/korean_greet"}, "한국외국어대학교": {"ba": "https://drive.google.com/file/d/1uw4TYnEbTA137UtynsPjB6zvboaWFjd0/view", "ma": "https://drive.google.com/file/d/1ZPwFYokBkvUFnroUMtNRuvQGqOZFc0hx/view", "lang": "http://www.korean.ac.kr/"}, "한국체육대학교": {"ba": "https://drive.google.com/file/d/1wUXpIdXHVdIMAfUcE2mfV2LHQsj5JzZh/view", "ma": "https://drive.google.com/file/d/1Cc_YD95uxjA3jTU9zN2uysFqelm0Uzl0/view"}, "한국침례신학대학교": {"ba": "https://drive.google.com/file/d/1FmDpd1MBH4Sx6uxwHMquUtICKHHPrwOe/view"}, "한국항공대학교": {"ba": "https://drive.google.com/file/d/1jp_6ai7mziUlmgzHTUvfZWCmszwAnA7Y/view", "ma": "https://drive.google.com/file/d/1mKX2tkk5ak6CD-dqh9XqgPUVDc1OyE2J/view", "lang": "http://college.kau.ac.kr/web/pages/gc74994h.do"}, "한남대학교": {"ba": "https://drive.google.com/file/d/1e7CIgdq9R7GK89avDQQ3x4ezl7pk4Jvb/view", "ma": "https://drive.google.com/file/d/1dK5CK2okxVzk9tYn8J788lHa5oarlqO3/view", "lang": "http://cklks.hnu.kr/kor/admission/admission_01.html"}, "한동대학교": {"ba": "https://drive.google.com/file/d/1zYzV_XZ43w1c3fOZusYe1rZClX4M41BA/view", "lang": "https://hgukorean.co.kr/"}, "한림대학교": {"ba": "https://drive.google.com/file/d/1ip5XMhSxJmzYqFk6nkXuRcYSKIaNeM4B/view", "ma": "https://drive.google.com/file/d/1okzAC3ZA-r7D-9-rhr9GjYQvbPl_a7xv/view", "lang": "https://cge.hallym.ac.kr/sites/klec/index.do"}, "한서대학교": {"ba": "https://drive.google.com/file/d/1zcdvuGck2BTcxtevRjihjNf62ghOpFRw/view"}, "한성대학교": {"ba": "https://drive.google.com/file/d/1YFLNV4OtqbaE--BhgbNaIWDKDG1-CmvV/view", "ma": "https://drive.google.com/file/d/1dRkttYQ3t3pR1nTpkjIxuKCwkDCLWbcY/view", "lang": "https://www.hansung.ac.kr/korean/index.do"}, "한양대학교": {"ba": "https://drive.google.com/file/d/1t3CaRw52armCzFt3HhTe2enpqFvOhETi/view", "ma": "https://drive.google.com/file/d/1gH5IPqDrKdA3haZvouDrGrk5vW4RgCrS/view", "lang": "https://iie.hanyang.ac.kr/"}, "한일장신대학교": {"ba": "https://drive.google.com/file/d/1ltnjPjKSleYuu9MWQZWm0Rqt30M3ncRz/view", "ma": "https://drive.google.com/file/d/1eGZnIi0OcD7ztv778UF7tOXaUPov2uzK/view"}, "협성대학교": {"ba": "https://drive.google.com/file/d/1oYKFunlyph_mG2GmJ5Nw3bwhUCmYVkRH/view", "ma": "https://drive.google.com/file/d/1GHAYMOl8ih1VKTCuRmDA18dgpNlk-lRl/view", "lang": "https://www.uhs.ac.kr/uhs/191/subview.do"}, "호남대학교": {"ba": "https://drive.google.com/file/d/1kO0XT80CHeh8-wpFDI3na25aHB9tOOEi/view", "ma": "https://drive.google.com/file/d/18T0WXh1X5GZpniQp_JTacMbbdj223cj8/view", "lang": "https://global.honam.ac.kr/KoreanAdmissionGuide"}, "호서대학교": {"ba": "https://drive.google.com/file/d/18kLf1_qx7UIHKu4rHmsXYW-JYU5I3RCN/view", "lang": "https://ieec.hoseo.ac.kr/CmsHome/sub_06.eznic"}, "호원대학교": {"ba": "https://drive.google.com/file/d/1TmTNadajaPyy_aKRnGSm0w_MCiOURz1z/view", "lang": "https://iecenter.howon.kr/page/page14"}, "경운대학교": {"lang": "https://www.ikw.ac.kr/worldle/page/link.tc?mn=5711&pageSeq=4630"}, "광주여자대학교": {"lang": "https://globalgate.kwu.ac.kr/mod/page/view.do?MID=GLOBALGATE_C05010101"}, "남서울대학교": {"lang": "https://nice.nsu.ac.kr/?p=26"}, "동의대학교": {"lang": "https://deuhome.deu.ac.kr/language/sub08_01.do"}, "백석대학교": {"lang": "https://www.bu.ac.kr/bulanguage/index.do"}, "서울과학기술대학교": {"lang": "https://klc.seoultech.ac.kr/"}, "서울교육대학교": {"lang": "https://language.snue.ac.kr/"}, "세한대학교": {"lang": "https://www.sehan.ac.kr/sehan/271/subview.do"}, "송원대학교": {"lang": "https://iec.songwon.ac.kr/"}, "신라대학교": {"lang": "https://skli.silla.ac.kr/"}, "신한대학교": {"lang": "https://www.shinhan.ac.kr/kr/281/subview.do"}, "위덕대학교": {"lang": "https://lang.uu.ac.kr/sub_5/index3.php"}, "총신대학교": {"lang": "https://iie.csu.ac.kr/"}, "추계예술대학교": {"lang": "https://www.chugye.ac.kr/mbs/university/subview.jsp?id=university_150203000000"}, "포항공과대학교": {"lang": "https://picl.postech.ac.kr/"}, "한세대학교": {"lang": "http://www.hskli.com/"}, "한신대학교": {"lang": "https://www.hs.ac.kr/interedu/8209/subview.do"}, "홍익대학교": {"lang": "https://koreanle.hongik.ac.kr/"}};
+
+window.UNIV_SPECIAL = {"visa_restricted_2026": {"source": "교육부·법무부·한국연구재단 공동보도 2026.2.12", "effective": "2026학년도 2학기(2026.9)부터 1년간", "scope": "비자 정밀심사 대학 — 신입생 비자 발급 원칙적 제한", "note": "매년 2월 재평가. 인증대학 학위181·어학123, 정밀심사 20교(학위16+어학4), 컨설팅 13교(비공개)", "degree_restricted": ["금강대학교", "수원가톨릭대학교", "중앙승가대학교", "협성대학교", "부산경상대학교", "부산예술대학교", "한영대학교", "구세군사관대학원대학교", "국제법률경영대학원대학교", "능인대학원대학교", "성서침례대학원대학교", "순복음대학원대학교", "에스라성경대학원대학교", "치유상담대학원대학교", "한국상담대학원대학교", "합동신학대학원대학교"], "lang_restricted": ["대구한의대학교", "상지대학교", "호원대학교", "목포과학대학교"]}, "note_visa_restricted": "degree=true → 추천금지; lang=true → D-4만 금지(학위는 가능). 출처: 교육부·법무부 2026.2.12", "free_major_programs": {"note": "자유전공·자율전공·무전공·국제이공학부·글로벌자유전공·국제/글로벌학부·광역/융합학부 — 전공 미정 선발 후 전공 선택 가능한 모집단위. 상담 시 '전공 아직 못 정한 학생', '국제이공/영어트랙' 질문에 활용. english_track=True면 영어 지원 가능. category: free_major(자유전공) / intl_stem(국제이공·글로벌IT·공학) / intl(국제·글로벌학부) / convergence(융합) / broad(광역).", "updated": "2026-09-10", "schools": {"중앙대학교": {"name": "중앙대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "units": [{"name": "게임융합학과 (100% 영어수업)", "category": ["convergence"]}, {"name": "융합공학부", "category": ["convergence"]}]}, "인하대학교": {"name": "인하대학교", "loc": "인천광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌자유전공학부", "category": ["free_major"]}]}, "광운대학교": {"name": "광운대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "정보융합학부 데이터사이언스전공", "category": ["convergence"]}]}, "한양대학교(ERICA)": {"name": "한양대학교(ERICA)", "loc": "경기(안산)", "topik_req": null, "ielts_req": null, "english_track": true, "units": [{"name": "ICT융합학부", "category": ["convergence"]}]}, "단국대학교": {"name": "단국대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "바이오소재융합공학과", "category": ["convergence"]}]}, "전북대학교": {"name": "전북대학교", "loc": "전라북도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "units": [{"name": "국제이공학부(엔지니어링사이언스) 4년 영어강의", "category": ["intl_stem"]}, {"name": "국제학부(국제협력)", "category": ["intl"]}]}, "목원대학교": {"name": "목원대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌융합학부: 글로벌IT공학", "category": ["convergence", "intl", "intl_stem"]}]}, "배재대학교": {"name": "배재대학교", "loc": "대전광역시", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌융합학부: 글로벌경영", "category": ["convergence", "intl"]}, {"name": "글로벌IT", "category": ["intl_stem"]}]}, "선문대학교": {"name": "선문대학교", "loc": "충청남도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "글로벌자유전공학부", "category": ["free_major"]}]}, "동신대학교": {"name": "동신대학교", "loc": "전라남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "국제학부(글로벌경영", "category": ["intl"]}]}, "창신대학교": {"name": "창신대학교", "loc": "경상남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌학부(스마트경영", "category": ["intl"]}]}, "한일장신대학교": {"name": "한일장신대학교", "loc": "전라북도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "units": [{"name": "AI융합혁신경영학과 (영어트랙)", "category": ["convergence"]}]}, "평택대학교": {"name": "평택대학교", "loc": "경기도", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "AI융합학과", "category": ["convergence"]}, {"name": "융합소프트웨어", "category": ["convergence"]}]}, "한국외국어대학교": {"name": "한국외국어대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "AI데이터융합학부", "category": ["convergence"]}, {"name": "국제학부", "category": ["intl"]}]}, "한림대학교": {"name": "한림대학교", "loc": "강원도", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "AI융합학부", "category": ["convergence"]}]}, "이화여자대학교": {"name": "이화여자대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": 6.0, "english_track": false, "units": [{"name": "국제학부", "category": ["intl"]}]}, "경동대학교": {"name": "경동대학교", "loc": "강원도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "소프트웨어융합보안학과", "category": ["convergence"]}, {"name": "국제융합학부", "category": ["convergence", "intl"]}, {"name": "국제학부", "category": ["intl"]}]}, "경성대학교": {"name": "경성대학교", "loc": "부산광역시", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "units": [{"name": "글로벌학부", "category": ["intl"]}, {"name": "글로벌공학부", "category": ["intl_stem"]}, {"name": "글로벌자율전공학부", "category": ["free_major"]}]}, "나사렛대학교": {"name": "나사렛대학교", "loc": "충청남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌융합학과", "category": ["convergence"]}]}, "대진대학교": {"name": "대진대학교", "loc": "경기도", "topik_req": 1, "ielts_req": 5.5, "english_track": true, "units": [{"name": "국제학부(국제지역학전공, 중국학전공)", "category": ["intl"]}, {"name": "AI융합학부(스마트모빌리티전공, 컴퓨터공학전공, AI빅데이터전공)", "category": ["convergence"]}, {"name": "스마트융합보안학과", "category": ["convergence"]}, {"name": "반도체융합공학과", "category": ["convergence"]}]}, "명지대학교": {"name": "명지대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "자율전공학부(인문)", "category": ["free_major"]}, {"name": "융합에너지학전공", "category": ["convergence"]}]}, "부산외국어대학교": {"name": "부산외국어대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "글로벌창업융합전공", "category": ["convergence"]}, {"name": "영상콘텐츠융합전공", "category": ["convergence"]}, {"name": "스마트융합보안전공", "category": ["convergence"]}, {"name": "전자·인공지능융합전공", "category": ["convergence"]}]}, "숭실대학교": {"name": "숭실대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "컴퓨터학부 융합소프트웨어전공", "category": ["convergence"]}, {"name": "전자정보공학부 IT융합전공", "category": ["convergence"]}]}, "청주대학교": {"name": "청주대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "에너지융합공학과", "category": ["convergence"]}, {"name": "자유전공학부", "category": ["free_major"]}]}, "한서대학교": {"name": "한서대학교", "loc": "충청남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자유전공학과", "category": ["free_major"]}, {"name": "인문사회전공자율학과", "category": ["free_major"]}, {"name": "자연과학전공자율학과", "category": ["free_major"]}, {"name": "공학전공자율학과", "category": ["free_major"]}, {"name": "예체능전공자율학과", "category": ["free_major"]}]}, "동의대학교": {"name": "동의대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "인문사회과학대학자유전공학부", "category": ["free_major"]}, {"name": "상경대학자유전공학부", "category": ["free_major"]}, {"name": "공과대학자유전공학부", "category": ["free_major"]}, {"name": "소프트웨어융합대학", "category": ["convergence"]}, {"name": "자유전공", "category": ["free_major"]}, {"name": "글로벌산업융합학과(외국인유학생전담학과)", "category": ["convergence"]}]}, "서울과학기술대학교": {"name": "서울과학기술대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "스마트ICT융합공학과", "category": ["convergence"]}, {"name": "글로벌테크노경영전공", "category": ["intl_stem"]}, {"name": "미래에너지융합학과", "category": ["convergence"]}, {"name": "글로벌자유전공학부 공과계열", "category": ["free_major"]}, {"name": "글로벌자유전공학부 정보통신계열", "category": ["free_major"]}, {"name": "글로벌자유전공학부 에너지바이오계열", "category": ["free_major"]}, {"name": "글로벌자유전공학부 디자인계열", "category": ["free_major"]}, {"name": "글로벌자유전공학부 인문사회계열", "category": ["free_major"]}, {"name": "글로벌자유전공학부 컴퓨터공학계열", "category": ["free_major"]}, {"name": "글로벌IT컨버전스학과", "category": ["intl_stem"]}]}, "한세대학교": {"name": "한세대학교", "loc": "경기도", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "융합보안학전공", "category": ["convergence"]}, {"name": "자유전공학부", "category": ["free_major"]}]}, "국립한국해양대학교": {"name": "국립한국해양대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 6.0, "english_track": true, "units": [{"name": "항해융합학부", "category": ["convergence"]}, {"name": "해기자율전공학부", "category": ["free_major"]}, {"name": "해양과학융합학부", "category": ["convergence"]}, {"name": "해양신소재융합공학과", "category": ["convergence"]}, {"name": "인문사회자율전공학부", "category": ["free_major"]}]}, "국립한국교통대학교": {"name": "국립한국교통대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "행정정보융합학과", "category": ["convergence"]}, {"name": "융합경영학과", "category": ["convergence"]}, {"name": "생명자유전공학부", "category": ["free_major"]}, {"name": "철도대학자유전공학부", "category": ["free_major"]}, {"name": "자유전공학부", "category": ["free_major"]}]}, "국립한밭대학교": {"name": "국립한밭대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 6.0, "english_track": true, "units": [{"name": "창의융합공학과", "category": ["convergence"]}, {"name": "모바일융합공학과", "category": ["convergence"]}]}, "경남대학교": {"name": "경남대학교", "loc": "경상남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "기계공학부 스마트기계융합공학전공", "category": ["convergence"]}]}, "광신대학교": {"name": "광신대학교", "loc": "광주광역시", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "복지상담융합학부", "category": ["convergence"]}]}, "국민대학교": {"name": "국민대학교", "loc": "서울특별시", "topik_req": 5, "ielts_req": 5.5, "english_track": true, "units": [{"name": "동아시아국제학부(일본학/중국학)", "category": ["intl"]}, {"name": "AI빅데이터융합경영학과", "category": ["convergence"]}, {"name": "전자공학부 지능형반도체융합전자전공", "category": ["convergence"]}, {"name": "전자공학부 지능형ICT융합전공", "category": ["convergence"]}, {"name": "전자공학부 모빌리티전력전자융합전공", "category": ["convergence"]}, {"name": "융합바이오공학과", "category": ["convergence"]}]}, "극동대학교": {"name": "극동대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌융합학부 경영서비스학전공", "category": ["convergence", "intl"]}, {"name": "글로벌융합학부 과학기술학전공", "category": ["convergence", "intl"]}, {"name": "글로벌융합학부 K-컬처학전공", "category": ["convergence", "intl"]}]}, "대구대학교": {"name": "대구대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "공공안전학부 공직법무전공", "category": ["free_major"]}, {"name": "시각디자인융합학부 시각디자인전공", "category": ["convergence"]}, {"name": "시각디자인융합학부 서비스마케팅디자인전공", "category": ["convergence"]}]}, "대구가톨릭대학교": {"name": "대구가톨릭대학교", "loc": "경상북도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "units": [{"name": "자율전공학부", "category": ["free_major"]}, {"name": "소프트웨어융합학과", "category": ["convergence"]}]}, "대신대학교": {"name": "대신대학교", "loc": "경상북도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "units": [{"name": "DSU 자율전공학부", "category": ["free_major"]}]}, "서울기독대학교": {"name": "서울기독대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "AI 빅데이터 융합(전담학과)", "category": ["convergence"]}]}, "동국대학교": {"name": "동국대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "지능형네트워크융합학과", "category": ["convergence"]}, {"name": "융합환경과학과", "category": ["convergence"]}, {"name": "식품바이오융합공학과", "category": ["convergence"]}]}, "동덕여자대학교": {"name": "동덕여자대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "경영융합학부", "category": ["convergence"]}, {"name": "글로벌MICE융합전공", "category": ["convergence"]}]}, "동서대학교": {"name": "동서대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자유전공학부", "category": ["free_major"]}]}, "동아대학교": {"name": "동아대학교", "loc": "부산광역시", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "방송기술자유전공과", "category": ["free_major"]}, {"name": "콘텐츠창작자유전공과", "category": ["free_major"]}]}, "동양대학교": {"name": "동양대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "철도자율전공학부", "category": ["free_major"]}, {"name": "AI빅데이터융합학과", "category": ["convergence"]}, {"name": "IT융합경영학과", "category": ["convergence"]}]}, "삼육대학교": {"name": "삼육대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "뷰티융합과", "category": ["convergence"]}, {"name": "의료AI융합과", "category": ["convergence"]}]}, "상명대학교": {"name": "상명대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "지능·데이터융합학부 휴먼AI공학전공", "category": ["convergence"]}, {"name": "지능·데이터융합학부 핀테크전공", "category": ["convergence"]}, {"name": "지능·데이터융합학부 빅데이터융합전공", "category": ["convergence"]}, {"name": "지능·데이터융합학부 스마트생산전공", "category": ["convergence"]}, {"name": "SW융합학부 컴퓨터과학전공", "category": ["convergence"]}, {"name": "자유전공(인문계열)", "category": ["free_major"]}, {"name": "자유전공(이공계열)", "category": ["free_major"]}, {"name": "자유전공(예체능계열)", "category": ["free_major"]}]}, "상지대학교": {"name": "상지대학교", "loc": "강원도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌비즈니스융합학부", "category": ["convergence"]}]}, "서경대학교": {"name": "서경대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": null, "english_track": false, "units": [{"name": "글로벌융합학부1", "category": ["convergence", "intl"]}, {"name": "글로벌융합학부2", "category": ["convergence", "intl"]}, {"name": "미래융합학부 1 / 2", "category": ["convergence"]}, {"name": "자유전공학부", "category": ["free_major"]}]}, "성결대학교": {"name": "성결대학교", "loc": "경기도", "topik_req": 4, "ielts_req": null, "english_track": true, "units": [{"name": "자율전공학부", "category": ["free_major"]}, {"name": "인문사회계열자율전공학부", "category": ["free_major"]}, {"name": "공학계열자율전공학부", "category": ["free_major"]}, {"name": "융합학부", "category": ["convergence"]}]}, "성신여자대학교": {"name": "성신여자대학교", "loc": "서울특별시", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "units": [{"name": "국제학부 글로벌한국학전공(한국어교육 트랙)", "category": ["intl"]}, {"name": "국제학부 글로벌한국학전공(K-컬처 앤 엔터 트랙)", "category": ["intl"]}, {"name": "국제학부 뷰티·패션디자인전공", "category": ["intl"]}, {"name": "화학·에너지융합학부(화학/스마트에너지전공)", "category": ["convergence"]}, {"name": "바이오헬스융합학부(바이오헬스서비스/식품영양학전공)", "category": ["convergence"]}, {"name": "AI융합학부(AI/지능형시스템전공)", "category": ["convergence"]}, {"name": "융합보안공학과", "category": ["convergence"]}]}, "세명대학교": {"name": "세명대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자율전공학부", "category": ["free_major"]}, {"name": "글로벌학부[한국어언어문화]", "category": ["intl"]}]}, "수원대학교": {"name": "수원대학교", "loc": "경기도", "topik_req": 4, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자유전공학부", "category": ["free_major"]}]}, "순천향대학교": {"name": "순천향대학교", "loc": "충청남도", "topik_req": 5, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌자유전공학과", "category": ["free_major"]}]}, "유원대학교": {"name": "유원대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "문화복지융합학과", "category": ["convergence"]}, {"name": "미래라이프융합학부", "category": ["convergence"]}]}, "울산대학교": {"name": "울산대학교", "loc": "울산광역시", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "신소재·반도체융합학부(신소재공학)", "category": ["convergence"]}, {"name": "신소재·반도체융합학부(나노반도체공학)", "category": ["convergence"]}, {"name": "전기전자융합학부", "category": ["convergence"]}, {"name": "ICT 융합학부", "category": ["convergence"]}, {"name": "디자인융합학부", "category": ["convergence"]}, {"name": "경영경제융합학부", "category": ["convergence"]}]}, "원광대학교": {"name": "원광대학교", "loc": "전라북도", "topik_req": 4, "ielts_req": null, "english_track": false, "units": [{"name": "디자인융합계열", "category": ["convergence"]}, {"name": "창의문화융합계열", "category": ["convergence"]}, {"name": "자율전공학부", "category": ["free_major"]}]}, "조선대학교": {"name": "조선대학교", "loc": "광주광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "융합수리과학부", "category": ["convergence"]}, {"name": "글로벌학부 국제통상전공", "category": ["intl"]}, {"name": "글로벌학부 글로벌비즈니스전공", "category": ["intl"]}, {"name": "글로벌학부 K컬처공연기획전공", "category": ["intl"]}, {"name": "글로벌학부 K스포츠&무용전공", "category": ["intl"]}, {"name": "글로벌학부 기계공학전공", "category": ["intl"]}, {"name": "글로벌학부 K헬스케어전공", "category": ["intl"]}]}, "한국항공대학교": {"name": "한국항공대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "AI융합대학", "category": ["convergence"]}]}, "한남대학교": {"name": "한남대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "문과대학 자유전공학부", "category": ["free_major"]}, {"name": "공과대학 자유전공학부", "category": ["free_major"]}, {"name": "스마트융합대학 자유전공학부", "category": ["convergence", "free_major"]}, {"name": "AI융합학과", "category": ["convergence"]}, {"name": "경상대학 자유전공학부", "category": ["free_major"]}, {"name": "사회과학대학 자유전공학부", "category": ["free_major"]}, {"name": "생명·나노과학대학 자유전공학부", "category": ["free_major"]}, {"name": "융합디자인학과", "category": ["convergence"]}, {"name": "자유전공학부", "category": ["free_major"]}]}, "한성대학교": {"name": "한성대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "SW융합학과", "category": ["convergence"]}]}, "서울한영대학교": {"name": "서울한영대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "국제학부", "category": ["intl"]}]}, "호남대학교": {"name": "호남대학교", "loc": "광주광역시", "topik_req": 4, "ielts_req": null, "english_track": false, "units": [{"name": "시각융합디자인학과", "category": ["convergence"]}]}, "가톨릭꽃동네대학교": {"name": "가톨릭꽃동네대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "자율전공학부", "category": ["free_major"]}]}, "남부대학교": {"name": "남부대학교", "loc": "광주광역시", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "자율전공학부", "category": ["free_major"]}]}, "예원예술대학교": {"name": "예원예술대학교", "loc": "전라북도", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "융합조형디자인", "category": ["convergence"]}, {"name": "스포츠융합복지", "category": ["convergence"]}]}, "김천대학교": {"name": "김천대학교", "loc": "경상북도", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자율전공학부", "category": ["free_major"]}]}, "한국공학대학교": {"name": "한국공학대학교", "loc": "경기도", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "IT반도체융합대학", "category": ["convergence"]}, {"name": "스마트기계융합대학", "category": ["convergence"]}, {"name": "국제학부", "category": ["intl"]}]}, "호원대학교": {"name": "호원대학교", "loc": "전라북도", "topik_req": 2, "ielts_req": null, "english_track": false, "units": [{"name": "글로컬자유전공학부", "category": ["free_major"]}]}, "청운대학교": {"name": "청운대학교", "loc": "충청남도", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자율전공학부", "category": ["free_major"]}, {"name": "미래융합자율전공학부", "category": ["convergence", "free_major"]}]}, "추계예술대학교": {"name": "추계예술대학교", "loc": "서울특별시", "topik_req": 2, "ielts_req": null, "english_track": false, "units": [{"name": "국제학부 음악전공", "category": ["intl"]}, {"name": "국제학부 미술전공", "category": ["intl"]}, {"name": "국제학부 무용전공", "category": ["intl"]}, {"name": "융합예술학부 콘텐츠비즈니스전공", "category": ["convergence"]}]}, "충북대학교": {"name": "충북대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌IT학과", "category": ["intl_stem"]}, {"name": "전기배터리융합학과", "category": ["convergence"]}, {"name": "기계자동차융합학과", "category": ["convergence"]}]}, "강원대학교": {"name": "강원대학교", "loc": "강원도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "units": [{"name": "해양융합과학과", "category": ["convergence"]}, {"name": "글로벌융합학부", "category": ["convergence", "intl"]}, {"name": "기계융합공학부", "category": ["convergence"]}]}, "경상국립대학교": {"name": "경상국립대학교", "loc": "경상남도", "topik_req": 2, "ielts_req": null, "english_track": true, "units": [{"name": "글로벌자율전공학부", "category": ["free_major"]}, {"name": "동물생명융합학부", "category": ["convergence"]}]}, "국립군산대학교": {"name": "국립군산대학교", "loc": "전라북도", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "인공지능융합학과", "category": ["convergence"]}, {"name": "IT융합통신공학과", "category": ["convergence"]}, {"name": "자율전공학부", "category": ["free_major"]}, {"name": "글로벌융합학부", "category": ["convergence", "intl"]}, {"name": "공간디자인융합기술학부", "category": ["convergence"]}]}, "국립목포대학교": {"name": "국립목포대학교", "loc": "전라남도", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌학부", "category": ["intl"]}, {"name": "미래설계융합학부", "category": ["convergence"]}]}, "국립부경대학교": {"name": "국립부경대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "글로벌자율전공학부", "category": ["free_major"]}]}, "부산대학교": {"name": "부산대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "국제학부", "category": ["intl"]}, {"name": "의생명융합공학부", "category": ["convergence"]}, {"name": "글로벌자유전공학부", "category": ["free_major"]}, {"name": "첨단융합학부", "category": ["convergence"]}]}, "국립순천대학교": {"name": "국립순천대학교", "loc": "전라남도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "자유전공학부(인문사회·자연)", "category": ["free_major"]}, {"name": "융합바이오시스템기계공학과", "category": ["convergence"]}, {"name": "예체능분야(음악예술융합학전공)", "category": ["convergence"]}]}, "충남대학교": {"name": "충남대학교", "loc": "대전광역시", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "units": [{"name": "도시·자치융합학과", "category": ["convergence"]}, {"name": "국제학부", "category": ["intl"]}, {"name": "정보통신융합학부", "category": ["convergence"]}]}, "서울시립대학교": {"name": "서울시립대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "융합응용화학과", "category": ["convergence"]}, {"name": "융합바이오헬스전공", "category": ["convergence"]}]}, "강남대학교": {"name": "강남대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자유전공학부", "category": ["free_major"]}, {"name": "인공지능융합공학부", "category": ["convergence"]}]}, "경일대학교": {"name": "경일대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자율전공학부", "category": ["free_major"]}, {"name": "디자인융합학부", "category": ["convergence"]}, {"name": "스포츠융합학부", "category": ["convergence"]}]}, "신경주대학교": {"name": "신경주대학교", "loc": "경상북도", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌융합학부", "category": ["convergence", "intl"]}, {"name": "AI융합미디어창업학과", "category": ["convergence"]}]}, "신한대학교": {"name": "신한대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "소프트웨어융합학과", "category": ["convergence"]}]}}}, "ai_departments": {"note": "AI/데이터사이언스/소프트웨어/컴퓨터 전공 전용학과 보유 학교 (data.js majors 기반). 상담 시 '어느 학교에 인공지능학과/데이터사이언스학과가 있나' 질문에 활용. english_track=True면 영어로도 지원 가능.", "updated": "2026-09-05", "schools": {"가천대학교": {"name": "가천대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": ["금융·빅데이터학부"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과", "컴퓨터공학부", "컴퓨터공학전공"]}}, "가톨릭대학교": {"name": "가톨릭대학교", "loc": "경기도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["인공지능학과", "AI의공학과"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": ["바이오메디컬소프트웨어학과"], "컴퓨터": []}}, "강남대학교": {"name": "강남대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["인공지능융합공학부", "인공지능전공"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": ["소프트웨어전공"], "컴퓨터": ["컴퓨터공학부"]}}, "강서대학교": {"name": "강서대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI기반경영학과"], "데이터사이언스": ["G2빅데이터경영학과"], "소프트웨어": [], "컴퓨터": []}}, "강원대학교": {"name": "강원대학교", "loc": "강원도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["첨단AI공학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "건국대학교": {"name": "건국대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI디자인학과"], "데이터사이언스": [], "소프트웨어": ["컴퓨터소프트웨어학과", "국제대학컴퓨터소프트웨어학과"], "컴퓨터": ["컴퓨터공학부"]}}, "건양대학교": {"name": "건양대학교", "loc": "충청남도", "topik_req": 5, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["기업소프트웨어학부"], "컴퓨터": []}}, "경남대학교": {"name": "경남대학교", "loc": "경상남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["인공지능학과"], "데이터사이언스": [], "소프트웨어": ["소프트웨어전공"], "컴퓨터": ["컴퓨터공학부", "컴퓨터공학전공"]}}, "경동대학교": {"name": "경동대학교", "loc": "강원도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어융합보안학과"], "컴퓨터": ["컴퓨터공학과"]}}, "경상국립대학교": {"name": "경상국립대학교", "loc": "경상남도", "topik_req": 2, "ielts_req": null, "english_track": false, "depts": {"AI": ["AI정보공학과"], "데이터사이언스": [], "소프트웨어": ["소프트웨어공학과"], "컴퓨터": ["컴퓨터공학부"]}}, "경희대학교": {"name": "경희대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 6.0, "english_track": true, "depts": {"AI": ["컴퓨터공학부인공지능학과"], "데이터사이언스": [], "소프트웨어": ["소프트웨어융합학과"], "컴퓨터": ["컴퓨터공학부컴퓨터공학과", "컴퓨터공학부인공지능학과"]}}, "계명대학교": {"name": "계명대학교", "loc": "대구광역시", "topik_req": 3, "ielts_req": 5.0, "english_track": false, "depts": {"AI": [], "데이터사이언스": ["경영빅데이터학과"], "소프트웨어": ["게임소프트웨어학과", "모빌리티소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "고려대학교": {"name": "고려대학교", "loc": "서울특별시", "topik_req": 5, "ielts_req": 7.0, "english_track": true, "depts": {"AI": ["인공지능학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터학과"]}}, "광주대학교": {"name": "광주대학교", "loc": "광주광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI소프트웨어학과"], "데이터사이언스": [], "소프트웨어": ["AI소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "국립강릉원주대학교": {"name": "국립강릉원주대학교", "loc": "강원도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI콘텐츠공학과"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": [], "컴퓨터": []}}, "국립경국대학교": {"name": "국립경국대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어융합전공"], "컴퓨터": ["컴퓨터공학전공"]}}, "국립군산대학교": {"name": "국립군산대학교", "loc": "전라북도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["인공지능융합학과"], "데이터사이언스": ["데이터사이언스학전공"], "소프트웨어": ["임베디드소프트웨어학과", "소프트웨어학과"], "컴퓨터": ["컴퓨터과학전공"]}}, "국립금오공과대학교": {"name": "국립금오공과대학교", "loc": "경상북도", "topik_req": 4, "ielts_req": 5.5, "english_track": false, "depts": {"AI": [], "데이터사이언스": ["산업·빅데이터공학부", "수리빅데이터전공"], "소프트웨어": ["소프트웨어전공"], "컴퓨터": ["컴퓨터공학부", "컴퓨터공학전공"]}}, "국립목포대학교": {"name": "국립목포대학교", "loc": "전라남도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능공학과"], "데이터사이언스": [], "소프트웨어": ["융합소프트웨어전공"], "컴퓨터": ["컴퓨터공학전공"]}}, "국립부경대학교": {"name": "국립부경대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능전공", "지능형로봇융합전공", "인공지능융합학과"], "데이터사이언스": ["데이터사이언스융합전공", "빅데이터융합학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "국립순천대학교": {"name": "국립순천대학교", "loc": "전라남도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능공학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "국립창원대학교": {"name": "국립창원대학교", "loc": "경상남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "국립한국교통대학교": {"name": "국립한국교통대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["철도AI·데이터공학부", "인공지능전공"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": ["컴퓨터소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "국립한국해양대학교": {"name": "국립한국해양대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 6.0, "english_track": false, "depts": {"AI": ["해사인공지능·보안학부", "인공지능공학부"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학전공"]}}, "국민대학교": {"name": "국민대학교", "loc": "서울특별시", "topik_req": 5, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI빅데이터융합경영학과", "지능형반도체융합전자전공", "지능형ICT융합전공", "인공지능학부", "AI디자인학과"], "데이터사이언스": ["AI빅데이터융합경영학과"], "소프트웨어": ["소프트웨어학부"], "컴퓨터": []}}, "나사렛대학교": {"name": "나사렛대학교", "loc": "충청남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["AI인공지능학부", "AI빅데이터소프트웨어전공", "AI사물인터넷보안전공"], "데이터사이언스": ["AI빅데이터소프트웨어전공"], "소프트웨어": ["AI빅데이터소프트웨어전공"], "컴퓨터": []}}, "단국대학교": {"name": "단국대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": ["통계데이터사이언스학과"], "소프트웨어": ["소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "대구가톨릭대학교": {"name": "대구가톨릭대학교", "loc": "경상북도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI빅데이터공학과", "인공지능컴퓨터전공"], "데이터사이언스": ["AI빅데이터공학과"], "소프트웨어": ["컴퓨터소프트웨어학부", "소프트웨어융합학과"], "컴퓨터": ["컴퓨터공학전공"]}}, "대구대학교": {"name": "대구대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["컴퓨터소프트웨어전공"], "컴퓨터": ["컴퓨터공학전공"]}}, "덕성여자대학교": {"name": "덕성여자대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["AI신약학과"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": ["디지털소프트웨어공학부"], "컴퓨터": []}}, "동국대학교": {"name": "동국대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": true, "depts": {"AI": ["컴퓨터·AI학부", "인공지능전공", "의료인공지능공학과", "지능형네트워크융합학과"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": ["멀티미디어소프트웨어공학전공"], "컴퓨터": ["컴퓨터공학전공"]}}, "동덕여자대학교": {"name": "동덕여자대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": [], "컴퓨터": []}}, "동명대학교": {"name": "동명대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능응용학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "동서대학교": {"name": "동서대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어전공"], "컴퓨터": ["컴퓨터공학과"]}}, "동양대학교": {"name": "동양대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["AI빅데이터융합학과"], "데이터사이언스": ["AI빅데이터융합학과"], "소프트웨어": ["디지털트윈소프트웨어학과"], "컴퓨터": []}}, "명지대학교": {"name": "명지대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능전공"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": ["융합소프트웨어학부", "응용소프트웨어전공"], "컴퓨터": ["컴퓨터공학전공"]}}, "목원대학교": {"name": "목원대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI실감콘텐츠전공"], "데이터사이언스": ["마케팅빅데이터학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학전공"]}}, "배재대학교": {"name": "배재대학교", "loc": "대전광역시", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어공학부"], "컴퓨터": []}}, "부산대학교": {"name": "부산대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능전공"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": [], "컴퓨터": ["정보컴퓨터공학부", "컴퓨터공학전공"]}}, "부산외국어대학교": {"name": "부산외국어대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": ["빅데이터전공"], "소프트웨어": ["소프트웨어전공", "소프트웨어학부"], "컴퓨터": ["컴퓨터공학전공", "컴퓨터공학부"]}}, "삼육대학교": {"name": "삼육대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능융합학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학부"]}}, "상명대학교": {"name": "상명대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["지능·데이터융합학부휴먼AI공학전공"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": []}}, "상지대학교": {"name": "상지대학교", "loc": "강원도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "서강대학교": {"name": "서강대학교", "loc": "서울특별시", "topik_req": 6, "ielts_req": 7.0, "english_track": true, "depts": {"AI": ["인공지능학과", "AI기반자유전공학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "서경대학교": {"name": "서경대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "서울대학교": {"name": "서울대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 6.0, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학부"]}}, "서울시립대학교": {"name": "서울시립대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["인공지능학과", "첨단인공지능전공", "지능형반도체전공"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["전자전기컴퓨터공학부", "컴퓨터과학부"]}}, "서울신학대학교": {"name": "서울신학대학교", "loc": "경기도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "서울여자대학교": {"name": "서울여자대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": ["소프트웨어학과"], "컴퓨터": []}}, "선문대학교": {"name": "선문대학교", "loc": "충청남도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI소프트웨어학과"], "데이터사이언스": [], "소프트웨어": ["AI소프트웨어학과"], "컴퓨터": ["컴퓨터공학부"]}}, "성결대학교": {"name": "성결대학교", "loc": "경기도", "topik_req": 4, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["미디어소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "성균관대학교": {"name": "성균관대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": 6.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어학과"], "컴퓨터": []}}, "세종대학교": {"name": "세종대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI융합전자공학과", "AI로봇학과", "인공지능데이터사이언스학과"], "데이터사이언스": ["인공지능데이터사이언스학과"], "소프트웨어": ["소프트웨어학과", "콘텐츠소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "수원대학교": {"name": "수원대학교", "loc": "경기도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI데이터과학부", "지능형보안학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학부"]}}, "숙명여자대학교": {"name": "숙명여자대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["지능형전자시스템전공"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": ["소프트웨어학부"], "컴퓨터": []}}, "순천향대학교": {"name": "순천향대학교", "loc": "충청남도", "topik_req": 5, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["AI·빅데이터학과"], "데이터사이언스": ["AI·빅데이터학과"], "소프트웨어": ["컴퓨터소프트웨어공학과"], "컴퓨터": ["컴퓨터공학과"]}}, "숭실대학교": {"name": "숭실대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["AI소프트웨어학부", "AI시스템전공"], "데이터사이언스": [], "소프트웨어": ["AI소프트웨어학부"], "컴퓨터": []}}, "신경주대학교": {"name": "신경주대학교", "loc": "경상북도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI융합미디어창업학과", "AI전기자동차학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": []}}, "신한대학교": {"name": "신한대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": [], "데이터사이언스": ["빅데이터경영학과"], "소프트웨어": ["소프트웨어융합학과", "소프트웨어공학과"], "컴퓨터": []}}, "연세대학교": {"name": "연세대학교", "loc": "서울특별시", "topik_req": 5, "ielts_req": null, "english_track": false, "depts": {"AI": ["지능형반도체전공"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": []}}, "영산대학교": {"name": "영산대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["AI그래픽학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "용인대학교": {"name": "용인대학교", "loc": "경기도", "topik_req": 2, "ielts_req": null, "english_track": false, "depts": {"AI": ["AI융합학부", "AI학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": []}}, "우석대학교": {"name": "우석대학교", "loc": "전라북도", "topik_req": 2, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과", "컴퓨터공학부"]}}, "우송대학교": {"name": "우송대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["철도소프트웨어전공", "게임소프트웨어전공", "컴퓨터·소프트웨어전공"], "컴퓨터": ["컴퓨터·소프트웨어전공"]}}, "유원대학교": {"name": "유원대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI소프트웨어학과"], "데이터사이언스": [], "소프트웨어": ["AI소프트웨어학과"], "컴퓨터": []}}, "을지대학교": {"name": "을지대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["빅데이터인공지능전공"], "데이터사이언스": ["빅데이터인공지능전공"], "소프트웨어": [], "컴퓨터": []}}, "이화여자대학교": {"name": "이화여자대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": 6.0, "english_track": false, "depts": {"AI": ["지능형반도체공학전공", "인공지능데이터사이언스학부", "인공지능전공", "지능형반도체학과"], "데이터사이언스": ["인공지능데이터사이언스학부", "데이터사이언스전공", "데이터사이언스학과"], "소프트웨어": ["소프트웨어학부"], "컴퓨터": ["컴퓨터공학과"]}}, "인제대학교": {"name": "인제대학교", "loc": "경상남도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI컴퓨터학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["AI컴퓨터학과"]}}, "인천대학교": {"name": "인천대학교", "loc": "인천광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학부"]}}, "인하대학교": {"name": "인하대학교", "loc": "인천광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능공학과"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "전북대학교": {"name": "전북대학교", "loc": "전라북도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["컴퓨터인공지능학부"], "데이터사이언스": [], "소프트웨어": ["소프트웨어공학과"], "컴퓨터": []}}, "전주대학교": {"name": "전주대학교", "loc": "전라북도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능학과"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "제주대학교": {"name": "제주대학교", "loc": "제주특별자치도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["인공지능학과", "인공지능전공"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "조선대학교": {"name": "조선대학교", "loc": "광주광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["AI소프트웨어학부", "인공지능공학전공"], "데이터사이언스": [], "소프트웨어": ["AI소프트웨어학부"], "컴퓨터": ["컴퓨터공학전공"]}}, "청운대학교": {"name": "청운대학교", "loc": "충청남도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "청주대학교": {"name": "청주대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["인공지능소프트웨어학과"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": ["인공지능소프트웨어학과"], "컴퓨터": []}}, "충북대학교": {"name": "충북대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어학부"], "컴퓨터": ["컴퓨터공학과"]}}, "평택대학교": {"name": "평택대학교", "loc": "경기도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["지능형반도체학과", "AI융합학과"], "데이터사이언스": [], "소프트웨어": ["융합소프트웨어학과"], "컴퓨터": []}}, "한국공학대학교": {"name": "한국공학대학교", "loc": "경기도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["지능형모빌리티전공", "AI로봇전공", "인공지능학과"], "데이터사이언스": ["데이터사이언스경영전공"], "소프트웨어": ["소프트웨어전공"], "컴퓨터": ["컴퓨터공학전공", "컴퓨터공학부"]}}, "한국성서대학교": {"name": "한국성서대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": null, "english_track": false, "depts": {"AI": ["AI융합학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": []}}, "한국외국어대학교": {"name": "한국외국어대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["Language&AI융합학부", "SocialScience&AI융합학부", "AI데이터융합학부", "Finance&AI융합학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학부"]}}, "한국항공대학교": {"name": "한국항공대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI자율주행시스템공학과"], "데이터사이언스": [], "소프트웨어": ["소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "한남대학교": {"name": "한남대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["AI융합학과"], "데이터사이언스": ["빅데이터응용학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "한동대학교": {"name": "한동대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": 6.0, "english_track": false, "depts": {"AI": ["AI융합전공", "AIConvergence&Entrepreneurship전공"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["전산전자공학부", "컴퓨터공학전공"]}}, "한림대학교": {"name": "한림대학교", "loc": "강원도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능융합학부"], "데이터사이언스": ["데이터사이언스학부"], "소프트웨어": ["소프트웨어학부"], "컴퓨터": []}}, "한서대학교": {"name": "한서대학교", "loc": "충청남도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI·SW학부", "항공AI소프트웨어학과", "AI로보틱스학과", "AI모빌리티학과"], "데이터사이언스": [], "소프트웨어": ["항공AI소프트웨어학과"], "컴퓨터": []}}, "한성대학교": {"name": "한성대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI응용학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학부"]}}, "협성대학교": {"name": "협성대학교", "loc": "경기도", "topik_req": null, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어공학과"], "컴퓨터": ["컴퓨터공학과"]}}}}, "medical_reqs": {"의예과(의학과)": {"note": "면접(MMI) 중심 + 부모모두외국인 국적조건. TOPIK/영어 학교별 상이 — IELTS 인정 여부 확인.", "recruiting": [{"school": "연세대학교", "year": "2027", "dept": "의과대학 의예과, 치의예과, 간호대학, 약학대학", "lang": "TOPIK 5급 이상 필수 (영어 불인정)", "note": "의·치·간호·약학은 1차 원서접수 기간에만 지원 가능"}, {"school": "연세대학교(미래)", "year": "2027", "dept": "의예과, 간호학과", "lang": "TOPIK 5급 이상 (영어 불인정)", "note": "1차 원서접수 기간 중에만 접수 가능"}, {"school": "을지대학교", "year": "2027", "dept": "의예과(대전)", "quota": "제한 없음 (외국인 특별전형 비제한)", "lang": "TOEFL(IBT) 100점 이상 + TOPIK 3급 이상(또는 자체시험 3급/KIIP 3단계/세종학당 중급1)", "note": "TOPIK 2급이면 입학 후 300시간 한국어연수 조건부 가능"}, {"school": "인제대학교", "year": "2027", "dept": "의예과", "quota": "전기(3월 입학) 1차만 모집", "period": "원서접수 2026.9.7~9.11, 면접 2026.11.14", "eval": "1단계 서류 → 2단계 심층면접(인성+지성: 생명과학·화학 구술, MMI)", "fee": "전형료 ₩100,000", "lang": "TOPIK 3급 이상 (C형 기준)", "graduate": "졸업 TOPIK 4급 or IELTS 5.5"}, {"school": "가톨릭관동대학교", "year": "2027", "dept": "의학과(의예과)", "quota": "재외국민·외국인 2명 / 부모모두외국인 제한없음", "period": "원서접수 2026.7.6~7.10", "eval": "1단계 서류 100% → 2단계 서류 70%+면접 30%", "fee": "전형료 ₩185,000", "lang": "TOEFL IBT 또는 NEWTEPS 필수 (IELTS 불인정!) + TOPIK 증빙", "note": "공인영어성적 2024.8.28 이후 취득분만"}, {"school": "건양대학교", "year": "2026", "dept": "의학과 (6년제)", "quota": "입학정원 5% 이내", "eval": "1단계 서류 적·부 → 2단계 면접 100% (5배수)", "lang": "TOEIC 850 / TOEFL 98 / TEPS 336 중 택1 (영어 기반, TOPIK 불요)", "tuition": "₩5,245,000/학기 (2025 기준)"}, {"school": "중앙대학교", "year": "2026 & 2027", "dept": "의과대학 의학부", "lang": "TOPIK 6급 필수 (한국어만 인정)", "quota": null, "eval": "", "period": "", "note": "의학부는 신입학만 지원 가능(편입 X), 2지망 불가(의과대학·예술·체육은 1지망만). 서류평가 50% + 면접평가 50%. 의학부 입학생은 장학금 지급 대상 제외. 2026/2027 요강 모두 의학부 TOPIK 6급 요건 확인. medical_reqs에 누락."}, {"school": "서울대학교", "year": "2026 & 2027", "dept": "의과대학 의예과(2026) / 의학과 통합6년제(2027)", "lang": "한국어 또는 영어 선택: TOPIK(IBT) 3급 이상 또는 대학부설 어학당 4급 수료 / TOEFL iBT 80 (2026.1.21 이후 응시분은 4.0점대 기준 상향?) / IELTS Academic 6.0 / TEPS 269", "quota": "정원 외 선발, 별도 모집인원 없음", "eval": "", "period": "", "note": "글로벌인재특별전형(부모 모두 외국인). 의과대학은 서류+면접(제시문 사용 가능). 2027학년도부터 의과대학 통합 6년제(의학과)로 선발. medical_reqs에 누락."}, {"school": "고려대학교", "year": "2026 & 2027", "dept": "의과대학(의학과, 자연계열)", "lang": "한국어 또는 영어 공인성적 제출(TOPIK / TOEFL iBT / IELTS Academic 중 택1). 의과대학 별도 최소급수 미명시, 입학 후 TOPIK 급수별 한국어집중교육·전공수강제한 적용", "quota": null, "eval": "", "period": "", "note": "의과대학·간호대학은 전기 입학전형으로만 선발. 외국인전형Ⅰ 모집단위(자연/의과). 2026은 의과대학, 2027은 의학과로 표기. medical_reqs에 누락."}]}, "약학(Pharmacy)": {"note": "약학 외국인전형은 TOPIK 기반 (영어 불인정 대부분). 6년제.", "recruiting": [{"school": "서울대학교", "year": "2027", "dept": "약학계열(약학과 6년제, 제약학과 6년제)", "lang": "글로벌인재특별전형 공통: 한국어 또는 영어 언어능력 증빙서류 필수 — TOPIK 3급 이상 또는 국내 대학 어학당 4급 수료, 또는 영어(TOEFL iBT 80·IELTS 6.0·TEPS 269) ※ 약학계열 별도 상향 요건은 요강에 미명시(공통요건 적용)", "quota": "정원 외(별도 모집인원 없이 선발, 경쟁률 미공개)", "eval": "서류평가(제출서류 기반 정성평가) + 필요시 면접(면접시행대학에 약학대학 명시; 글로벌인재특별전형Ⅱ는 화상면접)", "period": "2027학년도 전기 글로벌인재특별전형(2026.9 접수·면접)", "note": "약학대학 약학계열이 외국인(글로벌인재특별전형) 모집단위로 명시되고 면접시행대학에 포함 → 실제 모집"}, {"school": "연세대학교", "year": "2027", "dept": "약학과, 첨단약과학과(2027 신설)", "lang": "약학대학(의과·치과·간호·약학대학 공통): 한국어능력시험(TOPIK) 5급 이상 성적 또는 연세대학교 한국어학당(KLI) 5급 이상 수료증명 필수 제출 [택1]", "quota": "약간 명(모집단위별)", "eval": "면접평가(현장대면, 신촌캠퍼스) — 의예과·치의예과·약학과 지원자에 한함", "period": "2027학년도 외국인전형(원서접수 약 2026.9)", "note": "약학대학 약학과가 외국인 모집단위로 명시, 2027 첨단약과학과 신설로 함께 모집. 전형료 230,000원(의·치·약대)"}, {"school": "인제대학교", "year": "2027", "dept": "약학과", "lang": "한국어트랙 지원(약학과 한국어트랙): TOPIK 성적 미소지자도 지원 가능(글로벌칼리지 외 일반학과 포함) ※ 졸업 전까지 TOPIK 4급 이상(또는 IELTS 5.5) 취득 요건", "quota": "신입학 모집인원: 제한 없음", "eval": "면접고사(의예과·약학과: 2026.11.14 김해캠퍼스) — 의예과·약학과는 1단계 합격자 발표 후 면접", "period": "2027학년도 1학기 외국인학부 신입학[1차](원서접수 2026.9.7~9.11)", "note": "약학대학 약학과가 외국인 모집단위에 등재되고 면접 실시(의예과·약학과 별도 일정) → 실제 모집"}, {"school": "고려대학교(세종)", "year": "2026", "dept": "약학과(약학대학), 첨단융합신약학과", "lang": "어학능력자격: TOPIK 성적 소유자(TOPIK iBT 정규 포함) / 고려대 세종 KLIP 또는 국내 4년제 대학 부설 한국어 정규과정 성적 소유자 / 세종학당 등 [한국어 기반] ※ 미취득 입학 시 졸업 전까지 TOPIK 4급 이상 취득 요건", "quota": "모집인원 제한 없음(수학능력 고려 정원 외 선발)", "eval": "약학과 면접(2025.11.29, 약학과 응시자만 해당, 한국 국내 대면 면접)", "period": "2026학년도 외국인 특별전형(원서접수 ~2025.11, 최종발표 2025.12.26)", "note": "약학대학 약학과가 외국인 모집단위(자연계열)로 등재되고 약학과 단독 면접 실시 → 실제 모집"}, {"school": "연세대학교", "year": "2026", "dept": "약학과", "lang": "의예·치의예·간호학·약학과 공통: 한국어능력시험(TOPIK) 5급 이상, 또는 연세대학교 한국어학당(KLI) 5급 이상 수료증명 필수 제출", "quota": "약간 명(모집단위별)", "eval": "면접평가(현장대면, 신촌캠퍼스 2025.11.1) — 의예과·치의예과·약학과 지원자에 한함", "period": "2026학년도 외국인전형(원서접수 2025.9.1~, 최종발표 2025.12.5)", "note": "약학대학 약학과 외국인 모집단위로 명시, TOPIK 5급/KLI 5급 요건 → 실제 모집"}, {"school": "인제대학교", "year": "2026", "dept": "약학과", "lang": "한국어트랙 지원(TOPIK 미소지자 지원 가능), 졸업 전까지 TOPIK 4급 이상 취득 요건", "quota": "신입학 모집인원: 제한 없음", "eval": "면접고사(의예과·약학과: 2025.11.15) — 의예과·약학과 1단계 합격자 발표 후 면접", "period": "2026학년도 1학기 외국인학부 신입학[1차](원서접수 2025.9.9~9.16)", "note": "약학대학 약학과 외국인 모집단위 등재 + 면접 실시 → 실제 모집"}, {"school": "성균관대학교", "year": "2026 & 2027", "dept": "약학과(6년제) / 바이오신약·규제과학과(4년제 신설)", "lang": "해당 없음 — 외국인 학부 모집단위에서 제외", "quota": "0명 (외국인 신입학 선발 대상 아님)", "eval": "-", "period": "-", "note": "성균관대 2026 후기/2027 외국인 신입학 특별전형 모집요강 확인: 자유전공계열 진입 제한에 '의·약학계열' 명시적 제외. 외국인 학부 모집단위 목록(한국어트랙/영어트랙)에도 약학과·바이오신약·규제과학과 없음 → 외국인 학부(학사) 약학 진학 불가. 약학대학은 대학원(일반대학원 약학과·바이오헬스규제과학과 외국인특별전형)으로만 외국인 모집. 약학대학 등록금 5,556,000원/학기(2026, 입학금 제외). 검증 2026-09-10."}], "tuition": {"note": "약학대학(6년제) 전용 등록금. 연세·고려세종 공식 명세표 파싱, 인제 대학알리미 공시, 서울대 국립대 추정. USD(1,400원/$) 환산 참고.", "updated": "2026-09-10", "schools": {"연세대학교": {"tuition": {"sem1": 6020000, "sem2_6": 5825000}, "source": "연세대 2026 학부 등록금 명세표 (yonsei.ac.kr/sites/sc/down/2026_fee1.pdf)", "note": "약학대학 1학년1학기 ₩6,020,000 / 이후~6학년 ₩5,825,000. 6년 총 약 ₩70,070,000."}, "서울대학교": {"tuition": {"sem": null, "admission": 169000, "sem_est": [4000000, 4700000]}, "source": "국립대 — 자연계열 최상위 추정", "note": "국립대학이라 사립보다 저렴. 참고: 제주대(국립) 약학 학기당 ₩4,183,000(2026), 서울대 대학원 약학 ₩4,686,000. 학부 약학대학 추정 학기 ₩4,000,000~4,700,000. 서울대 학부 등록금 일람표(대학원용만 공개)로 정확치 확인 필요."}, "인제대학교": {"tuition": {"sem": 5186500, "admission": 785000}, "source": "대학알리미 2025 등록금 공시 (phdkim.net, 약학과)", "note": "약학과 학기당 ₩5,186,500 + 입학금 ₩785,000. 6년 총 약 ₩62,238,000 + 입학금. (2026 2.96% 인상 예정 → 실납 확인)"}, "고려대학교(세종)": {"tuition": {"sem_all": 6291400}, "source": "고려대 세종 2026 대학 등록금 일람표(학부) (st.korea.ac.kr)", "note": "약학과 학기당 ₩6,291,400 (전 학년 동일, 인문사회/이학체육/공학 중 최고액). 6년 총 약 ₩75,496,800."}}, "reference_national": "제주대 약학 ₩4,183,000/학기(2026, ibsi.jejunu.ac.kr) — 국립대 약학 대표 수치"}, "foreigner_admission_full_check": {"note": "대한약사회 전국 37개 약학대학 전수검증 (2026-09-12, 공식 외국인 모집요강 기반). 외국인 약학 학부 모집 = 서울대·연세대·고려대(세종)·인제대·가천대. 계명대는 대학원만. 나머지는 전부 제외.", "updated": "2026-09-12", "schools": {"가천대학교": {"status": "YES", "detail": "TOPIK 6급 (일반 TOPIK3보다 높음). 2026 후기 학부 3차"}, "서울대학교": {"status": "YES", "detail": "TOPIK 3 or TOEFL80/IELTS6.0/TEPS269, 정원외"}, "연세대학교": {"status": "YES", "detail": "TOPIK 5급 필수 (영어 불인정), 약간 명"}, "고려대학교(세종)": {"status": "YES", "detail": "TOPIK 기반, 제한없음"}, "인제대학교": {"status": "YES", "detail": "TOPIK 미보유 가능, 졸업전 TOPIK4/IELTS5.5, 제한없음"}, "계명대학교": {"status": "GRAD_ONLY", "detail": "대학원 약학 YES (MA/PhD+English track). 학부 외국인 약학 미확인/미모집"}, "가톨릭대학교": {"status": "NO", "detail": "외국인 모집단위에서 약학대학 제외"}, "건국대학교": {"status": "NO", "detail": "2026 후기 외국인요강에 약학 없음"}, "경상국립대학교": {"status": "NO", "detail": "약학은 국내전형만"}, "경성대학교": {"status": "NO", "detail": "외국인 모집에 약학과 없음 (제약공학만)"}, "경희대학교": {"status": "NO", "detail": "2027-1 외국인요강에 약학과 제외"}, "광주대학교": {"status": "NO", "detail": "약학대학 없음"}, "국립강릉원주대학교": {"status": "NO", "detail": "약학대학 없음"}, "국립부경대학교": {"status": "NO", "detail": "약학대학 없음"}, "국립순천대학교": {"status": "NO", "detail": "순수외국인요강이 약학대학 명시 제외"}, "국립안동대학교": {"status": "NO", "detail": "약학대학 없음"}, "국립전남대학교": {"status": "NO", "detail": "외국인 모집단위에 약학대학 없음"}, "국립충남대학교": {"status": "NO", "detail": "CNU-ASIA 외국인요강이 약학대학 제외"}, "국립충북대학교": {"status": "NO", "detail": "외국인요강: 약학대학 전학과 선발 안함"}, "국립한국교통대학교": {"status": "NO", "detail": "약학대학 없음 (제약바이오전공만)"}, "동국대학교": {"status": "NO", "detail": "약학대학 존재하나 외국인 모집단위에 없음"}, "동덕여자대학교": {"status": "NO", "detail": "외국인 모집단위에 약학 없음"}, "부산대학교": {"status": "NO", "detail": "외국인 모집단위에 약학 없음"}, "삼육대학교": {"status": "NO", "detail": "약학과 외국인 모집 아님"}, "성균관대학교": {"status": "NO", "detail": "외국인 학부에서 의·약학계열 명시 제외"}, "숙명여자대학교": {"status": "NO", "detail": "2026 외국인요강: 약학부 전공선택 불가"}, "아주대학교": {"status": "NO", "detail": "학부외국인 모집학과에 약학대학 없음"}, "영남대학교": {"status": "NO", "detail": "2027 외국인요강에 약학과 없음"}, "우석대학교": {"status": "NO", "detail": "순수외국인 모집단위에 약학과 없음"}, "원광대학교": {"status": "NO", "detail": "2026 외국인 학부에 약학과 없음"}, "이화여자대학교": {"status": "NO", "detail": "2028 입학전형: 약학대학 명시 제외"}, "인하대학교": {"status": "NO", "detail": "2027 외국인요강 모집단위에 약학대학 없음"}, "전북대학교": {"status": "NO", "detail": "외국인요강: 약학대학 모집 제외"}, "조선대학교": {"status": "NO", "detail": "2026 외국인 모집단위에 약학 없음"}, "중앙대학교": {"status": "NO", "detail": "2027 순수외국인 모집단위표에 약학대학 없음"}, "충북대학교": {"status": "NO", "detail": "외국인요강: 약학대학 선발 안함"}, "한양대학교": {"status": "NO", "detail": "외국인요강에 약학대학 0회 언급"}}}}, "간호학과(Nursing)": {"note": "일부 학교 간호는 별도 어학(TOEFL/TOEIC/TOPIK4-5) 요구. 여대(성신·이화) 주의.", "recruiting": [{"school": "가톨릭관동대학교", "year": "2027", "dept": "간호학과", "lang": "공인영어성적 필수: 간호학과는 TOEFL IBT·NEWTEPS·TOEIC 중 1개 이상 (의학과·간호학과만 추가서류)", "quota": "의과대학 자연과학 간호학과(교직), 입학정원 120, 모집 2명(재외국민 및 외국인 등)", "eval": "1단계 서류 100%(1,000점) 5배수 → 2단계 1단계성적 70%+면접 30%", "period": "원서접수 2026.7.6~7.10, 1단계발표 2026.8.12, 면접 2026.8.21", "note": "간호학과를 정식 외국인 모집단위로 선발(의학과·간호학과만 2단계 서류+면접 전형, 별도 서류·전형료 적용)."}, {"school": "가톨릭관동대학교", "year": "2026", "dept": "간호학과", "lang": "공인영어성적(간호학과 추가서류) 등", "quota": "의과대학 자연과학 간호학과(교직), 입학정원 120, 모집 2명", "eval": "의학과·간호학과만 별도 전형(서류+면접)", "period": "원서접수 2025.7.7~7.11", "note": "간호학과를 정식 외국인 모집단위로 선발."}, {"school": "가톨릭꽃동네대학교", "year": "2026", "dept": "간호학과", "lang": "TOPIK 4급 이상", "quota": "간호학과 입학정원 78. 정원외: 재외국민 및 외국인(2%이내) 2명이내, 북한이탈주민/부모모두외국인/전교육과정 이수자 제한없음", "eval": "면접 100%(학생부교과 반영 없음)", "period": "원서접수 2025.9.8~9.12, 면접 2025.10.25", "note": "간호학과가 유일한 외국인 모집단위(자율전공학부와 함께). 어학기준 간호학과 4급 이상."}, {"school": "강원대학교", "year": "2026", "dept": "간호학과", "lang": "TOPIK 5급 이상만 지원 가능(영어 성적 제출 불가)", "quota": "보건과학대학 간호학과(삼척·도계캠퍼스), 신입학 O / 편입 2·3학년 O / 4학년 X", "eval": "전형방법 ①(서류)", "period": "", "note": "외국인 신입학·편입학 모집단위 표에 간호학과 포함(언어요건 참고표 ④ TOPIK5급 이상)."}, {"school": "건양대학교", "year": "2026", "dept": "간호학과", "lang": "최저학력기준: TOEIC 850점·TOEFL 98점·TEPS 336점 이상 중 택 1", "quota": "간호대학 간호학과(메디컬캠퍼스[대전]). '입학정원 2%이내'(총31명, 메디컬캠퍼스 19명 내) 및 '입학정원 무제한' 양 전형 모두에 포함", "eval": "1단계 TOEIC·TOEFL·TEPS 점수 중 택일 100% → 2단계 면접 100%", "period": "", "note": "간호학과가 정식 외국인 모집단위(의학과·간호학과·작업치료 등은 영어 어학성적 최저학력기준 적용)."}, {"school": "경동대학교", "year": "2027", "dept": "간호학과", "lang": "", "quota": "메디컬캠퍼스(원주문막) 간호학과, 2개캠퍼스 통합선발 총 31명 / 모집인원 제한없음", "eval": "", "period": "", "note": "모집단위 표에 간호학과(*교직)를 정식 모집단위로 명시."}, {"school": "경동대학교", "year": "2026", "dept": "간호학과", "lang": "", "quota": "메디컬캠퍼스(원주문막) 간호학과, 2개캠퍼스 통합선발 총 31명 / 모집인원 제한없음", "eval": "", "period": "", "note": "모집단위 표에 간호학과를 정식 모집단위로 명시."}, {"school": "경일대학교", "year": "2026", "dept": "간호학과", "lang": "", "quota": "입학정원 제한없이 모집(모집단위 간호대학 간호학과)", "eval": "", "period": "", "note": "외국인(전교육과정이수·부모모두외국인 등) 모집단위 및 전공 목록에 간호대학 간호학과 포함."}, {"school": "고려대학교", "year": "2027", "dept": "간호학과", "lang": "", "quota": "간호대학(자연계열) 간호학과, 모집인원 제한없음", "eval": "", "period": "", "note": "외국인 전형(Ⅰ) 모집단위 표에 간호학과를 정식 모집단위로 명시."}, {"school": "국립공주대학교", "year": "2027", "dept": "간호학과", "lang": "", "quota": "간호보건대학 자연계 간호학과, 입학정원 64, 모집인원 6명 이내", "eval": "", "period": "", "note": "모집단위 및 모집인원 표에 간호학과를 정식 모집단위로 명시."}, {"school": "국립창원대학교", "year": "2027", "dept": "간호학과", "lang": "", "quota": "자연과학 간호학과(신입학) 제한 없음(글로벌자율전공·자율전공학부에서만 간호학과 선택 제외)", "eval": "", "period": "", "note": "모집단위 표에 간호학과를 정식 모집단위로 명시(간호학과는 자율전공학부 선택 불가 학과로만 별도 언급)."}, {"school": "국립창원대학교", "year": "2026", "dept": "간호학과", "lang": "", "quota": "간호학과 신입학 O / 편입학 O (정원외, 입학정원 제한없음)", "eval": "", "period": "", "note": "모집단위 및 모집여부 표에서 간호학과 신입·편입 모두 모집(O)."}, {"school": "국립한국교통대학교", "year": "2027", "dept": "간호학과", "lang": "", "quota": "보건생명대학 간호학과(증평), 신입학·편입학 모두 모집인원 제한없음(정원외)", "eval": "", "period": "", "note": "간호교육인증(♣) 학과로 외국인 신입·편입학 모집단위에 명시."}, {"school": "국립한국교통대학교", "year": "2026", "dept": "간호학과", "lang": "", "quota": "보건생명대학 간호학과(증평), 신입학·편입학 모두 모집인원 제한없음(정원외)", "eval": "", "period": "", "note": "간호교육인증(♣) 학과로 외국인 신입·편입학 모집단위에 명시."}, {"school": "극동대학교", "year": "2026", "dept": "간호학과", "lang": "", "quota": "의료보건과학대학 간호학과, 모집인원 제한없음", "eval": "", "period": "", "note": "외국인 모집단위 및 모집인원 표에 간호학과를 정식 모집단위로 명시."}, {"school": "나사렛대학교", "year": "2027", "dept": "간호학과", "lang": "", "quota": "간호학과 모집단위 포함. 재외국민 총 10명(학과별 모집정원 10%이내), 순수외국인·북한이탈·전교육과정이수자 제한없음", "eval": "", "period": "", "note": "모집단위 표에 간호학과를 정식 모집단위로 명시."}, {"school": "나사렛대학교", "year": "2026", "dept": "간호학과", "lang": "", "quota": "간호학과 모집단위 포함. 재외국민 총 23명 이내(학과별 모집정원 10%이내), 순수외국인 등 제한없음", "eval": "", "period": "", "note": "모집단위 표에 간호학과를 정식 모집단위로 명시."}, {"school": "목포가톨릭대학교", "year": "2026", "dept": "간호학과", "lang": "간호학과는 TOPIK 4급 이상(일반 학과 TOPIK 3급)", "quota": "제한없음", "eval": "서류전형 100%", "period": "정시(가) 원서 2025.12.29~12.31, 서류 2026.1.16, 합격 2026.2.2", "note": "자연계열 모집단위로 간호학과 정식 모집(부모 모두 외국인인 외국인 대상). 어학능력은 간호학과에 한해 TOPIK 4급 이상 요구."}, {"school": "부산가톨릭대학교", "year": "2026", "dept": "간호학과", "lang": "TOPIK 성적 보유 또는 본교 국제교육원 한국어 1년 이상 이수 + 원장 추천", "quota": "제한 없음 (정원 외)", "eval": "서류전형 + 면접전형(자기소개·전공적합성 등 800/1000점 이상 합격)", "period": "모집 시기별 원서: 2025.09.16~09.30 / 2025.11.06~11.20 / 2026.01.02~", "note": "간호대학 간호학과를 외국인 모집단위로 정식 모집(제한없음, 정원외). Department of Nursing 명기."}, {"school": "부산대학교", "year": "2026", "dept": "간호학과", "lang": "모집단위별 상이(간호학과는 비교적 높은 한국어/영어 성적 그룹에 포함)", "quota": "모집단위별 정원(표에 모집단위로 포함)", "eval": "서류전형 등", "period": "원서 2025.10.1~10.24(부모 모두 외국인 전형)", "note": "부산대 외국인특별전형 모집단위에 간호대학 간호학과 포함(양산캠퍼스). 간호교육평가원 인증 안내 기재."}, {"school": "삼육대학교", "year": "2026", "dept": "간호학과", "lang": "간호학과 TOPIK 5급에 준하는 수준(한국어트랙)", "quota": "-", "eval": "서류 90% + 면접 10%", "period": "3월학기(2026학년도 순수외국인 신·편입학). 간호학과는 3월 학기에만 신입/편입 모집", "note": "간호대학 간호학과를 순수외국인 신입/편입 모집단위로 정식 모집. 간호·물리치료학과는 3월학기만 모집, 한국어트랙 TOPIK5 수준."}, {"school": "서울대학교", "year": "2027", "dept": "간호학과", "lang": "한국어 또는 영어 능력 증빙(간호대학 포함 전 모집단위, 모집단위별 기준)", "quota": "글로벌인재특별전형(Ⅰ·Ⅱ) 내 모집단위별 정원", "eval": "서류평가(전형별) — 간호대학 면접시행 포함", "period": "원서 2026.7.6~7.9(글로벌인재)", "note": "글로벌인재특별전형Ⅰ(부모 모두 외국인)/Ⅱ(전교육과정 해외이수) 모집단위에 간호대학 간호학과 포함. 간호대학은 한국간호교육평가원 인증 기재."}, {"school": "서울대학교", "year": "2026", "dept": "간호학과", "lang": "한국어 또는 영어 능력 증빙", "quota": "글로벌인재특별전형 모집단위별 정원", "eval": "서류평가 + 면접(간호대학 면접시행)", "period": "원서 2025.7.7~7.10(글로벌인재)", "note": "외국인 글로벌인재특별전형 모집단위에 간호대학 간호학과 포함."}, {"school": "선문대학교", "year": "2026", "dept": "간호학과", "lang": "한국어트랙 TOPIK 3급 또는 영어트랙(TOEFL/IELTS 등)", "quota": "본교 수용가능 범위 내 선발", "eval": "면접고사 100점(한국어 또는 영어능력 충족 필요)", "period": "원서 2025.10.20~10.24 / 2025.12.8~12.12 / 2026.6.8~6.12", "note": "2026학년도 외국인 모집단위(건강보건대학 간호학과)로 정식 모집. 다만 2027학년도부터는 외국인 선발 제한 예정."}, {"school": "성신여자대학교", "year": "2026", "dept": "간호학과", "lang": "TOPIK 3급 이상(한국어트랙) 또는 IELTS 5.5/TOEFL iBT 71 등(영어트랙)", "quota": "-", "eval": "서류전형(모집단위별)", "period": "원서 2025.10.15~10.29 등", "note": "간호대학 간호학과를 2026 외국인특별전형 모집단위로 정식 모집. 여자대학(외국인 여학생 대상)."}, {"school": "연세대학교", "year": "2027", "dept": "간호학과", "lang": "의예·치의예·간호·약학은 TOPIK 5급 이상 성적(연세 KLI 5급 수료) 필수", "quota": "외국인전형(부모 모두 외국인) 모집단위별", "eval": "서류평가(일반)/서류+면접(의예·간호·약학 등)", "period": "원서 2026.9.1~9.17, 서류 2026.9.30까지", "note": "간호대학 간호학과를 외국인전형 모집단위로 정식 모집. 일반모집단위와 달리 간호학과는 TOPIK5 필수."}, {"school": "연세대학교", "year": "2026", "dept": "간호학과", "lang": "의예/치의예/간호학/약학과는 TOPIK 5급 이상 성적 필수", "quota": "외국인전형(부모 모두 외국인) 모집단위별", "eval": "서류평가 100%(간호학과 포함 모집단위)", "period": "원서 2025.9.1~9.12", "note": "간호대학 간호학과를 외국인전형 모집단위로 정식 모집. 간호·약학·의·치의예 지원자는 TOPIK5 필수 제출."}, {"school": "연세대학교(미래)", "year": "2027", "dept": "간호학과", "lang": "의예과·간호학과 지원자는 1차 원서접수 필수, 어학능력 증빙(모집단위별)", "quota": "외국인전형(부모 모두 외국인) 모집단위별", "eval": "의예·간호학과: 1단계 서류 100% → 면접(비대면 녹화면접)", "period": "1차 원서 2026.8.14(간호학과는 1차만), 2차 2026.11.20", "note": "원주간호대학 간호학과를 외국인 모집단위로 정식 모집. 의예과와 함께 별도 1차 일정·면접 적용."}, {"school": "연세대학교(미래)", "year": "2026", "dept": "간호학과", "lang": "의예과·간호학과 지원자는 어학능력 증빙 필수", "quota": "외국인전형 모집단위별", "eval": "의예·간호학과: 서류(1단계 100%) → 면접", "period": "1차 원서 2025.8월 중(간호학과는 1차 접수기간 내 제출 필수)", "note": "원주간호대학 간호학과를 외국인 모집단위로 정식 모집. 의예과·간호학과는 별도 1차 일정·면접(제시문 숙지 후 대면면접) 적용."}, {"school": "영산대학교", "year": "2026", "dept": "간호학과", "lang": "TOPIK 또는 공인영어(TOEFL iBT 59/IELTS 5.5 등) 중 충족", "quota": "모집인원란 공란(정원외 수용범위)", "eval": "면접고사 100%(서류심사 후, 해외체류자는 유선면접)", "period": "원서 '25.09.01~10.02 / '25.11.03~'26.01.16(방문 또는 이메일)", "note": "외국인 신입학 모집단위 표(웰니스보건대학·양산캠퍼스, 자연과학)에 간호학과 포함. 계열·캠퍼스 기재, 모집인원은 별도."}, {"school": "우송대학교", "year": "2027", "dept": "간호학과", "lang": "간호학과: 한국어 TOPIK 5급 및 영어 TOEIC 701점(상당 국가공인영어) 모두 충족 필수", "quota": "외국인 특별전형(부모 모두 외국인) 내 수시/정시 모집단위", "eval": "학생부 성적 + 면접평가", "period": "외국인 특별전형(재외국민과 외국인)", "note": "간호학과(4년제)는 간호교육인증 5년 인증 학과로, 외국인 지원 시 TOPIK5+TOEIC701 양쪽 모두 충족 요구(타 학과보다 높은 어학기준). 모집단위 표에는 수시 정원외(부모모두외국인)란에 '-'이나 외국인 특별전형 대상으로 어학조건 별도 명시되어 모집 판단."}, {"school": "우송대학교", "year": "2026", "dept": "간호학과", "lang": "간호학과: TOPIK 5급 및 TOEIC 701점(또는 상당 국가공인영어) 모두 충족", "quota": "외국인 특별전형 내 모집단위", "eval": "학생부 성적 + 면접평가", "period": "수시/정시 외국인 특별전형(재외국민과 외국인)", "note": "간호학과(4년제) 간호교육인증 5년 학과. 수시 정원외 '부모 모두 외국인' 란은 대시(-)이나, 우송 외국인특별전형 어학요건 표에 간호학과 TOPIK5+TOEIC701을 명시해 모집 대상으로 봄. 어학 기준이 매우 높아 사실상 상위 어학 필요."}, {"school": "을지대학교", "year": "2027", "dept": "간호학과", "lang": "간호학과: TOEFL(IBT) 80점 이상(또는 IELTS 4.5) 또는 TOEIC 750점 이상(공인어학 필수) + 한국어(TOPIK 3급 이상/본교 한국어시험 등)", "quota": "외국인 특별전형(비제한) 모집단위에 간호학과(의정부)·간호학과(성남) 모집, 모집인원 제한없음(약간 명)", "eval": "간호대학: 서류기반 일반면접 100점(전형총점 1,000점), 면접 2026.9.19", "period": "원서 2026.9.7~9.11, 서류 ~9.18, 합격발표 2026.11.18", "note": "의과·간호대학 지원자는 공인어학성적 필수. 간호대학·보건과학대학 동일 선발기준."}, {"school": "을지대학교", "year": "2026", "dept": "간호학과", "lang": "간호대학: TOEFL(IBT) 80점 이상 또는 TOEIC 750점 이상(지정시험 필수) + 한국어 수업 가능(TOPIK 3급 등)", "quota": "재외국민과 외국인 전형 모집단위로 간호학과(의정부)·간호학과(성남) 모집(2% 제한 전형 정원, 비제한 전형은 제한없음)", "eval": "간호대학: 서류기반 일반면접 100점(전형총점 1,000점), 면접 2025.9.27", "period": "원서 2025.9.8~9.12, 합격발표 2025.11.21", "note": "의과·간호대학 공인어학성적 필수. 간호대학·보건과학대학 동일 선발기준."}, {"school": "인제대학교", "year": "2027", "dept": "간호학과", "lang": "일반 한국어계열(간호학과 포함): TOPIK 3급 이상, 인제대 한국어능력평가 합격 또는 글로벌어학교육원 중급(4반) 이상 수료 중 1개 (졸업 TOPIK 4급)", "quota": "간호대학 간호학과, 전기(3월 입학) 1차만 모집 / 신입학 모집인원 제한없음", "eval": "의예·약학과 제외 전체 모집단위: 서류 및 면접고사 100%", "period": "2027학년도 1학기 외국인학부 신입학 [1차], 원서 2026.9.7~9.11, 면접(의예·약학 제외 전학과) 2026.11.16~11.21", "note": "간호학과는 글로벌칼리지(외국인 전담) 아닌 일반 한국어트랙 학과로 외국인 모집."}, {"school": "인제대학교", "year": "2026", "dept": "간호학과", "lang": "일반 한국어계열(간호학과): TOPIK 3급 이상 등 어학능력자격", "quota": "간호대학 간호학과, 전기(3월 입학) 1차만 모집", "eval": "의예·약학과 외 전체 모집단위: 서류 및 면접고사 100%", "period": "원서 2025.9.9~9.16(의예·약학 제외), 면접(전체 모집단위) 2025.11.17~11.22, 최종합격 2025.12.12", "note": "간호학과는 전기(3월) 입학 1차 전형만 모집."}, {"school": "인하대학교", "year": "2027", "dept": "간호학과", "lang": "신입학 간호학과(한국어트랙): 한국어능력시험(TOPIK/TOPIK IBT) 3급 이상 등 어학요건(졸업 전 TOPIK 4급)", "quota": "학부 신입학 모집단위 간호학과: 적정인원(1학기만 모집)", "eval": "외국인 특별전형(신편입학) 전형요소(서류 등)에 따름", "period": "원서 2026.9.30~11.5, 서류제출 ~11.12", "note": "(재)한국간호교육평가원 ‘정부인정 간호교육인증평가’ 인증 대학. 간호학과는 1학기(신입학)만 모집."}, {"school": "인하대학교", "year": "2026", "dept": "간호학과", "lang": "신입학 간호학과(한국어트랙): 한국어능력시험(TOPIK/TOPIK IBT) 3급 이상 등 어학요건(졸업 전 TOPIK 4급)", "quota": "학부 신입학 모집단위 간호학과: 적정인원(1학기만 모집)", "eval": "외국인 특별전형(신편입학) 전형요소에 따름", "period": "원서 2025.9.29~11.6, 서류제출 ~11.13", "note": "(재)한국간호교육평가원 인증 대학. 간호학과는 1학기(신입학)만 모집."}, {"school": "전남대학교", "year": "2027", "dept": "간호학과", "lang": "한국어능력시험(TOPIK/TOPIK IBT) 3급 이상 또는 전남대 언어교육원 한국어 정규 3단계 이상 이수자 (또는 영어: TOEFL iBT 4.0 등 택1)", "quota": "모집단위(광주캠퍼스) 간호대학 간호학과 1학년(신입학) 모집, 정원외 외국인", "eval": "학과별 서류평가 100% 또는 서류평가+면접(학과별, 대면/비대면)", "period": "전기1차 원서 2026.10.1~10.14, 2차 10.15~10.23 / 후기1차 2027.4.1~4.16, 2차 4.26~5.14", "note": "순수외국인 학부 신입·편입 요강. 간호학과는 신입학(1학년)만 모집으로 표기."}, {"school": "제주대학교", "year": "2027", "dept": "간호학과", "lang": "신입학: TOPIK 3급 이상 소지자 등 / 편입 간호학과 추가요건: 전적대 생물계열 과목(해부·생리·병리 등) 20학점 이상 이수", "quota": "간호학과(전기 모집): 신입학 1학년 ○, 편입 2학년 ○, 3학년 편입 ×", "eval": "간호학과 서류평가 50% + 면접평가 50%", "period": "전기·후기 각 1·2차 모집(전형일정 참조)", "note": "간호학과는 외국인 글로벌자율전공의 전공선택 제외 대상이나, 일반 외국인 모집단위로는 직접 모집(전기). 편입 시 전적대 이수과목 필수."}, {"school": "제주대학교", "year": "2026", "dept": "간호학과", "lang": "신입학: 한국어능력시험(TOPIK) 3급 이상 등 / 편입 간호학과: 전적대 생물계열 과목 14학점 이상 이수", "quota": "간호학과(전기 모집): 신입학 1학년 ○, 편입 2학년 ○, 3학년 편입 ×", "eval": "간호학과 서류평가 50% + 면접평가 50%", "period": "전기1차 원서 2025.10.13~10.31(후기 등 추가 차수 있음)", "note": "간호학과는 외국인 글로벌자율전공 선택 제외 학과이나 일반 모집단위로는 외국인 직접 모집(전기). 간호대는 간호교육인증 프로그램 운영."}, {"school": "중원대학교", "year": "2027", "dept": "간호학과", "lang": "한국어능력: TOPIK 3급 이상(예체능 2급), 중원대 자체 한국어시험 2급 또는 한국어학당 3급 수료 등 중 1개", "quota": "모집단위(의료보건대학) 간호학과, 모집단위별 적정인원(정원외)", "eval": "서류심사 및 면접 등 외국인 특별전형 절차", "period": "2027학년도 외국인 특별전형(수시·정시 등 모집 회차별 접수)", "note": "의료보건대학 간호학과를 외국인 모집단위로 명시. (별도 글로벌생명과학과 간호학전공 관련 운영 언급 있음)"}, {"school": "창신대학교", "year": "2027", "dept": "간호학과", "lang": "일반학과(간호학과 포함): 한국어능력시험(TOPIK) 3급 이상, 창신대 부설 한국어교육원 3급 수료, 자체 한국어시험, 사회통합 3단계 등 중 1개 (졸업 전 TOPIK 4급)", "quota": "간호대학 간호학과(정원외 외국인), 모집인원 입학정원 제한 없이 선발", "eval": "서류 및 면접(구술) 전형", "period": "2027학년도 회차별: 수시(원서 2026.11~12), 정시(2027.2), 후기(2027.6~7) 등", "note": "간호학과는 일반학과(한국어트랙)로 모집(글로벌학부 영어트랙과 별개)."}, {"school": "창신대학교", "year": "2026", "dept": "간호학과", "lang": "간호학과·유아교육과: 한국어능력시험(TOPIK) 4급 이상 취득자만 지원 가능 (일반은 TOPIK 3급 또는 창신대 부설 한국어교육원 3급 수료)", "quota": "간호대학 간호학과(정원외 외국인 유학생), 모집인원 입학정원 제한 없이 선발", "eval": "서류 및 면접 전형", "period": "2026학년도 외국인 전형(모집요강 발표 시 일정 확정)", "note": "간호학과(및 유아교육과)는 일반 3급과 달리 TOPIK 4급 조건 적용."}, {"school": "초당대학교", "year": "2027", "dept": "간호학과", "lang": "일반학과: 한국어능력시험(TOPIK/TOPIK IBT) 3급 이상 또는 사회통합프로그램 3단계 이상 이수 등", "quota": "일반학과(간호학과) ● 모집 표기(정원외 외국인)", "eval": "서류심사 및 면접고사", "period": "2027학년도 회차별: 2026.10.12~10.23, 11.9~11.20, 12.14~2027.1.8, 1.18~2.19 등 접수차수", "note": "간호학과는 일반학과(한국어) 모집단위로 외국인 모집."}, {"school": "초당대학교", "year": "2026", "dept": "간호학과", "lang": "한국어능력시험(TOPIK) 3급(일부 4급 요구 조건) 이상 또는 사회통합프로그램 이수", "quota": "일반학과(간호학과) ● 모집 표기(정원외 외국인)", "eval": "서류심사 및 면접고사", "period": "2026학년도 회차별(원서 ~2026.2 등)", "note": "간호학과는 일반학과(한국어) 모집단위로 외국인 모집."}, {"school": "한국성서대학교", "year": "2026", "dept": "간호학과", "lang": "한국어능력: TOPIK 4급 이상 또는 본교 어학연수과정 4급 이상 이수 등 (순수외국인/재외국민별 조건)", "quota": "간호학과 외국인 정원: 모집단위별 최대 4명 이내(입학정원 45명의 10% 내), 재외국민 총 4명(2% 내). 순수외국인·부모 모두 외국인·북한이탈주민은 인원 제한 없이 선발", "eval": "재외국민: 서류 및 면접 / 순수외국인은 면접 없음", "period": "재외국민 원서 2025.9.8~9.12, 순수외국인 2025.9.8~10.17, 면접 2025.9.30~10.1", "note": "재외국민과 순수외국인·북한이탈주민 전형 모두 간호학과를 정원외로 모집."}, {"school": "한서대학교", "year": "2027", "dept": "간호학과", "lang": "한국어능력시험(TOPIK) 3급 이상(예·체능계 2급 이상) 등", "quota": "보건학부 자연과학계열 간호학과(모집학과), 정원외 외국인", "eval": "서류심사(필요 시 추가서류·면접 요구 가능)", "period": "2027학년도: 전기 원서 2026.12.14~12.18, 후기 2027.6.21~6.25 등", "note": "INTERNATIONAL ADMISSIONS GUIDE. 보건학부 내 간호학과를 외국인 모집학과로 안내."}, {"school": "한서대학교", "year": "2026", "dept": "간호학과", "lang": "한국어능력시험(TOPIK) 3급 이상(예·체능계 2급 이상); TOPIK 2급 이하·미취득자는 입학 후 1년간 300시간 한국어 연수 필수", "quota": "보건학부 자연과학계열 간호학과(모집학과), 정원외 외국인", "eval": "서류심사(추가서류·면접 요구 가능)", "period": "2026학년도: 전기(2025.12.15~), 후기(2026.6.22~) 회차별", "note": "보건학부 내 간호학과를 외국인 모집학과로 안내."}, {"school": "호남대학교", "year": "2026", "dept": "간호학과", "lang": "한국어능력시험(TOPIK) 3급 이상(예체능 2급, 물리치료학과는 4급) 또는 호남대 수학능력시험 합격자(간호학과는 TOPIK 3급 기준)", "quota": "보건과학대학 간호학과(신입·편입 모집단위), 모집단위별 수용 가능 범위 내 선발", "eval": "서류심사 등 외국인 특별전형 절차", "period": "지원서 및 서류접수 2025.11.18~ (신입·편입)", "note": "간호학과는 TOPIK 3급 기준(물리치료학과만 4급 별도)."}, {"school": "호원대학교", "year": "2026", "dept": "간호학과", "lang": "한국어능력 TOPIK 2급 이상 취득 등(입학 어학요건)", "quota": "신입학 모집단위 간호학과, 모집인원 제한없음(모집 학부·과별 정원 외 선발)", "eval": "서류평가 50% + 면접평가 50%(서류·면접 합산 60점 이상 선발)", "period": "2026학년도 전기 외국인 신입학(원서 ~2026.1, 등록 ~2026.2 등)", "note": "신입학 모집단위 표에 간호학과를 정원 외로 모집 명시."}]}, "치의/한의/수의": {"note": "치의예·한의예·수의예 외국인 모집은 매우 제한적.", "recruiting": [{"school": "연세대학교", "year": "2027", "dept": "치의예과", "lang": "TOPIK 5급 이상 또는 연세대 한국어학당 5급 이상 수료(의과대학·치과대학·간호대학·약학대학 공통)", "quota": "고정 인원 미명시(외국인전형 내 모집단위 포함 선발)", "eval": "서류평가 100% + 인성면접(P/F, 현장대면). 의·치·약 지원자는 전형료 200,000원(일반모집단위 150,000원)", "period": "2027학년도 외국인전형(수시, 원서접수→인성면접→합격자 발표·등록, 2026년 진행)", "note": "치과대학 치의예과가 외국인전형 모집단위에 명시되어 실제 외국인 모집. 의예과·치의예과·약학과 지원자만 인성면접 대상. 순수 외국인(부모 모두 외국인) 자격 적용."}, {"school": "연세대학교", "year": "2026", "dept": "치의예과", "lang": "TOPIK 5급 이상 또는 연세대 한국어학당 5급 이상 수료(의예·치의예·간호·약학과)", "quota": "고정 인원 미명시(외국인전형 내 모집단위 포함 선발)", "eval": "서류평가 100% + 인성면접(P/F, 현장대면). 의예·치의예·약학과 전형료 200,000원(일반 150,000원)", "period": "2026학년도 외국인전형(2025년 중 진행, 면접 2025.11.1, 합격자 발표 2025.12.5)", "note": "모집단위 표에 의과대학 의예과·치과대학 치의예과·약학대학 약학과 포함 → 외국인 실제 모집. 의·치·약 지원자만 인성면접 대상."}, {"school": "서울대학교", "year": "2027", "dept": "수의예과", "lang": "TOPIK/TOPIK IBT 3급 이상 또는 국내 대학 언어교육원·어학당 4급 이상 수료(한국어), 또는 TOEFL iBT 80·IELTS 6.0·TEPS 269 이상(영어) 등", "quota": "정원 외 선발(모집인원 미제시)", "eval": "글로벌인재특별전형Ⅰ 서류 기반 종합평가 + 필요 시 면접(의과대학·수의과대학은 제시문 사용 가능)", "period": "2027학년도 전기, 예비합격자 발표 2026.10.16, 합격자 등록 2026.12~2027.2", "note": "글로벌인재특별전형(부모 모두 외국인) 모집단위에 수의과대학 수의예과 포함 → 외국인 실제 모집. (사범대 등 일부 교원양성 기관만 10% 제한)"}, {"school": "서울대학교", "year": "2026", "dept": "수의예과", "lang": "TOPIK 3급 이상(한국어) 또는 TOEFL iBT 80·IELTS 6.0·TEPS 269(영어) 등 공인 어학 성적 기준 충족", "quota": "정원 외 선발(모집인원 미제시)", "eval": "글로벌인재특별전형 서류 기반 종합평가 + 필요 시 면접(의·수의 대학은 제시문 사용 가능)", "period": "2026학년도 전기, 지원~2025.7.10, 면접(해당) 2025.9.4", "note": "글로벌인재특별전형 모집단위 표(06)에 수의과대학 수의예과 포함 → 외국인 실제 모집. 수의예과(신입학), 수의학과 본과는 없음."}, {"school": "경상국립대학교", "year": "2026", "dept": "수의예과", "lang": "TOPIK 3급 이상(일반학과; 예체능 2급) 또는 세종학당 중급1·법무부 KIIP 3단계·국내 어학기관 이수 등 인정 확대", "quota": "수의과대학 수의예과(신입학) 모집단위 포함(코드 2370); 수의학과는 편입학(1학기 전용, 코드 2340)", "eval": "자격심사 후 학과심사(면접 포함)", "period": "2026학년도 전기 외국인 학부 특별전형, 지원서 접수~2025.11.27, 지원자격 심사 2025.11.28~12.4, 학과심사 12.8~24, 합격 2026.1.8", "note": "외국인 특별전형 모집단위 목록에 수의과대학 수의예과(신입학)·수의학과(편입학)가 명시. '기재되지 않은 모집단위는 선발하지 않음' → 수의예과는 외국인 신입학 실제 모집. 수의예과 2년+본과 4년 과정."}, {"school": "건국대학교", "year": "2026", "dept": "수의예과", "lang": "TOPIK 3급 이상 또는 건국대 자체 한국어시험·언어교육원 정규 3급·세종학당 중급1 등(일반모집단위 공통, 영어트랙 제외)", "quota": "수의예과 신입학만 ○(편입학 2·3학년 ×)", "eval": "서류 평가 기반 외국인전형(국적·학력·어학 증빙) + 수의예과는 '해당 학과장(학부장) 입학 허가서' 사전승인 요건", "period": "2026학년도 외국인 입학(원서접수 및 서류제출, 요강 일정)", "note": "모집단위 표에서 수의과대학 수의예과는 신입학 ○·편입 ×이며 '학과장 사전승인 취득자만 지원 가능'. 수의예과·체육교육과·음악교육과·KU자유전공학부는 학과장(학부장) 입학 허가서를 필수 제출서류로 요구 → 신입학 외국인 모집(단, 사전승인 조건부)."}]}}};
