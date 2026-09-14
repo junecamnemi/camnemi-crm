@@ -65,7 +65,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.9.7~9.11 (원서접수 09:00~18:00, 김해캠퍼스 입학처 직접 접수, 인터넷 접수 불가; 합격자 발표 2026.10.30)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -817,7 +817,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.10.12~10.23",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_org",
@@ -1054,7 +1054,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.7.6~7.10 (2027-1)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -1181,7 +1181,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.9.8~9.12 (원서접수; 서류제출 9.19 17:00까지, 면접 10.25, 합격발표 11.12, 문서등록 12.15~12.17, 최종등록(등록금 납부) 2026.2.3~2.5)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -1632,21 +1632,26 @@ window.UNIV_KNOWLEDGE = [
   "period": "2026.4.6~4.19",
   "lang_guide": "https://kli.catholic.ac.kr/kli/index.do",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
-     "desc": "세종학당 한국어 중급2 이상 이수",
-     "evidence": "세종학당 한국어 중급2 과정 이상 이수"
+     "desc": "세종학당 한국어 중급2 과정 이상 이수",
+     "evidence": "② 세종학당 한국어 중급2 과정 이상 이수"
     },
     {
      "type": "kiip",
-     "desc": "KIIP 4단계 이상 또는 사전평가 81점 이상",
-     "evidence": "사회통합프로그램(KIIP) 4단계 이상 이수 또는 사전평가 81점 이상 취득"
+     "desc": "사회통합프로그램(KIIP) 4단계 이상 이수 또는 사전평가 81점 이상",
+     "evidence": "③ 사회통합프로그램(KIIP) 4단계 이상 이수"
+    },
+    {
+     "type": "langcourse",
+     "desc": "TOPIK 3급 미만 취득자도 입학 가능, 단 입학 후 본교 한국어교육센터 1년 내 300시간 수료 필수",
+     "evidence": "본교 한국어교육센터에서 입학 후 1년 이내에 300시간의 한국어과정 수료 필수"
     },
     {
      "type": "eng_exempt",
-     "desc": "영어 모국어 국가 지원자 영어능력시험 면제",
+     "desc": "영어 모국어 국가 지원자 영어능력시험 성적표 제출 면제",
      "evidence": "영어가 모국어인 국가의 지원자는 영어능력시험 성적표 제출 면제 가능"
     }
    ]
@@ -1969,7 +1974,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026-1학기: 원서접수 2025.11.10~12.10 19:00, 서류제출 2025.11.10~2026.01.19, 실기고사 2026.01.21(음악·디자인학과), 합격발표 2026.01.23, 등록 2026.01.26~01.27, 개강 2026.03.03",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -2151,7 +2156,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2026.09.28~10.07, 2차 2026.10.26~11.04, 3차 2026.11.23~12.02, 4차 2026.12.21~12.30 (최종 등록금 납부 ~2027.02.19)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -2889,7 +2894,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 원서접수 2025.10.20~10.31, 2차 2025.11.17~11.28 (춘천·삼척·도계캠퍼스 공통), 학과심사 1차 2025.11.18~11.21 / 2차 2025.12.16~12.19, 최종합격자발표 1차 2025.12.19 / 2차 2026.1.16, 등록 1차 2025.12.22~12.29 / 2차 2026.1.19~1.22, 개강 2026.3.3 (2026학년도 전기)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -3326,12 +3331,22 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.9.4~9.11",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
-     "desc": "건국대학교 GLOCAL(글로컬)캠퍼스 국제교육원 자체시험 합격",
-     "evidence": "건국대학교 GLOCAL(글로컬)캠퍼스 국제교육원 자체시험 합격"
+     "desc": "자체 한국어시험(자체한국어평가) 합격으로 한국어능력 충족",
+     "evidence": "자체 한국어시험 합격 / 자체한국어평가"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종한국어평가(SKA) 중급 이상 성적증명서 제출",
+     "evidence": "4) 세종한국어평가(SKA) 중급 이상 성적증명서"
+    },
+    {
+     "type": "langcourse",
+     "desc": "한국어능력 미달 시 조건부 합격 후 한국어 과정 이수",
+     "evidence": "한국어 능력이 지원 자격에 부합하지 않을 경우 조건부 합격되며 한국어 과정 이수 등을 통해 한국어"
     }
    ]
   }
@@ -3709,7 +3724,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "원서접수 2025.7.7~7.11 18:00(진학어플라이), 서류제출 7.7~7.18 15:00, 면접고사 2025.8.9, 최초합격자 발표 8.13, 최초합격자 등록 2025.12.15~12.17, 충원합격 등록 12.18~12.24, 최종등록금 납부 2026.2.3~2.5",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -4035,7 +4050,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026-1학기(3월입학): 1차 원서접수 2025.09.15~09.29 17:00, 서류제출 ~10.01, 면접 10.20~10.22, 합격발표 11.12, 등록금 납부 2026.01.05~01.06 / 추가전형 원서접수 2025.10.20~11.10 17:00, 서류제출 ~11.12, 합격발표 12.17, 등록금 납부 2026.01.20~01.21, 입학 2026.03.03",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -4486,7 +4501,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.10.26~11.20 (18:00까지, 방문 또는 우편접수)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -4724,7 +4739,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "제1유형(재외국민): 수시 2026.09.07~09.11, 정시 2027.01.04~01.07 / 제2유형(외국인·전교육과정이수자): 3월입학 2026.07.06~2027.02.28, 9월입학 2027.03.01~2027.08.31",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -4838,7 +4853,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.10.12~10.30 (1학기, 09:00~18:00, 유웨이어플라이 온라인접수); 2학기: 2027.4.12~4.30",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -5486,7 +5501,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "입학지원서 작성·서류제출(전형료 납부) ~2025.11.27(studyinkorea.go.kr, 우편·방문, 마감일 18:00 도착분), 지원자격 심사 2025.11.28~12.4, 학과심사(면접 포함) 2025.12.8~12.24, 합격자발표 2026.1.8, 등록금 납부 2026.1.12~1.15 (2026학년도 전기)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -5593,7 +5608,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2026.09.11~09.21, 2차 2026.09.28~10.12 (면접 2026.11.04~11.09, 합격자발표 2026.11.16, 2027.03.02 개강)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -6118,7 +6133,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "전기 1차: 원서·서류접수 2025.11.20~12.03, 합격자발표 12.09, 등록 12.12~12.15 / 2차: 원서·서류접수 2026.01.08~01.14, 합격자발표 01.20, 등록 01.26~01.28",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -6788,7 +6803,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "see 2027 guide",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -7458,7 +7473,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.9.21~10.23",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -7814,12 +7829,17 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.8.3~8.31 (2027 Round 1)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
-     "desc": "세종학당 한국어과정 성적 또는 세종한국어평가(SKA) 성적 소유",
-     "evidence": "3) 세종학당 한국어 과정 성적 소유자 또는 세종학한국어평가(SKA) 성적 소유자"
+     "desc": "세종학당 한국어 과정 성적 또는 세종한국어평가(SKA) 성적 소유자",
+     "evidence": "3) 세종학당 한국어 과정 성적 소유자 또는 세종한국어평가(SKA) 성적 소유자"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "TOEFL(iBT)/IELTS Academic 성적 또는 영어 진행 고교 전 과정 이수자로 영어능력 인정",
+     "evidence": "4) TOEFL(iBT) 또는 IELTS Academic 공인시험성적 소유자 / 5) 한국어 또는 영어로 진행하는 교육과정의 고등학교 전 과정을 온전히 이수한 자"
     }
    ]
   }
@@ -7889,7 +7909,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.7.6~7.10 (2027-1)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -7994,7 +8014,18 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "84",
    "foreign_pct": "17.7"
   },
-  "period": "2026.1.2~2.16 (순수외국인 특별전형 3월 입학, 방문접수·본교 입학홍보처; 서류제출 마감 2.13, 합격발표 2.23, 등록 2.24~2.27)"
+  "period": "2026.1.2~2.16 (순수외국인 특별전형 3월 입학, 방문접수·본교 입학홍보처; 서류제출 마감 2.13, 합격발표 2.23, 등록 2.24~2.27)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "langcourse",
+     "desc": "한국어과정 수료 증명서로 TOPIK 상응 한국어능력 인정",
+     "evidence": "한국어과정 수료 증명서 또는 이에 상응하는 한국어"
+    }
+   ],
+   "notes": "TOPIK 3급은 공통 기준(우회경로 아님). TOEFL은 '필요시' 제출로 우회경로로 확정하기 어려움"
+  }
  },
  {
   "n": "광운대학교",
@@ -8243,7 +8274,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2027-1",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -8297,7 +8328,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "1.1"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -8341,7 +8372,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "0.1"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -8813,7 +8844,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2025.12.1~12.10 / 2차 2025.12.22~12.31 (3월 입학) / 3차 2026.6.1~6.10 / 4차 2026.6.22~7.1 (9월 입학)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -8904,7 +8935,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 원서 2026.5.4~5.18 / 2차 5.26~6.8 / 3차 6.22~7.6 / 4차 7.13~7.22 (2026학년도 후기·9월 입학 신·편입; 면접 1차 ~5.22, 2차 ~6.12, 3차 ~7.10, 4차 ~7.29 / 합격 1차 5.27, 2차 6.16, 3차 7.14, 4차 7.31 / 등록 1차 5.29~6.5, 2차 6.18~6.26, 3차 7.15~7.21, 4차 8.3~8.10)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -9442,7 +9473,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "글로벌융합학부 1차 원서접수 2025.8.25~9.5, 2차 2025.11.24~12.12 / 일반학과 원서접수 2025.11.24~12.12 (2차만, 유웨이어플라이), 합격자발표 1차 2025.10.31 / 2차 2026.1.9, 등록 1차 2025.12.22~12.26 / 2차 2026.1.13~1.15 (2026학년도 전기 3월 입학, 신입·편입)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -10008,7 +10039,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.12.4~ (2027-1) / 2027.6.4 (2027-2)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -10143,7 +10174,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.7.6(월) 10:00 ~ 7.10(금) 17:00 (온라인 원서접수만, ipsi.kongju.ac.kr)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -10695,7 +10726,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "원서접수 2025.10.13(월) 09:00~10.22(수) 18:00 KST (국제교류교육원 홈페이지 온라인), 전형료 50,000원(전북은행), 입학사정 원서접수 후 약 4주간, 합격자발표 2025.11.28, 등록 2026.1월 초, 표준입학허가서 2026.1월 중순, 개강 2026.3.3 (2026학년도 1학기 신·편입학)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_org",
@@ -11063,7 +11094,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 원서 2026.4.1~5.13 / 2차 2026.6.15~7.7 (2026학년도 후기·9월 입학 신·편입; 서류 1차 ~5.15, 2차 ~7.9 / 면접 1차 5.19~21, 2차 7.14~16 / 합격 1차 6.2, 2차 7.22 / 등록 1차 6.8~12, 2차 7.24~30 / 개강 2026.9.1)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -11528,7 +11559,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 원서접수·서류제출 2025.10.1~10.23 18:00, 면접 2025.11.5, 합격자발표 2025.11.17, 등록 2025.11.17~11.20 / 2차 원서·서류 2025.12.8~12.29 18:00, 면접 2026.1.7, 합격자발표 2026.1.19, 등록 2026.1.19~1.22 (2026학년도 전기 순수 외국인 신·편입학)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -11746,29 +11777,15 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2027.1.4~1.7 (전기 정시, 09:00~18:00, 방문/우편 직접 제출·인터넷접수 없음); 후기: 2027.5.25~6.3",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
-     "type": "selftest",
-     "desc": "본교 한국어 어학연수과정 4개학기 수료(예정)생 중 자체 한국어능력시험 통과자",
-     "evidence": "본교에서 주관하는 자체 한국어능력 시험 통과자에 한하여 입학 자격요건 인정"
-    },
-    {
-     "type": "recommend_gov",
-     "desc": "정부초청 장학생, 외국정부지원 장학생 자격요건 별도 심사",
-     "evidence": "정부초청 장학생, 외국정부지원 장학생의 경우 자격 요건을 별도로 심사함"
-    },
-    {
-     "type": "sejong",
-     "desc": "세종학당 한국어 초급2 이상 취득자",
-     "evidence": "세종학당 한국어 초급2 이상 취득자"
-    },
-    {
      "type": "eng_exempt",
-     "desc": "글로벌학부, 음악공연기획학부(담양) 영어트랙 지원 가능",
-     "evidence": "글로벌학부, 음악공연기획학부(담양)은 영어트랙 지원 가능"
+     "desc": "영어 공용어 국가 출신은 영어성적 면제",
+     "evidence": "소지자(단, 영어가 공용어인 국가는 면제)"
     }
-   ]
+   ],
+   "notes": "영어기준 TOEFL 530(CBT197/IBT71)·IELTS 5.5·CEFR B2·TEPS 600 이상; 구술고사 미실시"
   }
  },
  {
@@ -12575,7 +12592,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026학년도 2학기(9월 입학): 온라인 접수·서류제출 2026.4.13~5.15 (studyinkorea.go.kr, 입학 전형료 없음), 서류심사·학과평가(면접) 2026.5~6월, 합격자발표 2026.7월 중, 등록금 납부 2026.7월 중, 최종 학력서류 2026.8.21까지, 입학 2026.9월",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -13210,7 +13227,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "모집요강 공고·입학원서 접수(서류접수) 2025.11.3~11.14 (국제교류교육본부 방문 제출, 전형료 없음), 서류심사 2025.11.17~11.19, 면접(실기)고사 2025.11.26 14:00(국외 거주자는 전화·화상면접 대체), 합격자발표 2025.12.2 18:00까지, 등록금 납부 2025.12.22~12.24, 표준입학허가서 발송 2025.12.26~12.31, 개강 2026.3.3 (2026학년도 전기 순수외국인 신·편입학)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -13607,7 +13624,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.11.2~11.13 (2027-1)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -13978,7 +13995,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2027.1.4~1.7 (원서접수 및 전형료 납부, 09:00~18:00, 방문/우편접수)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_intl",
@@ -14284,7 +14301,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2027.1.4~1.7 (09:00~18:00 KST, studyinkorea.go.kr 온라인접수)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_intl",
@@ -14428,7 +14445,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.10.14~12.16 (10:00~18:00, 인터넷접수, 입학안내 홈페이지)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -15150,7 +15167,7 @@ window.UNIV_KNOWLEDGE = [
   "period": "2025.10.20~10.31",
   "lang_guide": "https://kli.kookmin.ac.kr/",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -15500,7 +15517,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2025.10.20~10.31 / 2차 2025.12.30~2026.1.9 / 3차 2026.1.14~2.10 (3월 신입학, 현장·우편 접수, 마감일 17:00 도착분; 서류전형 후 개별통보, 합격자등록 1차 11.13~11.21 등)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -15681,7 +15698,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.1.2~1.9 (원서접수, 2026년 3월 입학 신입학; 서류 ~1.21, 면접 1.23~1.27, 합격발표 1.30, 등록 2.2~2.6)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -15874,12 +15891,17 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "수시(재외국민·북한이탈주민·전교육과정이수자) 2026.07.06~07.10, 순수외국인 2026.11.02~2027.01.05, 9월입학(순수외국인) 2027.06.01~07.09 (면접·합격자발표: 재외국민 2026.12.18 이내 / 순수외국인 2027.01.22까지, 9월 2027.07.23까지)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
+     "type": "langcourse",
+     "desc": "국내외 한국어과정 1년 이상 수료 후 KNU 주관 토픽 3급 이상",
+     "evidence": "국내외 한국어과정 1년 이상 수료자: KNU 주관 토픽 시험 3급 이상 점수 취득"
+    },
+    {
      "type": "eng_exempt",
-     "desc": "TESOL(영어트랙) 100% 영어 수업 및 영어 모국어 국가 국적 소지자",
-     "evidence": "TESOL(영어트랙)... 100% 영어로 수업이 진행됨 / 영어를 모국어로 사용하는 국가의 국적을 소지한 학생"
+     "desc": "영어능력시험(TOEFL/IELTS 등) 또는 영어전용트랙 기준 충족 시 입학",
+     "evidence": "영어능력시험: TOEFL 530(CBT 197, iBT 71), IELTS 5.5 ... 영어전용트랙: 영어능력시험 기준 점수 취득"
     }
    ]
   }
@@ -16066,29 +16088,30 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.11.10~12.19 (전기·2026년 3월 입학, 원서+서류접수; 면접 2026.1.5, 합격발표 1.9, 등록 1.13~1.16)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
-     "desc": "NBU-TOPIK(남부대 자체 한국어능력시험) 합격자",
-     "evidence": "NBU-TOPIK(남부대학교 자체 한국어능력시험) 합격자"
-    },
-    {
-     "type": "recommend_gov",
-     "desc": "군무원 또는 군위탁생 배우자",
-     "evidence": "군무원 또는 군위탁생의 배우자"
+     "desc": "NBU-TOPIK(자체 한국어능력시험) 합격",
+     "evidence": "- NBU-TOPIK(남부대학교 자체 한국어능력시험) 합격자"
     },
     {
      "type": "sejong",
-     "desc": "세종학당 한국어 중급 이상 이수자",
-     "evidence": "세종학당 한국어 중급 이상 이수자"
+     "desc": "세종학당 국문 중급 이상 이수",
+     "evidence": "- 세종학당 국문 중급 이상 이수자"
     },
     {
      "type": "kiip",
      "desc": "사회통합프로그램 3단계 이상 이수 또는 사전평가 61점 이상",
-     "evidence": "사회통합프로그램 3단계 이상 이수자 및 사전평가점수 61점 이상"
+     "evidence": "- 사회통합프로그램 3단계 이상 이수자 및 사전평가 점수 61점 이상"
+    },
+    {
+     "type": "langcourse",
+     "desc": "한국어 연수 재학/수료",
+     "evidence": "한국어 연수 재학/수료"
     }
-   ]
+   ],
+   "notes": "국외체류자 화상면접은 면접방식 대체일 뿐 어학요건 우회 아님"
   }
  },
  {
@@ -16759,7 +16782,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "Round 1 10.1~16 / Round 2 12.2~18",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_org",
@@ -17324,7 +17347,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2025.11.10~11.21 / 2차 2026.1.5~1.20 (2026학년도 전기 3월 입학, 국내·해외 거주 신·편입 지원자, 서류 방문·우편; 합격발표 12.24/2.9, 등록금 납부 12.24~12.26 또는 2.9~2.11)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -17408,7 +17431,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": ""
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -18251,7 +18274,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2025.10.20~11.10 / 2차 2025.12.11~12.19 / 3차 2026.1.22~2.2 (2026학년도 제1학기 3월 입학, 온라인 intl.daegu.ac.kr 접수, 서류는 국제처 우편·방문; 합격발표 11.28/1.12/2.12, 개강 2026.3.3)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -18344,7 +18367,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "38.2"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -18806,7 +18829,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "전기 1차: 원서접수 2025.11.03~11.06 17:00, 추가서류제출 ~11.17, 면접 11.26, 합격자발표 12.10, 등록 12.11~12.17 / 2차: 원서 2026.01.05~01.07, 면접 01.20, 합격발표 01.27, 등록 01.28~02.02",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -18893,7 +18916,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2025.9.22~10.31 / 2차 2025.12.1~2026.1.9 (2026학년도 전기 3월 입학, 정원외, 현장·우편 접수; 전형 11.3~11.7 또는 1.12~1.16, 합격발표 11.12/1.21, 합격자등록 11.13~11.21 또는 1.22~1.30)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -18956,7 +18979,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "원서교부 2026.08.03~08.31, 원서접수 2026.09.09~09.11 (교리고사·면접 2026.11.09, 합격자발표 2026.11.13, 등록 2026.12.21~12.23)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -19257,7 +19280,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "원서접수 2026.07.07~07.10 17:00, 서류제출 2026.07.17까지 (면접 2026.08.06, 최초합격자발표 2026.08.21 15:00, 문서등록 2026.12.21~12.23, 등록금납부 2027.02.10~02.12)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -19322,7 +19345,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": ""
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -19435,7 +19458,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "온라인 원서접수(스터디인코리아) 2026.10.29~11.05 17:00, 서류심사 2026.11.09~11.10, 면접 2026.11.14~11.15, 합격자발표 2026.11.24, 등록예치금 납부 2026.11.25~12.04, 표준입학허가서 발급 2026.12.01~12.31",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -19748,7 +19771,7 @@ window.UNIV_KNOWLEDGE = [
   "period": "2026.10.12~10.23 (Round 1) / 2026.11.23~ (Round 2)",
   "lang_guide": "https://dilc.ds.ac.kr/kor/kor03.php",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -20127,7 +20150,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "원서접수 2025.9.23~10.13 / 서류제출 ~10.15 / 한국어 레벨테스트 10.15 / 실기고사 10.30 / 합격발표 11.18 (2026학년도 1학기 1차 모집, 신입학·편입학, 진학어플라이 인터넷접수; 등록금 납부 2026년 1월 말~2월 초, 개강 2026.3.3)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -20614,14 +20637,15 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "전기 1차 2025.9.29~10.24 / 전기 2차 2025.11.26~12.4 (3월 입학) / 후기 1차 2026.3.30~4.17 / 후기 2차 2026.5.27~6.11 (9월 입학; 인터넷 접수 12:00~16:00, 전형료 150,000원, 최종 합격발표 11.20/12.24/5.14/7.2)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
-     "type": "dept_waiver",
-     "desc": "예술융합학과(부모 모두 외국인인 외국인 유학생 전담)",
-     "evidence": "예술융합학과: 부모 모두 외국인인 외국인 체류생 전담학과"
+     "type": "selftest",
+     "desc": "동덕여대가 인정하는 한국어능력시험 통과",
+     "evidence": "동덕여대에서 인정하는 한국어능력시험에 통과한 경우"
     }
-   ]
+   ],
+   "notes": "예체능계열 TOPIK 2급 인정(기준 완화)"
   }
  },
  {
@@ -20971,7 +20995,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2025.10.14~10.30 / 2차 2025.12.1~12.18 (2026-1학기·3월) / 3차 2026.4.13~4.30 / 4차 2026.6.1~6.18 (2026-2학기·9월)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -21605,7 +21629,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "온라인접수 2025.11.1(토)~11.30(일) 18:00 (진학어플라이), 서류제출 2025.11.1~11.30 18:00 (우편/방문, 국제교류센터), 서류심사·면접 2025.12.1~12.8, 합격자발표 2026.1.7, 등록금납부 합격발표 후~1월말, 학기개시 2026.3.3",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -21668,7 +21692,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2027",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -22023,7 +22047,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026학년도 전기 외국인 신(편)입학 특별전형 1차: 2025.9.24~10.14, 2차: 2025.12.2~12.17 (온라인 지원 www.studyinkorea.go.kr). 면접 1차 2025.11.6, 2차 2026.1.5. 합격자발표 1차 2025.11.21 14:00, 2차 2026.1.14 14:00. 등록금납부 1차 2025.11.25~11.27, 2차 2026.1.20~1.21",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -22374,7 +22398,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026학년도 전기 신입학 외국인 특별전형: 원서접수 2025.12.3(수)~12.5(금), 서류제출 2025.12.3~12.12(금), 합격자발표 2026.1.2(금) 개별통보, 합격자등록 2026.1.7(수)~1.9(금) (국제교류팀, 영주/동두천 캠퍼스)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "dept_waiver",
@@ -22503,7 +22527,7 @@ window.UNIV_KNOWLEDGE = [
   "period": "2026.9.14(월) ~ 10.6(화) 17:00 (인터넷 접수 www.uwayapply.com, 2027학년도 전기 외국인특별전형 1차)",
   "lang_guide": "https://deuhome.deu.ac.kr/language/index.do",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -23347,7 +23371,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 원서접수 2026.09.21~10.02(공휴일 제외), 면접 2026.10.17, 합격자발표 2026.11.06 / 2차 2026.10.26~11.06, 면접 2026.11.21, 발표 2026.12.04 / 3차 2026.11.23~12.04, 면접 2026.12.19, 발표 2027.01.04 (등록금 납부는 각 차수 발표 직후 ~1주일, 토픽점수 추가제출 ~2027.02.19, 개강 2027.03.02)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -23778,7 +23802,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "Round 1 9.16~10.7 / Round 2 11.23~12.23",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -23861,7 +23885,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.12.29~12.31 (원서접수; 서류접수 ~2026.1.16, 합격발표 2.2, 등록금 2.3~2.5)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_intl",
@@ -24119,7 +24143,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.10.16~10.22",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -24413,7 +24437,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026학년도 전기 학부 신입학 외국인 특별전형 3차 모집 — 1차: 원서접수·서류 2025.9.16~9.30, 서류전형 10.1~10.15, 면접 10.21, 합격발표 10.29, 등록금 11.3~11.11. 2차: 원서 2025.11.6~11.20, 서류전형 11.21~11.28, 면접 12.4, 발표 12.12, 등록 12.17~12.29. 3차: 원서 2026.1.2~1.9, 서류전형 1.12~1.15, 면접 1.21, 발표 1.29, 등록 2.2~2.6. 학기개시 2026.3.2",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_intl",
@@ -24477,7 +24501,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "0.2"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -25311,7 +25335,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "원서접수 2025.10.1(수) 9:00~10.24(금) 18:00 (진학어플라이), 서류제출 2025.10.1~10.31, 지원자격 심사 결과 2025.11.11, 면접고사 2025.12.2(한국 체류자 대면/해외 체류자 전화·화상), 합격자발표 2025.12.19, 등록금 납부 2025.12.30~2026.1.2 (2026학년도 전기 신·편입학)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -25991,7 +26015,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "신·편입 1차 원서접수 2026.09.28~2026.10.08, 2차 2026.11.23~2026.12.04 (2027학년도 1학기; 개강 2027.03.02; 서류제출은 원서접수와 동일기간)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -26046,7 +26070,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "1.4"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -26268,7 +26292,7 @@ window.UNIV_KNOWLEDGE = [
   "period": "2026학년도 3월 입학 순수외국인 신·편입학 3차 모집 (진학어플라이 온라인) — 1차: 원서 2025.9.30~10.14, 서류 10.15 17:00까지, 면접 10.27~10.31, 발표 11.5 14:00, 등록 11.5~11.14 12:00. 2차: 원서 2025.11.11~11.25, 서류 11.26, 면접 12.8~12.12, 발표 12.24, 등록 12.24~2026.1.2. 3차: 원서 2026.1.6~1.14, 서류 1.14, 면접 1.19~1.23, 발표 1.28, 등록 1.28~1.30 12:00",
   "lang_guide": "https://global.sahmyook.ac.kr/",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -26578,7 +26602,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026학년도 전기 신·편입학 외국인특별전형(서울캠퍼스) — 1차: 원서접수·서류 2025.10.1(수) 10:00~10.24(금) 16:00, 고사 11.15(토), 합격자발표 12.3(수), 등록금납부 2026.1.5~1.7. 2차: 원서 2025.12.8~12.19 16:00, 고사 2026.1.7(수), 발표 1.19(월), 등록 1.20~1.22. 개강 2026.3.3 (유웨이어플라이 온라인 접수)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -27047,7 +27071,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026학년도 외국인 신입학 모집요강 — 전기(3월 입학) 4차: 1차 원서접수·서류 2025.10.28~11.13 17:00, 면접 11.25, 발표 12.3, 등록 12.3~12.16. 2차 원서 2025.12.3~12.10, 면접 12.17, 발표 12.18, 등록 12.18~12.29. 3차 원서 2025.12.18~12.29, 면접 2026.1.13, 발표 1.15, 등록 1.15~1.22. 4차 원서 2026.1.22~1.29, 면접 2.4, 발표 2.5, 등록 2.5~2.10. 후기(9월 입학): 원서 2026.7.7~7.16, 면접 7.23, 발표 7.30, 등록 7.30~8.5 (온라인 접수 및 전형료 납부)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -27317,7 +27341,7 @@ window.UNIV_KNOWLEDGE = [
   "period": "2026학년도 3월 입학(봄학기) 외국인 난민전형: 입학원서 접수·서류제출 2025.11.17(월) 10:00~11.21(금) 17:00 (등기우편/방문, 마감일 도착분 한함), 합격자발표 2025.12.26(금) 예정, 등록금(등록확인 예치금 포함) 납부 2026년 1월 중, 오리엔테이션 2026년 2월 중, 개강 2026.3.3. 전형료 없음",
   "lang_guide": "https://klec.sogang.ac.kr/?url=/dep_03/3110.php",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -27556,7 +27580,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026학년도 전기 부모 모두 외국인인 외국인 신·편입학: 원서접수 2025.11.10(월) 10:00~11.28(금) 17:00 (국제교류처 온라인 접수), 서류제출 2025.11.28(금) 17:00까지, 자체 한국어평가시험 2025.12.15(월), 면접고사 2025.12.24~12.31, 합격자발표 2026.1.7(수) 14:00, 등록금 납부 2026.1.8~1.12, 표준입학허가서 발급 1.13~1.16, 오리엔테이션 2.23~2.27, 개강 2026.3.3(화)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -27669,7 +27693,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "학부 1차: 2026.9.7(월) ~ 10.2(금) 17:00 / 학부 2차: 2026.11.9(월) ~ 11.18(수) 17:00 (2027학년도 3월 외국인특별전형, global.seoultech.ac.kr)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -27770,7 +27794,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "1.0"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -27842,7 +27866,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "수시(10차수, 상시접수): 1차 2025.9.15~10.5 ~ 10차 2026.2.9~2.15 (2026학년도 3월 입학, 인터넷·우편·방문 접수, 각 차수별 합격발표 후 등록; 최종 등록 2026.2.27까지)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -28452,7 +28476,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.3.1.~2027.2.28.",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -29002,7 +29026,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "전기: 원서 2025.10.10~10.20, 서류 10.21~11.11, 합격발표 2026.01.07, 등록 2026.01.19~01.23 / 후기: 원서 2026.04.13~04.22, 서류 04.21~04.30, 합격발표 06.19, 등록 07.13~07.17",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -29200,29 +29224,15 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "9.9"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
-     "type": "selftest",
-     "desc": "서울신학대학교 자체시험 2급 이상 합격",
-     "evidence": "서울신학대학교 자체시험 2급 이상 합격자"
-    },
-    {
-     "type": "langcourse",
-     "desc": "서울신학대학교 한국어교육원 이수증명서",
-     "evidence": "서울신학대학교 한국어교육원 발급 이수증명서"
-    },
-    {
-     "type": "langcourse",
-     "desc": "세종어학당 중급 1 이상 이수",
-     "evidence": "세종어학당 중급 1 이상 이수(단, 졸업 시까지)"
-    },
-    {
-     "type": "eng_exempt",
-     "desc": "영어트랙 운영 학과 (글로벌경영학과·컴퓨터공학과)",
-     "evidence": "글로벌경영학과/컴퓨터공학과 ※영어트랙/한국어트랙"
+     "type": "recommend_intl",
+     "desc": "교수의 추천을 받은 자 지원가능",
+     "evidence": "교수의 추천을 받은 자"
     }
-   ]
+   ],
+   "notes": "구술시험은 전형방식(신학 Th.M./M.A. 온라인)으로서 언어요건 대체 아님"
   }
  },
  {
@@ -29804,7 +29814,7 @@ window.UNIV_KNOWLEDGE = [
   "period": "2026.10.8~10.22 (Round 1) / 2026.12.22~2027.1.5 (Round 2)",
   "lang_guide": "https://klc.swu.ac.kr/skin/page/info01.html",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -29915,7 +29925,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "1.2"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -30014,7 +30024,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2025.11.10~11.27 / 2차 2025.12.1~12.18 / 3차 2026.1.12~1.29 (입학지원서 접수, 현장접수; 국내 체류자는 3차 전형 권장)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -30147,7 +30157,38 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "445",
    "foreign_pct": "4.7"
   },
-  "period": "1차 원서접수 2025.11.17~11.21, 서류 11.21 17:00까지, 합격발표 2025.12.4, 등록 12.8~12.10 (3월 입학)"
+  "period": "1차 원서접수 2025.11.17~11.21, 서류 11.21 17:00까지, 합격발표 2025.12.4, 등록 12.8~12.10 (3월 입학)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "selftest",
+     "desc": "본교 한국어시험(TOPIK 3급/4급 상당) 합격",
+     "evidence": "본교 한국어시험(TOPIK 3급 상당)에 합격한 자"
+    },
+    {
+     "type": "langcourse",
+     "desc": "본교·타대학 한국어 연수기관 3급 이상 수료",
+     "evidence": "본교 또는 타대학 한국어 연수기관에서 한국어과정 3급 이상"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 과정 이상 이수",
+     "evidence": "세종학당 한국어 중급1 과정 이상 이수"
+    },
+    {
+     "type": "kiip",
+     "desc": "사회통합프로그램 3단계 이상 이수 또는 사전평가 61점 이상",
+     "evidence": "사회통합프로그램 3단계 이상 이수 또는 사전평가 61점 이상 취득"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "영어트랙(K-culture): IELTS 5.5 / TOEFL iBT 59 / TEPS 520 이상",
+     "evidence": "K-culture 전용 ① IELTS 5.5 이상 ② TOEFL iBT 59 이상"
+    }
+   ],
+   "notes": "세종학당 온라인 과정은 국내 체류 시 불인정"
+  }
  },
  {
   "n": "선문대학교",
@@ -30659,7 +30700,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2027",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -30941,7 +30982,28 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "300",
    "foreign_pct": "4.4"
   },
-  "period": "원서접수 2025.11.11~11.28, 서류 11.17~11.28, 면접·실기 2025.12.12, 합격발표 12.26, 등록 2026.2.2~2.13 (전기 3월 입학)"
+  "period": "원서접수 2025.11.11~11.28, 서류 11.17~11.28, 면접·실기 2025.12.12, 합격발표 12.26, 등록 2026.2.2~2.13 (전기 3월 입학)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "langcourse",
+     "desc": "본교 언어교육원 한국어과정 4급 이상 수료",
+     "evidence": "본교 언어교육원 한국어과정 4급 이상 수료자"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이수 또는 SKA 4급 이상",
+     "evidence": "세종학당 한국어 중급1 과정 이수자 또는 SKA(Sejong Korean Assessment) 4급 이상"
+    },
+    {
+     "type": "kiip",
+     "desc": "사회통합프로그램 4단계 이상 이수 또는 사전평가 81점 이상",
+     "evidence": "사회통합프로그램 4단계 이상 이수자 또는 사전평가 점수 81점 이상 취득자"
+    }
+   ],
+   "notes": "TOPIK 5급 이상은 면접 면제(어학요건 우회 아님)"
+  }
  },
  {
   "n": "성공회대학교",
@@ -31019,14 +31081,20 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차: 원서 2025.10.27~11.7, 합격발표 11.27 / 2차: 원서 2025.12.15~12.18, 합격발표 2026.1.8, 등록 2026.1.14~1.15, 개강 2026.3.3 (3월학기 신/편입학)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
-     "type": "recommend_intl",
-     "desc": "총장·학생복지처장·대학원장 추천",
-     "evidence": "총장, 학생복지처장, 대학원장이 추천한 자"
+     "type": "langcourse",
+     "desc": "본교·국내 정규대학 한국어 정규과정 4급 이상 수료",
+     "evidence": "본교 및 국내 정규대학 한국어 정규과정 4급 과정 이상 수료자"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "영어트랙(신입): IELTS 5.5 / TOEFL 530 / CEFR B2 / TEPS 601 이상 또는 영어 모국어 국적",
+     "evidence": "가. IELTS 5.5, TOEFL 530(CBT 197, iBT 71), CEFR B2, TEPS 601점... 나. 영어를 모국어로 사용하는 국가의 국적"
     }
-   ]
+   ],
+   "notes": "4학년 편입은 한국어 트랙 이중언어과정만 모집"
   }
  },
  {
@@ -31493,7 +31561,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.08.12.~09.04.",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -31851,7 +31919,28 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "833",
    "foreign_pct": "7.3"
   },
-  "period": "1차: 원서·서류 2025.10.15~10.29, 합격발표 11.26, 등록 11.26~11.28 / 2차: 원서·서류 2025.12.31~2026.1.16, 합격발표 1.28, 등록 1.28~1.30 (전기 3월 입학)"
+  "period": "1차: 원서·서류 2025.10.15~10.29, 합격발표 11.26, 등록 11.26~11.28 / 2차: 원서·서류 2025.12.31~2026.1.16, 합격발표 1.28, 등록 1.28~1.30 (전기 3월 입학)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "langcourse",
+     "desc": "국내 정규대학 어학당 수료(출석·성적·수료증명서) 인정",
+     "evidence": "국내 정규대학 어학당 출석, 성적, 수료증명서 등"
+    },
+    {
+     "type": "recommend_intl",
+     "desc": "본교 한국어과정 4급 수료(예정) + 국제교육원장 추천",
+     "evidence": "4급 이상 수료(예정)자로서 국제교육원장의 추천을 받고 우리 대학교 학사 학위과정"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "영어트랙 모집단위 운영, 영어 공용국 국적자 면제",
+     "evidence": "영어트랙 모집단위 ... 영어 공용국 안내"
+    }
+   ],
+   "notes": "예·체능계·의류산업학과는 TOPIK 2급 지원 가능(기준 완화)"
+  }
  },
  {
   "n": "세명대학교",
@@ -32200,7 +32289,18 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "339",
    "foreign_pct": "4.5"
   },
-  "period": "원서접수 2025.12.8~12.24, 서류전형 2026.1.5~1.8, 합격발표 1.9, 등록 1.12~1.16 (4학년 편입 1차 2025.11.17~11.28, 발표 12.17) (2026 1학기)"
+  "period": "원서접수 2025.12.8~12.24, 서류전형 2026.1.5~1.8, 합격발표 1.9, 등록 1.12~1.16 (4학년 편입 1차 2025.11.17~11.28, 발표 12.17) (2026 1학기)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "eng_exempt",
+     "desc": "TOPIK 3급 대신 TOEFL 550 / iBT 80 / IELTS 5.5 상응 영어성적 인정",
+     "evidence": "한국어능력시험(TOPIK) 3급 또는 TOEFL550, TOEFL iBT80, IELTS5.5에 상응하는"
+    }
+   ],
+   "notes": "영어성적은 순수외국인 특별전형 심사위원회 인정 필요"
+  }
  },
  {
   "n": "세종대학교",
@@ -32696,7 +32796,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.9.8~9.19",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -32794,7 +32894,22 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "617",
    "foreign_pct": "20.5"
   },
-  "period": "원서접수 2025.12.1~12.19 (2026학년도 1학기·3월 입학 신·편입; 서류전형 12.22~23, 면접 2026.1.5~1.6, 합격발표 1.13, 등록 2.2~2.4)"
+  "period": "원서접수 2025.12.1~12.19 (2026학년도 1학기·3월 입학 신·편입; 서류전형 12.22~23, 면접 2026.1.5~1.6, 합격발표 1.13, 등록 2.2~2.4)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "selftest",
+     "desc": "TOPIK 3급 미취득 시 본교 자체시험 실시",
+     "evidence": "한국어능력시험 3급 이상을 취득하지 못한 학생은 본교에서 실시하는"
+    },
+    {
+     "type": "langcourse",
+     "desc": "어학연수과정 수료 후 진학",
+     "evidence": "-어학연수과정 수료 후 진학자"
+    }
+   ]
+  }
  },
  {
   "n": "수원가톨릭대학교",
@@ -32839,24 +32954,30 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.8.1.~2026.7.31.",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
-     "type": "sejong",
-     "desc": "세종학당 한국어 중급1 이상(온라인 과정 인정 불가)",
-     "evidence": "세종학당 한국어 중급 1 이상(온라인 인정 불가)"
+     "type": "langcourse",
+     "desc": "국내 정규대학 부설 어학교육원 4급 과정 이상 수료(예정)",
+     "evidence": "국내 정규대학 부설 어학교육원 4급 과정 이상 수료(또는 예정)"
     },
     {
-     "type": "langcourse",
-     "desc": "국내 정규대학 부설 한국어교육원 정규과정 3급 이상 수료",
-     "evidence": "국내 소재 정규대학 부설 한국어교육원 정규과정 3급 이상 수료"
+     "type": "recommend_intl",
+     "desc": "본교 한국어과정 20주 이상 수료 + 국제(교류)처장 추천",
+     "evidence": "본교 한국어 과정을 우수한 성적으로 20주 이상 수료하고 국제"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이상",
+     "evidence": "세종학당 한국어 중급1 이상"
     },
     {
      "type": "eng_exempt",
-     "desc": "영어트랙 및 영어 모국어 국가 중등·고등교육 이수자(7개국)",
-     "evidence": "영어를 모국어로 하는 국가에서 중등·고등교육을 이수한 자(7개국)"
+     "desc": "영어트랙: TOEFL 530 / IELTS 5.5 / CEFR B2 / TEPS 600 이상",
+     "evidence": "TOEFL 530(CBT 197, IBT 71), IELTS 5.5, CEFR B2, 또는 TEPS 600점이상"
     }
-   ]
+   ],
+   "notes": "TOPIK 3급 취득 예정자는 입학일 기준 1주일 내 제출 조건"
   }
  },
  {
@@ -33138,24 +33259,30 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "수시1차: 지원서 2025.11.26~12.12, 면접 12.17~12.19, 합격발표 2026.1.5 / 수시2차: 지원서 2026.1.7~1.16, 면접 1.21~1.23, 합격발표 2.2 (3월 입학 신/편입)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
-     "type": "sejong",
-     "desc": "세종학당 한국어 중급1 이상(온라인 과정 인정 불가)",
-     "evidence": "세종학당 한국어 중급 1 이상(온라인 인정 불가)"
+     "type": "langcourse",
+     "desc": "국내 정규대학 부설 어학교육원 4급 과정 이상 수료(예정)",
+     "evidence": "국내 정규대학 부설 어학교육원 4급 과정 이상 수료(또는 예정)"
     },
     {
-     "type": "langcourse",
-     "desc": "국내 정규대학 부설 한국어교육원 정규과정 3급 이상 수료",
-     "evidence": "국내 소재 정규대학 부설 한국어교육원 정규과정 3급 이상 수료"
+     "type": "recommend_intl",
+     "desc": "본교 한국어과정 20주 이상 수료 + 국제(교류)처장 추천",
+     "evidence": "본교 한국어 과정을 우수한 성적으로 20주 이상 수료하고 국제"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이상",
+     "evidence": "세종학당 한국어 중급1 이상"
     },
     {
      "type": "eng_exempt",
-     "desc": "영어트랙 및 영어 모국어 국가 중등·고등교육 이수자(7개국)",
-     "evidence": "영어를 모국어로 하는 국가에서 중등·고등교육을 이수한 자(7개국)"
+     "desc": "영어트랙: TOEFL 530 / IELTS 5.5 / CEFR B2 / TEPS 600 이상",
+     "evidence": "TOEFL 530(CBT 197, IBT 71), IELTS 5.5, CEFR B2, 또는 TEPS 600점이상"
     }
-   ]
+   ],
+   "notes": "TOPIK 3급 취득 예정자는 입학일 기준 1주일 내 제출 조건"
   }
  },
  {
@@ -33411,7 +33538,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "Round 1 10.7~16 / Round 2 11.6~20 / Round 3 12.3~18",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -33987,20 +34114,29 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차: 원서 2025.11.24~12.2, 면접 12.6~12.21, 합격발표 12.31, 등록 2026.1.5~1.7 / 2차: 원서 2026.1.2~1.7, 면접 1.16~1.18, 합격발표 1.28, 등록 2.2~2.4 (2026 1학기)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
-     "type": "recommend_org",
-     "desc": "학·연·산 협동과정: 협약연구원(기관)장 추천",
-     "evidence": "학·연·산 협동과정: 협약연구원(기관)장의 추천을 받은 자"
+     "type": "selftest",
+     "desc": "SCH한국어능력시험 132점 이상",
+     "evidence": "SCH한국어능력시험 132점 이상"
     },
     {
-     "type": "recommend_intl",
-     "desc": "지도교수 추천서(부재 시 전공주의 교수 대체)",
-     "evidence": "지도교수 부재 시 전공주임교수 추천서 대체 가능"
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이상(온라인 과정 불인정)",
+     "evidence": "세종학당 한국어 중급1 이상(단, 온라인 세종학당 및 온라인 수강...)"
+    },
+    {
+     "type": "kiip",
+     "desc": "사회통합프로그램 3단계 이상 이수 또는 사전평가 61점 이상",
+     "evidence": "법무부 사회통합프로그램 3단계 이상 이수, 법무부 사회통합프로그램 사전평가 61점 이상"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "영어: TOEFL iBT 59 / IELTS 5.5 / CEFR B2 / NEW TEPS 202 이상",
+     "evidence": "공인 영어능력시험[TOEFL iBT 59, IELTS 5.5, CEFR B2, NEW TEPS 202] 이상"
     }
-   ],
-   "notes": "전공면접 문구는 전형 절차로 언어요건 우회 아님(제외)"
+   ]
   }
  },
  {
@@ -34569,7 +34705,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "순수외국인 특별전형(2027-1학기) 원서접수 1차 2026.10.12~10.16 17:00, 2차 2026.11.23~11.27 17:00, 3차 2026.12.28~12.30 17:00 (개강 2027.03.02)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -34769,7 +34905,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026-1학기 신·편입학 1차: 원서·서류 2025.11.20~11.28 17:00, 면접 12.03, 합격발표 12.09, 등록 ~12.22 / 2차: 2025.12.23~2026.01.02, 면접 01.07, 합격 01.13, 등록 ~01.22 / 3차: 2026.01.23~02.02, 면접 02.04, 합격 02.10, 등록 ~02.19 / 4차: 02.20~02.23, 면접 02.24, 합격 02.26, 등록 02.26~02.27, 개강 2026.03.03",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -34905,7 +35041,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.5.4~5.29 (서류제출·전형료 납부, 2026학년도 2학기 신입학+편입학)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -35240,7 +35376,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 원서 2025.10.15~11.7 / 2차 2025.12.1~12.12 / 3차 2026.1.5~1.16 (2026학년도 전기·3월 입학 신입학; 1차 합격 11.19~21, 등록 11.21~28 / 2차 합격 12.24~26, 등록 12.26~2026.1.2 / 3차 합격 1.28~30, 등록 1.30~2.6)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -35401,25 +35537,15 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차: 원서·서류 2025.9.1~9.15, 발표 9.30 / 2차: 2025.10.1~10.15, 발표 10.30 / 3차: 2025.11.1~11.15, 발표 11.30, 등록 2025.12.8~12.12 (Spring 2026)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
-     "type": "recommend_gov",
-     "desc": "해외 학점교류/해외 교환학생 선생",
-     "evidence": "해외 학점교류 또는 해외 교환학생 선발자"
-    },
-    {
-     "type": "recommend_intl",
-     "desc": "직전 대학원 지도교수 추천서(본교 양식)",
-     "evidence": "직전 대학원 지도교수 추천서(본교 양식)"
-    },
-    {
-     "type": "kiip",
-     "desc": "법무부 사회통합프로그램 관련 기관",
-     "evidence": "법무부 사회통합프로그램 관련 기관"
+     "type": "eng_exempt",
+     "desc": "영어: TOEFL iBT 71 또는 IELTS 5.5 이상",
+     "evidence": "TOEFL (iBT) 71 or IELTS 5.5 (or higher)"
     }
    ],
-   "notes": "KIIP 관련 문구가 단편이라 우회 경로 여부 확정 전 원문 확인 권장"
+   "notes": "한국어연수 이수 '필수' 문구 있으나 시간(기준) 미확인으로 미포함"
   }
  },
  {
@@ -35797,7 +35923,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "한국어/영어트랙: 원서·서류 2025.9.29~11.21 17:00, 합격발표 2026.1.2, 등록 2026.1~2월 중 / 중국어트랙(글로벌IT 4학년 편입): 2025.12.1~12.12, 발표 2026.1.16 (2026 1학기 3월 입학)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_org",
@@ -35886,7 +36012,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차: 원서접수 2025.10.27~11.03, 자체 한국어시험 11.04, 면접 11.14~15, 합격발표 11.19, 등록 11.20~26 / 2차: 원서접수 2025.12.15~12.22, 자체시험 12.23, 면접 12.26~27, 합격발표 2026.01.02, 등록 01.03~09 (입학관리과 홈페이지 접수, 3월 입학)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -36373,7 +36499,7 @@ window.UNIV_KNOWLEDGE = [
   "period": "2026.9.1~9.17 (Round 1)",
   "lang_guide": "https://www.yskli.com/",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -36525,7 +36651,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.10.12~11.13 (Round 1) / 2026.12.9~2027.1.8 (Round 2)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -36632,7 +36758,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "5.5"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -37086,7 +37212,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 원서 2025.9.1~10.2 / 2차 2025.11.3~2026.1.16 (2026학년도 3월 입학 신·편입; 1차 서류심사 10.10~13, 면접 10.14~17, 합격 10.20, 등록 10.21~31 / 2차 서류심사 2026.1.19~20, 면접 1.21~23, 합격 1.26, 등록 1.27~2.6, 개강 2026.3.2)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -37141,7 +37267,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "2.9"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -37285,7 +37411,17 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "827",
    "foreign_pct": "112.4"
   },
-  "period": "2025.9.8~2026.2.13 (3월 모집 원서접수; 서류제출 2026.2.20, 합격발표 2.23, 등록 2.24~2.27)"
+  "period": "2025.9.8~2026.2.13 (3월 모집 원서접수; 서류제출 2026.2.20, 합격발표 2.23, 등록 2.24~2.27)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "langcourse",
+     "desc": "한국어교육기관 3급 과정 수료 (TOPIK 3급 대체)",
+     "evidence": "한국어능력시험 3급 이상 또는 한국어교육기관 3급 과정 수료자"
+    }
+   ]
+  }
  },
  {
   "n": "용인대학교",
@@ -37575,7 +37711,27 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "256",
    "foreign_pct": "3.6"
   },
-  "period": "2026학년도 3월 입학 신·편입생: 원서접수 2025.12.29~12.31 17:00, 서류제출 마감 2026.01.09 17:00, 합격발표 01.22 15:00 이후, 등록금 납부 01.28~01.30, 표준입학허가서 02.02 이후 (방문 또는 우편접수만)"
+  "period": "2026학년도 3월 입학 신·편입생: 원서접수 2025.12.29~12.31 17:00, 서류제출 마감 2026.01.09 17:00, 합격발표 01.22 15:00 이후, 등록금 납부 01.28~01.30, 표준입학허가서 02.02 이후 (방문 또는 우편접수만)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "recommend_intl",
+     "desc": "본교 한국어과정 20주 이상 수료 + 국제교류교육원장 추천",
+     "evidence": "본교 한국어과정을 20주 이상 수료하고 국제교류교육원장의 추천을 받은 자"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1(신입 기준) / 중급2(상위 기준) 이상",
+     "evidence": "세종학당 한국어과정 중급1 과정이상 ... 세종학당 중급 2급 이상"
+    },
+    {
+     "type": "kiip",
+     "desc": "사회통합프로그램 3단계 이상 이수 또는 사전평가 61점 이상",
+     "evidence": "사회통합프로그램 3단계 이상 이수 또는 사전평가 61점 이상"
+    }
+   ]
+  }
  },
  {
   "n": "우석대학교",
@@ -37846,7 +38002,17 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "1310",
    "foreign_pct": "15.9"
   },
-  "period": "2026년 3월 입학: 원서접수 2025.11.17~11.28, 면접 12.08~12.10(국내체류자), 예비합격자 발표 12.17, 등록금 납부 12.17~12.26, 조건부합격자 TOPIK 제출 ~2026.01.02 / 2026년 9월 입학: 원서접수 2026.05.18~05.29, 면접 06.08~06.10, 등록금 납부 06.17~06.26 (글로벌교육지원센터 홈페이지 접수)"
+  "period": "2026년 3월 입학: 원서접수 2025.11.17~11.28, 면접 12.08~12.10(국내체류자), 예비합격자 발표 12.17, 등록금 납부 12.17~12.26, 조건부합격자 TOPIK 제출 ~2026.01.02 / 2026년 9월 입학: 원서접수 2026.05.18~05.29, 면접 06.08~06.10, 등록금 납부 06.17~06.26 (글로벌교육지원센터 홈페이지 접수)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이상 수료(이공·예체능계열은 초급2 이상)",
+     "evidence": "세종학당 한국어 중급 1 이상 수료 ... 이공계열 및 예체능계열 TOPIK 2급 이상 또는 세종학당 한국어 초급 2 이상"
+    }
+   ]
+  }
  },
  {
   "n": "우송대학교",
@@ -38294,7 +38460,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.7.6~7.10",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -38444,7 +38610,22 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "409",
    "foreign_pct": "2.6"
   },
-  "period": "2026학년도 3월 입학 순수외국인전형: 온라인 원서접수 2025.10.20~11.03, 면접·구술고사 11.13~11.20, 원본서류 제출 ~12.29, 합격자 발표 12.12, 최종 등록일 12.29, 개강 2026.03.02"
+  "period": "2026학년도 3월 입학 순수외국인전형: 온라인 원서접수 2025.10.20~11.03, 면접·구술고사 11.13~11.20, 원본서류 제출 ~12.29, 합격자 발표 12.12, 최종 등록일 12.29, 개강 2026.03.02",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "selftest",
+     "desc": "울산대 자체 한국어능력 평가시험(UOU-TOPIK) 합격",
+     "evidence": "UOU-TOPIK(울산대학교 자체 한국어능력 평가시험) 합격자"
+    },
+    {
+     "type": "langcourse",
+     "desc": "울산대 한국어교육센터 정규과정 연속 2개 세션 이상 이수(4급 이상)",
+     "evidence": "울산대학교 한국어교육센터 정규과정 연속 2개 세션 이상을 이수한 4급 이상 수료자"
+    }
+   ]
+  }
  },
  {
   "n": "원광대학교",
@@ -38776,7 +38957,27 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "116",
    "foreign_pct": "0.7"
   },
-  "period": "2026학년도 1학기(3월) 외국인 학부 신·편입학: 1차 원서접수 2025.12.01~12.05, 서류·면접심사 12.19, 합격발표 12.24 / 2차 원서접수 2026.01.05~01.09, 서류·면접 01.19, 합격발표 01.23, 등록기간 01.26~01.30, 개강 2026.03.02 (방문접수 국내/우편접수 해외, 전형료 50,000원)"
+  "period": "2026학년도 1학기(3월) 외국인 학부 신·편입학: 1차 원서접수 2025.12.01~12.05, 서류·면접심사 12.19, 합격발표 12.24 / 2차 원서접수 2026.01.05~01.09, 서류·면접 01.19, 합격발표 01.23, 등록기간 01.26~01.30, 개강 2026.03.02 (방문접수 국내/우편접수 해외, 전형료 50,000원)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "selftest",
+     "desc": "원광대 자체 한국어능력시험(WKU-TOPIK) 통과",
+     "evidence": "원광대 자체 한국어능력시험(WKU-TOPIK) 통과"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급2 과정 이상 이수",
+     "evidence": "세종학당 한국어 중급2 과정 이상"
+    },
+    {
+     "type": "kiip",
+     "desc": "사회통합프로그램(KIIP) 4단계 이상 이수 또는 사전평가 성적",
+     "evidence": "사회통합프로그램(KIIP) 4단계 이상 이수 또는 사전평가"
+    }
+   ]
+  }
  },
  {
   "n": "위덕대학교",
@@ -38846,7 +39047,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2026.3.23~4.17, 2차 2026.5.29~6.19 (2026학년도 후기 신·편입학)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_intl",
@@ -39082,7 +39283,32 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "244",
    "foreign_pct": "5.4"
   },
-  "period": "2026학년도 9월 입학 외국인특별전형: 1차 원서접수 2026.04.13~04.30, 서류전형 05.06~08, 합격발표 05.13, 등록 05.20~22 / 2차 원서접수 2026.06.08~06.26, 서류전형 06.30~07.02, 합격발표 07.08, 등록 07.14~16 (현장 및 우편접수, 전형료 없음)"
+  "period": "2026학년도 9월 입학 외국인특별전형: 1차 원서접수 2026.04.13~04.30, 서류전형 05.06~08, 합격발표 05.13, 등록 05.20~22 / 2차 원서접수 2026.06.08~06.26, 서류전형 06.30~07.02, 합격발표 07.08, 등록 07.14~16 (현장 및 우편접수, 전형료 없음)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "selftest",
+     "desc": "본교 한국어능력시험(U-TOPIK) 3급 이상 취득(예정)",
+     "evidence": "본교 한국어능력시험(U-TOPIK) 3급이상 취득(예정)자"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이상 이수",
+     "evidence": "세종학당 한국어 중급 1 이상 이수한 자"
+    },
+    {
+     "type": "kiip",
+     "desc": "사회통합프로그램 3단계 이상 이수 또는 사전평가 81점 이상",
+     "evidence": "사회통합프로그램 3단계 이상 이수한 자 또는 사전평가 81점 이상 취득한 자"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "영어트랙: TOEFL 530 / IELTS 5.5 / CEFR B2 / TEPS 601 이상 또는 영어 모국어 국적",
+     "evidence": "TOEFL 530(CBT 197, IBT 71), IELTS 5.5, CEFR B2, TEPS 601점 ... 영어를 모국어로 사용하는 국가의 국적"
+    }
+   ]
+  }
  },
  {
   "n": "을지대학교",
@@ -39402,7 +39628,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.9.7~9.11",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -40303,7 +40529,7 @@ window.UNIV_KNOWLEDGE = [
   "period": "see 2027 guide",
   "lang_guide": "https://elc.ewha.ac.kr/elc/main.do",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -40640,7 +40866,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.9.22~10.17",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "dept_waiver",
@@ -40693,7 +40919,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026학년도 인천가톨릭대학교 강화캠퍼스 외국인 특별전형: 원서교부 및 접수 2025.10.28~11.03(본교 강화캠퍼스 교학처 창구 접수, 우편 불가), 면접평가 11.15, 합격자 발표 11.21, 등록금 납부 2026.02.03~02.05 16시 마감 (전형료 없음)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -41331,7 +41557,7 @@ window.UNIV_KNOWLEDGE = [
   "period": "원서접수 2025.9.8~10.17 (2026학년도 전기·3월 입학 신·편입; 서류제출 2025.9.8~10.17, 자체한국어시험 10.23, 면접 11.3~11.21, 합격발표 11.27, 등록금 12월 중)",
   "lang_guide": "https://korean.inu.ac.kr/inukli/6853/subview.do",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -41991,7 +42217,7 @@ window.UNIV_KNOWLEDGE = [
   "period": "2026.9.30~11.5",
   "lang_guide": "https://www.inha.ac.kr/kr/index.do",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -42248,7 +42474,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.10.1~10.14 (전기 1차 인터넷접수); 2차 2026.10.15~10.23 / 후기 1차 2027.4.1~4.16, 2차 2027.4.26~5.14 (마감일 18:00)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -42955,7 +43181,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026 early term: Round 1 9.22~10.3 / Round 2 11.5~19",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -43029,6 +43255,31 @@ window.UNIV_KNOWLEDGE = [
    "excellent": false,
    "foreign": "",
    "foreign_pct": ""
+  },
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "recommend_intl",
+     "desc": "전주대 총장 또는 국제교류원장 추천",
+     "evidence": "전주대학교 총장의 추천을 받은 자 또는 ... 전주대학교 국제교류원장의 추천을 받은 자"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이상",
+     "evidence": "세종학당 중급1 이상"
+    },
+    {
+     "type": "kiip",
+     "desc": "법무부 사회통합프로그램 3단계 이수 또는 사전평가 61점 이상",
+     "evidence": "법무부 사회통합프로그램 3단계 이수 또는 사전평가 61점 이상"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "영어트랙: IELTS 5.5 / TOEFL iBT 59 / NEW TEPS 202 이상",
+     "evidence": "IELTS 5.5 이상, TOEFL iBT 59 이상, NEW TEPS 202점 이상"
+    }
+   ]
   }
  },
  {
@@ -43505,7 +43756,32 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "489",
    "foreign_pct": "3.6"
   },
-  "period": "1차 2026.4.20~4.30 / 2차 2026.6.15~6.24"
+  "period": "1차 2026.4.20~4.30 / 2차 2026.6.15~6.24",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "recommend_intl",
+     "desc": "전주대 총장 또는 국제교류원장 추천",
+     "evidence": "전주대학교 총장의 추천을 받은 자 또는 ... 전주대학교 국제교류원장의 추천을 받은 자"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이상",
+     "evidence": "세종학당 중급1 이상"
+    },
+    {
+     "type": "kiip",
+     "desc": "법무부 사회통합프로그램 3단계 이수 또는 사전평가 61점 이상",
+     "evidence": "법무부 사회통합프로그램 3단계 이수 또는 사전평가 61점 이상"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "영어트랙: IELTS 5.5 / TOEFL iBT 59 / NEW TEPS 202 이상",
+     "evidence": "IELTS 5.5 이상, TOEFL iBT 59 이상, NEW TEPS 202점 이상"
+    }
+   ]
+  }
  },
  {
   "n": "제주국제대학교",
@@ -43747,7 +44023,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.1.19~1.21",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -44194,7 +44470,17 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "539",
    "foreign_pct": "4.2"
   },
-  "period": "2026.10.5~10.23 (전기 1차 원서접수); 전기 2차 2026.11.9~11.27 / 후기 1차 2027.3.29~4.16, 후기 2차 2027.5.3~5.21"
+  "period": "2026.10.5~10.23 (전기 1차 원서접수); 전기 2차 2026.11.9~11.27 / 후기 1차 2027.3.29~4.16, 후기 2차 2027.5.3~5.21",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "langcourse",
+     "desc": "제주대학교 한국어과정(어학당) 수료로 한국어능력 충족",
+     "evidence": "② 제주대학교 한국어과정 성적증명서 및 수료증명서"
+    }
+   ]
+  }
  },
  {
   "n": "조선대학교",
@@ -44960,7 +45246,32 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "415",
    "foreign_pct": "1.7"
   },
-  "period": "2026.6.1~7.10"
+  "period": "2026.6.1~7.10",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "selftest",
+     "desc": "조선대 한국어능력시험(CSU-TOPIK) 합격",
+     "evidence": "조선대학교 한국어능력시험(CSU-TOPIK) 합격자"
+    },
+    {
+     "type": "langcourse",
+     "desc": "국내 한국어 연수과정 중급 이상 수료",
+     "evidence": "국내 한국어 연수과정 중급 이상 수료자"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이상 이수",
+     "evidence": "세종학당 한국어 중급1 이상 이수자"
+    },
+    {
+     "type": "kiip",
+     "desc": "사회통합프로그램 3단계 이수 또는 사전평가 61점 이상",
+     "evidence": "사회통합프로그램 3단계 이수 또는 사전평가 61점 이상 취득자"
+    }
+   ]
+  }
  },
  {
   "n": "중부대학교",
@@ -45192,7 +45503,33 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "1628",
    "foreign_pct": "16.1"
   },
-  "period": "2026.6.22~6.26"
+  "period": "2026.6.22~6.26",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "selftest",
+     "desc": "JB-TOPIK(중부대 자체 한국어능력시험) 자격기준",
+     "evidence": "JB-TOPIK / 사회통합프로그램(KIIP) 자격기준 / 세종학당 한국어과정"
+    },
+    {
+     "type": "kiip",
+     "desc": "사회통합프로그램(KIIP) 자격기준",
+     "evidence": "JB-TOPIK / 사회통합프로그램(KIIP) 자격기준 / 세종학당 한국어과정"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어과정 자격기준",
+     "evidence": "JB-TOPIK / 사회통합프로그램(KIIP) 자격기준 / 세종학당 한국어과정"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "신입학 영어트랙: TOEFL iBT 59점 이상",
+     "evidence": "신입학_영어트랙 ... TOEFL IBT 59점 이상"
+    }
+   ],
+   "notes": "JB-TOPIK·KIIP·세종학당 자격은 한국어능력장학금 수혜조건에서는 제외됨"
+  }
  },
  {
   "n": "중앙대학교",
@@ -45712,7 +46049,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.3.1.~2027.2.28.",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -45785,7 +46122,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "3.2"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -45918,7 +46255,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2027.3.1~",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -46235,7 +46572,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.11.10~11.19 (외국인 추가모집 원서: 2025.12.29~2026.1.5)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -46527,7 +46864,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "3월학기 1차 2025.10.28~12.3 / 2차 2025.12.26~2026.1.2 / 9월학기 1차 2026.4.28~5.30 / 2차 2026.6.23~7.4 (국외지원자는 1차만 가능)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -47351,7 +47688,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2027학년도 전기 외국인 유학생 신·편입: 원서접수 1차 2026.10.12~10.23, 2차 2026.11.09~11.20, 3차 2026.12.14~2027.01.08, 4차 2027.01.18~02.19 (합격발표 1차 2026.10.30 / 2차 2026.11.27 / 3차 2027.01.15 / 4차 2027.02.23, 개강 2027.03.02)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -47491,7 +47828,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2026.4.14~4.21, 2차 5.26~6.2, 3차 7.7~7.21 (2026학년도 후기, 9월 입학)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_intl",
@@ -48217,7 +48554,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "입학지원서 인터넷 접수 2025.11.10(월) 10:00~11.28(금) 18:00 (충남대 입학정보 홈페이지, 전형료 60,000원 또는 50USD), 서류제출 2025.11.10~11.28(도착분), 전공수학능력평가 2025.12.15~12.18, 합격자발표 2025.12.30 15:00, 등록금 납부 2026.1.6~1.9, 표준입학허가서 2026.1~2월 (2026학년도 전기)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_intl",
@@ -48948,7 +49285,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026학년도 후기 일반대학원 추가모집(석사·석박사통합·박사): 원서접수 2026.7.20(월) 09:00 ~ 7.24(금) 18:00 (인터넷접수: 충북대 홈페이지/대학원입학정보 ipsi.chungbuk.ac.kr/진학어플라이; 전형료 50,000원) / 구비서류 7.20~7.28 / 면접·전공구술 2026.8.5(수) / 합격발표 2026.8.19(수) 예정 / 등록금 납부 8.20~8.21",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -49068,7 +49405,22 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "1742",
    "foreign_pct": "76.7"
   },
-  "period": "신입학 외국인특별전형(3월) 1차 원서접수 2026.09.07~2026.10.04 (서류 동일기간, 면접 2026.10.19~10.20, 합격발표 2026.10.22, 등록 2026.10.22~10.29; 2차 일정은 요강에 표기 없음)"
+  "period": "신입학 외국인특별전형(3월) 1차 원서접수 2026.09.07~2026.10.04 (서류 동일기간, 면접 2026.10.19~10.20, 합격발표 2026.10.22, 등록 2026.10.22~10.29; 2차 일정은 요강에 표기 없음)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "langcourse",
+     "desc": "본교 또는 타 대학부설 한국어 연수과정 성적으로 TOPIK 3급 수준 대체 인정",
+     "evidence": "본교 또는 타 대학부설 한국어 연수과정 성적 및 ... 3급 수준의 한국어능력시험(TOPIK) 합격으로 대체"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "TOEFL IBT 80 / IELTS 5.5 이상 등 영어능력으로 충족",
+     "evidence": "TOEFL IBT 80(CBT 210, PBT 550)이상 EH는 IELTS 5.5 이상 취득"
+    }
+   ]
+  }
  },
  {
   "n": "평택대학교",
@@ -49747,7 +50099,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.11.10~12.19 (2026 entry)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -49838,7 +50190,17 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "159",
    "foreign_pct": "8.6"
   },
-  "period": "2026.8.25(화) 14:00 ~ 9.2(수) 17:00 (Spring 2027, StudyinKorea 온라인 접수)"
+  "period": "2026.8.25(화) 14:00 ~ 9.2(수) 17:00 (Spring 2027, StudyinKorea 온라인 접수)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "eng_exempt",
+     "desc": "영어매개 대학으로 IELTS Academic/TEPS/TOEFL iBT/TOEIC 등 영어성적 인정",
+     "evidence": "Only the following test types are accepted: IELTS Academic, TEPS, TOEFL iBT and TOEIC Listening & Reading."
+    }
+   ]
+  }
  },
  {
   "n": "한경국립대학교",
@@ -50147,7 +50509,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.10.6~10.21",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -50536,7 +50898,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2025.10.20~11.28 / 2차 2025.12.29~2026.1.9 (2026년 3월 입학; 1차 합격발표 12.26, 등록 12.29~1.5 / 2차 합격발표 2.16, 등록 2.16~2.19)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -51206,7 +51568,23 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "3586",
    "foreign_pct": "15.8"
   },
-  "period": "2025.9.1~9.12"
+  "period": "2025.9.1~9.12",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "sejong",
+     "desc": "해외 세종학당 정규 교육과정 중급1 이상 수료",
+     "evidence": "해외 세종학당 정규 교육과정 중급1 이상 수료증"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "영어트랙 B 운영",
+     "evidence": "영어트랙 B"
+    }
+   ],
+   "notes": "본교 어학당(CKLC) 과정은 한국어 교양 프로그램 안내로 우회경로 확정 어려움"
+  }
  },
  {
   "n": "한국체육대학교",
@@ -51724,12 +52102,17 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "3월 입학: 1차 2025.9.22~10.15 / 2차 2025.11.3~12.3 / 3차 2026.1.2~1.9; 9월 입학: 1차 2026.3.23~4.15 / 2차 2026.5.4~5.29 / 3차 2026.7.6~7.17 (원서접수)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
-     "type": "dept_waiver",
-     "desc": "외국인 전담학과 특별 모집",
-     "evidence": "외국인 전담학과(서비스경영학과 등)만 모집"
+     "type": "eng_exempt",
+     "desc": "영어트랙 지원·수학 가능",
+     "evidence": "- 영어트랙 : 영어 어학능력으로 지원 및 수학 가능한 모집단위"
+    },
+    {
+     "type": "interview",
+     "desc": "한국어능력 판단 대상자 본교 한국어 면접 실시",
+     "evidence": "판단되는 자 (본교 한국어 면접 실시)"
     }
    ]
   }
@@ -52100,7 +52483,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.11.3~11.7 (원서접수, 인터넷만), 서류제출 2025.11.17 17:00까지; 합격발표 2025.12.24, 등록금납부 2026.1.5~1.9",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -52400,7 +52783,17 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "245",
    "foreign_pct": "4.7"
   },
-  "period": "2026.8.1~9.15"
+  "period": "2026.8.1~9.15",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "eng_exempt",
+     "desc": "TOEFL/IELTS/TEPS/TOEIC 등 영어능력 성적 중 하나로 충족",
+     "evidence": "English proficiency: TOEFL(IBT 85); IELTS 6.0; New TEPS 430; TOEIC 700 or higher"
+    }
+   ]
+  }
  },
  {
   "n": "한라대학교",
@@ -52533,7 +52926,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2026.5.1~5.15, 2차 6.17~7.1, 3차 7.8~7.15 (2026학년도 9월 입학, 신입+편입)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -52807,7 +53200,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.11.17~12.23",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -53143,7 +53536,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1학기(3월) 원서접수 2026.12.14~12.18, 2학기(9월) 원서접수 2027.06.21~06.25 (합격발표 1학기 2027.01.14, 2학기 2027.07.15)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -53374,7 +53767,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2025.10.6~10.24 / 2차 2025.11.24~12.12 (원서접수 및 서류제출, 유웨이; 합격발표 11.26 / 2026.1.14, 등록 12.3~12.12 / 1.14~1.23)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -53456,7 +53849,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "5.0"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_org",
@@ -53554,7 +53947,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "4.6"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -53664,7 +54057,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2027학년도 1학기(3월) 원서접수 2026.09.01(10:00)~09.18(17:00), 서류제출 2026.09.01~09.30(17:00), 합격자발표 2026.12.18 (개강 2027.03.02; 학부 단일 접수기간, 차수 구분 없음)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -53762,7 +54155,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2026.10.12~10.22 (Round 1) / 2026.11.2~ (Round 2)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -53971,7 +54364,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차 2025.10.20~11.14 / 2차 2025.11.24~12.29 (입학원서 접수 및 서류접수; 서류 2차는 2026.1.13까지, 전형 1차 11.17~18 / 2차 2026.1.13, 합격발표 11.19 / 1.14)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -54119,7 +54512,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "1차(3월 입학): 2025.11.18~2026.1.2 (지원서 및 서류접수; 합격 2026.1.9까지, 등록 1.12~1.16) / 2차(9월 입학): 2026.4.27~7.3 (합격 7.10까지, 등록 7.20~7.22)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "dept_waiver",
@@ -54176,7 +54569,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "0.7"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "dept_waiver",
@@ -54318,7 +54711,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "6.4"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "dept_waiver",
@@ -54485,7 +54878,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "period": "2025.12.31~2026.1.2 (원서접수, 2026학년도 1학기 신·편입; 면접 2026.1.6~1.16, 합격발표 2.9, 등록 2.10~2.12)",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -54550,7 +54943,7 @@ window.UNIV_KNOWLEDGE = [
    "foreign_pct": "12.6"
   },
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -54646,12 +55039,17 @@ window.UNIV_KNOWLEDGE = [
   "es": "DYM",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
-     "type": "dept_waiver",
-     "desc": "외국인 전담학과(국제경영학과, 글로벌철도인프라공학과)",
-     "evidence": "국제경영학과[외국인 전담학과], 글로벌철도인프라공학과[외국인 전담학과]"
+     "type": "langcourse",
+     "desc": "본 대학 인정 국내·외 연수기관 한국어 어학연수과정 6개월 이상 수료",
+     "evidence": "어 어학연수과정을 6개월 이상 수료한 자"
+    },
+    {
+     "type": "recommend_gov",
+     "desc": "외국·한국 정부 지원 장학생 인정",
+     "evidence": "(외국 및 한국 정부 지원 장학생의 경우만 인정)"
     }
    ]
   }
@@ -54718,7 +55116,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "MJC",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "dept_waiver",
@@ -54771,7 +55169,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "BWU",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -54863,7 +55261,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SHU",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "dept_waiver",
@@ -54945,7 +55343,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SeoulArts",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -55025,7 +55423,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SU",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -55114,7 +55512,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SEWU",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -55262,7 +55660,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "IDU",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -55321,7 +55719,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -55396,7 +55794,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "GTEC",
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -55518,7 +55916,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -55710,7 +56108,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KU",
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -55967,7 +56365,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daelim University College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_org",
@@ -56094,7 +56492,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Dongnam Health University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "dept_waiver",
@@ -56147,7 +56545,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Dong Seoul University",
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -56275,7 +56673,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "DIMA",
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -56401,7 +56799,17 @@ window.UNIV_KNOWLEDGE = [
     }
    }
   },
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "recommend_intl",
+     "desc": "어학연수생 본과 진학 추천",
+     "evidence": "7. 어학연수생 본과 진학 추천"
+    }
+   ]
+  }
  },
  {
   "n": "두원공과대학교",
@@ -56492,7 +56900,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Bucheon University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -56600,7 +57008,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Seojeong University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -56695,7 +57103,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Suwon Science College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -56841,7 +57249,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Suwon Women's University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -57167,7 +57575,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Shin Ansan University",
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -57300,7 +57708,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Ansan University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -57463,7 +57871,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Yeonsung University",
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -57688,7 +58096,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -57757,7 +58165,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Yong-In Arts & Science University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -57820,7 +58228,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Woongji Accounting & Tax College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -57896,7 +58304,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Yuhan University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -58166,7 +58574,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kyung-in Women's University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -58225,7 +58633,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Inha Technical College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -58356,7 +58764,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "JEI University",
   "foreign_guide": "no_public_guide",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -58511,7 +58919,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Gangwon State University",
   "foreign_guide": "no_public_guide",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -58737,7 +59145,27 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Songho University",
   "es": "Songho University",
-  "foreign_guide": "obtained"
+  "foreign_guide": "obtained",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "kiip",
+     "desc": "사회통합프로그램(0~3단계) 운영",
+     "evidence": "* 사회통합프로그램 (0~3단계) 운영"
+    },
+    {
+     "type": "langcourse",
+     "desc": "어학과정 수료 후 전공과정 진학 가능",
+     "evidence": "＊어학과정 수료 후 전공과정 진학 가능"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "어학당·학부 영어트랙 운영(영어연수 D4-7 IELTS/TOEFL/CEFR B2)",
+     "evidence": "* 어학당과 학부 모두 2 트랙(한국어, 영어) 운영"
+    }
+   ]
+  }
  },
  {
   "n": "한국골프과학기술대학교",
@@ -58882,7 +59310,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hallym University",
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -59094,7 +59522,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daejeon Institute of Science and Technology",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -59157,7 +59585,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daejeon Health Institute of Technology",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -59297,7 +59725,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Woosong College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -59514,7 +59942,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Gangdong University",
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -59573,7 +60001,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daewon University College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -59638,7 +60066,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Chungbuk Provincial University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -59720,7 +60148,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Chungbuk Health & Science University",
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -59943,7 +60371,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Ajou Motor College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_org",
@@ -60025,7 +60453,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Chungnam State University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_intl",
@@ -60069,7 +60497,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hyejeon College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -60204,7 +60632,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kyungnam College of Information & Technology",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -60339,7 +60767,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -60498,7 +60926,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Busan Health University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -60552,7 +60980,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Busan Kyungsang College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -60622,7 +61050,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Busan Institute of Science and Technology",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -60650,7 +61078,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Busan Women's College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -60737,7 +61165,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Busan Arts College",
   "foreign_guide": "no_public_guide",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "langcourse",
@@ -60899,7 +61327,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Keimyung College University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -60990,7 +61418,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daegu Technical University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -61013,7 +61441,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Taegu Science University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -61117,7 +61545,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daegu Health College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -61202,7 +61630,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Suseong University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -61235,7 +61663,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Yeungnam University College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -61400,7 +61828,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Ulsan College",
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -61597,21 +62025,26 @@ window.UNIV_KNOWLEDGE = [
   "es": "Catholic Sangji University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
-     "desc": "세종학당 한국어 중급2 이상 이수",
-     "evidence": "세종학당 한국어 중급2 과정 이상 이수"
+     "desc": "세종학당 한국어 중급2 과정 이상 이수",
+     "evidence": "② 세종학당 한국어 중급2 과정 이상 이수"
     },
     {
      "type": "kiip",
-     "desc": "KIIP 4단계 이상 또는 사전평가 81점 이상",
-     "evidence": "사회통합프로그램(KIIP) 4단계 이상 이수 또는 사전평가 81점 이상 취득"
+     "desc": "사회통합프로그램(KIIP) 4단계 이상 이수 또는 사전평가 81점 이상",
+     "evidence": "③ 사회통합프로그램(KIIP) 4단계 이상 이수"
+    },
+    {
+     "type": "langcourse",
+     "desc": "TOPIK 3급 미만 취득자도 입학 가능, 단 입학 후 본교 한국어교육센터 1년 내 300시간 수료 필수",
+     "evidence": "본교 한국어교육센터에서 입학 후 1년 이내에 300시간의 한국어과정 수료 필수"
     },
     {
      "type": "eng_exempt",
-     "desc": "영어 모국어 국가 지원자 영어능력시험 면제",
+     "desc": "영어 모국어 국가 지원자 영어능력시험 성적표 제출 면제",
      "evidence": "영어가 모국어인 국가의 지원자는 영어능력시험 성적표 제출 면제 가능"
     }
    ]
@@ -61694,7 +62127,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kyongbuk Science College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -61755,7 +62188,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Gyeongbuk College of Health",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -61803,7 +62236,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kyungbuk College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -62181,7 +62614,17 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Sunlin University",
   "es": "Sunlin University",
-  "foreign_guide": "obtained"
+  "foreign_guide": "obtained",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "langcourse",
+     "desc": "본교(타대학) 한국어연수과정 1년 이상 이수 + 한국어연수과정 2급 이상 수료",
+     "evidence": "본교(타대학)한국어연수과정 1년 이상 이수하고 한국어연수과정 2급이상 수료자"
+    }
+   ]
+  }
  },
  {
   "n": "성운대학교",
@@ -62318,7 +62761,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Youngnam Foreign Language College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -62507,7 +62950,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Geoje University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -62597,7 +63040,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Gimhae University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -62756,7 +63199,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Masan University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_gov",
@@ -62891,7 +63334,17 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Dongwon Institute of Science and Technology",
   "es": "Dongwon Institute of Science and Technology",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "recommend_intl",
+     "desc": "어학연수생 본과 진학 추천",
+     "evidence": "7. 어학연수생 본과 진학 추천"
+    }
+   ]
+  }
  },
  {
   "n": "연암공과대학교",
@@ -62937,7 +63390,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Yonam Institute of Technology",
   "foreign_guide": "no_public_guide",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -63006,7 +63459,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Jinju Health College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -63228,7 +63681,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Gwangju Health University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -63269,7 +63722,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Christian College of Nursing",
   "foreign_guide": "no_public_guide",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -63334,7 +63787,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Dongkang College",
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "dept_waiver",
@@ -63375,7 +63828,32 @@ window.UNIV_KNOWLEDGE = [
   "es": "Chosun Nursing College",
   "foreign_guide": "merged",
   "excluded": true,
-  "exclude_reason": "조선대학교에 통합 (2027부터 4년제 간호대학 전환)"
+  "exclude_reason": "조선대학교에 통합 (2027부터 4년제 간호대학 전환)",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "selftest",
+     "desc": "조선대 한국어능력시험(CSU-TOPIK) 합격",
+     "evidence": "조선대학교 한국어능력시험(CSU-TOPIK) 합격자"
+    },
+    {
+     "type": "langcourse",
+     "desc": "국내 한국어 연수과정 중급 이상 수료",
+     "evidence": "국내 한국어 연수과정 중급 이상 수료자"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이상 이수",
+     "evidence": "세종학당 한국어 중급1 이상 이수자"
+    },
+    {
+     "type": "kiip",
+     "desc": "사회통합프로그램 3단계 이수 또는 사전평가 61점 이상",
+     "evidence": "사회통합프로그램 3단계 이수 또는 사전평가 61점 이상 취득자"
+    }
+   ]
+  }
  },
  {
   "n": "조선이공대학교",
@@ -63494,7 +63972,32 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Chosun College of Science & Technology",
   "es": "Chosun College of Science & Technology",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "selftest",
+     "desc": "조선대 한국어능력시험(CSU-TOPIK) 합격",
+     "evidence": "조선대학교 한국어능력시험(CSU-TOPIK) 합격자"
+    },
+    {
+     "type": "langcourse",
+     "desc": "국내 한국어 연수과정 중급 이상 수료",
+     "evidence": "국내 한국어 연수과정 중급 이상 수료자"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이상 이수",
+     "evidence": "세종학당 한국어 중급1 이상 이수자"
+    },
+    {
+     "type": "kiip",
+     "desc": "사회통합프로그램 3단계 이수 또는 사전평가 61점 이상",
+     "evidence": "사회통합프로그램 3단계 이수 또는 사전평가 61점 이상 취득자"
+    }
+   ]
+  }
  },
  {
   "n": "군산간호대학교",
@@ -63581,7 +64084,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kunjang University College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -63726,7 +64229,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Jeonbuk Science College",
   "foreign_guide": "no_public_guide",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -63903,7 +64406,32 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Jeonju Kijeon College",
   "es": "Jeonju Kijeon College",
-  "foreign_guide": "no_public_guide"
+  "foreign_guide": "no_public_guide",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "recommend_intl",
+     "desc": "전주대 총장 또는 국제교류원장 추천",
+     "evidence": "전주대학교 총장의 추천을 받은 자 또는 ... 전주대학교 국제교류원장의 추천을 받은 자"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이상",
+     "evidence": "세종학당 중급1 이상"
+    },
+    {
+     "type": "kiip",
+     "desc": "법무부 사회통합프로그램 3단계 이수 또는 사전평가 61점 이상",
+     "evidence": "법무부 사회통합프로그램 3단계 이수 또는 사전평가 61점 이상"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "영어트랙: IELTS 5.5 / TOEFL iBT 59 / NEW TEPS 202 이상",
+     "evidence": "IELTS 5.5 이상, TOEFL iBT 59 이상, NEW TEPS 202점 이상"
+    }
+   ]
+  }
  },
  {
   "n": "전주비전대학교",
@@ -64018,7 +64546,32 @@ window.UNIV_KNOWLEDGE = [
     "fields": {}
    }
   },
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "lang_bypass": {
+   "source": "외국인 모집요강 추출 (pro model)",
+   "paths": [
+    {
+     "type": "recommend_intl",
+     "desc": "전주대 총장 또는 국제교류원장 추천",
+     "evidence": "전주대학교 총장의 추천을 받은 자 또는 ... 전주대학교 국제교류원장의 추천을 받은 자"
+    },
+    {
+     "type": "sejong",
+     "desc": "세종학당 한국어 중급1 이상",
+     "evidence": "세종학당 중급1 이상"
+    },
+    {
+     "type": "kiip",
+     "desc": "법무부 사회통합프로그램 3단계 이수 또는 사전평가 61점 이상",
+     "evidence": "법무부 사회통합프로그램 3단계 이수 또는 사전평가 61점 이상"
+    },
+    {
+     "type": "eng_exempt",
+     "desc": "영어트랙: IELTS 5.5 / TOEFL iBT 59 / NEW TEPS 202 이상",
+     "evidence": "IELTS 5.5 이상, TOEFL iBT 59 이상, NEW TEPS 202점 이상"
+    }
+   ]
+  }
  },
  {
   "n": "한국농수산대학교",
@@ -64236,7 +64789,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Donga College of Health",
   "foreign_guide": "no_public_guide",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "eng_exempt",
@@ -64290,7 +64843,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Mokpo Science College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -64376,7 +64929,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Suncheon Jeil College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -64465,7 +65018,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -64545,7 +65098,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Cheongam College",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "selftest",
@@ -64594,7 +65147,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hanyoung University",
   "foreign_guide": "not_checked",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "kiip",
@@ -64711,7 +65264,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Jeju Tourism University",
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "sejong",
@@ -64764,7 +65317,7 @@ window.UNIV_KNOWLEDGE = [
   },
   "foreign_guide": "obtained",
   "lang_bypass": {
-   "source": "외국인 모집요강 추출 (pro model 정제)",
+   "source": "외국인 모집요강 추출 (pro model)",
    "paths": [
     {
      "type": "recommend_org",

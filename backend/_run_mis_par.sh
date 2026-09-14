@@ -1,5 +1,5 @@
 #!/bin/bash
-# Parallel runner for missing-bypass batches using --query-file (avoids arg-list-too-long).
+# Runner that re-does batches whose output has NO structured content ("type":).
 cd /c/Users/USER/camnemi-crm
 export PROMPT_FILE=backend/_bypass_prompt.md
 export OUTDIR="$LOCALAPPDATA/Temp/bypass_mis"
@@ -8,7 +8,7 @@ mkdir -p "$OUTDIR"
 run_one() {
   f="$1"; base=$(basename "$f" .json)
   out="$OUTDIR/${base}_out.txt"
-  if [ -f "$out" ] && [ -s "$out" ] && [ "$(wc -c < "$out")" -gt 500 ]; then echo "skip $base"; return; fi
+  if [ -f "$out" ] && grep -q '"type"' "$out"; then echo "skip $base (has content)"; return; fi
   q="$OUTDIR/${base}_query.txt"
   cat "$PROMPT_FILE" "$f" > "$q"
   timeout 1200 hermes chat --query-file "$q" -m "deepseek/deepseek-v4-pro-0813" --provider nous -t file > "$out" 2>&1
