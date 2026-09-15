@@ -102,13 +102,34 @@ def show_flow():
     for k, v in f.items(): print(f"  · {k}: {v}")
     print(f"  ★ 핵심: {f.get('key_path','')}")
 
+def show_che(code):
+    cs = KB.get("che_statuses", {})
+    hit = next((k for k in cs if k.upper()==code.upper()), None)
+    if not hit:
+        print(f"[{code}] 체류자격: KB에 없음. 사용 가능 코드: {', '.join(sorted(cs.keys()))}"); return
+    v = cs[hit]
+    print(f"■ {hit} {v.get('name','')}")
+    print(f"  대상: {v.get('target','')}")
+    print(f"  체류기간: {v.get('duration','')}")
+    print("  제출서류:")
+    for d in (v.get("required_docs") or []): print(f"    · {d}")
+    print(f"  활동범위: {v.get('activities','')}")
+    print(f"  특이사항: {v.get('notes','')}")
+
+def show_list():
+    cs = KB.get("che_statuses", {})
+    print(f"■ 체류자격 {len(cs)}개: " + ", ".join(sorted(cs.keys())))
+
 ap = argparse.ArgumentParser()
 ap.add_argument("--from", dest="frm"); ap.add_argument("--to")
 ap.add_argument("--family"); ap.add_argument("--income", action="store_true")
 ap.add_argument("--sajeung"); ap.add_argument("--status"); ap.add_argument("--flow", action="store_true")
 ap.add_argument("--photo", action="store_true")
+ap.add_argument("--che"); ap.add_argument("--list", action="store_true")
 a = ap.parse_args()
 if a.flow: show_flow()
+elif a.list: show_list()
+elif a.che: show_che(a.che)
 elif a.photo: print("■ 외국인등록용 사진 규격\n"+KB.get("photo_spec",""))
 elif a.income: show_income()
 elif a.family: show_family(a.family)
