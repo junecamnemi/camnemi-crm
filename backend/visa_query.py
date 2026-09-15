@@ -120,16 +120,45 @@ def show_list():
     cs = KB.get("che_statuses", {})
     print(f"■ 체류자격 {len(cs)}개: " + ", ".join(sorted(cs.keys())))
 
+def show_illegal():
+    d = KB.get("illegal_stay", {})
+    print("■ 불법체류 (출입국관리법)")
+    print(f"  정의: {d.get('정의','')}")
+    print("  [출국조치 3단계]")
+    for s in d.get("3단계_출국조치", []):
+        print(f"    {s.get('단계')} ({s.get('근거')}): {s.get('내용','')[:150]}")
+    fp = d.get("형사처벌", {})
+    print(f"  [형사처벌] {fp.get('근거')}: {fp.get('내용')}")
+    print(f"  [과태료] {d.get('과태료',{}).get('근거')}: {d.get('과태료',{}).get('내용')}")
+    print(f"  [입국규제] {d.get('입국규제',{}).get('근거')}: {d.get('입국규제',{}).get('내용')}")
+    print(f"  [이의신청] {d.get('이의신청',{}).get('내용')}")
+
+def show_g1(sub=None):
+    d = KB.get("humanitarian_G1", {})
+    print("■ 인도적체류 (G-1) — 출입국관리법 시행령 별표1")
+    print(f"  정의: {d.get('정의','')}")
+    print(f"  체류기간 상한: {d.get('체류기간_상한')}")
+    print("  [세부구분]")
+    for s in d.get("세부구분", []):
+        if sub and sub.upper() not in str(s.get("code","")).upper(): continue
+        print(f"    {s.get('code')}: {s.get('대상')} (기간 {s.get('기간')})")
+    cw = d.get("취업_가능", {})
+    print(f"  [취업] {cw.get('가능')}")
+    print(f"    범위: {cw.get('범위')}")
+
 ap = argparse.ArgumentParser()
 ap.add_argument("--from", dest="frm"); ap.add_argument("--to")
 ap.add_argument("--family"); ap.add_argument("--income", action="store_true")
 ap.add_argument("--sajeung"); ap.add_argument("--status"); ap.add_argument("--flow", action="store_true")
 ap.add_argument("--photo", action="store_true")
 ap.add_argument("--che"); ap.add_argument("--list", action="store_true")
+ap.add_argument("--illegal", action="store_true"); ap.add_argument("--g1", nargs="?", const="", default=None)
 a = ap.parse_args()
 if a.flow: show_flow()
 elif a.list: show_list()
 elif a.che: show_che(a.che)
+elif a.illegal: show_illegal()
+elif a.g1 is not None: show_g1(a.g1)
 elif a.photo: print("■ 외국인등록용 사진 규격\n"+KB.get("photo_spec",""))
 elif a.income: show_income()
 elif a.family: show_family(a.family)
