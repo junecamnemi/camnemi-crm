@@ -27,21 +27,18 @@ PDFLINK = re.compile(r'href=["\']([^"\']+?\.(?:pdf|hwp|hml|docx?)(?:[?#][^"\']*)
 def md5(b): return hashlib.md5(b).hexdigest()
 
 def fetch(url, timeout=35, binary=True):
-    req = urllib.request.Request(url, headers=HEADERS)
-    with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
-        b = r.read(8000000)
-    return b
+    import requests
+    r = requests.get(url, headers=HEADERS, timeout=timeout, verify=False, allow_redirects=True)
+    r.raise_for_status()
+    return r.content if binary else r.text
 
-def resolve(url):  # page-> first guide pdf link (returns pdf url or None)
+def resolve(url):  # returns (pdf_url_or_page_url, is_pdf)
     if re.search(r"\.(pdf|hwp|hml|docx?)([?#]|$)", url, re.I):
-        return url
+        return url, True
     try:
-        html = fetch(url, binary=False).decode("utf-8", "ignore")
+        html = fetch(url, binary=False)
     except Exception:
-        try:
-            html = fetch(url).decode("utf-8", "ignore")
-        except Exception:
-            return None
+        return None, False
     cands = []
     for m in PDFLINK.finditer(html):
         u = m.group(1)
@@ -53,8 +50,10 @@ def resolve(url):  # page-> first guide pdf link (returns pdf url or None)
         cands.append(u)
     for c in cands:
         if GUIDE_KEY.search(c):
-            return c
-    return cands[0] if cands else None
+            return c, True
+    if cands:
+        return cands[0], True
+    return url, False  # page-only: monitor the page content itself
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--level", default="all"); ap.add_argument("--limit", type=int, default=0)
@@ -81,18 +80,25 @@ def main():
         key = f"{school}_{lvl}"
         prev = fp.get(key, {})
         try:
-            pdf_url = resolve(url)
-            if not pdf_url:
+            resolved, is_pdf = resolve(url)
+            if not resolved:
                 fp.setdefault(key, {})["url"] = url
-                fp[key]["last_checked"] = today; fp[key]["status"] = "no_pdf_link"
+                fp[key]["last_checked"] = today; fp[key]["status"] = "error:unresolvable"
                 continue
-            b = fetch(pdf_url)
-            h = md5(b); sz = len(b)
-            # cache resolved pdf url back into scrape_map for faster future runs
-            if smap.get(school, {}).get(lvl, {}).get("url") != pdf_url:
-                smap.setdefault(school, {})[lvl] = {**smap.get(school, {}).get(lvl, {}), "url": pdf_url, "resolved": today}
+            if is_pdf:
+                b = fetch(resolved)
+                h = md5(b); sz = len(b)
+            else:
+                # page-only: hash rendered HTML (detect new notices/guides on the page)
+                html = fetch(resolved, binary=False)
+                h = md5(html.encode("utf-8", "ignore")); sz = len(html); b = html.encode("utf-8","ignore")
+            # cache resolved url back into scrape_map
+            if smap.get(school, {}).get(lvl, {}).get("url") != resolved:
+                smap.setdefault(school, {})[lvl] = {**smap.get(school, {}).get(lvl, {}), "url": resolved,
+                                                    "mode": "pdf" if is_pdf else "page", "resolved": today}
             if prev.get("md5") == h:
-                fp[key] = {**prev, "url": pdf_url, "size": sz, "last_checked": today, "status": "ok"}
+                fp[key] = {**prev, "url": resolved, "size": sz, "last_checked": today,
+                           "status": "ok", "mode": "pdf" if is_pdf else "page"}
             else:
                 ext = os.path.splitext(url.split("?")[0])[1] or ".pdf"
                 path = os.path.join(OWN, f"{school}_{lvl}{ext}")
