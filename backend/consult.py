@@ -68,6 +68,16 @@ def show(c):
         for x in cq[:4]:
             print(f"    Q. {x.get('q','')}")
             print(f"    A. {str(x.get('a',''))[:220]}")
+    oi = c.get("official_interpretations") or []
+    if oi:
+        print("\n  [공식 유권해석 (고용노동부 질의회시집)]")
+        for x in oi[:3]:
+            print(f"    · (p{x.get('page')}) {str(x.get('text',''))[:180]}")
+    os_ = c.get("official_sources") or []
+    if os_:
+        print("\n  [공식 출처]")
+        for x in os_:
+            print(f"    · {x.get('소스')} — {x.get('url')}")
 
 def extra_kb(s):
     """attach matching visa/labor KB entries."""
