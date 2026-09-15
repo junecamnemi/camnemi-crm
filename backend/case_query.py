@@ -9,6 +9,11 @@
 import json, os, re, argparse
 B = r"C:\Users\USER\camnemi-crm\backend"
 CASES = json.load(open(os.path.join(B,"cases_kr.json"), encoding="utf-8"))["cases"]
+try:
+    QA = json.load(open(os.path.join(B,"qa_profiles_kr.json"), encoding="utf-8"))
+    CASES = CASES + QA
+except Exception:
+    pass
 
 def show(c):
     print(f"\n{'='*70}\n■ [{c['id']}] {c['title']}\n{'='*70}")
