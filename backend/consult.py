@@ -13,6 +13,29 @@ B = r"C:\Users\USER\camnemi-crm\backend"
 CONSULT = json.load(open(os.path.join(B,"consultation_kr.json"), encoding="utf-8"))
 VKB = json.load(open(os.path.join(B,"visa_kb_kr.json"), encoding="utf-8"))
 LABOR = json.load(open(os.path.join(B,"labor_medical_rights_kr.json"), encoding="utf-8"))
+try:
+    OFFICIAL = json.load(open(os.path.join(B,"official_answers_kb.json"), encoding="utf-8"))
+except Exception:
+    OFFICIAL = {}
+
+def search_official(s):
+    """search official Q&A/interpretations by keyword."""
+    hits=[]
+    for x in OFFICIAL.get("hikorea_faq", []):
+        if any(w in (x.get("q","")+x.get("q","")) for w in re.findall(r"[가-힣]{2,}", s)):
+            hits.append(("하이코리아 FAQ", x.get("q",""), x.get("url","")))
+    for x in OFFICIAL.get("labor_interpretations", []):
+        kws = re.findall(r"[가-힣]{2,}", s)
+        if any(k in x.get("text","") for k in kws if len(k)>1):
+            hits.append((x.get("source","고용노동부 질의회시"), x.get("text","")[:220], "moel.go.kr"))
+    for k,v in (OFFICIAL.get("easylaw") or {}).items():
+        if any(w in v.get("text","") for w in re.findall(r"[가-힣]{3,}", s)[:5]):
+            hits.append(("생활법령정보(법제처) "+k, v.get("text","")[:220], v.get("url","")))
+    # dedupe
+    seen=set(); out=[]
+    for h in hits:
+        if h[1][:40] not in seen: seen.add(h[1][:40]); out.append(h)
+    return out[:6]
 
 # keyword -> topic index (situation matching)
 KW = {
@@ -103,10 +126,19 @@ def show_extra(items):
 ap = argparse.ArgumentParser()
 ap.add_argument("situation", nargs="?", default="")
 ap.add_argument("--topic"); ap.add_argument("--list", action="store_true")
+ap.add_argument("--official", action="store_true")
 a = ap.parse_args()
 if a.list:
     print("■ 상담 주제:")
     for c in CONSULT: print(f"  · {c.get('topic','')[:70]} ({c.get('_n_cases')}건)")
+elif a.official and a.situation:
+    print(f"[공식 자료 검색] {a.situation}")
+    hits = search_official(a.situation)
+    if hits:
+        for src, txt, url in hits: print(f"\n  · [{src}] {txt}\n    {url}")
+    else:
+        print("  매칭 공식자료 없음")
+    print(f"\n  ※ 공식 문의: 법무부 1345 / 고용노동부 1350")
 elif a.topic:
     for c in CONSULT:
         if a.topic in c.get("topic",""): show(c); break
@@ -116,6 +148,11 @@ elif a.situation:
         print(f"[상황] {a.situation}")
         show(c)
         show_extra(extra_kb(a.situation))
+        hits = search_official(a.situation)
+        if hits:
+            print("\n  [공식 자료 (법무부/고용노동부/법제처)]")
+            for src, txt, url in hits[:4]:
+                print(f"    · [{src}] {txt[:150]}")
     else:
         print(f"[상황] {a.situation}\n  매칭 주제 없음 — --list 로 주제 확인 또는 1345 상담")
 else:
