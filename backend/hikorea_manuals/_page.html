@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+	<title>공지사항 상세&lt; 뉴스.공지 &lt; 하이코리아</title>
+	<meta charset="utf-8">
+	<meta name="title" content="멀티게시판 공지사항 상세조회">
+	<meta name="author" content="하이코리아">
+	<meta name="keywords" content="하이코리아">
+	<meta name="robots" content="noindex, follow">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/common/css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="/common/css/ptg/style.css?ver=2026090901">
+ 
+
+<script src="/common/js/ptg/jquery-1.12.2.min.js"></script>
+<script src="/common/js/ptg/jquery-ui.min.js"></script>
+<script src="/common/js/ptg/jquery-ui-1.10.4.custom.js"></script>
+<script src="/common/js/jquery.form.js"></script>
+<script src="/common/js/jquery.fileDownload.js"></script>
+<script src="/common/js/ptg/jquery.bxslider.js"></script>
+
+
+<script src="/common/js/g4f_string.js"></script>
+<script src="/common/js/g4f_gVariable.js"></script>
+<script src="/common/js/g4f_message.js"></script>
+<script src="/common/js/g4f_common.js"></script>
+<script src="/common/js/encodeX.js"></script>
+<script src="/common/js/globalUtils.js"></script>
+<script src="/common/js/common.js?var=20260723"></script>
+<script src="/common/js/dateUtils.js"></script> 
+<script src="/common/js/stringUtils.js"></script>
+
+
+<script src="/common/js/ptg/placeholders.js"></script>
+
+
+<script src="/common/js/ecv.js"></script>
+
+
+<script src="/common/js/tinymce/tinymce.min.js"></script>
+
+<script src="/common/js/ptg/common_pub.js?ver=20251202"></script>
+<script>
+gfv_seLang = 'KR';
+console.log("gfv_seLang >>> " + gfv_seLang);
+$(document).ready(function() {
+	// UI 공통
+	// 모든 화면에서 사용
+	ctrlUi();
+	preventBack();
+});
+</script> 
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+	
+	$(document).ready(function() {
+		document.title = '공지사항 상세' + "< 뉴스.공지 < 하이코리아";
+	});
+	
+	
+	$("#boardListR").on("click", function(){
+		//history.go(-2);
+		/* var comSubmit = new ComSubmit("updateForm");
+		comSubmit.setUrl("/board/BoardListR.pt");
+		comSubmit.tran(); */
+		var comSubmit = new ComSubmit("updateForm");
+		comSubmit.setUrl("/board/BoardListR.pt");
+		comSubmit.tran();
+	});
+	
+	$("#goPrint").on("click", function(){
+		var initBody;
+	 	
+		window.onbeforeprint = function(){
+			initBody = document.body.innerHTML;
+			document.body.innerHTML = document.getElementById('content').innerHTML;
+		};
+		
+		window.onafterprint = function(){
+			document.body.innerHTML = initBody;
+			var comSubmit = new ComSubmit("updateForm");
+			comSubmit.setUrl("/board/BoardDetailR.pt");
+			comSubmit.tran();
+		};  
+		
+		window.print();
+				
+	});
+	
+	$("#boardUpdate").on("click", function(){
+		var comSubmit = new ComSubmit();
+		comSubmit.setUrl("/board/BoardUpdate.pt");
+		comSubmit.addParam("page", $("#page").val());
+		comSubmit.addParam("NTCCTT_SEQ", $("#NTCCTT_SEQ").val());
+		comSubmit.addParam("BBS_SEQ", $("#BBS_SEQ").val());
+		comSubmit.addParam("BBS_GB_CD", $("#BBS_GB_CD").val());
+		comSubmit.tran();
+	})
+
+  	$("#boardDeleteD").on("click",function(){
+  		gfn_confirm('삭제하시겠습니까?', function(){
+  			var comSubmit = new ComSubmit("updateForm");
+  			comSubmit.setUrl("/board/BoardDeleteFrom.pt");
+  			comSubmit.tran();
+		}, function(){
+			gfn_alert('취소되었습니다.', function(){});
+			return;
+		});
+	});
+	
+  	$("#boardSesDeleteD").on("click",function(){
+  		gfn_confirm('삭제하시겠습니까?', function(){
+  			var comSubmit = new ComSubmit("updateForm");
+  			comSubmit.setUrl("/samples/SesQnaDelete.pt");
+  			comSubmit.tran();
+		}, function(){
+			gfn_alert('취소되었습니다.', function(){});
+			return;
+		});
+	});
+	
+	$("#boardComments").on("click",function(){
+		var comSubmit = new ComSubmit();
+		comSubmit.setUrl("/board/BoardComments.pt");
+		comSubmit.addParam("page", $("#page").val());
+		comSubmit.addParam("NTCCTT_SEQ", $("#NTCCTT_SEQ").val());
+		comSubmit.addParam("BBS_SEQ", $("#BBS_SEQ").val());
+		comSubmit.addParam("CREA_USER_ID", $("#CREA_USER_ID").val());
+		comSubmit.addParam("BBS_SEQ_GB_CD", $("#BBS_SEQ_GB_CD").val());
+		comSubmit.tran();
+	});
+});
+
+//ECM 파일다운로드 Ajax 
+function fileDownEcmAjax(fileIndex){
+	
+	//$("#apndFilePath").val($("#apndFilePath"+fileIndex).val());
+	$("#fileId").val($("#fileId"+fileIndex).val());
+	$("#oriFileNm").val($("#oriFileNm"+fileIndex).val()); 
+	var locUrl = $("#apndFilePath").val()+$("#oriFileNm").val();
+	//alert(locUrl);
+	 $.ajax({
+		type		: "post",
+		data		: $("#fileDownForm").serialize(),
+		url			: "/fileDownEcmAjax.pt",
+		success: function(rs){
+			location.href = "/fileDownload.pt?filePath="+encodeURI(locUrl);
+		},
+		error : function (rs){}
+	});	  
+}
+
+//]]>
+</script>
+</head>
+<body><div id="dialog-message"></div>
+<!-- 전체 메뉴 -->
+
+<!-- //전체 메뉴 -->
+<div id="wrapper">
+	<!-- header -->
+	
+<meta http-equiv="cache-control" content="no-cache">
+
+
+
+
+
+
+    <script>
+        var anyidAdaptor = anyidAdaptor || {};
+      
+        /*
+ 	   anyidAdaptor.orgLoginTest = function(data){
+ 		  alert("orgLoginTest 테스트");
+ 		  let jsonObject = new Object();
+          jsonObject.txId = data.txId;
+          jsonObject.ssob = data.ssob;
+          jsonObject.userSeCd = data.userSeCd;
+          jsonObject.afData = data.afData;
+          let jsonStr = JSON.stringify(jsonObject);
+          
+          let encodedString = btoa(jsonStr);
+          console.log("origin::::"+window.location.origin);
+          console.log("agencyContextPath::::"+anyidAdaptor.agencyContextPath);
+          //var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/anyid/users/niClearApi";
+          console.log("data.ssob::::"+data.ssob);
+          console.log("data.txId::::"+data.txId);
+          console.log("data.userSeCd::::"+data.userSeCd);
+          console.log("jsonStr::::"+jsonStr);
+          
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", anyidAdaptor.agencyContextPath + "/memb/AnyIdLogin.pt", true);
+          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+          let ssobEnc = btoa(data.ssob);
+          console.log("anyidAdaptor.orgLogin data.ssob::::"+data.ssob);
+          console.log("anyidAdaptor.orgLogin data.ssobEnc::::"+ssobEnc);
+          var postData = "data=" + encodedString + "&ssob=" + ssobEnc + "&txId=" + data.txId;
+          console.log("anyidAdaptor.orgLogin NOSSO orgLogin  userCheck() xhr.send SEND data::::"+data);
+          xhr.send(postData);
+       }
+        */
+ 	   
+ 	  /*이용기관 수정 영역 Start*/ 
+	   anyidAdaptor.orgLogin = function(data){
+	    	console.log("anyidAdaptor.orgLogin START");
+	        let jsonObject = new Object();
+	        jsonObject.txId = data.txId;
+	        jsonObject.ssob = data.ssob;
+	        jsonObject.userSeCd = data.userSeCd;
+	        jsonObject.afData = data.afData;
+	        
+	        let jsonStr = JSON.stringify(jsonObject);
+	        let encodedString = btoa(jsonStr);
+	        
+	        var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/memb/AnyIdLogin.pt";
+	        var urlWithParams = baseUrl + "?data=" + encodedString;
+
+	        window.location.href = urlWithParams;
+	        console.log("anyidAdaptor.orgLogin END");
+        }
+	    /*이용기관 수정 영역 End*/ 
+        
+        /*이용기관 문구수정 영역 Start*/
+        anyidAdaptor.JoinConfirm = function(portalJoinUri, memberData){
+            if(!confirm('Any-ID 사용자등록 하시겠습니까?')) {
+                //anyidAdaptor.orgLogin();
+                anyidAdaptor.orgLogin(anyidAdaptor.certData);
+                return;
+            }else{
+                anyidAdaptor.receiveAnyIdJoin(portalJoinUri, memberData);
+            }
+        }
+        /*이용기관 문구수정 영역 End*/
+        
+        anyidAdaptor.portalJoinUri = "";
+        anyidAdaptor.certData = null;
+        anyidAdaptor.ssoByPass = "0";
+        anyidAdaptor.niRegYn = "";
+        anyidAdaptor.agencyContextPath = "";
+        
+        
+        anyidAdaptor.success = function(data){
+            if(anyidAdaptor.ssoByPass != 0 || !data.useSso) {
+                anyidAdaptor.orgLogin(data);
+            } else {
+                anyidAdaptor.certData = data;
+                anyidAdaptor.userCheck();
+            }  
+        }
+        
+        anyidAdaptor.userCheck = function(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", anyidAdaptor.agencyContextPath + "/oidc/userCheck", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        anyidAdaptor.ssoLogin();
+                    } else {
+                        setTimeout(function() {
+                            anyidAdaptor.receiveAnyIdJoin(response.uri, response.data);
+                        }, 100);  
+                    }
+                }
+            };
+            let jsonObject = new Object();
+            jsonObject.txId = anyidAdaptor.certData.txId;
+            jsonObject.ssob = anyidAdaptor.certData.ssob;
+            jsonObject.userSeCd = anyidAdaptor.certData.userSeCd;
+            
+            let jsonStr = JSON.stringify(jsonObject);
+            let encodedString = btoa(jsonStr);
+ 
+            var data = "data=" + encodedString + "&txId=" + anyidAdaptor.certData.txId;
+            xhr.send(data);
+            
+        }
+
+        //anyid가입
+        anyidAdaptor.receiveAnyIdJoin = function(portalJoinUri, memberData){
+            var url = portalJoinUri+encodeURIComponent(memberData);
+            anyidAdaptor.popup(url,"openAnyIdRegistUserIdv",700,740);
+
+            window.addEventListener("message", function(event) {
+                var result;
+                try {
+                    result = JSON.parse(event.data);
+                } catch (error) {
+                    console.error("Received message is not valid JSON:", error);
+                    return;
+                }
+                
+                if(!result.funcName || (result.funcName !== "trmsAgreComplete" && result.funcName !== "registUserComplete")) {
+                    return;
+                }
+                if(result.status === "success") {
+                    if(result.trmsAgreYn == "Y"){
+                        anyidAdaptor.ssoLogin();
+                    }else{
+                        anyidAdaptor.orgLogin(anyidAdaptor.certData);
+                    }
+                }else{
+                    
+                    anyidAdaptor.orgLogin(anyidAdaptor.certData);
+                }
+
+            }, false);
+        }
+
+        // 팝업 호출
+        anyidAdaptor.popup = function(url, name, width, height){
+            let left = (screen.width) ? (screen.width-width)/2 : 0;
+            let top = (screen.height) ? (screen.height-height)/2 : 0;
+            let popup=window.open(url, name ,"resizable=yes,toolbar=no,scrollbars=yes,location=no,top="+top+"px,left="+left+"px,width="+width+"px,height="+height+"px");
+            if(popup){
+                popup.focus();
+            }
+        }
+
+        anyidAdaptor.ssoLogin = function(){
+        	console.log("anyidAdaptor.ssoLogin START");
+            let jsonObject = new Object();
+            jsonObject.txId = anyidAdaptor.certData.txId;
+            jsonObject.ssob = anyidAdaptor.certData.ssob;
+            jsonObject.userSeCd = anyidAdaptor.certData.userSeCd;
+            jsonObject.afData = anyidAdaptor.certData.afData;
+  
+            let jsonStr = JSON.stringify(jsonObject);            
+            let encodedString = btoa(jsonStr);
+            var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/ssoLogin";
+            
+            var urlWithParams = baseUrl + "?data=" + encodedString;
+            window.location.href = urlWithParams;
+            console.log("anyidAdaptor.ssoLogin END");
+            
+        }
+        
+        anyidAdaptor.ssoLoginPageSub = function(baseUrl, endPoint, acrValues){
+        	console.log("anyidAdaptor.ssoLoginPageSub START");
+            var subUrl = "";
+            
+            if (endPoint && endPoint.trim() !== "") {
+                subUrl = "?endPoint=" + encodeURIComponent(endPoint);
+            }
+            
+            if (!acrValues && acrValues.trim() == "") {
+                acrValues = "3";
+            }
+            
+            if (acrValues && acrValues.trim() !== "") {
+                if(subUrl == ""){
+                    subUrl = "?";
+                }else{
+                    subUrl = subUrl + "&";
+                }
+                subUrl = subUrl + "acrValues=" + acrValues;
+            }
+
+            window.location.replace(baseUrl+subUrl);
+        }
+        
+        /**/
+        anyidAdaptor.ssoLogout = function(endPoint) {
+            endPoint = typeof endPoint !== 'undefined' ? endPoint : "/";
+            var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/ssoLogout";
+            baseUrl = baseUrl + "?endPoint=" + encodeURIComponent(endPoint);
+            window.location.replace(baseUrl);
+        }
+        /**/
+        anyidAdaptor.reAuthLevel = function(endPoint, acrValues){
+            endPoint = typeof endPoint !== 'undefined' ? endPoint : "/";
+            var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/reAuthLevel";
+            anyidAdaptor.ssoLoginPageSub(baseUrl, endPoint, acrValues);
+
+        }
+        /**/
+        anyidAdaptor.ssoLoginPage = function(endPoint, acrValues){
+        	console.log("anyidAdaptor.ssoLoginPage START");
+            endPoint = typeof endPoint !== 'undefined' ? endPoint : "/";
+            var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/auth";
+            endPoint ='/memb/AnyIdSsoLogin.pt';  //추가, SSO인증시 호출 END POINT
+            anyidAdaptor.ssoLoginPageSub(baseUrl, endPoint, acrValues);
+            console.log("anyidAdaptor.ssoLoginPage END");
+        }
+        
+        /**/
+        anyidAdaptor.ssoSvcToSvc = function(url, endPoint){
+            var baseUrl = url + "/oidc/svcToSvc?endPoint=" + encodeURIComponent(endPoint);
+            window.open(baseUrl, "_blank");
+        }
+
+        
+    </script>
+
+
+
+
+
+
+
+	<div class="skip">
+		<ul>
+			<li><a href="#content">본문 바로가기</a></li>
+		</ul>
+	</div>
+	<div id="header">
+		<div class="guide-nuri-box">
+			<div class="inner">
+				<span> <img src="/common/images/ptg/common/top_direct1.png" alt="태극기" style="margin-top: -2px;"> 이 누리집은 대한민국 공식 전자정부 누리집입니다. 
+												
+					<a href="#" onclick="anyidAdaptor.ssoLoginPage(&quot;/memb/AnyIdLogin.pt&quot;,&quot;&quot;)" title="로그인" style="color:#f2f2f2">..</a>
+				
+				</span>
+			</div>
+		</div>
+		<div class="top">
+			<div class="inner">
+				<div class="fr">
+					<ul class="list_header_top">				
+						<li class="pt5">
+							
+						</li>
+						<li class="pt5">
+							
+							
+								<a href="/memb/MembLoginR.pt" title="로그인">로그인</a>
+							
+							
+						</li>
+						<li class="pt5">
+							
+								<a href="/memb/stipDetailRM.pt" title="회원가입">회원가입</a>
+							
+								
+						</li>
+						<li class="pt5">
+							<a href="/guide/G4FIntroR.pt" title="이용안내">이용안내</a>
+						</li>
+						<li class="pt5">
+							<a href="/cnslt/faq/FaqListR.pt" title="고객센터">고객센터</a>
+						</li>
+						
+						<li>
+							<div class="combo select_language">
+								<ul>
+								
+								
+								
+								
+									<li class="selected_lang"><a href="" onclick="gfn_setLocale('kr'); return false;" id="lang_kr" title="한국어(선택)">한국어</a></li>
+									<li><a href="" onclick="gfn_setLocale('en'); return false;" id="lang_en" title="영어">ENGLISH</a></li>
+									<li><a href="" onclick="gfn_setLocale('ch'); return false;" id="lang_ch" title="중국어">中文</a></li>
+								
+								
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="gnb">
+			<!-- 통합 검색 -->
+			<div id="search_all">
+				<div class="inner">					
+					<div class="sec_search">
+						<div class="form_input">
+							<div class="fl">
+								<div class="search_option">통합검색</div>
+							</div>
+							<div class="fr">
+								<input type="text" name="search" class="search_word" title="검색어" placeholder="검색어를 입력하세요.">
+								<a href="javascript:;" class="btn_search_all" title="검색"><span class="sr-only">검색</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="btn_top">
+						<a href="javascript:;" class="btn_close_search_all"><span class="sr-only">통합검색 닫기</span></a>
+					</div>
+				</div>
+			</div>
+			<!-- //통합 검색 -->
+			<div class="inner">
+				<div class="img_sub_header"></div>
+
+				<div class="menu">
+					<h1>
+					<a href="/" title="Hi Korea">Hi Korea</a>
+					</h1>
+					<div class="fr">
+						<nav>
+						<ul class="list_gnb" id="gnb" role="menubar">
+							<li>
+								<a role="menuitem" href="javascript:void(0);" aria-expanded="false" aria-haspopup="true">민원신청</a>
+								<ul role="menu" style="height: 635px;">
+									<li role="none">
+										<a href="/cvlappl/CvlapplStep1.pt" title="전자민원">전자민원</a>
+									</li>
+									<li role="none">
+										<a href="/resv/ResvIntroR.pt" title="방문예약">방문예약</a>
+									</li>
+									
+									<li role="none">
+										<a href="/cvlappl/CvlapplAgentInfo.pt" title="출입국민원 대행기관 이용">출입국민원 대행기관 이용</a>
+									</li>
+									<li role="none">
+										<a href="/prefcard/PrefCardMain.pt" title="출입국우대카드(기관담당자전용)">출입국우대카드(기관담당자전용)</a>
+									</li>								
+									<li role="none">
+									<!-- 2021.03.15 민원신청 온라인 상륙허가 메뉴 황경희계장님 요청으로 주석 해제  -->
+										<a href="/online/Landing.pt">온라인 상륙허가</a>  
+									</li>
+									
+								</ul>
+							</li>
+							<li>
+								<a role="menuitem" href="javascript:void(0);" aria-expanded="false" aria-haspopup="true">정보조회</a>
+								<ul role="menu" style="height: 635px;">
+									<li role="none">
+										<a role="menuitem" href="javascript:void(0);" aria-expanded="false" aria-haspopup="true">민원신청결과 </a>
+										<ul role="menu">
+											<li role="none">
+												<a href="/mypage/MypgCvlapplPageR.pt" title="전자민원">전자민원</a>
+											</li>
+											<li role="none">
+												<a href="/mypage/MypgResvPageR.pt" title="방문예약">방문예약</a>
+											</li>
+											<li role="none">
+												<a target="_blank" href="https://www.visa.go.kr/openPage.do?MENU_ID=10301" title="사증발급인정서(새창열림)">사증발급인정서</a>
+											</li>
+											<li role="none">
+												<a href="/mypage/MypgCvlapplRfgPageR.pt">난민 이의신청</a>
+											</li>
+											
+										</ul>
+									</li>
+									<li role="none">
+										<!-- <a href="javascript:;" title="기타 조회 서비스">기타 조회 서비스</a> -->
+										<a role="menuitem" href="javascript:void(0);" aria-expanded="false" aria-haspopup="true">기타 조회 서비스</a>
+										<ul role="menu">
+											<li role="none">
+												<a href="/gvrnsrch/GvrnSrchPageR.pt" title="관할 출입국.외국인관서 조회">관할 출입국.외국인관서 조회</a>
+											</li>
+											<li role="none">
+												<a href="/info/InfoFrnRegIdChkIdentityPageR.pt" title="등록증 · 거소증 유효확인">등록증 · 거소증 유효확인</a>
+											</li>
+											<li role="none">
+												<a href="/info/InfoFrnReportLostPageR.pt" title="등록증·거소증 분실(철회) 신고">등록증·거소증 분실(철회) 신고</a>
+											</li>
+											
+											<li role="none">
+												<a href="/info/InfoFrnJobIdentityPageR.pt" title="외국인 취업 및 고용가능여부 조회">외국인 취업 및 고용가능여부 조회</a>
+											</li>
+											<li role="none">
+												<a href="/board/BoardNtcDetailR.pt?BBS_SEQ=1&amp;BBS_GB_CD=BS10&amp;NTCCTT_SEQ=208" title="출입국민원 대행기관 조회">출입국민원 대행기관 조회</a>
+											</li>
+											<li role="none">
+												<a href="/board/BoardNtcDetailR.pt?BBS_SEQ=1&amp;BBS_GB_CD=BS10&amp;NTCCTT_SEQ=365&amp;page=1" title="법무부지정 의료기관 조회">법무부지정 의료기관 조회</a>
+											</li>
+											
+											<li role="none">
+												<a href="/info/CheckExprYmdByPassNoR.pt" title="체류만료일조회">체류만료일조회</a>
+											</li>
+											
+											<li role="none">
+												<a href="/info/BabySitterIdentityPageR.pt" title="육아도우미 교육수료자 조회">육아도우미 교육수료자 조회</a>
+											</li>
+											
+											<li role="none">
+												<a href="/info/OtherMyCvlapplPageR.pt" title="통합고용변동 민원조회">통합고용변동 민원조회</a>
+											</li>
+											<li role="none">
+												<a href="/info/PermFormIssCnfrmR.pt" title="전자민원 허가서 발급 확인">전자민원 허가서 발급 확인</a>
+											</li>
+											
+											<li role="none">
+												<a href="/info/ProhibitionSearchIdentityPageR.pt" title="출국금지 여부 조회&lt;br/&gt;(한국인 전용)">출국금지 여부 조회<br>(한국인 전용)</a>
+											</li>
+											
+											<li role="none">
+												<a href="/info/CvlapplNltR.pt" title="국적심사 진행상황 조회">국적심사 진행상황 조회</a>
+											</li>
+											
+										</ul>
+									</li>
+								</ul>
+							</li>
+							
+							<li>
+								<a role="menuitem" href="javascript:void(0);" aria-expanded="false" aria-haspopup="true">자동출입국심사</a>
+								<ul role="menu" style="height: 635px;">
+									<li role="none">
+										<a role="menuitem" href="javascript:void(0);" aria-expanded="false" aria-haspopup="true" title="SES 안내">SES 안내</a>
+										<ul>
+											<li role="none">
+												<a href="/ses/SesInfoR.pt" title="Smart Entry Service란?">Smart Entry Service란?</a>
+											</li>
+											<li role="none">
+												<a href="/ses/SesObjectR.pt" title="이용대상">이용대상</a>
+											</li>
+											<li role="none">
+												<a href="/ses/SesUseStepR.pt" title="SES Auto-gate 이용방법">SES Auto-gate 이용방법</a>
+											</li>
+											<li role="none">
+												<a href="/ses/SesCenterR.pt" title="SES 등록센터 및 이용가능 공항">SES 등록센터 및 이용가능 공항</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a role="menuitem" href="javascript:void(0);" aria-expanded="false" aria-haspopup="true">자동출입국심사 상호이용</a>
+										<ul role="menu">
+											<li role="none">
+												<a href="/ses/GeApplInfoR.pt" title="한·미국">한·미국(SeS-GE)</a>
+											</li>
+											<li role="none">
+												<a href="/ses/sesecn/EcnApplInfoR.pt" title="한-홍콩(SES-e-Channel)">한-홍콩(SES-e-Channel)</a>
+											</li>
+											<li role="none">
+												<a href="/ses/sesapc/ApcApplInfoR.pt" title="한-마카오(SES-APC)">한-마카오(SES-APC)</a>
+											</li>
+											<li role="none">
+												<a href="/ses/sesegt/EgtApplInfoR.pt" title="한-대만(SES-e-Gate)">한-대만(SES-e-Gate)</a>
+											</li>
+											<li role="none">
+												<a href="/ses/seseyp/EypApplInfoR.pt" title="한-독일(SES-EasyPASS)">한-독일(SES-EasyPASS)</a>
+											</li>
+										</ul>
+									</li>
+									
+								</ul>
+							</li>
+							
+							<li>
+								<a role="menuitem" href="javascript:void(0);" aria-expanded="false" aria-haspopup="true">정보광장</a>
+								<ul role="menu" style="height: 635px;">
+									<li role="none">
+										<a href="/info/NavigatorGuide.pt" title="비자내비게이터(맞춤형 &lt;br&gt;체류가이드)">비자내비게이터(맞춤형 <br>체류가이드)</a>
+									</li>
+									
+									<li role="none">
+										<a href="/info/InfoDatail.pt?CAT_SEQ=7215&amp;PARENT_ID=1585" title="동포 맞춤형 길라잡이">동포 맞춤형 길라잡이</a>
+									</li>
+									
+									
+									<li role="none">
+										<a href="/board/BoardNtcDetailR.pt?BBS_SEQ=1&amp;BBS_GB_CD=BS10&amp;NTCCTT_SEQ=1062&amp;page=1" title="체류자격별 안내메뉴얼">체류자격별 안내메뉴얼</a>
+									</li>
+									
+									<li role="none">
+										<a target="_blank" title="한국생활 길잡이(새창열림)" href="http://korea.net">한국생활 길잡이</a>
+									</li>
+									<li role="none">
+									
+										<a href="/info/InfoMain.pt" title="출입국/체류안내">출입국/체류안내</a>
+									
+									
+									</li>
+									<li role="none">
+										<a href="/info/InfoDatail.pt?CAT_SEQ=2026&amp;PARENT_ID=147" title="국적/귀화안내">국적/귀화안내</a>
+									</li>
+									<li role="none">
+										<a target="_blank" title="사회통합(새창열림)" href="http://www.socinet.go.kr">사회통합</a>
+									</li>
+									
+									<li role="none">
+										<a href="/info/InfoSkilMainR.pt" title="기술창업이민">기술창업이민</a>
+									</li>
+									
+									<li role="none">
+										<a target="_blank" title="투자이민(새창열림)" href="http://www.visa.go.kr">투자이민</a>
+									</li>
+									<li role="none">
+										<a target="_blank" title="투자지원(새창열림)" href="http://www.investkorea.org">투자지원</a>
+									</li>
+									<li role="none">
+										<a target="_blank" title="고용지원(새창열림)" href="http://www.eps.go.kr">고용지원</a>
+									</li>
+									
+									<li role="none">
+										<a href="/guide/LawLink.pt" title="출입국관련 법령지침정보">출입국관련 법령지침정보</a>
+									</li>
+									<li role="none">
+										<a href="https://hikorea.go.kr/bix5/shares/4b2e1e226e5ae81abafa859bbf63fa91" target="_blank" title="빅데이터 분석·시각화">빅데이터 분석·시각화</a>
+									</li>
+									
+								</ul>
+							</li>
+							<li role="none">
+								<a role="menuitem" href="javascript:void(0);" aria-expanded="false" aria-haspopup="true">뉴스·공지</a>
+								<ul role="menu" style="height: 635px;">
+									<li role="none">
+										<a href="/board/BoardListR.pt?BBS_GB_CD=BS10&amp;BBS_SEQ=1" title="공지사항">공지사항</a>
+									</li>
+									<li role="none">
+										<a target="_blank" title="보도자료(새창열림)" href="http://www.immigration.go.kr/immigration/1502/subview.do">보도자료</a>
+									</li>
+									<li role="none">
+										<a target="_blank" title="자료실(새창열림)" href="http://www.immigration.go.kr/immigration/1569/subview.do">자료실</a>
+									</li>
+									<li role="none">
+										<a href="/board/BoardListR.pt?BBS_GB_CD=BS10&amp;BBS_SEQ=41" title="민원서식">민원서식</a>
+									</li>
+									<li role="none">
+										<a target="_blank" title="뉴스레터(새창열림)" href="http://www.immigration.go.kr/immigration/1477/subview.do">뉴스레터</a>
+									</li>									
+																
+								
+								</ul>
+							</li>
+						</ul>
+						</nav>
+					</div>
+				</div>
+				
+				<div class="textbox_sub">
+					<div class="row_top">하이코리아에서는</div>
+					<!-- 1depth 에 따라 text 내용 구분
+					민원신청 -->
+					<div class="row_bottom">편리한 민원신청을 위해<br>온라인으로 신청하실 수 있는 서비스를 제공하고 있습니다.</div>
+					
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+	<!-- //header -->
+	<!-- //header -->
+	<!-- container -->
+	<div id="container">
+		<div class="inner">
+			<!-- side -->
+			
+			<div id="side">
+				<div class="lnb">
+<h1 class="box_sz_bd"><span>뉴스 · 공지</span></h1>
+<ul class="list_lnb">
+<li class="active">
+<a href="/board/BoardNtcListR.pt" aria-expanded="true"><span style="font-size:16px">공지사항</span></a>
+</li>
+<li class="main_li_seq201">
+<a target="_BLANK" title="새창 열림" href="http://www.immigration.go.kr/immigration/1502/subview.do"><span style="font-size:16px">보도자료</span></a>
+</li>
+<li class="main_li_seq202">
+<a target="_BLANK" title="새창 열림" href="http://www.immigration.go.kr/immigration/1569/subview.do"><span style="font-size:16px">자료실</span></a>
+</li>
+<li class="main_li_seq5169">
+<a href="/board/BoardApplicationListR.pt"><span style="font-size:16px">민원서식</span></a>
+</li>
+<li class="main_li_seq203">
+<a target="_BLANK" title="새창 열림" href="http://www.immigration.go.kr/immigration/1477/subview.do"><span style="font-size:16px">뉴스레터</span></a>
+</li>
+</ul>
+</div>
+</div>
+
+			<!-- //side -->
+			<!-- content -->
+			<div id="content">
+				<div class="section_title">
+					<div class="location_bar">
+						<div class="location">
+							<span><a title="홈" class="home">홈</a></span> <span><a href="/board/BoardListR.pt" title="뉴스 · 공지">뉴스 · 공지</a></span> <span><a href="/board/BoardNtcListR.pt" title="공지사항" class="current">공지사항</a></span> 
+						</div>
+					</div>
+					<h1>공지사항</h1>
+				</div>
+				<div class="section_content">
+					<!-- content box -->
+					<div class="grp_content">
+						<form name="updateForm" id="updateForm" method="post">
+							<!--List Start -->
+							<input type="hidden" name="page" id="page" value="1">
+							<input type="hidden" name="BBS_SEQ" id="BBS_SEQ" value="1">
+							<input type="hidden" name="BBS_GB_CD" id="BBS_GB_CD" value="BS10">
+							<input type="hidden" name="NTCCTT_SEQ" id="NTCCTT_SEQ" value="1062">
+							
+								<input type="hidden" name="apndList" id="apndList" value="[{COMCTT_SEQ=1062, APND_SEQ=510, APND_FILE_PATH=/data/laf/upload/pt/ntc, ORI_FILE_NM=260901 사증.체류 민원 자격별 안내 매뉴얼 수정 이력.hwp, FILE_ID=null, APND_FILE_NM=260901 사증.체류 민원 자격별 안내 매뉴얼 수정 이력[20260901101443177].hwp}, {COMCTT_SEQ=1062, APND_SEQ=511, APND_FILE_PATH=/data/laf/upload/pt/ntc, ORI_FILE_NM=260901 사증민원 자격별 안내 매뉴얼.hwp, FILE_ID=null, APND_FILE_NM=260901 사증민원 자격별 안내 매뉴얼[20260901101443182].hwp}, {COMCTT_SEQ=1062, APND_SEQ=512, APND_FILE_PATH=/data/laf/upload/pt/ntc, ORI_FILE_NM=260901 체류민원 자격별 안내 매뉴얼.hwp, FILE_ID=null, APND_FILE_NM=260901 체류민원 자격별 안내 매뉴얼[20260901101443203].hwp}]">
+							
+							
+							<table class="grid">							
+								<caption><strong>
+									공지사항 상세보기
+								</strong><div><em>설명</em> <p>제목, 작성자, 구분, 이메일, 홈페이지, 첨부 정보를 포함하는 표</p></div></caption>
+								<colgroup>
+									<col style="width:20%;">
+									<col style="width:80%;">
+								</colgroup>
+								<tbody>
+									
+										
+										<input type="hidden" name="BBS_SEQ_GB_CD0" id="BBS_SEQ_GB_CD0" value="HIKOREA">
+										<tr>
+											<th scope="row">제목</th>
+											<td>체류자격별 통합 안내 매뉴얼(최신)</td>
+										</tr>
+										<tr>
+											<th scope="row">작성자</th>
+											<td>HIKOREA</td>
+										</tr>								
+										
+										
+											<tr>
+												<th scope="row">구분</th>
+												<td>HIKOREA</td>
+											</tr>
+										
+										
+											<tr style="display:none">
+												<th scope="row">이메일</th>
+												<td></td>
+											</tr>
+											<tr style="display:none">
+												<th scope="row">홈페이지</th>
+												<td></td>
+											</tr>								
+											<tr>
+												<th scope="row" class="tdLabel">첨부</th>
+												<td>
+													
+														
+															
+															<img src="/common/images/ptg/common/file/hwp.gif" onerror="this.src='/common/images/ptg/common/file/etc.gif'" alt="hwp 파일">
+														 
+														<a href="#this" onclick="fnNewFileDownLoad('pt','ntc','260901 사증.체류 민원 자격별 안내 매뉴얼 수정 이력[20260901101443177].hwp', '260901 사증.체류 민원 자격별 안내 매뉴얼 수정 이력.hwp','1062','1','BS10','510','NORMAL'); return false;">260901 사증.체류 민원 자격별 안내 매뉴얼 수정 이력.hwp</a><br>
+														
+														<input type="hidden" id="fileId0" value="">
+														<input type="hidden" id="oriFileNm0" value="260901 사증.체류 민원 자격별 안내 매뉴얼 수정 이력.hwp">
+														<input type="hidden" id="apndFileNm0" value="260901 사증.체류 민원 자격별 안내 매뉴얼 수정 이력[20260901101443177].hwp">
+														<input type="hidden" id="ext0" value="hwp">
+													
+														
+															
+															<img src="/common/images/ptg/common/file/hwp.gif" onerror="this.src='/common/images/ptg/common/file/etc.gif'" alt="hwp 파일">
+														 
+														<a href="#this" onclick="fnNewFileDownLoad('pt','ntc','260901 사증민원 자격별 안내 매뉴얼[20260901101443182].hwp', '260901 사증민원 자격별 안내 매뉴얼.hwp','1062','1','BS10','511','NORMAL'); return false;">260901 사증민원 자격별 안내 매뉴얼.hwp</a><br>
+														
+														<input type="hidden" id="fileId1" value="">
+														<input type="hidden" id="oriFileNm1" value="260901 사증민원 자격별 안내 매뉴얼.hwp">
+														<input type="hidden" id="apndFileNm1" value="260901 사증민원 자격별 안내 매뉴얼[20260901101443182].hwp">
+														<input type="hidden" id="ext1" value="hwp">
+													
+														
+															
+															<img src="/common/images/ptg/common/file/hwp.gif" onerror="this.src='/common/images/ptg/common/file/etc.gif'" alt="hwp 파일">
+														 
+														<a href="#this" onclick="fnNewFileDownLoad('pt','ntc','260901 체류민원 자격별 안내 매뉴얼[20260901101443203].hwp', '260901 체류민원 자격별 안내 매뉴얼.hwp','1062','1','BS10','512','NORMAL'); return false;">260901 체류민원 자격별 안내 매뉴얼.hwp</a><br>
+														
+														<input type="hidden" id="fileId2" value="">
+														<input type="hidden" id="oriFileNm2" value="260901 체류민원 자격별 안내 매뉴얼.hwp">
+														<input type="hidden" id="apndFileNm2" value="260901 체류민원 자격별 안내 매뉴얼[20260901101443203].hwp">
+														<input type="hidden" id="ext2" value="hwp">
+													 
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2"><p style="line-height:" 1.5;="font-size:=" 12pt;="margin-top:=" 0pt;="margin-bottom:="><span style="font-size:" 14pt;=""><span style="font-family:;" font-size:="13pt;=">안녕하십니까?</span></span></p><p style="line-height:" 1.5;="font-size:=" 12pt;="margin-top:=" 0pt;="margin-bottom:=">&nbsp;</p><p style="line-height:" 1.5;="font-size:=" 12pt;="margin-top:=" 0pt;="margin-bottom:="><span style="font-family:;" font-size:="13pt;="><span style="font-size:" 13pt;="">출입국업무(사증 및 체류)와 관련하여 각 체류자격별 신청대상 및 필요서류에 대한 이해를 돕기 위해 안내 매뉴얼을 제작하여 등재하오니 많은 이용 바랍니다.<strong>&nbsp;</strong></span></span></p><p style="line-height:" 1.5;="font-size:=" 12pt;="margin-top:=" 0pt;="margin-bottom:="><span style="font-size:" 14pt;=""><span style="font-family:;" font-size:="13pt;=">체류자격별 통합 안내 매뉴얼은 지침 변경 시 수정하여 등재하고 있으나, 업로드 되는 데 시간이 소요될 수 있습니다.</span></span></p><p style="line-height:" 1.5;="font-size:=" 12pt;="margin-top:=" 0pt;="margin-bottom:=">&nbsp;</p><p style="line-height:" 1.5;="font-size:=" 12pt;="margin-top:=" 0pt;="margin-bottom:="><span style="font-size:" 14pt;=""><span style="font-family:;" font-size:="13pt;=">따라서 최신 지침에 따른 정확한 상담을 받고자 하는 경우 1345에 전화하시거나 방문예약 후 관할 출입국외국인·관서에 방문하시기 바랍니다.</span></span></p><p style="line-height:" 1.5;="font-size:=" 12pt;="margin-top:=" 0pt;="margin-bottom:=">&nbsp;</p><p style="line-height:" 1.5;="font-size:=" 12pt;="margin-top:=" 0pt;="margin-bottom:=">&nbsp;</p><p style="line-height:" 1.5;="font-size:=" 12pt;="margin-top:=" 0pt;="margin-bottom:=">&nbsp;</p><p style="line-height:" 1.5;="font-size:=" 12pt;="margin-top:=" 0pt;="margin-bottom:="><img src="data:;base64,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" border="0" style="font-size:" 9pt;="border:=" none;="">&nbsp; &nbsp;</p><p style="line-height:" 1.5;="font-size:=" 12pt;="margin-top:=" 0pt;="margin-bottom:="><span style="font-size:" 12pt;="font-family:=" 맑은="고딕;=">&nbsp;<span style="font-family:" 맑은="고딕;=" font-size:="12pt;=">[제4유형: 출처명시 + 상업적 이용금지 + 변경금지]</span></span></p></td>
+											</tr>
+										
+									
+								</tbody>
+							</table>
+						</form>
+					</div>
+					<!--List End -->
+					<!-- button -->
+					<div class="grp_button">
+						<button id="boardListR" type="button" class="btn_blue">목록</button>
+						<button id="goPrint" class="btn_blue" type="button">인쇄하기</button>
+						
+							
+						
+					</div>
+					<!-- button -->	
+				</div>
+			</div>
+		</div>
+		<form name="fileDownForm" id="fileDownForm">
+			<input type="hidden" name="apndFilePath" id="apndFilePath" value="">
+			<input type="hidden" name="fileId" id="fileId" value="">
+			<input type="hidden" name="oriFileNm" id="oriFileNm" value="">
+			<input type="hidden" name="downloadUrl">
+		</form>
+	</div>
+
+ 
+	<p id="btn_go_top"><a href="#" aria-label="문서 처음으로 이동">TOP</a></p>
+	<div id="footer">
+		<div class="list_footer_menu">
+			<div class="inner">
+				<div>
+					<a href="/guide/UsrInfoPttPlcyR.pt"><span style="color: #0619a0;"><b><u>개인정보처리방침</u></b></span></a>
+				</div>
+				
+				<div>
+					<a href="/guide/WebAccessGuide.pt">웹접근성정책</a>
+				</div>
+				
+				<div>
+					<a href="http://152.99.88.171" target="_blank" title="새창열림">원격접속</a>
+				</div>
+				<div>
+					<a href="javascript:;">관련사이트</a>
+				</div>
+				<div>
+					<a href="javascript:;">지역/지방정부</a>
+				</div>
+			</div>
+		</div>
+		<div class="information">
+			<div class="inner">
+				<div class="main_logo">
+					<img src="/common/images/ptg/common/moj_logo.png" alt="태극 문양" style="margin-top: -16px;">
+					<span class="number">1345</span>
+				</div>
+				<div>
+					
+						<span class="address">(13809) 경기도 과천시 관문로 47 정부과천청사 (1동)</span>
+					
+					
+					
+				</div>
+				<div class="contact">
+					<div class="fl">
+						<span class="info">외국인종합안내센터 : 1345 (월~금 09:00-22:00, 공휴일 제외, 유료)</span>
+						<div class="link_sns">
+							<a href="http://www.facebook.com/immigration.kr" target="_blank" class="facebook" title="새창열림">페이스북</a>
+						</div>
+					</div>
+					<div class="fr">
+						<div class="combo download_viewer">
+							<div class="selected">
+								<a href="#this" class="acrobat" title="다운로드 목록 열기">다운로드</a>
+							</div>
+							<div class="expand">
+								<a href="http://get.adobe.com/kr/reader/" class="acrobat" title="새창열림 " target="_blank">아크로벳 다운로드</a>
+								<a href="http://www.microsoft.com/downloads/ko-kr/details.aspx?FamilyID=1cd6acf9-ce06-4e1c-8dcf-f33f669dbc3a&amp;DisplayLang=ko" class="excel" title="새창열림" target="_blank">엑셀 다운로드</a>
+								<a href="http://www.hancom.co.kr/downLoad.downPU.do?mcd=001" class="hangeul" title="새창열림" target="_blank">한글 다운로드</a>
+								<a href="ttp://www.microsoft.com/downloads/ko-kr/details.aspx?FamilyID=3657ce88-7cfa-457a-9aec-f4f827f20cac&amp;DisplayLang=ko" class="word" title="새창열림" target="_blank">워드 다운로드</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="contact">
+					<div class="fl">
+						<span>(해외문의) +82-2-1345, +82-2-6908-1345~6</span>
+						
+						<span class="fax_number">(FAX민원) 1577-1346</span>
+						
+						
+						
+					</div>
+				</div>
+				<div class="copyright">
+					<span>Copyright ⓒ 2020 HI KOREA. All rights Reserved.</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+<!-- <script type="text/javascript" src="/TouchEn/nxKey/js/TouchEnNx.js"></script> -->	
+<form style="display: none" name="frmCmmAuth" id="frmCmmAuth" method="post" action="/"></form>
+</div>
+
+
+
+</body></html>
