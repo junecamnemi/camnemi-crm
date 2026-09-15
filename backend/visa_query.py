@@ -146,6 +146,31 @@ def show_g1(sub=None):
     print(f"  [취업] {cw.get('가능')}")
     print(f"    범위: {cw.get('범위')}")
 
+def show_departure():
+    d = KB.get("voluntary_departure", {})
+    print("■ 자진출국 제도")
+    g = d.get("일반_자진출국", {})
+    print("  [일반] " + g.get("내용",""))
+    print("    절차: " + g.get("절차",""))
+    print("    서류: " + g.get("서류",""))
+    s = d.get("특별_자진출국_2025", {})
+    print(f"  [특별 자진출국] {s.get('기간')} — {s.get('혜택')}")
+    print(f"    제외: {', '.join(s.get('제외대상',[]))}")
+
+def show_fine():
+    f = KB.get("fine_standards", {})
+    print(f"■ 범칙금 양정기준 ({f.get('근거','')})")
+    for k in ("불법체류_제17조_제94조7호","무자격_취업_제18조_제94조8호","체류기간연장_미허가_제25조_제94조17호"):
+        if k in f:
+            print(f"  [{k}]")
+            for kk,vv in f[k].items(): print(f"    {kk}: {vv}")
+
+def show_factcheck():
+    print("■ 인터넷 주장 검증 결과")
+    for x in KB.get("fact_check", []):
+        print(f"  {x.get('판정')} | {x.get('주장')}")
+        print(f"      ({x.get('출처')}) {x.get('근거','')}")
+
 ap = argparse.ArgumentParser()
 ap.add_argument("--from", dest="frm"); ap.add_argument("--to")
 ap.add_argument("--family"); ap.add_argument("--income", action="store_true")
@@ -153,12 +178,17 @@ ap.add_argument("--sajeung"); ap.add_argument("--status"); ap.add_argument("--fl
 ap.add_argument("--photo", action="store_true")
 ap.add_argument("--che"); ap.add_argument("--list", action="store_true")
 ap.add_argument("--illegal", action="store_true"); ap.add_argument("--g1", nargs="?", const="", default=None)
+ap.add_argument("--departure", action="store_true"); ap.add_argument("--fine", action="store_true")
+ap.add_argument("--factcheck", action="store_true")
 a = ap.parse_args()
 if a.flow: show_flow()
 elif a.list: show_list()
 elif a.che: show_che(a.che)
 elif a.illegal: show_illegal()
 elif a.g1 is not None: show_g1(a.g1)
+elif a.departure: show_departure()
+elif a.fine: show_fine()
+elif a.factcheck: show_factcheck()
 elif a.photo: print("■ 외국인등록용 사진 규격\n"+KB.get("photo_spec",""))
 elif a.income: show_income()
 elif a.family: show_family(a.family)
