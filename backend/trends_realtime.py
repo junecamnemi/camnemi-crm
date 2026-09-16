@@ -31,6 +31,16 @@ def tiktok_trends():
         if t and t not in tags and len(t)<30: tags.append(t)
     return tags[:12]
 
+def bugs_idol_chart():
+    """벅스 K-POP 아이돌 전용 차트 (일간) — 멜론엔 없는 아이돌 차트."""
+    try:
+        h = chrome("https://music.bugs.co.kr/genre/chart/kpop/idol/total/day", 12000, "bugs")
+        titles = re.findall(r'<p class="title"[^>]*>\s*<a[^>]*>([^<]{2,80})</a>', h)
+        artists = re.findall(r'<p class="artist"[^>]*>\s*<a[^>]*>([^<]{2,60})</a>', h)
+        return [{"rank":i+1,"song":t.strip(),"artist":(artists[i].strip() if i<len(artists) else "")} for i,t in enumerate(titles[:15])]
+    except Exception as e:
+        return [{"error":str(e)[:50]}]
+
 def youtube_trending():
     """YouTube 트렌드: 급상승 피드는 비로그인 차단 → kworb(24h 최다조회 MV)로 대체."""
     try:
@@ -56,13 +66,17 @@ def main():
     print("\n=== TikTok 화제 해시태그 ===")
     tt = tiktok_trends()
     for x in tt[:10]: print("  · #"+x)
+    print("\n=== 벅스 K-POP 아이돌 차트 (일간) ===")
+    bg = bugs_idol_chart()
+    for x in bg[:10]:
+        print(f"  {x.get('rank','')}. {x.get('song','')} — {x.get('artist','')}")
     print("\n=== YouTube 급상승 ===")
     yt = youtube_trending()
     for x in yt[:10]: print("  ·", x)
     res={"collected_at":datetime.datetime.now().isoformat(timespec="seconds"),
-         "naver_news":nv, "tiktok_tags":tt, "youtube_trending":yt}
+         "naver_news":nv, "tiktok_tags":tt, "bugs_idol":bg, "youtube_trending":yt}
     p=os.path.join(os.path.dirname(__file__),"trends_realtime.json")
     json.dump(res, open(p,"w",encoding="utf-8"), ensure_ascii=False, indent=1)
-    print("\n저장:", p, "| nv",len(nv),"tt",len(tt),"yt",len(yt))
+    print("\n저장:", p, "| nv",len(nv),"tt",len(tt),"idol",len(bg),"yt",len(yt))
 if __name__=="__main__":
     main()
