@@ -25,7 +25,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kaya",
   "ek": "가야대학교",
   "logo": "univ_logos/66bcc5130b.png",
-  "stu": 1937,
+  "stu": 2355,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -4597,7 +4597,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kyungdong",
   "ek": "경동대학교",
   "logo": "univ_logos/978079903b.png",
-  "stu": 1147,
+  "stu": 7060,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -15650,7 +15650,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Geumgang",
   "ek": "금강대학교",
   "logo": "univ_logos/80d5f72687.png",
-  "stu": 96,
+  "stu": 394,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -18975,7 +18975,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daeshin",
   "ek": "대신대학교",
   "logo": "univ_logos/7598a71546.png",
-  "stu": 1510,
+  "stu": 605,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -30116,7 +30116,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hanyoung",
   "ek": "서울한영대학교",
   "logo": "univ_logos/6e97bc30f8.png",
-  "stu": 1004,
+  "stu": 885,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -33075,7 +33075,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Suwon Catholic",
   "ek": "수원가톨릭대학교",
   "logo": "univ_logos/f8ec949178.png",
-  "stu": 121,
+  "stu": 10055,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -34925,7 +34925,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SKU",
   "ek": "신경주대학교",
   "logo": "univ_logos/9f914f8298.png",
-  "stu": 1322,
+  "stu": 804,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -35306,7 +35306,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Shinhan",
   "ek": "신한대학교",
   "logo": "univ_logos/84ebd1ce6f.png",
-  "stu": 891,
+  "stu": 8295,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -35596,7 +35596,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "ACT",
   "ek": "아신대학교",
   "logo": "univ_logos/82493da5b9.png",
-  "stu": 296,
+  "stu": 573,
   "rk": null,
   "type": "univ",
   "majors_ba": [
