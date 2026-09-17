@@ -197,14 +197,10 @@
    "school": "대구예술대학교",
    "status_prev": "2026_or_older",
    "url": "https://ipsi.dgau.ac.kr/fore.php",
-   "reachable": true,
+   "reachable": false,
    "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인",
-    "전형"
-   ],
-   "probe": "http:200",
+   "keywords": [],
+   "probe": "error:ConnectionError",
    "adiga_2027": false
   },
   {
@@ -572,10 +568,14 @@
    "school": "조선대학교",
    "status_prev": "2026_or_older",
    "url": "https://www3.chosun.ac.kr/bbs/global/424/276714/artclView.do",
-   "reachable": false,
+   "reachable": true,
    "has_2027": false,
-   "keywords": [],
-   "probe": "error:ConnectionError",
+   "keywords": [
+    "모집요강",
+    "외국인",
+    "전형"
+   ],
+   "probe": "http:200",
    "adiga_2027": false
   },
   {
@@ -1273,15 +1273,10 @@
    "school": "대구예술대학교",
    "status_prev": "not_found",
    "url": "https://ipsi.dgau.ac.kr/notice_fore",
-   "reachable": true,
+   "reachable": false,
    "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인",
-    "신입학",
-    "전형"
-   ],
-   "probe": "http:200",
+   "keywords": [],
+   "probe": "error:ConnectionError",
    "adiga_2027": false
   },
   {
@@ -2128,21 +2123,6 @@
    "adiga_2027": false
   },
   {
-   "school": "전북대학교",
-   "status_prev": "2026_or_older",
-   "url": "https://ioffice.jbnu.ac.kr/ioffice/31621/subview.do",
-   "reachable": true,
-   "has_2027": true,
-   "keywords": [
-    "모집요강",
-    "2027",
-    "외국인",
-    "전형"
-   ],
-   "probe": "http:200",
-   "adiga_2027": false
-  },
-  {
    "school": "전주대학교",
    "status_prev": "2026_or_older",
    "url": "https://graduate.jj.ac.kr/graduate/apply/guidelinesf.do",
@@ -2215,7 +2195,10 @@
    "url": "https://admission.sangha.ac.kr/GRADUATE/?ACT=ADMISSION_GRADUATE",
    "reachable": true,
    "has_2027": false,
-   "keywords": [],
+   "keywords": [
+    "외국인",
+    "전형"
+   ],
    "probe": "http:200",
    "adiga_2027": false
   },
@@ -2586,7 +2569,5 @@
   }
  ],
  "new_ba": [],
- "new_ma": [
-  "전북대학교"
- ]
+ "new_ma": []
 }
