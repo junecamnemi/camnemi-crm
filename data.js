@@ -25,7 +25,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kaya",
   "ek": "가야대학교",
   "logo": "univ_logos/66bcc5130b.png",
-  "stu": 2355,
+  "stu": 1610,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -73,7 +73,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "본교 자체시험으로 한국어 자격이"
     }
    ]
-  }
+  },
+  "fstu": 12
  },
  {
   "n": "가천대학교",
@@ -181,7 +182,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Gachon",
   "ek": "가천대학교",
   "logo": "univ_logos/3b9121dad7.png",
-  "stu": 29323,
+  "stu": 22520,
   "rk": 25,
   "type": "univ",
   "majors_ba": [
@@ -843,7 +844,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 ※ 한국어 의무수강 안내(영어트랙 포함)"
     }
    ]
-  }
+  },
+  "fstu": 4996
  },
  {
   "n": "가톨릭관동대학교",
@@ -901,7 +903,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "CK",
   "ek": "가톨릭관동대학교",
   "logo": "univ_logos/5826394040.png",
-  "stu": 8040,
+  "stu": 5229,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -1070,7 +1072,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "③ 사회통합프로그램 3단계 이상 이수하거나 사전평가 61점 이상 취득"
     }
    ]
-  }
+  },
+  "fstu": 157
  },
  {
   "n": "가톨릭꽃동네대학교",
@@ -1095,7 +1098,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KKU",
   "ek": "가톨릭꽃동네대학교",
   "logo": "univ_logos/acaf05ba0d.png",
-  "stu": 576,
+  "stu": 418,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -1197,7 +1200,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 … 중 하나를 필수 이수하여야"
     }
    ]
-  }
+  },
+  "fstu": 2
  },
  {
   "n": "가톨릭대학교",
@@ -1684,7 +1688,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "MTU",
   "ek": "감리교신학대학교",
   "logo": "univ_logos/56f6761673.png",
-  "stu": 754,
+  "stu": 564,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -1752,7 +1756,8 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "11",
    "foreign_pct": "1.5"
   },
-  "period": "2026.9.7~"
+  "period": "2026.9.7~",
+  "fstu": 3
  },
  {
   "n": "강남대학교",
@@ -1815,7 +1820,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kangnam",
   "ek": "강남대학교",
   "logo": "univ_logos/24a4d28aaa.png",
-  "stu": 8680,
+  "stu": 6522,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -2013,7 +2018,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "이중언어과정(중국어): 졸업학점의50% 이상을중국어로진행"
     }
    ]
-  }
+  },
+  "fstu": 485
  },
  {
   "n": "강서대학교",
@@ -2048,7 +2054,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KSU",
   "ek": "강서대학교",
   "logo": "univ_logos/420a2d8ac1.png",
-  "stu": 2218,
+  "stu": 1742,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -2180,7 +2186,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "KIIP 3단계 이상 이수 또는 사전평가 61점 이상 취득"
     }
    ]
-  }
+  },
+  "fstu": 706
  },
  {
   "n": "강원대학교",
@@ -2295,7 +2302,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kangwon",
   "ek": "강원대학교",
   "logo": "univ_logos/4043894c23.png",
-  "stu": 20737,
+  "stu": 18974,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -2938,7 +2945,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "온라인 세종학당 수료증 미인정; 글로벌융합학부 글로벌산업기술전공 영어트랙은 KNU예비학부 수료자만 지원가능"
-  }
+  },
+  "fstu": 1114
  },
  {
   "n": "건국대학교",
@@ -3024,7 +3032,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Konkuk",
   "ek": "건국대학교",
   "logo": "univ_logos/d247f0ed72.png",
-  "stu": 22836,
+  "stu": 15960,
   "rk": 8,
   "type": "univ",
   "majors_ba": [
@@ -3367,7 +3375,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "한국어 능력이 지원 자격에 부합하지 않을 경우 조건부 합격되며 한국어 과정 이수 등을 통해 한국어"
     }
    ]
-  }
+  },
+  "fstu": 2228
  },
  {
   "n": "건양대학교",
@@ -3428,7 +3437,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Konyang",
   "ek": "건양대학교",
   "logo": "univ_logos/6f2ff01704.png",
-  "stu": 3249,
+  "stu": 6372,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -3763,7 +3772,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "어학능력(IELTS 5.5, TOEFL IBT 71 이상)"
     }
    ]
-  }
+  },
+  "fstu": 472
  },
  {
   "n": "경기대학교",
@@ -3797,7 +3807,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KGU",
   "ek": "경기대학교",
   "logo": "univ_logos/e6c42437dc.png",
-  "stu": 16163,
+  "stu": 13732,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -4088,7 +4098,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 4단계(예체능계열은 3단계) 이상 이수 또는 사전평가 81점(예체능계열은 61점) 이상"
     }
    ]
-  }
+  },
+  "fstu": 1106
  },
  {
   "n": "경남대학교",
@@ -4166,7 +4177,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kyungnam",
   "ek": "경남대학교",
   "logo": "univ_logos/9e21229ab2.png",
-  "stu": 11086,
+  "stu": 8352,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -4544,7 +4555,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "· 영어권 국가 출신 제외"
     }
    ]
-  }
+  },
+  "fstu": 407
  },
  {
   "n": "경동대학교",
@@ -4597,7 +4609,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kyungdong",
   "ek": "경동대학교",
   "logo": "univ_logos/978079903b.png",
-  "stu": 7060,
+  "stu": 7145,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -4782,7 +4794,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "국가공인 민간영어능력평가시험을 취득한 사람 (또는, 영어로 수업이 진행되는 중·고교(6...)"
     }
    ]
-  }
+  },
+  "fstu": 1563
  },
  {
   "n": "경북대학교",
@@ -4814,7 +4827,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KNU",
   "ek": "경북대학교",
   "logo": "univ_logos/a6fb5c95a6.png",
-  "stu": 29489,
+  "stu": 22562,
   "rk": 21,
   "type": "univ",
   "majors_ba": [],
@@ -4886,7 +4899,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "(군)위탁생 등 (정원 외)"
     }
    ]
-  }
+  },
+  "fstu": 1660
  },
  {
   "n": "경상국립대학교",
@@ -4984,7 +4998,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "GNU",
   "ek": "경상국립대학교",
   "logo": "univ_logos/c08f70ace2.png",
-  "stu": 22143,
+  "stu": 16424,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -5542,7 +5556,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "법무부 사회통합프로그램(KIIP) 3단계 이상 이수 또는 사전평가 61점 이상 취득자"
     }
    ]
-  }
+  },
+  "fstu": 335
  },
  {
   "n": "경성대학교",
@@ -5578,7 +5593,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KS",
   "ek": "경성대학교",
   "logo": "univ_logos/cb6ea0108a.png",
-  "stu": 16486,
+  "stu": 12568,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -5668,7 +5683,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 / 실력을 갖춘 사람(영어를 모국어 또는 법적 공용어로...)"
     }
    ]
-  }
+  },
+  "fstu": 1966
  },
  {
   "n": "경운대학교",
@@ -5723,7 +5739,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KWU",
   "ek": "경운대학교",
   "logo": "univ_logos/45d26ecd53.png",
-  "stu": 6168,
+  "stu": 5074,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -5857,7 +5873,8 @@ window.UNIV_KNOWLEDGE = [
    ],
    "floor": "TOPIK 2급 이하/미소지자는 본교 별도 한국어교육과정 수강 필수",
    "unrecognized": "검정고시·홈스쿨링·사이버학습 불인정"
-  }
+  },
+  "fstu": 909
  },
  {
   "n": "경인교육대학교",
@@ -5953,7 +5970,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KIU",
   "ek": "경일대학교",
   "logo": "univ_logos/25f8147584.png",
-  "stu": 8524,
+  "stu": 6930,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -6204,7 +6221,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 법적 공용어로 사용하는 국가의 국적을 소지한 학생은 중등교육 또는 고등교육을"
     }
    ]
-  }
+  },
+  "fstu": 946
  },
  {
   "n": "경희대학교",
@@ -6321,7 +6339,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KHU",
   "ek": "경희대학교",
   "logo": "univ_logos/9863e9752c.png",
-  "stu": 32859,
+  "stu": 25573,
   "rk": 6,
   "type": "univ",
   "majors_ba": [
@@ -6877,7 +6895,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "경영학과 [영어트랙] / 글로벌Hospitality·관광학과[영어트랙] / 국제학과 [영어트랙]"
     }
    ]
-  }
+  },
+  "fstu": 3535
  },
  {
   "n": "계명대학교",
@@ -6973,7 +6992,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KMU",
   "ek": "계명대학교",
   "logo": "univ_logos/6f81ad5964.png",
-  "stu": 28615,
+  "stu": 20491,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -7550,7 +7569,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "한국어 면접"
     }
    ]
-  }
+  },
+  "fstu": 3044
  },
  {
   "n": "고려대학교",
@@ -7627,7 +7647,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Korea",
   "ek": "고려대학교",
   "logo": "univ_logos/22c0e7c51d.png",
-  "stu": 28205,
+  "stu": 21772,
   "rk": 4,
   "type": "univ",
   "majors_ba": [
@@ -7904,7 +7924,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "4) TOEFL(iBT) 또는 IELTS Academic 공인시험성적 소유자 / 5) 한국어 또는 영어로 진행하는 교육과정의 고등학교 전 과정을 온전히 이수한 자"
     }
    ]
-  }
+  },
+  "fstu": 4471
  },
  {
   "n": "고신대학교",
@@ -7933,7 +7954,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kosin",
   "ek": "고신대학교",
   "logo": "univ_logos/2e06311f12.png",
-  "stu": 3687,
+  "stu": 3263,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -7984,7 +8005,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 - TOEFL iBT 59, IELTS 5.5 등"
     }
    ]
-  }
+  },
+  "fstu": 79
  },
  {
   "n": "공주교육대학교",
@@ -8042,7 +8064,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kwangshin",
   "ek": "광신대학교",
   "logo": "univ_logos/a3ed94b545.png",
-  "stu": 474,
+  "stu": 436,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -8087,7 +8109,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "TOPIK 3급은 공통 기준(우회경로 아님). TOEFL은 '필요시' 제출로 우회경로로 확정하기 어려움"
-  }
+  },
+  "fstu": 115
  },
  {
   "n": "광운대학교",
@@ -8117,7 +8140,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KW",
   "ek": "광운대학교",
   "logo": "univ_logos/b0d322b881.png",
-  "stu": 11217,
+  "stu": 8414,
   "rk": 23,
   "type": "univ",
   "majors_ba": [],
@@ -8357,7 +8380,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "반도체시스템공학부 (영어트랙) / 반도체시스템공학부는 영어트랙만 모집함"
     }
    ]
-  }
+  },
+  "fstu": 1009
  },
  {
   "n": "광주가톨릭대학교",
@@ -8522,7 +8546,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Gwangju",
   "ek": "광주대학교",
   "logo": "univ_logos/6af3981305.png",
-  "stu": 6158,
+  "stu": 4900,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -8917,7 +8941,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙"
     }
    ]
-  }
+  },
+  "fstu": 692
  },
  {
   "n": "광주여자대학교",
@@ -8941,7 +8966,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KWU",
   "ek": "광주여자대학교",
   "logo": "univ_logos/c12d2d3ac6.png",
-  "stu": 3414,
+  "stu": 3239,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -9008,7 +9033,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙"
     }
    ]
-  }
+  },
+  "fstu": 533
  },
  {
   "n": "국립강릉원주대학교",
@@ -9102,7 +9128,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "GWNU",
   "ek": "국립강릉원주대학교",
   "logo": "univ_logos/5d16737bd9.png",
-  "stu": 6711,
+  "stu": 6681,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -9566,7 +9592,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "온라인 세종학당 수료증 불인정"
-  }
+  },
+  "fstu": 307
  },
  {
   "n": "국립경국대학교",
@@ -9665,7 +9692,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KNUG",
   "ek": "국립경국대학교",
   "logo": "univ_logos/6a33c4c7b3.png",
-  "stu": 6444,
+  "stu": 4602,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -10134,7 +10161,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "5) TOPIK 2급 소지자로서 본교 한국어학당 1년 이상 수료자"
     }
    ]
-  }
+  },
+  "fstu": 73
  },
  {
   "n": "국립공주대학교",
@@ -10170,7 +10198,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kongju",
   "ek": "국립공주대학교",
   "logo": "univ_logos/b4306ffcf4.png",
-  "stu": 15914,
+  "stu": 12357,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -10258,7 +10286,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "※ 영어를 모국어 또는 법적 공용어로 사용하는 국가의 국적자는 영어능력시험 최소기준 면제"
     }
    ]
-  }
+  },
+  "fstu": 307
  },
  {
   "n": "국립군산대학교",
@@ -10355,7 +10384,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KSNU",
   "ek": "국립군산대학교",
   "logo": "univ_logos/79c5099f39.png",
-  "stu": 8497,
+  "stu": 6221,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -10819,7 +10848,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "커리큘럼의 50%이상을 영어로 수업하는 학과 제외"
     }
    ]
-  }
+  },
+  "fstu": 422
  },
  {
   "n": "국립금오공과대학교",
@@ -10884,7 +10914,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KIT",
   "ek": "국립금오공과대학교",
   "logo": "univ_logos/6982c472a5.png",
-  "stu": 7288,
+  "stu": 4895,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -11185,7 +11215,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "3 or higher of the Korea Identity & Integration Program (KIIP)"
     }
    ]
-  }
+  },
+  "fstu": 30
  },
  {
   "n": "국립목포대학교",
@@ -11292,7 +11323,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Mokpo",
   "ek": "국립목포대학교",
   "logo": "univ_logos/8039807426.png",
-  "stu": 7679,
+  "stu": 5664,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -11665,7 +11696,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "글로벌학부, 음악공연기획학부(담양)은 영어트랙 지원 가능"
     }
    ]
-  }
+  },
+  "fstu": 71
  },
  {
   "n": "국립목포해양대학교",
@@ -11704,7 +11736,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "MMU",
   "ek": "국립목포해양대학교",
   "logo": "univ_logos/7bd325843a.png",
-  "stu": 3081,
+  "stu": 2646,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -11869,7 +11901,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "영어기준 TOEFL 530(CBT197/IBT71)·IELTS 5.5·CEFR B2·TEPS 600 이상; 구술고사 미실시"
-  }
+  },
+  "fstu": 154
  },
  {
   "n": "국립부경대학교",
@@ -12005,7 +12038,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "PKNU",
   "ek": "국립부경대학교",
   "logo": "univ_logos/41ab47bc4f.png",
-  "stu": 20447,
+  "stu": 15131,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -12688,7 +12721,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "글로벌자율전공학부 영어트랙(전형)"
     }
    ]
-  }
+  },
+  "fstu": 1115
  },
  {
   "n": "국립순천대학교",
@@ -12788,7 +12822,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SCNU",
   "ek": "국립순천대학교",
   "logo": "univ_logos/b044a6d538.png",
-  "stu": 8384,
+  "stu": 6352,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -13333,7 +13367,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "국제한국어교육학과, 글로벌인재학부, 국제농축산학과, 글로벌에너지응용공학과는 외국인 전담학과"
     }
    ]
-  }
+  },
+  "fstu": 261
  },
  {
   "n": "국립창원대학교",
@@ -13414,7 +13449,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "CWNU",
   "ek": "국립창원대학교",
   "logo": "univ_logos/02980909b0.png",
-  "stu": 10072,
+  "stu": 7401,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -13725,7 +13760,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "2) 국립창원대학교 한국어학당 3급 이상 과정 수료자 / ② 국립창원대학교 한국어학당 4급 이상 과정 수료자"
     }
    ]
-  }
+  },
+  "fstu": 277
  },
  {
   "n": "국립한국교통대학교",
@@ -13814,7 +13850,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KNUT",
   "ek": "국립한국교통대학교",
   "logo": "univ_logos/87a85d4712.png",
-  "stu": 11136,
+  "stu": 7950,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -14086,7 +14122,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "학생으로 국제교류본부장이 추천한 학생"
     }
    ]
-  }
+  },
+  "fstu": 113
  },
  {
   "n": "국립한국해양대학교",
@@ -14163,7 +14200,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KMOU",
   "ek": "국립한국해양대학교",
   "logo": "univ_logos/b742652174.png",
-  "stu": 7950,
+  "stu": 6326,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -14397,7 +14434,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "대학부설 한국어교육원 정규과정 3급 이상 수료자"
     }
    ]
-  }
+  },
+  "fstu": 241
  },
  {
   "n": "국립한밭대학교",
@@ -14433,7 +14471,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "HBNU",
   "ek": "국립한밭대학교",
   "logo": "univ_logos/02c5bfe13c.png",
-  "stu": 11001,
+  "stu": 8243,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -14556,7 +14594,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "※ 국제학부: 정원외 외국인유학생 전담학과"
     }
    ]
-  }
+  },
+  "fstu": 305
  },
  {
   "n": "국민대학교",
@@ -14675,7 +14714,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Kookmin",
   "ek": "국민대학교",
   "logo": "univ_logos/e04c083268.png",
-  "stu": 20428,
+  "stu": 14502,
   "rk": 14,
   "type": "univ",
   "majors_ba": [
@@ -15268,7 +15307,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 법정공용어로 사용하는 국가의 국적 보유자"
     }
    ]
-  }
+  },
+  "fstu": 1533
  },
  {
   "n": "극동대학교",
@@ -15323,7 +15363,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Far East",
   "ek": "극동대학교",
   "logo": "univ_logos/41ceef9a36.png",
-  "stu": 3896,
+  "stu": 3165,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -15623,7 +15663,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "글로컬헬스케어학과(전담학과)"
     }
    ]
-  }
+  },
+  "fstu": 806
  },
  {
   "n": "금강대학교",
@@ -15650,7 +15691,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Geumgang",
   "ek": "금강대학교",
   "logo": "univ_logos/80d5f72687.png",
-  "stu": 394,
+  "stu": 62,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -15697,7 +15738,8 @@ window.UNIV_KNOWLEDGE = [
   "visa_restricted": {
    "degree": true,
    "lang": false
-  }
+  },
+  "fstu": 0
  },
  {
   "n": "김천대학교",
@@ -15733,7 +15775,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Gimcheon",
   "ek": "김천대학교",
   "logo": "univ_logos/aa59f13935.png",
-  "stu": 2775,
+  "stu": 2319,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -15807,7 +15849,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어가 모국어 또는 법적 공용어 국가의국국적을지 소지 학생"
     }
    ]
-  }
+  },
+  "fstu": 466
  },
  {
   "n": "나사렛대학교",
@@ -15858,7 +15901,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Korea Nazarene",
   "ek": "나사렛대학교",
   "logo": "univ_logos/f1fc835e25.png",
-  "stu": 5895,
+  "stu": 4494,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -15999,7 +16042,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어능력시험: TOEFL 530(CBT 197, iBT 71), IELTS 5.5 ... 영어전용트랙: 영어능력시험 기준 점수 취득"
     }
    ]
-  }
+  },
+  "fstu": 413
  },
  {
   "n": "남부대학교",
@@ -16039,7 +16083,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Nambu",
   "ek": "남부대학교",
   "logo": "univ_logos/bf2e317375.png",
-  "stu": 2776,
+  "stu": 2364,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -16207,7 +16251,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "국외체류자 화상면접은 면접방식 대체일 뿐 어학요건 우회 아님"
-  }
+  },
+  "fstu": 231
  },
  {
   "n": "남서울대학교",
@@ -16404,7 +16449,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Dankook",
   "ek": "단국대학교",
   "logo": "univ_logos/eb643765da.png",
-  "stu": 15553,
+  "stu": 21920,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -16905,7 +16950,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "한국어능력시험(TOPIK)에 준하는 구술시험"
     }
    ]
-  }
+  },
+  "fstu": 1103
  },
  {
   "n": "대구가톨릭대학교",
@@ -16992,7 +17038,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daegu Catholic",
   "ek": "대구가톨릭대학교",
   "logo": "univ_logos/35ddac10a8.png",
-  "stu": 14534,
+  "stu": 11320,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -17470,7 +17516,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "인터내셔널학부 글로벌비즈니스전공에 한하여 영어트랙 지원 가능"
     }
    ]
-  }
+  },
+  "fstu": 1178
  },
  {
   "n": "대구교육대학교",
@@ -17688,7 +17735,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daegu",
   "ek": "대구대학교",
   "logo": "univ_logos/24bcccda21.png",
-  "stu": 20661,
+  "stu": 15459,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -18387,7 +18434,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 지원자는 IELTS 5.5 또는 TOEFL iBT 51 이상인 자만 지원 가능"
     }
    ]
-  }
+  },
+  "fstu": 1660
  },
  {
   "n": "대구예술대학교",
@@ -18551,7 +18599,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "DHU",
   "ek": "대구한의대학교",
   "logo": "univ_logos/61ce12fb76.png",
-  "stu": 8138,
+  "stu": 6961,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -18946,7 +18994,8 @@ window.UNIV_KNOWLEDGE = [
   "visa_restricted": {
    "degree": false,
    "lang": true
-  }
+  },
+  "fstu": 1637
  },
  {
   "n": "대신대학교",
@@ -18975,7 +19024,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daeshin",
   "ek": "대신대학교",
   "logo": "univ_logos/7598a71546.png",
-  "stu": 605,
+  "stu": 1335,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -19033,7 +19082,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙: TOEFL iBT 59, IELTS 5.5, CEFR B2, NEW TEPS"
     }
    ]
-  }
+  },
+  "fstu": 950
  },
  {
   "n": "대전가톨릭대학교",
@@ -19053,7 +19103,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daejeon Catholic",
   "ek": "대전가톨릭대학교",
   "logo": "univ_logos/338e547ced.png",
-  "stu": 48,
+  "stu": 35,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -19092,7 +19142,8 @@ window.UNIV_KNOWLEDGE = [
    "types": "본교 장학금 지급규정에 따라 교내·외 장학금 지급 가능(구체적 명칭·금액 없음)",
    "enroll": [],
    "existing": []
-  }
+  },
+  "fstu": 1
  },
  {
   "n": "대전대학교",
@@ -19124,7 +19175,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daejeon",
   "ek": "대전대학교",
   "logo": "univ_logos/24ebacbac2.png",
-  "stu": 10433,
+  "stu": 7823,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -19393,7 +19444,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "교환학생·영어권 국가 문구는 해외 파견 교환학생 관련으로 요건 대체 경로 아님"
-  }
+  },
+  "fstu": 356
  },
  {
   "n": "대전신학대학교",
@@ -19507,7 +19559,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Daejin",
   "ek": "대진대학교",
   "logo": "univ_logos/cfdfdc8acd.png",
-  "stu": 10451,
+  "stu": 7751,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -19595,7 +19647,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "이중언어과정(중국어트랙)"
     }
    ]
-  }
+  },
+  "fstu": 1104
  },
  {
   "n": "덕성여자대학교",
@@ -19664,7 +19717,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Duksung",
   "ek": "덕성여자대학교",
   "logo": "univ_logos/9972c66bcd.png",
-  "stu": 6567,
+  "stu": 5566,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -19888,7 +19941,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "법무부 사회통합프로그램 수료(예정)자"
     }
    ]
-  }
+  },
+  "fstu": 571
  },
  {
   "n": "동국대학교",
@@ -19988,7 +20042,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Dongguk",
   "ek": "동국대학교",
   "logo": "univ_logos/61d29ec8dd.png",
-  "stu": 18630,
+  "stu": 13841,
   "rk": 8,
   "type": "univ",
   "majors_ba": [
@@ -20267,7 +20321,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "동국대학교 한국어교육원 정규과정 4개 학기 이수 및 3급 이상 이수 / 국내 4년제 대학 한국어교육원 정규과정 4개 학기 이수 및 4급 이상 이수"
     }
    ]
-  }
+  },
+  "fstu": 2691
  },
  {
   "n": "동덕여자대학교",
@@ -20348,7 +20403,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Dongduk",
   "ek": "동덕여자대학교",
   "logo": "univ_logos/a4791f5343.png",
-  "stu": 8356,
+  "stu": 6392,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -20750,7 +20805,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "예체능계열 TOPIK 2급 인정(기준 완화)"
-  }
+  },
+  "fstu": 56
  },
  {
   "n": "동명대학교",
@@ -20825,7 +20881,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Tongmyong",
   "ek": "동명대학교",
   "logo": "univ_logos/aaee21aa28.png",
-  "stu": 8959,
+  "stu": 6761,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -21107,7 +21163,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "5-1. 모집단위/인원 (영어트랙)"
     }
    ]
-  }
+  },
+  "fstu": 1056
  },
  {
   "n": "동서대학교",
@@ -21210,7 +21267,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Dongseo",
   "ek": "동서대학교",
   "logo": "univ_logos/0eaaf51c0a.png",
-  "stu": 11262,
+  "stu": 8582,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -21741,7 +21798,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "컴퓨터공학전공(영어트랙 편입 가능) / 영어트랙 표기 제외 학과는 한국어트랙만 지원 가능"
     }
    ]
-  }
+  },
+  "fstu": 1497
  },
  {
   "n": "동신대학교",
@@ -21773,7 +21831,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Dongshin",
   "ek": "동신대학교",
   "logo": "univ_logos/bb88c0612a.png",
-  "stu": 6613,
+  "stu": 5571,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -21818,7 +21876,8 @@ window.UNIV_KNOWLEDGE = [
   "scholarships": {
    "enroll": [],
    "existing": []
-  }
+  },
+  "fstu": 989
  },
  {
   "n": "동아대학교",
@@ -21865,7 +21924,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Donga",
   "ek": "동아대학교",
   "logo": "univ_logos/e98a5e9ab6.png",
-  "stu": 24259,
+  "stu": 17634,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -22163,7 +22222,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 - 융합경영학과(IBM) / 영어를 모국어 또는 법적 공용어로 사용하는 국가에서 중등교육 또는 고등교육(대학교 과정)을 이수한 자"
     }
    ]
-  }
+  },
+  "fstu": 1676
  },
  {
   "n": "동양대학교",
@@ -22229,7 +22289,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Dongyang",
   "ek": "동양대학교",
   "logo": "univ_logos/9924b75d98.png",
-  "stu": 5206,
+  "stu": 4241,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -22514,7 +22574,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "국제경영학과[외국인 전담학과], 글로벌철도인프라공학과[외국인 전담학과]"
     }
    ]
-  }
+  },
+  "fstu": 725
  },
  {
   "n": "동의대학교",
@@ -22556,7 +22617,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Dongeui",
   "ek": "동의대학교",
   "logo": "univ_logos/9e8e9a1d0f.png",
-  "stu": 19440,
+  "stu": 14302,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -22662,7 +22723,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "글로벌산업융합학과(외국인유학생 전담학과) 한국어수업"
     }
    ]
-  }
+  },
+  "fstu": 586
  },
  {
   "n": "루터대학교",
@@ -22686,7 +22748,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Luther",
   "ek": "루터대학교",
   "logo": "univ_logos/d1c04a5a11.png",
-  "stu": 359,
+  "stu": 300,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -22747,7 +22809,8 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "",
    "foreign_pct": ""
   },
-  "period": "원서접수(유웨이) 2026.09.07~09.11, 서류제출 2026.09.07~09.18 17:00, 면접 2026.11.12, 최초합격자발표 2026.12.08, 등록 2026.12.14~12.16, 표준입학허가서 발급 2026.12.29~2027.01.06"
+  "period": "원서접수(유웨이) 2026.09.07~09.11, 서류제출 2026.09.07~09.18 17:00, 면접 2026.11.12, 최초합격자발표 2026.12.08, 등록 2026.12.14~12.16, 표준입학허가서 발급 2026.12.29~2027.01.06",
+  "fstu": 0
  },
  {
   "n": "명지대학교",
@@ -22872,7 +22935,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Myongji",
   "ek": "명지대학교",
   "logo": "univ_logos/73b4f8966a.png",
-  "stu": 8066,
+  "stu": 13271,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -23501,7 +23564,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 학생과 중국어트랙 학생은"
     }
    ]
-  }
+  },
+  "fstu": 2428
  },
  {
   "n": "목원대학교",
@@ -23596,7 +23660,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Mokwon",
   "ek": "목원대학교",
   "logo": "univ_logos/d0362888f0.png",
-  "stu": 9353,
+  "stu": 7390,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -23941,7 +24005,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "3+1프로그램(이중언어과정)"
     }
    ]
-  }
+  },
+  "fstu": 1494
  },
  {
   "n": "목포가톨릭대학교",
@@ -23965,7 +24030,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "MPC",
   "ek": "목포가톨릭대학교",
   "logo": "univ_logos/e3b89353e9.png",
-  "stu": 513,
+  "stu": 463,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -24009,7 +24074,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "있음이 평가되어 국제교류교육원의 추천"
     }
    ]
-  }
+  },
+  "fstu": 0
  },
  {
   "n": "배재대학교",
@@ -24078,7 +24144,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Pai Chai",
   "ek": "배재대학교",
   "logo": "univ_logos/2dffcea0ca.png",
-  "stu": 9411,
+  "stu": 7344,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -24281,7 +24347,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 입학생"
     }
    ]
-  }
+  },
+  "fstu": 1131
  },
  {
   "n": "백석대학교",
@@ -24317,7 +24384,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Baekseok",
   "ek": "백석대학교",
   "logo": "univ_logos/4d46b355ba.png",
-  "stu": 15209,
+  "stu": 11574,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -24355,7 +24422,8 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "733",
    "foreign_pct": "4.8"
   },
-  "period": "2026.7.6(월) 09:00 ~ 7.10(금) 15:00 (인터넷 접수, uwayapply.com)"
+  "period": "2026.7.6(월) 09:00 ~ 7.10(금) 15:00 (인터넷 접수, uwayapply.com)",
+  "fstu": 469
  },
  {
   "n": "부산가톨릭대학교",
@@ -24414,7 +24482,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Catholic",
   "ek": "부산가톨릭대학교",
   "logo": "univ_logos/df277526ee.png",
-  "stu": 4071,
+  "stu": 3449,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -24569,7 +24637,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "정규교육과정을 1년 이상 이수하고 국제교육원장의 추천을 받은 자"
     }
    ]
-  }
+  },
+  "fstu": 614
  },
  {
   "n": "부산교육대학교",
@@ -24786,7 +24855,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "PNU",
   "ek": "부산대학교",
   "logo": "univ_logos/ff1b7814cc.png",
-  "stu": 26434,
+  "stu": 19900,
   "rk": 21,
   "type": "univ",
   "majors_ba": [
@@ -25472,7 +25541,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "국제학부(영어트랙)"
     }
    ]
-  }
+  },
+  "fstu": 1134
  },
  {
   "n": "부산외국어대학교",
@@ -25613,7 +25683,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "BUFS",
   "ek": "부산외국어대학교",
   "logo": "univ_logos/d1a8b30e3c.png",
-  "stu": 9217,
+  "stu": 6471,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -26152,7 +26222,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "이중언어과정(중국어전공 포함)은 상기 어학요건 미적용"
     }
    ]
-  }
+  },
+  "fstu": 1192
  },
  {
   "n": "부산장신대학교",
@@ -26280,7 +26351,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Sahmyook",
   "ek": "삼육대학교",
   "logo": "univ_logos/2977ccfe5a.png",
-  "stu": 6838,
+  "stu": 5268,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -26429,7 +26500,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙, 베트남어트랙, 중국어트랙 지원자"
     }
    ]
-  }
+  },
+  "fstu": 361
  },
  {
   "n": "상명대학교",
@@ -26486,7 +26558,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Sangmyung",
   "ek": "상명대학교",
   "logo": "univ_logos/b0ab857f20.png",
-  "stu": 8431,
+  "stu": 11784,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -26744,7 +26816,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "한국어학당 수료증명서 및 성적증명서"
     }
    ]
-  }
+  },
+  "fstu": 239
  },
  {
   "n": "상지대학교",
@@ -26816,7 +26889,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Sangji",
   "ek": "상지대학교",
   "logo": "univ_logos/2c9c995581.png",
-  "stu": 8095,
+  "stu": 5722,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -27227,7 +27300,8 @@ window.UNIV_KNOWLEDGE = [
   "visa_restricted": {
    "degree": false,
    "lang": true
-  }
+  },
+  "fstu": 75
  },
  {
   "n": "서강대학교",
@@ -27300,7 +27374,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Sogang",
   "ek": "서강대학교",
   "logo": "univ_logos/f910e18831.png",
-  "stu": 11921,
+  "stu": 8429,
   "rk": 11,
   "type": "univ",
   "majors_ba": [
@@ -27482,7 +27556,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙: IELTS 7.0이상, iBT TOEFL 88이상"
     }
    ]
-  }
+  },
+  "fstu": 2021
  },
  {
   "n": "서경대학교",
@@ -27550,7 +27625,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Seokyeong",
   "ek": "서경대학교",
   "logo": "univ_logos/17998c1a68.png",
-  "stu": 8721,
+  "stu": 6864,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -27716,7 +27791,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "자체 시험 통과자는 본교 신입생 한국어 의무과정을 이수해야함(1학기)"
     }
    ]
-  }
+  },
+  "fstu": 1077
  },
  {
   "n": "서울과학기술대학교",
@@ -27747,7 +27823,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SEOULTECH",
   "ek": "서울과학기술대학교",
   "logo": "univ_logos/01c8456b34.png",
-  "stu": 13811,
+  "stu": 10444,
   "rk": 18,
   "type": "univ",
   "majors_ba": [],
@@ -27844,7 +27920,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "상기 자격 미충족 시, 한국어 면접을 통해 최종입학 여부 결정"
     }
    ]
-  }
+  },
+  "fstu": 1129
  },
  {
   "n": "서울교육대학교",
@@ -27965,7 +28042,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SCU",
   "ek": "서울기독대학교",
   "logo": "univ_logos/3bf8a14893.png",
-  "stu": 1339,
+  "stu": 1279,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -28007,7 +28084,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "AI 빅데이터 융합(전담학과), K-뷰티 힐링(전담학과)"
     }
    ]
-  }
+  },
+  "fstu": 838
  },
  {
   "n": "서울대학교",
@@ -28115,7 +28193,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SNU",
   "ek": "서울대학교",
   "logo": "univ_logos/81b1d47eed.png",
-  "stu": 21856,
+  "stu": 17279,
   "rk": 1,
   "type": "univ",
   "majors_ba": [
@@ -28631,7 +28709,8 @@ window.UNIV_KNOWLEDGE = [
   "scholarships": {
    "enroll": [],
    "existing": []
-  }
+  },
+  "fstu": 1383
  },
  {
   "n": "서울시립대학교",
@@ -28729,7 +28808,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "UOS",
   "ek": "서울시립대학교",
   "logo": "univ_logos/e9e7dfcc05.png",
-  "stu": 11801,
+  "stu": 8949,
   "rk": 16,
   "type": "univ",
   "majors_ba": [
@@ -29177,7 +29256,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "온라인 세종학당 수료증 제외(국내 체류 중 해외 세종학당 온라인 참여 포함)"
-  }
+  },
+  "fstu": 725
  },
  {
   "n": "서울신학대학교",
@@ -29459,7 +29539,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SWU",
   "ek": "서울여자대학교",
   "logo": "univ_logos/65bb2dd1bc.png",
-  "stu": 9584,
+  "stu": 7692,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -29960,7 +30040,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "일본교류대학 교환학생 파견 문구와 영어영문학과 소개는 홍보·전공 안내로 제외"
-  }
+  },
+  "fstu": 1131
  },
  {
   "n": "서울장신대학교",
@@ -30116,7 +30197,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hanyoung",
   "ek": "서울한영대학교",
   "logo": "univ_logos/6e97bc30f8.png",
-  "stu": 885,
+  "stu": 778,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -30180,7 +30261,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "영어트랙 합격자도 한국어 성적 제출 필요"
-  }
+  },
+  "fstu": 308
  },
  {
   "n": "서원대학교",
@@ -30219,7 +30301,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Seowon",
   "ek": "서원대학교",
   "logo": "univ_logos/3e8f53882a.png",
-  "stu": 9515,
+  "stu": 7648,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -30320,7 +30402,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "세종학당 온라인 과정은 국내 체류 시 불인정"
-  }
+  },
+  "fstu": 1001
  },
  {
   "n": "선문대학교",
@@ -30407,7 +30490,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Sun Moon",
   "ek": "선문대학교",
   "logo": "univ_logos/4dc5dec446.png",
-  "stu": 11253,
+  "stu": 8435,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -30860,7 +30943,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어 모국어 또는 법정 공용어 사용 국가의 국적 소지자는 졸업증명서로 대신"
     }
    ]
-  }
+  },
+  "fstu": 2200
  },
  {
   "n": "성결대학교",
@@ -30924,7 +31008,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Sungkyul",
   "ek": "성결대학교",
   "logo": "univ_logos/8a4ad278d6.png",
-  "stu": 6873,
+  "stu": 5241,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -31135,7 +31219,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "TOPIK 5급 이상은 면접 면제(어학요건 우회 아님)"
-  }
+  },
+  "fstu": 388
  },
  {
   "n": "성공회대학교",
@@ -31169,7 +31254,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Sungkonghoe",
   "ek": "성공회대학교",
   "logo": "univ_logos/8941fb54d1.png",
-  "stu": 3144,
+  "stu": 2234,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -31227,7 +31312,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "4학년 편입은 한국어 트랙 이중언어과정만 모집"
-  }
+  },
+  "fstu": 275
  },
  {
   "n": "성균관대학교",
@@ -31278,7 +31364,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SKKU",
   "ek": "성균관대학교",
   "logo": "univ_logos/787b00ac4d.png",
-  "stu": 25399,
+  "stu": 19612,
   "rk": 5,
   "type": "univ",
   "majors_ba": [
@@ -31709,7 +31795,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 모집학과 : IELTS 6.5 또는 TOEFL 80 이상"
     }
    ]
-  }
+  },
+  "fstu": 3911
  },
  {
   "n": "성신여자대학교",
@@ -31759,7 +31846,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Sungshin",
   "ek": "성신여자대학교",
   "logo": "univ_logos/5fa313170f.png",
-  "stu": 11438,
+  "stu": 9404,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -32075,7 +32162,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "예·체능계·의류산업학과는 TOPIK 2급 지원 가능(기준 완화)"
-  }
+  },
+  "fstu": 890
  },
  {
   "n": "세명대학교",
@@ -32146,7 +32234,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Semyung",
   "ek": "세명대학교",
   "logo": "univ_logos/7a350ede4a.png",
-  "stu": 7473,
+  "stu": 5515,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -32435,7 +32523,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "영어성적은 순수외국인 특별전형 심사위원회 인정 필요"
-  }
+  },
+  "fstu": 237
  },
  {
   "n": "세종대학교",
@@ -32517,7 +32606,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Sejong",
   "ek": "세종대학교",
   "logo": "univ_logos/1dd1ebdb29.png",
-  "stu": 17077,
+  "stu": 13171,
   "rk": 19,
   "type": "univ",
   "majors_ba": [
@@ -32940,7 +33029,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "교환학생 문구는 과거 교환학점 인정 관련 서류 안내로 요건 대체 경로 아님"
-  }
+  },
+  "fstu": 2844
  },
  {
   "n": "세한대학교",
@@ -33000,7 +33090,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Songwon",
   "ek": "송원대학교",
   "logo": "univ_logos/8be3391fd3.png",
-  "stu": 3015,
+  "stu": 2569,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -33055,7 +33145,8 @@ window.UNIV_KNOWLEDGE = [
    ],
    "enroll": [],
    "existing": []
-  }
+  },
+  "fstu": 400
  },
  {
   "n": "수원가톨릭대학교",
@@ -33075,7 +33166,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Suwon Catholic",
   "ek": "수원가톨릭대학교",
   "logo": "univ_logos/f8ec949178.png",
-  "stu": 10055,
+  "stu": 96,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -33132,7 +33223,8 @@ window.UNIV_KNOWLEDGE = [
   "visa_restricted": {
    "degree": true,
    "lang": false
-  }
+  },
+  "fstu": 1
  },
  {
   "n": "수원대학교",
@@ -33184,7 +33276,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Suwon",
   "ek": "수원대학교",
   "logo": "univ_logos/98d52d4833.png",
-  "stu": 11476,
+  "stu": 8368,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -33437,7 +33529,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "TOPIK 3급 취득 예정자는 입학일 기준 1주일 내 제출 조건"
-  }
+  },
+  "fstu": 73
  },
  {
   "n": "숙명여자대학교",
@@ -33483,7 +33576,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Sookmyung",
   "ek": "숙명여자대학교",
   "logo": "univ_logos/43fc58677e.png",
-  "stu": 11877,
+  "stu": 10134,
   "rk": 20,
   "type": "univ",
   "majors_ba": [
@@ -33715,7 +33808,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "[영어트랙]"
     }
    ]
-  }
+  },
+  "fstu": 520
  },
  {
   "n": "순천향대학교",
@@ -33806,7 +33900,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SCH",
   "ek": "순천향대학교",
   "logo": "univ_logos/3bd52eb893.png",
-  "stu": 14107,
+  "stu": 11080,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -34291,7 +34385,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "공인 영어능력시험[TOEFL iBT 59, IELTS 5.5, CEFR B2, NEW TEPS 202] 이상"
     }
    ]
-  }
+  },
+  "fstu": 675
  },
  {
   "n": "숭실대학교",
@@ -34380,7 +34475,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Soongsil",
   "ek": "숭실대학교",
   "logo": "univ_logos/14890e757e.png",
-  "stu": 19963,
+  "stu": 14738,
   "rk": 29,
   "type": "univ",
   "majors_ba": [
@@ -34873,7 +34968,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "교환학생·유학생 교류공간 설명 문구는 홍보성으로 제외"
-  }
+  },
+  "fstu": 2479
  },
  {
   "n": "신경주대학교",
@@ -34925,7 +35021,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "SKU",
   "ek": "신경주대학교",
   "logo": "univ_logos/9f914f8298.png",
-  "stu": 804,
+  "stu": 1179,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -35092,7 +35188,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "이중언어과정 입학생 등은 입학언어기준"
     }
    ]
-  }
+  },
+  "fstu": 168
  },
  {
   "n": "신라대학교",
@@ -35132,7 +35229,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Silla",
   "ek": "신라대학교",
   "logo": "univ_logos/1d15a0ddae.png",
-  "stu": 8370,
+  "stu": 6877,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -35237,7 +35334,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어로 수업을 진행하는 고교 또는 대학"
     }
    ]
-  }
+  },
+  "fstu": 1093
  },
  {
   "n": "신한대학교",
@@ -35306,7 +35404,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Shinhan",
   "ek": "신한대학교",
   "logo": "univ_logos/84ebd1ce6f.png",
-  "stu": 8295,
+  "stu": 6479,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -35571,7 +35669,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "일부과정(정부초청학생, 예·체능, 이중언어과정)의 경우 입학 기준 완화"
     }
    ]
-  }
+  },
+  "fstu": 1137
  },
  {
   "n": "아신대학교",
@@ -35596,7 +35695,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "ACT",
   "ek": "아신대학교",
   "logo": "univ_logos/82493da5b9.png",
-  "stu": 573,
+  "stu": 236,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -35708,7 +35807,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "한국어연수 이수 '필수' 문구 있으나 시간(기준) 미확인으로 미포함"
-  }
+  },
+  "fstu": 2
  },
  {
   "n": "아주대학교",
@@ -35755,7 +35855,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Ajou",
   "ek": "아주대학교",
   "logo": "univ_logos/4571302767.png",
-  "stu": 13674,
+  "stu": 10194,
   "rk": 15,
   "type": "univ",
   "majors_ba": [],
@@ -36113,7 +36213,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "학생의 외국 거주 등 부득이한 경우 화상면접, 전화면접으로 대체"
     }
    ]
-  }
+  },
+  "fstu": 2411
  },
  {
   "n": "안양대학교",
@@ -36138,7 +36239,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Anyang",
   "ek": "안양대학교",
   "logo": "univ_logos/8271e00840.png",
-  "stu": 5988,
+  "stu": 4653,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -36182,7 +36283,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "법무부 사회통합프로그램(KKIP) 교육과정 3단계 이상 이수 또는 사전평가 61점 이상 취득 조건"
     }
    ]
-  }
+  },
+  "fstu": 16
  },
  {
   "n": "연세대학교",
@@ -36248,7 +36350,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Yonsei",
   "ek": "연세대학교",
   "logo": "univ_logos/7eb37e59c1.png",
-  "stu": 27914,
+  "stu": 21005,
   "rk": 2,
   "type": "univ",
   "majors_ba": [
@@ -36670,7 +36772,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "타 대학 한국어학당 수료증명은 인정하지 않음"
-  }
+  },
+  "fstu": 4740
  },
  {
   "n": "영남대학교",
@@ -36721,7 +36824,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Yeungnam",
   "ek": "영남대학교",
   "logo": "univ_logos/cc3484c3c5.png",
-  "stu": 27952,
+  "stu": 20623,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -36831,7 +36934,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 법적 공용어로 사용하는 국가의 국적을 소지한 학생은 중등교육 또는 고등교육을"
     }
    ]
-  }
+  },
+  "fstu": 1439
  },
  {
   "n": "영남신학대학교",
@@ -37036,7 +37140,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Youngsan",
   "ek": "영산대학교",
   "logo": "univ_logos/5579098bc7.png",
-  "stu": 3585,
+  "stu": 5696,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -37387,7 +37491,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어권 국가에서 수료한 자는 영어성적 제출을 면제함"
     }
    ]
-  }
+  },
+  "fstu": 940
  },
  {
   "n": "영산선학대학교",
@@ -37464,7 +37569,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Jesus",
   "ek": "예수대학교",
   "logo": "univ_logos/79b347fc42.png",
-  "stu": 570,
+  "stu": 480,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -37490,7 +37595,8 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "",
    "foreign_pct": ""
   },
-  "period": "정시(다)군 재외국민과 외국인 특별전형(정원외) 원서접수 2027.01.04~01.07 17:00 (교내 방문접수, 서류 2027.01.14 17:00까지, 면접 2027.01.26, 합격발표 2027.02.05, 등록 2027.02.10~02.12)"
+  "period": "정시(다)군 재외국민과 외국인 특별전형(정원외) 원서접수 2027.01.04~01.07 17:00 (교내 방문접수, 서류 2027.01.14 17:00까지, 면접 2027.01.26, 합격발표 2027.02.05, 등록 2027.02.10~02.12)",
+  "fstu": 0
  },
  {
   "n": "예원예술대학교",
@@ -37517,7 +37623,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Yewon",
   "ek": "예원예술대학교",
   "logo": "univ_logos/acae9bef51.png",
-  "stu": 736,
+  "stu": 1236,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -37583,7 +37689,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "한국어능력시험 3급 이상 또는 한국어교육기관 3급 과정 수료자"
     }
    ]
-  }
+  },
+  "fstu": 413
  },
  {
   "n": "용인대학교",
@@ -37649,7 +37756,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Yong In",
   "ek": "용인대학교",
   "logo": "univ_logos/9ce3b07c14.png",
-  "stu": 7170,
+  "stu": 5326,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -37893,7 +38000,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 3단계 이상 이수 또는 사전평가 61점 이상"
     }
    ]
-  }
+  },
+  "fstu": 138
  },
  {
   "n": "우석대학교",
@@ -37964,7 +38072,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Woosuk",
   "ek": "우석대학교",
   "logo": "univ_logos/dab85c01a2.png",
-  "stu": 8225,
+  "stu": 6629,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -38178,7 +38286,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "세종학당 한국어 중급 1 이상 수료 ... 이공계열 및 예체능계열 TOPIK 2급 이상 또는 세종학당 한국어 초급 2 이상"
     }
    ]
-  }
+  },
+  "fstu": 1111
  },
  {
   "n": "우송대학교",
@@ -38235,7 +38344,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Woosong",
   "ek": "우송대학교",
   "logo": "univ_logos/d98416752d.png",
-  "stu": 12840,
+  "stu": 9680,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -38634,7 +38743,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어능력시험(영어트랙)"
     }
    ]
-  }
+  },
+  "fstu": 2302
  },
  {
   "n": "울산대학교",
@@ -38683,7 +38793,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Ulsan",
   "ek": "울산대학교",
   "logo": "univ_logos/752eca9226.png",
-  "stu": 15597,
+  "stu": 10606,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -38791,7 +38901,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "울산대학교 한국어교육센터 정규과정 연속 2개 세션 이상을 이수한 4급 이상 수료자"
     }
    ]
-  }
+  },
+  "fstu": 257
  },
  {
   "n": "원광대학교",
@@ -38825,7 +38936,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Wonkwang",
   "ek": "원광대학교",
   "logo": "univ_logos/f0d036b6d4.png",
-  "stu": 16672,
+  "stu": 12360,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -39143,7 +39254,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램(KIIP) 4단계 이상 이수 또는 사전평가"
     }
    ]
-  }
+  },
+  "fstu": 132
  },
  {
   "n": "위덕대학교",
@@ -39169,7 +39281,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Uiduk",
   "ek": "위덕대학교",
   "logo": "univ_logos/4160429006.png",
-  "stu": 2409,
+  "stu": 2116,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -39235,7 +39347,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 3단계 이상 이수하거나 사전평가 61점 이상 취득"
     }
    ]
-  }
+  },
+  "fstu": 93
  },
  {
   "n": "유원대학교",
@@ -39289,7 +39402,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "U1",
   "ek": "유원대학교",
   "logo": "univ_logos/00605248ed.png",
-  "stu": 4499,
+  "stu": 4032,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -39478,7 +39591,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "TOEFL 530(CBT 197, IBT 71), IELTS 5.5, CEFR B2, TEPS 601점 ... 영어를 모국어로 사용하는 국가의 국적"
     }
    ]
-  }
+  },
+  "fstu": 185
  },
  {
   "n": "을지대학교",
@@ -39528,7 +39642,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Eulji",
   "ek": "을지대학교",
   "logo": "univ_logos/c2e4d28cdd.png",
-  "stu": 5641,
+  "stu": 4717,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -39827,7 +39941,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "세종학당 온라인 수료는 불인정(해외 세종학당 교육과정 온라인 참여 포함)"
-  }
+  },
+  "fstu": 21
  },
  {
   "n": "이화여자대학교",
@@ -39975,7 +40090,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "EWHA",
   "ek": "이화여자대학교",
   "logo": "univ_logos/6094b837b2.png",
-  "stu": 20145,
+  "stu": 16452,
   "rk": 6,
   "type": "univ",
   "majors_ba": [
@@ -40712,7 +40827,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어권 국가 소재 학교 졸업생의 경우, 해당학교 졸업증명서 또는 성적증명서"
     }
    ]
-  }
+  },
+  "fstu": 2089
  },
  {
   "n": "인제대학교",
@@ -40767,7 +40883,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Inje",
   "ek": "인제대학교",
   "logo": "univ_logos/3b06cabfef.png",
-  "stu": 8592,
+  "stu": 6844,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -41044,7 +41160,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "외국인유학생전담학과 (영어트랙)"
     }
    ]
-  }
+  },
+  "fstu": 893
  },
  {
   "n": "인천가톨릭대학교",
@@ -41064,7 +41181,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Incheon Catholic",
   "ek": "인천가톨릭대학교",
   "logo": "univ_logos/8445b349cf.png",
-  "stu": 53,
+  "stu": 697,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -41098,7 +41215,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "IBE영어트랙 운영"
-  }
+  },
+  "fstu": 7
  },
  {
   "n": "인천대학교",
@@ -41201,7 +41319,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Incheon",
   "ek": "인천대학교",
   "logo": "univ_logos/bacb07a195.png",
-  "stu": 15488,
+  "stu": 11247,
   "rk": 27,
   "type": "univ",
   "majors_ba": [
@@ -41736,7 +41854,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "IBE영어트랙 운영"
-  }
+  },
+  "fstu": 430
  },
  {
   "n": "인하대학교",
@@ -41813,7 +41932,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Inha",
   "ek": "인하대학교",
   "logo": "univ_logos/e1abad5e8b.png",
-  "stu": 24862,
+  "stu": 17830,
   "rk": 12,
   "type": "univ",
   "majors_ba": [
@@ -42410,7 +42529,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 법적 공용어로 사용하는 국가의 국적을 소지한 지원자는"
     }
    ]
-  }
+  },
+  "fstu": 1954
  },
  {
   "n": "장로회신학대학교",
@@ -42441,7 +42561,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "PTST",
   "ek": "장로회신학대학교",
   "logo": "univ_logos/b8a1ab0b4f.png",
-  "stu": 751,
+  "stu": 572,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -42475,7 +42595,8 @@ window.UNIV_KNOWLEDGE = [
   "scholarships": {
    "enroll": [],
    "existing": []
-  }
+  },
+  "fstu": 5
  },
  {
   "n": "전남대학교",
@@ -42507,7 +42628,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Chonnam",
   "ek": "전남대학교",
   "logo": "univ_logos/e191ef0d09.png",
-  "stu": 21362,
+  "stu": 19199,
   "rk": 30,
   "type": "univ",
   "majors_ba": [
@@ -42661,7 +42782,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "※ 법무부 기준에 따른 영어성적 제출 제외 국적(영어 모국어 국가) : 남아프리카공화국, 뉴질랜드, 미국, 아일랜드"
     }
    ]
-  }
+  },
+  "fstu": 1109
  },
  {
   "n": "전북대학교",
@@ -42783,7 +42905,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "JBNU",
   "ek": "전북대학교",
   "logo": "univ_logos/e2747fcdae.png",
-  "stu": 23561,
+  "stu": 17841,
   "rk": 26,
   "type": "univ",
   "majors_ba": [
@@ -43374,7 +43496,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "TOPIK2급(자체시험 2급) 입학 직후 한국어연수과정 2개 학기 이수 필수(남원 글로컬캠퍼스 제외)"
-  }
+  },
+  "fstu": 1112
  },
  {
   "n": "전주교육대학교",
@@ -43542,7 +43665,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Jeonju",
   "ek": "전주대학교",
   "logo": "univ_logos/8a0ce3a3b9.png",
-  "stu": 13547,
+  "stu": 10147,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -43955,7 +44078,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "IELTS 5.5 이상, TOEFL iBT 59 이상, NEW TEPS 202점 이상"
     }
    ]
-  }
+  },
+  "fstu": 245
  },
  {
   "n": "제주국제대학교",
@@ -44019,7 +44143,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "JJU",
   "ek": "제주국제대학교",
   "logo": "univ_logos/6c28e2aea9.png",
-  "stu": 313,
+  "stu": 263,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -44205,7 +44329,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "2. 영어트랙의 경우 영어능력시험 TOEFL 530(CBT 197, IBT 71), IELTS 5.5, CEFR"
     }
    ]
-  }
+  },
+  "fstu": 208
  },
  {
   "n": "제주대학교",
@@ -44315,7 +44440,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Jeju",
   "ek": "제주대학교",
   "logo": "univ_logos/31576dc84f.png",
-  "stu": 12891,
+  "stu": 9306,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -44654,7 +44779,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "② 제주대학교 한국어과정 성적증명서 및 수료증명서"
     }
    ]
-  }
+  },
+  "fstu": 331
  },
  {
   "n": "조선대학교",
@@ -44770,7 +44896,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Chosun",
   "ek": "조선대학교",
   "logo": "univ_logos/1103d2ddb8.png",
-  "stu": 24986,
+  "stu": 17911,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -45445,7 +45571,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "사회통합프로그램 3단계 이수 또는 사전평가 61점 이상 취득자"
     }
    ]
-  }
+  },
+  "fstu": 295
  },
  {
   "n": "중부대학교",
@@ -45477,7 +45604,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Joongbu",
   "ek": "중부대학교",
   "logo": "univ_logos/2e19e46e97.png",
-  "stu": 10108,
+  "stu": 6991,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -45703,7 +45830,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "JB-TOPIK·KIIP·세종학당 자격은 한국어능력장학금 수혜조건에서는 제외됨"
-  }
+  },
+  "fstu": 971
  },
  {
   "n": "중앙대학교",
@@ -45791,7 +45919,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "CAU",
   "ek": "중앙대학교",
   "logo": "univ_logos/8ac0d50de9.png",
-  "stu": 25360,
+  "stu": 23600,
   "rk": 8,
   "type": "univ",
   "majors_ba": [
@@ -46241,7 +46369,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어 성적 제출 면제 기준: 영어를 모국어 또는 법적 공용어로 사용하"
     }
    ]
-  }
+  },
+  "fstu": 4935
  },
  {
   "n": "중앙승가대학교",
@@ -46358,7 +46487,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Jungwon",
   "ek": "중원대학교",
   "logo": "univ_logos/9bbe1d63b1.png",
-  "stu": 3825,
+  "stu": 3324,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -46460,7 +46589,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙: 영어 어학능력으로 지원 및 수학 가능한 모집단위"
     }
    ]
-  }
+  },
+  "fstu": 172
  },
  {
   "n": "진주교육대학교",
@@ -46522,7 +46652,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "CHA",
   "ek": "차의과학대학교",
   "logo": "univ_logos/5a04057ead.png",
-  "stu": 2623,
+  "stu": 2154,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -46571,7 +46701,8 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "9",
    "foreign_pct": "0.3"
   },
-  "period": "1차 2025.9.8~9.12 / 2차 2025.10.22~11.7 / 3차(중국대학 공동인재양성과정) 2026.1.26~2.6 (원서접수; 서류 1차 9.15, 2차 11.10까지)"
+  "period": "1차 2025.9.8~9.12 / 2차 2025.10.22~11.7 / 3차(중국대학 공동인재양성과정) 2026.1.26~2.6 (원서접수; 서류 1차 9.15, 2차 11.10까지)",
+  "fstu": 29
  },
  {
   "n": "창신대학교",
@@ -46613,7 +46744,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Changshin",
   "ek": "창신대학교",
   "logo": "univ_logos/bb61a0c044.png",
-  "stu": 1874,
+  "stu": 1582,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -46766,7 +46897,8 @@ window.UNIV_KNOWLEDGE = [
   "scholarships": {
    "enroll": [],
    "existing": []
-  }
+  },
+  "fstu": 229
  },
  {
   "n": "청운대학교",
@@ -46836,7 +46968,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Chungwoon",
   "ek": "청운대학교",
   "logo": "univ_logos/488a2500ab.png",
-  "stu": 6697,
+  "stu": 5135,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -47072,7 +47204,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "유학생 전담학과 / 한국어트랙 / 영어트랙"
     }
    ]
-  }
+  },
+  "fstu": 458
  },
  {
   "n": "청주교육대학교",
@@ -47220,7 +47353,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Cheongju",
   "ek": "청주대학교",
   "logo": "univ_logos/56dbb3f174.png",
-  "stu": 16480,
+  "stu": 11943,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -47599,7 +47732,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "이중언어과정(석사), 이중언어과정(박사)"
     }
    ]
-  }
+  },
+  "fstu": 1952
  },
  {
   "n": "초당대학교",
@@ -47669,7 +47803,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Chodang",
   "ek": "초당대학교",
   "logo": "univ_logos/2077143cff.png",
-  "stu": 2686,
+  "stu": 2225,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -47901,7 +48035,8 @@ window.UNIV_KNOWLEDGE = [
    "types": "언어능력 장학(공인언어능력 자격증 소지자 우대 - 감면율 미기재)",
    "enroll": [],
    "existing": []
-  }
+  },
+  "fstu": 349
  },
  {
   "n": "총신대학교",
@@ -47973,7 +48108,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Chugye",
   "ek": "추계예술대학교",
   "logo": "univ_logos/add5d3a045.png",
-  "stu": 1364,
+  "stu": 1113,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -48059,7 +48194,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "본교 한국어학당 수료자"
     }
    ]
-  }
+  },
+  "fstu": 45
  },
  {
   "n": "춘천교육대학교",
@@ -48217,7 +48353,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Chungnam",
   "ek": "충남대학교",
   "logo": "univ_logos/b926795f1a.png",
-  "stu": 22499,
+  "stu": 17696,
   "rk": 28,
   "type": "univ",
   "majors_ba": [
@@ -48775,7 +48911,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 법적공용어로 사용하는 국가의 국적 소지자"
     }
    ]
-  }
+  },
+  "fstu": 674
  },
  {
   "n": "충북대학교",
@@ -48890,7 +49027,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "CBNU",
   "ek": "충북대학교",
   "logo": "univ_logos/2adefe3563.png",
-  "stu": 17358,
+  "stu": 13228,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -49497,7 +49634,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "일부 학과는 언어교육원 4단계 수료 '불인정'"
-  }
+  },
+  "fstu": 826
  },
  {
   "n": "칼빈대학교",
@@ -49517,7 +49655,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Calvin",
   "ek": "칼빈대학교",
   "logo": "univ_logos/7e9e0ec5e7.png",
-  "stu": 2270,
+  "stu": 2159,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -49623,7 +49761,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "TOEFL IBT 80(CBT 210, PBT 550)이상 EH는 IELTS 5.5 이상 취득"
     }
    ]
-  }
+  },
+  "fstu": 1940
  },
  {
   "n": "평택대학교",
@@ -49697,7 +49836,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Pyeongtaek",
   "ek": "평택대학교",
   "logo": "univ_logos/480398e54e.png",
-  "stu": 4043,
+  "stu": 3006,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -50329,7 +50468,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "4. 학부 재학생 기준 (이중언어과정)"
     }
    ]
-  }
+  },
+  "fstu": 149
  },
  {
   "n": "포항공과대학교",
@@ -50343,7 +50483,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "POSTECH",
   "ek": "포항공과대학교",
   "logo": "univ_logos/98d94013fc.png",
-  "stu": 1856,
+  "stu": 1477,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -50407,7 +50547,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "Only the following test types are accepted: IELTS Academic, TEPS, TOEFL iBT and TOEIC Listening & Reading."
     }
    ]
-  }
+  },
+  "fstu": 47
  },
  {
   "n": "한경국립대학교",
@@ -50453,7 +50594,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "HKNU",
   "ek": "한경국립대학교",
   "logo": "univ_logos/6304c83cd3.png",
-  "stu": 7252,
+  "stu": 5428,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -50743,7 +50884,8 @@ window.UNIV_KNOWLEDGE = [
   "scholarships": {
    "enroll": [],
    "existing": []
-  }
+  },
+  "fstu": 245
  },
  {
   "n": "한국공학대학교",
@@ -50817,7 +50959,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "TECH",
   "ek": "한국공학대학교",
   "logo": "univ_logos/eea171844b.png",
-  "stu": 10057,
+  "stu": 7596,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -51132,7 +51274,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "국내 정규대학 부설 한국어학당 수료증 제출 시 출석률 포함 필수"
     }
    ]
-  }
+  },
+  "fstu": 529
  },
  {
   "n": "한국교원대학교",
@@ -51399,7 +51542,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "HUFS",
   "ek": "한국외국어대학교",
   "logo": "univ_logos/ac9411b4e9.png",
-  "stu": 22693,
+  "stu": 17101,
   "rk": 17,
   "type": "univ",
   "majors_ba": [
@@ -51795,7 +51938,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "본교 어학당(CKLC) 과정은 한국어 교양 프로그램 안내로 우회경로 확정 어려움"
-  }
+  },
+  "fstu": 2949
  },
  {
   "n": "한국체육대학교",
@@ -51825,7 +51969,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KNSU",
   "ek": "한국체육대학교",
   "logo": "univ_logos/05a0704e33.png",
-  "stu": 2925,
+  "stu": 2339,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -51985,7 +52129,8 @@ window.UNIV_KNOWLEDGE = [
    "foreign": "19",
    "foreign_pct": "0.6"
   },
-  "period": "2026.9.8~9.10 (수시 외국인군 특별전형, 방문접수 09:00~16:00, 인터넷접수 없음)"
+  "period": "2026.9.8~9.10 (수시 외국인군 특별전형, 방문접수 09:00~16:00, 인터넷접수 없음)",
+  "fstu": 11
  },
  {
   "n": "한국침례신학대학교",
@@ -52103,7 +52248,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "KAU",
   "ek": "한국항공대학교",
   "logo": "univ_logos/c4e52fa385.png",
-  "stu": 5866,
+  "stu": 4255,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -52326,7 +52471,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "판단되는 자 (본교 한국어 면접 실시)"
     }
    ]
-  }
+  },
+  "fstu": 194
  },
  {
   "n": "한남대학교",
@@ -52421,7 +52567,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hannam",
   "ek": "한남대학교",
   "logo": "univ_logos/b31a8d169e.png",
-  "stu": 15865,
+  "stu": 11608,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -52702,7 +52848,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "본교 한국어교육원 3급 과정 이상 수료증"
     }
    ]
-  }
+  },
+  "fstu": 1599
  },
  {
   "n": "한동대학교",
@@ -52765,7 +52912,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Handong",
   "ek": "한동대학교",
   "logo": "univ_logos/bcd95924c6.png",
-  "stu": 5231,
+  "stu": 3876,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -53004,7 +53151,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "English proficiency: TOEFL(IBT 85); IELTS 6.0; New TEPS 430; TOEIC 700 or higher"
     }
    ]
-  }
+  },
+  "fstu": 177
  },
  {
   "n": "한라대학교",
@@ -53029,7 +53177,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Halla",
   "ek": "한라대학교",
   "logo": "univ_logos/f4d1710aa7.png",
-  "stu": 3974,
+  "stu": 3128,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -53173,7 +53321,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "이중언어과정(중국어)"
     }
    ]
-  }
+  },
+  "fstu": 196
  },
  {
   "n": "한림대학교",
@@ -53253,7 +53402,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hallym",
   "ek": "한림대학교",
   "logo": "univ_logos/d28dfc6e7e.png",
-  "stu": 10427,
+  "stu": 7575,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -53437,7 +53586,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙: IELTS 5.5이상, TOEFL iBT 59이상 … 영어를 모국어나 법적 공용어로 사용하는 국가의 국적을 소지한 학생"
     }
    ]
-  }
+  },
+  "fstu": 168
  },
  {
   "n": "한서대학교",
@@ -53510,7 +53660,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hanseo",
   "ek": "한서대학교",
   "logo": "univ_logos/990f0a7680.png",
-  "stu": 7952,
+  "stu": 6117,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -53763,7 +53913,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "CEFR B2, NEW TEPS 202점 이상(영어트랙)"
     }
    ]
-  }
+  },
+  "fstu": 205
  },
  {
   "n": "한성대학교",
@@ -53819,7 +53970,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hansung",
   "ek": "한성대학교",
   "logo": "univ_logos/704bbce961.png",
-  "stu": 9388,
+  "stu": 7011,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -54013,7 +54164,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "8) TOEFL 530, IBT 59, IELTS 5.5 이상 취득자 (영어트랙 지원자에 한함)"
     }
    ]
-  }
+  },
+  "fstu": 506
  },
  {
   "n": "한세대학교",
@@ -54038,7 +54190,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hansei",
   "ek": "한세대학교",
   "logo": "univ_logos/08e2bfe70c.png",
-  "stu": 3169,
+  "stu": 2509,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -54099,7 +54251,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ]
   },
-  "period": "2025. 12. 15(월) ~ 2026. 01. 14(수)"
+  "period": "2025. 12. 15(월) ~ 2026. 01. 14(수)",
+  "fstu": 22
  },
  {
   "n": "한신대학교",
@@ -54125,7 +54278,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hanshin",
   "ek": "한신대학교",
   "logo": "univ_logos/702b3e0842.png",
-  "stu": 7182,
+  "stu": 5172,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -54207,7 +54360,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "세종학당 온라인과정 인정불가"
-  }
+  },
+  "fstu": 242
  },
  {
   "n": "한양대학교",
@@ -54239,7 +54393,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "HYU",
   "ek": "한양대학교",
   "logo": "univ_logos/fa737363d5.png",
-  "stu": 22773,
+  "stu": 16432,
   "rk": 3,
   "type": "univ",
   "majors_ba": [
@@ -54311,7 +54465,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "편입학(3학년): 컴퓨터학부(영어트랙)"
     }
    ]
-  }
+  },
+  "fstu": 3988
  },
  {
   "n": "한일장신대학교",
@@ -54343,7 +54498,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hanil Presbyterian",
   "ek": "한일장신대학교",
   "logo": "univ_logos/f3b5a47d69.png",
-  "stu": 904,
+  "stu": 699,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -54413,7 +54568,8 @@ window.UNIV_KNOWLEDGE = [
   "scholarships": {
    "enroll": [],
    "existing": []
-  }
+  },
+  "fstu": 276
  },
  {
   "n": "협성대학교",
@@ -54469,7 +54625,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hyupsung",
   "ek": "협성대학교",
   "logo": "univ_logos/c66ea534c9.png",
-  "stu": 5096,
+  "stu": 3773,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -54625,7 +54781,8 @@ window.UNIV_KNOWLEDGE = [
   "visa_restricted": {
    "degree": true,
    "lang": false
-  }
+  },
+  "fstu": 98
  },
  {
   "n": "호남대학교",
@@ -54657,7 +54814,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Honam",
   "ek": "호남대학교",
   "logo": "univ_logos/a071e67eb0.png",
-  "stu": 7868,
+  "stu": 6223,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -54768,7 +54925,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "※ 중국어트랙 지원자(이중언어과목 지원자) : 경영학부 지원자로 외국인으로서 한국어 능력"
     }
    ]
-  }
+  },
+  "fstu": 1118
  },
  {
   "n": "호남신학대학교",
@@ -55009,7 +55167,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Howon",
   "ek": "호원대학교",
   "logo": "univ_logos/242bcfcecd.png",
-  "stu": 6117,
+  "stu": 5013,
   "rk": null,
   "type": "univ",
   "majors_ba": [
@@ -55142,7 +55300,8 @@ window.UNIV_KNOWLEDGE = [
   "visa_restricted": {
    "degree": false,
    "lang": true
-  }
+  },
+  "fstu": 689
  },
  {
   "n": "홍익대학교",
@@ -55168,7 +55327,7 @@ window.UNIV_KNOWLEDGE = [
   "es": "Hongik",
   "ek": "홍익대학교",
   "logo": "univ_logos/8e126fb8f9.png",
-  "stu": 17085,
+  "stu": 17886,
   "rk": null,
   "type": "univ",
   "majors_ba": [],
@@ -55221,7 +55380,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 법적 공용어로 사용하는 국가의 국적을 소지한 학생"
     }
    ]
-  }
+  },
+  "fstu": 1480
  },
  {
   "n": "화성의과학대학교",
