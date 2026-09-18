@@ -1,0 +1,1047 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<!-- Google Tag Manager -->
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NQWQTNWW');</script>
+
+-->
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+
+
+
+<title>여주대학교 입학안내</title>
+<link rel="stylesheet" href="/resources/template/ipsi/css/reset.css">
+<link rel="stylesheet" href="/resources/template/ipsi/css/common.css">
+<link rel="stylesheet" href="/resources/template/ipsi/css/media.css">
+<link rel="stylesheet" href="/resources/template/ipsi/css/subpage.css">
+<link rel="stylesheet" href="/resources/template/ipsi/css/lightslider.css">
+<link rel="shortcut icon" href="/resources/images/ytech_favicon.ico">
+    
+<!--[if lt IE 9]>
+<script src="/resources/js/html5shiv.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+var contextPath = "";
+var resourcesPath = "/resources";
+var svcMode = "REAL";
+var templateCd = "ipsi";
+var templatePath = "/template/ipsi";
+var domainCd = "ipsi";
+var domainSn = "5";
+var title = 0; //design.js
+</script>
+
+<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/resources/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.tmpl.js"></script>
+<script type="text/javascript" src="/resources/js/util.js"></script>
+<script type="text/javascript" src="/resources/js/comm.js"></script>
+<script type="text/javascript" src="/resources/js/CM.js"></script>
+<script type="text/javascript" src="/resources/js/lightslider.js"></script>
+
+
+
+<script type="text/javascript">
+
+var prgmDivTemplates = {
+    CN : {HREF_TEMPLATE : null, ONCLICK_TEMPLATE : null}
+
+,
+LN : {HREF_TEMPLATE : "{%=HREF%}", ONCLICK_TEMPLATE : null}
+
+,
+PU : {HREF_TEMPLATE : "#", ONCLICK_TEMPLATE : function(metadata){ window.open(metadata.HREF); return false; }}
+
+,
+IF : {HREF_TEMPLATE : null, ONCLICK_TEMPLATE : null}
+
+,
+BB : {HREF_TEMPLATE : null, ONCLICK_TEMPLATE : null}
+
+,
+PG : {HREF_TEMPLATE : null, ONCLICK_TEMPLATE : null}
+
+,
+ME : {HREF_TEMPLATE : null, ONCLICK_TEMPLATE : null}
+
+
+}
+
+// 각 메뉴 검사해서 메뉴구분(PRGM_DIV)에 따라 이벤트 변경
+function fn_cms_processMenu() {
+    $(".menu_element").each(function(){
+        var $this = $(this);
+        $.each(prgmDivTemplates, function(key, val){
+            if(! $this.is(".menu_" + key)) return;
+            
+            var replaceData = {};
+            replaceData.HREF = $this.attr('href');
+            replaceData.PRGM_DIV = key;
+            replaceData.CONTEXT_PATH = '';
+            
+            $(this).off('click');
+            
+            if(val.HREF_TEMPLATE != null) $this.attr('href', fn_cms_replaces(val.HREF_TEMPLATE, replaceData));
+            if(val.ONCLICK_TEMPLATE != null) $this.on('click', function(){fn_util_removeAllCookies("PAGE_", "/"); return val.ONCLICK_TEMPLATE(replaceData)});
+            $this.on('click', function(){fn_util_removeAllCookies('PAGE_');});
+        });
+    });
+}
+function fn_cms_replaces(targetStr, data) {
+    targetStr = fn_util_replaceAll(targetStr, '{%=HREF%}', data.HREF);
+    targetStr = fn_util_replaceAll(targetStr, '{%=CONTEXT_PATH%}', data.CONTEXT_PATH);
+    return fn_util_replaceAll(targetStr, '{%=PRGM_DIV%}', data.PRGM_DIV);
+}
+$(document).ready(function(){
+    fn_cms_processMenu();
+});
+</script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1862625120656510');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" src="https://www.facebook.com/tr?id=1862625120656510&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+	
+<!-- Meta Pixel Code -->
+
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '513828208475387');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=513828208475387&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->​
+    
+
+<script type="text/javascript">
+$(document).ready(function(){
+    fn_init();
+});
+
+function fn_init() {
+    fn_main_contents();
+    fn_department();
+    fn_main_P01();
+}
+
+function fn_main_contents() {
+    var bbsRowCnt = 6;
+    fn_comm_ajax({
+        url: "/ajax/CM_MN02_SVC/CM_MN02_R21.do",
+        data: "DOMAIN_SN=5&bbsRowCnt="+bbsRowCnt,
+        async: false,
+        success: function(data) {
+            $.each(data, function(jsonName, grpData){
+                var GRP_SN = grpData.GRP_SN;
+                if (GRP_SN==null || GRP_SN==undefined) {
+                    return;
+                }
+
+                // 게시판 2개
+                if (GRP_SN==0) {
+                    var contentsArr = grpData.contentsList;
+                    $("#bbsTabTemplate").tmpl(contentsArr).appendTo("#bbsTab");
+                    for (var idx=0; idx<contentsArr.length; idx++) {
+                        var bbsList = contentsArr[idx].bbsList;
+                        var slider = "#slider" + (idx+1) + " > ul";
+                        $("#bbsTabListTemplate").tmpl(bbsList).appendTo(slider);
+                    }
+
+                    var $board = $(".boardzone");
+                    $board.find(".boardtit h2 a").on("click",function(){
+                        if($(this).closest(".boardbox").hasClass("on")) return false;
+                        $(this).closest(".boardbox").addClass("on").siblings().removeClass("on");
+                        return false; 
+                    });
+
+                } else
+
+                // 아래 좌측 4개
+                if (GRP_SN==1) {
+                    var contentsArr = grpData.contentsList;
+                    $("#multiBanner1Template").tmpl(contentsArr).appendTo("#multiBanner1");
+                } else
+
+                // 전화번호 안내 3개
+                if (GRP_SN==2) {
+                    var contentsArr = grpData.contentsList;
+                    $("#telZoneTemplate").tmpl(contentsArr).appendTo("#telzone");
+                }
+
+                // Quick Menu
+                if (GRP_SN==3) {
+                    var contentsArr = grpData.contentsList;
+                    $("#quickMenuTemplate").tmpl(contentsArr).appendTo("#quickMenuMain");
+                }
+            });
+        }
+    });
+}
+
+function fn_department() {
+    fn_comm_ajax({
+        url: "/ajax/CM_MJ10_SVC/CM_MJ10_R03.do", 
+        dataType: "json",
+        data: {DOMAIN_SN : "5"},
+        success: function(data) {
+            for (var idx=0; idx<data.length; idx++) {
+                fn_subject(data[idx].MENU_SN, idx);
+            }
+        }
+    });
+}
+
+function fn_subject(MENU_SN, idx) {
+    fn_comm_ajax({
+        url: "/ajax/CM_MJ10_SVC/CM_MJ10_R04.do", 
+        dataType: "json",
+        data: {MENU_SN : MENU_SN},
+        success: function(data) {
+            $("#departmentTemplate").tmpl(data).appendTo("#department_" + idx);
+        }
+    });
+}
+
+function getCookie(name){
+    var wcname = name + "=";
+    var wcstart, wcend, end;
+    var i = 0;
+    while(i <= document.cookie.length) {
+        wcstart = i;
+        wcend   = (i + wcname.length);
+        if(document.cookie.substring(wcstart, wcend) == wcname) {
+            if((end = document.cookie.indexOf(";", wcend)) == -1)
+                end = document.cookie.length;
+            return document.cookie.substring(wcend, end);
+        }
+        i = document.cookie.indexOf("", i) + 1;
+        
+        if(i == 0)
+            break;
+    }
+    return "";
+}
+</script>
+</head>
+<body>
+
+<link rel="stylesheet" href="/resources/template/ko/css/pop_zone.css" />
+<script>
+function fn_main_P01() {
+    fn_comm_ajax({
+        url: "/ajax/CM_MN02_SVC/CM_MN02_P01.do",
+        data: {DOMAIN_SN: domainSn },
+        dataType: "json",
+        success: function(data, textStatus, jqXHR) {
+            for (var idx=0; idx<data.length; idx++) {
+                var POPUP_OPTION = data[idx].POPUP_OPTION;
+                var ARR_OPTION = POPUP_OPTION.split(",");
+                data[idx].WIDTH = ARR_OPTION[0].substring(ARR_OPTION[0].indexOf("=")+1);
+                data[idx].HEIGHT = ARR_OPTION[1].substring(ARR_OPTION[1].indexOf("=")+1);
+                data[idx].TOP = ARR_OPTION[2].substring(ARR_OPTION[2].indexOf("=")+1);
+                data[idx].LEFT = ARR_OPTION[3].substring(ARR_OPTION[3].indexOf("=")+1);
+            }
+            $("#listPopupTemplate").tmpl(data).appendTo("#pop_zone");
+            
+            for (var idx=0; idx<data.length; idx++) {
+                var popupSn = data[idx].POPUP_SN;
+                var cookieName = "main_PU_"+domainSn+popupSn;
+                if (document.cookie.indexOf(cookieName+"=dummy") > -1 )   
+                    $("#popup"+popupSn).hide();
+            }
+        }
+    });
+}
+
+function fn_nopopup24(obj) {
+    if ($(obj).prop("checked") == true) {
+        var sn = $(obj).val();
+        setCookie("main_PU_"+domainSn+sn, "dummy", 1);
+        fn_popup_close(sn);
+    }    
+}
+
+function fn_popup_close(sn) {
+   $("#popup"+sn).hide(); 
+}
+
+function setCookie(name, value, expiredays) {
+    var today = new Date();
+    today.setDate(today.getDate() + expiredays);
+    document.cookie = name + "=" + escape(value) + "; path=/; expires=" + today.toGMTString() + ";";
+}
+</script>
+
+<div id="pop_zone"></div>
+<script type="text/x-jquery-tmpl" id="listPopupTemplate">
+    <div id="popup{%= POPUP_SN %}" class="pop" style="width:{%= WIDTH %}px;height:{%= HEIGHT %}px;top:{%= TOP %}px;left:{%= LEFT %}px;">
+        <div class="ct">{%html CN %}</div>
+        <p class="close">
+            {%if CLOSE_COOKIE_AT=="Y"%}
+			<span class="chk">
+				<input type="checkbox" name="BTN_NOPOPUP24" value="{%= POPUP_SN %}" onclick="fn_nopopup24(this)" id="pop_{%= POPUP_SN %}"/><i></i>
+			</span>
+			<label for="pop_{%= POPUP_SN %}">오늘 하루 열지 않기</label>
+            {%/if%}
+            <button onclick="fn_popup_close({%= POPUP_SN %})" title="레이어 팝업 닫기">닫기</button>
+        </p>
+    </div>
+</script>
+<!-- accessibility -->
+
+
+    <ul id="skipnavi">
+		<li><a href="#container">본문</a></li>
+		<li><a href="#header">주메뉴</a></li>
+		<li><a href="#footer">푸터</a></li>
+	</ul>
+<!-- //accessibility -->
+<div id="wrap" class="entrance">
+	<div class="top_contents" style="overflow:hidden;max-height:101px;">
+		<div class="slide-wrap">
+			<div class="slide-content">
+				<!-- PC 화면시 상단배너 슬라이드 영역 -->
+				<ul class="slider" id="slider">
+					<li class="item1"><a href="#none;" target="" title=""><img src="/resources/template/ko//img/main/top_banner04.png" alt="간호교육인증평가 최고 등급 5년 인증 획득 4주기 2024. 6. 13.-2029. 6.12." ></a></li> -->
+					<!--<li class="item2"><a href="https://counsel.yit.ac.kr/advice/cms/CM_CN01_CON/index.do?MENU_SN=3040" target="_blank" title="새창으로 이동"><img src="/resources/template/ko//img/main/top_banner01.jpg" alt="2023 전문대학 혁신지원사업(자율혁신) Y-마인드키퍼 프로그램 여주대학교 구성원을 위한 셀프 힐링 마음챙김 명상 프로그램" title="마음챙김 명상 배너" ></a></li>-->
+				    <!-- 260825 문성 주석 처리 진행 -->
+					<!-- <li class="item3"><a href="https://info.yit.ac.kr/ko/cms/CM_CN01_CON/index.do?MENU_SN=2958" target="_self" title="현재창으로 이동"><img src="/resources/template/ko//img/main/yit_top_banner02.jpg" alt="한국전문대학교육협의회고등직업교육평가인증원 고등직교육 품질인증대학(2019년~2024년) '전문대학의 교육의 질 제고'를 위한 평가인증제도" title="고등직교육 품질인증대학 배너" ></a></li> -->
+					<li class="item2"><a href="https://info.yit.ac.kr/ko/cms/CM_CN01_CON/index.do?MENU_SN=2958" target="_self" title="현재창으로 이동"><img src="/resources/template/ko//img/main/yit_top_banner03.jpg" alt="교육부대학기본역량진단2주기 자율개선대학 선정(2019년~2021년) 대학의 고등교육 정책 및 체질 개선을 목표로 하는 평가 방식" title="자율개선대학 선정 배너" ></a></li>
+					<!-- 260319 문성 추가 -->
+					<li class="item3"><a href="" target="_self" title="현재창으로 이동"><img src="/resources/template/ko/img/main/yit_top_banner05.png" alt="경기도 생활기술 평생배움대학 동부권 운영기관 선정" title="경기도 생활기술 평생배움대학 동부권 운영기관 선정" ></a></li>
+					<!-- 문성 추가 2026.04.21 -->				
+					<li class="item4"><a href="" target="_self" title="현재창으로 이동"><img src="/resources/template/ko/img/main/yit_top_banner06.jpg" alt="2026~2027 경기도 중장년 일자리 캠퍼스 수탁기관 선정 운영" title="2026~2027 경기도 중장년 일자리 캠퍼스 수탁기관 선정 운영" ></a></li>
+				</ul>
+				<!-- MOBILE 화면시 상단배너 슬라이드 영역 -->
+				<ul class="slider_m" id="slider_m">
+					<li class="item1"><a href="#none;" target="" title=""><img src="/resources/template/ko//img/main/top_banner04.png" alt="간호교육인증평가 최고 등급 5년 인증 획득 4주기 2024. 6. 13.-2029. 6.12." ></a></li> 
+					<!-- <li class="item2"><a href="https://counsel.yit.ac.kr/advice/cms/CM_CN01_CON/index.do?MENU_SN=3040" target="_blank" title="새창으로 이동"><img src="/resources/template/ko//img/main/top_banner01.jpg" alt="2023 전문대학 혁신지원사업(자율혁신) Y-마인드키퍼 프로그램 여주대학교 구성원을 위한 셀프 힐링 마음챙김 명상 프로그램" title="마음챙김 명상 배너" ></a></li> -->
+					<!-- 260825 문성 주석 처리 진행 -->
+					<!-- <li class="item3"><a href="https://info.yit.ac.kr/ko/cms/CM_CN01_CON/index.do?MENU_SN=2958" target="_self" title="현재창으로 이동"><img src="/resources/template/ko//img/main/yit_top_banner02.jpg" alt="한국전문대학교육협의회고등직업교육평가인증원 고등직교육 품질인증대학(2019년~2024년) '전문대학의 교육의 질 제고'를 위한 평가인증제도" title="고등직교육 품질인증대학 배너" ></a></li> -->
+					<li class="item2"><a href="https://info.yit.ac.kr/ko/cms/CM_CN01_CON/index.do?MENU_SN=2958" target="_self" title="현재창으로 이동"><img src="/resources/template/ko//img/main/yit_top_banner03.jpg" alt="교육부대학기본역량진단2주기 자율개선대학 선정(2019년~2021년) 대학의 고등교육 정책 및 체질 개선을 목표로 하는 평가 방식" title="자율개선대학 선정 배너" ></a></li>
+					<!-- 260319 문성 추가 -->
+					<li class="item3"><a href="" target="_self" title="현재창으로 이동"><img src="/resources/template/ko//img/main/yit_top_banner05.png" alt="경기도 생활기술 평생배움대학 동부권 운영기관 선정" title="경기도 생활기술 평생배움대학 동부권 운영기관 선정" ></a></li>
+					<!-- 문성 추가 2026.04.21 -->				
+					<li class="item4"><a href="" target="_self" title="현재창으로 이동"><img src="/resources/template/ko/img/main/yit_top_banner06.jpg" alt="2026~2027 경기도 중장년 일자리 캠퍼스 수탁기관 선정 운영" title="2026~2027 경기도 중장년 일자리 캠퍼스 수탁기관 선정 운영" ></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- 관심학과 -->
+	<a href="https://naver.me/xxYSKMRZ" target="_blank" class="fix_icon fs20" style="position: fixed;z-index:999; bottom: 3.125rem;right: 3.125rem; color: #2b2b2b;font-size:1.333rem; display:block; font-weight: 500;text-align: center">
+		<p class="imgBox"><img src="/resources/template/ipsi/img/icon/fix_icon.png" alt="관심학과등록 아이콘" style="border: 1px solid #ddd;width: 4.375rem;height: 4.375rem;border-radius:50%;overflow:hidden; box-shadow: 0 0 18px rgba(102, 102, 102, .08);"></p> 관심학과 등록
+	</a>
+
+    <!-- header -->
+    
+    <header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="top">
+	<div class="inner">
+			<em>
+				<a class="siteLink" href="https://ipsi.yit.ac.kr/ipsi/cms/CM_MN05_CON/CM_MN05_V02.do?MENU_SN=2239" target="_self" title="새창">사이트맵</a>
+				<!--
+				<a class="snsLink1" href="https://www.facebook.com/yitofficial" target="_blank" title="새창">페이스북</a>
+				<a class="snsLink2" href="https://blog.naver.com/yitofficial" target="_blank" title="새창">블로그</a>
+				<a class="snsLink3" href="https://www.instagram.com/yitofficial/" target="_blank" title="새창">인스타그램</a>
+				-->
+				<a class="snsLink2" href="https://blog.naver.com/go_yeoju" target="_blank" title="새창">블로그</a>
+				<a class="snsLink4" href="https://pf.kakao.com/_rknHxb" target="_blank" title="새창">카카오채널</a>
+				<a class="snsLink5" href="https://www.youtube.com/channel/UCmdKMY-NlcVunBkDl2BLPFQ?view_as=subscriber" target="_blank" title="새창">유튜브</a>
+				<a class="snsLink3" href="https://www.instagram.com/go_yeoju/" target="_blank" title="새창">인스타그램</a>
+			</em>
+		</span>
+	</div>
+</div>
+
+<div id="header"><!-- gnb 오픈시 open 클래스 추가 -->
+	<div class="inner">
+		<h1 class="title"><a href="/ipsi/index.do"><img src="/resources/domain/ipsi/DM_IMG/logo.png" alt="여주대학교"></a></h1>
+		<nav>
+			<p class="mgnb"><a href="#"><span>주메뉴 열기/닫기 버튼</span></a></p>
+			<ul id="gnb">
+  <li>
+    <a href="/ipsi/cms/menu.do?MENU_SN=1887" class="menu_element menu_ME">학과안내</a>
+    <dl class="tit">
+      <dt>학과안내</dt>
+      <dd>여주대학교 메디텍, 스마트텍, 컬쳐텍을 소개합니다.</dd>
+    </dl>
+    <ul id="RolloverGnb_1887" class="sub">
+      <li>
+        <a href="/ipsi/cms/CM_CN01_CON/index.do?MENU_SN=2511" class="menu_element menu_CN">학과안내</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/menu.do?MENU_SN=2137" class="menu_element menu_ME">메디텍 MEDITECH</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/menu.do?MENU_SN=2136" class="menu_element menu_ME">스마트텍 SMARTTECH</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/menu.do?MENU_SN=2135" class="menu_element menu_ME">컬쳐텍 CULTURETECH</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/ipsi/cms/menu.do?MENU_SN=1867" class="menu_element menu_ME">모집요강</a>
+    <dl class="tit">
+      <dt>모집요강</dt>
+      <dd>여주대학교 신입생(수시.정시), 편입생, 산업체위탁, 학사학위전공심화과정 모집요강을 확인하세요.</dd>
+    </dl>
+    <ul id="RolloverGnb_1867" class="sub">
+      <li>
+        <a href="/ipsi/cms/CM_PV01_CON/CM_PV01_V01.do?MENU_SN=1868" class="menu_element menu_PG">신입생 모집</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/CM_PV01_CON/CM_PV01_V01.do?MENU_SN=2127" class="menu_element menu_PG">편입생</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/CM_PV01_CON/CM_PV01_V01.do?MENU_SN=1873" class="menu_element menu_PG">산업체 위탁</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/CM_PV01_CON/CM_PV01_V01.do?MENU_SN=1907" class="menu_element menu_PG">학사학위전공심화</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/ipsi/cms/menu.do?MENU_SN=1372" class="menu_element menu_ME">입시도우미</a>
+    <dl class="tit">
+      <dt>입시도우미</dt>
+      <dd></dd>
+    </dl>
+    <ul id="RolloverGnb_1372" class="sub">
+      <li>
+        <a href="/ipsi/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=3192" class="menu_element menu_BB">공지사항</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/menu.do?MENU_SN=3066" class="menu_element menu_ME">입시결과 [연도별]</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=1391" class="menu_element menu_BB">입시상담</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=3065" class="menu_element menu_BB">입시자료 [양식다운]</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/CM_CN01_CON/index.do?MENU_SN=1390" class="menu_element menu_CN">학생부 성적산출</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=1392" class="menu_element menu_BB">입시 FAQ</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=3193" class="menu_element menu_BB">입학전형 시행계획</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=3194" class="menu_element menu_BB">선행학습 영향평가 결과</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/ipsi/cms/menu.do?MENU_SN=1373" class="menu_element menu_ME">대학소개</a>
+    <dl class="tit">
+      <dt>대학소개</dt>
+      <dd>창의·도전·협동형 미래 전문직업인 양성 여주대학교</dd>
+    </dl>
+    <ul id="RolloverGnb_1373" class="sub">
+      <li>
+        <a href="/ipsi/cms/CM_CN01_CON/index.do?MENU_SN=2914" class="menu_element menu_CN">Y·TECH Vision 2030+</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=2253" class="menu_element menu_BB">대학소식</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/CM_CN01_CON/index.do?MENU_SN=2222" class="menu_element menu_CN">홍보동영상</a>
+      </li>
+      <li>
+        <a href="/ipsi/cms/CM_CN01_CON/index.do?MENU_SN=2221" class="menu_element menu_CN">장학정보</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+		</nav>
+		<!-- 20170824 추가 -->
+		<dl class="gnbdesc">
+			<dt>모집요강</dt>
+			<dd>여주대학교 입학 전형별 모집요강을 확인하실 수 있습니다.</dd>
+		</dl>
+		<!-- //20170824 -->
+	</div>
+</div>
+<script type="text/javascript">
+	var gnbDep1 = -1+1;
+	var lnbDep1 = -1+1;
+	var lnbDep2 = -1+1;
+	
+	$(function() {
+		var gnbCrt1 = $("#gnb>li:nth-child(" + (gnbDep1) + ")");
+		var gnbCrt2 = $("#gnb>li:nth-child(" + (gnbDep1) + ")>ul>li:nth-child(" + (lnbDep1) + ")");
+		var lnbCrt1 = $("#lnb > li:nth-child(2) > div > ul > li:nth-child(" + (gnbDep1) + ")");
+		var lnbCrt2 = $("#lnb > li:nth-child(3) > div > ul > li:nth-child(" + (lnbDep1) + ")");
+		var lnbCrt3 = $("#lnb > li:nth-child(4) > div > ul > li:nth-child(" + (lnbDep2) + ")");
+		
+		if(gnbCrt1) gnbCrt1.addClass("current");
+		if(gnbCrt2) gnbCrt2.addClass("current");
+		if(lnbCrt1) lnbCrt1.addClass("current");
+		if(lnbCrt2) lnbCrt2.addClass("current");
+		if(lnbCrt3) lnbCrt3.addClass("current");
+	});
+</script> </header>
+    <!-- //header -->
+        <div id="container">
+            <main>
+                <div id="main" class="main">
+                    <!-- main visual -->
+                    <div class="visualzone mainslider">
+                        <p class="img"><img src="/resources/template/ipsi/img/common/img_main.png" alt=""></p>
+                        <p class="moimg"><img src="/resources/template/ipsi/img/mcommon/img_main.png" alt=""></p>
+
+                        <ul class="visual">
+                            <li>
+                                <p class="img"><img src="/resources/template/ipsi/img/common/img_main_medi.jpg" alt="첨단의료 서비스의 산실, 메디텍계열 MEDI TECH"></p>
+                                <p class="moimg"><img src="/resources/template/ipsi/img/mcommon/img_main_medi.jpg" alt="첨단의료 서비스의 산실, 메디텍계열 MEDI TECH"></p>
+                            </li>
+                            <li>
+                                <p class="img"><img src="/resources/template/ipsi/img/common/img_main_smart.jpg" alt="4차산업혁명의 주역, 스마트텍 계열 SMART TECH"></p>
+                                <p class="moimg"><img src="/resources/template/ipsi/img/mcommon/img_main_smart.jpg" alt="첨단의료 서비스의 산실, 메디텍계열 MEDI TECH"></p>
+                            </li>
+                            <li>
+                                <p class="img"><img src="/resources/template/ipsi/img/common/img_main_culture.jpg" alt="문화예술과 과학기술의 융합, 컬처텍 계열 CULTURE TECH"></p>
+                                <p class="moimg"><img src="/resources/template/ipsi/img/mcommon/img_main_culture.jpg" alt="첨단의료 서비스의 산실, 메디텍계열 MEDI TECH"></p>
+                            </li>
+                        </ul>
+                        <ul class="indicator">
+                            <li class="on medi"><a href="#">MEDI TECK 계열</a></li>
+                            <li class="smart"><a href="#">SMART TECK 계열</a></li>
+                            <li class="culture"><a href="#">CULTURE TECK 계열</a></li>
+                        </ul>
+                    </div><!-- //visualzone -->
+
+                    <!-- 입시캘린더 -->
+                    
+<script type="text/javascript">
+
+$(document).ready(function(){
+    fn_service_init();
+    fn_service_contents();
+    
+});
+
+function fn_service_init(){
+    fn_service_R01();
+	accodion(".eecalender_content", ".tit", ".cont");
+}
+
+function isValidCombineSearch() {
+    if($.trim($("#aside_SEARCH_KEWORD").val())=="") {
+        alert("검색 키워드를 입력하세요.");
+        return false;
+    }
+    return true;
+}
+
+//모집전형 관리 조회
+function fn_service_R01(){
+    fn_comm_ajax({
+        url: "/ajax/CM_MN02_SVC/CM_MN01_R40.do", 
+        dataType: "json",
+        async: false,
+        success: function(data) {
+        	//$("#recuitTemplate").tmpl(data[0]).appendTo("#recuitLayout");
+        	$("#recuitLayout").empty();
+        	for (var idx=0; idx<data.length; idx++) {
+        		if(data[idx].USE_AT == "Y"){
+    				$("#recuitTemplate_noti").tmpl(data[idx]).appendTo("#recuitLayout");
+    			}else{
+    				$("#recuitTemplate").tmpl(data[idx]).appendTo("#recuitLayout");
+    			}
+        		
+        		fn_link_R98(data[idx].SERVICE_SN);
+            } 
+        }
+    });
+}
+
+/* function fn_service_R02(SERVICE_SN) {
+    fn_comm_ajax({
+        url: "/ajax/CM_MN02_SVC/CM_MN01_R41.do", 
+        dataType: "json",
+        data: {PID : SERVICE_SN},
+        success: function(data) {
+        	for (var idx=0; idx<data.length; idx++) {
+        		$("#serviceItem_"+data[idx].PID+" > ul").empty();
+        		$("#serviceTemplate").tmpl(data).appendTo("#serviceItem_"+data[idx].PID+" > ul");
+        		fn_link_R98(data[idx].SERVICE_SN);
+        	}
+        }
+    });
+} */
+
+//링크 조회
+function fn_link_R98(sn){
+    fn_comm_ajax({
+        url: "/ajax/CM_MN02_SVC/CM_MN01_R42.do",
+        dataType: "json",
+        data: "SERVICE_SN="+sn,
+        success: function(data) {
+            for (var idx=0; idx<data.length; idx++) {
+            	
+            	if(data[idx].SERVICE_TYPE=="1"){
+            		//$("#linkitem1_"+data[idx].SERVICE_SN).empty();
+            		$("#linkitem1_"+data[idx].SERVICE_SN).find("p.application").show();
+                	$("#linkTemplate1").tmpl(data[idx]).appendTo("#linkitem1_"+data[idx].SERVICE_SN);	
+            	}else{
+            		//$("#linkitem2_"+data[idx].SERVICE_SN).empty();
+            		//$(".application").hide();
+            		//$("#linkitem1_"+data[idx].SERVICE_SN).find("p.application").hide();
+            		$("#linkTemplate2").tmpl(data[idx]).appendTo("#linkitem2_"+data[idx].SERVICE_SN);
+            		if(idx==0){
+            			$("#linkitem2_"+data[idx].SERVICE_SN).find(".btnzone").css("margin-top","0").parent().css("margin-top","10px");
+            		}
+            	}
+            }
+        }
+     });
+};
+
+function fn_service_contents() {
+    var bbsRowCnt = 6;
+    fn_comm_ajax({
+        url: "/ajax/CM_MN02_SVC/CM_MN02_R21.do",
+        data: "DOMAIN_SN=5&bbsRowCnt="+bbsRowCnt,
+        async: false,
+        success: function(data) {
+            $.each(data, function(jsonName, grpData){
+                var GRP_SN = grpData.GRP_SN;
+                if (GRP_SN==null || GRP_SN==undefined) {
+                    return;
+                }
+
+                // Quick Menu
+                if (GRP_SN==3) {
+                    var contentsArr = grpData.contentsList;
+                    $("#quickMenuTemplate").tmpl(contentsArr).appendTo("#quickMenu");
+                } 
+            });
+        }
+    });
+}
+</script>
+<!-- 입시캘린더 -->
+<div class="calendarzone">
+    <h2 class="eecalender_title"><span>조회서비스</span></h2>
+	<ul class="eecalender_content" id="recuitLayout"></ul>
+    <script type="text/x-jquery-tmpl" id="recuitTemplate">
+							<li class="null"><!-- 20170904 클래스 추가 -->
+								<div class=" tit"><a href="#">{%= SERVICE_NM %}</a></div>
+								<div class="cont">
+									
+								</div>
+							</li>
+	</script>
+	<script type="text/x-jquery-tmpl" id="recuitTemplate_noti">
+		<li class="on">
+			<div class="tit"><a href="#">{%= SERVICE_NM %}
+				<span id="icon">{%if ICON_USE_AT=="1"%}<span class="noti">모집중</span>
+				{%elif ICON_USE_AT=="2"%}<span class="noti">진행중</span>{%/if%}</span></a>
+			</div>
+			<div class="cont">
+				<ul id="linkitem2_{%= SERVICE_SN %}">
+						<li id="linkitem1_{%= SERVICE_SN %}">
+							<p class="txt application" style="display:none;">원서접수</p>
+						</li>
+						
+				</ul>
+			</div>
+		</li>
+	</script>
+	<script type="text/x-jquery-tmpl" id="linkTemplate1">
+		<ul class="btnzone"><!-- 가로 2개의 경우 row 클래스 추가 -->
+			<li><a href="{%= LINK_PATH %}" title="새창으로 열림" target="_blank" class="btntype01"><span>{%= LINK_TARGET %}</span></a></li>
+		</ul>
+	</script>
+	<script type="text/x-jquery-tmpl" id="linkTemplate2">
+	<li>
+		<ul class="btnzone">
+			<li><a href="{%= LINK_PATH %}" title="새창으로 열림" target="_blank" class="btntype01"><span>{%= LINK_TARGET %}</span></a></li>
+		</ul>
+	</li>
+	</script>
+	<script type="text/x-jquery-tmpl" id="linkTemplate3">
+	<li>
+		<ul class="btnzone etc">
+			<li><a href="{%= LINK_PATH %}" title="새창으로 열림" target="_blank" class="btntype01"><span>{%= LINK_TARGET %}</span></a></li>
+		</ul>
+	</li>
+	</script>
+	<ul class="eecalender_link" id="quickMenu"></ul>
+    <script type="text/x-jquery-tmpl" id="quickMenuTemplate">
+    {%if CONTENTS_TARGET == "B" %}
+        <li><a href="{%= CONTENTS_PATH %}" target="_blank" title="{%= CONTENTS_SJ %}"><span style="background-image:url({%= IMG_PATH %})"></span>{%= CONTENTS_SJ %}</a></li>
+    {%else%}
+        <li><a href="{%= CONTENTS_PATH %}" title="{%= CONTENTS_SJ %}"><span style="background-image:url({%= IMG_PATH %})"></span>{%= CONTENTS_SJ %}</a></li>
+    {%/if%}
+    </script>
+</div><!-- //calendarzone -->
+
+                    
+                    <!-- 학과안내, 게시판, 바로가기 배너, 전화번호 안내 -->
+                    <div class="maingroup">
+                        <!-- 학과안내 -->
+                        <div class="departmentzone">
+                            <h2 class="departmenttit">학과안내</h2>
+                            <ul class="departmentlist">
+                                <li class="medi on">
+                                    <p class="tit"><a href="#"><span>MEDITECH</span>계열</a></p>
+                                    <div class="cont" style="display:block">
+                                        <ul id="department_0"></ul>
+                                    </div>  
+                                </li>
+                                <li class="smart">
+                                    <p class="tit"><a href="#"><span>SMARTTECH</span>계열</a></p>
+                                    <div class="cont">
+                                        <ul id="department_1"></ul>
+                                    </div>  
+                                </li>
+                                <li class="culture">
+                                    <p class="tit"><a href="#"><span>CULTURETECH</span>계열</a></p>
+                                    <div class="cont">
+                                        <ul id="department_2"></ul>
+                                    </div>  
+                                </li>
+                                <script type="text/x-jquery-tmpl" id="departmentTemplate">
+                                    <li><a href="/ipsi/cms/CM_CN01_CON/index.do?MENU_SN={%= MENU_SN %}">{%= MENU_NM %}</a></li>
+                                </script>
+                            </ul>
+                            <p class="morebtn"><a href="#" title="학과안내 더보기"><spna>더보기</spna></a></p>
+                        </div><!-- //departmentzone -->
+                        
+                        <!-- 게시판 -->
+                        <div class="boardzone" id="bbsTab"></div>
+                        <script type="text/x-jquery-tmpl" id="bbsTabTemplate">
+                        {%if CONTENTS_SN == "0" %}
+                            <div class="boardbox on">
+                        {%else%}
+                            <div class="boardbox">
+                        {%/if%}
+                                <div class="boardtit ">
+                                    <h2><a href="#">{%= CONTENTS_SJ %}</a></h2>
+                                    <p class="morebtn"><a href="/ipsi/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN={%= MENU_SN %}" title="{%= CONTENTS_SJ %} 더보기"><span>더보기</span></a></p>
+                                </div>
+                                <div id="slider{%= CONTENTS_SN+1 %}" class="boardcont swipe">
+                                    <ul class="swipe-wrap"></ul>
+                                </div>
+                            </div>
+                        </script>
+                        <script type="text/x-jquery-tmpl" id="bbsTabListTemplate">
+                        <li>
+                            <a href="/ipsi/cms/CM_BB01_CON/CM_BB01_V01.do?MENU_SN={%= MENU_SN %}&BBS_SN={%= BBS_SN %}">
+                                <span class="date">{%= REG_DT %}</span>
+                                <p class="tit">{%= SJ %}</p>
+                            </a>
+                        </li>
+                        </script>
+
+                        <!-- 바로가기 배너 -->
+                        <div class="bannerzone">
+                            <h2 class="hidden">바로가기 배너</h2>
+                            <ul id="multiBanner1"></ul>
+                            <script type="text/x-jquery-tmpl" id="multiBanner1Template">
+                            {%if CONTENTS_SN == "0" || CONTENTS_SN == "3" %}
+                                <li class="application" style = "background:#6a96d7">
+                            {%else%}
+                                <li style = "background:#929fae">
+                            {%/if%}
+                                {%if CONTENTS_TARGET == "B" %}
+                                    <a href="{%= CONTENTS_PATH %}" target="_blank" title="{%= CONTENTS_SJ %}">
+                                {%else%}
+                                    <a href="{%= CONTENTS_PATH %}" title="{%= CONTENTS_SJ %}">
+                                {%/if%}
+                                        <strong class="tit">{%= CONTENTS_SJ %}</strong>
+                                        <p class="txt">{%html CONTENTS_CN %}</p>
+                                        <span style="background-image:url({%= IMG_PATH %})"></span>
+                                    </a>
+                                </li>
+                            </script>   
+                        </div><!-- //bannerzone -->
+
+                        <!-- 전화번호 안내 -->
+                        <div class="telzone">
+                            <h2 class="hidden">전화번호 안내</h2>
+                             <ul id="telzone"></ul>
+                             <script type="text/x-jquery-tmpl" id="telZoneTemplate">
+                                <li>
+                                    <h3 class="tit">{%= CONTENTS_SJ %}</h3>
+                                    <p class="telnumber">{%= CONTENTS_CN %}</p>
+                                </li>
+                             </script>
+                        </div><!-- //telzone -->
+                    </div><!-- //maingroup -->
+
+                    <!-- 퀵메뉴 -->
+                    <div class="quickzone">
+                        <h2 class="hidden">퀵 메뉴</h2>
+                        <ul class="eecalender_link" id="quickMenuMain"></ul>
+                        <!-- 모바일의 구조상 퀵 메뉴가 두번 들어가야합니다. -->
+                    </div> <!-- //quickzone -->
+                </div><!-- //container -->
+            </main>
+        </div>
+    <footer>
+
+
+
+<div id="footer">
+	<div class="inner">
+		
+		<div class="footer_select">
+			<a href="#"><span>관련사이트</span></a>
+			 <!--20170906 ul 텍스트 수정-->
+            <ul class="site">
+            
+				<li> <a href="https://info.yit.ac.kr" target="_blank" title="여주대학교"><span>여주대학교</span></a> </li>
+           	
+				<li> <a href="https://iec.yit.ac.kr/" target="_blank" title="국제협력처"><span>국제협력처</span></a> </li>
+           	
+				<li> <a href="https://library.yit.ac.kr/" target="_blank" title="여암학술정보관"><span>여암학술정보관</span></a> </li>
+           	
+				<li> <a href="https://sejong.yit.ac.kr/" target="_blank" title="세종생활관(기숙사)"><span>세종생활관(기숙사)</span></a> </li>
+           	
+				<li> <a href="https://lifelong.yit.ac.kr/" target="_blank" title="평생교육원"><span>평생교육원</span></a> </li>
+           	
+				<li> <a href="https://dongshin.yit.ac.kr/" target="_blank" title="동신교육재단"><span>동신교육재단</span></a> </li>
+           	
+				<li> <a href="https://counsel.yit.ac.kr/" target="_blank" title="학생상담지원센터"><span>학생상담지원센터</span></a> </li>
+           	
+				<li> <a href="https://yep.yeojoo.ac.kr/" target="_blank" title="취업지원센터"><span>취업지원센터</span></a> </li>
+           	
+			</ul>
+		</div>
+        		
+		<p class="footer_logo"><a href="/"><img src="/resources/template/ipsi/img/common/logo_gray.png" alt="여주대학교"></a></p>
+		<div class="footer_infor">
+			<ul class="footer_utile">
+		    			
+				<li><a href="/ipsi/cms/CM_CN01_CON/index.do?MENU_SN=2242"  title="개인정보처리방침">개인정보처리방침</a></li>
+	    				
+				<li><a href="/ipsi/cms/CM_CN01_CON/index.do?MENU_SN=2241"  title="이메일무단수집거부">이메일무단수집거부</a></li>
+	    				
+				<li><a href="https://ipsi.yit.ac.kr/ipsi/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=3193"  title="입학전형 시행계획">입학전형 시행계획</a></li>
+	    				
+				<li><a href="/ipsi/cms/CM_MN05_CON/CM_MN05_V02.do?MENU_SN=2239"  title="SITEMAP">SITEMAP</a></li>
+	    					
+			</ul> 
+			<address>
+				<ul class="footer_address">
+					<li>우)12652 경기도 여주시 세종로 338 여주대학교</li>
+					<!-- <li>대표전화  031-880-5000</li> -->
+					<li>입학문의 031-880-5555</li>
+				</ul>
+			</address>
+			<p class="footer_copy">Copyright by yeoju institute of technology all rights reserved.</p>
+			<p class="footer_sns">
+				<!--
+		        <a href="https://www.facebook.com/yitofficial" target="_blank">페이스북</a>
+		        <a href="http://blog.naver.com/yitofficial" target="_blank">블로그</a>
+		        <a href="https://www.instagram.com/yitofficial/" target="_blank">인스타그램</a>
+				-->
+				<a href="https://blog.naver.com/go_yeoju" target="_blank" style="background-image: url(/resources/template/ko/img/common/sns2_.png);">블로그</a>
+				<a href="https://www.instagram.com/go_yeoju/" target="_blank" style="background-image: url(/resources/template/ko/img/common/sns3_.png);">인스타그램</a>
+				<a href="https://pf.kakao.com/_rknHxb" target="_blank" style="background-image: url(/resources/template/ko/img/common/sns5_.png);">카카오채널</a>
+				<a href="https://www.youtube.com/channel/UCmdKMY-NlcVunBkDl2BLPFQ?view_as=subscriber" target="_blank" style="background-image: url(/resources/template/ko/img/common/sns4_.png);">유튜브</a>
+	        </p>   
+		</div>
+		
+	</div>
+</div>
+  
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQWQTNWW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<Body></footer>
+    
+<link rel="stylesheet" href="/resources/template/ko/css/pop_zone.css" />
+<script>
+function fn_main_P01() {
+    fn_comm_ajax({
+        url: "/ajax/CM_MN02_SVC/CM_MN02_P01.do",
+        data: {DOMAIN_SN: domainSn },
+        dataType: "json",
+        success: function(data, textStatus, jqXHR) {
+            for (var idx=0; idx<data.length; idx++) {
+                var POPUP_OPTION = data[idx].POPUP_OPTION;
+                var ARR_OPTION = POPUP_OPTION.split(",");
+                data[idx].WIDTH = ARR_OPTION[0].substring(ARR_OPTION[0].indexOf("=")+1);
+                data[idx].HEIGHT = ARR_OPTION[1].substring(ARR_OPTION[1].indexOf("=")+1);
+                data[idx].TOP = ARR_OPTION[2].substring(ARR_OPTION[2].indexOf("=")+1);
+                data[idx].LEFT = ARR_OPTION[3].substring(ARR_OPTION[3].indexOf("=")+1);
+            }
+            $("#listPopupTemplate").tmpl(data).appendTo("#pop_zone");
+            
+            for (var idx=0; idx<data.length; idx++) {
+                var popupSn = data[idx].POPUP_SN;
+                var cookieName = "main_PU_"+domainSn+popupSn;
+                if (document.cookie.indexOf(cookieName+"=dummy") > -1 )   
+                    $("#popup"+popupSn).hide();
+            }
+        }
+    });
+}
+
+function fn_nopopup24(obj) {
+    if ($(obj).prop("checked") == true) {
+        var sn = $(obj).val();
+        setCookie("main_PU_"+domainSn+sn, "dummy", 1);
+        fn_popup_close(sn);
+    }    
+}
+
+function fn_popup_close(sn) {
+   $("#popup"+sn).hide(); 
+}
+
+function setCookie(name, value, expiredays) {
+    var today = new Date();
+    today.setDate(today.getDate() + expiredays);
+    document.cookie = name + "=" + escape(value) + "; path=/; expires=" + today.toGMTString() + ";";
+}
+</script>
+
+<div id="pop_zone"></div>
+<script type="text/x-jquery-tmpl" id="listPopupTemplate">
+    <div id="popup{%= POPUP_SN %}" class="pop" style="width:{%= WIDTH %}px;height:{%= HEIGHT %}px;top:{%= TOP %}px;left:{%= LEFT %}px;">
+        <div class="ct">{%html CN %}</div>
+        <p class="close">
+            {%if CLOSE_COOKIE_AT=="Y"%}
+			<span class="chk">
+				<input type="checkbox" name="BTN_NOPOPUP24" value="{%= POPUP_SN %}" onclick="fn_nopopup24(this)" id="pop_{%= POPUP_SN %}"/><i></i>
+			</span>
+			<label for="pop_{%= POPUP_SN %}">오늘 하루 열지 않기</label>
+            {%/if%}
+            <button onclick="fn_popup_close({%= POPUP_SN %})" title="레이어 팝업 닫기">닫기</button>
+        </p>
+    </div>
+</script>
+</div>
+<script type="text/javascript" src="/resources/template/ipsi/js/common.js"></script>
+</body>
+</html>
+<script>
+    // 메인슬라이드
+    slideType01(".mainslider", ".visual", ".indicator", 5000);
+
+    //학과안내
+    accodion(".departmentlist", ".tit", ".cont");
+
+    //입시캘린더
+    //accodion(".eecalender_content", ".tit", ".cont");
+
+</script>
+
+<!-- 상단 배너 스크립트 2020-07-22 한승화 추가 -->
+<script>
+	$(document).ready(function() {
+		// PC화면 시 상단배너 슬라이드
+		var pcSlide = $("#slider").lightSlider({
+			item:2,
+			mode: 'slide',
+			loop: true,      
+			auto: true,      
+			keyPress: true,  
+			pager: true,    
+			speed: 1500,     
+			pause: 5000,
+			slideMargin: 0,
+			controls:false,
+			enableTouch:false,
+			enableDrag:false,
+			currentPagerPosition: 'middle',
+			addClass:'slide_pc'
+		});
+		
+		// Moblie화면 시 상단배너 슬라이드
+		var mSlide = $("#slider_m").lightSlider({
+			item:1,
+			mode: 'slide',
+			loop: true,      
+			auto: true,      
+			keyPress: true,  
+			pager: true,    
+			speed: 1500,     
+			pause: 5000,
+			slideMargin: 0,
+			controls:false,
+			enableTouch:false,
+			enableDrag:false,
+			currentPagerPosition: 'middle',
+			addClass:'slide_m'
+		});
+		
+		$(window).resize(function(){
+			var winReWidth = $(window).width(); // 브라우저 창의 넓이
+			// 화면 리사이즈시 동작(슬라이드 함수 재실행)
+			if(winReWidth < 820){
+				mSlide.refresh();
+			}else{
+				pcSlide.refresh();
+			}
+		});
+	});
+</script>
+<!-- 상단 배너 스크립트 2020-07-22 한승화 추가 -->

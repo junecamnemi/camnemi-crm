@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>울산대학교 입학처</title>
+		<link rel="shortcut icon" href="/images/front/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="/css/front/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/front/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/front/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/front/aos.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/front/default.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/front/main/site-map.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/font/font.css">
+    
+ <!-- ============jQuery 2.2.1============ -->
+	<script src="/js/front/jquery-2.2.1.min.js"></script>
+	
+	<!-- ============owl============ -->
+    <script src="/js/front/slick.js"></script>
+    
+	<!-- ============bootstrap.js============ -->			
+    <script src="/js/front/bootstrap.bundle.js"></script>
+    
+    <!-- ============descrambler.js============ -->
+    <script src="/js/front/descrambler.min.min.js"></script>
+    
+	<!-- ============aos.js============ -->
+	<script src="/js/front/aos.js"></script>
+	
+	<!-- ============프로젝트 js============ -->
+    <script src="/js/front/main/main.js"></script>
+    <script src="/js/front/main/header.js"></script>
+    <script src="/js/front/main/footer.js"></script>
+	
+    <!-- ============cookie.js============ -->
+    <script src="/x4/plugins/jquery/jquery.cookie.js"></script>
+    <!-- <script type="text/javascript" src="../js/main/sitemap.js"></script> -->
+
+    <!-- jQuery UI 1.11.4 -->
+    <script src="/x2/plugins/validate/jquery.validate.js"></script>
+
+	<script>
+		// 이미지 오류시 대체 이미지
+		$(function() {
+		    $("img").each(function (i, ele) {
+		    	var uri = "";
+		    	if($('#imgCheck').attr("class") == 'imgExc'){
+		    		uri = "/images/front/default-a4.png";
+		    	}else{
+		    		uri = "/images/front/default-img.png";
+		    	}
+		        //이미 load된 이미지들을 처리하기 위한 코드
+		        if (ele.src != '' && ele.complete == true && ele.naturalWidth == 0) {
+		            $(this).attr("src", uri);
+		        }
+		        //load되지 않은 이미지들은 error 이벤트를 추가해준다
+		        $(this).on('error', function () {
+		            $(this).attr("src", uri);
+		        });
+		    });
+		});
+	
+		function getCookie(name){
+			var cookieName = name + "=";
+			var i = 0;
+			while(i <= document.cookie.length){
+				var c = (i + cookieName.length);
+				if(document.cookie.substring(i, c) == cookieName){
+					if((lastCharCookie = document.cookie.indexOf(";", c)) == -1) lastCharCookie = document.cookie.length;
+					return encodeURI(document.cookie.substring(c, lastCharCookie));
+				}
+				
+				i = document.cookie.indexOf(" ", i) + 1
+				if(i == 0) break;			
+			}
+			return "";
+		}
+		
+		function setCookie(name, value, expire){
+			var today = new Date(); 
+			today.setDate(today.getDate() + expire);
+			document.cookie = name + "=" + encodeURI(value) + "; expires=" + today.toGMTString() + "; path=/;";
+		}
+	</script><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.25, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/css/front/main/main.css"/>
+	</head>
+	<body>
+		<div class="wrap ">
+			<link rel="stylesheet" type="text/css" href="/css/front/intro.css">
+
+<script>
+	$(function(){
+		// Modal
+		$(document).on('click', '.masterHandle', function(){
+			if($(this).find('.introMet').val() == 'M'){
+				$('#staticBackdropLabel').text($(this).find(".head-tit").text());
+				$('#modalDate').text($(this).find('.date').text());
+				$('#modalTit').text($(this).find('.tit').text());
+				$('#modalCont').text($(this).find('.cont').val());
+				var html = "";
+				
+				$(this).find('input[name=lastUsing]').each(function(){
+					
+					html += '<div class="col-md-4 col-12">'
+                    	 +		'<div class="btn btn-secondary w-100 btn-temp-01 downFile" data-no="'+$(this).val()+'">'+$(this).data('name')+'</div>'
+                    	 +	'</div>'
+				});
+				
+				$('#attachFiles').html(html);
+				$("#staticBackdrop").modal('show');
+				
+			}
+		});
+		
+		$(document).on('click', '.downFile', function(){
+			location.href='/usingDownload.do?no='+$(this).data('no');
+		});
+	});
+</script>
+
+<div class="inner">
+    <div class="intro-bg"></div>
+    <img class="bg-img" src="/upload/intro/2024/09/06/17adfd19-f1b9-47e2-baf9-0e1c0d216ca5.png" alt="울산대학교 인트로 배경이미지">
+    <!-- <img class="bg-img" src="../resources/images/front/test-img-1.png" alt=""> -->
+    <img class="logo-bg" src="/images/front/logo-bg.png" alt="">
+
+    <header>
+        <div class="logo">
+            <img src="/images/front/logo-bk.png" alt="">
+        </div>
+        <div class="sns-list">
+            <a class="item" href="https://www.instagram.com/university_of_ulsan/">
+                <img src="/images/front/sns-icon-1.png" alt="">
+            </a>
+            <a class="item" href="https://www.youtube.com/@universityofulsan287">
+                <img src="/images/front/sns-icon-2.png" alt="">
+            </a>
+            <a class="item" href="https://www.facebook.com/universityofulsan">
+                <img src="/images/front/sns-icon-3.png" alt="">
+            </a>
+        </div>
+    </header>
+
+    <section class="content row">
+        <div class="box-body list">
+            <div class="row listBoard masterFrame" id="allTag">
+            	<div class="col-md-3 col-12" draggable="false" style=""><div class="masterFrame masterHandle"><a href="#" class="box temp01" draggable="false" target="_self"><div class="head-tit">신입학</div><div class="date">2027학년도 수시모집</div><div class="tit">수험생 정보시스템(9월 21일 오픈 예정)</div><input type="hidden" class="urlChecked" value="false"><input type="hidden" class="frameType" value="1"><input type="hidden" class="cont" value=""><input type="hidden" class="introMet" value="A"></a><div class="addedFile"></div></div></div><div class="col-md-3 col-12" draggable="false" style=""><div class="masterFrame masterHandle"><a href="http://ratio.uwayapply.com/Sl5KVzgmQzpKZiUmOiZKN2ZUZg==" class="box temp01" draggable="false" target="_blank"><div class="head-tit">신입학</div><div class="date">2027학년도 수시모집</div><div class="tit">경쟁률 확인하기</div><input type="hidden" class="urlChecked" value="true"><input type="hidden" class="frameType" value="1"><input type="hidden" class="cont" value=""><input type="hidden" class="introMet" value="A"></a><div class="addedFile"></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        </div>
+    </section>
+
+    <div class="content quick-list row">
+        <div class="col-md-6 col-12">
+            <a href="https://www.ulsan.ac.kr/kor/Main.do" class="item">
+                <img src="/images/front/main-logo.png" alt="">
+                <div class="txt">홈페이지 바로가기</div>
+            </a>
+        </div>
+        <div class="col-md-6 col-12">
+            <a href="/main?opr=iphak" class="item">
+                <img src="/images/front/logo-origin.png" alt="" style="width: 186px;">
+                <div class="txt">홈페이지 바로가기</div>
+            </a>
+        </div>
+    </div>
+
+    <a class="badge" href="https://iphak.ulsan.ac.kr/main/31">
+        <img class="" src="/images/front/intro-badge.png" alt="">
+        <div class="txt">
+            <div>UOU</div>
+            <div>문의하기</div>
+            <div>CLICK</div>
+        </div>
+    </a>
+
+
+    <!--푸터-->
+    <footer>
+        <p>(44610) 울산광역시 남구 대학로 93 울산대학교 입학관리팀</p>
+        <p><b>TEL</b> 052-259-2058, <b>FAX</b> 052-247-6574</p>
+    </footer>
+    <!--푸터-->
+
+
+    <!-- Modal -->
+    <div class="modal fade intro-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 head-tit" id="staticBackdropLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalDate" class="date"></div>
+                    <div id="modalTit" class="tit"></div>
+
+                    <pre id="modalCont" class="txt"></pre>
+
+                    <div class="download-list d-none">
+                        <div class="item">
+                            <span>파일이름</span>
+                            <a href="">download</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <div id="attachFiles" class="btn-list border-top row w-100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div>		
+	</body>
+</html>

@@ -1,0 +1,1626 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>동국대학교 일반대학원</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <meta property="og:image" content="/data/files/banner/278/410C37C263C646ACA2FFBE0566DA97A6.jpg?v=01">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="동국대학교 일반대학원">
+    <meta property="og:url" content="gs.dongguk.edu">
+    <meta property="og:description" content="동국대학교 일반대학원 홈페이지에 오신 것을 환영합니다.">
+
+    <meta name="description" content="동국대학교 일반대학원 홈페이지에 오신 것을 환영합니다.">
+    <meta name="keywords" content="동국대, 동국대대학원, 동국대학교, 동국대학교대학원, 동국대일반대학원 ">
+
+    <link href="/resources/css/site/common.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/site/desktop.css" rel="stylesheet" type="text/css" media="screen and (min-width:1240px)">
+    <link href="/resources/css/site/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/site/layout.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/site/mobile.css" rel="stylesheet" type="text/css" media="screen and (max-width:767px)">
+    <link href="/resources/css/site/slick.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/site/tablet.css" rel="stylesheet" type="text/css" media="screen and (min-width:768px) and (max-width:1239px)">
+    <script type="text/javascript" src="/resources/js/jquery/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery/main_slide.js"></script>
+    
+    <script type="text/javascript" src="/resources/js/jquery/slick.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery/jquery.bxslider.js" ></script>
+
+    
+    <link rel="shortcut icon" href="/resources/images/favicon/favicon.ico">
+    <link rel="icon" href="/resources/images/favicon/favicon.ico">
+
+    <script>
+        // TODO https 리다이렉트
+        //fn_redirect_https();
+        $(document).ready(function(){
+
+            //메인 비주얼 슬라이드
+            $('.main_visual_img').slick({
+                autoplay: true,
+                autoplaySpeed: 5000,
+                pauseOnHover:false,
+                pauseOnFocus: false,
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                adaptiveHeight: true,
+                cssEase: 'linear'
+            });
+
+            //메인 popup
+            $('#main_popup').slick({
+                rows:2,
+                slidesPerRow:3,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: false,
+                dots: true,
+                arrows: false,
+                draggable: true,
+                infinite : true,     //무한 반복 옵션
+
+                responsive: [ // 반응형 웹 구현 옵션
+                    {
+                        breakpoint: 1200, //화면 사이즈 1200px
+                        settings: {
+                            slidesPerRow:1,
+                            rows:3,
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 768, //화면 사이즈 768px
+                        settings: {
+                            slidesPerRow:1,
+                            rows:1,
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+
+            });
+
+            //탭메뉴
+            var $tab_list = $(".tab_menu");
+
+            $tab_list.find("ul ul").hide();
+            $tab_list.find("ul .notice_more").hide();
+            $tab_list.find("li.active > ul").show();
+            $tab_list.find("li.active > .notice_more").show();
+
+            function tabMenu(e){
+                //e.preventDefault();
+                var $this = $(this);
+                $this.next("ul").show().parent("li").addClass("active").siblings("li").removeClass("active").find(">ul").hide();
+                $this.next().next(".notice_more").show().parent("li").siblings("li").children(".notice_more").hide();
+            }
+            $tab_list.find("ul>li>a").click(tabMenu).focus(tabMenu);
+
+        });
+    </script>
+
+</head>
+<body>
+
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var menu_array = new Array();
+        $('.dropdown').each(function(i, v){
+            $.ajax({
+                url: '/menu/list',
+                type: 'post',
+                data:{
+                    menu_info_seq : '1',
+                    menu_seq : $(v).data('parent-seq'),
+                    flag : 'child'
+                },
+                dataType: 'json',
+                success: function(res) {
+                    var parent = new Array();
+                    var child = new Array();
+                    var grandChild = new Array();
+                    res.forEach(function(v, i){
+                        switch (v.menu_depth){
+                            case '1':
+                                parent.push({seq : v.menu_seq, title : v.menu_title, link : v.menu_link, type : v.menu_link_type, parent : v.prt_seq, menu_type : v.menu_type});
+                                break;
+                            case '2':
+                                child.push({seq : v.menu_seq, parent : v.prt_seq, title : v.menu_title, link : v.menu_link, type : v.menu_link_type, menu_type : v.menu_type});
+                                break;
+                            case '3':
+                                grandChild.push({seq : v.menu_seq, parent : v.prt_seq, title : v.menu_title , link : v.menu_link, type : v.menu_link_type, menu_type : v.menu_type});
+                                break;
+                        }
+                    });
+                    parent.forEach(function(sv, si){
+                        var menu_content = ''; // pc
+                        var m_menu_content = '';//mobile
+                        menu_content += '       <a href="';
+                        m_menu_content +='<li> <a href="';
+                        if(sv.menu_type ==='MNT_004'){
+                            var childCheck = 0; // pc는 2 모바일, 사이트맵은 3
+                            m_menu_content += '#" >'+sv.title+'</a>'; //mobile
+                            m_menu_content += '<ul>'; //mobile
+                            child.forEach(function(ssv, ssi){
+                                if(sv.seq === ssv.parent){
+                                    if(ssv.menu_type === 'MNT_004'){
+                                        var mobCheck = 0;
+                                        grandChild.forEach(function(sssv,sssi){
+                                            if(ssv.seq === sssv.parent){
+                                                if(childCheck == 0){ // PC
+                                                    menu_content += sssv.link;
+                                                    menu_content += '" target ="'+(sssv.type === 'LNK_001' ? '' : '_blank')+'">'+
+                                                    '           '+sv.title +
+                                                    '       </a>';
+                                                    childCheck = 1;
+                                                }
+                                                if(mobCheck ==0){
+                                                    //MOBILE
+                                                    m_menu_content +='<li><a href="'+sssv.link;
+                                                    m_menu_content += '" target ="'+(sssv.type === 'LNK_001' ? '' : '_blank')+'">'+
+                                                        '           '+ssv.title +
+                                                        '       </a></li>';
+                                                    mobCheck =1;
+                                                }
+
+                                            }
+                                        });
+
+                                    }else{
+                                        if(childCheck == 0) { // PC
+                                            if (ssv.menu_type === 'MNT_002') {
+                                                menu_content += ssv.link + '/list';
+                                            } else {
+                                                menu_content += ssv.link;
+                                            }
+                                            menu_content += '" target="'+(ssv.type === 'LNK_001' ? '' : '_blank')+'">' +
+                                                '           '+sv.title +
+                                                '       </a>';
+                                            childCheck = 1;
+                                        }
+                                        m_menu_content +='<li><a href="';
+                                        if (ssv.menu_type === 'MNT_002') {
+                                            m_menu_content += ssv.link + '/list';
+                                        } else {
+                                            m_menu_content += ssv.link;
+                                        }
+                                        m_menu_content += '" target="'+(ssv.type === 'LNK_001' ? '' : '_blank')+'">' +
+                                            '           '+ssv.title +
+                                            '      </a></li>';
+                                    }
+                                }
+                            });
+                            m_menu_content += '</ul> </li>'; //mobile
+                        }else{
+                            if(sv.menu_type === 'MNT_002'){
+                                menu_content += sv.link+'/list';
+                                m_menu_content += sv.link+'/list';
+                            }else{
+                                menu_content += sv.link;
+                                m_menu_content += sv.link;
+                            }
+                            menu_content += '" target="'+(sv.type === 'LNK_001' ? '' : '_blank')+'">' + sv.title +
+                                '       </a>';
+                            m_menu_content += '" target="'+(sv.type === 'LNK_001' ? '' : '_blank')+'">' +
+                                '           '+sv.title +
+                                '      </a></li>';
+                        }
+                        $('.dropdown[data-parent-seq="'+sv.parent+'"]').append(menu_content);
+                        $('.m_drop[data-parent-seq="'+sv.parent+'"]').append(m_menu_content);
+                        $('.map_dep02[data-parent-seq="'+sv.parent+'"]').append(m_menu_content);
+                        $(".map_dep02 li").each(function (i, v) {
+                            if($(v).children('ul').length >0) {
+                                $(v).children('ul').addClass('map_dep03');
+                            }
+                        });
+
+                    });
+
+                }
+            });
+        });
+    });
+
+</script>
+
+<!-- header start -->
+<header>
+    <div>
+        <div class="header_in">
+
+            <h1><a href="/main"><img src="/resources/images/site/site/logo.png" alt="동국대학교 일반대학원"></a></h1>
+
+            <!-- h_top start -->
+            <div class="h_top">
+                <ul class="h_top_left">
+                    <li><a href="https://www.dongguk.edu/" target="_blank">동국대학교</a></li>
+                    <li><a href="https://bmc.dongguk.edu/" target="_blank">고양캠퍼스</a></li>
+                    <li><a href="https://web.dongguk.ac.kr" target="_blank">WISE캠퍼스</a></li>
+                    <li><a href="http://www.dumc.or.kr/" target="_blank">의료원</a></li>
+                    <li><a href="http://lib.dongguk.edu/" target="_blank">중앙도서관 </a></li>
+                </ul>
+
+                <ul class="h_top_right">
+                    <li class="lang"><a href="/eng/main" target="_blank">ENG</a></li>
+                    
+                        <li><a href="/login">로그인</a></li>
+                    
+                    
+                    <li><a href="http://ndrims.dongguk.edu/" target="_blank">nDRIMS</a></li>
+                    <li><a href="https://gw.dongguk.edu/" target="_blank">GROUPWARE</a></li>
+                    <li><a href="https://portal.dongguk.edu/" target="_blank">PORTAL</a></li>
+                    <li><a href="https://mail.dongguk.edu/" target="_blank">WEBMAIL</a></li>
+                    <li><a href="https://eclass.dongguk.edu/" target="_blank">E-class</a></li>
+                </ul>
+            </div>
+            <!-- h_top end -->
+
+
+            <!-- nav start -->
+            <nav>
+                <ul class="gnb">
+                
+                    <li>
+                        <a href="#none" target="" class="sel">대학원안내</a>
+                        
+                            <div class="dropdown" data-parent-seq="155626863842">
+                            </div>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="#none" target="" >학과/연구실</a>
+                        
+                            <div class="dropdown" data-parent-seq="1556268674419">
+                            </div>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="#none" target="" >진학준비</a>
+                        
+                            <div class="dropdown" data-parent-seq="1556268690091">
+                            </div>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="#none" target="" >입학전형</a>
+                        
+                            <div class="dropdown" data-parent-seq="1556268702203">
+                            </div>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="#none" target="" >학사/연구지원</a>
+                        
+                            <div class="dropdown" data-parent-seq="1606963175139">
+                            </div>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="#none" target="" >대학원 생활</a>
+                        
+                            <div class="dropdown" data-parent-seq="160696320177">
+                            </div>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="#none" target="" >공지사항</a>
+                        
+                            <div class="dropdown" data-parent-seq="1655865598415">
+                            </div>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="#none" target="" >원스탑 신청</a>
+                        
+                            <div class="dropdown" data-parent-seq="1656465928593">
+                            </div>
+                        
+                    </li>
+                
+                </ul>
+            </nav>
+            <!-- nav end -->
+
+            <ul class="h_etc">
+                
+                <li><a href="#" class="btn_sitemap"><img src="/resources/images/site/site/icon_h_sitemap.png" alt="사이트맵"></a></li>
+            </ul>
+
+            <!-- 검색 레이어 start-->
+            <div class="modal">
+                <button class="btn-close">&times;</button>
+
+                <div class="modal_con">
+                    <form action="" method="">
+                        <fieldset>
+                            <legend>통합검색</legend>
+                            <p class="tit">SEARCH</p>
+                            <input type="text" name="word" autocomplete="off" id="a" title="검색어 입력창" placeholder="검색어를 적어주세요">
+                            <input type="submit" id="b" value="검색">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+            <div class="overlay"></div>
+            <!-- 검색 레이어 end -->
+
+            <!-- 전체메뉴 레이어 start 20220804 -->
+            <div class="allmenu">
+                <button class="btn_close_sitemap">&times;</button>
+
+                <div class="allmenu_con">
+                    <div class="allmenu_con_wrap">
+                        
+                            <div class="sitemap_box">
+                                <div class="map_dep01"><h2>대학원안내</h2></div>
+                                <div class="map_con">
+                                    <ul class="map_dep02" data-parent-seq="155626863842"></ul>
+                                </div>
+                            </div>
+                        
+                            <div class="sitemap_box">
+                                <div class="map_dep01"><h2>학과/연구실</h2></div>
+                                <div class="map_con">
+                                    <ul class="map_dep02" data-parent-seq="1556268674419"></ul>
+                                </div>
+                            </div>
+                        
+                            <div class="sitemap_box">
+                                <div class="map_dep01"><h2>진학준비</h2></div>
+                                <div class="map_con">
+                                    <ul class="map_dep02" data-parent-seq="1556268690091"></ul>
+                                </div>
+                            </div>
+                        
+                            <div class="sitemap_box">
+                                <div class="map_dep01"><h2>입학전형</h2></div>
+                                <div class="map_con">
+                                    <ul class="map_dep02" data-parent-seq="1556268702203"></ul>
+                                </div>
+                            </div>
+                        
+                            <div class="sitemap_box">
+                                <div class="map_dep01"><h2>학사/연구지원</h2></div>
+                                <div class="map_con">
+                                    <ul class="map_dep02" data-parent-seq="1606963175139"></ul>
+                                </div>
+                            </div>
+                        
+                            <div class="sitemap_box">
+                                <div class="map_dep01"><h2>대학원 생활</h2></div>
+                                <div class="map_con">
+                                    <ul class="map_dep02" data-parent-seq="160696320177"></ul>
+                                </div>
+                            </div>
+                        
+                            <div class="sitemap_box">
+                                <div class="map_dep01"><h2>공지사항</h2></div>
+                                <div class="map_con">
+                                    <ul class="map_dep02" data-parent-seq="1655865598415"></ul>
+                                </div>
+                            </div>
+                        
+                            <div class="sitemap_box">
+                                <div class="map_dep01"><h2>원스탑 신청</h2></div>
+                                <div class="map_con">
+                                    <ul class="map_dep02" data-parent-seq="1656465928593"></ul>
+                                </div>
+                            </div>
+                        
+
+                        
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="overlay_bg"></div>
+            <!-- 전체메뉴 레이어 end 20220804 -->
+
+        </div>
+
+        <!-- 모바일 메뉴 start -->
+        <div class="mobile-top-bar">
+            <div class="ico mb_btn">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <div class="mobile_menu">
+            <div class="mb_menu_bar">
+                <div class="mb_top">
+                    <a href="/main">
+                        <img src="/resources/images/site/site/logo.png" alt="동국대학교 일반대학원">
+                    </a>
+                </div>
+                <div class="mb_util_box">
+                    <ul>
+                        <li>
+                            <a href="https://www.dongguk.edu/" target="_blank">동국대학교</a>
+                        </li>
+                        <li>
+                            <a href="/eng/main" target="_blank" class="mb_lang">ENG</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mb_menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="#" target="" >대학원안내</a>
+                                
+                                    <ul class="m_drop" data-parent-seq="155626863842">
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="#" target="" >학과/연구실</a>
+                                
+                                    <ul class="m_drop" data-parent-seq="1556268674419">
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="#" target="" >진학준비</a>
+                                
+                                    <ul class="m_drop" data-parent-seq="1556268690091">
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="#" target="" >입학전형</a>
+                                
+                                    <ul class="m_drop" data-parent-seq="1556268702203">
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="#" target="" >학사/연구지원</a>
+                                
+                                    <ul class="m_drop" data-parent-seq="1606963175139">
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="#" target="" >대학원 생활</a>
+                                
+                                    <ul class="m_drop" data-parent-seq="160696320177">
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="#" target="" >공지사항</a>
+                                
+                                    <ul class="m_drop" data-parent-seq="1655865598415">
+                                    </ul>
+                                
+                            </li>
+                        
+                            <li>
+                                <a href="#" target="" >원스탑 신청</a>
+                                
+                                    <ul class="m_drop" data-parent-seq="1656465928593">
+                                    </ul>
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!-- 모바일 메뉴 end -->
+
+    </div>
+</header>
+<!-- header end -->
+
+
+
+<!-- visual & popup start -->
+<section class="vnpop">
+
+    <div class="visual_area">
+        <ul class="main_visual_img">
+            
+                
+                    
+                        <a href= "https://gs.dongguk.edu/article/bachelor/detail/15214620" target="">
+                            <li style='background:url("/cmmn/fileView?path=/files/banner/0/&physical=CAAFE839A5E14DB1AE27A0E571C4DA79.png"),url("/resources/images/site/site/main_visual01.png") ' title="도덕적 봉사인 양성 배너 ">
+                                <div class="txt">
+                                    <p>도덕적 봉사인 양성</p>
+                                    <span>한국문화의 세계화와<br>인류의 이상현실에 기여합니다</span>
+                                </div>
+                            </li>
+                        </a>
+                    
+                        <a href= "#" target="">
+                            <li style='background:url("/cmmn/fileView?path=/files/banner/1/&physical=4B168B27CB3347449B357B591781EE38.png"),url("/resources/images/site/site/main_visual01.png") ' title="창의적 전문인 양성_배너">
+                                <div class="txt">
+                                    <p>창의적 전문인 양성</p>
+                                    <span>한국문화의 세계화와<br>인류의 이상현실에 기여합니다</span>
+                                </div>
+                            </li>
+                        </a>
+                    
+                        <a href= "#" target="">
+                            <li style='background:url("/cmmn/fileView?path=/files/banner/2/&physical=092684F7420149E6947704247730E6F2.png"),url("/resources/images/site/site/main_visual01.png") ' title="진취적 기술인 양성_배너">
+                                <div class="txt">
+                                    <p>진취적 기술인 양성</p>
+                                    <span>한국문화의 세계화와<br>인류의 이상현실에 기여합니다</span>
+                                </div>
+                            </li>
+                        </a>
+                    
+                
+                
+            
+
+        </ul>
+    </div>
+
+    <div class="popup">
+        <ul id="main_popup">
+            
+                
+                    
+                    
+                        <li title="2026-2학기 등록금 최종 납부 안내">
+                            <a href="#" target="">
+                                <img src="/cmmn/fileView?path=/files/popup/365/&physical=F5A68A5763B9420D84E1BE5944A899A4.png" alt="2026-2학기 등록금 최종 납부 안내">
+                            </a>
+                        </li>
+                    
+                
+            
+                
+                    
+                    
+                        <li title="동국대학교 대학원 전용 AI챗봇「동국 엘리(ELI)」도입 안내">
+                            <a href="https://dgugs.channel.io" target="_blank">
+                                <img src="/cmmn/fileView?path=/files/popup/367/&physical=E5148C19886540B9887FD139BEDB2CB5.png" alt="동국대학교 대학원 전용 AI챗봇「동국 엘리(ELI)」도입 안내">
+                            </a>
+                        </li>
+                    
+                
+            
+                
+                    
+                    
+                        <li title="2026-2학기 수강신청 취소 안내">
+                            <a href="#" target="">
+                                <img src="/cmmn/fileView?path=/files/popup/366/&physical=9B76214878DA4C59A5E3F1A86E5C0788.png" alt="2026-2학기 수강신청 취소 안내">
+                            </a>
+                        </li>
+                    
+                
+            
+                
+                    
+                    
+                        <li title="2026-2 휴학신청(3차)">
+                            <a href="https://gs.dongguk.edu/article/bachelor/detail/15218676" target="_blank">
+                                <img src="/cmmn/fileView?path=/files/popup/364/&physical=D747FFEBBF5346AC8BFD9F37F512075E.png" alt="2026-2 휴학신청(3차)">
+                            </a>
+                        </li>
+                    
+                
+            
+                
+                    
+                    
+                        <li title="공지사항 안내(삭제금지)">
+                            <a href="https://gs.dongguk.edu/article/archv/list" target="_blank">
+                                <img src="/cmmn/fileView?path=/files/popup/50/&physical=C9218361EDB74314B4A5E2DACE1A6769.png" alt="공지사항 안내(삭제금지)">
+                            </a>
+                        </li>
+                    
+                
+            
+
+        </ul>
+    </div>
+
+</section>
+<!-- visual & popu end -->
+
+
+
+<!-- notice start -->
+<section class="notice">
+    <div class="tit animate" data-animate="motion">공지사항</div>
+
+    <div class="tab_menu animate" data-animate="motion">
+        <ul>
+            <li class="active"><a href="#">전체</a>
+                <ul>
+                    
+                        
+                            
+                                <li>
+                                    <a href="/article/bachelor/detail/15218904">
+                                            대학원 전용 AI챗봇 「동국엘리」 도입 안내
+                                    </a>
+                                    <span class="day">2026.09.17</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218903">
+                                            국방대학교-KAIST 공동주최「2026년 대학원생 국방학술대회」홍보
+                                    </a>
+                                    <span class="day">2026.09.17</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/general/detail/15218902">
+                                            대학원 전용 AI챗봇 「동국 엘리(ELI)」도입 안내
+                                    </a>
+                                    <span class="day">2026.09.16</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218901">
+                                            2026년 제2차 대구경북첨단의료산업진흥재단 직원 채용 연장 공고 안내
+                                    </a>
+                                    <span class="day">2026.09.15</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218900">
+                                            숙명여대 글로벌거버넌스연구소 『대학연구』제5권 2호 논문 공모 안내
+                                    </a>
+                                    <span class="day">2026.09.14</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218885">
+                                            제7회 서울국제명상엑스포 「2026 명상, 함께 깨어나다」개최 안내
+                                    </a>
+                                    <span class="day">2026.09.10</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/thesis/detail/15218884">
+                                            2026학년도 2학기 대학원 논문지도교수 위촉 안내
+                                    </a>
+                                    <span class="day">2026.09.10</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218883">
+                                            한국전력기술(주) 2026년도 하반기 정규직(대졸수준)채용공고(~9/22) 
+                                    </a>
+                                    <span class="day">2026.09.08</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218882">
+                                            이투데이 창립 20주년 '2027 테크 퀘스트 - AI LIVE 2027' 개최
+                                    </a>
+                                    <span class="day">2026.09.08</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/thesis/detail/15218881">
+                                            2027학년도 봄 석사 및 박사 학위청구논문 초록 심사 일정 안내
+                                    </a>
+                                    <span class="day">2026.09.08</span>
+                                </li>
+                            
+                        
+                        
+                    
+                </ul>
+                <a href="/article/search" class="notice_more">전체목록</a>
+            </li>
+            <li><a href="#">일반</a>
+                <ul>
+                    
+                        
+                            
+                                <li>
+                                    <a href="/article/general/detail/15218902">
+                                        대학원 전용 AI챗봇 「동국 엘리(ELI)」도입 안내
+                                    </a>
+                                    <span class="day">2026.09.16</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/general/detail/15218880">
+                                        2026년 후기 자연계 대학원 전문연구요원 편입대상자 선발 공고 안내
+                                    </a>
+                                    <span class="day">2026.09.07</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/general/detail/15218866">
+                                        국가장학금 등 학자금 지원을 위한 지원 구간 체계 개편 안내
+                                    </a>
+                                    <span class="day">2026.08.27</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/general/detail/15218841">
+                                        2026-2학기 학·석사연계과정 및 학사·석박사통합연계과정 선발(2차) 합격자 발표
+                                    </a>
+                                    <span class="day">2026.08.18</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/general/detail/15218840">
+                                        2026학년도 대학원 프로젝트 지원사업 시행
+                                    </a>
+                                    <span class="day">2026.08.18</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/general/detail/15218743">
+                                        2026-2학기 학·석사연계과정 및 학사·석박사통합연계과정 모집 안내(2차)
+                                    </a>
+                                    <span class="day">2026.07.13</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/general/detail/15218742">
+                                        2026-2학기 학·석사연계과정 및 학사·석박사통합연계과정 학생 선발 안내
+                                    </a>
+                                    <span class="day">2026.07.13</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/general/detail/15218741">
+                                        2026-2학기 대학원연구실(중앙도서관 별관) 입실 신청 안내문
+                                    </a>
+                                    <span class="day">2026.07.13</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/general/detail/15218720">
+                                        2026학년도 2학기 연구등록(B) 등록 안내
+                                    </a>
+                                    <span class="day">2026.07.09</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/general/detail/15218702">
+                                        2026년 2학기 농촌출신대학(원)생 학자금대출 안내
+                                    </a>
+                                    <span class="day">2026.07.01</span>
+                                </li>
+                            
+                        
+                        
+                    
+                </ul>
+                <a href="/article/general/list" class="notice_more">전체목록</a>
+            </li>
+            <li><a href="#">학사</a>
+                <ul style="display: none;">
+                    
+                        
+                            
+                                <li>
+                                    <a href="/article/bachelor/detail/15218904">
+                                            대학원 전용 AI챗봇 「동국엘리」 도입 안내
+                                    </a>
+                                    <span class="day">2026.09.17</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/bachelor/detail/15218873">
+                                            nDRIMS 대표권한 변경 방법 안내
+                                    </a>
+                                    <span class="day">2026.09.01</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/bachelor/detail/15218870">
+                                            2026학년도 2학기 석사과정 현장실습 학점인정제 시행 안내
+                                    </a>
+                                    <span class="day">2026.08.31</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/bachelor/detail/15218809">
+                                            2026학년도 일반대학원 학술상 수상자 발표
+                                    </a>
+                                    <span class="day">2026.08.05</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/bachelor/detail/15218764">
+                                            [~9.4] 2026년도 2학기 연구프로젝트 학점제 및 학기제 시행안내
+                                    </a>
+                                    <span class="day">2026.07.22</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/bachelor/detail/15218744">
+                                            2026학년도 2학기 일반대학원 수강신청 안내
+                                    </a>
+                                    <span class="day">2026.07.15</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/bachelor/detail/15218704">
+                                            2026학년도 2학기 국내 일반대학원 학점교류 시행 안내(26.8.12)
+                                    </a>
+                                    <span class="day">2026.07.02</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/bachelor/detail/15218676">
+                                            2026학년도 2학기 일반대학원 휴학 신청 안내
+                                    </a>
+                                    <span class="day">2026.06.17</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/bachelor/detail/15218664">
+                                            [마감]2026학년도 2학기 일반대학원 2차 재입학 안내
+                                    </a>
+                                    <span class="day">2026.06.12</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/bachelor/detail/15218648">
+                                            2026학년도 2학기 일반대학원 복학신청 안내
+                                    </a>
+                                    <span class="day">2026.06.04</span>
+                                </li>
+                            
+                        
+                        
+                    
+                </ul>
+                <a href="/article/bachelor/list" class="notice_more">전체목록</a>
+            </li>
+            <li><a href="#">논문</a>
+                <ul style="display: none;">
+                    
+                        
+                            
+                                <li>
+                                    <a href="/article/thesis/detail/15218884">
+                                            2026학년도 2학기 대학원 논문지도교수 위촉 안내
+                                    </a>
+                                    <span class="day">2026.09.10</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/thesis/detail/15218881">
+                                            2027학년도 봄 석사 및 박사 학위청구논문 초록 심사 일정 안내
+                                    </a>
+                                    <span class="day">2026.09.08</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/thesis/detail/15218875">
+                                            2026-2학기 일반대학원 외국어시험 고사실 및 유의사항 안내
+                                    </a>
+                                    <span class="day">2026.09.02</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/thesis/detail/15218872">
+                                            2027학년도 봄 박사 학위청구논문 제출 일정 안내
+                                    </a>
+                                    <span class="day">2026.09.01</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/thesis/detail/15218871">
+                                            2027학년도 봄 석사 학위청구논문 제출 일정 안내
+                                    </a>
+                                    <span class="day">2026.09.01</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/thesis/detail/15218863">
+                                            2027-봄 학위청구논문제출-허가원 제출(박사10년, 석사6년 초과자만)
+                                    </a>
+                                    <span class="day">2026.08.25</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/thesis/detail/15218806">
+                                            2026년 가을 일반대학원 학위수여식 안내
+                                    </a>
+                                    <span class="day">2026.08.04</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/thesis/detail/15218800">
+                                            2026학년도 가을 대학원 졸업사정 결과 확인 및 필수 확인사항 안내
+                                    </a>
+                                    <span class="day">2026.08.03</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/thesis/detail/15218761">
+                                            2026-가을 학위수여기념 ‘박사학위과정 동행 학위증’ 수여 안내
+                                    </a>
+                                    <span class="day">2026.07.21</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/thesis/detail/15218675">
+                                            2026학년도 2학기 박사과정 제2외국어시험 시행 안내
+                                    </a>
+                                    <span class="day">2026.06.17</span>
+                                </li>
+                            
+                        
+                        
+                    
+                </ul>
+                <a href="/article/thesis/list" class="notice_more">전체목록</a>
+            </li>
+            <li><a href="#">입학</a>
+                <ul style="display: none;">
+                    
+                        
+                            
+                                <li>
+                                    <a href="/article/admission/detail/15218867">
+                                            2026학년도 후기 일반대학원 수시전형 입학생 학번 조회 안내(오리엔테이션자료 포함)
+                                    </a>
+                                    <span class="day">2026.08.28</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/admission/detail/15218865">
+                                            2026-2학기 일반대학원 신(편)입생 초과취득학점 및 전적 대학원 학점 인정 안내
+                                    </a>
+                                    <span class="day">2026.08.26</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/admission/detail/15218862">
+                                            2026학년도 후기 수시전형 합격자 장학신청 안내
+                                    </a>
+                                    <span class="day">2026.08.24</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/admission/detail/15218861">
+                                            2026학년도 후기 일반대학원 수시전형 합격자 발표 안내
+                                    </a>
+                                    <span class="day">2026.08.24</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/admission/detail/15218860">
+                                            2026학년도 후기 일반대학원 특별전형 입학생 학번 조회 안내
+                                    </a>
+                                    <span class="day">2026.08.24</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/admission/detail/15218813">
+                                            2026학년도 2학기 일반대학원 신(편)입생 선수과목 이수 안내(특별/수시전형 추가)
+                                    </a>
+                                    <span class="day">2026.08.07</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/admission/detail/15218811">
+                                            2026학년도 후기 일반대학원 수시전형 신·편입생 모집 안내
+                                    </a>
+                                    <span class="day">2026.08.07</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/admission/detail/15218810">
+                                            2026학년도 후기 일반대학원 입학생 학번 조회 안내
+                                    </a>
+                                    <span class="day">2026.08.05</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/admission/detail/15218804">
+                                            2026-후기 일반대학원 특별전형  합격자 장학신청 안내(~8.7 금)
+                                    </a>
+                                    <span class="day">2026.08.03</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/admission/detail/15218802">
+                                            2026-후기 일반대학원 특별전형 합격자 유의사항
+                                    </a>
+                                    <span class="day">2026.08.03</span>
+                                </li>
+                            
+                        
+                        
+                    
+                </ul>
+                <a href="/article/admission/list" class="notice_more">전체목록</a>
+            </li>
+            <li><a href="#">장학</a>
+                <ul style="display: none;">
+                    
+                        
+                            
+                                <li>
+                                    <a href="/article/scholarship/detail/15218864">
+                                            2027-봄 학위청구논문 제출자 대상 논문조건형 장학 미충족 사유서
+                                    </a>
+                                    <span class="day">2026.08.25</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/scholarship/detail/15218805">
+                                            2026-후기 일반대학원 특별전형  합격자 장학신청 안내(~8.7 금)
+                                    </a>
+                                    <span class="day">2026.08.03</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/scholarship/detail/15218803">
+                                            2026-후기 일반대학원 특별전형 합격자 유의사항
+                                    </a>
+                                    <span class="day">2026.08.03</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/scholarship/detail/15218665">
+                                            2026학년도 2학기 『글로벌우수인재양성장학』 선발 안내(~7.13)
+                                    </a>
+                                    <span class="day">2026.06.12</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/scholarship/detail/15218647">
+                                            2026학년도 1학기 『동국미래인재장학Ⅱ』 안내
+                                    </a>
+                                    <span class="day">2026.06.02</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/scholarship/detail/15218632">
+                                            2026 Fall SRD Scholarship Application(~6/24)
+                                    </a>
+                                    <span class="day">2026.05.28</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/scholarship/detail/15218566">
+                                            2027년도 일본 정부(문부과학성) 장학금 연구유학생 및 유학생 교류사업 선발 안내
+                                    </a>
+                                    <span class="day">2026.05.14</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/scholarship/detail/15218565">
+                                            동국대학교 일반대학원 2026년 한국장학재단「석사 및 박사우수장학(이공계)」 신규장학생
+                                    </a>
+                                    <span class="day">2026.05.14</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/scholarship/detail/15218522">
+                                            KICS 한국통신학회 장학금 지원 대상자 선발 지원자 모집
+                                    </a>
+                                    <span class="day">2026.04.27</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/scholarship/detail/15218502">
+                                            2026-1학기 동국미래인재장학Ⅱ 신청(학석사연계과정 대상, 4.24~5.8)
+                                    </a>
+                                    <span class="day">2026.04.22</span>
+                                </li>
+                            
+                        
+                        
+                    
+                </ul>
+                <a href="/article/scholarship/list" class="notice_more">전체목록</a>
+            </li>
+            <li><a href="#">프로그램</a>
+                <ul style="display: none;">
+                    
+                        
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218903">
+                                            국방대학교-KAIST 공동주최「2026년 대학원생 국방학술대회」홍보
+                                    </a>
+                                    <span class="day">2026.09.17</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218901">
+                                            2026년 제2차 대구경북첨단의료산업진흥재단 직원 채용 연장 공고 안내
+                                    </a>
+                                    <span class="day">2026.09.15</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218900">
+                                            숙명여대 글로벌거버넌스연구소 『대학연구』제5권 2호 논문 공모 안내
+                                    </a>
+                                    <span class="day">2026.09.14</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218885">
+                                            제7회 서울국제명상엑스포 「2026 명상, 함께 깨어나다」개최 안내
+                                    </a>
+                                    <span class="day">2026.09.10</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218883">
+                                            한국전력기술(주) 2026년도 하반기 정규직(대졸수준)채용공고(~9/22) 
+                                    </a>
+                                    <span class="day">2026.09.08</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218882">
+                                            이투데이 창립 20주년 '2027 테크 퀘스트 - AI LIVE 2027' 개최
+                                    </a>
+                                    <span class="day">2026.09.08</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218878">
+                                            [불교학술원 종학연구소]「AI 힐링가이드와 마음돌봄 체험」 개최 안내
+                                    </a>
+                                    <span class="day">2026.09.03</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218877">
+                                            제32회 동대문학상 개최 홍보
+                                    </a>
+                                    <span class="day">2026.09.03</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218874">
+                                            2026학년도 2학기 대학원생·유학생 대상 교내어학특강 안내
+                                    </a>
+                                    <span class="day">2026.09.01</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/prgrm/detail/15218869">
+                                            국가데이터연구원 연구직 공개채용 안내
+                                    </a>
+                                    <span class="day">2026.08.31</span>
+                                </li>
+                            
+                        
+                        
+                    
+                </ul>
+                <a href="/article/prgrm/list" class="notice_more">전체목록</a>
+            </li>
+            <li><a href="#">연구</a>
+                <ul style="display: none;">
+                    
+                        
+                            
+                                <li>
+                                    <a href="/article/research/detail/15218543">
+                                            제31회 외대부고캠프 대학생 멘토 모집 안내
+                                    </a>
+                                    <span class="day">2026.05.07</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/research/detail/15218540">
+                                            2026년도 정기 5차 동국대학교 생명윤리심의위원회 신규 심의안건 접수 안내
+                                    </a>
+                                    <span class="day">2026.05.04</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/research/detail/15218441">
+                                            연구자를 위한 신고·보상 제도 안내
+                                    </a>
+                                    <span class="day">2026.04.03</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/research/detail/15218403">
+                                            2026년 정기 3차 동국대학교 생명윤리심의위원회 신규 심의안건 접수 안내
+                                    </a>
+                                    <span class="day">2026.03.12</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/research/detail/15218322">
+                                            2026년도 정기 2차 동국대학교 생명윤리심의위원회 신규 심의안건 접수 안내
+                                    </a>
+                                    <span class="day">2026.02.02</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/research/detail/15218243">
+                                            「국제공동연구 연구보안 길잡이(미국·EU편)」배포
+                                    </a>
+                                    <span class="day">2026.01.08</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/research/detail/15218226">
+                                            2026년도 정기 1차 동국대학교 생명윤리심의위원회 신규 심의안건 접수 안내
+                                    </a>
+                                    <span class="day">2025.12.31</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/research/detail/15218135">
+                                            2025년도 정기 12차 동국대학교 생명윤리심의위원회 신규 심의안건 접수 안내
+                                    </a>
+                                    <span class="day">2025.12.02</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/research/detail/15218086">
+                                            2025년도 정기 11차 동국대학교 생명윤리심의위원회 신규 심의안건 접수 안내
+                                    </a>
+                                    <span class="day">2025.11.03</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/research/detail/15218033">
+                                            2025년도 정기 10차 동국대학교 생명윤리심의위원회 신규 심의안건 접수 안내
+                                    </a>
+                                    <span class="day">2025.09.29</span>
+                                </li>
+                            
+                        
+                        
+                    
+                </ul>
+                <a href="/article/research/list" class="notice_more">전체목록</a>
+            </li>
+            <li><a href="#">취업</a>
+                <ul style="display: none;">
+                    
+                        
+                            
+                                <li>
+                                    <a href="/article/job/detail/15218765">
+                                            2026 푸르메재단 서울시동남보조기기센터 공개 채용 공고
+                                    </a>
+                                    <span class="day">2026.07.23</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/job/detail/15218626">
+                                            차세대융합기술연구원 채용공고
+                                    </a>
+                                    <span class="day">2026.05.27</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/job/detail/15218462">
+                                            『2026 모의 유네스코 회의 (MUNESCO)』 사무국원 모집 홍보
+                                    </a>
+                                    <span class="day">2026.04.06</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/job/detail/15218045">
+                                            [강원대학교 중독과 트라우마 회복연구소] 선임연구원 공개 채용 홍보
+                                    </a>
+                                    <span class="day">2025.10.14</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/job/detail/15217985">
+                                            2025년 후반기 전문사관(전산 및 사이버 특기) 장교 선발 안내문 
+                                    </a>
+                                    <span class="day">2025.09.03</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/job/detail/15217946">
+                                            [육군본부] 2025년 후반기 전문사관(교수) 선발 안내문
+                                    </a>
+                                    <span class="day">2025.08.20</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/job/detail/15217887">
+                                            [한국공정거래조정원]2025년 박사급 연구인력 채용 안내
+                                    </a>
+                                    <span class="day">2025.07.21</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/job/detail/15217844">
+                                            [한국경제인협회]한국경제연구원 박사채용 공고
+                                    </a>
+                                    <span class="day">2025.07.02</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/job/detail/15217495">
+                                            [~3.27]2025년 한국지질자원연구원 박사후 연수자 공개채용
+                                    </a>
+                                    <span class="day">2025.03.21</span>
+                                </li>
+                            
+                                <li>
+                                    <a href="/article/job/detail/15217295">
+                                            [2.18~2.21]농촌진흥청 연구직공무원 모집공고
+                                    </a>
+                                    <span class="day">2025.01.20</span>
+                                </li>
+                            
+                        
+                        
+                    
+                </ul>
+                <a href="/article/job/list" class="notice_more">전체목록</a>
+            </li>
+
+        </ul>
+    </div>
+
+</section>
+<!-- notice end -->
+
+
+
+<!-- direct start -->
+<section class="direct animate" data-animate="motion" style="margin-top: 50px;">
+    <ul>
+        <li class="animate" data-animate="motion"><a href="https://rule.dongguk.edu/" target="_blank">대학원 규정</a></li>
+        <li class="animate" data-animate="motion"><a href="/page/361">대학원 요람</a></li>
+        <li class="animate" data-animate="motion"><a href="/page/362">종합가이드</a></li>
+        <li class="animate" data-animate="motion"><a href="https://nextsupport.dongguk.edu/unis/index.do?t=5544673155325A4E55573178523352595A32517A64464673627A6C70647A3039 " target="_blank">대학원 시간표</a></li>
+        <li class="animate" data-animate="motion"><a href="http://dongguk.webminwon.kr" target="_blank">인터넷 증명발급</a></li>
+        <li class="animate" data-animate="motion"><a href="/article/archv/list">양식함</a></li>
+        <li class="animate" data-animate="motion"><a href="https://dongguk.copykiller.com/" target="_blank">카피킬러<br>(GPT킬러)</a></li>
+        <li class="animate" data-animate="motion"><a href="http://www.dongguk-gssu.kr/" target="_blank">대학원 총학생회</a></li>
+    </ul>
+</section>
+<!-- direct end -->
+
+
+
+<!-- quick start -->
+<section class="quick">
+    <div class="quick_in">
+        <div class="tit animate" data-animate="motion">Quick menu</div>
+        <ul>
+            <li class="onestop animate" data-animate="motion">
+                <a href="/program/list">
+                    <strong>One Stop</strong>
+                    <span>모든 행정서비스 업무를 단일화하여 <br>효율적인 서비스를 제공합니다.</span>
+                </a>
+            </li>
+            <li class="animate" data-animate="motion">
+                <a href="/prof/search">
+                    <strong>대학원생<br> 취업/진로/국제 <br>프로그램</strong>
+                    <span>성장을 위한 효율적인 프로그램을 <br>지원합니다.</span>
+                </a>
+            </li>
+            <li class="animate" data-animate="motion">
+                <a href="/page/161">
+                    <strong>국내/외 연구소</strong>
+                    <span>국내외 다양한 분야의 연구소를 <br>안내합니다.</span>
+                </a>
+            </li>
+            <li class="animate" data-animate="motion">
+                <a href="https://www.hibrain.net/" target="_blank" title="새창열림">
+                    <strong>하이브레인넷</strong>
+                    <span>연구인력 채용정보를 <br > 제공합니다.</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- quick end -->
+    
+<script src="/resources/js/jquery/scrolla.jquery.min.js"></script>
+<!-- footer start -->
+<footer>
+
+    <div class="f_logo"><img src="/resources/images/site/site/f_logo.png" alt="동국대학교 일반대학원"></div>
+
+    <ul class="f_menu">
+        <li><a href="https://www.dongguk.edu/page/534" target="_blank">개인정보처리방침</a></li>
+        <li><a href="https://www.dongguk.edu/article/privacyNotice/list" target="_blank">개인정보 목적외 이용·제공</a></li>
+        
+        <li><a href="http://www.academyinfo.go.kr/popup/pubinfo1690/list.do?schlId=0000100" target="_blank">대학정보공시</a></li>
+    </ul>
+
+    <p>04620 서울특별시 중구 필동로 1길 30 동국대학교 [대학원실]</p>
+    <p><span>Tel : 02-2260-8534,8535 </span> <span>Fax : 2260-8894</span> <span>E-mail : dgugs@dongguk.edu</span></p>
+
+    <p class="copy">Copyright (c) Dongguk University Since 1906. All Rights Reserved.</p>
+
+
+    <div class="family">
+        <a href="#" class="">주요 관련기관<i class="icon" role="img"></i></a>
+        <ul>
+            <li><a href="https://itcec.dongguk.edu" target="_blank">IT융합교육센터</a></li>
+            <li><a href="https://equips.dongguk.edu" target="_blank">공용기기원</a></li>
+            <li><a href="https://iceed.dongguk.edu" target="_blank">공학교육혁신센터</a></li>
+            <li><a href="https://gifted.dongguk.edu" target="_blank">공학교육혁신센터</a></li>
+            <li><a href="https://ctl.dongguk.edu" target="_blank">교수학습개발센터</a></li>
+            <li><a href="https://seoncenter.dongguk.edu" target="_blank">국제선센터</a></li>
+            <li><a href="https://interlang.dongguk.edu" target="_blank">국제어학원</a></li>
+            <li><a href="https://dorm.dongguk.edu" target="_blank">남산학사</a></li>
+            <li><a href="https://dharma.dongguk.edu" target="_blank">다르마칼리지</a></li>
+            <li><a href="https://ilove.dongguk.edu" target="_blank">발전기금</a></li>
+            <li><a href="http://linc.dongguk.edu" target="_blank">산학협력선도대학육성사업단</a></li>
+            <li><a href="http://dgucoop.dongguk.edu" target="_blank">생활협동조합</a></li>
+            <li><a href="https://jeonggak.dongguk.edu" target="_blank">정각원</a></li>
+            <li><a href="https://lib.dongguk.edu" target="_blank">중앙도서관</a></li>
+            <li><a href="https://volunteers.dongguk.edu" target="_blank">참사람봉사단</a></li>
+            <li><a href="https://job.dongguk.edu" target="_blank">취업센터</a></li>
+            <li><a href="https://counseling.dongguk.edu" target="_blank">학생상담센터</a></li>
+        </ul>
+    </div>
+</footer>
+<!-- footer end -->
+<script>
+    $(document).on('click', 'a[href="#"]', function(e){
+        e.preventDefault();
+    });
+
+    $(document).ready(function(){
+
+        $('.animate').scrolla({
+            mobile: true,
+            once: true
+        });
+
+        //검색
+        $('.btn-open').click(function(){
+            $('.modal, .overlay').addClass('active')
+        });
+        $('.btn-close, .overlay').click(function(){
+            $('.modal, .overlay').removeClass('active')
+        })
+
+        //전체메뉴 20220804
+        $('.btn_sitemap').click(function(){
+            $('.allmenu, .overlay_bg').addClass('active');
+            $('body').addClass('over_hidden');
+        });
+        $('.btn_close_sitemap, .overlay_bg').click(function(){
+            $('.allmenu, .overlay_bg').removeClass('active');
+            $('body').removeClass('over_hidden');
+        });
+
+
+        //패밀리 사이트
+        $(".family").click(function() {
+            $(".family ul").toggleClass("opacity");
+            $(".icon").toggleClass("rotate");
+        });
+
+        //모바일 메뉴 버튼
+        $('.mb_btn').click(function(){
+
+            var $clicked = $(this);
+            var nowAnimating = $clicked.attr('data-ico');
+
+            if ( nowAnimating == "Y" ){
+                return;
+            }
+            if ( $clicked.hasClass('active') ){
+                hideLeftSideBar();
+            }
+            else {
+                showLeftSideBar();
+            }
+            $clicked.toggleClass('active');
+
+        });
+
+        // 모바일 메뉴 함수
+        function showLeftSideBar(){
+            $('.mb_menu_bar > .mb_menu ul > li.active').removeClass('active');
+            $('.mobile_menu').addClass('active');
+        };
+        function hideLeftSideBar(){
+            $('.mobile_menu').removeClass('active');
+        };
+
+        //모바일 메뉴 접히고 펼치기
+        $('.mb_menu_bar > .mb_menu ul').on('click','li',function(e){
+            if ( $(this).hasClass('active') ){
+                $(this).removeClass('active');
+            } else {
+                $(this).siblings('.active').removeClass('active');
+                $(this).find('.active').removeClass('active');
+                $(this).addClass('active');
+            }
+
+            e.stopPropagation();
+        });
+
+
+        //좌측 사이드바 배경을 클릭했을때
+        $('.mobile_menu').click(function(){
+            $('.mb_btn').click();
+        });
+
+        $('.mb_menu_bar').click(function(e){
+            e.stopPropagation();
+        });
+
+        //서브 페이지 메뉴
+        $('.locator .vepth .btn_toggle').click(function() {
+            if(!$(this).is('.sel')){
+                $('.vepth > div').slideUp();
+                $('.vepth .btn_toggle').removeClass('sel');
+                $(this).addClass('sel');
+                $(this).next().slideToggle();
+            }else{
+                $(this).next('div').slideToggle();
+                $('.vepth .btn_toggle').removeClass('sel');
+                //$(this).addClass('sel');
+            }
+        });
+
+        $('.vepth a').bind('click', function(){
+            $(".vepth > div").slideUp();
+            $(".page_path .btn_toggle").removeClass('sel')
+        });
+
+
+    });
+</script>
+
+
+<script>
+
+    (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
+    ChannelIO('boot', {
+        "pluginKey": "a27dc699-9aa7-4999-bd2a-f3938b890b4a"
+    });
+
+
+</script>
+</div>
+</body>
+</html>

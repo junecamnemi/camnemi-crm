@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="email=no">
+<title>순천향대학교 국제교육교류처 Soonchunhyang University Office of Global Education </title>
+<meta name="title" content="순천향대학교 국제교육교류처 순천향 주말영어학습 순천향 영어캠프 Soonchunhyang University Office of Global Education & Exchange Soonchunhyang University Study Abroad Soonchunhyang University Exchange Programs " />
+<meta name="application-name" content="순천향대학교 국제교육교류처 순천향 주말영어학습 순천향 영어캠프 Soonchunhyang University Office of Global Education & Exchange Soonchunhyang University Study Abroad Soonchunhyang University Exchange Programs">
+<meta name="msapplication-tooltip" content="순천향대학교 국제교육교류처 순천향 주말영어학습 순천향 영어캠프 Soonchunhyang University Office of Global Education & Exchange Soonchunhyang University Study Abroad Soonchunhyang University Exchange Programs">
+<meta name="description" content="순천향대학교 국제교육교류처">
+
+<meta name="keywords" content="순천향대학교 국제교육교류처">
+<meta name="og:type" property="og:type" content="website" />
+<meta name="og:title" property="og:title" content="순천향대학교 국제교육교류처" />
+<meta name="og:url" property="og:url" content="http://sgee.sch.ac.kr" />
+<meta name="og:image" property="og:image" content="http://sgee.sch.ac.kr" />
+<meta name="og:description" property="og:description" content="순천향대학교 국제교육교류처" id="description" />
+
+<link href="/asset/css/style_eng.css" rel="stylesheet">
+<script src="/asset/js/jquery.min.js"></script>
+<script src="/asset/js/common.js"></script>
+<script src="/asset/js/custom.js"></script>
+<script>
+	     function total_seach_proc() {
+         if ($("#searchItem").val() == "") {
+             alert("검색어를 입력해주세요.");
+             $("#searchItem").focus();
+             return false;
+         }
+         document.total_search_form.submit();
+     }
+</script>
+</head>
+
+<body>
+    
+<!-- ===== wrap ====== -->
+<div id="wrap">
+    
+	<!-- ===== header ====== -->
+	<header id="header" class="new"> 
+	    <div class="inner">
+	        <h1 class="logo"><a href="/main/kor_main.php">순천향대학교</a></h1>
+	        <div class="header-top">
+	            <div class="hd-sch">
+					<form name="total_search_form"  action="/search/kor_search.php">
+						<input type="text" name="search" id="search" class="ky">
+						<a href="javascript:total_seach_proc()" class="sch">검색</a>
+					</form>
+	            </div>
+	            <div class="lang">
+	                <a href="/main/kor_main.php" class="active">KOR</a>
+	                <a href="/main/eng_main.php">ENG</a>
+	                <a href="/main/chn_main.php">CHN</a>
+	            </div>
+	        </div>
+	        <div id="gnb-wrap">
+                <ul id="gnb">
+                    <li class="gnb1"><a href="#">국제교육교류처</a>
+                        <ul class="subDepth">
+                            <li><a href="/global/about01.php">소개 및 조직도 </a></li>
+							<!-- <li><a href="/global/about02.php">조직도</a></li> -->
+                            <li><a href="/global/state01.php">교류대학현황</a></li>
+                            <!-- <li><a href="/global/notice01.php">공지사항</a></li> -->
+                            <li><a href="/global/homeway01.php">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li class="gnb2"><a href="#">해외파견</a>
+                        <ul class="subDepth">
+                            <li><a href="/outside/stu01.php">교환학생</a></li>
+                            <li><a href="/outside/short01.php">단기프로그램</a></li>
+                        </ul>
+                    </li>
+                    <li class="gnb3"><a href="#">외국어교육</a>
+                        <ul class="subDepth">
+                            <li><a href="/edueng/gvillage01.php">Global Village</a></li>
+                            <li><a href="/edueng/sflec01.php">외국어강좌</a></li>
+                            <!-- <li><a href="/edueng/">자주묻는 질문 </a></li> -->
+                            <li><a href="/edueng/language01.php">언어교류</a></li>
+							<li><a href="/edueng/camp01.php">초등 영어캠프</a></li>
+                            <li><a href="/edueng/weekend01.php">초등 주말영어학습</a></li>
+                        </ul>
+                    </li>
+                    <li class="gnb4"><a href="#">한국어교육원</a>
+                        <ul class="subDepth">
+                            <li><a href="/edukor/edukor01.php">한국어교육원 소개</a></li>
+                            <li><a href="/edukor/edukor02.php">교육과정안내(10주)</a></li>
+                            <li><a href="/edukor/edukor03.php">순천향 교재소개</a></li>
+                            <li><a href="/edukor/edukor04.php">수강료 환불기준</a></li>
+                            <li><a href="/edukor/edukor05.php">시설안내</a></li>
+                            <li><a href="/edukor/edukor06.php">입학안내</a></li>
+							<li><a href="/edukor/edukor0701.php">5주과정</a></li>
+                        </ul>
+                    </li>
+                    <li class="gnb5"><a href="#">외국인입학</a>
+                        <ul class="subDepth">
+                            <li><a href="/guide/guide01.php">학사</a></li>
+                            <li><a href="/guide/guide02.php">대학원</a></li>
+                            <li><a href="/guide/guide03.php">한국어교육원</a></li>
+                            <li><a href="/guide/guide04.php">교환학생</a></li>
+                        </ul>
+                    </li>
+                    <li class="gnb6"><a href="#">유학생 지원</a>
+                        <ul class="subDepth">
+                            <li><a href="/usupport/visa01.php">비자 및 체류</a></li>
+                            <li><a href="/usupport/job01.php">시간제 취업</a></li>
+                            <li><a href="/usupport/insur01.php">의료보험</a></li>
+                            <li><a href="/usupport/degree01.php">학사/장학</a></li>
+                            <li><a href="/usupport/guide00.php">생활안내</a></li>
+                        </ul>
+                    </li>
+					 <li class="gnb7"><a href="#">공지사항</a>
+                        <ul class="subDepth">
+                            <li><a href="/notice/notice01.php?loc_mnu=1">일반 공지사항</a></li>
+                            <li><a href="/notice/notice01.php?table_name=noti_school&loc_mnu=2">외국인입학 공지사항</a></li>
+                            <li><a href="/notice/notice01.php?table_name=noti_fore&loc_mnu=3">유학생 공지사항</a></li>
+                            <li><a href="/notice/notice01.php?table_name=noti_sflec&loc_mnu=4">외국어강좌 공지사항</a></li>
+                            <li><a href="/notice/notice01.php?table_name=over_sea&loc_mnu=5">취업·아르바이트 공지사항</a></li>
+                        </ul>
+                    </li>
+                </ul>
+	        </div>
+	    </div>
+	    <div class="subBg"></div>
+	    <a href="#none" class="bt-sch">search</a>
+	    <a href="#none" class="bt-mn"><i></i><i></i><i></i></a>
+	</header>
+
+    <!-- ===== siteFunctions ====== -->
+	<div id="siteFunctions">
+	    <div class="inner">
+	        <div class="hd">
+                <div class="lang">
+                    <a href="/main/kor_main.php" class="active">KOR</a>
+                    <a href="/main/eng_main.php">ENG</a>
+					<a href="/main/chn_main.php">CHN</a>
+                </div>
+                <a href="#none" class="bt-close"><span>close</span></a>
+	        </div>
+	        <ul class="mobMenu">
+                    <li class="gnb1"><a href="#">국제교육교류처</a>
+                        <ul class="subDepth">
+                            <li><a href="/global/about01.php">소개 및 조직도 </a></li>
+							<!-- <li><a href="/global/about02.php">조직도</a></li> -->
+                            <li><a href="/global/state01.php">교류대학현황</a></li>
+                            <!-- <li><a href="/global/notice01.php">공지사항</a></li> -->
+                            <li><a href="/global/homeway01.php">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li class="gnb2"><a href="#">해외파견</a>
+                        <ul class="subDepth">
+                            <li><a href="/outside/stu01.php">교환학생</a></li>
+                            <li><a href="/outside/short01.php">단기프로그램</a></li>
+                        </ul>
+                    </li>
+                    <li class="gnb3"><a href="#">외국어교육</a>
+                        <ul class="subDepth">
+                            <li><a href="/edueng/gvillage01.php">Global Village</a></li>
+                            <li><a href="/edueng/sflec01.php">S-FLEC 외국어강좌</a></li>
+                            <!-- <li><a href="/edueng/">자주묻는 질문 </a></li> -->
+                            <li><a href="/edueng/camp01.php">초등 영어캠프</a></li>
+                            <li><a href="/edueng/weekend01.php">초등 주말영어학습</a></li>
+                        </ul>
+                    </li>
+                    <li class="gnb4"><a href="#">한국어교육원</a>
+                        <ul class="subDepth">
+                            <li><a href="/edukor/edukor01.php">한국어교육원 소개</a></li>
+                            <li><a href="/edukor/edukor02.php">교육과정안내(10주)</a></li>
+                            <li><a href="/edukor/edukor03.php">순천향 교재소개</a></li>
+                            <li><a href="/edukor/edukor04.php">수강료 환불기준</a></li>
+                            <li><a href="/edukor/edukor05.php">시설안내</a></li>
+                            <li><a href="/edukor/edukor06.php">입학안내</a></li>
+							<li><a href="/edukor/edukor0701.php">5주과정</a></li>
+                        </ul>
+                    </li>
+                    <li class="gnb5"><a href="#">외국인 입학안내</a>
+                        <ul class="subDepth">
+                            <li><a href="/guide/guide01.php">학사 과정</a></li>
+                            <li><a href="/guide/guide02.php">대학원 과정</a></li>
+                            <li><a href="/guide/guide03.php">한국어교육원</a></li>
+                            <li><a href="/guide/guide04.php">교환학생</a></li>
+                        </ul>
+                    </li>
+                    <li class="gnb6"><a href="#">유학생지원</a>
+                        <ul class="subDepth">
+                            <li><a href="/usupport/visa01.php">비자 및 체류</a></li>
+                            <li><a href="/usupport/job01.php">시간제 취업</a></li>
+                            <li><a href="/usupport/insur01.php">의료보험</a></li>
+                            <li><a href="/usupport/degree01.php">학사/장학</a></li>
+                            <li><a href="/usupport/guide00.php">생활안내</a></li>
+                        </ul>
+                    </li>
+					 <li class="gnb7"><a href="#">공지사항</a>
+                        <ul class="subDepth">
+                            <li><a href="/notice/notice01.php?loc_mnu=1">일반 공지사항</a></li>
+                            <li><a href="/notice/notice01.php?table_name=noti_school&loc_mnu=2">외국인입학 공지사항</a></li>
+                            <li><a href="/notice/notice01.php?table_name=noti_fore&loc_mnu=3">유학생 공지사항</a></li>
+                            <li><a href="/notice/notice01.php?table_name=noti_sflec&loc_mnu=4">외국어강좌 공지사항</a></li>
+                            <li><a href="/notice/notice01.php?table_name=over_sea&loc_mnu=5">취업·아르바이트 공지사항</a></li>
+                        </ul>
+                    </li>
+            </ul>
+	    </div>
+	</div>
+	<!-- ===== /siteFunctions ====== -->
+	<script>
+    $(document).ready(function() {
+        var Dday = new Date(2020, 9 - 1, 15);
+        var now = new Date();
+        var gap = now.getTime() - Dday.getTime();
+        var result = Math.floor(gap / (1000 * 60 * 60 * 24)) * -1; // gap을 일(밀리초 * 초 * 분 * 시간)로 나눈다. 이 때 -1 을 곱해야 날짜차이가 맞게 나온다.
+
+        $("#d-day").html(result);
+    });
+
+</script>
+    
+	<!-- ===== container ====== -->
+	<div id="container">
+        
+            <div class="sub-vis">
+            <div class="inBx">
+                <div class="vis-tit">
+                    <a href="/edukor/edukor01.php" class="prev"><span>prev</span></a>
+                    <h2 class="tit" style="line-height: 10px; padding-top: 10px;" >외국인 입학 <span style="font-size: 1.1rem; line-height: 1.4;"><br> International Admissions  <div class="fontChn"> 外国人入学指南 </div></span></h2>
+                    <a href="/usupport/visa01.php" class="next"><span>next</span></a>
+                </div>
+            </div>
+        </div><!-- /sub-vis-->
+        
+        <div class="sub-tab">
+            <div class="inBx">
+                <div class="swiper-wrapper">
+                    <div class="itm swiper-slide active"><a href="guide01.php" style="line-height: 10px; padding-top: 8px;" >학사 <span style="font-size: 0.9rem; line-height: 1.4;"><br>Undergraduate / <div class="fontChn" style="display:inline;"> 本科</div></span></a></div>
+                    <div class="itm swiper-slide "><a href="guide02.php" style="line-height: 10px; padding-top: 8px;" >대학원 <span style="font-size: 0.9rem; line-height: 1.4;"><br>Graduate / <div class="fontChn" style="display:inline;"> 研究生 </div></span></a></div>
+                    <div class="itm swiper-slide "><a href="guide03.php" style="line-height: 10px; padding-top: 8px;" >한국어교육원 <span style="font-size: 0.9rem; line-height: 1.4;"><br>Korean Language School /<div class="fontChn" style="display:inline;"> 韩国语教育院 </div></span></a></div>
+                    <div class="itm swiper-slide "><a href="guide04.php" style="line-height: 10px; padding-top: 8px;" >교환학생 <span style="font-size: 0.9rem; line-height: 1.4;"><br>Exchange Program / <div class="fontChn" style="display:inline;"> 交换生项目 </div></a></div>
+                </div>
+            </div>
+        </div>        
+        <div class="contents">
+            <h3 class="h3-tit"><span>외국인 신•편입학(학사) 특별전형</span> 모집요강</h3>
+            
+            <div class="con-tab">
+                <div class="inBx">
+                    <div class="itm active"><a href="guide01.php">한국어</a></div>
+                    <div class="itm"><a href="guide0103.php">English </a></div>
+					<div class="itm"><a href="guide0102.php">Chinese</a></div>
+                    <div class="itm"><a href="guide0104.php">Russian</a></div>
+                </div>
+            </div>
+            
+            <div class="stu01-wr">
+                
+                <h4 class="h4-tit">문의처</h4>
+                <ul class="ul-list01">
+                    <li><b>주소</b>  :  (31538) 대한민국 충청남도 아산시 신창면 순천향로 22-9, 순천향대학교 국제교육교류처 BI301호</li>
+                    <li><b>전화</b>  :  +82-41-530-1307</li>
+                    <li><b>E-mail</b>  :  pes@sch.ac.kr</li>
+                    <li><b>FAX</b>  :  +82-41-530-1381</li>
+                </ul>
+                
+                <h4 class="h4-tit">유의사항</h4>
+                <ul class="ul-list02">
+                    <li>※ 자세한 사항은 하단의 '외국인 신·편입학 특별전형 모집요강'을 클릭하여 확인하시기 바랍니다.</li>
+                    <li>※ 원서접수 전 반드시 '외국인 신·편입학 특별전형 모집요강'을 숙지해야 하며, 원서접수 및 전형일정을 준수해야 합니다.</li>
+                </ul>
+                
+                <div class="guide01-btz">
+                    <a href='../lib/download_user.php?file_name=순천향대학교 2026학년도 2학기 외국인 신편입학 특별전형 모집요강 한국어.pdf&save_file=순천향대학교 2026학년도 2학기 외국인 신편입학 특별전형 모집요강 한국어.pdf&meta=free' class="duble blue">
+						외국인 신·편입학 <br>특별전형 모집요강(한국어)<br>[Download]
+					</a>
+                    <a href='../lib/download_user.php?file_name=전공안내서_순천향대학교 단과대학 및 학과소개서.pdf&save_file=Introduction_kor.pdf&meta=free' class="green one">
+						순천향대학교 전공안내서<br>[Download]
+					</a>
+                    <a href='../lib/download_user.php?file_name=순천향대학교 대학입학지원자격심사신청서 양식 2026-2.pdf&save_file=순천향대학교 대학입학지원자격심사신청서 양식 2026-2.pdf&meta=free' class="duble">
+						대학입학지원자격<br>심사신청서<br>[Download]
+					</a>
+                    <a href="https://h5.sch.ac.kr/html5/SCH/LaunchProject2.jsp?formUrl=T119036" target="_blank" class="grey one">원서접수<br>[Online Application]</a>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+	</div>
+	<!-- ===== /container ====== -->
+    
+    <!-- ===== footer ====== -->
+	﻿	<footer id="footer">
+	    <div class="footer-wrap">
+            <p class="logo"><img src="../asset/images/footer_logo.png" alt="순천향대"></p>
+	        <address>
+                <p><span>충남 아산시 신창면 순천향로 22-9 BRIX관 BI301   국제교육교류처</span> <span class="footer-link"><a href="/global/homeway01.php">찾아오시는 길</a></span></p>
+	            <p><span>TEL. 041-530-1725</span> <span>FAX. 041-530-1381</span></p>
+	        </address>
+	        <p class="copy">COPYRIGHTⓒ 2023 SOONCHUNHYANG UNIVERSITY. ALL RIGHTS RESERVED.</p>
+	        <a href="#none" class="btTop">top</a>
+	    </div>
+	</footer>	<!-- ===== /footer ====== -->
+
+</div>
+<!-- ===== /wrap ====== -->
+    
+<script>
+	gnb('5','1');
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,5616 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="/images/kor/common/favicon.ico">
+<link rel="stylesheet" href="/common/css/common.css;jsessionid=CBF9871C21D1FF85E6132543D42B296F" />
+<!-- template -->
+<link rel="stylesheet" href="/css/go/common.css;jsessionid=CBF9871C21D1FF85E6132543D42B296F" />
+<link rel="stylesheet" href="/css/go/layouts.css;jsessionid=CBF9871C21D1FF85E6132543D42B296F" />
+<!-- template -->
+<link rel="stylesheet" href="/common/css/bootstrap.min.css;jsessionid=CBF9871C21D1FF85E6132543D42B296F" />
+<link rel="stylesheet" href="/common/css/font-awesome.css;jsessionid=CBF9871C21D1FF85E6132543D42B296F" />
+<link rel="stylesheet" href="/common/css/acego.ui.min.css;jsessionid=CBF9871C21D1FF85E6132543D42B296F" />
+<link rel="stylesheet" href="/common/css/content.min.css;jsessionid=CBF9871C21D1FF85E6132543D42B296F" />
+
+<!-- content -->
+<link rel="stylesheet" href="/css/go/content.css;jsessionid=CBF9871C21D1FF85E6132543D42B296F" />
+<!-- content -->
+<link rel="stylesheet" href="/common/css/program.css;jsessionid=CBF9871C21D1FF85E6132543D42B296F" />
+<link rel="stylesheet" href="/common/css/bootstrap.min.css">
+<link rel="stylesheet" href="/common/css/board.min.css;jsessionid=CBF9871C21D1FF85E6132543D42B296F" />
+<script src="/common/js/jquery-3.7.1.min.js"></script>
+<script src="/common/js/jquery-compat-3x.js"></script>
+<script src="/common/js/jquery-easing-shim.js"></script>
+<script src="/common/js/bootstrap.bundle.min.js"></script>
+<script>
+(function ($, window) {
+  if (!$) return;
+
+  // jQuery 3.x: $.fn.size() 제거 → 폴리필
+  if (!$.fn.size) $.fn.size = function(){ return this.length; };
+
+  // jQuery 3.x: $(...).load(fn) 이벤트 단축 제거 → 폴리필
+  var _ajaxLoad = $.fn.load;
+  $.fn.load = function (a,b,c) {
+    if (typeof a === "function") return this.on("load", a);
+    return _ajaxLoad.call(this, a,b,c);
+  };
+})(window.jQuery, window);
+</script>
+<!--
+<script src="/common/js/jquery-1.12.4.min.js;jsessionid=CBF9871C21D1FF85E6132543D42B296F"></script>
+<script src="/common/js/jquery-ui-1.10.1.custom.min.js;jsessionid=CBF9871C21D1FF85E6132543D42B296F"></script>
+<script src="/common/js/bootstrap.min.js;jsessionid=CBF9871C21D1FF85E6132543D42B296F"></script>
+-->
+<script src="/common/js/common.js;jsessionid=CBF9871C21D1FF85E6132543D42B296F"></script>
+<script src="/js/go/common.js;jsessionid=CBF9871C21D1FF85E6132543D42B296F"></script>
+<script src="/js/go/gnbTitle.js;jsessionid=CBF9871C21D1FF85E6132543D42B296F"></script>
+<script src="/js/go/stateScrollObj.js"></script>
+<script src="/common/js/print/jquery.PrintArea.js;jsessionid=CBF9871C21D1FF85E6132543D42B296F"></script>
+<script>
+$(function () {
+  function _in(event) {
+    $("#txt").printArea({
+      popWd: $(window).width(),
+      popHt: $(window).height(),
+      mode: "popup",
+      popClose: true,
+      //extraCss:"/css/narae/print.css",
+      retainAttr: ["id", "class"],
+      extraHead: '<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">'
+    });
+
+    event.preventDefault();
+  }
+
+  $("#print a[href='#none']").on("click", _in);
+});
+</script>
+
+
+<!--[if lt IE 9]>
+    <script src="/common/js/html5shiv.js"></script>
+<![endif]-->
+
+
+<title>
+			
+			
+				
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					 
+											 모집요강 >
+						 
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+				
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					 
+											 외국인 >
+						 
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+		 상지대학교 대학 입학
+</title>
+</head>
+<body>
+
+<div class="left_util_bg"></div>
+
+<!-- 스킵네비케이션시작 -->
+<div id="skipnavi">
+    <a href="#txt">본문 바로가기</a>
+	<a href="#gnbbox">대메뉴 바로가기</a>
+</div>
+<!-- 스킵네비케이션끝 -->
+<!-- top_layout :s -->
+<ul class="utile_wrap left">
+	<li><a href="/kor/sub06_02_01.do" title="새창열림" target="_blank">등록안내</a></li>
+	<li><a href="/kor/sub06_03_02.do" title="새창열림" target="_blank">장학안내</a></li>
+	<li><a href="/kor/sub06_04_01_03.do" title="새창열림" target="_blank">통학버스</a></li>
+	<li><a href="/dorm/index.do" title="새창열림" target="_blank">기숙사</a></li>
+	<!--
+	<li><a href="https://www.sangji.ac.kr/kor/index.do" title="새창열림" target="_blank">상지대학교</a></li>
+    <li><a href="https://www.sangji.ac.kr/go/index.do" title="새창열림" target="_blank">입학안내</a></li>
+    <li><a href="https://caam.sangji.ac.kr/main/mainPage.do" title="새창열림" target="_blank">학생역량</a></li>
+    <li><a href="https://www.sangji.ac.kr/onestop/index.do" title="새창열림" target="_blank">학생지원</a></li>
+	-->
+</ul>
+<ul class="utile_wrap right">
+	 
+         
+         
+         		<li class="login"><a href="/kor/login.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F">LOGIN</a></li>
+         
+    
+	<li class="sitemap2"><a href="/go/sitemap.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F">SITEMAP</a></li>
+</ul>
+<div id="top_layout" class="a_type">
+	<!-- gnb_layout :s -->
+	
+
+
+
+
+
+
+
+
+
+<!-- 240103 홍보대행사 콜랩네트워크 구글 애널릭틱 삽입 시작 -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K58XKP78');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K58XKP78"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- 240103 홍보대행사 콜랩네트워크 구글 애널릭틱 삽입 끝 -->
+
+<!-- ========================================== -->
+<!-- 260825 27학년도 상지대 입시 챗봇 탑재 시작 -->
+<!-- ========================================== -->
+
+<!-- 1. 챗봇 안내 말풍선 (CSS 클래스는 이전과 동일하게 사용) -->
+<div class="gomgomi-speech-bubble" id="gomgomiBubble">
+    27학년도 상지대학교 입시는<br>곰곰이에게 물어보세요!
+</div>
+
+<!-- 2. 챗봇 구동 스크립트 (호스트 div는 제거함) -->
+<script id="chatbot-widget-script"
+    src="https://mllm.o2ai.co.kr/embed_sangji/widget.umd.js"
+    data-institution="sangji"
+    data-collection-id="78113abaffd9-d68fba03"
+    type="module">
+</script>
+
+<!-- 3. 말풍선 열림/닫힘 토글 제어 스크립트 -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const bubble = document.getElementById('gomgomiBubble');
+        
+        document.addEventListener('click', function(event) {
+            if (!bubble) return;
+
+            // 말풍선 자체를 클릭한 경우는 무시 (유지)
+            if (event.target === bubble || bubble.contains(event.target)) {
+                return; 
+            }
+            
+            // 챗봇 위젯을 클릭한 경우: 말풍선의 hidden 클래스를 토글(추가/제거 반복)
+            const clickedChatbot = event.target.closest('[id^="chatbot-widget"]');
+            if (clickedChatbot) {
+                bubble.classList.toggle('hidden');
+            }
+        });
+    });
+</script>
+<!-- // 챗봇 탑재 끝 -->
+
+<!-- Global site tag (gtag.js) - Google Ads: 561102144 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-561102144"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-561102144');
+</script>
+
+<!-- Global site tag (gtag.js) - Google Ads: 840456342 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-840456342"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-840456342');
+</script>
+<script>
+$(function(){
+	
+	function getCookie(name) {
+		var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+		return value? value[2] : null;
+	}
+	
+	if(getCookie("sangji") == null){
+	
+		$.ajax({
+    		type: 'GET',
+        	url:'https://sso.sangji.ac.kr:4443/api/sso/login/check',
+        	xhrFields: {
+            	withCredentials: true
+        	},
+        	cache: false,
+        	dataType: 'json',
+        	crossDomain: true,
+        	success:function(data){
+            	if(data.dataMap.valid) {
+            		location.href = 'https://sso.sangji.ac.kr:4443/sso/auth?client_id=homepage&response_type=code&rd_c_p=kor&redirect_uri=http://www.sangji.ac.kr/sso/ssoLoginResult.do';
+            	}
+        	},
+        	error: function(jqXHR, textStatus, errorThrown){
+            	console.log(jqXHR,textStatus,errorThrown);
+        	}
+
+		});
+	}
+	
+	if(getCookie("sangji") != null){
+	
+		$.ajax({
+    		type: 'GET',
+        	url:'https://sso.sangji.ac.kr:4443/api/sso/login/check',
+        	xhrFields: {
+            	withCredentials: true
+        	},
+        	cache: false,
+        	dataType: 'json',
+        	crossDomain: true,
+        	success:function(data){
+            	if(!data.dataMap.valid) {
+            		location.href = '/sso/ssoLogout.do';
+            	}
+        	},
+        	error: function(jqXHR, textStatus, errorThrown){
+            	console.log(jqXHR,textStatus,errorThrown);
+        	}
+
+		});
+	}
+});
+</script>
+
+
+<!-- 상단 팝업 -->
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+<header class="top_wrap">
+	<h1 class="logo_wrap"><a href="/go/index.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F">상지대학교 대학입학</a></h1>
+    <ul class="left_utile">
+        <li class="sitemap"><a id="btnAllmenu" href="/go/sitemap.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F">전체메뉴</a></li>
+        <li class="lnk1"><a href="/kor/index.do" target="_blank" title="새창열림">대학바로가기</a></li>
+        <li class="lnk0"><a href="/grad/index.do" target="_blank" title="새창열림">대학원바로가기</a></li>
+        <li class="lnk3"><a href="/gradgo/index.do" target="_blank" title="새창열림">대학원입학</a></li>
+		<li class="lnk4"><a href="https://pf.kakao.com/_aWxhxkK" target="_blank" alt="상지대학교 카카오톡 새창열기" title="새창열림">카카오톡</a></li>
+		<li class="lnk5"><a href="https://www.youtube.com/c/1955sangji" target="_blank" alt="상지대학교 유튜브 새창열기" title="새창열림">Youtube</a></li>		
+		<li class="lnk6"><a href="https://www.instagram.com/sangji_univ/" target="_blank" alt="상지대학교 인스타그램 새창열기" title="새창열림">Instagram</a></li>
+		<li class="lnk7"><a href="https://www.facebook.com/1955SANGJI/" target="_blank" alt="상지대학교 페이스북 새창열기" title="새창열림">Facebook</a></li>
+		<li class="lnk8"><a href="https://blog.naver.com/sangji_univ" target="_blank" alt="상지대학교 블로그 새창열기" title="새창열림">Blog</a></li>
+    </ul>
+    <a class="btn_top" href="#">top</a>
+</header>
+<nav id="gnb_layout" class="dt_type" data-gnb="dt_type">
+    	<!-- 공통메뉴틀 시작 -->
+		<!-- 모바일유틸 시작 -->
+		<div class="topUtile">
+			<div class="link_wrap">
+				<a href="/go/index.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F">HOME</a>
+				<a href="/kor/index.do" target="_blank" title="새창열림">대학</a>
+				
+					
+					
+						<a href="/go/login.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F">LOGIN</a>
+					
+				
+				<a href="/go/sitemap.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F">SITEMAP</a>
+			</div>
+			<div class="link_wrap">
+				<a href="/kor/sub06_02_01.do" title="새창열림" target="_blank">등록안내</a>
+				<a href="/kor/sub06_03_02.do" title="새창열림" target="_blank">장학안내</a>
+				<a href="/kor/sub06_04_01_03.do" title="새창열림" target="_blank">통학버스</a>
+				<a href="/dorm/index.do" title="새창열림" target="_blank">기숙사</a>
+			</div>
+			
+			
+			<div class="lan_wrap dropDown">
+				<a href="#">LANGUAGE</a>
+				<ul>
+					<li><a href="https://www.sangji.ac.kr/eng/index.do" title="새창열림" target="_blank">English</a></li>
+					<li><a href="https://www.sangji.ac.kr/chn/index.do" title="새창열림" target="_blank">Chinese</a></li>
+				</ul>
+			</div>
+			
+		</div>
+		<!-- 모바일유틸 끝 -->
+    	<div id="gnbbox" class="gnb_wrap">
+    	<!-- 메뉴 시작 -->
+       	
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+
+		<ul class="depth1_ul n9">
+		  
+          
+
+	          
+
+		  		 
+	             <li class="n1">
+                	<a href="/go/sub11_01.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" ><span>2027학년도 모집학과</span></a>
+	                <ul class="depth2_ul">
+
+	                        
+
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub11_01.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >전체학과</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub11_02.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >한의과대학</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub11_03.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >보건의료대학</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub11_04.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >미래인재대학</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub11_05.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >경상대학</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub11_06.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >생명환경대학</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub11_07.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >공과대학</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub11_08.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >예술체육대학</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub11_09.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >FIND칼리지</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+	                 </ul>
+	             </li>
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+		  		 
+	             <li class="n2">
+                	<a href="/go/sub01_01.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" ><span>수시</span></a>
+	                <ul class="depth2_ul">
+
+	                        
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub01_01.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >모집요강</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000199/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?kind=notice1&cmsNoStr=1115" >공지사항</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000183/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >FAQ</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000184/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >Q&A</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub01_06.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >전년도 입시결과</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="https://ipsi1.uwayapply.com/aWk4JkxKXkpwXnBUSm8mZW9MZUo3ZlRm"  target="_blank" title="성적 산출 서비스 은(는) 새창으로 열립니다." >성적 산출 서비스</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub01_24.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >대학어디가(성적분석)</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+	                 </ul>
+	             </li>
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+		  		 
+	             <li class="n3">
+                	<a href="/go/sub02_01.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" ><span>정시</span></a>
+	                <ul class="depth2_ul">
+
+	                        
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub02_01.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >모집요강</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000199/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?kind=notice2&cmsNoStr=1137" >공지사항</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000188/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >FAQ</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000189/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >Q&A</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub02_06.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >전년도 입시결과</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="https://ipsi1.uwayapply.com/aWk4JkxKXkpwXnBUSm8mZW9MZUo3ZlRm"  target="_blank" title="성적 산출 서비스 은(는) 새창으로 열립니다." >성적 산출 서비스</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub02_22.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >대학어디가(성적분석)</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+	                 </ul>
+	             </li>
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+		  		 
+	             <li class="n4">
+                	<a href="/go/sub03_01.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" ><span>편입학</span></a>
+	                <ul class="depth2_ul">
+
+	                        
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub03_01.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >모집요강</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000199/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?kind=notice3&cmsNoStr=1159" >공지사항</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000192/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >FAQ</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000193/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >Q&A</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub03_23.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >특례편입학</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub03_22.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >계약학과</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/onestop/sub04_06.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F"  target="_blank" title="학점인정 은(는) 새창으로 열립니다." >학점인정</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+	                 </ul>
+	             </li>
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+		  		 
+	             <li class="n5">
+                	<a href="/prog/pdfDetail/Ka97152a8010Gq9dD8cj/view.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?detailNo=45946" ><span>외국인</span></a>
+	                <ul class="depth2_ul">
+
+	                        
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/pdfDetail/Ka97152a8010Gq9dD8cj/view.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?detailNo=45946" >모집요강</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000007144/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?cmsNoStr=1189" >공지사항</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+	                 </ul>
+	             </li>
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+		  		 
+	             <li class="n6">
+                	<a href="/prog/entexmnBrf/go/sub12_01/write.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" ><span>고교 연계</span></a>
+	                <ul class="depth2_ul">
+
+	                        
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/entexmnBrf/go/sub12_01/write.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >입시설명회 신청</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="https://forms.gle/NY7isTNBfUec5Dt58"  target="_blank" title="전공특강 신청 은(는) 새창으로 열립니다." >전공특강 신청</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="https://forms.gle/DNXR6SUk6XtqeFRv5"  target="_blank" title="카드뉴스 신청 은(는) 새창으로 열립니다." >카드뉴스 신청</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="http://pf.kakao.com/_aWxhxkK/chat"  target="_blank" title="카카오톡 입시상담 신청 은(는) 새창으로 열립니다." >카카오톡 입시상담 신청</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/entschInfo/go/sub12_06/write.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >모집요강 신청</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+	                 </ul>
+	             </li>
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+		  		 
+	             <li class="n7">
+                	<a href="/prog/bbsArticle/BBSMSTR_000000000199/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?cmsNoStr=1201" ><span>입시정보</span></a>
+	                <ul class="depth2_ul">
+
+	                        
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000199/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?cmsNoStr=1201" >공지사항</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/pdfDetail/K5e5cb647c2eSc6oA1lg/view.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?detailNo=7224" >입학전형 기본계획</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub06_11.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >전공안내</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000006953/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >카드뉴스</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+	                 </ul>
+	             </li>
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+		  		 
+	             <li class="n8">
+                	<a href="/prog/bbsArticle/BBSMSTR_000000007085/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" ><span>입학안내 영상</span></a>
+	                <ul class="depth2_ul">
+
+	                        
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000007085/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?kind=go_ibsi_video2" >전형안내</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000007085/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?kind=go_ibsi_video1" >홍보영상</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+	                 </ul>
+	             </li>
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+		  		 
+	             <li class="n9">
+                	<a href="/kor/sub09_01_01.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" ><span>대학정보</span></a>
+	                <ul class="depth2_ul">
+
+	                        
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+
+	          				
+
+						         
+						         <li><a href="/kor/sub09_01_01.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F"  target="_blank" title="대학소개 은(는) 새창으로 열립니다." >대학소개</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/go/sub11_01.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F" >학과 홈페이지</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/kor/sub09_10_03.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F"  target="_blank" title="찾아오시는길 은(는) 새창으로 열립니다." >찾아오시는길</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/kor/sub06_02_01.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F"  target="_blank" title="등록금 안내 은(는) 새창으로 열립니다." >등록금 안내</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/kor/sub06_03_02.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F"  target="_blank" title="장학 안내 은(는) 새창으로 열립니다." >장학 안내</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="/kor/sub06_04_01_03.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F"  target="_blank" title="통학버스 은(는) 새창으로 열립니다." >통학버스</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+						         <li><a href="https://www.sangji.ac.kr/dorm/index.do"  target="_blank" title="기숙사 안내 은(는) 새창으로 열립니다." >기숙사 안내</a>
+						          		
+						         </li>
+						         
+
+	          				
+
+						         
+
+	          				
+
+	                 </ul>
+	             </li>
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+
+	          
+
+
+          
+          </ul>
+
+
+    <!-- 메뉴 끝 -->
+    </div>
+	<!-- 공통메뉴틀 끝 -->
+    <!-- 공통메뉴배경 시작 -->
+    <span class="gnb_bg"></span>
+    <!-- 공통메뉴배경 끝 -->
+    <!-- 모바일메뉴닫기 시작 -->
+    <a id="btnClose_gnb" class="gnbClose" href="#">닫기</a>
+    <!-- 모바일메뉴닫기 끝 -->
+</nav>
+
+	<!-- gnb_layout :e -->
+</div>
+<!-- top_layout :e -->    
+<!-- 비쥬얼 시작 -->
+<div id="svisual_layout" class="b_type">
+	<div class="svisual_wrap">
+       	<div class="title_wrap">
+           <strong><span>상상하는 모든것을 이룰 수 있는 대학</span></strong>
+           <p>
+	           
+	           	
+	           	
+	           	
+	           	
+	           	상지대학교에서 글로벌 리더로 거듭나다.
+	           	
+				
+				
+				
+	           	
+	           
+           </p>
+       	</div>
+       		
+	           	
+	           	
+	           	
+	           	
+	           	<img class="movImg" src="/images/go/svisual_img_sub05.jpg" alt="상지대학교 이미지">
+	           	
+				
+				
+				
+				
+				
+				
+				
+	           	
+	          
+       	
+   	</div>
+</div>
+<!-- 비쥬얼 끝 -->
+<!-- body_layout :s -->
+<div id="body_layout" class="b_type">
+	<div class="body_wrap sub05_01">
+		<!-- lnb_layout :s -->
+		<aside id="lnb_layout" class="lnb_wrap">
+			
+
+
+
+
+
+
+
+
+<!-- 타이틀 시작 -->
+<div class="title_wrap">
+	<strong>외국인</strong>
+</div>
+<!-- 타이틀 끝 -->
+<!-- 메뉴 시작 -->
+<!-- <ul class="depth2_ul n5">
+ 
+    
+	
+    
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+    		
+             
+	             
+	             <li class="n1 on">
+	             
+	             
+             
+            	   
+			             
+			             
+			             		<a href="/prog/pdfDetail/Ka97152a8010Gq9dD8cj/view.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?detailNo=45946" ><span>모집요강</span></a> 
+			             
+		             
+	
+             </li>
+          
+		  
+	
+ 
+		  
+          
+	      
+    		
+             
+	             
+	             
+	             <li class="n2">
+	             
+             
+            	   
+			             
+			             
+			             		<a href="/prog/bbsArticle/BBSMSTR_000000007144/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?cmsNoStr=1189" ><span>공지사항</span></a> 
+			             
+		             
+	
+             </li>
+          
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+ 
+		  
+          
+	      
+		  
+	
+          
+</ul> -->
+<!-- 메뉴 끝 -->
+
+			<!-- 
+        	<div class="title_wrap">
+	        	<strong>메뉴1 메뉴1</strong>
+            </div>
+			<ul class="depth2_ul n5">
+		        <li class="n1 on"><a href="#"><span>메뉴1-1</span></a></li>
+		        <li class="n2">
+		            <a href="#"><span>메뉴1-2</span></a>
+		            <ul class="depth3_ul">
+		                <li><a href="#">메뉴1-2-1</a></li>
+		                <li><a href="#">메뉴1-2-2</a></li>
+		                <li><a href="#">메뉴1-2-3</a></li>
+		                <li><a href="#">메뉴1-2-4</a></li>
+		            </ul>
+		        </li>
+		        <li class="n3"><a href="#"><span>메뉴1-3 메뉴1-3 메뉴1-3 메뉴1-3 메뉴1-3 메뉴1-3</span></a></li>
+		        <li class="n4"><a href="#"><span>메뉴1-4</span></a></li>
+		        <li class="n5">
+		            <a href="#"><span>메뉴1-5</span></a>
+		            <ul class="depth3_ul">
+		                <li><a href="#">메뉴1-5-1</a></li>
+		                <li><a href="#">메뉴1-5-2</a></li>
+		            </ul>
+		        </li>
+		    </ul>
+		     -->
+		</aside>
+		<!-- lnb_layout :e -->
+	
+		<!-- content_layout :s -->
+		<div class="contents_wrap">
+			<!-- title_layout :s -->
+			<div class="title_wrap">
+	            
+
+
+
+
+
+
+
+
+
+<!-- 페이지 타이틀 시작 -->
+<div class="title_wrap">
+	<h2>모집요강</h2>
+	<!-- 유틸 시작 -->
+	<div class="utile_wrap">
+		<!-- 로케이션 시작 -->
+		<ul class="location_wrap">
+			<li class="n1"><a href="/go/index.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F">HOME</a></li>
+			
+			
+			
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						<li class="n2"><a href="/prog/pdfDetail/Ka97152a8010Gq9dD8cj/view.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?detailNo=45946" >외국인</a></li>
+						
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						<li class="n3"><a href="/prog/pdfDetail/Ka97152a8010Gq9dD8cj/view.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?detailNo=45946" >모집요강</a></li>
+						
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+		</ul>
+    	<!-- 로케이션 끝 -->
+    	<!-- 프린트 시작 -->
+        <ul class="print_wrap">
+        	<li id="sns_layout" class="n2">
+            	<a id="snsOpen" href="#">SNS공유</a>
+                <div class="sns_wrap">
+                	<a class="fa" href="#" onclick="facebookOpen(); return false;" title="facebook, 새창에서 열림">페이스북</a>
+                	<a class="copy_url" href="#" onclick="CopyUrl(); return false;">URL</a>
+                	
+                	<a id="snsClose" class="btnClose" href="#">닫기</a>
+                </div>
+            </li>
+        	<li class="n1" id="print"><a href="#">프린트</a></li>
+        </ul>
+    	<!-- 프린트 끝 -->
+    </div>
+    <!-- 유틸 끝 -->
+</div>
+<!-- 페이지 타이틀 끝 -->
+
+            	<!-- 
+            	<h2>타이틀</h2>
+               
+                <div class="utile_wrap">
+                    <ul class="location_wrap">
+                        <li class="n1">HOME</li>
+                        <li class="n2">메뉴1</li>
+                        <li class="n3">메뉴1-1</li>
+                    </ul>
+                    <ul class="print_wrap">
+                        <li id="sns_layout" class="n2">
+                            <a id="snsOpen" href="#">SNS공유</a>
+                            <div class="sns_wrap">
+                                <a class="fa" href="#">페이스북</a>
+                                <a class="tw" href="#">트위터</a>
+                                <a id="snsClose" class="btnClose" href="#">닫기</a>
+                            </div>
+                        </li>
+                    	<li class="n1"><a href="#">프린트</a></li>
+                    </ul>
+                </div>
+                 -->
+			</div>
+			<!-- title_layout :e -->
+			<!-- content :s -->
+			<div id="txt">
+				
+
+
+
+
+
+
+
+
+
+
+ 
+
+					
+				
+				
+				
+		            
+
+
+
+
+
+
+
+<script type="text/javascript">
+<!--
+
+/*********************************************************
+ * 목록 처리 함수
+ ******************************************************** */
+function fn_search_list(){
+	document.searchForm.detailNo.value = '';
+	document.searchForm.action = "/prog/pdfDetail/Ka97152a8010Gq9dD8cj/list.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F";
+	document.searchForm.submit();
+}
+ 
+//-->
+</script>
+<form  id="searchForm" name="searchForm"  >
+	<input name="pageIndex" type="hidden" value="1">
+	<input name="pageUnit" type="hidden" value="10">
+	<input name="searchCondition" type="hidden" value="">
+	<input name="searchKeyword" type="hidden" value="">
+	<input name="detailNo" type="hidden" value="45946">
+	<!-- <input name="kind" type="hidden" value=""> -->
+ 
+	
+		<h3 class="h3">외국인 전형 입학상담(국제교류팀)</h3>
+		<h4 class="h4">비중국권 : <a href="tel:+82-33-730-0908"><b>+82-33-730-0906</b></a></h4>
+		<h4 class="h4">중국권 : <a href="tel:+82-33-730-0904"><b>+82-33-730-0914</b></a></h4>
+		<h4 class="h4">영어권 : <a href="tel:+82-33-730-0914"><b>+82-33-730-0914</b></a></h4>
+		<h4 class="h4">이메일 : <a href="mailto:sjint@sangji.ac.kr"><b>sjint@sangji.ac.kr</b></a></h4>
+	
+ 	
+
+<!-- 프로그램 및 게시판 시작 -->
+<div class="program--contents">
+
+	<!-- 탭구분 -->
+	<!-- <div class="tab-ul board-tab">
+ 		
+	</div> -->
+	<!-- 탭구분 -->
+													
+ 
+ 
+	<!-- <div class="ui bbs--view"> -->
+		
+		<!-- <div class="ui bbs--view--header">
+
+			<h2 class="ui bbs--view--tit"> 외국인_모집요강</h2>
+
+			<div class="ui bbs--view--opt">
+			
+				<span><i>분류</i>				 
+				
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+					
+						 
+					
+					
+
+				</span>
+				
+				
+				
+				<span class="inq_cnt"><i>조회</i> 427,198</span>
+				<span class="date"><i>등록일</i> 2018-10-04</span>
+
+			</div>
+			
+			
+		
+			<div class="ui bbs--view--file">
+			
+				
+
+  
+
+
+ 
+
+
+		
+			
+			
+			    
+
+ 
+
+
+				
+					
+					
+					
+					
+					        <a class="btn btn-file  btn-on-ico" href="javascript:fn_egov_downFile('FILE_000000003446Um0','0')"><i class="ir ir-bbs ir-file left ir-acrobat"></i>2026학년도 외국인모집요강_English.pdf&nbsp;[1,202&nbsp;KB]</a> <a href='/synapsoft/FileViewer.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?atchFileId=FILE_000000003446Um0&amp;fileSn=0' target="_blank" class="btn btn-file file-border" title="새창열림"><i class="ir ir-bbs ir-file ir-view "></i>파일 미리보기</a><br>
+					
+					
+					
+					
+				
+			
+			
+			    
+
+ 
+
+
+				
+					
+					
+					
+					
+					        <a class="btn btn-file  btn-on-ico" href="javascript:fn_egov_downFile('FILE_000000003446Um0','1')"><i class="ir ir-bbs ir-file left ir-acrobat"></i>2026학년도 외국인모집요강_Chinese.pdf&nbsp;[1,297.1&nbsp;KB]</a> <a href='/synapsoft/FileViewer.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?atchFileId=FILE_000000003446Um0&amp;fileSn=1' target="_blank" class="btn btn-file file-border" title="새창열림"><i class="ir ir-bbs ir-file ir-view "></i>파일 미리보기</a><br>
+					
+					
+					
+					
+				
+			
+			
+			    
+
+ 
+
+
+				
+					
+					
+					
+					
+					        <a class="btn btn-file  btn-on-ico" href="javascript:fn_egov_downFile('FILE_000000003446Um0','2')"><i class="ir ir-bbs ir-file left ir-acrobat"></i>2026학년도 외국인모집요강_Vietnamese.pdf&nbsp;[1,106.7&nbsp;KB]</a> <a href='/synapsoft/FileViewer.do;jsessionid=CBF9871C21D1FF85E6132543D42B296F?atchFileId=FILE_000000003446Um0&amp;fileSn=2' target="_blank" class="btn btn-file file-border" title="새창열림"><i class="ir ir-bbs ir-file ir-view "></i>파일 미리보기</a><br>
+					
+					
+					
+					
+				
+			
+			
+			
+			
+			
+				
+			</div>
+			
+			
+							
+		</div> -->
+
+		<div class="ui bbs--view--cont">
+			<div class="ui bbs--detail--cont">
+
+				<div class="ui bbs--view--content">
+				
+					
+	 
+						<div class="ui program--search--index">
+				 
+							<div class="program--page">
+								<label for="numPerPage">파일 선택</label>
+								<div class="search--select">
+									<span>
+							 		<select name="fileSn" class="form-control" title="파일 정보">
+								     	
+											<option value="0"  selected  >2026학년도 외국인모집요강_English</option>
+								     	
+											<option value="1"  >2026학년도 외국인모집요강_Chinese</option>
+								     	
+											<option value="2"  >2026학년도 외국인모집요강_Vietnamese</option>
+								     	
+									</select>
+									</span>
+								</div>
+								<button type="button" title="파일 선택 적용하기" onclick="javascript: document.searchForm.submit();">적용</button>
+							</div>
+						</div>
+	 
+	     			
+	     			
+	     			
+	     			
+								
+									<iframe style="width: 100%;" height="1000" src="/module/pdf.js/web/viewer.html?file=/thumbnail/pdfDetail/BBS_202508290145210631.pdf"></iframe>	
+								
+					
+	     			
+								
+					
+	     			
+								
+					
+				
+
+
+
+	 
+				</div>
+				
+								 
+				<div class="ui bbs--view--content">
+
+
+	
+	
+		외국인_모집요강(수정)
+	
+
+
+				</div>
+				
+			</div>	
+		</div>
+ 
+	<!-- </div> -->
+    <!-- <div class="box-footer">
+ 
+		<a class="btn btn-default" href="#none" onclick="javascript: fn_search_list();return false;" ><i class="fa fa-list-ul"></i> 목록</a>
+	</div> -->
+    <!--  
+    <ul class="board--nav--list">
+		<li class="prev"> 
+			<a href="#none">
+				<i class="ir ir-bbs">이전글</i>
+				우리 아파트는 미세먼지 걱정 없어요
+				<span class="time">2018.00.00</span>
+			</a>
+		</li>
+		<li class="next"> 
+			<a href="#none">
+				<i class="ir ir-bbs">다음글</i>
+				우리 아파트는 미세먼지 걱정 없어요
+				<span class="time">2018.00.00</span>
+			</a>
+		</li>
+	</ul>
+	  -->
+</div>
+<!-- 프로그램 및 게시판 끝 -->
+
+
+</form>
+
+ 
+	            
+	            
+	            
+			</div>
+			<!-- content :e -->
+		
+			
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+			
+					 						
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+
+<!-- 담당자지정, 만족도 조사, 공공누리유형 -->
+	
+<!-- 담당자지정, 만족도 조사, 공공누리유형 끝 -->
+		
+				
+				
+				
+		</div>
+		<!-- content_layout :e -->
+	</div>
+</div>
+<!-- body_layout :e -->
+<!-- footer_layout :s -->
+<footer id="foot_layout">
+	  
+ 
+  
+
+
+
+	
+	<!-- 유관기관 시작 -->
+	<div id="link_book" class="">
+			<div class="book_btn">		<a href="#">			<p>
+<b><span>SJU</span> <span>LINK</span></b>
+<span class="link-text">상지대학교 기관 및 학과 보기</span>
+</p>
+				</a>	</div>	<div class="book_cnt">		<div class="cnt_wrap">
+			<div class="sector1">
+				<strong>학과 전체보기</strong>
+				<ul class="college">					<li><a><span>한의과대학</span></a>					<!--<li><a title="새창열림" target="_blank" href="/km/index.do"><span>한의과대학</span></a>-->						<ul class="department">							<li><a title="새창열림" target="_blank" href="/hani/index.do">한의예(학)과</a></li>						</ul>					</li>					<li><a><span>보건의료과학대학</span></a> 					<!--<li><a title="새창열림" target="_blank" href="/health/index.do"><span>보건의료과학대학</span></a>-->						<ul class="department">							<li><a title="새창열림" href="/nursing/index.do" target="_blank">간호학과</a></li>							<li><a title="새창열림" href="/pt/index.do" target="_blank">물리치료학과</a></li>							<li><a title="새창열림" href="/bmls/index.do" target="_blank">임상병리학과</a></li>							<li><a title="새창열림" href="/ot/index.do" target="_blank">작업치료학과</a></li>							<li><a title="새창열림" href="/hcs/index.do" target="_blank">보건계열</a>								<ul>									<li><a title="새창열림" href="/pharmbio/index.do" target="_blank">제약바이오전공</a></li>									<li><a title="새창열림" href="/hsm/index.do" target="_blank">보건의료경영전공</a></li>									<li><a title="새창열림" href="/food/index.do" target="_blank">식품영양학전공</a></li>									<li><a title="새창열림" href="/slp/index.do" target="_blank">언어치료전공</a></li>								</ul>							</li>						</ul>					</li>					<li><a><span>미래인재대학</span></a>					<!--<li><a title="새창열림" target="_blank" href="/eba/index.do"><span>경상대학</span></a>-->						<ul class="department">							<li><a title="새창열림" href="/policelaw/index.do" target="_blank">경찰법학과</a></li>							<li><a title="새창열림" href="/military/index.do" target="_blank">군사학과</a></li>							<li><a title="새창열림" href="/walfare/index.do" target="_blank">사회복지학과</a></li>							<li><a title="새창열림" href="/childhood/index.do" target="_blank">유아교육학과</a></li>							<li><a title="새창열림" href="/mooncon/index.do" target="_blank">문화콘텐츠학과</a></li>							<li><a title="새창열림" href="/media/index.do" target="_blank">미디어영상광고학과</a></li>							<li><a title="새창열림" href="/weilai/index.do" target="_blank">글로벌리더학부</a></li>							<li><a title="새창열림" href="/pal/index.do" target="_blank">법률행정학과(계약)</a></li>						</ul>					</li>					<li><a><span>경상대학</span></a>					<!--<li><a title="새창열림" target="_blank" href="/eba/index.do"><span>경상대학</span></a>-->						<ul class="department">							<li><a title="새창열림" href="/management/index.do" target="_blank">경영학과</a></li>							<li><a title="새창열림" href="/ibiz/index.do" target="_blank">국제경영학과</a></li>							<li><a title="새창열림" href="/hotelairtourism/index.do" target="_blank">호텔항공관광경영학과</a></li>						</ul>					</li>
+					<li><a><span>생명환경대학</span></a>
+					<!--<li><a title="새창열림" target="_blank" href="/lsnr/index.do"><span>생명환경과학대학</span></a>-->
+												<ul class="department">							<li><a title="새창열림" href="/animalscience/index.do" target="_blank">동물자원학과</a></li>							<li><a title="새창열림" href="/life/index.do" target="_blank">스마트팜생명과학과</a></li>							<li><a title="새창열림" href="/fla/index.do" target="_blank">조경산림학과</a></li>
+						</ul>
+					</li>
+										<li><a><span>공과대학</span></a>
+					<!--<li><a title="새창열림" target="_blank" href="/se/index.do"><span>융합기술공과대학</span></a>-->
+												<ul class="department">							<li><a title="새창열림" href="/cee/index.do" target="_blank">건설환경공학과</a></li>							<li><a title="새창열림" href="/fire/index.do" target="_blank">소방공학학과</a></li>							<li><a title="새창열림" href="/elec/index.do" target="_blank">전기전자공학과</a></li>							<li><a title="새창열림" href="/cse/index.do" target="_blank">컴퓨터공학과</a></li>							<li><a title="새창열림" href="/sw/index.do" target="_blank">소프트웨어학과</a></li>						</ul>					</li>
+					<li><a><span>예술체육대학</span></a>
+										<!--<li><a title="새창열림" target="_blank" href="/artsport/index.do"><span>예술체육대학</span></a>-->
+						<ul class="department">							<li><a title="새창열림" href="/livingdesign/index.do" target="_blank">리빙디자인학과</a></li>							<li><a title="새창열림" href="/design/index.do" target="_blank">산업융합디자인학과</a></li>							<li><a title="새창열림" href="/visual/index.do" target="_blank">시각영상디자인학과</a></li>							<li><a title="새창열림" href="/cartoon/index.do" target="_blank">만화애니메이션학과</a></li>
+							<li><a>체육학부</a>								<ul>
+																		<li><a title="새창열림" target="_blank" href="/athletics/index.do">체육학전공</a></li>
+																		<li><a title="새창열림" target="_blank" href="/leisure/index.do">생활체육학전공(야)</a></li>
+																		<li><a title="새창열림" target="_blank" href="/taekwondo/index.do">태권도학전공</a></li>
+																</ul>
+														</li>
+												</ul>
+										</li>
+					<li><a title="새창열림" target="_blank" href="/generaledu/index.do"><span>FIND칼리지</span></a>
+												<ul class="department">							<li><a title="새창열림" target="_blank" href="/op/index.do">자유전공학부</a></li>							<li><a title="새창열림" target="_blank" href="/liberalarts/index.do">FIND칼리지학부</a></li>							<li><a title="새창열림" target="_blank" href="/generaledu/sub07_01.do">교양교육센터</a></li>							<li><a title="새창열림" target="_blank" href="/generaledu/sub08_01.do">FIND-MYWAY센터</a></li>							<li><a title="새창열림" target="_blank" href="/generaledu/sub09_01.do">기초교양센터</a></li>
+						</ul>					</li>
+										<li><a title="새창열림" target="_blank" href="/lifelong/index.do"><span>미래라이프대학</span></a>
+					<ul class="department">							<li><a>평생교육융합계열</a>								<ul>									<li><a title="새창열림"target="_blank"  href="/dse/index.do">사회적경제학과</a></li>									<li><a title="새창열림" target="_blank" href="/educoun/index.do">평생교육상담학과</a></li>									<li><a title="새창열림" target="_blank" href="/lersport/index.do">레저레크레이션학과</a></li>									<li><a title="새창열림" target="_blank" href="/hospitality/index.do">식음료외식산업학과</a></li>									<li><a title="새창열림" target="_blank" href="/silverfin/index.do">실버재테크학과</a></li>									<li><a title="새창열림" target="_blank" href="/silvercare/index.do">실버헬스케어학과</a></li>								</ul>							</li>
+												</ul>					</li>
+				</ul>
+			</div>
+			<div class="sector2">
+								<strong>대학기관</strong>
+								<ul class="department">				    <li><a href="http://library.sangji.ac.kr/" title="새창열림" target="_blank">학술정보원</a></li>				    <li><a href="http://cyber.sangji.ac.kr" title="새창열림" target="_blank">사이버캠퍼스(LMS)</a></li>				    <li><a href="/dorm/index.do" title="새창열림" target="_blank">생활관(행복기숙사)</a></li>					<li><a href="https://caam.sangji.ac.kr/main/jobplus/mainPage.do" title="새창열림" target="_blank">대학일자리플러스센터</a></li>
+					<li><a href="/edulife/index.do" title="새창열림" target="_blank">평생교육원</a></li>					<li><a href="/hrd/index.do" title="새창열림" target="_blank">HRD직업능력개발과정</a></li>					<!--li><a href="/sui/index.do" title="새창열림" target="_blank">대학혁신사업단</a></li-->					<li><a href="/anchor/index.do" title="새창열림" target="_blank">앵커사업단</a></li>					<li><a href="/huss/index.do" title="새창열림" target="_blank">HUSS사업단</a></li>				    <li><a href="/mirae/index.do" title="새창열림" target="_blank">AI융합교육혁신원</a>				        <ul class="department2">							<li><a title="새창열림" target="_blank" href="/ctl/index.do">교수학습개발센터</a></li>							<!--<li><a title="새창열림" target="_blank" href="/performance/index.do">교육성과관리센터</a></li>-->							<li><a title="새창열림" target="_blank" href="/cde/index.do">원격교육개발센터</a></li>						</ul>					</li>				    <li><a href="/global/index.do" title="새창열림" target="_blank">국제교류처</a></li>					<li><a href="/medi/index.do" title="새창열림" target="_blank">한방병원</a></li>
+					<li><a href="/sanhak/index.do" title="새창열림" target="_blank">산학협력단</a></li>
+				    					<li><a href="/fund/index.do" title="새창열림" target="_blank">발전기금</a></li>
+				    					<li><a href="/rotc/index.do" title="새창열림" target="_blank">학군단(R.O.T.C)</a></li>				    <li><a href="/yebigun/index.do" title="새창열림" target="_blank">예비군연대</a></li>
+				    					<!--<li><a href="/global/index.do" title="새창열림" target="_blank">국제교류팀</a></li>-->
+				    					<li><a href="/press/index.do" title="새창열림" target="_blank">미디어센터</a></li>					<!--2.0
+				        					<ul class="department2">
+													<li><a title="새창열림" target="_blank" href="/press/index.do">상지신문사</a></li>
+													<li><a title="새창열림" target="_blank" href="/sbs/index.do">상지방송국</a></li>
+													<li><a title="새창열림" target="_blank" href="/herald/index.do">상지영자신문사</a></li>
+											</ul>					-->
+				    
+				    					<!--<li><a href="/humanrights/index.do" title="새창열림" target="_blank">인권센터</a></li>-->				    <li><a href="/counsel/index.do" title="새창열림" target="_blank">심리상담ㆍ인권센터</a></li>					<li><a href="/ssvc/index.do" title="새창열림" target="_blank">사회봉사단</a></li>
+				    					<li><a href="/intern/index.do" title="새창열림" target="_blank">현장실습지원센터</a></li>
+				    					<li><a href="/together/index.do" title="새창열림" target="_blank">장애학생지원센터</a></li>					<li><a href="/broso/index.do" title="새창열림" target="_blank">발달장애인통합지원센터</a></li>
+										<li><a href="/netzero/index.do" title="새창열림" target="_blank">탄소중립지원센터</a></li>					<li><a href="/ir/index.do" title="새창열림" target="_blank">IR센터</a></li>					<li><a href="/sjprof/index.do" title="새창열림" target="_blank">교수협의회</a></li>				    <!--<li><a href="/dongmun/index.do" title="새창열림" target="_blank">총동문회</a></li>-->				    <li><a href="/student/index.do" title="새창열림" target="_blank">총학생회</a></li>					<li><a href="/abeek/index.do" title="새창열림" target="_blank">공학교육센터</a></li>
+				    					<li><a href="http://www.wjsc.kr/" title="새창열림" target="_blank">원주시노인복지관</a></li>
+				    
+				    					<li><a href="https://cafe.naver.com/sjbic2002" title="새창열림" target="_blank">창업보육센터</a></li>
+				    
+				    					<li><a href="http://www.omic.kr/" title="새창열림" target="_blank">한방의료기기산업진흥센터</a></li>										<li><a href="http://www.sjcoop.or.kr/main.php" title="새창열림" target="_blank">소비자생활협동조합</a></li>					<!--li><a href="/sae/index.do" title="새창열림" target="_blank">농업과학교육원</a></li-->					<!--li><a href="/isoac/index.do" title="새창열림" target="_blank">국제친환경유기농센터</a></li-->					<!--li><a href="http://www.gwse.or.kr/" title="새창열림" target="_blank">강원도사회적경제지원센터</a></li-->
+								</ul>
+						</div>
+					</div>
+			</div>
+	</div>
+	<!-- 유관기관 끝 -->
+
+	<script type="text/javascript">
+		$(function(){
+			main_popup_controll_AC();
+		});
+
+		function main_popup_controll_AC(){
+			var ch = $("body[class*='site_']").size();
+			var obj = $("#op_layout");
+
+			if(ch == 0){ 
+				//if(getCookie("ncookie") != "done"){
+					if(!obj.hasClass("on")) obj.addClass('on');
+				//}
+			}
+		}
+	</script>
+
+	<!-- 입학푸터틀 시작 -->
+	<div class="foot_wrap">
+		<ul class="utile_wrap">
+			<li class="n1"><a href="/kor/sub10_05.do" title="새창열림" target="_blank">성희롱ㆍ성폭력 예방교육</a></li>
+			<li class="n2"><a href="/kor/sub10_07.do" title="새창열림" target="_blank">장애인식개선</a></li>
+			<li class="n3"><a href="https://www.isic.co.kr/sangji/sangjiIndex.jsp" title="새창열림" target="_blank">국제학생증</a></li>
+			<li class="n4"><a href="https://www.ygoon.com/cus_alnc/index?sangji" title="새창열림" target="_blank">교육할인스토어</a></li>
+			<li class="n5"><a href="https://www.zeus.go.kr/" title="새창열림" target="_blank">ZEUS 장비활용</a></li>
+			<li class="n6"><a href="https://www.academyinfo.go.kr/pubinfo/pubinfo1600/doInit.do?schlId=0000119" title="새창열림" target="_blank">대학정보공시</a></li>
+		</ul>
+		<div><address><span>26339 강원특별자치도 원주시 상지대길 83(우산동)</span> <span>상지대학교  TEL 033)730-0125-7</span></address></div>
+		<p class="copy"><span>COPYRIGHT ⓒ </span><span>Sangji University. All Rights Reserved.</span></p>
+	</div>
+	<!-- 푸터틀 끝 -->
+
+<!-- google analytics -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147632691-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147632691-3');
+</script>
+
+
+
+</footer>
+<!-- footer_layout :e -->
+
+
+</body>
+</html>
+

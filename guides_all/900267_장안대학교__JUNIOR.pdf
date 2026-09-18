@@ -1,0 +1,1228 @@
+
+<!-- include file = "./ssl.asp" -->
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<style>
+@media (max-width: 1023px) {
+  #pop_zone div[id^="pop_"] {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: 88vw !important;
+    max-width: 360px !important;
+    max-height: 80vh !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    z-index: 99999 !important;
+  }
+  #pop_zone div[id^="pop_"] .ct img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* 116팝업을 항상 최상단에 노출 (특정도를 기존 규칙보다 높임) */
+  #pop_zone #pop_116 {
+    z-index: 100000 !important;
+  }
+}
+</style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장안대학교 입학안내</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js" defer></script>
+    <link rel="stylesheet" href="assets/style/index.css">
+    <link rel="stylesheet" href="assets/style/popup_zone.css"/>
+    <link rel="stylesheet" href="assets/style/layer_popup.css"/>
+    <script>
+        path = '.'
+    </script>
+    <script src="assets/script/script_0119.js"></script>
+    <script src="assets/script/sns.js"></script>
+</head>
+<body>
+    <header id="header">
+        <div id="visual" class="index">
+            <div class="wrapper">
+                <h3 class="section_title hidden">모집일정</h3>
+                <div class="visual_text">
+                    <span class="wrap">
+                        <span class="txt">더 나은 미래를 위한 <br>새로운 기준,</span>
+                        <span class="wrap">
+                            <span class="txt">
+                                장안대학교<span class="date"> </span>
+                            </span>
+                        </span>
+                    </span>
+               
+                    <span class="wrap2">
+                        <!-- 버튼은 해당 시기에 맞게 주석 해제하여 사용 -->
+                        <button type="button" class="apply_btn" onclick="window.open('https://ipsi3.uwayapply.com/2027/coll2/jangan/?CHA=1');return false;">Uway 원서접수 바로가기</button>
+                        <button type="button" class="apply_btn" onclick="window.open('https://apply.jinhakapply.com/Notice/4127058/A');return false;">진학사 원서접수 바로가기</button> 
+                        <button type="button" class="apply_btn" onclick="window.open('https://apply.jangan.ac.kr');return false;">무료 원서접수 바로가기</button>
+						<!-- <button type="button" class="apply_btn" onclick="window.open('https://apply.jangan.ac.kr');return false;">성인학습자 원서접수 바로가기</button> -->
+                        <!-- <button type="button" class="apply_btn" onclick="window.open('https://iphak.jangan.ac.kr/kor/educate/memberidentify.asp');return false;">합격자 조회 바로가기</button> -->
+                        <!-- <button type="button" class="apply_btn" onclick="window.open('https://iphak.jangan.ac.kr/kor/family/notice_view.asp?pNum=184&page=&bbsID=notice');return false;">자율 모집 안내 바로가기</button> -->
+                    </span>
+               
+                </div>
+            </div>
+            <div class="wrapper shortcut_wrap">
+                <div class="swiper shortcut">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide">
+                            <a href="./service/subject.html?2027학년도모집요강.pdf" class="swiper-item item01">
+                                <span class="text">2027학년도 모집요강</span>
+                                <span class="desc"></span>
+                            </a>
+                        </li>
+
+
+
+						<!-- 유튜브 링크  -->
+						<li class="swiper-slide">
+							<a href="https://www.youtube.com/@jangan_univ/shorts" target="_blank" class="swiper-item item02" style="background-image: url('/kor/images/sns.png') !important; background-size: cover; background-position: center; background-repeat: no-repeat;">
+								<span class="text">SNS 활동 바로가기</span>
+								<span class="desc">
+									
+								</span>
+							</a>
+						</li>
+                      
+                        <li class="swiper-slide">
+                            <a href="./family/request.asp" class="swiper-item item03">
+                                <span class="text">입시설명회 · <br />
+                                    진로특강 체험</span>
+                                <span class="desc">우리 학교가 당신을 찾아갑니다!</span>
+                            </a>
+                        </li>
+
+						<li class="swiper-slide">
+							<a href="family/result.asp" class="swiper-item item04" style="position:relative; 
+							display:block; overflow:hidden; background-image: url('/kor/images/iphak.png') !important; background-size: cover; background-position: center 15%; background-repeat: no-repeat;">
+								<span class="text_wrap" style="position:absolute; left:0; right:0; bottom:0; width:100%; background:#fff; padding:16px; box-sizing:border-box; z-index:2;">
+								<span class="text" style="display:block;">2026학년도 입시결과 </span>
+								
+							</span>
+							</a>
+						</li>
+
+
+
+
+						<li class="swiper-slide">
+							<a href="http://ratio.uwayapply.com/Sl5KVzhyVzgvSmZDQ2FMSjdmVGY=" target="_blank" class="swiper-item item04">
+                                <span class="desc">2027학년도 입시경쟁률 확인</span>
+								<span class="text">실시간경쟁률</span>
+                                
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 모집일정 -->
+    <section id="schedule" class="">
+        <div class="wrapper">
+            <h3 class="section_title">모집일정</h3>
+            <div class="tab_wrap tp-vertical">
+                <div class="tab_list_wrap">
+                    <ul class="tab_list">
+                        <li class="tab_item">
+                            <button type="button" class="tab_link" data-target="#tab1" id="tablink1">
+                                <span class="tab_text">2027 수시1차</span>
+                            </button>
+                        </li>
+                        <li class="tab_item">
+                            <button type="button" class="tab_link" data-target="#tab2" id="tablink2">
+                                <span class="tab_text">2027 수시2차</span>
+                            </button>
+                        </li>
+                        <li class="tab_item">
+                            <button type="button" class="tab_link" data-target="#tab3" id="tablink3">
+                                <span class="tab_text">2027 정시</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+               
+                <div class="tab_contents" id="tab1">
+                    <div class="swiper process">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide current">
+                                <div class="swiper-item">
+                                    <p class="title">원서접수</p>
+                                    <p class="date">09.07 - 09.30</p>
+                                    <a href="https://apply.jangan.ac.kr/JAC/" class="btn" target="_blank" rel="noopener">접수하기</a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide ">
+                                <div class="swiper-item">
+                                    <p class="title">대학별고사(면접·실기)</p>
+                                    <p class="date">10.14 - 10.17</p>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="swiper-item ">
+                                    <p class="title">합격자발표</p>
+                                    <p class="date">10.30 10:00</p>
+                                    <button type="button" class="btn" onclick="alert('수시1차 합격자발표는 2026년 10월 23일입니다.');return false;">확인하기</button>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="swiper-item ">
+                                    <p class="title">합격자등록</p>
+                                    <p class="date">12.21 - 12.23</p>
+                                    <button type="button" class="btn" onclick="alert('수시1차 합격자등록는 2026년 12월 21일 ~ 12월 23일까지 입니다.');return false;">등록하기</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+               
+                <div class="tab_contents" id="tab2">
+                    <div class="swiper process">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide ">
+                                <div class="swiper-item">
+                                    <p class="title">원서접수</p>
+                                    <p class="date">11.11 - 11.25</p>
+                                    <button type="button" class="btn" onclick="alert('수시2차 원서접수는 2026년 11월 11일 ~ 11월 25일까지 입니다.');return false;">접수하기</button>
+                                </div>
+                            </li>
+                            <li class="swiper-slide ">
+                                <div class="swiper-item">
+                                    <p class="title">대학별고사(면접·실기)</p>
+                                    <p class="date">12.02 - 12.05</p>
+                                </div>
+                            </li>
+                            <li class="swiper-slide ">
+                                <div class="swiper-item">
+                                    <p class="title">합격자발표</p>
+                                    <p class="date">12.18 10:00</p>
+                                    <button type="button" class="btn" onclick="alert('수시2차 합격자 발표는 2026년 12월 18일 입니다.');return false;">확인하기</button>
+                                </div>
+                            </li>
+                            <li class="swiper-slide ">
+                                <div class="swiper-item">
+                                    <p class="title">합격자등록</p>
+                                    <p class="date">12.21 - 12.23</p>
+                                    <button type="button" class="btn" onclick="alert('수시2차 합격자등록는 2026년 12월 21일 ~ 12월 23일까지 입니다.');return false;">등록하기</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+               
+                <div class="tab_contents" id="tab3">
+                    <div class="swiper process">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide ">
+                                <div class="swiper-item">
+                                    <p class="title">원서접수</p>
+                                    <p class="date">27.01.04 - 01.20</p>
+                                    <button type="button" class="btn" onclick="alert('정시 원서접수는 2027년 1월 4일 ~ 1월 20일까지 입니다.');return false;">접수하기</button>
+                                </div>
+                            </li>
+                            <li class="swiper-slide ">
+                                <div class="swiper-item">
+                                    <p class="title">대학별고사(면접·실기)</p>
+                                    <p class="date">27.01.28 - 01.30</p>
+                                </div>
+                            </li>
+                            <li class="swiper-slide ">
+                                <div class="swiper-item">
+                                    <p class="title">합격자발표</p>
+                                    <p class="date">27.02.05 10:00</p>
+                                    <button type="button" class="btn" onclick="alert('정시 합격자 발표는 2027년 2월 5일입니다.');return false;">확인하기</button>
+                                </div>
+                            </li>
+                            <li class="swiper-slide ">
+                                <div class="swiper-item">
+                                    <p class="title">합격자등록</p>
+                                    <p class="date">27.02.10 - 02.12</p>
+                                    <button type="button" class="btn" onclick="alert('정시 합격자등록는 2027년 2월 10일 ~ 2월 12일까지 입니다.');return false;">등록하기</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- =========================
+    JANGAN ON AIR
+========================== -->
+<style>
+    /* ===========================
+        JANGAN ON AIR - 레이아웃 및 스타일
+    =========================== */
+    #janganOnAir {
+        padding: 100px 0;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    #janganOnAir .wrapper {
+        max-width: 1450px;
+        margin: auto;
+    }
+
+    #janganOnAir .onair-wrap {
+        display: flex;
+        gap: 70px;
+    }
+
+    /* 메인 영상 크기 확대 (48%) */
+    #janganOnAir .onair-left {
+        width: 48%;
+    }
+
+    #janganOnAir h2 {
+        font-size: 72px;
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 20px;
+        letter-spacing: -3px;
+    }
+
+    #janganOnAir h2 span {
+        color: #198cff;
+    }
+
+    #janganOnAir .sub {
+        font-size: 23px;
+        color: #555;
+        margin-bottom: 40px;
+    }
+
+    #janganOnAir .sns-icons {
+        display: flex;
+        gap: 18px;
+        margin-bottom: 45px;
+    }
+
+    #janganOnAir .sns-icons a {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: .3s;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, .15);
+        display: inline-block;
+    }
+
+    #janganOnAir .sns-icons a:hover {
+        transform: translateY(-5px);
+    }
+
+    #janganOnAir .sns-icons img {
+        width: 100%;
+        display: block;
+    }
+
+    #janganOnAir .main-video {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, .18);
+    }
+
+    #janganOnAir .main-video::before {
+        content: "";
+        display: block;
+        padding-top: 56.25%;
+    }
+
+    #janganOnAir iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    /* ===========================
+        비디오 리스트 영역
+    =========================== */
+    #janganOnAir .onair-right {
+        flex: 1;
+        overflow: hidden; 
+    }
+
+    #janganOnAir .videoSection {
+        margin-bottom: 70px;
+    }
+
+    #janganOnAir .titleRow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-right: 20px; 
+    }
+
+    #janganOnAir .titleRow h3 {
+        font-size: 36px;
+        font-weight: 800;
+    }
+
+    #janganOnAir .arrow {
+        display: flex;
+        gap: 12px;
+    }
+
+    #janganOnAir .arrow button {
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        border: none;
+        background: #f5f5f5;
+        font-size: 28px;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    #janganOnAir .arrow button:hover {
+        background: #198cff;
+        color: #fff;
+    }
+
+    #janganOnAir .videoSlider {
+        overflow: visible; 
+    }
+
+    #janganOnAir .videoTrack {
+        display: flex;
+        gap: 22px;
+    }
+
+    /* --- 일반 가로형 비디오 카드 --- */
+    #janganOnAir .videoCard {
+        width: 260px;
+        flex: none;
+        cursor: pointer;
+    }
+    #janganOnAir .videoCard .thumb {
+        aspect-ratio: 16 / 9; /* 가로형 16:9 비율 */
+    }
+
+    /* --- 숏폼(세로형) 비디오 카드 --- */
+    #janganOnAir .shortsCard {
+        width: 170px; /* 세로형이라 폭을 좁게 설정 */
+        flex: none;
+        cursor: pointer;
+    }
+    #janganOnAir .shortsCard .thumb {
+        aspect-ratio: 9 / 16; /* 세로형 9:16 비율 */
+    }
+
+    /* 썸네일 공통 스타일 */
+    #janganOnAir .thumb {
+        position: relative;
+        overflow: hidden;
+        border-radius: 22px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+        background: #000;
+    }
+
+    #janganOnAir .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 이미지가 비율에 맞게 꽉 차도록 설정 */
+        display: block;
+        transition: .35s;
+    }
+
+    #janganOnAir .videoCard:hover img,
+    #janganOnAir .shortsCard:hover img {
+        transform: scale(1.08);
+    }
+
+    /* 텍스트 스타일 */
+    #janganOnAir .videoCard h4,
+    #janganOnAir .shortsCard h4 {
+        margin-top: 16px;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; /* 제목 한 줄 처리 */
+    }
+
+    #janganOnAir .shortsCard h4 {
+        font-size: 20px; /* 숏폼은 폭이 좁아서 글자를 조금 작게 */
+    }
+
+    #janganOnAir .videoCard p,
+    #janganOnAir .shortsCard p {
+        margin-top: 10px;
+        color: #777;
+        font-size: 16px;
+    }
+
+    /* ===========================
+        반응형 (모바일)
+    =========================== */
+    @media (max-width: 1200px) {
+        #janganOnAir .onair-wrap {
+            flex-direction: column;
+        }
+        #janganOnAir .onair-left {
+            width: 100%;
+        }
+        #janganOnAir .videoCard { width: 220px; }
+        #janganOnAir .shortsCard { width: 150px; }
+    }
+
+    @media (max-width: 768px) {
+        #janganOnAir { padding: 60px 0; }
+        #janganOnAir h2 { font-size: 42px; }
+        #janganOnAir .titleRow h3 { font-size: 24px; }
+        #janganOnAir .videoCard { width: 180px; }
+        #janganOnAir .shortsCard { width: 130px; }
+        #janganOnAir .videoCard h4, #janganOnAir .shortsCard h4 { font-size: 18px; }
+    }
+</style>
+
+<section id="janganOnAir">
+    <div class="wrapper">
+        <div class="onair-wrap">
+            
+            <!-- 왼쪽 설명 영역 -->
+            <div class="onair-left">
+                <h2>JANGAN<br><span>ON AIR</span></h2>
+                <p class="sub">장안대학교의 다양한 영상을 만나보세요</p>
+                
+                <div class="sns-icons">
+                    <a href="https://www.youtube.com/channel/UCvhJPAXuF1lYznuS8i6Q5jw" target="_blank" title="유튜브">
+                        <img src="/kor/images/youtube.png" alt="Youtube">
+                    </a>
+                    <a href="https://www.facebook.com/people/%EC%9E%A5%EC%95%88%EB%8C%80%ED%95%99%EA%B5%90-Jangan-University/61577291438472/#" target="_blank" title="페이스북">
+                        <img src="/kor/images/facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/janganuniv/" target="_blank" title="인스타그램">
+                        <img src="/kor/images/instar.png" alt="Instagram">
+                    </a>
+                </div>
+
+                <div class="main-video">
+                    <iframe id="mainPlayer" width="560" height="315" src="https://www.youtube.com/embed/_xUDGh-MdeE?si=DVj2cIVmzVPx0om0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div> 
+                
+            </div>
+
+            <!-- 오른쪽 슬라이더 영역 -->
+            <div class="onair-right">
+                
+                <!-- 추천영상 (가로형) -->
+                <div class="videoSection">
+                    <div class="titleRow">
+                        <h3>최근 업로드 영상</h3>
+                        <div class="arrow">
+                            <button class="prev1" aria-label="이전">‹</button>
+                            <button class="next1" aria-label="다음">›</button>
+                        </div>
+                    </div>
+                    <div class="videoSlider">
+                        <div class="videoTrack" id="recommendTrack">
+                            <!-- JS 생성 -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 최근 업로드 영상 (숏폼 세로형) -->
+                <div class="videoSection">
+                    <div class="titleRow">
+                        <h3>Shorts</h3>
+                        <div class="arrow">
+                            <button class="prev2" aria-label="이전">‹</button>
+                            <button class="next2" aria-label="다음">›</button>
+                        </div>
+                    </div>
+                    <div class="videoSlider">
+                        <div class="videoTrack" id="recentTrack">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // 추천 영상 목록 (가로형)
+    const recommendVideos = [
+        { title: "호텔관광과 관광레저경영", id: "OuHArVe0oxA", views: "여행·항공부터 호텔·레저까지! 관광 전문가를 꿈꾼다면" },
+        { title: "미디어스토리텔링과", id: "ypqEX4V5-qk", views: "호텔조리전공, 취업 경쟁력은 어떻게 만들어질까?" },
+        { title: "카페베이커리전공", id: "99dlBcpGY6E", views: "디저트도 커피도 실전처럼! 장안대학교 카페베이커리전공" },
+        { title: "유아교육과", id: "gJRdtK2euYo", views: "[졸업생 인터뷰] 행복한 유아교사를 꿈꾼다면? 졸업생이 전하는 생생한 현장 이야기" },
+        { title: "패션주얼리디자인", id: "fnw2xLvSmqI", views: "주얼리 디자인부터 공방 창업까지! 장안대학교 패션주얼리디자인과" },
+
+
+		{ title: "뷰티케어과", id: "lvz2MKghWt8", views: "[졸업생 인터뷰] 학교에서 배운 실무, 현장에서 통했다! 장안대학교 뷰티케어과" },
+        { title: "글로벌케어복지과", id: "FdJiTagT5BA", views: "사회복지와 돌봄의 미래를 준비하다, 장안대학교 글로벌케어복지과" },
+        { title: "웹툰애니메이션과", id: "qlwhYMUhwPQ", views: "상상을 현실로 만드는 콘텐츠 전문가의 시작, 장안대학교 웹툰애니메이션과" },
+		{ title: "창업경영전공", id: "kaOmig4PtrQ", views: "아이디어 발굴부터 창업 실전까지! 장안대학교 창업경영전공" }
+
+
+        
+    ];
+
+    // 최근 영상 목록 (숏폼 세로형)
+    const recentVideos = [
+		{ title: "장안대", id: "etwU-1RGWt0", views: "장안대 올 것 같은 니가 좋아~!" },
+        { title: "패션디자인과", id: "_62zVhD0Sfw", views: "실습 중심 교육으로 패션 전문가의 꿈을 키워가는 곳" },
+        { title: "실용음악과", id: "9FOTD92iLws", views: "장안대 실용음악과, 실제로 다녀보면 어떨까?" },
+		{ title: "장안대", id: "UpumJHsNACE", views: "장안대학교 2027학년도 수시모집에서 확인하세요 <br>2026. 09. 07.(월) ~ 09. 30.(수)" },
+		{ title: "사회복지과", id: "syLjF8A3dV8", views: "졸업생이 직접 들려주는 장안대학교 사회복지과 이야기!" },
+        { title: "수시모집", id: "WZ3mtUakUa0", views: "내일은 장안대학교 수시지원 꼭 알아봐주세요"  },
+        { title: "장안대학교", id: "B7OBEExb5dg", views: "수도권 대학, 가까움부터 다르다!" },
+        { title: "캠퍼스", id: "svDfjOoLO8k", views: "아무것도 보이지 않던 순간, 장안대학교를 발견하기 전까지는…" },
+        { title: "장안대 수시모집 요강이 떨어졌다?!", id: "SSG4_2PD_vU", views: " 최우수 1개 학기 성적 반영! <br>26.09.07. ~ 09.30." },
+        { title: "실용음악과", id: "9FOTD92iLws", views: "장안대 실용음악과, 실제로 다녀보면 어떨까?" },
+        { title: "컴퓨터공학과", id: "r1Fd7jVSmiQ", views: "졸업한 선배가 직접 들려주는 대학생활과 취업 이야기!" }
+
+        
+    ];
+
+    // 비디오 렌더링 함수 (isShorts 여부에 따라 클래스를 다르게 부여)
+    function draw(list, target, isShorts) {
+        let html = "";
+        const cardClass = isShorts ? "shortsCard" : "videoCard";
+
+        list.forEach(v => {
+            const thumbUrl = `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`;
+            html += `
+                <div class="${cardClass}" data-id="${v.id}">
+                    <div class="thumb">
+                        <img src="${thumbUrl}" alt="${v.title}">
+                    </div>
+                    <h4>${v.title}</h4>
+                    <p>${v.views}</p>
+                </div>
+            `;
+        });
+        document.getElementById(target).innerHTML = html;
+    }
+
+    // 초기 렌더링 (추천영상은 가로형(false), 최근영상은 숏폼(true))
+    draw(recommendVideos, "recommendTrack", false);
+    draw(recentVideos, "recentTrack", true);
+
+    // 썸네일 클릭 시 메인 플레이어 영상 교체
+    document.addEventListener("click", function (e) {
+        // 일반 카드와 숏폼 카드를 모두 감지
+        const card = e.target.closest(".videoCard, .shortsCard");
+        if (!card) return;
+
+        const id = card.dataset.id;
+        const mainPlayer = document.getElementById("mainPlayer");
+
+        if (mainPlayer) {
+            mainPlayer.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+            window.scrollTo({
+                top: document.getElementById("janganOnAir").offsetTop - 70,
+                behavior: "smooth"
+            });
+        }
+    });
+
+    /* =======================================
+       무한 루프 슬라이드 로직
+    ======================================= */
+    function slideNext(trackId) {
+        const track = document.getElementById(trackId);
+        if (track.isAnimating) return;
+        track.isAnimating = true;
+
+        // 첫 번째 카드의 실제 넓이를 가져와  계산
+        const card = track.firstElementChild;
+        if (!card) return;
+        const w = card.offsetWidth + 22; 
+
+        track.style.transition = "transform 0.45s ease-out";
+        track.style.transform = `translateX(-${w}px)`;
+
+        track.addEventListener("transitionend", function handler() {
+            track.style.transition = "none";
+            track.appendChild(track.firstElementChild);
+            track.style.transform = "translateX(0)";
+            track.removeEventListener("transitionend", handler);
+            track.isAnimating = false;
+        });
+    }
+
+    function slidePrev(trackId) {
+        const track = document.getElementById(trackId);
+        if (track.isAnimating) return;
+        track.isAnimating = true;
+
+        const card = track.firstElementChild;
+        if (!card) return;
+        const w = card.offsetWidth + 22; 
+
+        track.style.transition = "none";
+        track.prepend(track.lastElementChild);
+        track.style.transform = `translateX(-${w}px)`;
+
+        void track.offsetWidth;
+
+        track.style.transition = "transform 0.45s ease-out";
+        track.style.transform = "translateX(0)";
+
+        track.addEventListener("transitionend", function handler() {
+            track.removeEventListener("transitionend", handler);
+            track.isAnimating = false;
+        });
+    }
+
+    let autoSlide1 = setInterval(() => slideNext("recommendTrack"), 3500);
+    let autoSlide2 = setInterval(() => slideNext("recentTrack"), 4200);
+
+    document.querySelector(".next1").addEventListener("click", function() {
+        slideNext("recommendTrack");
+        resetInterval();
+    });
+    
+    document.querySelector(".prev1").addEventListener("click", function () {
+        slidePrev("recommendTrack");
+        resetInterval();
+    });
+
+    document.querySelector(".next2").addEventListener("click", function() {
+        slideNext("recentTrack");
+        resetInterval();
+    });
+    
+    document.querySelector(".prev2").addEventListener("click", function () {
+        slidePrev("recentTrack");
+        resetInterval();
+    });
+
+    function resetInterval() {
+        clearInterval(autoSlide1);
+        clearInterval(autoSlide2);
+        autoSlide1 = setInterval(() => slideNext("recommendTrack"), 3500);
+        autoSlide2 = setInterval(() => slideNext("recentTrack"), 4200);
+    }
+</script>
+
+    <!-- 모집학과 -->
+    <!-- <section id="change" class="">
+        <div class="wrapper">
+            <h3 class="section_title">2026학년도 학과 명칭 변경 · 신설학과 안내</h3>
+            <div class="tab_wrap tp-pill">
+                <div class="tab_list_wrap">
+                    <ul class="tab_list">
+                        <li class="tab_item">
+                            <button type="button" class="tab_link" data-target="#tabA">
+                                <span class="tab_text">2026학년도 신설학과</span>
+                            </button>
+                        </li>
+                        <li class="tab_item">
+                            <button type="button" class="tab_link" data-target="#tabB">
+                                <span class="tab_text">학과 명칭 변경</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab_contents" id="tabA">
+                    <p class="tab_title">2026학년도 신설학과</p>
+                    <style>
+                        @media(min-width:1024px){
+                            #change #tabA .wrapper { display: flex; flex-direction: row; }
+                            #change #tabA .wrapper .inner { flex: 1 1 auto; width: calc((100% - 80px) / 2); }
+                            #change #tabA .wrapper .inner .bull_list { flex-direction: row; }
+                            #tabA .bull_list .bull_item + .bull_item { margin-left: 10%; }
+                        }
+                        #change #tabA .wrapper .inner .bull_list { justify-content: center; }
+                        #tabA .bull_list .bull_item + .bull_item { margin-top: 0px !important; }
+                    </style>
+                    <div class="wrapper">
+                        <div class="inner">
+                            <p class="title">디자인학부</p>
+                            <ul class="bull_list">
+                                <li class="bull_item tp-disc">반려동물산업디자인과</li>
+                            </ul>
+                        </div>
+                        <div class="inner">
+                            <p class="title">보건복지학부</p>
+                            <ul class="bull_list">
+                                <li class="bull_item tp-disc">응급구조학과</li>
+                            </ul>
+                        </div>
+                        <div class="inner">
+                            <p class="title">자율학부</p>
+                            <ul class="bull_list">
+                                <li class="bull_item tp-disc">드론산업과(성인학습자전담학과)</li>
+                                <li class="bull_item tp-disc">파크골프산업과(성인학습자전담학과)</li>
+                                <li class="bull_item tp-disc">K-Model과(외국인전담학과)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab_contents" id="tabB">
+                    <p class="tab_title">학과 명칭 변경</p>
+                    <div class="tbl_wrap">
+                        <table class="tbl">
+                            <colgroup><col /><col /></colgroup>
+                            <thead>
+                                <tr>
+                                    <th>2025학년도 학과</th>
+                                    <th>2026학년도 변경학과</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="inner_row">
+                                            <p class="title">호텔관광학부</p>
+                                            <ul class="bull_list">
+                                                <li class="bull_item tp-disc">호텔경영과</li>
+                                                <li class="bull_item tp-disc">관광레저경영과</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inner_row">
+                                            <p class="title">호텔관광학부</p>
+                                            <ul class="bull_list">
+                                                <li class="bull_item tp-disc">호텔관광과 호텔경영전공</li>
+                                                <li class="bull_item tp-disc">호텔관광과 관광레저경영전공</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="inner_row">
+                                            <p class="title">예술디자인학부</p>
+                                            <ul class="bull_list">
+                                                <li class="bull_item tp-disc">스타일리스트과</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div class="inner_row">
+                                            <p class="title">예술ㆍ콘텐츠학부</p>
+                                            <ul class="bull_list">
+                                                <li class="bull_item tp-disc">방송스타일리스트과</li>
+                                                <li class="bull_item tp-disc">웹툰애니메이션과(3년제)</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="inner_row">
+                                            <p class="title">ITㆍ콘텐츠학부</p>
+                                            <ul class="bull_list">
+                                                <li class="bull_item tp-disc">시각콘텐츠과 웹툰애니메이션 전공</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="inner_row">
+                                            <p class="title">자율학부</p>
+                                            <ul class="bull_list">
+                                                <li class="bull_item tp-disc">IT융합과</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inner_row">
+                                            <p class="title">AI컴퓨팅학부</p>
+                                            <ul class="bull_list">
+                                                <li class="bull_item tp-disc">AI융합과</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="inner_row">
+                                            <p class="title">인문사회학부</p>
+                                            <ul class="bull_list">
+                                                <li class="bull_item tp-disc">경영과 비즈니스창업전공</li>
+                                                <li class="bull_item tp-disc">글로벌경영과</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inner_row">
+                                            <p class="title">인문사회학부</p>
+                                            <ul class="bull_list">
+                                                <li class="bull_item tp-disc">경영과 창업경영전공</li>
+                                                <li class="bull_item tp-disc">경영과 글로벌경영전공</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="inner_row">
+                                            <p class="title">인문사회학부</p>
+                                            <ul class="bull_list">
+                                                <li class="bull_item tp-disc">복지행정법률과 복지행정전공</li>
+                                                <li class="bull_item tp-disc">복지행정법률과 경찰법률전공</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inner_row">
+                                            <p class="title">인문사회학부</p>
+                                            <ul class="bull_list">
+                                                <li class="bull_item tp-disc">경찰행정과</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="tbl_footer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 주요 입학안내 -->
+    <section id="info" class="type-bg">
+        <div class="wrapper">
+            <h3 class="section_title">주요 입학 안내</h3>
+            <ul class="btn_list type-icon">
+                <li class="btn_item">
+                    <a href="./family/result.asp" class="btn">
+                        <span class="icon"></span>
+                        <span class="text">입시결과분석</span>
+                    </a>
+                </li>
+                <li class="btn_item">
+                    <a href="./family/number.asp" class="btn">
+                        <span class="icon"></span>
+                        <span class="text">내신성적 산출</span>
+                    </a>
+                </li>
+                <li class="btn_item">
+                    <a href="./educate/acceptcheck.asp" class="btn">
+                        <span class="icon"></span>
+                        <span class="text">원서접수확인</span>
+                    </a>
+                </li>
+                <li class="btn_item">
+                    <a href="./educate/interview_confirm.asp" class="btn">
+                        <span class="icon"></span>
+                        <span class="text">면접/실기확인증</span>
+                    </a>
+                </li>
+                <li class="btn_item">
+                    <a href="./educate/memberidentify.asp" class="btn">
+                        <span class="icon"></span>
+                        <span class="text">합격조회 및 등록확인</span>
+                    </a>
+                </li>
+                <li class="btn_item">
+                    <a href="./educate/tuition.asp" class="btn">
+                        <span class="icon"></span>
+                        <span class="text">등록금 환불</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 입학 Q&A -->
+    <section id="qna" class="">
+        <div class="wrapper">
+            <h3 class="section_title">입학 Q&A</h3>
+            <div class="inner_row">
+                <div class="content_wrap primary">
+                    <div class="title_wrap">
+                        <p class="title">
+                            입학에 대한<br />
+                            <em>궁금한 점</em>을 확인하세요.
+                        </p>
+                    </div>
+                    <ul class="btn_list type-icon type-vertical">
+                        <li class="btn_item">
+                            <a href="./family/qna.asp?bbsID=qna" class="btn">
+                                <span class="icon"></span>
+                                <span class="text">입학상담 Q&A</span>
+                            </a>
+                        </li>
+                        <li class="btn_item">
+							<a href="./family/tel.asp" class="btn">
+								<span class="icon"></span>
+								<span class="text">전화상담</span>
+							</a>
+						</li>
+						<li class="btn_item">
+							<a href="https://pf.kakao.com/_egguxl" class="btn" target="_blank">
+								<span class="icon"></span>
+								<span class="text">카카오톡상담</span>
+							</a>
+						</li>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 대표전화 -->
+    <section id="call" class="type-bg">
+        <div class="wrapper">
+            <div class="inner">
+                <h3 class="section_title">대표전화</h3>
+                <div class="inner_row type-reverse">
+                    <div class="title_wrap primary">
+                        <p class="title">
+                            입학정보에 대한 궁금한 점은<br />
+                            <em>대표전화</em>를 통해 문의하세요.
+                        </p>
+                        <p class="title"><em>031-299-3333~5</em></p>
+                        <p class="desc">상담문의 운영시간 (평일09:00~18:00)</p>
+                    </div>
+                    <div class="call_wrap">
+                        <div class="innerr">
+                            <ul class="call_list">
+                                <li class="strong_2">
+                                    <span class="title">등록금</span>
+                                    <span class="number">031-299-3348</span>
+                                </li>
+                                <li class="strong_2">
+                                    <span class="title">장학ㆍ대출</span>
+                                    <span class="number">031-299-3344</span>
+                                </li>
+                                <li class="strong_2">
+                                    <span class="title">산업체위탁</span>
+                                    <span class="number">031-299-3325</span>
+                                </li>
+                                <li class="strong_2">
+                                    <span class="title">학사학위전공심화</span>
+                                    <span class="number">031-299-3323</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 공지사항 -->
+    <section id="notice" class="">
+        <div class="wrapper">
+            <h3 class="section_title">공지사항</h3>
+            <div class="inner_row">
+                <div class="title_wrap">
+                    <p class="title">
+                        장안대학교 입학 <em>최신 소식</em>을<br />
+                        알려드립니다.
+                    </p>
+                </div>
+                <ul class="btn_list type-vertical tp-justify primary">
+
+                    <li class="btn_item">
+                        <a href="family/notice_view.asp?pNum=194&bbsID=notice" class="btn">
+                            <span class="text">2027학년도 수시1차 면접,실기 고사  예약 ...</span>
+                            <span class="desc">2026-09-08 오전 11:41:23</span>
+                        </a>
+                    </li>
+
+                    <li class="btn_item">
+                        <a href="family/notice_view.asp?pNum=192&bbsID=notice" class="btn">
+                            <span class="text">[서식]2027학년도 농·어촌고교졸업자전형 지원...</span>
+                            <span class="desc">2026-08-26 오전 10:51:07</span>
+                        </a>
+                    </li>
+
+                    <li class="btn_item">
+                        <a href="family/notice_view.asp?pNum=191&bbsID=notice" class="btn">
+                            <span class="text">2027학년도 면집/실기 문항 및 준비물 안내</span>
+                            <span class="desc">2026-08-26 오전 10:41:28</span>
+                        </a>
+                    </li>
+
+                    <li class="btn_item">
+                        <a href="family/notice_view.asp?pNum=193&bbsID=notice" class="btn">
+                            <span class="text">2027학년도 대입지원용 학교생활기록부 신청 안...</span>
+                            <span class="desc">2026/08/27</span>
+                        </a>
+                    </li>
+
+                    <li class="btn_item">
+                        <a href="family/notice_view.asp?pNum=190&bbsID=notice" class="btn">
+                            <span class="text">2027학년도 성입학습자 모집 안내</span>
+                            <span class="desc">2026/07/22</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SNS -->
+    <section id="sns" class="type-bg">
+        <div class="wrapper">
+            <h3 class="section_title">입학 SNS</h3>
+            <div class="inner_row">
+                <div class="title_wrap">
+                    <p class="title">
+                        장안대학교의
+                        다양한 <em>입학활동</em>을 <br />만나보세요.
+                    </p>
+                </div>
+                <div class="content_wrap primary">
+                    <div class="swiper sns">
+                        <div class="swiper-wrapper" id="sns_instagarm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         팝업 영역
+    ========================================= -->
+
+    <div id="pop_zone">
+
+
+        <div id="pop_116" class="pop" style="width:426px; top:40px; right:510px; display:block;">
+            <div class="ct">
+                <a href="https://apply.jangan.ac.kr/JAC/"
+                   target="_blank">
+                    <img src="/kor/images/pop20260824.jpg"
+                         alt="장안대학교 수시모집"
+                         style="width:100%; display:block; border:0;">
+                </a>
+            </div>
+            <p class="close">
+                <a href="#" onclick="$('#pop_116').remove(); return false;" style="cursor:pointer;">
+                    <label>닫기</label>
+                </a>
+            </p>
+        </div>
+
+        <div id="pop_118" class="pop" style="width:400px; top:40px; right:640px; display:block;">
+            <div class="ct">
+                <a href="https://expo.uway.com/main.htm"
+                   target="_blank">
+                    <img src="/kor/images/20260821.png"
+                         alt="2027학년도 수시 전문대학 입학정보 박람회"
+                         style="width:100%; display:block; border:0;">
+                </a>
+            </div>
+            <p class="close">
+                <a href="#" onclick="$('#pop_118').remove(); return false;" style="cursor:pointer;">
+                    <label>닫기</label>
+                </a>
+            </p>
+        </div>
+
+
+    </div>
+    <!-- /#pop_zone -->
+
+
+    <footer id="footer"><!-- 공통영역 // 하단 --></footer>
+
+    <script>
+        const shortcut = new Swiper('.swiper.shortcut', {
+            direction: 'horizontal',
+            loop: true,
+            loopedSlides: 1,
+            slidesPerView: 'auto',
+            createElements: true,
+            loopPreventsSliding: true,
+            pagination: { el: '.shortcut .swiper-pagination' },
+            navigation: {
+                nextEl: '.shortcut .swiper-button-next',
+                prevEl: '.shortcut .swiper-button-prev',
+            },
+            scrollbar: { el: '.shortcut .swiper-scrollbar' },
+            keyboard: { enabled: true, onlyInViewport: false },
+        });
+
+        const process = new Swiper('.swiper.process', {
+            direction: 'horizontal',
+            loop: false,
+            slidesPerView: "auto",
+            initialSlide: 0,
+            freeMode: true,
+            pagination: { el: '.process .swiper-pagination' },
+            navigation: {
+                nextEl: '.process .swiper-button-next',
+                prevEl: '.process .swiper-button-prev',
+            },
+            scrollbar: { el: '.process .swiper-scrollbar' },
+            keyboard: { enabled: true, onlyInViewport: false },
+        });
+
+        const sns = new Swiper('.swiper.sns', {
+            direction: 'horizontal',
+            loop: true,
+            slidesPerView: 'auto',
+            pagination: { el: '.sns .swiper-pagination' },
+            navigation: {
+                nextEl: '.sns .swiper-button-next',
+                prevEl: '.sns .swiper-button-prev',
+            },
+            scrollbar: { el: '.sns .swiper-scrollbar' },
+            keyboard: { enabled: true, onlyInViewport: false },
+        });
+
+        var majorList = '';
+        for (var i = 0; i < major.length; i++) {
+            majorList += `<li class="tab_item">`;
+            majorList += `  <button type="button" class="tab_link" data-target="#${major[i]['id']}">`;
+            majorList += `      <span class="tab_text">${major[i]['item']}</span>`;
+            majorList += `  </button>`;
+            majorList += `</li>`;
+        }
+
+        majorTab += `<div class="tab_list_wrap swiper">`;
+        majorTab += `   <ul class="tab_list swiper-wrapper" id="majorList">`;
+        for (var i = 0; i < major.length; i++) {
+            majorTab += `<li class="swiper-slide tab_item">`;
+            majorTab += `  <button type="button" class="tab_link" data-target="#${major[i]['id']}">`;
+            majorTab += `      <span class="tab_text">${major[i]['item']}</span>`;
+            majorTab += `  </button>`;
+            majorTab += `</li>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<title>공지사항</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="선문대학교 대학원">
+<meta name="keywords" content="선문대학교 대학원">
+<meta name="description" content="선문대학교 대학원 홈페이지에 오신 것을 환영합니다. ">
+
+<meta property="og:image" content="/images/web/graduate/main/thumbnail.png">
+<meta name="theme-color" content="#004a8f" />
+<meta property="og:url" content="www.sunmoon.ac.kr/">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<link rel="stylesheet" href="/css/web/graduate/sub.css" media="all">
+<link rel="stylesheet" href="/common/css/board.css" media="all">
+<link rel="stylesheet" href="/common/css/member.css" media="all">
+<script src="/common/js/jquery-1.11.2.min.js"></script>
+<script src="/common/js/jquery-ui.min.js"></script>
+<script src="/common/js/jquery.form.min.js"></script>
+<script src="/common/js/modernizr-2.6.2.min.js"></script>
+<script src="/common/js/slick.min.js"></script>
+<script src="/common/js/ScrollMagic.min.js"></script>
+<script src="/common/js/con_com.js"></script>
+<script src="/common/js/layout.js"></script>
+<!-- 게시판 관련 -->		
+<script src="/common/js/board.js"></script><!-- 게시판 js -->
+<script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+    <div id="skipArea">
+        <a href="#gnb">주메뉴 바로가기</a>
+        <a href="#cntntsView">본문으로 바로가기</a>
+    </div>
+    <div id="wrap">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RM5NL8S37Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RM5NL8S37Z');
+</script>
+
+
+	<!-- header  -->
+	<header id="header">
+		<div class="headerWrap">
+			<div class="topLink">
+				<p class="container">
+					<a href="https://lily.sunmoon.ac.kr/MainDefault.aspx?la=ko" target="_blank" title="대학교(새창)">대학교</a>
+					<a href="https://www.sunmoon.ac.kr/portal" target="_blank" title="포탈(새창)" class="pt1">포탈</a>
+					<a href="https://global.sunmoon.ac.kr/bbs/content.php?co_id=student_01_03" target="_blank" title="International admission" class="pt2" style="line-height: 22px;word-break: break-word;">International admission</a>
+					<style>
+.head-convert {position: absolute;padding-left: 30px;right: 1rem;top: 50%;transform: translateY(-50%);z-index: 100;}
+.head-convert > button {min-width: 120px;color: #eee;position: relative;padding: 0px 21px 0 25px;font-size: 15px;border: 0 none;}
+.head-convert  span{font-size: 0.74rem;color: #111;font-weight: 400;line-height: 1;}
+.head-convert > button::before { content: ''; position: absolute; left: 0;top: 3px;width: 17px;height:17px; background: url("/common/images/layout/google_img.png") no-repeat center; background-size: contain;}
+.head-convert > button::after {content: '';position: absolute;right: 0;top: 50%;transform: translateY(-50%);width: 7px;height: 5px;background: url("/common/images/layout/arrow_icon03.png") no-repeat center;background-size: contain;filter: contrast(0);margin-top: 2px;}
+.head-convert > button.scroll-on::after { background: url(/intro/_css_com/arrow_icon03.png) no-repeat center; }/* 스크롤 시 변경될 스타일 */
+.head-convert .list_convert {position: absolute;right: 0;top: 0;width: 100px;background: none;text-align: left;border-radius: none;padding: 4px 10px;display: none;color:#333;}
+.head-convert .list_convert ul { padding: 5px 0;}
+.head-convert .modal_notice { position: absolute; top: 30px; right: 0; width: 280px; padding: 8px 11px; background: rgba(255, 255, 255, 1); text-align: left; border-radius: 5px; font-size: 14px; border: 1px solid #d1d1d1; color: #333; word-break: auto-phrase; z-index: 2; }
+.head-convert .modal_notice button{ background: #929292; color:#eee; padding:2px 8px; margin-left: 10px; border-radius: 3px; border:solid 1px #333;  }
+.head-convert .modal_notice, .head-convert .list_convert { display: none; }
+.head-convert .modal_notice.active, .list_convert.active {display: block;}
+
+
+.head-convert #google_translate_element {position: absolute;width: 6em;top: -0.1rem;right: 0;height: 1.3rem;display: inline-block;vertical-align: middle;border: 1px solid #666;padding: 0.1rem;background:#f3f3f3;border-radius: 1.5rem;overflow: hidden;}
+.head-convert .goog-te-gadget .goog-te-combo {color: #333;margin: 0;}
+
+
+@media (max-width: 720px) {
+    .head-convert #google_translate_element {width: 5.5rem;right: 0;top: 0;}
+    .head-convert {margin-top: -2px;}
+}
+ </style>
+   
+<script>
+  /*스크롤메뉴색상지정*/
+  $(document).ready(function(){
+    $(window).scroll(function(){
+      var scroll = $(window).scrollTop();
+      if(window.innerWidth > 1081){
+        if (scroll > 125) {
+          if (scroll > 1620) {
+            $(".container").css("margin-bottom" , "0px");
+          } else {
+            $(".head-convert > button").addClass("scroll-on");
+          }
+        } else {
+          // 스크롤이 맨 위로 올라갔을 때 초기 상태로 복원
+            $(".head-convert > button").removeClass("scroll-on");
+        }
+      }
+    });
+  });
+  </script>
+    <div class="head-convert">
+			<button type="button" class="tip_open_btn"><span>Language</span></button>
+			<div class="list_convert">
+        
+            <script>
+              $(document).ready(function(){
+                $("#google_translate_element img").eq(0).remove();
+                $("#goog-te-gadget-simple img").eq(0).remove();
+              });
+            
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                  pageLanguage: 'ko',
+                  includedLanguages: 'ko,en,zh-CN,ja,uz,vi',
+                  autoDisplay: true
+            // 			layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                }, 'google_translate_element');
+              }
+
+              </script>
+              <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        		<div id="google_translate_element" ></div>
+			</div>
+			<div class="modal_notice">
+          This page has been automatically translated by Google Translate.
+			  <button type="button" tabindex="-1" class="tip_close_btn">Ok </button>
+			</div>
+		  </div>
+
+<script>
+let closedByCloseBtn = false;
+let resetTimer = null;
+
+$('.tip_open_btn').click(function () {
+  if (closedByCloseBtn) {
+    // 닫힘 상태에서는 모달 열지 않고 리스트만 닫음
+    $('.list_convert').removeClass('active');
+    $('.modal_notice').removeClass('active');
+  } else {
+    // 정상 토글
+    $('.modal_notice').toggleClass('active');
+    $('.list_convert').removeClass('active');
+  }
+});
+
+$('.tip_close_btn').click(function () {
+  $('.modal_notice').removeClass('active');
+  $('.list_convert').addClass('active');
+ 
+  closedByCloseBtn = true;
+
+  // 자동 초기화 타이머 (예: 3초 후 초기화)
+  clearTimeout(resetTimer); // 이전 타이머 제거
+  resetTimer = setTimeout(function () {
+    closedByCloseBtn = false;
+  }, 1000); // 3000ms = 3초
+});
+
+// 외부 클릭 시 닫기
+$(document).mouseup(function (e) {
+  const $modal = $('.modal_notice');
+  const $list = $('.list_convert');
+  if (
+    !$modal.is(e.target) && $modal.has(e.target).length === 0 &&
+    !$list.is(e.target) && $list.has(e.target).length === 0 &&
+    !$('.tip_open_btn').is(e.target)
+  ) {
+    $modal.removeClass('active');
+    $list.removeClass('active');
+  }
+});
+</script></p>
+			</div>
+			<div class="mnWrap"><!-- 메인메뉴 마우스 오버시 class="mnOpen" -->
+				<!-- logo -->
+				<h1 class="logo">
+					<a href="/graduate/main.do">
+						<span><img src="/images/web/graduate/main/logo.png" alt="선문대학교 대학원">
+						</span>
+						<!-- 기관명 -->
+<!-- 기관명 -->
+					</a>
+				</h1>
+
+				<!--START-->
+				<nav id="gnb">
+						<div class="mnTit container">
+							<ul>
+								<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=45986&cntntsId=240428" title="대학원소개">대학원소개</a></li>
+								<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46063&cntntsId=240467" title="대학원안내">대학원안내</a></li>
+								<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46201&cntntsId=240531" title="입학안내">입학안내</a></li>
+								<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=45997&cntntsId=240528" title="학사안내">학사안내</a></li>
+								<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46003&cntntsId=240461" title="졸업안내">졸업안내</a></li>
+								<li><a href="/graduate/na/ntt/selectNttList.do?mi=46007&bbsId=5249" title="커뮤니티">커뮤니티</a></li>
+							</ul>
+						</div>
+						<div class="mnBox">
+							<ul class="dep01 container">
+								<li  ><a href="/graduate/cm/cntnts/cntntsView.do?mi=45986&cntntsId=240428" title="대학원소개">대학원소개</a>
+									<ul class="dep02">
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=45986&cntntsId=240428" title="원장 인사말"><span>원장 인사말</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=45987&cntntsId=240431" title="대학원 비전"><span>대학원 비전</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46014&cntntsId=240429" title="연혁"><span>연혁</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=45989&cntntsId=240432" title="조직구성"><span>조직구성</span></a></li>
+										<li	class="active window"><a href="https://rule.sunmoon.ac.kr/service/main/main.do" target="_blank" title="학칙 및 규정(새창)" ><span>학칙 및 규정</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=45991&cntntsId=240434" title="대학원요람"><span>대학원요람</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=45992&cntntsId=240433" title="찾아오시는 길"><span>찾아오시는 길</span></a></li>
+									</ul>
+								</li>
+								<li  ><a href="/graduate/cm/cntnts/cntntsView.do?mi=46063&cntntsId=240467" title="대학원안내">대학원안내</a>
+									<ul class="dep02">
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46063&cntntsId=240467" title="일반대학원"><span>일반대학원</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46063&amp;cntntsId=240467#grad2" title="AI문화정책대학원"><span>AI문화정책대학원</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46063&amp;cntntsId=240467#grad3" title="자연의학대학원"><span>자연의학대학원</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46063&amp;cntntsId=240467#grad4" title="교육대학원"><span>교육대학원</span></a></li>
+									</ul>
+								</li>
+								<li  ><a href="/graduate/cm/cntnts/cntntsView.do?mi=46201&cntntsId=240531" title="입학안내">입학안내</a>
+									<ul class="dep02">
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46201&cntntsId=240531" title="입학안내"><span>입학안내</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46520&cntntsId=240567" title="모집요강"><span>모집요강</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46036&cntntsId=240465" title="지원절차"><span>지원절차</span></a></li>
+										<li><a href="/graduate/na/ntt/selectNttList.do?mi=46240&bbsId=5260" title="입학FAQ"><span>입학FAQ</span></a></li>
+										<li><a href="/graduate/na/ntt/selectNttList.do?mi=46840&bbsId=5283" title="입학Q&amp;A"><span>입학Q&amp;A</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=45995&cntntsId=240442" title="학 ∙ 석사 연계과정"><span>학 ∙ 석사 연계과정</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=45996&cntntsId=240443" title="석 ∙ 박사 통합과정"><span>석 ∙ 박사 통합과정</span></a></li>
+									</ul>
+								</li>
+								<li  ><a href="/graduate/cm/cntnts/cntntsView.do?mi=45997&cntntsId=240528" title="학사안내">학사안내</a>
+									<ul class="dep02">
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=45997&cntntsId=240528" title="학사일정"><span>학사일정</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46020&cntntsId=240444" title="등록"><span>등록</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46026&cntntsId=240450" title="장학"><span>장학</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46040&cntntsId=240478" title="학적변동"><span>학적변동</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46028&cntntsId=240453" title="수업"><span>수업</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46032&cntntsId=240457" title="기타"><span>기타</span></a></li>
+									</ul>
+								</li>
+								<li  ><a href="/graduate/cm/cntnts/cntntsView.do?mi=46003&cntntsId=240461" title="졸업안내">졸업안내</a>
+									<ul class="dep02">
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46003&cntntsId=240461" title="학점이수"><span>학점이수</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46004&cntntsId=240462" title="졸업자격시험"><span>졸업자격시험</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46060&cntntsId=240463" title="논문"><span>논문</span></a></li>
+										<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46006&cntntsId=240464" title="학위명"><span>학위명</span></a></li>
+									</ul>
+								</li>
+								<li  ><a href="/graduate/na/ntt/selectNttList.do?mi=46007&bbsId=5249" title="커뮤니티">커뮤니티</a>
+									<ul class="dep02">
+										<li><a href="/graduate/na/ntt/selectNttList.do?mi=46007&bbsId=5249" title="공지사항"><span>공지사항</span></a></li>
+										<li><a href="/graduate/na/ntt/selectNttList.do?mi=46008&bbsId=5250" title="대학원소식"><span>대학원소식</span></a></li>
+										<li><a href="/graduate/na/ntt/selectNttList.do?mi=46009&bbsId=5251" title="원우회"><span>원우회</span></a></li>
+										<li><a href="/graduate/na/ntt/selectNttList.do?mi=46010&bbsId=5252" title="우수논문집"><span>우수논문집</span></a></li>
+										<li	class="active window"><a href="https://docs.google.com/forms/d/e/1FAIpQLSffXC1xwoDKCjEn7VO6aisWTBx2aBjJJGk5z5P1fSaPxJ_UsA/viewform" target="_blank" title="열린대학원(새창)" ><span>열린대학원</span></a></li>
+										<li><a href="/graduate/na/ntt/selectNttList.do?mi=46012&bbsId=5253" title="FAQ"><span>FAQ</span></a></li>
+										<li><a href="/graduate/na/ntt/selectNttList.do?mi=46013&bbsId=5254" title="양식집"><span>양식집</span></a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				<!--END-->
+				<div class="topUtil">
+					<a href="/graduate/lo/login/loginPage.do"><i class="xi-lock-o" aria-hidden="true"></i>LOGIN</a>
+					</div>
+
+				<!-- fullMenu -->	
+				<div class="fullmenuOpen">
+					<a href="#popFullmenu" class="hash">
+						<span class="hid">전체메뉴</span>
+						<em></em>
+						<em></em>
+						<em></em>
+					</a>
+				</div>
+			</div>	
+		</div>
+	</header>
+	<!-- //header -->
+	
+
+<!-- 전체메뉴 -->
+	<div class="popFullmenu" id="popFullmenu">
+		<div class="fullmenu_wrap">
+			<h2><span><img src="/images/web/graduate/main/logo.png" alt="선문대학교 대학원"></span></h2>
+			<p class="topUtil">
+				<a href="/graduate/lo/login/loginPage.do"><i class="xi-lock-o" aria-hidden="true"></i>LOGIN</a>
+				</p>
+			<a href="#popFullmenu" id="fullmenuClose" class="hashClose" title="전체메뉴 닫기"><i class="xi-close" aria-hidden="true"></i></a>
+			<div class="fullmenu_group">
+			</div>	
+			<div class="topLink">
+				<a href="https://lily.sunmoon.ac.kr/MainDefault.aspx?la=ko" target="_blank" title="대학교(새창)">대학교</a>
+				<a href="https://www.sunmoon.ac.kr/portal" class="pt1 target="_blank" title="포탈(새창)"">포탈</a>
+				<a href="https://global.sunmoon.ac.kr/bbs/content.php?co_id=student_01_03" class="pt2" target="_blank" title="International admission" style="line-height: 16px;word-break: break-word;">International admission</a>
+			</div>		
+		</div>
+	</div>
+	<!-- //전체메뉴 -->
+
+
+<!-- contents -->
+        <div id="sub_content">
+			<!-- 서브메뉴 -->
+			<aside id="snb">
+				<div class="container">
+					<div class="snb_wrap">
+						<a href="/graduate/main.do" class="home"><em class="hid">HOME</em></a>	
+						<ul class="dep01">
+	                	<!--START-->
+							<input type="hidden" id="leftCurrMi" value="46007">
+							<input type="hidden" id="tabBaseMi" value="46007">
+							<input type="hidden" id="tabUpperMi" value="">
+							<input type="hidden" id="tabUpperMenu" value="">
+							<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=45986&cntntsId=240428"  title="대학원소개">대학원소개</a>
+								<ul class="dep02">
+									<li><a data-id="45986" href="/graduate/cm/cntnts/cntntsView.do?mi=45986&cntntsId=240428"  title="원장 인사말">원장 인사말</a>
+									</li>
+									<li><a data-id="45987" href="/graduate/cm/cntnts/cntntsView.do?mi=45987&cntntsId=240431"  title="대학원 비전">대학원 비전</a>
+									</li>
+									<li><a data-id="45988" href="/graduate/cm/cntnts/cntntsView.do?mi=46014&cntntsId=240429"  title="연혁">연혁</a>
+									</li>
+									<li><a data-id="45989" href="/graduate/cm/cntnts/cntntsView.do?mi=45989&cntntsId=240432"  title="조직구성">조직구성</a>
+									</li>
+									<li><a data-id="45990" href="https://rule.sunmoon.ac.kr/service/main/main.do"  rel="noopener noreferrer" target="_blank" title="학칙 및 규정(새창으로 이동됩니다.)">학칙 및 규정</a>
+									</li>
+									<li><a data-id="45991" href="/graduate/cm/cntnts/cntntsView.do?mi=45991&cntntsId=240434"  title="대학원요람">대학원요람</a>
+									</li>
+									<li><a data-id="45992" href="/graduate/cm/cntnts/cntntsView.do?mi=45992&cntntsId=240433"  title="찾아오시는 길">찾아오시는 길</a>
+							</li>
+									</ul>
+									</li>
+							<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46063&cntntsId=240467"  title="대학원안내">대학원안내</a>
+								<ul class="dep02">
+									<li><a data-id="46063" href="/graduate/cm/cntnts/cntntsView.do?mi=46063&cntntsId=240467"  title="일반대학원">일반대학원</a>
+									</li>
+									<li><a data-id="46065" href="/graduate/cm/cntnts/cntntsView.do?mi=46063&amp;cntntsId=240467#grad2"  title="AI문화정책대학원">AI문화정책대학원</a>
+									</li>
+									<li><a data-id="47460" href="/graduate/cm/cntnts/cntntsView.do?mi=46063&amp;cntntsId=240467#grad3"  title="자연의학대학원">자연의학대학원</a>
+									</li>
+									<li><a data-id="46064" href="/graduate/cm/cntnts/cntntsView.do?mi=46063&amp;cntntsId=240467#grad4"  title="교육대학원">교육대학원</a>
+							</li>
+									</ul>
+									</li>
+							<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46201&cntntsId=240531"  title="입학안내">입학안내</a>
+								<ul class="dep02">
+									<li><a data-id="46201" href="/graduate/cm/cntnts/cntntsView.do?mi=46201&cntntsId=240531"  title="입학안내">입학안내</a>
+									</li>
+									<li><a data-id="46520" href="/graduate/cm/cntnts/cntntsView.do?mi=46520&cntntsId=240567"  title="모집요강">모집요강</a>
+									</li>
+									<li><a data-id="45994" href="/graduate/cm/cntnts/cntntsView.do?mi=46036&cntntsId=240465"  title="지원절차">지원절차</a>
+									</li>
+									<li><a data-id="46240" href="/graduate/na/ntt/selectNttList.do?mi=46240&bbsId=5260"  title="입학FAQ">입학FAQ</a>
+									</li>
+									<li><a data-id="46840" href="/graduate/na/ntt/selectNttList.do?mi=46840&bbsId=5283"  title="입학Q&amp;A">입학Q&amp;A</a>
+									</li>
+									<li><a data-id="45995" href="/graduate/cm/cntnts/cntntsView.do?mi=45995&cntntsId=240442"  title="학 ∙ 석사 연계과정">학 ∙ 석사 연계과정</a>
+									</li>
+									<li><a data-id="45996" href="/graduate/cm/cntnts/cntntsView.do?mi=45996&cntntsId=240443"  title="석 ∙ 박사 통합과정">석 ∙ 박사 통합과정</a>
+							</li>
+									</ul>
+									</li>
+							<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=45997&cntntsId=240528"  title="학사안내">학사안내</a>
+								<ul class="dep02">
+									<li><a data-id="45997" href="/graduate/cm/cntnts/cntntsView.do?mi=45997&cntntsId=240528"  title="학사일정">학사일정</a>
+									</li>
+									<li><a data-id="45998" href="/graduate/cm/cntnts/cntntsView.do?mi=46020&cntntsId=240444"  title="등록">등록</a>
+									</li>
+									<li><a data-id="45999" href="/graduate/cm/cntnts/cntntsView.do?mi=46026&cntntsId=240450"  title="장학">장학</a>
+									</li>
+									<li><a data-id="46000" href="/graduate/cm/cntnts/cntntsView.do?mi=46040&cntntsId=240478"  title="학적변동">학적변동</a>
+									</li>
+									<li><a data-id="46001" href="/graduate/cm/cntnts/cntntsView.do?mi=46028&cntntsId=240453"  title="수업">수업</a>
+									</li>
+									<li><a data-id="46002" href="/graduate/cm/cntnts/cntntsView.do?mi=46032&cntntsId=240457"  title="기타">기타</a>
+							</li>
+									</ul>
+									</li>
+							<li><a href="/graduate/cm/cntnts/cntntsView.do?mi=46003&cntntsId=240461"  title="졸업안내">졸업안내</a>
+								<ul class="dep02">
+									<li><a data-id="46003" href="/graduate/cm/cntnts/cntntsView.do?mi=46003&cntntsId=240461"  title="학점이수">학점이수</a>
+									</li>
+									<li><a data-id="46004" href="/graduate/cm/cntnts/cntntsView.do?mi=46004&cntntsId=240462"  title="졸업자격시험">졸업자격시험</a>
+									</li>
+									<li><a data-id="46005" href="/graduate/cm/cntnts/cntntsView.do?mi=46060&cntntsId=240463"  title="논문">논문</a>
+									</li>
+									<li><a data-id="46006" href="/graduate/cm/cntnts/cntntsView.do?mi=46006&cntntsId=240464"  title="학위명">학위명</a>
+							</li>
+									</ul>
+									</li>
+							<li class="active"><a href="/graduate/na/ntt/selectNttList.do?mi=46007&bbsId=5249"  title="커뮤니티">커뮤니티</a>
+								<ul class="dep02">
+									<li class="active"><a data-id="46007" href="/graduate/na/ntt/selectNttList.do?mi=46007&bbsId=5249"  title="공지사항">공지사항</a>
+									</li>
+									<li><a data-id="46008" href="/graduate/na/ntt/selectNttList.do?mi=46008&bbsId=5250"  title="대학원소식">대학원소식</a>
+									</li>
+									<li><a data-id="46009" href="/graduate/na/ntt/selectNttList.do?mi=46009&bbsId=5251"  title="원우회">원우회</a>
+									</li>
+									<li><a data-id="46010" href="/graduate/na/ntt/selectNttList.do?mi=46010&bbsId=5252"  title="우수논문집">우수논문집</a>
+									</li>
+									<li><a data-id="46011" href="https://docs.google.com/forms/d/e/1FAIpQLSffXC1xwoDKCjEn7VO6aisWTBx2aBjJJGk5z5P1fSaPxJ_UsA/viewform"  rel="noopener noreferrer" target="_blank" title="열린대학원(새창으로 이동됩니다.)">열린대학원</a>
+									</li>
+									<li><a data-id="46012" href="/graduate/na/ntt/selectNttList.do?mi=46012&bbsId=5253"  title="FAQ">FAQ</a>
+									</li>
+									<li><a data-id="46013" href="/graduate/na/ntt/selectNttList.do?mi=46013&bbsId=5254"  title="양식집">양식집</a>
+								</li>
+							</ul>
+	                	<!--END-->
+</ul>
+
+</div>
+					<!-- sns -->
+					<div class="snsBox">
+						<button type="button" class="btnShare" title="sns공유"><i class="xi-share-alt" aria-hidden="true"></i></button>
+						<div class="sns_more">
+							<button type="button" title="sns공유 닫기" class="btnClose"><i class="xi-close" aria-hidden="true"></i><em class="hid">sns공유 닫기</em></a></button>
+							<div class="lst snsWrap">									
+								<button onclick="snsClick('facebook')" type="button" title="facebook" class="snsF"><i class="xi-facebook" aria-hidden="true"></i></button>
+								<button onclick="snsClick('naver blog')" type="button" title="naver blog" class="snsB"><i class="xi-blogger"></i></button>
+								<button onclick="snsClick('clip')" type="button" title="clip" class="clip"><i class="xi-paperclip" aria-hidden="true"></i></button>
+							</div>
+						</div>
+						<button type="button" class="btnPrint" title="인쇄"><i class="xi-print" aria-hidden="true"></i></button>
+					</div>
+					<!-- //sns -->
+				</div>
+			</aside>
+			<!-- //서브메뉴 -->
+
+			<!-- quick menu -->
+			<div class="quickMenu">
+				<h3>퀵메뉴</h3>
+				<ul>
+					<li><a href="https://ipsi2.uwayapply.com/2026/gradu/smgrad/?CHA=3" target="_blank" title="입학원서접수(새창)">입학원서접수</a></li>
+					<li><a href="https://suam.sunmoon.ac.kr/Page/Etc/popup_interview_gr.aspx" target="_blank" title="합격자발표(새창)">합격자발표</a></li>
+					<li><a href="/graduate/na/ntt/selectNttList.do?mi=46013&bbsId=5254" target="_self" title="양식집">양식집</a></li>
+					<li><a href="http://sunmoon.webminwon.kr/" target="_blank" title="증명서발급(새창)">증명서발급</a></li>
+					<li><a href="https://lib.sunmoon.ac.kr/local/html/3410" target="_blank" title="논문유사도검사 (새창)">논문유사도검사 </a></li>
+				</ul>
+				<a href="#wrap" class="moveTop"><em>TOP</em><i class="ri-arrow-up-double-line"></i></a>
+			</div>
+			<!-- //quick menu -->
+
+            <!-- CONTAINER -->
+            <div class="sub_content_wrap">
+				<div class="title_area container">
+					<h2 class="pageTitle">공지사항</h2>
+				</div>
+				<!-- 서브 페이지 내용 -->
+				<div class="subCntBody clearfix container">
+					<!-- 서브콘텐츠 -->
+					<div id="cntntsView">
+					<!-- 내용 -->
+						<!--START-->
+										<!--END-->
+<div>
+							<script type="text/javascript" src="/js/jquery.bpopup.min.js"></script> 
+<script src="/js/fileUpload.js"></script>
+
+<script type="text/javascript" src="/js/dataTables.js"></script>
+<script type="text/javascript" src="/js/dataTables.min.js"></script>
+<link href="/css/com/dataTables/dataTables.css" rel="stylesheet">
+<link href="/css/com/dataTables/dataTables.min.css" rel="stylesheet">
+
+<style>
+	.dataTables_length{margin-bottom:10px;}
+</style>
+
+<script>
+$(document).ready(function() {
+	 var noticeUseAt = "N";
+	 if ( noticeUseAt == "Y") {
+			$(".confmUseDt").hide();
+	 } else {
+		 $(".confmUseDt").show();
+	 }
+
+	 $('#boardTB').DataTable({
+		"searching" : false,
+		"ordering" : false,
+		"language": {
+			"lengthMenu": "페이징 옵션 _MENU_"
+		}
+	});
+
+});
+
+// 20251015 비회원일경우에도 비밀번호체킹 후 댓글 작성 가능하도록
+
+	
+	//목록가기
+	function goList(frm){
+		frm.action = '/graduate/na/ntt/selectNttList.do';
+		frm.submit();
+	}
+	
+	//상세가기
+	function goDetail(frm, val){
+		frm.nttSn.value = val;
+		frm.action = '/graduate/na/ntt/selectNttInfo.do';
+		frm.submit();
+	}
+</script>
+
+<!-- 단어 설정 -->
+<!-- 단어 설정 -->
+<form name="nttViewForm" id="nttViewForm" method="post" >
+<input type="hidden" name="currPage" value="" />
+<input type="hidden" name="mi" value="46007"/>
+<input type="hidden" name="bbsId" value="5249"/>
+<input type="hidden" name="bbsPrpos" value="HOMEPAGE"/>
+<input type="hidden" name="nttSn" value="1318476" />
+<input type="hidden" name="searchValue" value="" />
+<input type="hidden" name="searchType" value="" />
+<input type="hidden" name="nttSttus" value=""/>
+<input type="hidden" name="replyAt" value="" />
+<input type="hidden" name="paramtrStrtpnt" value="" />
+<input type="hidden" name="noLayout" value="" />
+<input type="hidden" name="bbsRequstNo" value="" />
+<input type="hidden" id="synapViewerAt" value="Y">
+<input type="hidden" id="filepathIp" value="http://10.188.121.94">
+<input type="hidden" id="transIp" value="http://116.67.121.77:8080">
+<input type="hidden" name="bbsTypeChk" id="bbsTypeChk" value=""/>
+<input type="hidden" name="usrPassWdChk" id="usrPassWdChk" value=""/>
+
+
+	<div class="bbs_ViewA">
+		<h3>
+					2026학년도 후기 선문대학교 대학원 신(편)입생 모집 안내 </h3>
+			<ul class="bbsV_data">
+			<li>
+						<strong>구분</strong>
+						입학</li>
+				<li>
+						<strong>
+							작성자</strong>
+						대학원교학팀</li>
+				<li>
+						<strong>
+							등록일</strong>
+						2025.10.02.</li>
+				<li><strong>조회수</strong>4168</li>
+				<li><strong>게시글 url복사</strong><a id="boardURL" result="/graduate/na/ntt/selectNttInfo.do?mi=46007&nttSn=1318476&bbsId=5249" href="javascript:copyUrl('/graduate/na/ntt/selectNttInfo.do?mi=46007&nttSn=1318476&bbsId=5249');" class="btn btn_white"> 복사하기</a></li>
+		</ul>
+		
+		<div class="bbsV_cont">
+			<p>
+					</p>
+			<p>
+					</p>
+			<p>
+					</p>
+			<p>
+					</p>
+			<p>
+					</p>
+			<p>
+					</p>
+			<p>
+					<span style="font-size:15px"><span style="box-sizing:border-box"><span style="color:#363636"><span style="font-family:ng"><span style="font-style:normal"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="font-weight:400"><span style="letter-spacing:-0.2px"><span style="orphans:2"><span style="text-transform:none"><span style="widows:2"><span style="word-spacing:0px"><span style="white-space:normal"><span style="text-decoration-thickness:initial"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="line-height:1.5">안녕하세요.</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br />
+<span style="font-size:15px"><span style="box-sizing:border-box"><span style="color:#363636"><span style="font-family:ng"><span style="font-style:normal"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="font-weight:400"><span style="letter-spacing:-0.2px"><span style="orphans:2"><span style="text-transform:none"><span style="widows:2"><span style="word-spacing:0px"><span style="white-space:normal"><span style="text-decoration-thickness:initial"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="line-height:1.5"><br />
+선문대학교 대학원에서&nbsp;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="color:#ff00ff"><span style="font-family:ng"><span style="font-style:normal"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="font-weight:400"><span style="letter-spacing:-0.2px"><span style="orphans:2"><span style="text-transform:none"><span style="widows:2"><span style="word-spacing:0px"><span style="white-space:normal"><span style="text-decoration-thickness:initial"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="line-height:1.5"><u style="box-sizing:border-box; margin:0px; padding:0px">2026</u><u style="box-sizing:border-box; margin:0px; padding:0px">학년도 후기 신입생 및 편입생을 </u></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="color:#363636"><span style="font-family:ng"><span style="font-style:normal"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="font-weight:400"><span style="letter-spacing:-0.2px"><span style="orphans:2"><span style="text-transform:none"><span style="widows:2"><span style="word-spacing:0px"><span style="white-space:normal"><span style="text-decoration-thickness:initial"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="line-height:1.5">&nbsp;다음과 같이 모집합니다.</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br />
+&nbsp;<br />
+<span style="font-size:15px"><span style="box-sizing:border-box"><span style="color:#363636"><span style="font-family:ng"><span style="font-style:normal"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="font-weight:400"><span style="letter-spacing:-0.2px"><span style="orphans:2"><span style="text-transform:none"><span style="widows:2"><span style="word-spacing:0px"><span style="white-space:normal"><span style="text-decoration-thickness:initial"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="line-height:1.5"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="color:#006633"><span style="font-family:ng"><span style="font-style:normal"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="font-weight:400"><span style="letter-spacing:-0.2px"><span style="orphans:2"><span style="text-transform:none"><span style="widows:2"><span style="word-spacing:0px"><span style="white-space:normal"><span style="text-decoration-thickness:initial"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="line-height:1.5">합리적인 등록금과 다양한 혜택,</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> <span style="color:#2980b9"><span style="font-family:ng"><span style="font-style:normal"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="font-weight:400"><span style="letter-spacing:-0.2px"><span style="orphans:2"><span style="text-transform:none"><span style="widows:2"><span style="word-spacing:0px"><span style="white-space:normal"><span style="text-decoration-thickness:initial"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="line-height:1.5">탁월한 교수진과 차별화된 연구 인프라를 갖춘 선문대학교 대학원에서<br />
+<br />
+여러분의 가능성을 최고의 경쟁력으로 완성하시기 바랍니다.</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="color:#0000ff"><span style="font-family:ng"><span style="font-style:normal"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="font-weight:400"><span style="letter-spacing:-0.2px"><span style="orphans:2"><span style="text-transform:none"><span style="widows:2"><span style="word-spacing:0px"><span style="white-space:normal"><span style="text-decoration-thickness:initial"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="line-height:1.5"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="color:#0000ff"><span style="font-family:ng"><span style="font-style:normal"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="font-weight:400"><span style="letter-spacing:-0.2px"><span style="orphans:2"><span style="text-transform:none"><span style="widows:2"><span style="word-spacing:0px"><span style="white-space:normal"><span style="text-decoration-thickness:initial"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="line-height:1.5"><br />
+&nbsp;&nbsp;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+<table style="box-sizing:border-box; width:795px; border-collapse:collapse; border-spacing:0px; margin:0px; padding:0px; border:undefined; max-width:800px; font-style:normal; font-variant-ligatures:normal; font-variant-caps:normal; font-weight:400; orphans:2; text-transform:none; widows:2; word-spacing:0px; -webkit-text-stroke-width:0px; white-space:normal; text-decoration-thickness:initial; text-decoration-style:initial; text-decoration-color:initial; background-color:#ffffff; color:#363636; font-family:ng; font-size:15px; letter-spacing:-0.2px; text-align:left">
+	<tbody style="box-sizing:border-box; margin:0px; padding:0px; border:0px">
+		<tr style="box-sizing:border-box; margin:0px; padding:0px; border:0px">
+			<td style="margin:0px; padding:13px 0px; border-width:1px 0px 0px; border-style:solid; border-color:#000000; border-image:initial; text-align:left; background-color:#ffffff"><span style="box-sizing:border-box"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; font-size:15px; margin:0px; padding:0px"><span style="box-sizing:border-box"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="font-family:ng"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="color:#363636"><a href="https://ta.uwayapply.com/2026/gradu/smgrad/?CHA=1" rel="noopener noreferrer" style="box-sizing:border-box; color:inherit; text-decoration:none; margin:0px; padding:0px; border:0px" target="_blank"><font color="#363636"><font style="box-sizing:border-box"><font style="box-sizing:border-box"><font style="box-sizing:border-box; margin:0px; padding:0px">&nbsp;</font></font></font></font><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="line-height:15px">★&nbsp;선문대학교 대학원 인터넷 지원 바로 가기&nbsp;★</span></span></span></span><br style="box-sizing:border-box" />
+			&nbsp;<br style="box-sizing:border-box" />
+			<span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="letter-spacing:-0.2px"><img src="https://wwwimg.uwayapply.com/BANNER/APPLY/IMG/banner_48_1_1.gif" style="box-sizing:border-box; margin:0px; padding:0px; line-height:0; vertical-align:bottom; font-size:0px; border:0px none; max-width:150px; max-height:40px; width:150px; height:40px" /></span></span></span></span></span></a><br style="box-sizing:border-box" />
+			&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br style="box-sizing:border-box" />
+			<span style="border:0px; box-sizing:border-box; margin:0px; padding:0px">&nbsp;&nbsp;&nbsp;☞&nbsp;위&nbsp;<font color="#666666"><font style="box-sizing:border-box"><font style="box-sizing:border-box"><font style="box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><span style="border:0px; box-sizing:border-box; margin:0px; padding:0px"><a href="https://ipsi2.uwayapply.com/gradu1/smgrad/?CHA=1" rel="noopener noreferrer" style="box-sizing:border-box; color:#666666; text-decoration:none; margin:0px; padding:0px; border:0px" target="_blank">링크</a></span></span></span></font></font></font></font>를 클릭하시면 지원 사이트로 바로 연결가능합니다.</span><br style="box-sizing:border-box" />
+			<span style="border:0px; box-sizing:border-box; margin:0px; padding:0px">(Chrome, 엣지 가능 / 모바일 불가)</span></span></span></span></span></span></span></span></span></span></span></span></span></td>
+		</tr>
+	</tbody>
+</table>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<table style="box-sizing:border-box; margin:0px; padding:0px; border-collapse:collapse; color:#363636; font-family:ng; font-size:15px; font-style:normal; font-variant-ligatures:normal; font-variant-caps:normal; font-weight:400; letter-spacing:-0.2px; orphans:2; text-align:left; text-transform:none; widows:2; word-spacing:0px; -webkit-text-stroke-width:0px; white-space:normal; text-decoration-thickness:initial; text-decoration-style:initial; text-decoration-color:initial; border-width:initial; border-style:none; border-color:initial; table-layout:fixed; border:0.28pt solid #000000">
+	<tbody style="box-sizing:border-box; margin:0px; padding:0px">
+		<tr style="box-sizing:border-box; margin:0px; padding:0px">
+			<td style="border-bottom:0.28pt solid #000000; background:#e5e5e5; margin:0px; padding:1.41pt 5.1pt; border-top:1.7pt solid #000000; border-right:0.28pt solid #000000; border-left:none; border-image:initial; width:97.77pt; height:18.48pt; text-align:center" valign="middle"><strong><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="word-break:keep-all">구분</span></span></span></span></span></span></strong></td>
+			<td style="background:#e5e5e5; margin:0px; padding:1.41pt 5.1pt; border-width:1.7pt 0.28pt 0.28pt; border-style:solid; border-color:#000000; border-image:initial; width:165.69pt; height:18.48pt; text-align:center" valign="middle"><strong><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="word-break:keep-all">1차 일정</span></span></span></span></span></span></strong></td>
+			<td style="border-bottom:0.28pt solid #000000; background:#e5e5e5; margin:0px; padding:1.41pt 5.1pt; border-top:1.7pt solid #000000; border-right:none; border-left:0.28pt solid #000000; border-image:initial; width:254.96pt; height:18.48pt; text-align:center" valign="middle"><strong><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="word-break:keep-all">비고</span></span></span></span></span></span></strong></td>
+		</tr>
+		<tr style="box-sizing:border-box; margin:0px; padding:0px">
+			<td style="border-bottom:0.28pt solid #000000; margin:0px; padding:1.41pt 5.1pt; border-top:0.28pt solid #000000; border-right:0.28pt solid #000000; border-left:none; border-image:initial; text-align:left; width:97.77pt; height:44.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span style="word-break:keep-all">원서접수<br />
+			(내국인,외국인)</span></span></span></span></span></span></span></td>
+			<td rowspan="2" style="border:0.28pt solid #000000; margin:0px; padding:1.41pt 5.1pt; text-align:left; width:165.69pt; height:62.96pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span lang="EN-US" style="box-sizing:border-box; margin:0px; padding:0px"><span style="font-weight:bold"></span></span>2026. 4. 20.(월) 09:00</span></span><span style="box-sizing:border-box"><span style="line-height:15.6px"><b style="box-sizing:border-box; margin:0px; padding:0px">&nbsp; ~</b></span></span></span><br />
+			<span style="color:#c0392b"><span style="box-sizing:border-box"><span style="line-height:15.6px"><b style="box-sizing:border-box; margin:0px; padding:0px">&nbsp; &nbsp; &nbsp; &nbsp; 5.&nbsp; 8.(금<span style="box-sizing:border-box; margin:0px; padding:0px">) 17:00</span></b></span></span></span><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"></span></span></span></span></span></span></td>
+			<td style="border-bottom:0.28pt solid #000000; margin:0px; padding:1.41pt 5.1pt; border-top:0.28pt solid #000000; border-right:none; border-left:0.28pt solid #000000; border-image:initial; text-align:left; width:254.96pt; height:44.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span style="word-break:keep-all">유웨이어플라이(<a href="https://ipsi2.uwayapply.com/2026/gradu1/smgrad/?CHA=1" target="_blank"><u style="box-sizing:border-box; margin:0px; padding:0px">www.uwayapply.com)</u></a></span></span></span><br />
+			<span style="box-sizing:border-box"><span style="line-height:15.6px">인터넷접수 문의: 1588-8988</span></span><br />
+			<span style="box-sizing:border-box"><span style="line-height:15.6px">※&nbsp;학&middot;석사연계과정은 서면 지원</span></span></span></span></span></span></td>
+		</tr>
+		<tr style="box-sizing:border-box; margin:0px; padding:0px">
+			<td style="border-bottom:0.28pt solid #000000; margin:0px; padding:1.41pt 5.1pt; border-top:0.28pt solid #000000; border-right:0.28pt solid #000000; border-left:none; border-image:initial; text-align:left; width:97.77pt; height:18.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span style="word-break:keep-all">서류제출</span></span></span></span></span></span></span></td>
+			<td style="border-bottom:0.28pt solid #000000; margin:0px; padding:1.41pt 5.1pt; border-top:0.28pt solid #000000; border-right:none; border-left:0.28pt solid #000000; border-image:initial; text-align:left; width:254.96pt; height:18.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span style="word-break:keep-all">온라인 접수 페이지 내 업로드</span></span></span></span></span></span></span></td>
+		</tr>
+		<tr style="box-sizing:border-box; margin:0px; padding:0px">
+			<td style="border-bottom:0.28pt solid #000000; margin:0px; padding:1.41pt 5.1pt; border-top:0.28pt solid #000000; border-right:0.28pt solid #000000; border-left:none; border-image:initial; text-align:left; width:97.77pt; height:18.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span style="word-break:keep-all">면접일시</span></span></span></span></span></span></span></td>
+			<td style="border:0.28pt solid #000000; margin:0px; padding:1.41pt 5.1pt; text-align:left; width:165.69pt; height:18.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span lang="EN-US" style="box-sizing:border-box; margin:0px; padding:0px"><span style="font-weight:bold"></span></span>2026. 5. 20.(수)&nbsp;~&nbsp; 5. 23.(토)</span></span></span></span></span></span></td>
+			<td style="border-bottom:0.28pt solid #000000; margin:0px; padding:1.41pt 5.1pt; border-top:0.28pt solid #000000; border-right:none; border-left:0.28pt solid #000000; border-image:initial; text-align:left; width:254.96pt; height:18.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span style="word-break:keep-all">학과별 면접 일정 및 장소 대학원 홈페이지 확인</span></span></span></span></span></span></span></td>
+		</tr>
+		<tr style="box-sizing:border-box; margin:0px; padding:0px">
+			<td style="border-bottom:0.28pt solid #000000; margin:0px; padding:1.41pt 5.1pt; border-top:0.28pt solid #000000; border-right:0.28pt solid #000000; border-left:none; border-image:initial; text-align:left; width:97.77pt; height:18.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span style="word-break:keep-all">합격자 발표</span></span></span></span></span></span></span></td>
+			<td style="border:0.28pt solid #000000; margin:0px; padding:1.41pt 5.1pt; text-align:left; width:165.69pt; height:18.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span lang="EN-US" style="box-sizing:border-box; margin:0px; padding:0px"><span style="font-weight:bold"></span></span>2026. 6. 5.(금)</span></span></span></span></span></span></td>
+			<td style="border-bottom:0.28pt solid #000000; margin:0px; padding:1.41pt 5.1pt; border-top:0.28pt solid #000000; border-right:none; border-left:0.28pt solid #000000; border-image:initial; text-align:left; width:254.96pt; height:18.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span style="word-break:keep-all">대학원 홈페이지 공고&nbsp;(예정)</span></span></span></span></span></span></span></td>
+		</tr>
+		<tr style="box-sizing:border-box; margin:0px; padding:0px">
+			<td style="border-bottom:1.7pt solid #000000; margin:0px; padding:1.41pt 5.1pt; border-top:0.28pt solid #000000; border-right:0.28pt solid #000000; border-left:none; border-image:initial; text-align:left; width:97.77pt; height:31.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span style="word-break:keep-all">합격자 등록</span></span></span></span></span></span></span></td>
+			<td style="margin:0px; padding:1.41pt 5.1pt; border-width:0.28pt 0.28pt 1.7pt; border-style:solid; border-color:#000000; border-image:initial; text-align:left; width:165.69pt; height:31.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span style="word-break:keep-all"><span lang="EN-US" style="box-sizing:border-box; margin:0px; padding:0px"><span style="letter-spacing:-0.5pt"></span></span>2025.&nbsp; 6. 15.(월) 9:00&nbsp;</span></span></span><span style="box-sizing:border-box"><span style="line-height:15.6px"><span style="word-break:keep-all">&nbsp; ~ 6. 19.(금) 17:00</span></span></span></span></span></span></span></td>
+			<td style="border-bottom:1.7pt solid #000000; margin:0px; padding:1.41pt 5.1pt; border-top:0.28pt solid #000000; border-right:none; border-left:0.28pt solid #000000; border-image:initial; text-align:left; width:254.96pt; height:31.48pt" valign="middle"><span style="font-size:15px"><span style="box-sizing:border-box"><span style="font-family:ng"><span style="color:#363636"><span style="box-sizing:border-box"><span style="line-height:15.6px"><span style="word-break:keep-all">전국 국민은행 은행 업무 시간 내 납부</span></span></span></span></span></span></span></td>
+		</tr>
+	</tbody>
+</table>
+<span style="font-size:15px"><span style="box-sizing:border-box"><span style="color:#363636"><span style="font-family:ng"><span style="font-style:normal"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="font-weight:400"><span style="letter-spacing:-0.2px"><span style="orphans:2"><span style="text-transform:none"><span style="widows:2"><span style="word-spacing:0px"><span style="white-space:normal"><span style="text-decoration-thickness:initial"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="line-height:1.5"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+
+<div class="hwp_editor_board_content" data-hjsonver="1.0" data-jsonlen="38491" id="hwpEditorBoardContent" style="margin:0px; padding:0px; text-align:left; -webkit-text-stroke-width:0px"><span style="font-size:15px"><span style="letter-spacing:-0.2px"><span style="font-family:ng"><span style="color:#363636">※ 2차 모집은 6월 예정이나 일부 학과의 경우 1차 모집에 한하여 선발을 진행할 수 있으니 유의하여 주시기 바랍니다.<br />
+<span style="font-size:15px"><span style="letter-spacing:-0.2px"><span style="font-family:ng"><span style="color:#363636">※</span></span></span></span> 외국인 모집요강은 국제교류처 홈페이지에 있습니다. ☞&nbsp;</span><a href="https://global.sunmoon.ac.kr/bbs/content.php?co_id=student_01_03" target="_blank"><span style="color:#8e44ad">바로가기</span></a><br />
+<span style="text-autospace:none"><span style="font-family:굴림"><span style="letter-spacing:0pt">※ </span></span><span style="font-family:굴림">원서접수 대행업체</span><span lang="EN-US" style="font-family:굴림"><span style="letter-spacing:0pt">(</span></span><span style="font-family:굴림">유웨이어플라이</span><span lang="EN-US" style="font-family:굴림"><span style="letter-spacing:0pt">) </span></span><span style="font-family:굴림">서버 점검으로 인해&nbsp;</span><span lang="EN-US" style="font-family:굴림"><span style="letter-spacing:0pt"><span style="font-weight:bold">4</span></span></span><span style="font-family:굴림"><span style="font-weight:bold">월 </span></span><span lang="EN-US" style="font-family:굴림"><span style="letter-spacing:0pt"><span style="font-weight:bold">22</span></span></span><span style="font-family:굴림"><span style="font-weight:bold">일 </span></span><span lang="EN-US" style="font-family:굴림"><span style="letter-spacing:0pt"><span style="font-weight:bold">~ 23</span></span></span><span style="font-family:굴림"><span style="font-weight:bold">일 동안 원서접수가 일시 중단됩니다</span></span><span lang="EN-US" style="font-family:굴림"><span style="letter-spacing:0pt"><span style="font-weight:bold">.</span></span></span></span></span></span></span>
+
+<div class="hwp_editor_board_content" data-hjsonver="1.0" data-jsonlen="7523" id="hwpEditorBoardContent"><span style="letter-spacing: -0.2px; font-family: ng; color: rgb(54, 54, 54);">☏ 입학 문의: 041-530-2603 , ※ 장학관련: 041-530-2605&nbsp;&nbsp;</span></div>
+</div>
+<span style="font-size:15px"><span style="box-sizing:border-box"><span style="color:#363636"><span style="font-family:ng"><span style="font-style:normal"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="font-weight:400"><span style="letter-spacing:-0.2px"><span style="orphans:2"><span style="text-transform:none"><span style="widows:2"><span style="word-spacing:0px"><span style="white-space:normal"><span style="text-decoration-thickness:initial"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="line-height:1.7"><span style="font-size:16px; margin:0px; padding:0px"><span style="box-sizing:border-box">★&nbsp;<a href="https://pf.kakao.com/_xlxnMwG" style="box-sizing:border-box; margin:0px; padding:0px; text-decoration:none; color:#666666" target="_blank" title="선문대 카카오채널"><span style="box-sizing:border-box; margin:0px; padding:0px"><span style="color:#0000ff">선문대학교 대학원 카카오채널</span></span></a>&nbsp;(편하게 톡 주세요~ <span style="font-size:15px"><span style="box-sizing:border-box"><span style="color:#363636"><span style="font-family:ng"><span style="font-style:normal"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="font-weight:400"><span style="letter-spacing:-0.2px"><span style="orphans:2"><span style="text-transform:none"><span style="widows:2"><span style="word-spacing:0px"><span style="white-space:normal"><span style="text-decoration-thickness:initial"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="line-height:1.7"><span style="font-size:16px; margin:0px; padding:0px"><span style="box-sizing:border-box">😊</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>)&nbsp;<br />
+&nbsp; &nbsp;- <a href="http://pf.kakao.com/_xlxnMwG/chat" target="_blank">http://pf.kakao.com/_xlxnMwG/chat</a>&nbsp;<br />
+&nbsp; &nbsp;<img alt="" src="/upload/contents/cntnts/1743581581698_10722625868464238.png" style="width:96px; height:133px" /></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><br />
+&nbsp;<br />
+										<br />
+									</p>
+			</div>
+		
+		<!-- 첨부파일 & 다운로드 횟수 -->
+		<div class="bbsV_atchmnfl">
+				<dl>
+					<dt><span>첨부파일</span></dt>
+					<dd>
+						<ul class="bbsV_file">
+							<li>
+									<a href="/comm/nttFileDownload.do?fileKey=e88b1de795446eb88b6feb56c6883f61" class="fileName">
+										2026후기선문대학교대학원모집요강.pdf&nbsp;
+									</a>
+								</li>
+							<li>
+									<a href="/comm/nttFileDownload.do?fileKey=e6782809697e760a9b9778bcc40af0c0" class="fileName">
+										학석사연계과정 지원서_260327.hwp&nbsp;
+									</a>
+								</li>
+							</ul>
+					</dd>
+				</dl>
+				</div>
+		<!-- //첨부파일 & 다운로드 횟수 -->
+	
+		</div>
+
+	<!-- 버튼 -->
+	<div class="btn_bbs ar mgt20 mgb20">
+	<!-- 251017 공지사항 글일 경우 답글 작성 제외 -->
+	<a href="javascript:;" onclick="goList(document.getElementById('nttViewForm'));" title="목록" class="btn_bbs_List"><span>목록</span></a>
+
+	</div>
+
+	
+	<!-- //버튼 -->
+	
+</form>
+<!-- 이전/다음 -->
+	<ul class="bbsV_prne">
+		<li><span>다음글</span>
+				<a href="/graduate/na/ntt/selectNttInfo.do?nttSn=1318521&mi=46007" title="다음글">2025 KIRD TechPath 2nd : 외국인 유학생 경력개발 교육세미나 </a>
+					</li>
+		<li><span>이전글</span>
+				<a href="/graduate/na/ntt/selectNttInfo.do?nttSn=1318341&mi=46007" title="이전글">[대한변호사협회] &apos;2025 국제인권법 아카데미&apos; 개최 안내</a>
+					</li>
+		</ul>	
+<!-- //이전/다음 -->
+<form name="nttFileViewForm" id="nttFileViewForm" method="post" >
+	<input type="hidden" id="fileType" name="fileType" value="URL" />
+	<input type="hidden" id="convertType" name="convertType" value="0" />
+	<input type="hidden" id="filePath" name="filePath" value="N" />
+	<input type="hidden" id="fid" name="fid" value="N" />
+
+</form>
+
+
+<form name="passChkForm" id="passChkForm" method="post" action="/graduate/na/ntt/selectPassChkAjax.do" onsubmit="return false;">
+	<input type="hidden" id="passwdNttSn" name="passwdNttSn" value="" />
+	<div id="registDiv" class="Pstyle" style="display:none;">
+		<div id="registForm">
+			<h3 class="bbsTitle ac">Password</h3>
+			<table class="bbsView">
+				<tbody>
+					<tr>
+						<td class="ac">
+							<input type="password" id="encNttPassword" name="encNttPassword" value="" autocomplete="off"/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="ac mgt10">
+				<a href="javascript:;" class="btn btn_white" onclick="fn_pass_chk_ajax(document.getElementById('passChkForm'));"><span>OK</span></a>
+				<a href="javascript:;" class="btn btn_red" onclick="fn_layer_pop_close();"><span>Cancel</span></a>
+			</div>
+		</div>
+	</div>
+</form>
+
+<script>
+function copyUrl(val){
+	var host=window.location.origin;
+	 var t = document.createElement("textarea");
+	    document.body.appendChild(t);
+	    t.value = host+val;
+	    t.select();
+	document.execCommand("Copy");
+	alert("게시글 주소가 복사되었습니다.");
+}
+//레이어 팝업 활성화
+function fn_layer_pop_open(){
+	jQuery('#registDiv').bPopup({
+		modalClose : false
+		, opacity : 0.7
+		, reposition :100
+	});
+}
+
+//레이어 팝업 비활성화
+function fn_layer_pop_close() {
+	jQuery('#registDiv').bPopup().close();
+}
+
+//패스워드 확인 창 호출
+function goPassChkPop(val){
+	document.getElementById('passwdNttSn').value = val;
+	document.getElementById('encNttPassword').value = '';
+	fn_layer_pop_open();
+}
+
+//패스워드 확인 AJAX
+function fn_pass_chk_ajax(frm){
+	
+	var passwdNttSn = frm.passwdNttSn.value;
+	var encNttPassword = jQuery('#encNttPassword').val();
+	var url = '/graduate/na/ntt/selectPassChkAjax.do';
+	if(encNttPassword == null || encNttPassword == ''){
+		alert('비밀번호를 입력하세요');
+		return false;
+	}else if(passwdNttSn == null || passwdNttSn == ''){
+		alert('Validataion Fail');
+		return false;
+	}
+	jQuery.ajax({
+		type : 'post'
+		, url : url
+		, dataType : 'json'
+		, data : {
+			passwdNttSn : passwdNttSn
+			, encNttPassword : encNttPassword
+		}
+		, async : true
+		, success : function(result){
+			if(result.resultInt != null && result.resultInt > 0){
+				document.getElementById('usrPassWdChk').value = result.usrPassWdChk;
+				$('#nttViewForm').attr('action','/graduate/na/ntt/updateNttPage.do').submit();
+			}else{
+				fn_layer_pop_close();
+				alert('비밀번호가 틀렸습니다.');
+			}
+		}
+		, error : function(result){
+			alert("network error");
+		}
+	});
+}
+</script></div>
+					</div>
+				</div>
+			</div>
+            <!-- // CONTAINER -->
+			</div>
+        <!-- // CONTAINER 클래스 -->
+        <!-- FOOTER -->
+		
+        <!-- footer -->
+
+            <footer id="footer">
+                <div class="ftWrap">
+                    <ul class="container">
+                        <li><a href="https://lily.sunmoon.ac.kr/Page2/Etc/Personalinfo.aspx" class="pt" target="_blank"  title="개인정보처리방침(새창)">개인정보처리방침</a></li>
+                        <li><a href="https://lily.sunmoon.ac.kr/Page2/Etc/EmailPolicy.aspx" target="_blank" style="font-weight:600;" title="이메일무단수집거부(새창)">이메일무단수집거부</a></li>
+                        <li><a href="https://graduate.sunmoon.ac.kr/graduate/cm/cntnts/cntntsView.do?mi=45992&cntntsId=240433" style="font-weight:600;" title="오시는길">오시는길</a></li>
+                        <li><a href="https://pf.kakao.com/_xlxnMwG" target="_blank" style="font-weight:600;" title="1:1문의(카카오톡 채널)"><span class="xi-kakaotalk" style="background: #ffde00;border-radius:20px;padding:2px;margin-right:3.8px;"></span>1:1문의(카카오톡 채널)</a></li>
+                    </ul>
+                </div>
+                <div class="ftBox container">
+               
+                    <address>
+                        우)31460   충청남도 아산시 탕정면 선문로221번길 70 선문대학교 본관409B 대학원교학팀   | 
+                        Tel. 041-530-2602 | Fax. 041-530-2968 
+                        <br> E-mail. gradschool@sunmoon.ac.kr
+                    </address>
+                    <p class="copyright">COPYRIGHT(c) SUN MOON University. All rights reserved.</p>
+                </div>
+            </footer>
+            
+            <!-- //footer -->
+		
+<!-- //FOOTER -->
+    </div>
+	<!-- menuForm -->
+	<!--공통 메뉴 Form -->
+<form name="mainMenuForm" id="mainMenuForm" method="post">
+	<input type="hidden" name="mi" id="nowMenuId" value="46007" />
+	<input type="hidden" name="paramNm" id="paramNm" value=""/>
+	<input type="hidden" name="paramVal" id="paramVal" value=""/>
+</form>
+<!--/공통 메뉴 Form -->
+	
+<script>
+$(function() {
+	
+	//공통 submit
+	$(".menuFormBtn").click(function(){
+		var paramVal = $(this).attr('data-param'); 
+		var paramNm = $(this).attr('data-nm');
+		var paramUrl = $(this).attr('data-url');
+		$("#paramVal").val(paramVal);
+		$("#paramNm").val(paramNm);
+		setTrimMenuId();
+		$("#mainMenuForm").attr('action', paramUrl).submit();
+	});
+	
+});
+
+//파라미터 페이지 이동 
+function goParamPage( setVal, setNm, setUrl ) {
+	$("#paramNm").val(setNm);
+	$("#paramVal").val(setVal);
+	setTrimMenuId();
+	$("#mainMenuForm").attr('action', setUrl).submit();
+};
+
+//메뉴 아이디 공백제거
+function setTrimMenuId(){
+	var nowMenuId = $.trim($("#nowMenuId").val());
+	$("nowMenuId").val(nowMenuId);
+};
+
+</script>
+	
+	 
+	
+	
+
+	<!-- /menuForm -->
+
+</body>
+</html>

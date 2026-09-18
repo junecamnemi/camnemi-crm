@@ -1,0 +1,736 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일반대학원 &gt; 입학안내 &gt; 상세 - 대학원</title>
+    <link href='/css/organ/common.css?0' type="text/css" rel="stylesheet">
+
+	
+    
+    <link href='/css/organ/contents.css?0' type="text/css" rel="stylesheet">
+    <link href='/css/mmu_contents.css' type="text/css" rel="stylesheet">
+    <link href='/css/main/board.css' type="text/css" rel="stylesheet">
+	<link href='/css/position.css' type="text/css" rel="stylesheet">
+    <link href='/css/exms/plugins/jasny/jasny-bootstrap.min.css' type="text/css" rel="stylesheet">
+    <link href='/css/exms/plugins/toastr/toastr.min.css' type="text/css" rel="stylesheet">
+    
+     
+	<link rel="stylesheet" type="text/css" href='/js/trumbowyg/ui/trumbowyg.css'>
+	<link rel="stylesheet" type="text/css" href='/js/trumbowyg/plugins/colors/ui/trumbowyg.colors.min.css'>
+	<link rel="stylesheet" type="text/css" href='/js/trumbowyg/plugins/table/ui/trumbowyg.table.min.css'>
+	<link rel="stylesheet" type="text/css" href='/js/trumbowyg/ui/trumbowyg.min.css'>
+	<link rel="stylesheet" type="text/css" href='/js/trumbowyg/plugins/specialchars/ui/trumbowyg.specialchars.min.css'>
+	
+    
+
+	<link rel="icon" type="image/png" href='/images/main/favicon.png'>
+    <link href='/css/default/jsTree/style.css' type="text/css" rel="stylesheet">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="일반대학원 &gt; 입학안내 &gt; 상세 - 대학원">
+    <meta name="keywords" content="대학원">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="일반대학원 &gt; 입학안내 &gt; 상세 - 대학원">
+    <meta property="og:description" content="일반대학원 &gt; 입학안내 &gt; 상세 - 대학원">
+	<meta property="og:url" content="http://www.mmu.ac.kr/">
+    <meta name="robots" content="index,follow">
+    <script src="/js/organ/jquery.min.js"></script>
+	<script src="/js/organ/jquery-migrate.min.js"></script>
+	
+	<script src="/js/organ/jquery-ui.min.js"></script>
+		
+	<script src="/js/organ/common.js"></script>
+	<script src="/js/organ/main.js"></script>
+	<script src="/js/organ/front.js"></script>	
+    <script src='/js/exms/plugins/jsTree/jstree.min.js'></script>
+    <script src='/js/exms/plugins/jasny/jasny-bootstrap.min.js'></script>
+    
+    
+    
+    <script nonce="EHsqP5qHp3xkKEUJYnP1GbKtL/VLEbmIPNlCQDVPlTg=">
+        $(document).ready(function(){
+            (function($) {
+                //for csrf
+                var token = 'd571adca-21ff-45e9-ada1-f5499894d645';
+                var header = 'X-CSRF-TOKEN';
+                $.ajaxSetup({
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader("AJAX", true);
+                        //for csrf
+                        xhr.setRequestHeader(header, token);
+                    },
+                    error: function(xhr, status, err) {
+                        if (xhr.status == 401) {
+                            toastr.error("인증에 실패 했습니다.");
+
+                        } else if (xhr.status == 403) {
+                            autoLogoutUser();
+                            //toastr.error("세션이 만료가 되었습니다.");
+                        }
+                    }
+                });
+            })(jQuery);
+            $(".logoutBtn").click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: "/OA/logout",
+                    //data:{"ISAUTO":false},
+                    success: function() {
+                        toastr.success("로그아웃 되었습니다.");
+                        location.href="/OA";
+                    }
+                });
+            });
+        });
+    </script>
+    
+</head>
+
+<body>
+	<!-- wrapper Start -->
+    
+
+
+
+
+
+
+
+
+
+
+	<!-- popup -->
+
+	<!-- header -->
+	<div id="top">
+		<div class="wfix">
+		<strong class="blind">SNS 링크</strong>
+		<ul class="lst_sns">
+			<li><a href="https://www.instagram.com/mmu.ac.kr/" target="_blank" title="새창"><img src="/images/organ/common/sns_instagram.png" alt="인스타그램"></a></li>
+			<li><a href="https://www.facebook.com/mmubadasemi/" target="_blank" title="새창"><img src="/images/organ/common/sns_facebook.png" alt="페이스북"></a></li>
+			<li><a href="https://www.youtube.com/channel/UCIv6et9zciX0LD-72qKboFg/" target="_blank" title="새창"><img src="/images/organ/common/sns_youtube.png" alt="유튜브"></a></li>
+		</ul>
+			<!-- <a href="http://www.mmu.ac.kr/haksa/haksa.asp" class="link_mmu" target="_blank" title="학사행정 새창">학사행정</a>
+			<a href="http://www.mmu.ac.kr/g1/mail.htm" class="link_mmu" target="_blank" title="웹메일 새창">웹메일</a> -->
+			<a href="https://mmu.ac.kr/" class="link_mmu" target="_blank" title="목포해양대학교 새창">대학홈페이지</a>
+
+
+			<ul class="lst_link">
+				<li><a href="/OA">HOME</a></li>
+				<li><a href="/OA/sitemap">SITEMAP</a></li>
+				
+					
+					
+						
+					
+				
+			</ul>
+			
+			<!-- 팝업 열기로 변경 시 .tgl_pop에 on 클래스 추가 -->
+		</div>
+	</div>
+	<header id="header">
+		<div class="wfix">
+			<h1 class="wrap_logo">
+
+						<a href="/main"> <img src="/images/organ/common/logo.png" class="logo" alt="목포해양대학교 대학원"></a><a href="/OA">
+
+
+				
+					
+					
+						<span class="tit">대학원</span>
+					
+				
+				</a>
+				
+			</h1>
+			<button type="button" class="tgl_menu mo">
+				<i>메뉴 열기/닫기</i>
+			</button>
+			<nav id="gnb">
+				<h2 class="blind">주요 메뉴</h2>
+				<ul class="lst"><li class='d1 on'><a href='/OA/menu/generalGradMenu' class="link">일반대학원</a><strong class="tit_d1 mo">일반대학원</strong><ul class="lst_sub"><li class='d2'><a href='/OA/menu/geIntro'>대학원소개</a><ul class="lst_d3"><li class='d3'><a href='/OA/contents/geGreeting'>원장인사말</a></li><li class='d3'><a href='/OA/contents/geHistory'>연혁</a></li><li class='d3'><a href='/OA/contents/geGoals'>교육목표</a></li><li class='d3'><a href='/OA/contents/geGroup'>기구표</a></li></ul></li><li class='d2 on'><a href='/OA/board/136'>입학안내</a></li><li class='d2'><a href='/OA/menu/ocIntroMenu'>학과소개</a><ul class="lst_d3"><li class='d3'><a href='/OA/contents/ocIntro1'>해상운송시스템학과</a></li><li class='d3'><a href='/OA/contents/ocIntro2'>기관시스템공학과</a></li><li class='d3'><a href='/OA/contents/ocIntro3'>해양경찰학과</a></li><li class='d3'><a href='/OA/contents/ocDept4'>해양전자·통신·컴퓨터공학과</a></li><li class='d3'><a href='/OA/contents/ocIntro5'>해양시스템공학과</a></li></ul></li><li class='d2'><a href='/OA/menu/geDept'>교육과정</a><ul class="lst_d3"><li class='d3'><a href='/OA/contents/geDept01'>해상운송시스템학과</a></li><li class='d3'><a href='/OA/contents/geDept02'>기관시스템공학과</a></li><li class='d3'><a href='/OA/contents/geDept03'>해양경찰학과</a></li><li class='d3'><a href='/OA/contents/geDept04'>해양전자·통신·컴퓨터공학과 </a></li><li class='d3'><a href='/OA/contents/geDept05'>해양시스템공학과</a></li></ul></li><li class='d2'><a href='/OA/menu/geBachelor'>학사안내</a><ul class="lst_d3"><li class='d3'><a href='/OA/contents/geCourse'>수강신청 및 성적</a></li><li class='d3'><a href='/OA/contents/geRegister'>학적</a></li><li class='d3'><a href='/OA/contents/geScholarship'>장학/후생</a></li><li class='d3'><a href='/OA/acschedule'>학사일정</a> + addTxt</li></ul></li><li class='d2'><a href='/OA/menu/geThesis'>학위논문</a><ul class="lst_d3"><li class='d3'><a href='/OA/contents/geThesis01'>학위종별</a></li><li class='d3'><a href='/OA/contents/geThesis02'>논문제출자격시험</a></li><li class='d3'><a href='/OA/contents/geThesis03'>논문작성계획</a></li><li class='d3'><a href='/OA/contents/geThesis04'>논문접수 및 심사</a></li><li class='d3'><a href='/OA/contents/geThesis05'>논문의 형식</a></li><li class='d3'><a href='/OA/contents/geThesis06'>논문작성법</a></li></ul></li><li class='d2'><a href='/OA/location'>오시는길</a> + addTxt</li></ul></li><li class='d1'><a href='/OA/menu/oceanGrad' class="link">해양산업대학원</a><strong class="tit_d1 mo">해양산업대학원</strong><ul class="lst_sub"><li class='d2'><a href='/OA/menu/ocIntro'>대학원소개</a><ul class="lst_d3"><li class='d3'><a href='/OA/contents/ocGreeting'>원장인사말</a></li><li class='d3'><a href='/OA/contents/ocHistory'>연혁</a></li><li class='d3'><a href='/OA/contents/ocGoals'>교육목표</a></li><li class='d3'><a href='/OA/contents/ocGroup'>기구표</a></li></ul></li><li class='d2'><a href='/OA/board/137'>입학안내</a></li><li class='d2'><a href='/OA/menu/geIntroMenu'>학과소개</a><ul class="lst_d3"><li class='d3'><a href='/OA/contents/geIntro1'>해상운송시스템학과</a></li><li class='d3'><a href='/OA/contents/geIntro2'>기관시스템공학과</a></li><li class='d3'><a href='/OA/contents/geIntro3'>해양경찰학과</a></li><li class='d3'><a href='/OA/contents/geIntro4'>해양전자·통신공학과</a></li><li class='d3'><a href='/OA/contents/geIntro5'>해양시스템공학과</a></li></ul></li><li class='d2'><a href='/OA/menu/ocDept'>교육과정</a><ul class="lst_d3"><li class='d3'><a href='/OA/contents/ocDept01'>해상운송시스템학과</a></li><li class='d3'><a href='/OA/contents/ocDept02'>기관시스템공학과</a></li><li class='d3'><a href='/OA/contents/ocDept03'>해양경찰학과</a></li><li class='d3'><a href='/OA/contents/ocDept04'>해양전자·통신공학과 </a></li><li class='d3'><a href='/OA/contents/ocDept05'>해양시스템공학과</a></li></ul></li><li class='d2'><a href='/OA/menu/ocBachelor'>학사안내</a><ul class="lst_d3"><li class='d3'><a href='/OA/contents/ocCourse'>수강신청 및 성적</a></li><li class='d3'><a href='/OA/contents/ocRegister'>학적</a></li><li class='d3'><a href='/OA/contents/ocScholarship'>장학/후생</a></li><li class='d3'><a href='/OA/ocSchedule'>학사일정</a> + addTxt</li></ul></li><li class='d2'><a href='/OA/menu/ocThesis'>학위논문</a><ul class="lst_d3"><li class='d3'><a href='/OA/contents/ocThesis01'>학위종별</a></li><li class='d3'><a href='/OA/contents/ocThesis02'>논문제출자격시험</a></li><li class='d3'><a href='/OA/contents/ocThesis03'>논문작성계획</a></li><li class='d3'><a href='/OA/contents/ocThesis04'>논문접수 및 심사</a></li><li class='d3'><a href='/OA/contents/ocThesis05'>논문의 형식</a></li><li class='d3'><a href='/OA/contents/ocThesis06'>논문작성법</a></li></ul></li></ul></li><li class='d1'><a href='/OA/menu/ceoProcess' class="link">해양·수산 최고경영자과정</a><strong class="tit_d1 mo">해양·수산 최고경영자과정</strong><ul class="lst_sub"><li class='d2'><a href='/OA/menu/cpIntro'>대학원소개</a><ul class="lst_d3"><li class='d3'><a href='/OA/contents/cpGreeting'>원장인사말</a></li><li class='d3'><a href='/OA/contents/cpGoals'>교육목표</a></li><li class='d3'><a href='/OA/contents/cpGroup'>행정조직</a></li></ul></li><li class='d2'><a href='/OA/contents/cpAdmission'>입학안내</a><ul class="lst_d3"><li class='d3'><a href='/OA/board/471'>입학모집</a></li><li class='d3'><a href='/OA/contents/cpAdmission02'>입학안내</a></li></ul></li><li class='d2'><a href='/OA/contents/eduPro'>교육과정</a></li><li class='d2'><a href='/OA/board/138'>포토갤러리</a></li><li class='d2'><a href='/OA/location2'>오시는길</a> + addTxt</li></ul></li><li class='d1'><a href='/OA/menu/hsPlaza' class="link">해성광장</a><strong class="tit_d1 mo">해성광장</strong><ul class="lst_sub"><li class='d2'><a href='/OA/board/139'>공지사항</a></li><li class='d2'><a href='/OA/board/140'>Q&A</a></li><li class='d2'><a href='/OA/usrRegulationEtcData'>규정</a> + addTxt</li><li class='d2'><a href='/OA/contents/billRights'>대학원생 권리장전</a></li></ul></li></ul>
+			</nav>
+		</div>
+	</header>
+	<!-- //header -->
+
+
+	
+	
+   <!-- contents -->
+   <h2 class="blind">본문</h2>
+   <div id="visual" class="siteOA">
+	  <div class="wfix">
+		 <h3 class="title">국립목포해양대학교 <b>대학원</b></h3>
+		 <ul class="location">
+			<li class="home"><i class="ico_comm">홈</i></li>
+			<li class="ico_bfr">일반대학원</li>
+			<li class="ico_bfr">입학안내</li>
+			
+			
+           	
+		 </ul>
+	  </div>
+   </div>
+   <div id="container">
+	  <div class="wfix">
+		 <nav id="submenu">
+			<strong class="cate_sub">일반대학원</strong>
+			<ul class="lst"><li><a href='/OA/menu/geIntro'  class="btn-dep1 flip">대학원소개</a><ul class="sub"><li><a href='/OA/contents/geGreeting'  class="btn-dep2">원장인사말</a></li><li><a href='/OA/contents/geHistory'  class="btn-dep2">연혁</a></li><li><a href='/OA/contents/geGoals'  class="btn-dep2">교육목표</a></li><li><a href='/OA/contents/geGroup'  class="btn-dep2">기구표</a></li></ul></li><li class='on'><a href='/OA/board/136'  class="btn-dep1">입학안내</a></li><li><a href='/OA/menu/ocIntroMenu'  class="btn-dep1 flip">학과소개</a><ul class="sub"><li><a href='/OA/contents/ocIntro1'  class="btn-dep2">해상운송시스템학과</a></li><li><a href='/OA/contents/ocIntro2'  class="btn-dep2">기관시스템공학과</a></li><li><a href='/OA/contents/ocIntro3'  class="btn-dep2">해양경찰학과</a></li><li><a href='/OA/contents/ocDept4'  class="btn-dep2">해양전자·통신·컴퓨터공학과</a></li><li><a href='/OA/contents/ocIntro5'  class="btn-dep2">해양시스템공학과</a></li></ul></li><li><a href='/OA/menu/geDept'  class="btn-dep1 flip">교육과정</a><ul class="sub"><li><a href='/OA/contents/geDept01'  class="btn-dep2">해상운송시스템학과</a></li><li><a href='/OA/contents/geDept02'  class="btn-dep2">기관시스템공학과</a></li><li><a href='/OA/contents/geDept03'  class="btn-dep2">해양경찰학과</a></li><li><a href='/OA/contents/geDept04'  class="btn-dep2">해양전자·통신·컴퓨터공학과 </a></li><li><a href='/OA/contents/geDept05'  class="btn-dep2">해양시스템공학과</a></li></ul></li><li><a href='/OA/menu/geBachelor'  class="btn-dep1 flip">학사안내</a><ul class="sub"><li><a href='/OA/contents/geCourse'  class="btn-dep2">수강신청 및 성적</a></li><li><a href='/OA/contents/geRegister'  class="btn-dep2">학적</a></li><li><a href='/OA/contents/geScholarship'  class="btn-dep2">장학/후생</a></li><li><a href='/OA/acschedule'  class="btn-dep2">학사일정</a></li></ul></li><li><a href='/OA/menu/geThesis'  class="btn-dep1 flip">학위논문</a><ul class="sub"><li><a href='/OA/contents/geThesis01'  class="btn-dep2">학위종별</a></li><li><a href='/OA/contents/geThesis02'  class="btn-dep2">논문제출자격시험</a></li><li><a href='/OA/contents/geThesis03'  class="btn-dep2">논문작성계획</a></li><li><a href='/OA/contents/geThesis04'  class="btn-dep2">논문접수 및 심사</a></li><li><a href='/OA/contents/geThesis05'  class="btn-dep2">논문의 형식</a></li><li><a href='/OA/contents/geThesis06'  class="btn-dep2">논문작성법</a></li></ul></li><li><a href='/OA/location'  class="btn-dep1">오시는길</a></ul></li></ul></li></ul>
+		 </nav>
+		 <section id="contents">
+			<header class="hd_cont">
+			   <h4 class="tit_cont">입학안내</h4>
+			   <ul class="links">
+				  <li class="item1 ico_aft"><a href="javascript:;"><i class="ico_comm">공유</i></a></li>
+				  <li class="item2"><a href="javascript:;"><i class="ico_comm">페이스북</i></a></li>
+				  <li class="item3"><a href="javascript:;"><i class="ico_comm">트위터</i></a></li>
+				  <li class="item4"><a href="javascript:;"><i class="ico_comm">블로그</i></a></li>
+				  <li class="item5"><a href="javascript:;"><i class="ico_comm">인쇄</i></a></li>
+			   </ul>
+			</header>
+			<div class="cont">
+				
+	
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+
+	<div class="boardRead">
+	    <h5>	    
+	    <span class="tit">2026학년도 후기 일반대학원 외국인신입생 모집 요강 </span>
+	    	
+	    	
+				<small>등록일 : 2026-05-13</small>
+			
+	    </h5>
+
+		
+		    <section>
+		    	
+			   		
+				   		
+				   		
+				   			<span>대학원</span>
+				   		
+				   	
+		        
+		        
+		    	
+		            <span class="hit">조회수 : 243</span>
+		        
+		    </section>
+	    
+
+		
+
+		
+			
+		    <section class="fileList">
+		        <ul>
+		        	
+		        		
+		        		
+
+		        		
+
+						
+							
+						
+			            <li>
+			                <span class="label">첨부파일 #1</span>
+			                <a href="/OA/board/136/1/download/88085/58769" title="첨부파일 다운로드">5. 2026학년도 후기 일반대학원 외국인 신입생 모집 요강.hwp</a>
+			                
+			                <a href="/OA/board/136/fileview/88085/58769" target="_blank" title="새창이동"><span class="label label-main">미리보기</span></a>
+			                <a href="/OA/board/136/1/download/88085/58769" title="첨부파일 다운로드"><span class="label label-main"><i class="fa fa-download"></i></span></a>
+			            </li>
+			            
+				            
+		        		
+		        		 
+		        	
+		        		
+		        		
+
+		        		
+
+						
+							
+						
+			            <li>
+			                <span class="label">첨부파일 #2</span>
+			                <a href="/OA/board/136/1/download/88085/58770" title="첨부파일 다운로드">5. 2026학년도 후기 일반대학원 외국인 신입생 모집 요강.pdf</a>
+			                
+			                <a href="/OA/board/136/fileview/88085/58770" target="_blank" title="새창이동"><span class="label label-main">미리보기</span></a>
+			                <a href="/OA/board/136/1/download/88085/58770" title="첨부파일 다운로드"><span class="label label-main"><i class="fa fa-download"></i></span></a>
+			            </li>
+			            
+				            
+			        			<ul class="pdfList clear" style="padding-top:20px;">
+									<li class="pdfFile"><embed height="1010" name="plugin" type="application/pdf" width="100%" src="/upload/board/136/eoeb/or/lz/main/5147772348d042ab83f693d991d2511d.pdf" /></li>
+								</ul>
+			        		
+		        		
+		        		 
+		        	
+		        		
+		        		
+
+		        		
+
+						
+							
+						
+			            <li>
+			                <span class="label">첨부파일 #3</span>
+			                <a href="/OA/board/136/1/download/88085/58771" title="첨부파일 다운로드">6. Announcement of Admission-Fall Semester,2026(영어).docx</a>
+			                
+			                <a href="/OA/board/136/fileview/88085/58771" target="_blank" title="새창이동"><span class="label label-main">미리보기</span></a>
+			                <a href="/OA/board/136/1/download/88085/58771" title="첨부파일 다운로드"><span class="label label-main"><i class="fa fa-download"></i></span></a>
+			            </li>
+			            
+				            
+		        		
+		        		 
+		        	
+		        		
+		        		
+
+		        		
+
+						
+							
+						
+			            <li>
+			                <span class="label">첨부파일 #4</span>
+			                <a href="/OA/board/136/1/download/88085/58772" title="첨부파일 다운로드">7. 2026학년도 후기 일반대학원 외국인 신입생 모집 요강(베트남) - 최종.hwp</a>
+			                
+			                <a href="/OA/board/136/fileview/88085/58772" target="_blank" title="새창이동"><span class="label label-main">미리보기</span></a>
+			                <a href="/OA/board/136/1/download/88085/58772" title="첨부파일 다운로드"><span class="label label-main"><i class="fa fa-download"></i></span></a>
+			            </li>
+			            
+				            
+		        		
+		        		 
+		        	
+		        </ul>
+			</section>
+		
+
+		
+
+		
+			
+			
+				<section>
+					
+						
+						
+							
+						
+					
+
+					
+						
+						
+							
+						
+					
+				</section>
+			
+		
+
+
+		
+
+	    <footer>
+	    	
+
+			
+			
+				
+				
+				
+	        	
+	        
+			
+	        <a href="/OA/board/136/1?query=&amp;queryType2=" class="btn btn-default">목록</a>
+	    </footer>
+
+		
+
+		
+	
+
+	</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+            </div>
+         </section>
+      </div>
+   </div>
+	<!-- // container -->	
+	
+	
+	<!-- footer -->
+	<footer id="footer">
+		<div class="ft_link">
+			<div class="wfix">
+				<!-- <div class="slt_link">
+					<div class="wrap_sites">
+						<strong class="tit"><a href="javascript:;">교내관련사이트</a></strong>
+						<ul class="lst_site">
+							<li><a href="javascript:;">교내관련사이트1</a></li>
+							<li><a href="javascript:;">교내관련사이트2</a></li>
+							<li><a href="javascript:;">교내관련사이트3</a></li>
+						</ul>
+					</div>
+					<div class="wrap_sites">
+						<strong class="tit"><a href="javascript:;">교외관련사이트</a></strong>
+						<ul class="lst_site">
+							<li><a href="javascript:;">교외관련사이트1</a></li>
+							<li><a href="javascript:;">교외관련사이트2</a></li>
+							<li><a href="javascript:;">교외관련사이트3</a></li>
+						</ul>
+					</div>
+				</div> -->
+				<ul class="lst_link">
+					<li><a href="/main/contents/privacy01" target="_blank"><b>개인정보처리방침</b></a></li>
+					<li><a href="/main/contents/email" target="_blank">이메일무단수집거부</a></li>
+					<li><a href="/OA/location">오시는길</a></li>
+				</ul>
+	
+			</div>
+		</div>
+		<div class="ft_info">
+			<div class="wfix">
+				<div class="ft_logo">
+					<span class="logo"><img src="/images/organ/common/ft_logo.png" alt="국립목포해양대학교  "></span> <span class="tit"></span>
+				</div>
+				<div class="wrap_info">
+					<dl class="info">
+						<dt class="blind">주소</dt>
+						<dd>58628 전남광주통합특별시 목포시 해양대학로 91</dd>						
+						
+						
+					</dl>
+					<p class="copyright">Copyright © Mokpo National Maritime
+						University. All Right Reserved.</p>
+				</div>
+				
+			</div>
+		</div>
+	</footer>
+	<!-- //footer -->
+
+	
+
+
+
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+	$(".recommLoginBtn").click(function(){		
+        var newURL = window.location.protocol + "//" + (window.location.host + "/" + window.location.pathname).replace("//", "/");
+        location.href = "/main/nice?rtnUrl=" + encodeURIComponent(newURL) + "&mode=a";
+    });
+	
+	$(".recommLoginBtn2").click(function(){
+        var newURL = window.location.protocol + "//" + (window.location.host + "/" + window.location.pathname).replace("//", "/");
+        location.href = "/main/nice?rtnUrl=" + encodeURIComponent(newURL) + "&mode=b";
+    });
+	$(".recommLoginBtn3").click(function(){
+        var newURL = window.location.protocol + "//" + (window.location.host + "/" + window.location.pathname).replace("//", "/");
+        location.href = "/main/nice?rtnUrl=" + encodeURIComponent(newURL) + "&mode=c";
+    });
+	
+	$('.categoryBox_movie ul li').click(function(){
+		var tab_id = $(this).attr('data-tab');
+		
+		$(".categoryBox ul li").removeClass('on');
+		$('.tab-content').removeClass('on');
+		$('.categoryBox ul li a').removeAttr('title');
+
+		$(this).addClass('on');
+		$("#"+tab_id).addClass('on');
+		$(this).children().attr('title','선택됨');
+	})
+	
+	$(".deleteFile").click(function(){		
+		var msg = window.confirm("해당 파일을 삭제 하시겠습니까?");
+		
+		if( msg ){
+			var fid = $(this).attr("fid");
+			var pid = $(this).attr("pid");
+			var bid = $(this).attr("bid");
+			
+	        $.ajax({
+	            type: "POST",
+	            url: "/OA/board/deleteFile",
+	            data: {
+	                  "fid": fid
+	                , "pid": pid
+	                , "bid": bid
+	            },
+	            success: function() {
+	                toastr.success('삭제되었습니다.');
+	                location.reload();
+	            }
+	        });
+		}
+	});
+	
+	$(".btn-file").keydown(function (key) {
+        if (key.keyCode == 13) {
+            $(this).children('input[id^="FILE"]').click();
+        }
+    });
+	
+	$(".notLoginBtn").click(function(){
+		toastr.error('로그인 후 댓글 입력이 가능합니다.');
+		return false;
+	});
+	
+	$(".commentWriteBtn").click(function(){
+        var trgtUrl = $("#commentVO").attr("action");
+        var cmmt = $("#COMMENTS").val();
+        var param = {"comments":cmmt}
+       
+        $.ajax({
+            type: 'POST',
+            url: trgtUrl,
+            data:  $('#commentVO').serialize(),
+            dataType:'text',
+            success: function(data) {
+                if( data == "Y" ){
+                    toastr.success('저장되었습니다.');
+                    // 댓글 목록 재 호출
+                    $("#COMMENTS").val("");
+                    var totCnt = $(".commentTotCnt").text() * 1;
+                    $(".commentTotCnt").text(totCnt+1);
+                    reloadComment(trgtUrl);
+                }else if( data == "NOLOGIN" ){
+                    toastr.error('로그인 후 댓글을 작성 할 수 있습니다.');
+                }else if( data == "NODATA" ){
+                    toastr.error('댓글 내용을 입력하세요.');
+                }else{
+                    toastr.error('작업중 장애가 발생하였습니다.');
+                }
+            }
+        });
+    });
+
+    $('#comments').keyup(function (e){
+        var content = $(this).val();
+        $('.inputMainArea > h3 > span').html("("+content.length+" / 300자)");    //글자수 실시간 카운팅
+
+        if (content.length > 300){
+            alert("최대 300자까지 입력 가능합니다.");
+            $(this).val(content.substring(0, 300));
+            $('.inputMainArea > h3 > span').html("(300 / 300자)");
+        }
+    });
+    
+    $(document).on('click', '.reCommentNode', function(){
+        $("#hideReplyArea" + $(this).attr("id")).attr("style", "display:block");
+        $("#hideReplyArea" + $(this).attr("id")).attr("style", "width:100%");
+        $("#hideReplyArea" + $(this).attr("id")).show();
+    });
+
+    $(document).on('click', '.commentReplyOKNode', function(){
+        var trgtUrl = $("#commentVO").attr("action");
+
+        var bid = $(this).attr("bid");
+        var pid = $(this).attr("pid");
+        var id = $(this).attr("id");
+        var comment = $("#commentReply" + id).val();
+
+        $.ajax({
+            type: "POST",
+            url: "/OA/board/136/1/commentReply/" + bid + "/" + pid + "/" + id,
+            data:{"comment" : comment},
+            success: function(data) {
+                if( data == "Y" ){
+                    toastr.success('저장되었습니다.');
+                    reloadComment(trgtUrl);
+                }else if( data == "NOLOGIN" ){
+                    toastr.error('로그인 후 이용가능합니다.');
+                }else{
+                    toastr.error('작업중 장애가 발생하였습니다.');
+                }
+            }
+        });
+    });
+
+    $(document).on('click', '.commentEditNode', function(){
+        $("#hideUpdtArea" + $(this).attr("id")).attr("style", "display:inline-block");
+        $("#hideUpdtArea" + $(this).attr("id")).show();
+    });
+
+    $(document).on('click', '.commentEditOKNode', function(){
+        var trgtUrl = $("#commentVO").attr("action");
+
+        var bid = $(this).attr("bid");
+        var pid = $(this).attr("pid");
+        var id = $(this).attr("id");
+        var comment = $("#commentRe" + id).val();
+
+        $.ajax({
+            type: "POST",
+            url: "/OA/board/136/1/commentEdit/" + bid + "/" + pid + "/" + id,
+            data:{"comment" : comment},
+            success: function(data) {
+                if( data == "Y" ){
+                    toastr.success('수정되었습니다.');
+                    reloadComment(trgtUrl);
+                }else if( data == "NOLOGIN" ){
+                    toastr.error('로그인 후 이용가능합니다.');
+                }else{
+                    toastr.error('작업중 장애가 발생하였습니다.');
+                }
+            }
+        });
+    });
+    
+    $(document).on('click', '.commentDeleteNode', function(){
+        var msg = window.confirm('해당 댓글을 삭제 하시겠습니까? \n댓글의 댓글도 같이 삭제됩니다');
+        if( msg ){
+
+            var trgtUrl = $("#commentVO").attr("action");
+
+            var bid = $(this).attr("bid");
+            var pid = $(this).attr("pid");
+            var id = $(this).attr("id");
+
+            $.ajax({
+                type: "POST",
+                url: "/OA/board/136/1/commentDelete/" + bid + "/" + pid + "/" + id,
+                success: function(data) {
+                    if( data == "Y" ){
+                        toastr.success('삭제되었습니다.');
+                        // 댓글 목록 재 호출
+                        var totCnt = $(".commentTotCnt").text() * 1;
+                        $(".commentTotCnt").text(totCnt-1);
+                        reloadComment(trgtUrl);
+                    }else if( data == "NOLOGIN" ){
+                        toastr.error('로그인 후 이용가능합니다.');
+                    }else{
+                        toastr.error('작업중 장애가 발생하였습니다.');
+                    }
+                }
+            });
+        }
+    });
+    
+    function reloadComment(trgtUrl){
+    	location.reload();
+    }
+    
+    
+});
+</script>
+
+<script src='/js/organ/slick.min.js'></script>
+
+<!-- Import Trumbowyg -->
+    <script src='/js/trumbowyg/trumbowyg.js'></script>
+    <!-- Import all plugins you want AFTER importing jQuery and Trumbowyg -->
+    <script src='/js/trumbowyg/plugins/upload/trumbowyg.upload.js'></script>
+	<script src='/js/trumbowyg/plugins/colors/trumbowyg.colors.min.js'></script>
+	<script src='/js/trumbowyg/plugins/table/trumbowyg.table.min.js'></script>
+	<script src='/js/trumbowyg/plugins/fontsize/trumbowyg.fontsize.min.js'></script>
+	<script src='/js/trumbowyg/plugins/specialchars/trumbowyg.specialchars.min.js'></script>
+	
+<!-- wrapper End -->
+
+	<!-- Toastr script -->
+    <script src='/js/exms/plugins/toastr/toastr.min.js'></script> 
+    
+	<script nonce="EHsqP5qHp3xkKEUJYnP1GbKtL/VLEbmIPNlCQDVPlTg=">
+	
+        toastr.options = {
+          "closeButton": true,
+          "debug": false,
+          "progressBar": true,
+          "preventDuplicates": false,
+          "positionClass": "toast-bottom-full-width",
+          "showDuration": "400",
+          "hideDuration": "100000",
+          "timeOut": "7000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        };
+    </script>
+
+
+	
+    
+
+
+
+
+
+
+
+
+	
+</body>
+</html>

@@ -1,0 +1,1468 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0, user-scalable=yes, target-density-dpi=medium-dpi">
+		<link href="/css/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+		<link href="/css/common/popup.css?2026090901" rel="stylesheet" type="text/css" />
+		
+		
+			<link href="/css/ipsi/common.css?2026090901" rel="stylesheet" type="text/css" />
+			<link href="/css/ipsi/main.css?2026090901" rel="stylesheet" type="text/css" />
+			<link href="/css/ipsi/layout.css?2026090901" rel="stylesheet" type="text/css" />
+		
+		
+		
+		
+		<script >
+			var contextPath = "";
+			var menuGroupDomain = "ipsi";
+		</script>
+		<script src="/js/lib/jquery-1.9.0.js"></script>
+		<script src="/js/lib/func.js?2026090901"></script>
+		<script src="/js/lib/base64.js?2026090901"></script>
+		<script src="/js/lib/jquery.pmPagination.js?2026090901"></script>
+		<script src="/js/lib/jquery.pmAjax.js?2026090901"></script>
+		<script src="/js/lib/jquery.pmValidator.js?2026090901"></script>
+		<script src="/js/lib/prng4.js?2026090901"></script>
+		<script src="/js/lib/json3.min.js?2026090901"></script>
+		<script src="/js/lib/rsa.js?2026090901"></script>
+		<script src="/js/lib/jsbn.js?2026090901"></script>
+		<script src="/js/lib/rng.js?2026090901"></script>
+		<script src="/js/lib/common.js?2026090901"></script>
+		<script src="/js/lib/clipboard.min.js?2026090901"></script>
+		<script src="/js/lib/jquery-ui.min.js?2026090901"></script>
+		<script src="/js/lib/jquery.simple-dtpicker.js?2026090901"></script>
+		<script src="/js/lib/jquery.cookie.js?2026090901"></script>
+		<script src="/js/lib/jquery.MultiFile.min.js?2026090901"></script>
+		
+		<script  src="/js/portal/header_ipsi.js?2026090901"></script>
+		
+		
+		
+		<script src="/js/portal/layout.js?2026090901"></script>
+		<script src="/js/lib/function.js"></script>
+		
+		
+		<script  src="/js/portal/main_ipsi.js?2026090901"></script>
+		
+		
+		
+	
+		<title>전북과학대학교 입학안내</title>
+	</head>
+	<body>
+		<input type="hidden" id="menuGroupId" value="MENUGROUP00000000001"/>
+		<div id="wrap">
+			<div class="skipnav"><a href="javascript:void(0);">본문 바로가기</a></div>
+			<div id="mask"></div>
+			<div id="loading"><img src="/img/ajaxloading.gif" alt="loading" style="margin-top:230px"/></div>
+			<!-- header -->
+			
+
+
+
+<div class="mobAllmenu">
+	<div class="navTop">
+		<h3>전체메뉴</h3>
+		<ul class="top_link">
+			
+				<li><a href="/sso/index.do">LOGIN</a></li>
+			
+			
+		</ul>
+		<span class="nav_close"><a href="javascript:void(0);" id="btn_allMenu_close_m">닫기</a></span>
+	</div>
+	<div class="nav">
+		<ul>
+			
+				<li>
+					
+					
+						
+						
+							<a href="/portal/ipsi/bbs/list.do?menuId=M0012000000000000">공지사항</a>
+						
+					
+				</li>
+			
+				<li>
+					
+						<a href="javascript:void(0);">신입학</a>
+						<ul>
+							
+									
+										<li>
+											<a href="javascript:void(0);">제출서류</a>
+											<ul>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001200010000">제출서류안내</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/bbs/list.do?menuId=M0009001200020000">제출서류 자료실</a>
+														
+													</li>
+												
+											</ul>
+										</li>
+									
+									
+							
+									
+										<li>
+											<a href="javascript:void(0);">모집요강</a>
+											<ul>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000100020001">전형일정 및 모집학과</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000100030001">접수방법</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000100040001">지원자격</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000100050001">전형방법</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000100060001">동점자처리방법</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/bbs/list.do?menuId=M0009000100070000">전체요강(다운로드)</a>
+														
+													</li>
+												
+											</ul>
+										</li>
+									
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000300000000">성적반영방법</a>
+											
+										</li>
+									
+							
+									
+										<li>
+											<a href="javascript:void(0);">신입생장학제도</a>
+											<ul>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001500010000">기본장학금</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001500020000">국가장학금</a>
+														
+													</li>
+												
+											</ul>
+										</li>
+									
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001000000000">원서접수확인/수험표출력</a>
+											
+										</li>
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001100000000">합격자발표 및 등록금고지서출력</a>
+											
+										</li>
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/bbs/list.do?menuId=M0009000800000000">전년도입시결과</a>
+											
+										</li>
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000900000000">등록금납부확인</a>
+											
+										</li>
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001400000000">환불신청안내</a>
+											
+										</li>
+									
+							
+						</ul>
+					
+					
+				</li>
+			
+				<li>
+					
+						<a href="javascript:void(0);">편입학안내</a>
+						<ul>
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/bbs/list.do?menuId=M0147000100000000">편입학안내</a>
+											
+										</li>
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/bbs/list.do?menuId=M0147000200000000">제출자료실</a>
+											
+										</li>
+									
+							
+						</ul>
+					
+					
+				</li>
+			
+				<li>
+					
+					
+						
+						
+							<a href="/portal/ipsi/contents/contents_view.do?menuId=M0011000000000000">원서접수</a>
+						
+					
+				</li>
+			
+				<li>
+					
+						<a href="javascript:void(0);">입시 Q&amp;A</a>
+						<ul>
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/bbs/list.do?menuId=M0013000200000000">입시 Q&amp;A</a>
+											
+										</li>
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/bbs/list.do?menuId=M0013000300000000">자주묻는질문</a>
+											
+										</li>
+									
+							
+						</ul>
+					
+					
+				</li>
+			
+				<li>
+					
+					
+						
+						
+							<a href="/portal/ipsi/contents/contents_view.do?menuId=M0014000000000000">학과안내</a>
+						
+					
+				</li>
+			
+				<li>
+					
+						<a href="javascript:void(0);">대학생활안내</a>
+						<ul>
+							
+									
+										<li>
+											<a href="javascript:void(0);">장학제도</a>
+											<ul>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000600010000">교내</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000600020000">국가</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000600030000">교외</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000600040000">이중지원방지제도</a>
+														
+													</li>
+												
+											</ul>
+										</li>
+									
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000100000000">생활관</a>
+											
+										</li>
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015001300000000">통학버스이용안내</a>
+											
+										</li>
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/bbs/list.do?menuId=M0015000300000000">입시캘린더</a>
+											
+										</li>
+									
+							
+									
+										<li>
+											<a href="javascript:void(0);">학자금대출</a>
+											<ul>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000500010000">취업 후 상환,일반상환 학자금 대출</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000500020000">농촌출신대학생</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000500030000">기타</a>
+														
+													</li>
+												
+											</ul>
+										</li>
+									
+									
+							
+									
+										<li>
+											<a href="javascript:void(0);">대학홍보</a>
+											<ul>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/bbs/list.do?menuId=M0015001100010000">홍보동영상</a>
+														
+													</li>
+												
+													<li>
+														
+														
+															<a href="/portal/ipsi/bbs/list.do?menuId=M0015001100020000">대학소식지</a>
+														
+													</li>
+												
+											</ul>
+										</li>
+									
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/bbs/list.do?menuId=M0015000800000000">학사제도안내</a>
+											
+										</li>
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000900000000">캠퍼스안내</a>
+											
+										</li>
+									
+							
+									
+									
+										<li class="bg_none">
+											
+											
+												<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015001000000000">오시는길</a>
+											
+										</li>
+									
+							
+						</ul>
+					
+					
+				</li>
+			
+		</ul>
+	</div>
+</div>
+
+			
+			<div id="header">
+				
+
+
+
+
+
+	<div class="top_banner">
+		<div class="top_banner_inner">
+			<div class="rolling">
+				<ul></ul>
+			</div>
+			<div class="rl_control">
+				<ul></ul>
+			</div>
+			<div class="bn_close">
+				<label><input type="checkbox" id="chk_top_banner" title="1일간열지않기"><span>1일간 열지 않기</span></label>
+			</div>
+		</div>
+	</div>
+
+<!-- <div style="width:100%;border-bottom:1px solid #e5e5e5"></div>
+<div id="header_contents" style="display:none"></div> -->
+				
+					<div class="headerWrap">
+						
+
+
+
+
+<input type="hidden" id="topBannerGroupId" value="" />
+<input type="hidden" id="menuOpenYn" value="" />
+<input type="hidden" id="specificMenuYn" value="" />
+
+
+	<div class="top_util">
+		<div class="top_util_wrap">
+			<ul class="util">
+				
+				
+					<li><a href="/sso/index.do?referer=https://www.jbsc.ac.kr/portal/ipsi/main/main.do">LOGIN</a></li>
+				
+					
+				
+				<li><a href="/portal/ipsi/contents/contents_view.do?menuId=M0016000100000000">사이트맵</a></li>
+				<li><a href="/portal/representation/main/main.do" target="_blank" title="새창열림">전북과학대학교 홈페이지 바로가기</a></li>
+				<li class="popCtrl"><a href="javascript:void(0);" id="btn_topBanner" class="close">팝업존</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		<div class="gnbWrap">
+			<div class="gnb">
+				
+					<h1 class="logo">
+						<a href="/portal/ipsi/main/main.do"><img src="/link/2020/12/07/4f7d8b3f-62f7-41b8-a0ee-abb1d2282677.png" alt="전북과학대학교"></a>
+					</h1>
+				
+				
+				
+					<ul>
+						
+							<li>
+								
+									
+										
+										
+										
+											<a href="/portal/ipsi/bbs/list.do?menuId=M0012000000000000"><span>공지사항</span></a>
+										
+									
+									
+								
+								
+							</li>
+						
+							<li>
+								
+									
+										
+										
+										
+											<a href="/portal/ipsi/bbs/list.do?menuId=M0009000100070000"><span>신입학</span></a>
+										
+									
+									
+								
+								
+									
+										<div class="depth2_wrap">
+											<div class="depth2">
+												<div class="depth_head ">
+													<strong>신입학</strong>
+													<p>JEONBUK SCIENCE COLLEGE</p>
+												</div>
+												<ul>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001200010000"><span>제출서류</span></a>
+																	
+																
+																
+															
+															
+																<ul>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001200010000"><span>제출서류안내</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/bbs/list.do?menuId=M0009001200020000"><span>제출서류 자료실</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																</ul>
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000100020001"><span>모집요강</span></a>
+																	
+																
+																
+															
+															
+																<ul>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000100020001"><span>전형일정 및 모집학과</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000100030001"><span>접수방법</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000100040001"><span>지원자격</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000100050001"><span>전형방법</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000100060001"><span>동점자처리방법</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/bbs/list.do?menuId=M0009000100070000"><span>전체요강(다운로드)</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																</ul>
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000300000000"><span>성적반영방법</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001500010000"><span>신입생장학제도</span></a>
+																	
+																
+																
+															
+															
+																<ul>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001500010000"><span>기본장학금</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001500020000"><span>국가장학금</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																</ul>
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001000000000"><span>원서접수확인/수험표출력</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001100000000"><span>합격자발표 및 등록금고지서출력</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/bbs/list.do?menuId=M0009000800000000"><span>전년도입시결과</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000900000000"><span>등록금납부확인</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001400000000"><span>환불신청안내</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+												</ul>
+											</div>
+										</div>
+									
+									
+								
+							</li>
+						
+							<li>
+								
+									
+										
+										
+										
+											<a href="/portal/ipsi/bbs/list.do?menuId=M0147000100000000"><span>편입학안내</span></a>
+										
+									
+									
+								
+								
+									
+										<div class="depth2_wrap">
+											<div class="depth2">
+												<div class="depth_head ">
+													<strong>편입학안내</strong>
+													<p>JEONBUK SCIENCE COLLEGE</p>
+												</div>
+												<ul>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/bbs/list.do?menuId=M0147000100000000"><span>편입학안내</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/bbs/list.do?menuId=M0147000200000000"><span>제출자료실</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+												</ul>
+											</div>
+										</div>
+									
+									
+								
+							</li>
+						
+							<li>
+								
+									
+										
+										
+										
+											<a href="/portal/ipsi/contents/contents_view.do?menuId=M0011000000000000"><span>원서접수</span></a>
+										
+									
+									
+								
+								
+							</li>
+						
+							<li>
+								
+									
+										
+										
+										
+											<a href="/portal/ipsi/bbs/list.do?menuId=M0013000200000000"><span>입시 Q&amp;A</span></a>
+										
+									
+									
+								
+								
+									
+										<div class="depth2_wrap">
+											<div class="depth2">
+												<div class="depth_head ">
+													<strong>입시 Q&amp;A</strong>
+													<p>JEONBUK SCIENCE COLLEGE</p>
+												</div>
+												<ul>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/bbs/list.do?menuId=M0013000200000000"><span>입시 Q&amp;A</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/bbs/list.do?menuId=M0013000300000000"><span>자주묻는질문</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+												</ul>
+											</div>
+										</div>
+									
+									
+								
+							</li>
+						
+							<li>
+								
+									
+										
+										
+										
+											<a href="/portal/ipsi/contents/contents_view.do?menuId=M0014000000000000"><span>학과안내</span></a>
+										
+									
+									
+								
+								
+							</li>
+						
+							<li>
+								
+									
+										
+										
+										
+											<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000600010000"><span>대학생활안내</span></a>
+										
+									
+									
+								
+								
+									
+										<div class="depth2_wrap">
+											<div class="depth2">
+												<div class="depth_head ">
+													<strong>대학생활안내</strong>
+													<p>JEONBUK SCIENCE COLLEGE</p>
+												</div>
+												<ul>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000600010000"><span>장학제도</span></a>
+																	
+																
+																
+															
+															
+																<ul>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000600010000"><span>교내</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000600020000"><span>국가</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000600030000"><span>교외</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000600040000"><span>이중지원방지제도</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																</ul>
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000100000000"><span>생활관</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015001300000000"><span>통학버스이용안내</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/bbs/list.do?menuId=M0015000300000000"><span>입시캘린더</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000500010000"><span>학자금대출</span></a>
+																	
+																
+																
+															
+															
+																<ul>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000500010000"><span>취업 후 상환,일반상환 학자금 대출</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000500020000"><span>농촌출신대학생</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000500030000"><span>기타</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																</ul>
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/bbs/list.do?menuId=M0015001100010000"><span>대학홍보</span></a>
+																	
+																
+																
+															
+															
+																<ul>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/bbs/list.do?menuId=M0015001100010000"><span>홍보동영상</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																		<li>
+																			
+																				
+																					
+																					
+																					
+																						<a href="/portal/ipsi/bbs/list.do?menuId=M0015001100020000"><span>대학소식지</span></a>
+																					
+																				
+																				
+																			
+																		</li>
+																	
+																</ul>
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/bbs/list.do?menuId=M0015000800000000"><span>학사제도안내</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015000900000000"><span>캠퍼스안내</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+														<li>
+															
+																
+																	
+																	
+																	
+																		<a href="/portal/ipsi/contents/contents_view.do?menuId=M0015001000000000"><span>오시는길</span></a>
+																	
+																
+																
+															
+															
+														</li>
+													
+												</ul>
+											</div>
+										</div>
+									
+									
+								
+							</li>
+						
+					</ul>
+				
+				
+				
+				
+					<div class="header_util">
+						<span class="search"><a href="javascript:void(0);" id="btn_total_search_ipsi">통합검색</a></span> 
+						<span class="allmenu"><a href="/portal/ipsi/contents/contents_view.do?menuId=M0016000100000000">전체메뉴</a></span>
+					</div>
+					<span class="mb_search"><a href="javascript:void(0);">통합검색</a></span>
+					<span class="mb_allmenu"><a href="javascript:void(0);">전체메뉴</a></span>
+				
+			</div>
+			
+				<div class="totalSearchWrap">
+					<div class="searchBox">
+						<input type="text" title="통합검색" id="total_search_keyword" placeholder="검색어를 입력하세요.">
+						<a href="javascript:void(0);" id="btn_total" class="btn_search">검색</a> 
+						<a href="javascript:void(0);" id="btn_search_close" class="btn_close">닫기</a>
+					</div>
+				</div>
+			
+			
+		</div>
+	
+
+
+
+					</div>
+				
+				
+			</div>
+			<!-- //header -->
+			<!-- container -->
+			
+				<div id="right_menu" style="z-index:1000"><div class="sideMenu" style="top:45%;right:0">
+<div class="sideWrap">
+<h1>QUICK MENU</h1>
+
+<ul>
+	<li><a href="/portal/ipsi/bbs/list.do?menuId=M0009000100070000"><span class="quick_icon1">quick_icon1</span><span class="quickTit">모집요강</span></a></li>
+	<li><a href="/portal/ipsi/contents/contents_view.do?menuId=M0009000100030001"><span class="quick_icon4">quick_icon4</span><span class="quickTit">원서접수방법</span></a></li>
+	<li><a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001200010000"><span class="quick_icon3">quick_icon3</span><span class="quickTit">제출서류</span></a></li>
+	<li><a href="/portal/ipsi/contents/contents_view.do?menuId=M0009001500010000"><span class="quick_icon7">quick_icon7</span><span class="quickTit">신입생<br />
+	장학제도</span></a></li>
+	<li><a href="/portal/ipsi/bbs/list.do?menuId=M0009000800000000"><span class="quick_icon2">quick_icon2</span><span class="quickTit">입시결과</span></a></li>
+	<li><a href="/portal/ipsi/bbs/list.do?menuId=M0013000200000000"><span class="quick_icon9">quick_icon9</span><span class="quickTit">입시 Q&A</span></a></li>
+	<li><a href="/portal/ipsi/contents/contents_view.do?menuId=M0015001300000000"><span class="quick_icon8">quick_icon8</span><span class="quickTit">스쿨버스</span></a></li>
+	<li><a href="javascript:void(0);" onclick="window.open('https://portal.jbsc.ac.kr/adms/login.do','','width=800,height=700');"><span class="quick_icon5">quick_icon5</span><span class="quickTit">수험표 출력<br />
+	및 조회</span></a></li>
+	<li><!--<li><a href="javascript:void(0);" onclick="window.open('https://portal.jbsc.ac.kr/adms/loginPass.do','','width=800,height=850');"><span class="quick_icon6">quick_icon6</span><!--<span class="quickTit">합격자발표 및<br />
+	고지서출력</span></a></li><!--
+	<li><a href="javascript:void(0);" onclick="window.open('https://portal.jbsc.ac.kr/adms/login.do','','width=800,height=700');"><span class="quick_icon5">quick_icon5</span><span class="quickTit">수험표 출력<br />
+	및 조회</span></a></li>
+	<li><a href="javascript:void(0);"><span class="quick_icon6">quick_icon6</span><span class="quickTit">합격자발표 및<br />
+	고지서출력</span></a></li>
+//--></li>
+</ul>
+</div>
+</div>
+<span class="logo_thirty" style="position:fixed;bottom:1rem;right:1rem;margin-top:0;z-index:1000"><a href="javascript:void(0);">30주년</a></span></div>
+			
+			
+				<div id="main_container">
+					
+
+
+
+<div id="popup"></div>
+<div class="cnt_wrap"></div>
+				</div>
+			
+			
+			
+			<!-- footer -->
+			
+
+
+
+
+
+
+
+	<div id="footer_contents" style="display:none"></div>
+	<div id="footer">
+		<div class="ftTopWrap">
+			<div class="ftTop">
+				<ul>
+					
+						
+							
+							
+								<li><a href="/portal/representation/bbs/list.do?menuId=M0018001500000000"><strong>개인정보보호</strong></a></li>
+							
+						
+					
+						
+							
+							
+								<li><a href="/portal/ipsi/contents/contents_view.do?menuId=M0016000200000000"><strong>개인정보처리방침</strong></a></li>
+							
+						
+					
+						
+							
+							
+								<li><a href="/portal/ipsi/contents/contents_view.do?menuId=M0016000300000000"><strong>이메일무단수집거부안내</strong></a></li>
+							
+						
+					
+						
+							
+							
+								<li><a href="/portal/ipsi/contents/contents_view.do?menuId=M0016000400000000"><strong>뷰어다운로드</strong></a></li>
+							
+						
+					
+				</ul>
+			</div>
+		</div>
+		<div class="ftContWrap">
+			<div class="ftCont">
+				<h1 class="ftLogo">
+					<img src="/img/ipsi/common/ft_logo.png" alt="전북과학대학교">
+				</h1>
+				<div class="address_wrap">
+					<span class="address">
+						
+							· (우)56204 전북특별자치도 정읍시 정읍사로 509 전북과학대학교<br/>· TEL : 063-530-9112   · FAX : 063-537-0226   · E-MAIL : sjin0217@jbsc.ac.kr<br/><br/>COPYRIGHT(C) 2021 JEONBUK SCIENCE COLLEGE. ALL RIGHTS RESERVED.
+							
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+			<!-- //footer -->
+		</div>
+	</body>
+</html>

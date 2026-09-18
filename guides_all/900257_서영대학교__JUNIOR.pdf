@@ -1,0 +1,1206 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" >
+		<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <title>국제교육원</title>    
+        <meta name="keywords" content="국제교육원">
+		<meta name="description" content="국제교육원 홈페이지에 오신 것을 환영합니다. ">
+		
+		<link href="/css/com/common_v1.css" rel="stylesheet"><!-- 공통 -->
+		<link href="/css/com/webfont.css" rel="stylesheet"><!-- 공통 -->
+        <link href="/css/web/globalsy/layout.css" rel="stylesheet">
+        <link href="/css/web/globalsy/main.css" rel="stylesheet">
+		<link href="/css/web/globalsy/basic.css" rel="stylesheet">
+		<link href="/css/web/globalsy/con_com.css" rel="stylesheet">
+
+		
+		<meta property="og:title" content="국제교육원">
+		<meta property="og:url" content="https://www.seoyeong.ac.kr/globalsy/main.do">
+		<meta property="og:image" content="https://www.seoyeong.ac.kr/images/co/seoyeong.png">
+		<meta property="og:description" content="국제교육원 홈페이지에 오신 것을 환영합니다"/>
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="">
+		<meta name="twitter:url" content="https://www.seoyeong.ac.kr/globalsy/main.do">
+		<meta name="twitter:image" content="https://www.seoyeong.ac.kr/images/co/seoyeong.png">
+		<meta name="twitter:description" content="국제교육원 홈페이지에 오신 것을 환영합니다"/>
+		
+		<!-- 위젯을 위한 공통 사용 -->
+		<link href="/css/web/common/main.css" rel="stylesheet">
+        <link href="/css/com/jquery/jquery-ui.min.css" rel="stylesheet" />
+        <script type="text/javascript" src="/js/html5shiv.js"></script>
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="/js/jquery.bpopup.min.js"></script>
+        <script type="text/javascript" src="/js/common.js"></script>
+		<script type="text/javascript" src="/js/layout.js"></script>
+		<!-- //위젯을 위한 공통 사용 -->
+		
+		<!-- <script type="text/javascript" src="/js/template/00015/jquery.min.1.11.0.js"></script> -->
+		<script type="text/javascript" src="/js/template/00015/modernizr-2.6.2.min.js"></script>
+		<script type="text/javascript" src="/js/template/00015/html5shiv.js"></script>
+		<script type="text/javascript" src="/js/template/00015/common.js"></script>
+		<script type="text/javascript" src="/js/template/00015/common-scroll.js"></script>
+		<script type="text/javascript" src="/js/template/00015/slick.min.js"></script><!-- 메인 슬라이드 -->
+		<script type="text/javascript" src="/js/template/00015/jquery.cookie.js"></script>
+		<script type="text/javascript" src="/js/template/00015/main.js"></script>
+		<script type="text/javascript" src="/js/template/00015/aos.js"></script>
+	</head>
+    <body>
+    	<!-- 바로가기 -->
+        <div id="skipArea">
+            <a href="#gnb">메인메뉴 바로가기</a> 
+            <a href="#container">본문으로 바로가기</a>
+        </div>
+        <!-- //바로가기 -->
+        <div id="wrap">
+        	<div class="js_mobile_check"></div>
+        	
+        	<!-- header -->
+			
+
+
+ 
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	function goLoginPage(){
+		var form = document.loginPageForm;
+		form.submit();
+	}
+</script>
+
+<!-- 구글 번역 스크립트 -->
+<script>
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages: '', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+		}
+	
+	function translateLanguage(langCode) {
+	    // 1. 구글 Simple 위젯이 생성한 '진짜' 데이터 박스를 찾습니다.
+	    // 렌더링 방식에 따라 .goog-te-combo가 있거나, iframe 내부에 존재할 수 있습니다.
+	    var el = document.querySelector('.goog-te-combo');
+
+	    if (el) {
+	        // 2. 언어 값 세팅
+	        el.value = langCode;
+
+	        // 3. [핵심] 구글 엔진이 "클릭"으로 인식하도록 표준 HTMLEvents를 강제로 발사합니다.
+	        if (document.createEvent) {
+	            var event = document.createEvent('HTMLEvents');
+	            event.initEvent('change', true, true);
+	            el.dispatchEvent(event);
+	        } else {
+	            el.fireEvent('onchange'); // 구형 대응
+	        }
+	    } else {
+	        // 만약 el이 없다면, Simple 레이아웃 특성상 쿠키를 직접 꽂는게 가장 빠릅니다.
+	        // 클릭할 때마다 즉시 바뀌도록 쿠키 유효시간을 지우고 새로 세팅합니다.
+	        var domain = "." + location.hostname.replace(/^www\./, "");
+	        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + domain;
+	        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	        
+	        document.cookie = "googtrans=/ko/" + langCode + "; path=/";
+	        document.cookie = "googtrans=/ko/" + langCode + "; path=/; domain=" + location.hostname;
+	        
+	        // 쿠키 주입 후 바로 새로고침하여 즉시 반영 (가장 확실한 방법)
+	        location.reload();
+	    }
+	}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- //구글 번역 스크립트 -->
+
+<!-- 구글 번역 코드 -->
+<div class="gbSchlTrans">
+	<div id="google_translate_element" class="hid"></div>
+</div>
+<!-- //구글 번역 코드 -->
+
+<!-- <form name="loginPageForm" action="https://www.seoyeong.ac.kr/sso/index.jsp" method="POST"> -->
+<form name="loginPageForm" action="/syu/lo/login/loginPage.do" method="POST">
+	<input type="hidden" name="returnUrl" value="https://ci.seoyeong.ac.kr/globalsy/main.do" />
+</form>
+
+            <!-- header  -->
+              <div id="wrap">
+        <!-- header -->
+        <header id="header">
+            <div class="util">
+                <div class="inner">
+                    <div class="util_home"><a href="/syu/main.do"><i class="xi-home" aria-hidden="true"></i> <strong>서영대학교 첫화면 </strong> 바로가기</a></div>
+					<div class="logo_tit"><h2> 국제교육원 in Gwangju </h2></div>
+                    <div class="util_menu">
+                        <ul>
+                            <li class="login">
+                            
+                        
+                        <a href="/globalsy/lo/login/ssoBandiLogin.do" title="로그인"><i class="xi-user" aria-hidden="true"></i> <span>로그인</span></a></li>
+                        
+                        
+                        
+
+                            <li class="lang"> 
+								<!-- 
+                                <ul>
+                              	  <li><a href=""><i class="xi-globus" aria-hidden="true"></i> <span>한국어</span></a></li>
+                                    <li><a href="/globalsy_eng/main.do">ENGLISH</a></li>
+                                    <li><a href="/globalsy_chn/main.do">中國語</a></li>
+                                    <li><a href="/globalsy_vnm/main.do">Việt ngữ</a></li>
+                                    <li><a href="/globalsy_uzb/main.do">O'zbek tili</a></li>                                   
+                                </ul>
+								 -->
+								<ul>
+									<li>
+										<a href="javascript:void(0)" onclick="translateLanguage('ko')">
+											<img src="/images/web/globalsy/main/lang_ko.png" alt="대한민국 국기"><span class="sr-only"></span>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)" onclick="translateLanguage('en')">
+											<img src="/images/web/globalsy/main/lang_eng.png" alt="미국 국기"><span class="sr-only"></span>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)" onclick="translateLanguage('zh-CN')">
+											<img src="/images/web/globalsy/main/lang_cn.png" alt="중국 국기"><span class="sr-only"></span>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)" onclick="translateLanguage('vi')">
+											<img src="/images/web/globalsy/main/lang_vn.png" alt="베트남 국기"><span class="sr-only"></span>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)" onclick="translateLanguage('uz')">
+											<img src="/images/web/globalsy/main/lang_uz.png" alt="우즈베키스탄 국기"><span class="sr-only"></span>
+										</a>
+									</li>
+								</ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="headerWrap">
+                <h1 class="logo"><a href="/globalsy/main.do"><img src="/images/web/globalsy/layout/logo.png" alt="서영대학교"> <span>국제교육원 in Gwangju</span></a></h1>
+
+                <div id="nav">
+                    <div id="gnb">
+                        <div class="depth01">
+						<!--START-->
+							<ul>
+								<li><a href="#?mi=4197"  ><span>교육원 소개 </span></a>
+									<div class="depth02">
+									<div class="inner">
+									<div class="tit"><h2><em>교육원 소개 </em></h2></div>
+									<ul>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4198&cntntsId=604"  ><span>인사말</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4206&cntntsId=605"  ><span>조직 및 업무</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4207&cntntsId=606"  ><span>오시는 길</span></a>
+									</ul>
+									</div>
+									</div>
+								</li>
+								<li><a href="#?mi=4199"  ><span>1~2학년(D2-1)</span></a>
+									<div class="depth02">
+									<div class="inner">
+									<div class="tit"><h2><em>1~2학년(D2-1)</em></h2></div>
+									<ul>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4208&cntntsId=607"  ><span>입학안내</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4209&cntntsId=608"  ><span>학과소개</span></a>
+									<div class="depth03">
+									<ul>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4342&cntntsId=687"   class="depth"><span>실용한국어과</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4344&cntntsId=689"   class="depth"><span>글로벌실버복지과</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4343&cntntsId=688"   class="depth"><span>글로벌산업공학과</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4345&cntntsId=690"   class="depth"><span>AI미래자동차과</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4346&cntntsId=691"   class="depth"><span>뷰티미용과</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4788&cntntsId=937"   class="depth"><span>호텔조리제빵과</span></a>
+									</ul>
+									</div>
+									</li>
+									</ul>
+									</div>
+									</div>
+								</li>
+								<li><a href="#?mi=4786"  ><span>3~4학년(D2-2)</span></a>
+									<div class="depth02">
+									<div class="inner">
+									<div class="tit"><h2><em>3~4학년(D2-2)</em></h2></div>
+									<ul>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4793&cntntsId=940"  ><span>입학안내</span></a>
+										</li>
+										<li  ><a href="#?mi=4794"  ><span>학과소개</span></a>
+									<div class="depth03">
+									<ul>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4798&cntntsId=941"   class="depth"><span>AI미래자동차학과</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4802&cntntsId=944"   class="depth"><span>사회복지학과</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4806&cntntsId=947"   class="depth"><span>뷰티미용학과</span></a>
+									</ul>
+									</div>
+									</li>
+									</ul>
+									</div>
+									</div>
+								</li>
+								<li><a href="#?mi=4200"  ><span>한국어연수(D-4)</span></a>
+									<div class="depth02">
+									<div class="inner">
+									<div class="tit"><h2><em>한국어연수(D-4)</em></h2></div>
+									<ul>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4210&cntntsId=609"  ><span>입학안내</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4211&cntntsId=610"  ><span>정규과정안내</span></a>
+									</ul>
+									</div>
+									</div>
+								</li>
+								<li><a href="#?mi=4201"  ><span>생활 안내 </span></a>
+									<div class="depth02">
+									<div class="inner">
+									<div class="tit"><h2><em>생활 안내 </em></h2></div>
+									<ul>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4212&cntntsId=611"  ><span>비자 및 체류</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4215&cntntsId=614"  ><span>자주하는 질문(FAQ)</span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4213&cntntsId=612"  ><span>기숙사 안내 </span></a>
+										</li>
+										<li  ><a href="/globalsy/cm/cntnts/cntntsView.do?mi=4214&cntntsId=613"  ><span>대학생활</span></a>
+									</ul>
+									</div>
+									</div>
+								</li>
+								<li><a href="#?mi=4202"  ><span>커뮤니티</span></a>
+									<div class="depth02">
+									<div class="inner">
+									<div class="tit"><h2><em>커뮤니티</em></h2></div>
+									<ul>
+										<li  ><a href="/globalsy/na/ntt/selectNttList.do?mi=4203&bbsId=801"  ><span>공지사항</span></a>
+										</li>
+										<li  ><a href="/globalsy/na/ntt/selectNttList.do?mi=4204&bbsId=802"  ><span>포토갤러리</span></a>
+									</ul>
+									</div>
+									</div>
+								</li>
+							</ul>
+						<!--END-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 사이트맵 -->
+			    <a href="/globalsy/sitemap.do" class="fullmenu" id="fullmenuOpen"><i class="xi-bars" aria-hidden="true"></i><span class="hid">사이트맵</span></a>
+
+                <!-- moblie button-->
+                <a href="" class="mBtn mNav" id="mNavOpen"><span class="hid">모바일메뉴 열기</span><i class="xi-bars" aria-hidden="true"></i></a>
+                <!-- //moblie button-->
+            </div>
+
+            <!-- moblie NAV -->
+            <div id="mNav">
+                <h4>전체메뉴</h4> 
+                <nav id="mgnb"></nav>
+                <p><a href="" id="mNavClose"><span class="hid">모바일 메뉴 닫기</span><i class="xi-close" aria-hidden="true"></i></a></p>
+            </div>
+            <!-- //moblie NAV-->
+        </header>
+	
+            <!-- //header  --> 
+
+
+   
+            <!-- //header  -->
+            
+            <!-- container -->
+            <div id=""> 
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+<script>
+	
+$(document).ready(function(){
+	
+	
+	
+});
+	
+</script>	
+	
+
+
+
+
+
+
+ 
+
+				
+				<div class="MC_wrap1"> 
+					
+						
+						
+					
+
+
+
+
+
+
+
+
+
+	
+	
+	
+		
+	
+
+
+					<div id="widgDiv1" class="widgDiv MC_box1"  data-id="1" data-seq="14591" data-widgSn="94">
+						
+							
+								
+							
+
+
+
+
+
+
+
+<!-- 다건 -->
+
+
+<!-- 단건 -->
+
+
+<!-- 팝업 -->
+
+
+<!-- 단건 게시판 게시물 -->
+
+
+
+
+
+
+	
+	
+		 <!-- 메인비주얼 -->
+                <div class="MVisual visual">
+                    <div class="slider" id="visualSlide">
+                    
+                        <div class="item">
+                            <p class="img"><img src="/upload/globalsy/tm/widg/img_03495342-8550-4ae8-8247-2e194dda02c11708934623917.png" alt="SEOYEONG UNIVERSITY" onError="this.src='/images/template/00015/main/M_visual02.png';"></p>
+                            <div class="slogan">
+                                <span>SEOYEONG UNIVERSITY</span>
+                                <p class="txt">국제교육원<strong></strong></p>
+                            </div>
+                        </div>
+                        
+                        <div class="item">
+                            <p class="img"><img src="/upload/globalsy/tm/widg/img_27e157f4-7017-4102-9a7b-2f7b9e792d201708405601588.png" alt="SEOYEONG UNIVERSITY" onError="this.src='/images/template/00015/main/M_visual02.png';"></p>
+                            <div class="slogan">
+                                <span>SEOYEONG UNIVERSITY</span>
+                                <p class="txt">국제교육원<strong></strong></p>
+                            </div>
+                        </div>
+                        
+                        <div class="item">
+                            <p class="img"><img src="/upload/globalsy/tm/widg/img_af7fc280-cee2-4517-a26b-d987daeb19c31708405594622.png" alt="SEOYEONG UNIVERSITY" onError="this.src='/images/template/00015/main/M_visual02.png';"></p>
+                            <div class="slogan">
+                                <span>SEOYEONG UNIVERSITY</span>
+                                <p class="txt">국제교육원<strong></strong></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="control">
+                        <a href="" class="stop"><span class="hid">비주얼 정지</span><i class="xi-pause" aria-hidden="true"></i></a>
+                        <a href="" class="play"><span class="hid">비주얼 재생</span><i class="xi-play" aria-hidden="true"></i></a>
+                        <p class="page"><strong></strong><span></span></p>
+                        <div class="progressbar"><p class=""></p></div>
+                    </div>
+
+					<div class="link_more">                       
+						
+								 
+									<a href="https://youtu.be/ih4whWjAV90"  target='_blank'><i class="xi-youtube-play" aria-hidden="true"></i>                                                                  
+									<p class="txt">서영대&nbsp&nbsp소개</p>
+								
+								
+								
+								                              
+								                    
+								
+								
+								
+								                              
+								
+                      	 
+                        </a>
+                    </div>
+                    <div class="link_more info">
+                        
+                             
+                                <a href="/upload/download/globalsy/D2/D2_kor_kj.pdf" target="_blank"><i class="xi-file-text-o" aria-hidden="true"></i><p class="txt">대학생활안내</p> </a>
+                            
+                            
+                        
+                    </div>
+					<div class="link_more kr_ico">
+						 
+                                   
+									<a href="/upload/download/globalsy/D2/iphak_2027.pdf" target="_blank"><i class="xi-file-text-o" aria-hidden="true"></i>                                                               
+                                    <p class="txt">모집요강</p>
+                                  
+                                  
+                                  
+                                   
+				                 
+								   
+                                  
+                                  
+                                                                
+                                  
+                      	 
+                        </a>
+						</div>
+                        <!-- <div class="link_more lang_ico">
+                            
+                                 
+                                	<a href="/upload/download/globalsy/D2/D2_course_kor.pdf" target="_blank"><i class="xi-book-o" aria-hidden="true"></i>                                                               
+                                    <p class="txt">리플릿(D-2)</p></a>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                                              
+                                
+                                                                                      
+                        </div> -->
+                        <!-- <div class="link_more ytube_ico"> -->
+                        <div class="link_more lang_ico">
+                            <a href="https://youtu.be/o7CgPnMtheI" target="_blank"><i class="xi-youtube-play" aria-hidden="true"></i>
+                                
+                                    
+                                        <p class="txt">외국인유학생 페스티벌</p>
+                                    
+                                    
+                                
+                            </a>
+                        </div>
+                </div>
+                <!-- //메인비주얼 -->
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						
+					</div>				
+					<div class="MC_wrap1 container">
+						
+							
+							
+						
+
+
+
+
+
+
+
+
+
+	
+	
+	
+		
+	
+
+
+					<div id="widgDiv2" class="widgDiv MC_box2"  data-id="2" data-seq="14594" data-widgSn="95">
+						
+							
+								
+							
+
+
+
+
+
+
+
+<!-- 다건 -->
+
+
+<!-- 단건 -->
+
+
+<!-- 팝업 -->
+
+
+<!-- 단건 게시판 게시물 -->
+
+
+
+
+
+
+	
+
+	<!-- 바로가기 -->
+                    <div class="Mlink">                   
+                        <ul>        
+                                      
+                            <li>                        
+                                <a href="/globalsy/cm/cntnts/cntntsView.do?mi=4208&cntntsId=607" target="_blank" >
+                                    <p class="tit"><span>1~2학년(전문학사)  D2-1</span></p>
+                                    <p class="img"><img src="" alt="" onError="this.src='/images/template/00015/main/link_img01.png';"></p>
+                                    <p class="txt">학위 취득을 위한 다양한 교과 과정을 소개합니다.</p>
+                                </a>                               
+                            </li> 
+                                          
+                            <li>                        
+                                <a href="/globalsy/cm/cntnts/cntntsView.do?mi=4793&cntntsId=940" target="_blank" >
+                                    <p class="tit"><span>3~4학년(전공심화) D2-2</span></p>
+                                    <p class="img"><img src="" alt="" onError="this.src='/images/template/00015/main/link_img02.png';"></p>
+                                    <p class="txt">학위 취득을 위한 다양한 교과 과정을 소개합니다.</p>
+                                </a>                               
+                            </li> 
+                                          
+                            <li>                        
+                                <a href="/globalsy/cm/cntnts/cntntsView.do?mi=4210&cntntsId=609" target="_blank" >
+                                    <p class="tit"><span>한국어연수 (D-4)</span></p>
+                                    <p class="img"><img src="" alt="" onError="this.src='/images/template/00015/main/link_img03.png';"></p>
+                                    <p class="txt">한국어와 한국문화의 다양한 프로그램을 소개합니다.</p>
+                                </a>                               
+                            </li> 
+                                          
+                            <li>                        
+                                <a href="/globalsy/cm/cntnts/cntntsView.do?mi=4212&cntntsId=611" target="_blank" >
+                                    <p class="tit"><span>비자 및 체류</span></p>
+                                    <p class="img"><img src="" alt="" onError="this.src='/images/template/00015/main/link_img04.png';"></p>
+                                    <p class="txt">대한민국 입국과 체류에 필요한 내용을 안내합니다.</p>
+                                </a>                               
+                            </li> 
+                                          
+                            <li>                        
+                                <a href="/globalsy/na/ntt/selectNttList.do?mi=4203&bbsId=801" target="_blank" >
+                                    <p class="tit"><span>커뮤니티</span></p>
+                                    <p class="img"><img src="/upload/tm/widgIcon/img_2eec82e5-2e88-415f-b334-0c630c10799e1789453721726.png" alt="" onError="this.src='/images/template/00015/main/link_img05.png';"></p>
+                                    <p class="txt">서영대학교의 새로운 정보 및 소식을 공유합니다.</p>
+                                </a>                               
+                            </li> 
+                                                 
+                        </ul>                       
+                    </div>
+                    <!-- //바로가기 -->
+	
+
+
+
+
+
+
+
+
+
+
+
+						
+					</div>					
+					</div>			
+				</div>			
+				<div class="MC_wrap2">
+					<div class ="container">
+						
+							
+							
+						
+
+
+
+
+
+
+
+
+
+	
+	
+	
+		
+	
+
+
+					<div id="widgDiv3" class="widgDiv MC_box3"  data-id="3" data-seq="14590" data-widgSn="96">
+						
+							
+								
+							
+
+
+
+
+
+
+
+<!-- 다건 -->
+
+
+<!-- 단건 -->
+
+
+<!-- 팝업 -->
+
+
+<!-- 단건 게시판 게시물 -->
+
+
+
+
+
+
+	
+	
+		<!-- 미디어 -->
+ <div class="gallery">
+                        <div class="tit_wrap">
+                            <p class="tit"><span class="point">MEDIA</span>SEOYEONG</p>
+                            <a href="/globalsy/na/ntt/selectNttList.do?mi=4204&bbsId=802" class="btn_more">VIEW MORE <i class="xi-plus-min" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="slider" id="gallerySlide">
+                        	
+                            <div class="item">
+                                <a href="/globalsy/na/ntt/selectNttInfo.do?nttSn=130127&mi=4204">
+                                    <p class="img">
+                                   	
+						
+						<img src="/upload/globalsy/na/bbs_802/ntt_130127/img_47e7606b-031b-4048-9800-ecc14172dbb31789024806400.jpg" alt="지역특화형 우수인재비자(F-2-R) 외국인유학생 설명회 참석" onError="this.src='/images/co/na/no_img_ntt.png';">
+						
+					  
+                                   	</p>
+                                    <p class="txt">지역특화형 우수인재비자(F-2-R) 외국인유학생 설명회 참석</p>
+                                </a>
+                            </div>
+                            
+                            <div class="item">
+                                <a href="/globalsy/na/ntt/selectNttInfo.do?nttSn=129756&mi=4204">
+                                    <p class="img">
+                                   	
+						
+						<img src="/upload/globalsy/na/bbs_802/ntt_129756/img_e09e3e74-0431-4adc-8a91-26f48f3b52191785991549166.jpg" alt="서영대학교 국제교육원, 외국인유학생 &apos;아이스크림데이&apos; 행사 개최" onError="this.src='/images/co/na/no_img_ntt.png';">
+						
+					  
+                                   	</p>
+                                    <p class="txt">서영대학교 국제교육원, 외국인유학생 &apos;아이스크림데이&apos; 행사 개최</p>
+                                </a>
+                            </div>
+                            
+                            <div class="item">
+                                <a href="/globalsy/na/ntt/selectNttInfo.do?nttSn=129419&mi=4204">
+                                    <p class="img">
+                                   	
+						
+						<img src="/upload/globalsypj/na/bbs_802/ntt_129419/img_f2042e14-7f46-4415-83b3-1eb0e2743a1b1781680362210.jpg" alt="서영대학교, 외국인유학생 「글로벌 K-문화공연 체험」 개최" onError="this.src='/images/co/na/no_img_ntt.png';">
+						
+					  
+                                   	</p>
+                                    <p class="txt">서영대학교, 외국인유학생 「글로벌 K-문화공연 체험」 개최</p>
+                                </a>
+                            </div>
+                            
+                            <div class="item">
+                                <a href="/globalsy/na/ntt/selectNttInfo.do?nttSn=128808&mi=4204">
+                                    <p class="img">
+                                   	
+						
+						<img src="/upload/globalsy/na/bbs_802/ntt_128808/img_96d234ad-94c5-4d0c-9a9f-5d4d9bb9b1811775702362356.jpg" alt="서영대, 뷰티미용과 외국인 유학생 국제대회 전원 수상 쾌거" onError="this.src='/images/co/na/no_img_ntt.png';">
+						
+					  
+                                   	</p>
+                                    <p class="txt">서영대, 뷰티미용과 외국인 유학생 국제대회 전원 수상 쾌거</p>
+                                </a>
+                            </div>
+                            
+
+					</div>
+                        <div class="control">
+							<a href="" class="stop"><span class="hid">미디어 정지</span><i class="xi-pause" aria-hidden="true"></i></a>
+							<a href="" class="play"><span class="hid">미디어 재생</span><i class="xi-play" aria-hidden="true"></i></a>
+							<a href="" class="prev"><span class="hid">미디어 이전</span><i class="xi-angle-left" aria-hidden="true"></i></a>
+							<a href="" class="next"><span class="hid">미디어 다음</span><i class="xi-angle-right" aria-hidden="true"></i></a>
+						</div>
+						</div>
+                    <!-- //미디어 -->
+
+
+
+
+
+
+
+
+
+
+						
+					</div>
+					</div>
+				</div>
+				<div class="MC_wrap3 ">				
+					<div class ="container">
+						
+							
+							
+						
+
+
+
+
+
+
+
+
+
+	
+	
+	
+		
+	
+
+
+					<div id="widgDiv4" class="widgDiv MC_box4"  data-id="4" data-seq="14592" data-widgSn="97">
+						
+							
+								
+							
+
+
+
+
+
+
+
+<!-- 다건 -->
+
+
+<!-- 단건 -->
+
+
+<!-- 팝업 -->
+
+
+<!-- 단건 게시판 게시물 -->
+
+
+
+
+
+	
+	
+	
+	
+	<div class="wrap3_deco">
+                    <img src="/images/template/00015/main/wrap3_deco.png" alt="">
+                    <img src="/images/template/00015/main/wrap3_deco.png" alt="">
+                    <img src="/images/template/00015/main/wrap3_deco.png" alt="">
+                </div>
+
+		    <!-- 공지사항 -->
+                    <div class="notice">
+                        <div class="tit_wrap">
+                            <p class="tit">NOTICE</p>
+                            <a href="/globalsy/na/ntt/selectNttList.do?mi=4203&bbsId=801" class="btn_more">VIEW MORE <i class="xi-plus-min" aria-hidden="true"></i></a>
+                        </div>
+                        <ul>
+                         
+                            <li > <!-- 새글 class="new"추가 -->
+                                <a href="/globalsy/na/ntt/selectNttInfo.do?nttSn=130129&mi=4203">                               
+                               2027학년도 3월학기 학위과정(순수외국인 특별전형) 모집일정 안내
+                               <span class="date">2026.09.10</span>
+                               </a>
+                            </li>
+                            
+                            <li > <!-- 새글 class="new"추가 -->
+                                <a href="/globalsy/na/ntt/selectNttInfo.do?nttSn=128753&mi=4203">                               
+                               2026학년도 9월학기 학위과정(순수외국인 특별전형) 모집일정 안내
+                               <span class="date">2026.04.02</span>
+                               </a>
+                            </li>
+                            
+                            <li > <!-- 새글 class="new"추가 -->
+                                <a href="/globalsy/na/ntt/selectNttInfo.do?nttSn=128151&mi=4203">                               
+                               서영학보 외국인 유학생 특집호_SYUNews_2026_1월호
+                               <span class="date">2026.02.09</span>
+                               </a>
+                            </li>
+                            
+                            <li > <!-- 새글 class="new"추가 -->
+                                <a href="/globalsy/na/ntt/selectNttInfo.do?nttSn=127247&mi=4203">                               
+                               서영대학교 외국인 입학안내 자료
+                               <span class="date">2025.10.24</span>
+                               </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <!-- //공지사항 -->
+	
+	
+
+
+
+
+
+
+
+
+
+						
+					</div>
+						
+							
+							
+						
+
+
+
+
+
+
+
+
+
+	
+	
+	
+		
+	
+
+
+					<div id="widgDiv5" class="widgDiv MC_box5"  data-id="5" data-seq="14593" data-widgSn="98">
+						
+							
+								
+							
+
+
+
+
+
+
+
+<!-- 다건 -->
+
+
+<!-- 단건 -->
+
+
+<!-- 팝업 -->
+
+
+<!-- 단건 게시판 게시물 -->
+
+
+
+
+
+
+	
+	
+			 <!-- sns -->
+				<div class="Msns">					
+                        <div class="tit_wrap">
+                      <p class="tit">
+                     			 
+                                                                                                       
+                                  	  소통해요
+                                  	  <span class="point">SNS</span></p>
+                                    
+                                    
+                                    
+                      
+                        </div>
+                        <ul>
+                            <li class="faceb">
+                                <a href="https://www.facebook.com/profile.php?id=61555730585808" target='_blank'>
+                                    <p class="icon"><img src="/images/template/00015/main/sns_icon_1.png" alt=""></p>
+                                    
+                                                                                                       
+                                    <p class="txt">페이스북</p>
+                                    
+                                    
+                                    
+                                </a>
+                            </li>
+                            <li class="insta">
+                                <a href="https://www.instagram.com/globalseoyeong/" target='_blank'>
+                                    <p class="icon"><img src="/images/template/00015/main/sns_icon_2.png" alt=""></p>
+                                    
+                                                                                                       
+                                    <p class="txt">인스타그램</p>
+                                    
+                                    
+                                    
+                                </a>
+                            </li>
+                            <li class="kako">
+                                <a href="http://pf.kakao.com/_mrwrG/chat" target='_blank'>
+                                    <p class="icon"><img src="/images/template/00015/main/sns_icon_3.png" alt=""></p>
+                                    
+                                                                                                       
+                                    <p class="txt">카카오톡  채널</p>
+                                    
+                                    
+                                    
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                <!-- //sns -->
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						
+					</div>
+					</div>
+				</div>
+            
+
+
+
+
+
+
+
+
+            
+
+	
+	
+				<!-- 팝업리스트 -->
+				
+				<!-- /팝업리스트 -->
+	
+
+				            
+
+
+
+ 
+				            
+
+
+
+
+   
+			</div>
+            <!-- //container -->
+            
+            <!-- footer -->
+            
+
+
+
+					<footer id="footer">
+            <div class="container">
+                <ul class="footer_link">
+                    <li><a href="/syu/cm/cntnts/cntntsView.do?mi=2332&cntntsId=84" target="_blank" title="새창" class="point">개인정보처리방침</a></li>
+                    <li><a href="/syu/cm/cntnts/cntntsView.do?mi=2333&cntntsId=85" target="_blank" title="새창">이메일무단수집거부</a></li>
+                </ul>
+
+                <!--<div class="siteLink">
+                    <div class="wrap">
+                        <button type="button">패밀리사이트 <i class="xi-angle-up" aria-hidden="true"></i></button>
+                        <div class="lst">
+                            <ul>
+                                <li><a href="http://seokang.hs.kr" target="_blank" title="새창">서강고등학교</a></li>
+								<li><a href="http://www.seokang.ms.kr/" target="_blank" title="새창">서강중학교</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/kg/main.do" target="_blank" title="새창">서영유치원</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="wrap">
+                        <button type="button">부속기관홈페이지 <i class="xi-angle-up" aria-hidden="true"></i></button>
+                        <div class="lst">
+                            <ul>
+                                <li><a href="https://www.seoyeong.ac.kr/art/main.do" target="_blank" title="새창">문화예술관</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/bs/main.do" target="_blank" title="새창">방송국</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/counsel/main.do" target="_blank" title="새창">인권상담센터</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/ctl/main.do" target="_blank" title="새창">교수학습지원센터</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/dnac/main.do" target="_blank" title="새창">장애학생지원센터</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/emec/main.do" target="_blank" title="새창">응급의료교육센터</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/syu/cm/cntnts/cntntsView.do?mi=2324&cntntsId=79" target="_blank" title="새창">기숙사</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/icc/main.do" target="_blank" title="새창">정보전산센터</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/iec/main.do" target="_blank" title="새창">국제교류센터</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/news/main.do" target="_blank" title="새창">학보사</a></li>
+								<li><a href="http://orion2.seoyeong.ac.kr/" target="_blank" title="새창">도서관</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/pjiec/main.do" target="_blank" title="새창">국제교류협력센터</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/pjlife/main.do" target="_blank" title="새창">미래평생교육원</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/life/main.do" target="_blank" title="새창">평생교육원</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/rdi/main.do" target="_blank" title="새창">지역발전연구소</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/sanhak/main.do" target="_blank" title="새창">산학협력단</a></li>
+								<li><a href="https://www.seoyeong.ac.kr/jtc/main.do" target="_blank" title="새창">공동훈련센터</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>-->
+
+                 <ul class="info_link">
+					<li><strong>광주캠퍼스 <i class="xi-home" aria-hidden="true"></i></strong> 
+						전남광주통합특별시 북구 서강로 1 (우) 61268&nbsp;&nbsp;&nbsp;
+						<i class="xi-call" aria-hidden="true"></i>Tel. 062-520-5145
+					</li>
+                    <li><strong>파주캠퍼스 <i class="xi-home" aria-hidden="true"></i></strong> 
+						경기도 파주시 월롱면 서영로 170 (우) 10843&nbsp;&nbsp;&nbsp;
+						<i class="xi-call" aria-hidden="true"></i>Tel. 031-930-9640
+					</li>
+                </ul>
+
+                <p class="copyright">Copyright ⓒ 2024 Seoyeong University All Rights Reserved.</p>
+            </div>
+        </footer>
+		
+
+
+
+ 
+<script>
+var isLogin = '';
+$(document).ready(function() {
+    $.ajax({
+    	type: 'GET',
+        url:'https://sysso.seoyeong.ac.kr/api/sso/login/check',
+        xhrFields: {
+            withCredentials: true
+        },
+        cache: false,
+        dataType: 'json',
+        crossDomain: true,
+        success:function(data){
+			var valid = data.dataMap.valid;
+			if(valid == true){
+				if(isLogin != 'true'){
+					location.href= '/globalsy/lo/login/ssoBandiLogin.do';
+				}else if(!isLogin){
+					location.href= '/globalsy/lo/login/ssoBandiLogin.do';
+				}else{
+				}
+			}else{
+				if(isLogin == 'true'){
+					location.href= '/globalsy/sso/logout.do';
+				}
+			}
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            console.log(jqXHR,textStatus,errorThrown);
+        }
+    });
+});
+</script>
+
+
+
+   
+            <!-- // footer -->
+            
+        </div>
+        <script type="text/javascript" src="/js/common-scroll.js"></script>
+        <script type="text/javascript" src="/js/common.js"></script>
+    </body>
+</html>
+
+
+

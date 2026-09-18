@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+	<title>광운대학교 글로벌전략팀</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="referrer" content="strict-origin-when-cross-origin" />
+	<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' maxcdn.bootstrapcdn.com 'unsafe-inline'; img-src *; "> -->
+	<meta http-equiv="Expires" content="-1">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="keywords" content="광운대학교, 글로벌전략팀, 광운대학교 글로벌전략팀">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" type="text/css" href="/LIB/CSS/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="/LIB/CSS/common.css?ver=3">
+	<link rel="stylesheet" type="text/css" href="/LIB/CSS/main.css?ver=240906">
+	<link rel="stylesheet" type="text/css" href="/LIB/CSS/sub.css?ver=6">
+	<link rel="stylesheet" href="/LIB/CSS/jquery.bxslider.css">
+	<link rel="stylesheet" type="text/css" href="/LIB/CSS/font.css">
+	<link rel="stylesheet" type="text/css" href="/LIB/CSS/board.css">
+
+	<script src="/LIB/JS/jquery-3.1.1.min.js"></script>
+	<script src="/LIB/JS/menu.js"></script>
+	<script src="/LIB/JS/jquery.bxslider.js"></script>
+
+	<!--favicon-->
+	<link rel="shortcut icon" href="/img/favicon.ico">
+	<link rel="icon" href="/img/favicon.ico">
+	
+
+	<script type="text/javascript" src="/LIB/JS/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="/LIB/JS/kit.js"></script>
+	<script type="text/javascript" src="/LIB/JS/layout.js"></script>
+	<script type="text/javascript" src="/LIB/JS/sub.js"></script>
+	<script type="text/javascript" src="/LIB/JS/swiper.min.js"></script>
+
+	<script src="/LIB/JS/common.js"></script>
+
+
+</head>
+<body>
+
+<script type="text/javascript" nonce= >
+	$(document).ready(function() {		
+		$('.ul_tab a').click(function() {
+			$('.ul_tab a').removeClass('on');
+			$(this).addClass('on');
+			var idx = ($(this).parent().index()) ;
+			$('.lv').hide();
+			$('.lv:eq(' + idx + ')').show();
+			//resizeHeight();
+		});
+	});
+</script>
+
+
+<div class="header"><!-- //header -->
+	<div class="headTop"><!-- //headTop -->
+		<div class="inner">
+			<div class="hLeft floatL">
+				<a href="/">HOME</a>
+				<a href="https://www.kw.ac.kr/ko/index.jsp" target="_blank">KwangWoon</a>
+			</div>
+			<div class="hRight floatR">
+				<!-- <select id="lang">
+					<option value="">LANGUAGE</option>
+					<option value="https://oia.kw.ac.kr/">Korean</option>
+					<option value="https://oiaeng.kw.ac.kr/">English</option>
+					<option value="https://oiacn.kw.ac.kr/">Chinese</option>
+					<option value="https://oiavn.kw.ac.kr/">Vietnames</option>
+				</select> -->
+				<div class="hIco">
+					<a href="https://www.facebook.com/Kwangwoonuniversity" target="_blank"><img src="/img/ico_facebook.png" alt="페이스북"></a>
+					<a href="https://www.instagram.com/kwangwoon_univ_official/" target="_blank"><img src="/img/ico_insta.png" alt="인스타그램"></a>
+					<a href="https://www.youtube.com/channel/UC0M-8Ruuz1YJD7-z9mv92_g" target="_blank"><img src="/img/ico_youtube.png" alt="유튜브"></a>
+					<a href="/reference/search.php" class="search_icon">
+						<img src="/img/ico_search.png" alt="검색 버튼">
+						<!-- <div class="search_box">
+							<form method="post" action="/reference/search.php" role="search">
+								<input type="search" name="q" aria-label="검색" id="search">
+								<button type="submit" id="search_click"></button>
+							</form>
+						</div> -->
+					</a>
+					
+					<!-- 구글번역기 -->
+					<div id="google_translate_element_p"></div>
+					<script type="text/javascript" nonce= >
+					function googleTranslateElementInit() {
+						new google.translate.TranslateElement({
+							pageLanguage: 'en', //기본 언어설정
+							layout:google.translate.TranslateElement.InlineLayout.SIMPLE, 
+							includedLanguages: 'en,ko,zh-CN,ja,vi,ru', //제공할 언어
+							multilanguagePage: true
+						}, 'google_translate_element_p');
+					}
+
+					//$(document).ready(function() {
+						//$('.search_icon img').click(function() {
+							//$('.search_box').toggle(); // search_box를 토글로 보이게/숨기게 처리
+						//});
+					//});
+					</script>
+				</div>
+			</div>
+		</div>
+	</div><!-- headTop// -->
+	<div class="headMid"><!-- //headMid -->
+		<div class="inner">
+			<h1 class="logo">
+				<a href="/" class="clearfix">
+					<img src="/img/mainLogo2.png" alt="광운대 글로벌전략팀">
+				</a>
+			</h1>
+		</div>
+	</div><!-- headMid// -->
+	<div class="headBottom"><!-- //headBottom -->
+		<div class="inner">
+			<ul class="depMenu">
+				<li class="depth"><a href="#">About Us</a></li>
+				<li class="depth"><a href="#">Global Exchange</a></li>
+				<li class="depth"><a href="#">Admission</a></li>
+				<li class="depth"><a href="#">Student Life</a></li>
+				<li class="depth"><a href="/campus/FAQ.php">FAQ</a></li>
+				<li class="depth"><a href="#">More Info</a></li>
+				<li class="depth"><a href="#">Career</a></li>
+			</ul>
+		</div>
+	</div><!-- headBottom// -->
+	<div class="headDep"><!-- //headDep -->
+		<div class="inner">
+			<ul>	
+				<li class="topMenu">
+					<a href="#">About Us</a>
+					<ul>
+						<li><a href="/guide/greeting.php">Greetings from the Director</a></li> 
+						<li><a href="/guide/guide.php">Office Guide/Information</a></li> 
+						<li><a href="/guide/focus.php">Trending</a></li> 
+						<li><a href="/guide/road.php">Location & Hours</a></li> 	
+					</ul>
+				</li>		
+				<li class="topMenu">
+					<a href="#">Global Exchange</a>
+					<ul>					
+						<li><a href="/exchange/agreement.php">Affiliated Overseas Universities</a></li> 
+						<li><a href="/exchange/outbound.php">Outbound</a></li>
+						<li><a href="/exchange/community.php">Community</a></li> 
+						<li><a href="/exchange/ISEP&SAF.php">ISEP & SAF</a></li>
+						<li><a href="/exchange/selfTraining.php">Fee-paying Exchange Program</a></li> 
+						<li><a href="/exchange/inbound.php">Inbound</a></li>
+					</ul>
+				</li>	
+				<li class="topMenu">
+					<a href="#">Admission</a>
+					<ul>  						
+						<!-- <li><a href="/admission/department.php">학과소개</a></li> -->
+						<li><a href="https://www.kw.ac.kr/ko/univ/glance.jsp" target="_blank">Department Introduction</a></li>
+						<li><a href="/admission/KRcourse.php">Korean Language Course</a></li>
+						<li><a href="/admission/faculty.php">Undergraduate Course</a></li>
+						<li><a href="/admission/graduate.php">Graduate Course</a></li>
+					</ul>
+				</li>	
+				<li class="topMenu">
+					<a href="#">Student Life</a>
+					<ul>  						
+						<li><a href="/campus/notice.php">Announcement</a></li> 	     				
+						<li><a href="/campus/bachelor.php">Academic Information</a></li> 	     
+						<li><a href="/campus/klas.php">Student Registration</a></li>
+						<li><a href="/campus/program.php">Foreign Student Programs</a></li> 	     
+						<li><a href="/campus/meeting.php">International Student Association</a></li>
+						<li><a href="/campus/KIF.php">KIF</a></li> 	     
+						<li><a href="/campus/scholarship.php">Scholarship Information</a></li>
+						<li><a href="/campus/visa.php">Visa Information</a></li> 	     
+						<li><a href="/campus/insurance.php"> Insurance Information</a></li>
+						<li><a href="/campus/dormitory.php">Dormitory</a></li> 	     
+						<li><a href="/campus/work.php">Employment/Career</a></li>
+						<!--<li><a href="/campus/FAQ.php">FAQ</a></li>-->
+						<li><a href="/campus/Q&A.php">Q&A</a></li>
+						<li><a href="/reference/gallery.php">Gallery</a></li>
+					</ul>
+				</li>
+				<li class="topMenu">
+					<a href="#">FAQ</a>
+					<ul>  						
+						<li><a href="/campus/FAQ.php" target="_blank">FAQ</a></li> 	     				
+					</ul>
+				</li>
+				<li class="topMenu">
+					<a href="#">More Info</a>
+					<ul>  						
+						<li><a href="/reference/brochure.php">Brochure</a></li> 	     				
+						<li><a href="/reference/form.php">Various forms</a></li>
+						<li><a href="/reference/relatedSites.php">Related Sites</a></li>
+					</ul>
+				</li>
+				<li class="topMenu">
+					<a href="#">Career</a>
+					<ul>  						
+						<li><a href="https://komate.saramin.co.kr/" target="_blank">job posting</a></li> 	     				
+						<li><a href="/career/interview.php">Alumni Interview Relay</a></li> 	     				
+					</ul>
+				</li>
+			</ul>
+			<a href="javascript:;" class="btnClose">메뉴닫기</a>
+		</div>
+	</div><!-- headDep// -->
+</div><!-- header// -->
+<!--
+<script type="text/javascript" nonce= >
+document.getElementById( 'lang' ).addEventListener( 'change', function() {
+	var selectedValue = this.value;
+	if ( selectedValue ) {
+		window.open( selectedValue );
+	}
+});
+</script>
+-->
+<!-- 
+hl=en: Google ���� �������̽��� �� ����� ����.
+sl=auto: ���� �� �ڵ����� ����.
+tl=en: ������ �� ����� ����.
+-->
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?hl=en&sl=auto&tl=en&cb=googleTranslateElementInit" nonce= ></script><div class="sub_visual_wrap ei03">
+	<h2>Admission</h2>
+</div>
+<div class="">
+	<div id="nav_header_fix">
+		<nav>
+			<ul>
+				
+				<li class="first">
+					<div class="nav_title"><a href="">Admission</a></div>
+				</li>
+				
+				<li class="second">
+					<div class="nav_title">
+						<a href="">Graduate Course</a>
+						<span class=''></span>					</div>
+				</li>
+				
+				<li class="third">
+					<div class="nav_title">
+						<a href=""></a>
+											</div>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<div class="contents">
+	<div class="center_wrap">
+		<div id="container" class="loaded">
+			<div class="side">
+	<div class="side_title">
+		<div class="inner_wrap">
+			<strong>Admission</strong>
+		</div>
+	</div>
+	<nav class="side_menu">
+		<ul class="depth2_menu">
+			<li class="depth2_list ">
+				<a class="depth2_anchor" href="https://www.kw.ac.kr/ko/univ/glance.jsp" style="cursor:pointer" target="_blank">Department Introduction</a>
+				<!-- <a class="depth2_anchor" href="/admission/department.php" style="cursor:pointer" target="_self">학과소개</a> -->
+			</li>
+			<li class="depth2_list ">
+				<a class="depth2_anchor" href="/admission/KRcourse.php" style="cursor:pointer" target="_self">Korean Language Course</a>
+			</li>
+			<li class="depth2_list ">
+				<a class="depth2_anchor" href="/admission/faculty.php" style="cursor:pointer" target="_self">Undergraduate Course</a>
+			</li>
+			<li class="depth2_list actived">
+				<a class="depth2_anchor" href="/admission/graduate.php" style="cursor:pointer" target="_self">Graduate Course</a>
+			</li>
+		</ul>
+	</nav>
+</div><!-- //side -->
+
+<div class="right_wrap">
+	<h2 class="sub_title">Graduate Course</h2>		
+		
+
+	
+
+		
+
+<div class="space_wrap decoA"><!-- //지원절차 -->
+	<h3>전형일정</h3>
+	<div class="table-scroll-box">
+		<span class="ico-scroll"></span>
+		<!-- <table class="table w100">
+			<colgroup>
+				<col width="16%;">
+				<col width="16%;">
+				<col width="16%;">
+				<col width="16%;">
+				<col width="16%;">
+				<col width="16%;">
+			</colgroup>
+			<tr>
+				<th>1. 원서접수</th>
+				<th>2. 서류제출</th>
+				<th>3. 면접고사</th>
+				<th>4. 합격자발표</th>
+				<th>5. 등록</th>
+				<th>6. 비자</th>
+			</tr>
+			<tr>
+				<td>방문 또는 우편접수</td>
+				<td>글로벌전략팀 동해문화예술관 114호</td>
+				<td>별도 공지</td>
+				<td><a href="grad.kw.ac.kr" target="_blank">grad.kw.ac.kr</a></td>
+				<td>하나은행</td>
+				<td>변경 또는 신청</td>
+			</tr>
+		</table> -->
+		<table class="table w100">
+			<tbody>
+				<tr>
+					<th rowspan="2">구분</th>
+					<th colspan="2">일정</th>
+					<th rowspan="2">비고</th>
+				</tr>
+				<tr>
+					<th>1차</th>
+					<th>2차</th>
+				</tr>
+				<tr>
+					<td>온라인 지원</td>
+					<td>2026.04.28(화)~05.08(금)</td>
+					<td>2026.06.17(수)~06.19(금)</td>
+					<td style="text-align:left;">
+						‧ 온라인 지원(마감일 18:00까지)<br>
+						- <a href="https://www.studyinkorea.go.kr" target="_blank">https://www.studyinkorea.go.kr</a>
+					</td>
+				</tr>
+				<tr>
+					<td>서류제출</td>
+					<td>2026.04.28(화)~05.11(월)</td>
+					<td>2026.06.17(수)~06.22(월)</td>
+					<td style="text-align:left;">
+						‧ 방문 또는 우편 접수<br>
+						서울시 노원구 광운로 20 광운대학교 <br>
+						글로벌전략팀(화도관 102호)
+					</td>
+				</tr>
+				<tr>
+					<td>전형일시</td>
+					<td>2026.05.21(목)~2026.05.23(토)</td>
+					<td>2026.07.02(목)~07.04(토)</td>
+					<td style="text-align:left;">
+						‧ 전형일시장소 (<a href="http://grd.kw.ac.kr" target="_blank">http://grd.kw.ac.kr</a>)<br>
+						서류 합격 여부 개별 통보하지 않음.
+					</td>
+				</tr>
+				<tr>
+					<td>합격자 발표</td>
+					<td>2026.06.10(수) 11:00</td>
+					<td>2026.07.21(화) 11:00</td>
+					<td style="text-align:left;">‧ 대학원 홈페이지 공고 (개별통보하지 않음)</td>
+				</tr>
+				<tr>
+					<td>합격자 등록기간</td>
+					<td>2026.06.10(수)~06.14(일)</td>
+					<td>2026.07.21.(화)~07.24(금)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>표준입학허가 배부</td>
+					<td>2026.07.15(수) 이후</td>
+					<td>2026.08.05(수) 이후</td>
+					<td style="text-align:left;">· 글로벌전략팀(화도관 102호)</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- <b style="margin:10px 0 0; display: block; color: #b11515;">
+			한국유학종합시스템 장애에 따른 2026학년도 전기 일반대학원 정시(1차) 모집은 불가한 점 양해 부탁드립니다.<br>
+			Due to unexpected circumstances at the National Information Resources Service,<br>
+			the 1st round of online application and the online general admission application services are unavailable. Please apply in the 2nd round of admission period.
+			<br><br>
+			* 2026학년도 1학기 외국인 학생 모집은 1차/2차 전형 구분 없이 단일 전형으로 한 번에 진행합니다.<br>
+			* The application will be conducted as a single round for the 2026 Spring intake (no separate 1st/2nd rounds).
+		</b> -->
+	</div>
+</div><!-- 지원절차// -->
+
+<div class="space_wrap tableArea">
+	<h3>모집요강</h3>
+	<table class="table decoA">
+		<colgroup>
+			<col width="15%;">
+			<col width="15%;">
+			<col width="15%;">
+			<col width="">
+		</colgroup>
+		<tr>
+			<th>영어</th>
+			<th class="invisible02">국문</th>
+			<th class="invisible02">중문</th>
+			<!-- <th class="invisible02">베트남어</th>
+			<th>우즈벡어</th>
+			<th>몽골어</th> -->
+			<th colspan="3" class="invisible02">지원하기</th>
+		</tr>
+		<tr>
+			<td><a href="/admission/download2/202604 Fall Graduate Admissions International Students (ENG).pdf" class="btnPDF" download ><img src="/img/ico_pdf.png"></a></td>
+			<td class="invisible02"><a href="/admission/download2/202604 Fall Graduate Admissions International Students (KOR).pdf" class="btnPDF" download><img src="/img/ico_pdf.png"></a></td>
+			<td class="invisible02"><a href="/admission/download2/202604 Fall Graduate Admissions International Students (CHN).pdf" class="btnPDF"  download><img src="/img/ico_pdf.png"></a></td>
+			<!--<td class="invisible02"><a href="download2/2025_Fall_Graduate_Admissions_International_Students_(VIE).pdf" class="btnPDF" target="_blank"><img src="/img/ico_pdf.png"></a></td>
+			 <td><a href="#" class="btnPDF"><img src="/img/ico_pdf.png"></a></td>
+			<td><a href="#" class="btnPDF"><img src="/img/ico_pdf.png"></a></td> -->
+			<td class="invisible02" colspan="3"><a href="https://www.studyinkorea.go.kr/ko/receipt/OnlineReceipt11.do" target="_blank"><p>APPLY ONLINE</p></a></td>
+		</tr>
+	</table>
+</div>
+<!-- //컨텐츠 -->
+			</div><!-- // right_wrap -->
+		</div><!-- // container -->
+	</div> <!-- // center_wrap -->
+</div><!-- // contents --><footer>
+	<div class="inner">
+		<div class="fTop">
+			<ul>
+				<li><a href="https://www.hikorea.go.kr/Main.pt" target="_blank"><img src="/img/logo-banner-02.jpg" alt="하이코리아"></a></li>
+				<li><a href="https://www.k-work.or.kr/main/main.do" target="_blank"><img src="/img/logo-banner-04.jpg" alt="K-Work 플랫폼"></a></li>
+				<li><a href="https://www.easylaw.go.kr/CSM/Main.laf" target="_blank"><img src="/img/logo-banner-01.jpg" alt="외국어 생활법령정보"></a></li>
+				<li><a href="https://komate.saramin.co.kr/" target="_blank"><img src="/img/logo-banner-05.jpg" alt="외국어 생활법령정보"></a></li>
+				
+				<!--<li><a href="https://www.moj.go.kr/moj/index.do" target="_blank"><img src="/img/logo-banner-03.jpg" alt="법무부"></a></li>-->
+				
+			</ul>
+			<div>
+				<a href="https://www.kw.ac.kr/ko/info/privacy.jsp" target="_blank" class="privacy">개인정보처리방침</a>
+				<a href="" style="display:none;">사이트맵</a>
+				<a href="/guide/road.php">찾아오시는 길</a>
+			</div>
+		</div>
+		<div class="fBottom">
+			<h1 class="floatL">
+				<img src="/img/bottomLogo.png" alt="광운대 글로벌전략팀">
+			</h1>
+			<address class="floatL">
+				<span>Office of Global Strategy, Room 102&103, Hwadogwan, 20 Gwangun-ro, Nowon-gu, Seoul 01897, Republic of Korea<em>|</em>TEL : 02-940-5014~6<em>|</em>E-Mail : international@kw.ac.kr</span>
+				<p>COPYRIGHT ⓒKWANKWOON UNIVERSITY. ALL RIGHTS RESERVED.</p>
+			</address>
+		</div>
+	</div>
+	<!--  -->
+</footer>
+</body>
+
+<script nonce= >
+function pcmobile(t) {
+	var url = "/include/pcmobile.php";
+	var param = "t="+t;
+	$.ajax({
+		type:"POST",
+		url:url,
+		data:param,
+		success:function(args){
+			window.location.href="/";
+		}
+	});
+}
+
+	$(function(){
+		$('.conMenu li').mouseenter(function(){//메인중간컨텐츠
+			$(this).addClass('on').siblings().removeClass('on');
+		});
+		$('.conMenu li').mouseleave(function(){
+			$(this).removeClass('on');
+		});
+
+		$('.headDep .inner > ul > li:gt(0)').hide();//header열고닫는메뉴
+		$('.depMenu li').click(function(){
+			var num = $(this).index();
+			$(this).addClass('on').siblings().removeClass('on');
+			$('.headDep').show();
+			$('.headDep .inner > ul > li').eq(num).show().siblings().hide();
+		});
+		$('.header .btnClose').click(function(){
+			$('.headDep').hide();
+			$('.depMenu li').removeClass('on');
+		});
+	});
+</script>
+<iframe name="footerFrame" width="0" height="0" style="display:none"></iframe>
+</html>
+	

@@ -18,10 +18,24 @@ new_ma = newd.get("new_ma", []) or []
 ups = load("upserted_2027.json", {}).get("upserts", []) or []
 master = load("_guide_2027_master.json", []) or []
 
+# 전문대(junior) 2027 상태 — daily_junior_2027_check.py 산출물
+jr = load("_guide_2027_junior.json", {}) or {}
+jr_pending = load("_junior_pending.json", []) or []
+jr_done = {k: v for k, v in jr.items() if str(v.get("status", "")).startswith("2027_published")}
+jr_wait = {k: v for k, v in jr.items() if str(v.get("status", "")) == "2027_not_yet"}
+
 # 요약: 2027 상태 보유 학교 수
-ba2027 = sum(1 for m in master if str(m.get("ba_status","")).startswith("2027"))
-ma2027 = sum(1 for m in master if str(m.get("ma_status","")).startswith("2027"))
-lang2027 = sum(1 for m in master if str(m.get("lang_status","")).startswith("2027"))
+ba2027 = sum(1 for m in master if str(m.get("ba_status", "")).startswith("2027"))
+ma2027 = sum(1 for m in master if str(m.get("ma_status", "")).startswith("2027"))
+lang2027 = sum(1 for m in master if str(m.get("lang_status", "")).startswith("2027"))
+
+# 전문대 신규 감지: 전회 저장된 _guide_2027_junior_prev.json과 비교 → 오늘 새로 published된 전문대
+jr_prev = load("_guide_2027_junior_prev.json", {}) or {}
+new_jr_names = []
+for k, v in jr_done.items():
+    prev_st = str(jr_prev.get(k, {}).get("status", "")).startswith("2027_published")
+    if not prev_st:
+        new_jr_names.append(k)
 
 # PDF 생성
 from reportlab.lib.pagesizes import A4
@@ -43,15 +57,18 @@ fname = f"외국인모집요강_일일수집_{today}.pdf"
 path = os.path.join(OUTDIR, fname)
 doc = SimpleDocTemplate(path, pagesize=A4, topMargin=18*mm, bottomMargin=18*mm)
 E = []
-E.append(Paragraph(f"Camnemi 외국인 모집요강 일일 수집 보고", title_s))
+E.append(Paragraph("Camnemi 외국인 모집요강 일일 수집 보고", title_s))
 E.append(Paragraph(f"기준일: {today} · 생성: {datetime.datetime.now():%Y-%m-%d %H:%M}", body_s))
 E.append(Spacer(1, 6*mm))
 
-E.append(Paragraph(f"① 오늘 신규 감지 (BA {len(new_ba)} / MA {len(new_ma)})", h_s))
-if new_ba or new_ma:
+E.append(Paragraph(f"① 오늘 신규 감지 (BA {len(new_ba)} / MA {len(new_ma)} / 전문대 {len(new_jr_names)})", h_s))
+if new_ba or new_ma or new_jr_names:
     data = [["구분","학교","요강 URL"]]
     for x in new_ba: data.append(["BA", x.get("school",""), (x.get("url","") or "")[:70]])
     for x in new_ma: data.append(["MA", x.get("school",""), (x.get("url","") or "")[:70]])
+    for name in new_jr_names:
+        v = jr.get(name, {})
+        data.append(["전문대", name, (v.get("unvCd","") or "")])
     t = Table(data, colWidths=[15*mm, 40*mm, 125*mm])
     t.setStyle(TableStyle([("FONTNAME",(0,0),(-1,-1),"Malgun"),("FONTSIZE",(0,0),(-1,-1),8),
         ("BACKGROUND",(0,0),(-1,0),colors.HexColor("#0d1b3e")),("TEXTCOLOR",(0,0),(-1,0),colors.white),
@@ -60,7 +77,10 @@ if new_ba or new_ma:
 else:
     E.append(Paragraph("오늘 신규 감지된 외국인 모집요강이 없습니다.", body_s))
 
-E.append(Paragraph(f"② 최근 upsert된 2027 요강 ({len(ups)}건)", h_s))
+E.append(Paragraph("② 최근 upsert된 2027 요강 (전문대 검출분 포함)", h_s))
+if new_jr_names:
+    E.append(Paragraph("※ 전문대 2027은 adiga(공식) 확인이라 upsert 목록과 별개입니다.", body_s))
+E.append(Paragraph(f"   upsert 기록 {len(ups)}건", body_s))
 if ups:
     data = [["레벨","학교","요강"]]
     for u in ups:
@@ -73,12 +93,23 @@ if ups:
 else:
     E.append(Paragraph("upsert 기록 없음.", body_s))
 
-E.append(Paragraph(f"③ 전체 2027 현황 (감시 {len(master)}교)", h_s))
+E.append(Paragraph(f"③ 전체 2027 현황 (감시 {len(master)}교 + 전문대 {len(jr)}교)", h_s))
 E.append(Paragraph(f"- 학부(BA) 2027 확보: <b>{ba2027}</b>교", body_s))
 E.append(Paragraph(f"- 대학원(MA) 2027 확보: <b>{ma2027}</b>교", body_s))
 E.append(Paragraph(f"- 어학(lang) 2027 확보: <b>{lang2027}</b>교", body_s))
+E.append(Paragraph(f"- 전문대(junior) 2027 확보: <b>{len(jr_done)}</b>교 / 대기 {len(jr_wait)}교 / unvCd미확보 {len(jr_pending)}교", body_s))
+if jr_done:
+    E.append(Paragraph("  전문대 2027 확정: " + ", ".join(list(jr_done.keys())[:30]), body_s))
+if jr_pending:
+    E.append(Paragraph("  전문대 브라우저 확인 필요(" + str(len(jr_pending)) + "): "
+                       + ", ".join(p.get("school","") for p in jr_pending[:20]), body_s))
 E.append(Spacer(1, 8*mm))
 E.append(Paragraph("※ 외국인(재외국민/외국인전형) 모집요강만 수집 · 일반 수시/정시 제외", body_s))
 
 doc.build(E)
+
+# 내일의 신규 감지 비교를 위해 오늘 상태를 prev로 저장
+with open(os.path.join(B, "_guide_2027_junior_prev.json"), "w", encoding="utf-8") as f:
+    json.dump(jr, f, ensure_ascii=False, indent=2)
+
 print(path)

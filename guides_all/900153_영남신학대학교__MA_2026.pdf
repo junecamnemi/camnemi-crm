@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.6,user-scaleable=yes">
+	<meta name="description" content="영남신학대학교 입학처" /><!-- 설명 -->
+<meta name="Keywords" CONTENT="영남신학대학교 입학처" /><!-- 키워드 -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="영남신학대학교 입학처" /><!-- 타이틀 -->
+<meta property="og:description" content="" /><!-- 설명 -->
+<meta property="og:image" content="http://entraytus.tcubemnet.com/myimage.jpg" /><!-- 이미지 FULL URL 주소 -->
+<meta property="og:url" content="http://entraytus.tcubemnet.com" /><!-- FULL URL -->
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="영남신학대학교 입학처" /><!-- 타이틀 -->
+<meta name="twitter:description" content="CMS4" /><!-- 설명 -->
+<meta name="twitter:image" content="http://entraytus.tcubemnet.com/myimage.jpg" /><!-- 이미지 FULL URL 주소 -->
+<meta name="twitter:domain" content="http://entraytus.tcubemnet.com" /><!-- FULL URL -->
+
+<link rel="alternate" href="http://www.mysite.com/">
+<link rel="canonical" href="http://www.mysite.com/">	<title>영남신학대학교 입학처</title>
+	<link rel="image_src" href="/images/logo_ci.png">
+	<link rel="shortcut icon" href="/images/favicon.ico">
+	<!--
+	<link rel="Stylesheet" type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/css/jquery.bxslider.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/default/department/base.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/css/default/department/layout.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/css/default/department/index.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/css/default/department/member.css" media="screen">
+	-->
+	<link rel="Stylesheet" type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen" />
+	<link rel="Stylesheet" type="text/css" href="/css/basis.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/index.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/default/base.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/default/index.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/default/layout.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/default/member.css" media="screen" />
+	
+    <script src="/js/jquery-1.10.2.min.js"></script>
+	<script src="/js/swiper.min.js"></script>
+	<script src="/js/jquery-ui.js"></script>
+	<script src="/js/jquery.lightbox-0.5.js"></script>
+	<script src="/js/jquery.cookie.js"></script>
+	<script src="/js/jquery.bxslider.js"></script>
+	<script src="/js/index.js"></script>
+
+	<!--폰트-->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+
+	<!-- AOS -->
+	<link rel="stylesheet" type="text/css" href="/css/aos.css"/>
+	<script src="/js/aos.js"></script>
+	<script>
+		// AOS 자연스럽게 옵션 적용
+		$(function(){
+			AOS.init({
+				duration: 1100,
+				easing: 'ease-out-cubic',
+				offset: 100,
+				once: true
+			});
+		});
+	</script>
+	<!-- AOS -->
+
+	<script>
+	var menuImages = new Array();
+	var menuRoots = new Array();
+		//window.onload role
+		$(document).ready(function(){
+			//주메뉴 제어 Begin
+			
+			var rootIndex = 0;
+			menuRoots[rootIndex] = 0;menuImages[0] = { "link":"/../uploads/menu/", "hover":"/../uploads/menu/" }; rootIndex++;menuRoots[rootIndex] = 1;menuImages[1] = { "link":"/../uploads/menu/", "hover":"/../uploads/menu/" }; rootIndex++;menuRoots[rootIndex] = 2;menuImages[2] = { "link":"/../uploads/menu/", "hover":"/../uploads/menu/" }; rootIndex++;menuRoots[rootIndex] = 3;menuImages[3] = { "link":"/../uploads/menu/", "hover":"/../uploads/menu/" }; rootIndex++;menuRoots[rootIndex] = 4;menuImages[4] = { "link":"/../uploads/menu/", "hover":"/../uploads/menu/" }; rootIndex++;menuRoots[rootIndex] = 6;menuImages[6] = { "link":"/../uploads/menu/", "hover":"/../uploads/menu/" }; rootIndex++;menuRoots[rootIndex] = 7;menuImages[7] = { "link":"/../uploads/menu/", "hover":"/../uploads/menu/" }; rootIndex++;			$('div#nav > ul > li').each(function(){
+				var $li = $(this);
+
+				// li에 들어왔을 때
+				$li.on('mouseenter', function(){
+					// 모든 서브메뉴 닫기
+					$('div#nav > ul > li > ul').hide();
+
+					// 현재 li 서브메뉴 열기
+					$li.find('ul').show();
+					// 모든 이미지 기본값으로 리셋
+					/*
+					for (var i = 0; i < menuImages.length; i++) {
+						$('div#nav > ul > li:eq(' + i + ') > div > a > img')
+							.attr({ src: menuImages[menuRoots[i]]['link'] });
+					}
+
+					// 현재 메뉴 hover 이미지로 교체
+					$li.find('a:first img')
+						.attr({ src: menuImages[$li.index()]['hover'] });
+					*/
+					// 글자색 초기화
+					$('div#nav > ul > li > div > a').css('color', '');
+					// 현재 메뉴만 흰색
+					$li.find('> div > a').css('color', '#00387A');
+				});
+
+				// li에서 나갔을 때
+				$li.on('mouseleave', function(){
+					$li.find('ul').hide(); // 현재 li 서브메뉴 닫기
+					$li.find('> div > a').css('color', ''); // 글자색 원래대로
+				});
+			});
+			//주메뉴 제어 End
+
+
+			//관리자 메인비주얼 관리
+			if(''){
+				var rollHeight = '485';
+				var type = 'horizontal';
+				var auto = 'true';
+				var speed = parseInt('500');
+				var data = {'mode' : type , 'speed' : speed};
+
+				''
+				data['auto'] = true;
+				data['pause'] = '5000';
+				''
+
+				$('.bxslider').bxSlider(data);
+				if('' && type != 'fade'){
+					$('.bx-wrapper img').css('max-width' , '100%');
+				}
+			}
+			//관리자 메인비주얼 관리 End
+
+			//2차 메뉴가 없을때 nosub 클래스 주기
+			$('.mobile_top > ul > li').each(function(){
+				if($(this).find('ul').index() != 1){
+					$(this).addClass('nosub');
+				}
+			});
+			
+			//오늘하루 닫기
+			/* Javascript */
+			var $layerPopup = document.querySelector('.pop-video');
+			var $btnLayerPopupClose = document.querySelector('.video-popup .close');
+			var $btnLayerPopupTodayHide = document.querySelector('.video-popup .close_box .today');
+
+			//레이어팝업 닫기 버튼 클릭
+			if ($btnLayerPopupClose) {
+				$btnLayerPopupClose.addEventListener('click', function(){
+					layerPopupHide(0);
+				});
+			}
+
+			//레이어팝업 오늘 하루 보지 않기 버튼 클릭
+			if ($btnLayerPopupTodayHide) {
+				$btnLayerPopupTodayHide.addEventListener('click', function(){
+					layerPopupHide(1);
+				});
+			}
+
+			//레이어팝업 노출
+			function layerPopupShow(){
+				if ($layerPopup) {
+					$layerPopup.style.display = 'block';
+				}
+			}
+			//레이어팝업 비노출
+			function layerPopupHide(state){
+				
+				//닫기버튼 오늘하루보지않기 버튼 무관하계 레이어팝업은 닫는다.
+				if ($layerPopup) {
+					$layerPopup.style.display = 'none';
+				}
+
+				//오늘하루보지않기 버튼을 누른 경우
+				if(state === 1){
+					//'testCookie' 이름의 쿠키가 있는지 체크한다.
+					if($.cookie('popup') == undefined){
+						//쿠키가 없는 경우 testCookie 쿠키를 추가
+						$.cookie('popup', 'Y', { expires: 1, path: '/' });
+						/**
+						 설명 :
+						 임의로 testCookie라는 이름에 Y라는 값을 넣어주었고,
+						 expires값으로 1을 주어 1일 후 쿠키가 삭제되도록 하였다.
+						 path값을 '/'로 주면 해당사이트 모든페이지에서 유효한 쿠키를 생성한다.
+						 특정페이지에서만 작동하려면 페이지 경로를 작성하면 된다.
+						 **/
+					}
+				}
+			}
+
+			//사이트맵
+            $('.mobile_top > ul').addClass('mbtop');
+            $('.mbtop > li > div > a').unwrap();
+            $('.mbtop > li > ul > li').each(function(){
+				if($(this).find('a:first').attr('href') == '#'){
+					$(this).find('a:first').attr('href',$(this).find(' > ul > li > a:first').attr('href'));
+				}
+			});
+			
+			const targets = ["기숙사안내", "동아리안내"];
+
+			$('#nav.lnb a, .mbtop a').each(function () {
+			  const text = $(this).text();
+
+			  if (text.includes('기숙사안내') || text.includes('동아리안내')) {
+				$(this).addClass('has-external');
+			  }
+			});
+
+
+			//사이트맵 버튼
+			$('.btn-gnb-menu').click(function(){
+				if($('#header').hasClass('open') == false){
+					$('#header').addClass('open');
+					$('body,html').css('overflow','hidden');
+					setTimeout(function() {
+						$('.site-bg').addClass('open');
+					}, 500); // 0.5초 후에 실행
+				}else{
+					$('#header').removeClass('open');
+					$('body,html').css('overflow','visible');
+					$('.site-bg').removeClass('open');
+				}
+			});
+
+			//모바일 메뉴 작업
+			$('.mbtop > li > a').click(function(){
+				var mbtop_li = $(this).parent();
+				var midx = mbtop_li.index();
+
+				$('.mbtop > li > ul').removeClass('on');
+				$('.mbtop > li').each(function(){
+					if($(this).index() != midx){
+						$(this).removeClass('open_li');
+					}
+				});
+
+				if(mbtop_li.find('ul > li').length > 0){
+					if(mbtop_li.prop('class') == 'open_li'){
+						mbtop_li.removeClass('open_li');
+						mbtop_li.find('ul').removeClass('on');
+					}else{
+						mbtop_li.addClass('open_li');
+						mbtop_li.find('ul').addClass('on');
+					}
+					return false;
+				}
+			});
+
+			$('.top-btn').click(function (event) {
+				event.preventDefault();
+				$('html, body').animate({ scrollTop: 0 }, 300);
+			});
+			$(window).scroll(function () {
+			if ($(this).scrollTop() > 200) {
+				$('.top-btn').fadeIn(200);
+			} else {
+				$('.top-btn').fadeOut(200);
+			}});
+			
+			//모바일 전체메뉴
+			$(function() {
+
+				var isMobileMenuBound = false;
+
+				function bindMobileMenu() {
+					if (window.innerWidth < 1400) {
+
+						if (isMobileMenuBound) return;
+						isMobileMenuBound = true;
+
+						var $mbtop = $('#navi .mbtop');
+
+						// ✅ 초기: 3차 전부 닫기
+						$mbtop.find('> li > ul > li > ul').hide();
+
+						// ✅ 최초 진입 시: 첫 번째 1차 메뉴 열기
+						var $firstLi = $mbtop.children('li:first-child');
+						$firstLi.addClass('open_li');
+						$firstLi.children('ul').show(); // 2차 보이게
+
+						$(document).on('click.mobileMenu', '#navi .mbtop > li > ul > li > a', function(e) {
+							e.preventDefault();
+
+							var $li = $(this).parent('li');
+							var $target = $li.children('ul');
+
+							// 3차 없는 경우는 그냥 이동
+							if ($target.length === 0) {
+								location.href = $(this).attr('href');
+								return;
+							}
+
+							// 같은 2차 레벨 내 다른 메뉴 닫기
+							$li.siblings('li')
+								.removeClass('on')
+								.children('ul')
+								.stop(true, true)
+								.slideUp(200);
+
+							// 토글
+							if ($li.hasClass('on')) {
+								$li.removeClass('on');
+								$target.stop(true, true).slideUp(200);
+							} else {
+								$li.addClass('on');
+								$target.stop(true, true).slideDown(200);
+							}
+						});
+
+					} else {
+						// ✅ 1400 이상 → 초기화
+						if (!isMobileMenuBound) return;
+						isMobileMenuBound = false;
+
+						$(document).off('click.mobileMenu');
+
+						$('#navi .mbtop > li')
+							.removeClass('open_li')
+							.find('li')
+							.removeClass('on')
+							.children('ul')
+							.removeAttr('style');
+					}
+				}
+
+				// 최초 실행
+				bindMobileMenu();
+
+				// 리사이즈 대응
+				$(window).on('resize', function() {
+					bindMobileMenu();
+				});
+
+			});
+
+
+
+			/*-----------------------------------------------------------------*/
+			// Select Menu
+			/*-----------------------------------------------------------------*/
+			$(function(){
+				//  CSS셀렉트
+				var CSSSELECT = (function(){
+
+					var $baseSelect = $(".cssSelect"),
+						$buttonSelect = $baseSelect.find(".open_select"),
+						$boxSelect = $baseSelect.find(".box_select");
+
+					$buttonSelect.attr("title","축소됨");
+
+					$buttonSelect.on("click", function(e) {
+						//e.preventDefault();
+						e.stopPropagation(); // 버블링 차단
+
+						var $this = $(this),
+							$top = $this.closest(".cssSelect");
+						if($top.hasClass("on")){
+							$top.removeClass("on");
+							$this.attr("title","축소됨");
+						} else {
+							$baseSelect.removeClass("on");
+							$top.addClass("on");
+							$buttonSelect.attr("title","축소됨");
+							$this.attr("title","확장됨");
+						};
+					});
+
+					$(document).on("click.cssSelectClose", function(e){
+						if($baseSelect.hasClass("on")){ // cssSelect on일때
+							if(!$baseSelect.has(e.target).length){ // cssSelect에 클릭 이벤트가 발생되어 있는게 없다면
+								$baseSelect.removeClass("on");
+								$buttonSelect.attr("title","축소됨");
+							}
+						}
+					});
+
+				})();
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+	<!-- wrap -->
+	<div id="wrap">
+		<!-- header -->
+		<div id="header">
+            <!-- header 상단 -->
+			<div class="area_top">
+				<div class="inr">
+					<div class="util_r">
+						<ul class="lst">
+                            <li><a href="https://www.ytus.ac.kr/" target="_blank">대표홈페이지</a></li>
+                                                                                                <li><a href="/login" class="">로그인</a></li>
+                                                            						</ul>
+					</div>
+				</div>
+			</div>
+             <!--// header 상단 -->
+			<!-- 탑메뉴 -->
+			<div class="header_inner" >
+				<h1 class="logo"><a href="/index"><img src="/images/default/main/logo.svg" alt="영남신학대학교 입학처"/></a></h1>
+				<div id="nav" class="lnb">
+					
+<ul><li><div><a href="/content/1" title="입학처장에게 묻기">입학처장에게 묻기</a></div><ul><li><a href="/content/2" title="입학처장에게 묻기">입학처장에게 묻기</a></li></ul></li><li><div><a href="/content/4" title="대학">대학</a></div><ul><li><a href="/content/11" title="대학입학전형 주요사항">대학입학전형 주요사항</a></li><li><a href="/content/12" title="수시모집">수시모집</a></li><li><a href="/content/13" title="정시 (가)군 모집">정시 (가)군 모집</a></li><li><a href="/content/14" title="추가모집">추가모집</a></li><li><a href="/content/15" title="편입학">편입학</a></li><li><a href="/content/16" title="재외국민과 외국인">재외국민과 외국인</a></li><li><a href="/content/18" title="공지사항">공지사항</a></li></ul></li><li><div><a href="/content/19" title="신학대학원">신학대학원</a></div><ul><li><a href="/content/20" title="신학과(M.Div)">신학과(M.Div)</a></li><li><a href="/content/21" title="목회연구과정">목회연구과정</a></li></ul></li><li><div><a href="/content/24" title="대학원">대학원</a></div><ul><li><a href="/content/68" title="일반대학원 박사과정">일반대학원 박사과정</a></li><li><a href="/content/69" title="일반대학원 석사과정">일반대학원 석사과정</a></li></ul></li><li><div><a href="/content/36" title="특수대학원">특수대학원</a></div><ul><li><a href="/content/60" title="사회복지대학원">사회복지대학원</a></li><li><a href="/content/61" title="성서신학대학원">성서신학대학원</a></li><li><a href="/content/62" title="상담대학원">상담대학원</a></li><li><a href="/content/64" title="미래목회대학원">미래목회대학원</a></li><li><a href="/content/63" title="통일선교대학원">통일선교대학원</a></li><li><a href="/content/65" title="국제언어다문화대학원">국제언어다문화대학원</a></li><li><a href="/content/70" title="대안교육대학원">대안교육대학원</a></li></ul></li><li><div><a href="/content/43" title="입시도우미">입시도우미</a></div><ul><li><a href="/content/44" title="입시자료 신청">입시자료 신청</a></li><li><a href="/content/45" title="입시서류 양식">입시서류 양식</a></li><li><a href="/content/46" title="입시 Q&amp;A">입시 Q&amp;A</a></li></ul></li><li><div><a href="/content/71" title="입학신청">입학신청</a></div><ul><li><a href="/content/72" title="입학원서 접수/제출">입학원서 접수/제출</a></li><li><a href="/content/73" title="입학원서 조회">입학원서 조회</a></li></ul></li></ul>
+				</div>
+				<!-- 햄버거메뉴 -->
+				<div class="btn-gnb-menu">
+					<button class="btnAll">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+				</div>
+			</div>
+			<div class="bg_box"></div>
+
+			
+			<!-- 전체메뉴펼침 -->
+            <div id="menuAll">
+                <div class="navi-bg"></div>
+                <div id="navi">
+                    <div class="mobile_top">
+                        <div class="sub-link">
+                            
+                        </div>
+                        <div class="site-bg"><div class="bg"></div></div>
+                        
+<ul><li><div><a href="/content/1" title="입학처장에게 묻기">입학처장에게 묻기</a></div><ul><li><a href="/content/2" title="입학처장에게 묻기">입학처장에게 묻기</a></li></ul></li><li><div><a href="/content/4" title="대학">대학</a></div><ul><li><a href="/content/11" title="대학입학전형 주요사항">대학입학전형 주요사항</a></li><li><a href="/content/12" title="수시모집">수시모집</a></li><li><a href="/content/13" title="정시 (가)군 모집">정시 (가)군 모집</a></li><li><a href="/content/14" title="추가모집">추가모집</a></li><li><a href="/content/15" title="편입학">편입학</a></li><li><a href="/content/16" title="재외국민과 외국인">재외국민과 외국인</a></li><li><a href="/content/18" title="공지사항">공지사항</a></li></ul></li><li><div><a href="/content/19" title="신학대학원">신학대학원</a></div><ul><li><a href="/content/20" title="신학과(M.Div)">신학과(M.Div)</a></li><li><a href="/content/21" title="목회연구과정">목회연구과정</a></li></ul></li><li><div><a href="/content/24" title="대학원">대학원</a></div><ul><li><a href="/content/68" title="일반대학원 박사과정">일반대학원 박사과정</a></li><li><a href="/content/69" title="일반대학원 석사과정">일반대학원 석사과정</a></li></ul></li><li><div><a href="/content/36" title="특수대학원">특수대학원</a></div><ul><li><a href="/content/60" title="사회복지대학원">사회복지대학원</a></li><li><a href="/content/61" title="성서신학대학원">성서신학대학원</a></li><li><a href="/content/62" title="상담대학원">상담대학원</a></li><li><a href="/content/64" title="미래목회대학원">미래목회대학원</a></li><li><a href="/content/63" title="통일선교대학원">통일선교대학원</a></li><li><a href="/content/65" title="국제언어다문화대학원">국제언어다문화대학원</a></li><li><a href="/content/70" title="대안교육대학원">대안교육대학원</a></li></ul></li><li><div><a href="/content/43" title="입시도우미">입시도우미</a></div><ul><li><a href="/content/44" title="입시자료 신청">입시자료 신청</a></li><li><a href="/content/45" title="입시서류 양식">입시서류 양식</a></li><li><a href="/content/46" title="입시 Q&amp;A">입시 Q&amp;A</a></li></ul></li><li><div><a href="/content/71" title="입학신청">입학신청</a></div><ul><li><a href="/content/72" title="입학원서 접수/제출">입학원서 접수/제출</a></li><li><a href="/content/73" title="입학원서 조회">입학원서 조회</a></li></ul></li></ul>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<!-- //header -->
+		<!-- container -->
+		<div id="container">
+			<div class="main-banner-wrap">
+			  <div class="swiper main-banner-swiper">
+				<div class="swiper-wrapper">
+				  <div class="swiper-slide">
+					<div class="main-banner">
+					<div class="banner-bg" style="background-image:url('/images/default/main/main-banner.png')"></div>
+					  <div class="text-box">
+						<p class="word-split en">Youngnam Theological University and Seminary</p>
+						<h1 class="word-split">지성과 영성을 겸비한 글로벌 리더의 시작, <br>영남신학대학교가 함께합니다.</h1>
+					  </div>
+					</div>
+				  </div>
+				  <div class="swiper-slide">
+					<div class="main-banner">
+					<div class="banner-bg" style="background-image:url('/images/default/main/main-banner.png')"></div>
+					  <div class="text-box">
+						<p class="word-split en">Youngnam Theological University and Seminary</p>
+						<h1 class="word-split">지성과 영성을 겸비한 글로벌 리더의 시작, <br>영남신학대학교가 함께합니다.</h1>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  
+			  <section class="quick-menu">
+				  <div class="quick-intro">
+					<h3>YTUS <br>QUICK MENU</h3>
+					<p>쉽고 빠르게 원하시는 메뉴를 찾아보세요!</p>
+				  </div>
+				  <ul class="quick-list">
+					<li>
+					  <a href="/content/44">
+						<span class="icon">
+						  <img src="/images/default/main/quick-icon1.svg" alt="">
+						</span>
+						<strong>입시자료신청</strong>
+					  </a>
+					</li>
+					<li>
+					  <a href="/board/admissions_forms">
+						<span class="icon">
+						  <img src="/images/default/main/quick-icon2.svg" alt="">
+						</span>
+						<strong>입시서류 양식</strong>
+					  </a>
+					</li>
+					<li>
+					  <a href="/board/admissions_QnA">
+						<span class="icon">
+						  <img src="/images/default/main/quick-icon7.svg" alt="">
+						</span>
+						<strong>입시Q&A</strong>
+					  </a>
+					</li>
+					<li>
+					  <a href="#">
+						<span class="icon">
+						  <img src="/images/default/main/quick-icon4.svg" alt="">
+						</span>
+						<strong>합격자 발표</strong>
+					  </a>
+					</li>
+					<li>
+					  <a href="https://www.ytus.ac.kr/content/126" target="_blank">
+						<span class="icon">
+						  <img src="/images/default/main/quick-icon5.svg" alt="">
+						</span>
+						<strong>캠퍼스 미리보기</strong>
+					  </a>
+					</li>
+					<li>
+					  <a href="https://www.ytus.ac.kr/content/127" target="_blank">
+						<span class="icon">
+						  <img src="/images/default/main/quick-icon6.svg" alt="">
+						</span>
+						<strong>찾아오시는 길</strong>
+					  </a>
+					</li>
+				  </ul>
+				</section>
+			  
+				<section class="main-bg reveal">
+				
+				<div class="main-contents">
+				  <h2 class="main-title">
+					글로벌 리더의 산실 <strong>영남신학대학교</strong>에서<br>
+					<span>여러분의 꿈을 펼쳐보세요!</span>
+				  </h2>
+
+				  <ul class="quick-list">
+					<li class="card blue">
+					  <div class="quick-intro">
+						<h3>입학처장에게 묻기</h3>
+					  </div>
+					  <div class="card-box">
+						<p>입학에 관한 모든 질문,<br>입학처장이 정성껏 안내해드립니다.</p>
+						<a href="/board/ask_admissions" class="btn-link">
+						  질문하러 가기
+						  <img src="/images/default/main/arrow-right.svg" alt="">
+						</a>
+						<img class="card-icon" src="/images/default/main/card-blue-icon.svg" alt="">
+					  </div>
+					</li>
+
+					<li class="light">
+					  <div class="call-card">
+						  <div class="quick-intro">
+							<h3>입학문의</h3>
+						  </div>
+
+						  <div class="info-wrap">
+							<div class="call-icon">
+							  <img class="card-icon" src="/images/default/main/call-icon.svg" alt="">
+							</div>
+
+							<div class="info">
+							  <p><span>입학관리처</span> <strong>053-850-0541</strong></p>
+							  <p><span>처장</span> <strong>010-4222-0541</strong></p>
+							  <p><span>팀장</span> <strong>010-2587-0542</strong></p>
+							</div>
+						  </div>
+					  </div>
+
+					  <a href="#" class="kakao">
+						  <div class="kakao-text">
+							카카오톡 입학상담 바로가기
+							<span>
+							  <img class="card-icon" src="/images/default/main/kakao-icon.svg" alt="">
+							  <b>ID</b> ytus0541, ytus0542
+							</span>
+						  </div>
+
+						  <span class="kakao-cut"></span>
+						  <div class="kakao-btn"><img src="/images/default/main/arrow-right.svg" alt=""></div>
+						</a>
+					</li>
+
+					<li class="card gray">
+					  <div class="quick-intro">
+						<h3>입학홍보영상</h3>
+						<img src="/images/default/main/youtube-icon.svg" alt="">
+					  </div>
+
+					  <a
+						class="video"
+						href="https://www.youtube.com/watch?v=_a1OQHvBW1s"
+						target="_blank"
+						rel="noopener"
+					  >
+						<div class="video-img">
+						  <img src="/images/default/main/video-img.png" alt="영남신학대학교 입학홍보영상" />
+						</div>
+					  </a>
+
+					  <p class="caption">영남신학대학교 입학홍보영상</p>
+					</li>
+										
+				  </ul>
+				</div>
+				
+				</section>
+
+
+		</div>
+
+		<!-- footer -->
+		<div id="footer">
+			<div class="inner">
+				<div class="footer-top">
+					<h1><a href="/index"><img src="/images/default/main/footer-logo.svg" alt=""></a></h1>
+					<ul>
+						<li><a href="/content/50">개인정보취급방침</a></li>
+						<li><a href="/content/51">이메일주소무단수집거부</a></li>
+						<li> <a href="#" class="external" target="_blank" rel="noopener noreferrer">찾아오시는 길</a></li>
+					</ul>
+				</div>
+				<div class="footer-bottom">
+					<div class="left">
+						<ul class="footer-list">
+							<li>
+								<p class="tit">영남신학대학교</p>
+								<p class="txt">(우)38451 경상북도 경산시 진량읍 봉회1길 26</p>
+							</li>
+						</ul>
+						<ul class="footer-list02">
+							<li>
+								<p class="tit">TEL</p>
+								<p class="txt">053-850-0500</p>
+							</li>
+							<li>
+								<p class="tit">FAX</p>
+								<p class="txt">053-852-9815</p>
+							</li>
+							<li>
+								<p class="tit">정보공개접수 담당자</p>
+								<p class="txt">053-850-0571</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<p class="copy">Copyright ⓒ Youngnam Theological University and Seminary. All Rights Reserved.</p>
+			</div>
+		</div>
+		<!-- //footer -->
+		<div class="top-btn"><img src="/images/default/main/top-btn.png" alt=""></div>
+	</div>
+	<!-- //wrap -->
+<div class="pop-video" style="display:block;">
+  <div id="main_pop" class="video-popup">
+	<div class="top-popup">
+		<div class="popup-header">
+		  <strong class="popup-title">POPUP ZONE</strong>
+		  <div class="popup-indicator">
+			<button class="popup-prev" aria-label="이전">‹</button>
+			<span class="popup-count">
+			  <span class="current">1</span> / <span class="total">1</span>
+			</span>
+			<button class="popup-next" aria-label="다음">›</button>
+		  </div>
+		</div>
+		<div class="close_box">
+		  <label class="today">
+			<input type="checkbox" />
+			<span>오늘하루 열지 않기</span>
+		  </label>
+		  <button type="button" class="close"><span>닫기</span></button>
+		</div>
+	</div>
+    <div class="popup-swiper swiper">
+      <div class="swiper-wrapper">
+	            <div class="swiper-slide">
+            <a href="https://www.youtube.com/watch?v=mBGd1DyzlZM" class="popup-card" target="_blank">
+              <img src="/./uploads/popup/d33f8a53a3a1af343bc5a683d7db68b9.jpg" alt="">
+            </a>
+          </div>
+            <!--
+        <div class="swiper-slide">
+          <a href="#" class="popup-card">
+            <img src="/images/default/main/main-popup.png" alt="">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#" class="popup-card">
+            <img src="/images/default/main/main-popup.png" alt="">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#" class="popup-card">
+            <img src="/images/default/main/main-popup.png" alt="">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#" class="popup-card">
+            <img src="/images/default/main/main-popup.png" alt="">
+          </a>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+  <div class="popup-bg"></div>
+</div>
+<!-- 관리자 메인비주얼 관리 -->
+<script type="text/javascript">
+    </script>
+<!-- 관리자 메인비주얼 관리 End-->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+const popupSwiper = new Swiper('.popup-swiper', {
+  slidesPerView: 3,
+  spaceBetween: 32,
+
+  navigation: {
+    nextEl: '.popup-next',
+    prevEl: '.popup-prev',
+  },
+
+  breakpoints: {
+    0: { slidesPerView: 1 },
+    768: { slidesPerView: 2 },
+    1200: { slidesPerView: 3 }
+  },
+
+  on: {
+    init(swiper) {
+      document.querySelector('.popup-count .total').textContent = swiper.slides.length;
+      document.querySelector('.popup-count .current').textContent = swiper.realIndex + 1;
+    },
+    slideChange(swiper) {
+      document.querySelector('.popup-count .current').textContent = swiper.realIndex + 1;
+    }
+  }
+});
+</script>
+<!-- Running time: 0.0815sec / Memory used: 9.95MB -->
+</body>
+</html>
+

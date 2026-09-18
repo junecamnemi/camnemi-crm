@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	
+	<!-- 스타일 -->
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/common/css/style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<title>세경대학교</title>
+
+	<!-- meta태그 설정 -->
+	<meta property="og:title"           content="세경대학교"/>
+	<meta property="og:site_name"       content="세경대학교"/>
+	<meta property="og:description"     content="세경대학교 홈페이지"/>
+	<meta property="og:image"           content="/images/common/title_img.jpg"/>
+    <meta property="og:image:width"     content="800" />
+    <meta property="og:image:height"    content="400" />
+	<meta property="og:type"            content="website"/>
+	<meta property="og:url"             content=""/>
+
+	<meta name="twitter:description"    content="세경대학교 홈페이지">
+	<meta name="twitter:title"          content="세경대학교">
+	<meta name="twitter:site"           content="">
+	<meta name="twitter:image"          content="/images/common/title_img.jpg">
+	<meta name="twitter:creator"        content="세경대학교">
+	<meta name="twitter:card"           content="summary">
+
+	<meta itemprop="name"               content="세경대학교">
+	<meta itemprop="description"        content="세경대학교 홈페이지">
+	<meta itemprop="image"              content="/images/common/title_img.jpg">
+
+	<meta name="description" content="세경대학교 홈페이지">
+	<meta name="keyword" content="세경대학교">
+	<meta name="keywords" content="세경대학교">
+	<meta name="author" content="세경대학교">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- 스크립트 -->
+	<script type="text/javascript" src="/common/js/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="/common/js/aos.js"></script>
+	<script type="text/javascript" src="/common/js/swiper.js"></script>
+	<script type="text/javascript" src="/common/js/ui.js?v2"></script>
+
+<script>
+		  if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+		    window.location = 'microsoft-edge:' + window.location;
+		    setTimeout(function() {
+		      window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
+		    }, 1);
+		  }
+</script>
+
+</head>
+
+<body>
+<!-- 헤더 시작 -->
+<header id="header" class="header">
+
+	<!-- 띠배너 pc -->
+	
+	<!-- 사이트맵 -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    
+    <div class="sitemap none">
+        <div class="top_bar"></div>
+        <div class="inner">
+            <a href="javascript:;" class="close-btn"><i class="xi-close"></i></a>
+            <ul class="gnbList">
+                <li class="gnb01">
+                    <a href="../about/university.php"><img src="../images/common/sitemap-icon01.png" alt="">행복한 대학 특장점</a>
+					<ul class="dpth2">
+						<li><a href="../about/university.php">학생중심의 행복한 대학</a></li>
+						<li><a href="../about/charm.php">CHARM 비전 2025</a></li>
+						<li><a href="../about/dormitory.php">기숙사안내</a></li>
+						<li><a href="../about/scholarship.php">장학금안내</a></li>
+					</ul>
+                </li>
+    
+                <li class="gnb02">
+                    <a href="../information/overview.php"><img src="../images/common/sitemap-icon03.png" alt="">입시정보</a>
+					<ul class="dpth2">
+						<li><a href="../information/overview.php">모집인원 및 일정안내</a></li>
+						<li><a href="../information/bookguide.php">책자로 보는 모집요강</a></li>
+						<li><a href="../information/plan.php">입학전형 시행계획</a></li>
+						<li><a href="../information/recent_result.php">전년도입시결과</a></li>
+					</ul>
+                </li>
+    
+                <li class="gnb03">
+                    <a href="../helper/online.php"><img src="../images/common/sitemap-icon02.png" alt="">입시도우미</a>
+                    <ul class="dpth2">
+						<li><a href="../helper/online.php">인터넷원서접수</a></li>
+						<li><a href="../helper/notice.php">입학공지</a></li>
+						<li><a href="../helper/consulting.php">입학상담</a></li>
+						<li><a href="../helper/faq.php">자주하는 질문</a></li>
+						<li><a href="../helper/helpline.php">상담전화안내</a></li>
+						<li><a href="../helper/library_list.php">입시자료실</a></li>
+					</ul>
+                </li>
+                <li class="gnb04">
+                    <a href="../pass/confirm_receipt.php"><img src="../images/common/sitemap-icon07.png" alt="">합격조회 및 등록</a>
+                    <ul class="dpth2">
+						<li><a href="../pass/confirm_receipt.php">원서접수확인</a></li>
+						<li><a href="../pass/confirm_pass.php">합격자조회</a></li>
+						<li><a href="../pass/deposit_bill.php">예치금 고지서출력</a></li>
+						<li><a href="../pass/deposit_payment.php">예치금납부조회</a></li>
+						<li><a href="../pass/tuition_bill.php">등록금고지서출력</a></li>
+						<li><a href="../pass/tuition_payment.php">등록금납부조회</a></li>
+					</ul>
+                </li>
+                <li class="gnb05">
+                    <a href="../department/nursing.php"><img src="../images/common/sitemap-icon04.png" alt="">학과소개</a>
+                    <ul class="dpth2">
+						<li class="has3dpth">
+                            <a href="javascript:void(0)">보건계열<img src="../images/common/sitemap-plus.png"></a>
+                            <ul class="dpth3">
+                                <li> <a href="../department/nursing.php" class="active">간호학과</a> </li>
+                                <!-- <li> <a href="../department/mediinfo.php">병원의료정보과</a> </li> -->
+                            </ul>
+                        </li>
+						<li class="has3dpth">
+                            <a href="javascript:void(0)">복지계열<img src="../images/common/sitemap-plus.png"></a>
+                            <ul class="dpth3">	 
+								<li> <a href="../department/socialwelfare.php" class="active">사회복지과</a> </li>
+								<li> <a href="../department/sportswelfare.php">스포츠복지과</a> </li>
+								<li> <a href="../department/arttherapy.php">미술치료과</a> </li>
+							</ul>
+                        </li>
+						<li class="has3dpth">
+							<a href="javascript:void(0)">공공서비스계열<img src="../images/common/sitemap-plus.png"></a>
+							<ul class="dpth3">					
+								<li> <a href="../department/police.php">경찰경호과</a> </li>
+								<li> <a href="../department/firerescue.php" class="active">소방응급구조과</a> </li>
+							</ul>
+						</li>
+						<li class="has3dpth">
+							<a href="javascript:void(0)">호텔관광계열<img src="../images/common/sitemap-plus.png"></a>
+							<ul class="dpth3">											 
+								
+								<li> <a href="../department/hotelcook.php" class="active">호텔조리과</a> </li>
+								<li> <a href="../department/smart.php">문화콘텐츠과</a> </li>
+								<!-- <li> <a href="../department/casino.php">카지노경영과</a> </li> -->
+					        </ul>
+						</li>
+						<li class="has3dpth">
+							<a href="javascript:void(0)">스마트ICT계열<img src="../images/common/sitemap-plus.png"></a>
+							<ul class="dpth3">					
+								<li> <a href="../department/evd.php">정보기술·드론과</a> </li>
+								<li> <a href="../department/smartfarm.php">스마트팜과</a> </li>
+								<li> <a href="../department/material.php">첨단소재과</a> </li>
+							</ul>
+						</li>
+						<li><a href="../department/intensive.php">전공심화</a></li>
+					</ul>
+                </li>
+                <li class="gnb06">
+                    <a href="../major/guide.php"><img src="../images/common/sitemap-icon05.png" alt="">커뮤니티</a>
+                    <ul class="dpth2">
+						<li><a href="../major/guide.php">모집요강</a></li>
+						<li><a href="../major/confirm_pass.php">합격자조회</a></li>
+					</ul>
+                </li>
+                <li class="gnb07">
+                    <a href="../community/activity.php"><img src="../images/common/sitemap-icon06.png" alt="">웹서비스</a>
+                    <ul class="dpth2">
+						<li><a href="../community/activity.php">대학활동소식</a></li>
+						<li><a href="../community/news.php">세경뉴스</a></li>
+						<li><a href="../community/gallery.php">캠퍼스갤러리</a></li>
+						<li><a href="../community/video.php">대학교동영상</a></li>
+						<li><a href="../community/location.php">찾아오는길</a></li>
+					</ul>
+                </li>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+    $(".has3dpth > a").on("click",function(){
+	  $(this).toggleClass("on");
+      $(this).siblings(".dpth3").slideToggle(500);
+
+	  if($(this).hasClass("on")){
+	    $(this).find("img").attr("src", "../images/common/sitemap-minus.png")
+      } else {
+	    $(this).find("img").attr("src", "../images/common/sitemap-plus.png")
+	  }
+    })
+   
+    $(".close-btn").on("click",function(){
+      $(".sitemap").addClass("none");
+    })
+    </script>
+    
+    
+    
+
+	<div class="inner">
+		<h1 class="logo">
+			<a href="../main/main.php">
+				<img src="/images/common/logo.png" alt="세경대학교 로고" />
+				<span class="blind">홈화면 바로가기</span>
+			</a>
+		</h1>
+		<div class="gnbOpen mblock">
+			<div class="path path1"></div>
+			<div class="path path2"></div>
+			<div class="path path3"></div>
+			<span class="blind">전체 메뉴 열기</span>
+		</div>
+		<nav class="gnb">
+
+				<!-- 띠배너 m -->
+				
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
+
+			<script type="text/javascript">
+				// rwdImageMaps로 이미지맵 동적 할당하도록 설정
+				$('img[usemap]').rwdImageMaps();
+			</script>
+
+			<ul class="dpth1 clear">
+				<li>
+					<a href="../about/university.php">행복한 대학 특장점</a>
+					<div class="dpth2W ">
+                        <p class="dpth2Tit">행복한 대학 특장점</p>
+						<ul class="dpth2">
+							<li><a href="../about/university.php">학생중심의 행복한 대학</a></li>
+							<li><a href="../about/charm.php">VISION 2030 전략</a></li>
+							<li><a href="../about/dormitory.php">생활관안내</a></li>
+							<li><a href="../about/scholarship.php">장학금안내</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="../information/overview.php">입시정보</a>
+					<div class="dpth2W ">
+                        <p class="dpth2Tit">입시정보</p>
+						<ul class="dpth2">
+							<li><a href="../information/overview.php">모집인원 및 일정안내</a></li>
+							<li><a href="../information/bookguide.php">책자로 보는 모집요강</a></li>
+							<li><a href="../information/plan.php">입학전형 시행계획</a></li>
+							<li><a href="../information/recent_result.php">전년도입시결과</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="../helper/online.php">입시도우미</a>
+					<div class="dpth2W ">
+                        <p class="dpth2Tit">입시도우미</p>
+						<ul class="dpth2">
+							<li><a href="../helper/online.php">인터넷원서접수</a></li>
+							<li><a href="../helper/notice.php">입학공지</a></li>
+							<li><a href="../helper/consulting.php">입학상담</a></li>
+							<li><a href="../helper/faq.php">자주하는 질문</a></li>
+							<li><a href="../helper/helpline.php">상담전화안내</a></li>
+							<li><a href="../helper/library_list.php">입시자료실</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="../pass/confirm_receipt.php">합격조회 및 등록</a>
+					<div class="dpth2W ">
+                        <p class="dpth2Tit">합격조회 및 등록</p>
+						<ul class="dpth2">
+							<li><a href="../pass/confirm_receipt.php">원서접수확인</a></li>
+							<li><a href="../pass/confirm_pass.php">합격자조회</a></li>
+							<li><a href="../pass/deposit_bill.php">예치금 고지서출력</a></li>
+							<li><a href="../pass/deposit_payment.php">예치금납부조회</a></li>
+							<li><a href="../pass/tuition_bill.php">등록금고지서출력</a></li>
+							<li><a href="../pass/tuition_payment.php">등록금납부조회</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="../department/nursing.php">학과소개</a>
+					<div class="dpth2W ">
+                        <p class="dpth2Tit">학과소개</p>
+						<ul class="dpth2">
+							<li><a href="../department/nursing.php">보건계열</a></li>
+							<li><a href="../department/socialwelfare.php">복지계열</a></li>
+							<li><a href="../department/police.php">공공서비스계열</a></li>
+							<li><a href="../department/hotelcook.php">호텔관광계열</a></li>
+							<li><a href="../department/evd.php">스마트ICT계열</a></li>
+							<li><a href="../department/intensive.php">전공심화</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="../major/guide.php">전공심화</a>
+					<div class="dpth2W ">
+                        <p class="dpth2Tit">전공심화</p>
+						<ul class="dpth2">
+							<li><a href="../major/guide.php">모집요강</a></li>
+							<li><a href="../major/confirm_pass.php">합격자조회</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="../community/activity.php">대학생활</a>
+					<div class="dpth2W ">
+                        <p class="dpth2Tit">대학생활</p>
+						<ul class="dpth2">
+							<li><a href="../community/activity.php">대학활동소식</a></li>
+							<li><a href="../community/news.php">세경뉴스</a></li>
+							<li><a href="../community/gallery.php">캠퍼스갤러리</a></li>
+							<li><a href="../community/video.php">대학교동영상</a></li>
+							<li><a href="../community/location.php">찾아오는길</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</nav>
+        <div class="hdQuick">
+            <ul>
+                <li><a href="../../helper/online.php">온라인 원서접수</a></li>
+                <li><a href="/sch/main/main.php" target="_blank">대학홈페이지</a></li>
+            </ul>
+			<a href="javascript:;" class="sitemap-btn">
+				<i class="xi-bars"></i>
+			</a>
+        </div>
+		<script>
+			$(".sitemap-btn").on("click",function(){
+				$(".sitemap").removeClass("none");
+			})
+		</script>
+	</div>
+</header>
+<!-- 헤더 끝 -->
+<!-- 컨텐츠 시작 -->
+<main id="container" class="container sub guide">
+
+<div class="subHeader">
+
+	<!-- 서브비주얼 [시작] -->
+    <div class="subVisual">
+        <div class="bg bgcst" style="background-image: url('/images/contents/sv_major.jpg')"></div>
+		<div class="txtBox">
+			<p class="svTitle">전공심화</p>
+		</div>
+	</div>
+	<!-- 서브비주얼 [끝] -->
+	
+	 
+	<!-- lnb [시작] -->
+	<div class="lnb">
+		<div class="inner">
+			<a href="../main/main.php" class="btnHome"><span class="blind">홈으로</span></a>
+			<div class="listMnav dpth1">
+				<a href="javascript:();" class="btnMnav">전공심화</a>
+				<ul>
+					<li> <a href="../about/university.php" >행복한 대학 특장점</a> </li>
+					<li> <a href="../information/overview.php" >입시정보</a> </li>
+					<li> <a href="../helper/notice.php" >입시도우미</a> </li>
+					<li> <a href="../pass/confirm_receipt.php" >합격조회 및 등록</a> </li>
+					<li> <a href="../department/nursing.php" >학과소개</a> </li>
+					<li> <a href="../major/guide.php" class="active">전공심화</a> </li>
+					<li> <a href="../community/activity.php" >대학생활</a> </li>
+				</ul>
+			</div>
+			<div class="listMnav dpth2">
+                                <a href="javascript:();" class="btnMnav">모집요강</a><!-- 이외 name -->
+                				<ul>
+																														 
+						<li> <a href="guide.php" class="active">모집요강</a> </li>
+						<li> <a href="confirm_pass.php" >합격자조회</a> </li>
+														</ul>
+			</div>
+
+            <!-- only 학과소개 -->
+            		</div>
+	</div>
+	<!-- lnb [끝] -->
+	
+</div>
+
+
+<!-- 게시판 삽입 -->
+	
+
+<script language="javascript">
+	function search(){
+		if(bbs_search_form.selected == false)	{
+			alert("검색을 체크해 주십시오.");
+		} else if(bbs_search_form.search_order.value=="")	{
+			alert("검색할 내용을 입력해 주십시오.");
+			bbs_search_form.search_order.focus();
+		} else {
+			bbs_search_form.submit();
+		}
+	}
+</script>
+
+<section>
+	<div class="inner">
+		<div class="conBox conBox01">
+			<form class="board_search" name="bbs_search_form" method="get" action="?">
+				<select name="search_item" title="게시판 검색 조건">
+					<option value="subject" selected="">제목</option>
+					<option value="content">내용</option>
+				</select>
+				<input type="text" name="search_order" title="검색어 입력">
+				<input type="submit" value="검색" class="input_search">
+			</form>
+
+			<div class="gallery-list list04">
+				<ul>
+										<li>
+												<a href="/data/bbsData/17648311731.hwp" target="_blank">
+													<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('/data/bbsData/1764831173_LIST.jpg')no-repeat center; background-size:cover;" alt=""></div>
+							<div class="txtBox">
+								<p class="gallery-tit">2026학년도 세경대학교 전공심화 모집요강</p>
+								<p class="date">2025.12.04</p>
+							</div>
+						</a>
+					</li>
+										<li>
+												<a href="/data/bbsData/17334608571.hwp" target="_blank">
+													<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('/data/bbsData/1733460857_LIST.png')no-repeat center; background-size:cover;" alt=""></div>
+							<div class="txtBox">
+								<p class="gallery-tit">2025학년도 세경대학교 전공심화 모집요강</p>
+								<p class="date">2024.12.06</p>
+							</div>
+						</a>
+					</li>
+										<li>
+												<a href="/data/bbsData/17018396711.hwp" target="_blank">
+													<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('/data/bbsData/1701839749_LIST.png')no-repeat center; background-size:cover;" alt=""></div>
+							<div class="txtBox">
+								<p class="gallery-tit">2024학년도 세경대학교 전공심화 모집요강</p>
+								<p class="date">2023.12.06</p>
+							</div>
+						</a>
+					</li>
+										<li>
+												<a href="/data/bbsData/16704026801.hwp" target="_blank">
+													<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('/data/bbsData/1670402680_LIST.jpg')no-repeat center; background-size:cover;" alt=""></div>
+							<div class="txtBox">
+								<p class="gallery-tit">2023학년도 세경대학교 전공심화 모집요강</p>
+								<p class="date">2022.12.07</p>
+							</div>
+						</a>
+					</li>
+										<li>
+												<a href="/data/bbsData/16432597741.hwp" target="_blank">
+													<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('/data/bbsData/1643259714_LIST.jpg')no-repeat center; background-size:cover;" alt=""></div>
+							<div class="txtBox">
+								<p class="gallery-tit">2022학년도 세경대학교 전공심화 모집요강</p>
+								<p class="date">2022.01.27</p>
+							</div>
+						</a>
+					</li>
+										<li>
+												<a href="/data/bbsData/16387061801.pdf" target="_blank">
+													<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('/data/bbsData/1638706180_LIST.jpg')no-repeat center; background-size:cover;" alt=""></div>
+							<div class="txtBox">
+								<p class="gallery-tit">2021학년도 전공심화 모집요강</p>
+								<p class="date">2020.12.01</p>
+							</div>
+						</a>
+					</li>
+										<li>
+												<a href="/data/bbsData/16387061101.pdf" target="_blank">
+													<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('/data/bbsData/1638706110_LIST.jpg')no-repeat center; background-size:cover;" alt=""></div>
+							<div class="txtBox">
+								<p class="gallery-tit">2020학년도 세경대학교 전공심화 모집요강</p>
+								<p class="date">2020.09.15</p>
+							</div>
+						</a>
+					</li>
+										<li>
+												<a href="/data/bbsData/16387060271.pdf" target="_blank">
+													<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('/data/bbsData/1638706027_LIST.jpg')no-repeat center; background-size:cover;" alt=""></div>
+							<div class="txtBox">
+								<p class="gallery-tit">2019학년도 전공심화 학사학위 모집요강</p>
+								<p class="date">2020.09.15</p>
+							</div>
+						</a>
+					</li>
+									</ul>
+			</div>
+
+				<div class="paging">
+			<a href='javascript:;' class='arrow_l'> <img src='/images/board/btn_prev.gif' alt='이전 게시물 목록' class='vam'> </a><div class='number'><a href='#' class='on'>1</a><a href='?search_item=&search_order=&search_date1=&search_date2=&PageNumber=2'>2</a></div><a href='?search_item=&search_order=&search_date1=&search_date2=&PageNumber=2'> <img src='/images/board/btn_next.gif' alt='다음 게시물 목록' class='vam'> </a>		</div>
+		
+		</div>
+	</div>
+</section>
+	<!-- 게시판 삽입 -->
+
+<!--section>
+<div class="inner">
+	<div class="conBox conBox01">
+        <form class="board_search" name="bbs_search_form" method="get" action="/html/community/notice.php?code=notice&amp;search_item='+this.value">
+            <select name="search_item" title="게시판 검색 조건">
+                <option value="1" selected="">제목</option>
+                <option value="2">내용</option>
+            </select>
+            <input type="text" name="search_order" title="검색어 입력">
+            <input type="submit" value="검색" class="input_search">
+        </form>
+        <div class="gallery-list list04">
+            <ul>
+				<li>
+					<a href="/down/down-2022-0827.pdf" target="_blank">
+						<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('http://saekyung.ahndesign.kr/information/thumb-test.jpg')no-repeat center; background-size:cover;" alt=""></div>
+						<div class="txtBox">
+							<p class="gallery-tit">2022 전공심화 모집요강</p>
+							<p class="date">2021.11.05</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="/down/down-2022-0827.pdf" target="_blank">
+						<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('http://saekyung.ahndesign.kr/information/thumb-test.jpg')no-repeat center; background-size:cover;" alt=""></div>
+						<div class="txtBox">
+							<p class="gallery-tit">2022 전공심화 모집요강</p>
+							<p class="date">2021.11.05</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="/down/down-2022-0827.pdf" target="_blank">
+						<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('http://saekyung.ahndesign.kr/information/thumb-test.jpg')no-repeat center; background-size:cover;" alt=""></div>
+						<div class="txtBox">
+							<p class="gallery-tit">2022 전공심화 모집요강</p>
+							<p class="date">2021.11.05</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="/down/down-2022-0827.pdf" target="_blank">
+						<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('http://saekyung.ahndesign.kr/information/thumb-test.jpg')no-repeat center; background-size:cover;" alt=""></div>
+						<div class="txtBox">
+							<p class="gallery-tit">2022 전공심화 모집요강</p>
+							<p class="date">2021.11.05</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="/down/down-2022-0827.pdf" target="_blank">
+						<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('http://saekyung.ahndesign.kr/information/thumb-test.jpg')no-repeat center; background-size:cover;" alt=""></div>
+						<div class="txtBox">
+							<p class="gallery-tit">2022 전공심화 모집요강</p>
+							<p class="date">2021.11.05</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="/down/down-2022-0827.pdf" target="_blank">
+						<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('http://saekyung.ahndesign.kr/information/thumb-test.jpg')no-repeat center; background-size:cover;" alt=""></div>
+						<div class="txtBox">
+							<p class="gallery-tit">2022 전공심화 모집요강</p>
+							<p class="date">2021.11.05</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="/down/down-2022-0827.pdf" target="_blank">
+						<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('http://saekyung.ahndesign.kr/information/thumb-test.jpg')no-repeat center; background-size:cover;" alt=""></div>
+						<div class="txtBox">
+							<p class="gallery-tit">2022 전공심화 모집요강</p>
+							<p class="date">2021.11.05</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('http://saekyung.ahndesign.kr/information/thumb-test.jpg')no-repeat center; background-size:cover;" alt=""></div>
+						<div class="txtBox">
+							<p class="gallery-tit">2022 전공심화 모집요강</p>
+							<p class="date">2021.11.05</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="/down/down-2022-0827.pdf" target="_blank">
+						<div class="thumb"><img src="../../images/board/bookguide_blank_img.png" style="background:url('http://saekyung.ahndesign.kr/information/thumb-test.jpg')no-repeat center; background-size:cover;" alt=""></div>
+						<div class="txtBox">
+							<p class="gallery-tit">2022 전공심화 모집요강</p>
+							<p class="date">2021.11.05</p>
+						</div>
+					</a>
+				</li>
+            </ul>
+        </div>
+        <div class="paging">
+            <a href="#prev" class="arrow_l"> <img src="../../images/board/btn_prev.gif" alt="이전 게시물 목록" class="vam"> </a>
+            <div class="number">
+                <a href="#" class="on">1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+    		</div>
+            <a href=""> <img src="../../images/board/btn_next.gif" alt="다음 게시물 목록" class="vam"> </a>         
+        </div>
+    </div>
+</div>
+</section-->
+
+
+
+</main>
+<!-- 컨텐츠 끝 -->
+<footer id="footer" class="footer">
+	<div class="footTop">
+        <div class="inner">
+            <div class="footList">
+                <ul>
+                    <li><a href="https://skic.certpia.com/">증명발급바로가기</a></li>
+                    <li><a href="http://career.saekyung.ac.kr/" target="_blank")>취업정보바로가기</a></li>
+                    <li><a href="http://sens.saekyung.ac.kr/">인트라넷바로가기</a></li>
+					<li><a href="http://elib.saekyung.ac.kr/" target="_blank">전자도서관</a></li>
+                   <!-- <li><a href="http://www2.saekyung.ac.kr/skcc/" target="_blank">상담센터바로가기</a></li>-->
+                </ul>
+            </div>
+            <div class="footSns blind">
+                <ul>
+                    <li><a href="javascript:alert('준비중 입니다.")><img src="/images/common/ico_sns_fb.png" alt="페이스북"></a></li><!-- target="blank" -->
+                    <li><a href="javascript:alert('준비중 입니다.")><img src="/images/common/ico_sns_tw.png" alt="트위터"></a></li><!-- target="blank" -->
+                    <li><a href="javascript:alert('준비중 입니다.")><img src="/images/common/ico_sns_pt.png" alt="핀터레스트"></a></li><!-- target="blank" -->
+                    <li><a href="javascript:alert('준비중 입니다.")><img src="/images/common/ico_sns_ist.png" alt="인스타그램"></a></li><!-- target="blank" -->
+                </ul>
+            </div>
+        </div>
+    </div><!-- .footTop -->
+    <div class="footBtt">
+        <div class="inner">
+            <div class="footCont">
+                <div class="item item1">
+                    <p class="tit">INFORMATION</p>
+                    <ul>
+                        <li><a href="../../policy/privacy.php" target="_blank" class="fw6">개인정보취급방법</a></li>
+                        <li><a href="../../policy/video.php">영상정보처리관리방침</a></li>
+                        <li><a href="http://www.saekyung.ac.kr/sch/community/pre_settlement.php" target="_blank">예결산공고</a></li>
+                        <li><a href="../../policy/evaluation.php" target="_blank">자체평가</a></li>
+                        <li><a href="../../policy/info.php" target="_blank">정보공개</a></li>
+                        <li><a href="https://fantastic-divan-a63.notion.site/Saekyung-Univercity-Regulation-Management-System-23018cb59d034e2fa6ba5ee3a045083b" target="_blank">규정집</a></li>
+                        <li><a href="http://www.saekyung.ac.kr/sch/community/tuition_minutes.php" target="_blank">등록금심의회의록</a></li>
+                        <li><a href="../../policy/fund.php">대학발전기금</a></li>
+                    </ul>
+                </div><!-- .item -->
+                <div class="item item2">
+                    <p class="tit">CONTACT US</p>
+                    <ul>
+                        <li>대표전화 : 1577-3390</li>
+                        <li>일반전화 : 033-371-3000</li>
+                        <li>FAX : 033-371-3029</li>
+                        <li>master@saekyung.ac.kr</li>
+                        <li>주소 : 26239 강원특별자치도 영월군 영월읍 하송로 197 세경대학교</li>
+                    </ul>
+                </div><!-- .item -->
+            </div><!-- .footCont -->
+            <div class="footInfo">
+                <div class="footLogo"><img src="/images/common/foot_logo.png" alt="세경대학교 로고" /></div>
+                <p class="txt">
+                    <span>saekyung.ac.kr</span>
+                    <span>심윤숙</span>
+                    <span>사업자번호 : 225-82-02388</span>
+                </p>
+                <p class="copy">COPYRIGHT 2020 세경대학교 ALL RIGHTS RESERVED</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,2229 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+	<script type="text/javascript">
+		if (document.location.protocol == 'http:') {
+		   window.location.href = window.location.href.replace('http:', 'https:');
+		}   
+	</script>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maxium-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" href="/mbs/daewon/style/css/reset.css?ver=1.0" media="all"/>
+	<link rel="stylesheet" href="/mbs/daewon/style/css/skin_test.css?ver=1.0" media="all"/> 
+	<link rel="stylesheet" type="text/css" href="/mbs/daewon/css/editor.css?ver=1.0"/>
+	<title>국제교육원</title>   
+	<!--[if lt IE 9]>
+		<script src="//ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js" type="text/javascript"></script>
+		<script src="//ie7-js.googlecode.com/svn/version/2.1(beta4)/ie7-squish.js" type="text/javascript"></script>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+		<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	              
+	<link rel="shortcut icon" href="/mbs/daewon/images/favicon.ico"/>
+	<link rel="apple-touch-icon-precomposed" href="/mbs/daewon/images/favicon.ico"/>
+	                                                                                                         
+	<link rel="apple-touch-icon-precomposed" href="/mbs/daewon/images/favicon.ico"/>
+	                
+
+	 <script type="text/javascript" src="/mbs/daewon/style/js/jquery-1.11.3.min.js?ver=1.0"></script> 
+                                                                                                                                
+ 
+	                   
+	<script type="text/javascript" src="/mbs/daewon/style/js/main.js?ver=1.1"></script>
+
+	
+ <script type="text/javascript" src="/mbs/daewon/style/js/jquery.bxslider/jquery.bxslider.min.js?ver=1.0"></script> 
+                                                                                                                                        
+
+	<script type="text/javascript" src="/mbs/daewon/style/js/common.js?ver=1.0"></script>
+
+	              
+    <script type="text/javascript" src="/mbs/daewon/style/js/jquery-modal-master/jquery.modal.js?ver=1.0"></script>
+	<link rel="stylesheet" href="/mbs/daewon/style/js/jquery-modal-master/jquery.modal.css?ver=1.0" media="all"/>
+
+	                   
+                                                                                                             
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2c5e1123ae0aca028e7c8a4f67b0e2d8"></script>
+	               
+                                                                                                                                                   
+	                                                                                                                       
+
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+		  
+		var subTitle1 = $("#mainPage > div.locationFnWrap > div > div.locationNav > ul > li:nth-child(2) > a").text();
+		var subTitle2 = $("#mainPage > div.locationFnWrap > div > div.locationNav > ul > li:nth-child(3) > a").text();
+		var subTitle3 = $("#mainPage > div.locationFnWrap > div > div.locationNav > ul > li:nth-child(4) > a").text();
+		var subTitle4 = $("#contents > div.tabNav > ul > li > a._active").text();
+		
+		var title = "";
+		if ( subTitle1 != '' && subTitle1 != null) 	{
+			title += subTitle1 + " > ";
+		}
+		if ( subTitle2 != '' && subTitle2 != null) 	{
+			title += subTitle2 + " > ";
+		}
+		if ( subTitle3 != '' && subTitle3 != null) 	{
+			title += subTitle3 + " > ";
+		}
+		if ( subTitle4 != '' && subTitle4 != null) 	{
+			title += subTitle4 + " > ";
+		}
+		if ( title != '' && title != null) 	{
+			title = title + " | " + "대원대학교";
+		} else {
+			title = "취업특성화 No.1 대원대학교";
+		}
+		
+		//$("title").text(subTitle1 + " > " + subTitle2 + " > " + subTitle3 + " " + subTitle4 + " | " + "대원대학교");
+		$("title").text(title);
+
+	});
+	
+	// 2022.2.22 추가 
+	function loginCheck() {
+		
+				alert("로그인 후 이용가능합니다.");
+				location.href="/mbs/daewon/jsp/member/login.jsp?id=daewon_070200000000";
+		
+	}
+
+	var campusPositions = {
+			"center": new daum.maps.LatLng(37.176533,128.191668),//중심 위치
+			"mainGate": new daum.maps.LatLng(37.174258,128.191352),//정문
+			"minsong": new daum.maps.LatLng(37.175126,128.190687),//민송체육관
+			"jinri": new daum.maps.LatLng(37.175848,128.190472),//진리관
+			"D1": new daum.maps.LatLng(37.176857,128.190553),//D1생활관
+			"D2": new daum.maps.LatLng(37.176703,128.189910),//D2생활관
+			"D3": new daum.maps.LatLng(37.176036,128.189620),//D3생활관
+			"D4": new daum.maps.LatLng(37.174669,128.190424),//D4생활관
+			"mainBd": new daum.maps.LatLng(37.177955,128.190569),//본관
+			"factory": new daum.maps.LatLng(37.178297,128.192178),//정비공장
+			"yeongu": new daum.maps.LatLng(37.177490,128.191823),//연구관
+			"changwui": new daum.maps.LatLng(37.177087,128.192758),//창의관
+			"gyoyang": new daum.maps.LatLng(37.176562,128.191610),//교양관
+			"footsal": new daum.maps.LatLng(37.176262,128.193113),//풋살구장
+			"ground": new daum.maps.LatLng(37.175613,128.192112),//운동장
+			"busStop": new daum.maps.LatLng(37.177414,128.192705),//통학버스 승강장
+			"changup": new daum.maps.LatLng(37.175864,128.193332)//창업보육센터
+		};
+	var mapObj, markerObj;
+
+	// 2024.11.06. 서브 메뉴
+	function smenuClose(n) {
+		$.each($('.locationNav > ul > li'),function(lni, lnv) {
+			if( !$(lnv).find('a').hasClass("home") && (n==0 || (n>0 && n!=lni)) ) {
+				$(lnv).find('a').prop('title',$(lnv).find('a').data('title') + "접힘");
+				$(lnv).find('ul').hide();
+			}
+		});
+	}
+
+	$(function() {
+		$(".topBanner").show();
+
+//		if(window.navigator.userAgent.toLowerCase() < 0 ){
+			$( '.topBanner' ).find( '.bx-viewport' ).height('93px');
+			$( '.topBanner' ).find( 'li' ).width('600px');
+//		}else{
+//			$( '.topBanner' ).find( '.bx-viewport' ).height('62px');
+//			$( '.topBanner' ).find( 'li' ).width('400px');
+//		}
+		var thisMenuId = "daewon_010304040000";
+		if(thisMenuId != "") {
+			var menuSeq = thisMenuId.split("_")[1].replace(/00/gi, "");
+			for(var i=menuSeq.length; i>0; i-=2) {
+				$("#topMenu_" + menuSeq.substring(0, i)).addClass("_active");
+			}
+
+			//$(".subVisual .subVisualNav span strong").html($("#topMenu_" + menuSeq.substring(0, 2) + " > a").text());
+		}
+
+		// 2024.11.06. 변경
+		$.each($('.locationNav > ul > li'),function(lni, lnv) {
+			if(!$(lnv).find('a').hasClass("home")) {
+				$(lnv).find('a').data('title',lni + "depth 메뉴 ");
+			}
+		});
+		smenuClose(0);
+		$(document).on("click", ".locationNav > ul > li > a", function() { //페이지 네비게이션 클릭 이벤트
+			if($(this).siblings("ul").css('display') == "none") {
+				$(this).prop('title',$(this).data('title') + "펼침");
+				$(this).siblings("ul").show();
+
+			} else {
+				$(this).prop('title',$(this).data('title') + "접힘");
+				$(this).siblings("ul").hide();
+			}
+		});
+		//$(document).on("focus", ".locationNav > ul > li:first-child > a", function() {
+		//	smenuClose(0);
+		//});
+		$(document).on("focus", ".fnWrap > ul > li:first-child > a", function() {
+			smenuClose(0);
+		});
+		$(document).on("focus", ".locationNav > ul > li > a", function() { //페이지 네비게이션 클릭 이벤트
+			var lnum = $('.locationNav > ul > li').index($(this).closest('li'));
+			smenuClose(lnum);
+		});
+
+		//$(document).on("click", ".locationNav > ul > li", function() { //페이지 네비게이션 클릭 이벤트
+		//	$(this).find("ul").toggle();
+		//});
+
+		$(document).on("click", ".campusAnchor", function() { //캠퍼스맵 클릭 이벤트
+			var positionId = $(this).attr("id");
+
+			$(".campusmap_wrap .campusAnchor").removeClass("_active");
+			$("#" + positionId).addClass("_active");
+
+			campus_view(positionId);
+		});
+
+		setDaumMap();
+	});
+
+	function searchEngine() {
+		if(document.searchForm.qt.value == "") {
+			alert("검색어를 입력하세요.");
+			searchForm.qt.focus();
+			return false;
+		}
+
+		return true;
+	}
+
+	//메인 구글검색
+	function jf_search(form_search) {
+		if(document.form_search.q.value == ''){
+			if(document.form_search.hl.value == 'en'){
+				alert('Please enter keyword.');
+			}else if(document.form_search.hl.value == 'cn'){
+				alert('Please enter keyword.');
+			}else{
+				alert('검색어를 입력 하세요.');
+			}
+			document.form_search.q.focus();
+			return false ;
+		}
+
+		if(document.form_search.kind.value == "google"){
+			document.form_search.target="_blank";
+			document.form_search.action="https://www.google.co.kr/search";
+			//document.form_search.submit();
+		}
+	}
+
+	function jf_windowPop(url){
+		window.open(url, '', 'top=100px, left=100px, height=800px, width=800px, scrollbars=yes');
+	}
+
+	function setDaumMap() {
+		var mapTypeControl = new daum.maps.MapTypeControl();
+		var zoomControl = new daum.maps.ZoomControl();
+		var options = {
+			center: campusPositions["center"],
+			level: 3
+		};
+
+		var comeToUsMap = document.getElementById("comeToUsMap");	//찾아오시는길
+		var campusMap = document.getElementById("campusMap");		//캠퍼스 맵
+		if(!comeToUsMap && !campusMap) {
+			return;
+		}
+
+		if(comeToUsMap) {
+			mapObj = new daum.maps.Map(comeToUsMap, options);
+			markerObj = new daum.maps.Marker({
+				map: mapObj,
+				position: campusPositions["center"]
+			});
+		} else if(campusMap) {
+			mapObj = new daum.maps.Map(campusMap, options);
+			markerObj = new daum.maps.Marker({
+				map: mapObj,
+				position: campusPositions["mainGate"]
+			});
+			campus_view("mainGate");
+		}
+		//mapObj.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+		//mapObj.addControl(zoomControl, daum.maps.ControlPosition.BOTTOMRIGHT);
+	}
+
+	function campus_view(ps) {
+		if(mapObj) {
+			var markerPosition = campusPositions[ps];
+			mapObj.setCenter(campusPositions[ps]);
+			mapObj.setLevel(3);
+			markerObj.setPosition(markerPosition);
+		}
+	}
+
+
+	function jf_openPrintWindow() {
+		localStorage.removeItem("printStr");
+		localStorage.setItem("printStr", $("#wrapContent").html());
+		window.open("/mbs/daewon/html/print_contents.html", "printPreviewWindow");
+	}
+
+	function hideTopBanner(name, value, expiredays) {
+		setCookie(name, value, expiredays);
+		$(".topBanner").hide();
+		$('.openTopBanner').show();
+	}
+
+	//260408 번역 파라미터 추가
+	function jf_windowPopTranslated(url) {
+    const selectBox = document.querySelector('.goog-te-combo');
+    let currentLang = '';
+    
+    if (selectBox && selectBox.value) {
+        currentLang = selectBox.value;
+    }
+
+    const separator = url.indexOf('?') !== -1 ? '&' : '?';
+    const finalUrl = currentLang ? `lang=` : url;
+
+    window.open(finalUrl, '', 'top=100px, left=100px, height=800px, width=800px, scrollbars=yes');
+	}
+
+	</script>
+
+</head>
+<body id="mainPage">
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+
+                                                                                                                                                                  
+
+                                                                                                                                        
+
+                         
+<dl class="skipMenu">
+  <dt><strong class="hidden">바로가기 메뉴</strong></dt>
+  <dd><a href="#wrapContent" class="accessibility01" title="본문 바로가기">본문 바로가기</a></dd>
+  <dd><a href="#gnb" class="accessibility01" title="주메뉴 바로가기">주메뉴 바로가기</a></dd>
+</dl>
+                         
+
+
+
+
+                      
+<div class="openTopBanner"><a href="#">팝업열기</a></div>
+                      
+
+
+                            
+
+
+
+<div class="topBanner">
+
+	<div class="topBannerInner">
+		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+	<div class="topBannerSlide_wrap">	
+		<ul class="topBannerSlide">
+		
+		
+		
+			
+			<li>
+				
+					<a href="#"
+					 
+					
+								
+					
+					>
+					
+					<img src="/upload/banner/23/upload_ff6c10ec_19f6_4f9a_9d79_4cf49879e35c_00000047.png" alt="KOREAN ACCREDITATION BOARD OF NURSING EDUCATION 
+2024년 상반기 간호교육인증평가 인증 획득 
+인증기간: 2024.6.11.~2027. 6. 10.(3년간)" width="600" height="89" />
+					
+					</a>
+				
+			</li>
+				
+		
+		
+			
+			<li>
+				
+					<a href="https://www.daewon.ac.kr/mbs/daewon/jsp/album/gallery.jsp?commandCam=&amp;boardType=02&amp;boardId=29&amp;listType=02&amp;boardSeq=162996&amp;mcategoryId=&amp;id=daewon_060101000000&amp;spage=1"
+					 
+					title="새창열림" target="_blank"
+								
+					
+					>
+					
+					<img src="/upload/banner/23/upload_36202545_9c97_4958_a5cb_5d5a095a976a_00000284.jpg" alt="KABRE  한국방사선교육평가원 방사선교육 평가 인증 기관 선정 방사선(학)과" width="600" height="89" />
+					
+					</a>
+				
+			</li>
+				
+		
+		
+				
+		
+		
+			
+			<li>
+				
+					<a href="https://www.daewon.ac.kr/mbs/duc/jsp/album/gallery.jsp?commandCam=&amp;boardType=02&amp;boardId=29&amp;listType=02&amp;boardSeq=160924&amp;mcategoryId=&amp;id=daewon_060101000000&amp;spage=1"
+					 
+					title="새창열림" target="_blank"
+								
+					
+					>
+					
+					<img src="/upload/banner/23/upload_e8ff4588_b420_4d57_80bf_a9c34f9f6029_00000059.jpg" alt="KAVE KOREAN ACCREDITATION BOARD FOR VOCATIONAL HIGHER EDUCATION
+3주기 전문대학 기관평가인증 대학 선정 
+교육부 | 고등직업교육 평가인증원 I DUC" width="600" height="89" />
+					
+					</a>
+				
+			</li>
+				
+		
+		
+				
+		
+		
+				
+		
+		
+				
+		
+		
+				
+		
+		
+				
+		
+		
+				
+		
+		
+				
+		
+		
+				
+		
+		
+				
+		
+		
+				
+		
+		
+				
+		
+		</ul>
+	</div>
+
+
+
+		
+		
+	</div>
+	<div class="closeTopBanner"><a href="#">팝업닫기</a></div>
+</div>
+                            
+
+
+
+             
+<header>
+	<div class="topWrap">
+		<div class="wrap1200">
+			                       
+			<ul class="link">
+				<li><a href="/mbs/daewon/index.jsp">HOME</a></li>
+				                                                                                           
+				<li><a href="/mbs/daewon/subview.jsp?id=daewon_070700000000">SITEMAP</a></li>
+			</ul>
+			<ul class="tSns">
+				<li><a href="https://blog.naver.com/daewoniphak" target="_blank" title="새창열림">블로그</a></li>
+				                                                                                                                                          
+				<li><a href="https://www.youtube.com/@대원대학교공식채널" target="_blank" title="새창열림">유튜브</a></li>
+				<li><a href="https://www.instagram.com/daewon_1994/" target="_blank" title="새창열림">인스타</a></li>
+			</ul>
+			                       
+			                       
+			<ul class="unb">
+				
+						<li><a href="/mbs/daewon/jsp/member/login.jsp?id=daewon_070200000000">로그인</a></li>
+						                                                                                                             
+				
+
+			</ul>
+			                       
+			                   
+			<div class="language lang-select">
+				<button class="lang-trigger">
+					<img src="/mbs/daewon/images/language_icon2.png" class="globe-icon" alt="언어 아이콘 이미지">
+					<span class="selected-text">Language</span>
+					<img src="/mbs/daewon/images/language_btn2.png" class="arrow-icon" alt="언어 버튼 이미지">
+				</button>	
+				  
+				<ul class="lang-options">
+					<li data-value="">원문</li>
+					
+					<li data-value="en">영어(English)</li>
+					                                                                                                              
+					<li data-value="uz">우즈베크어(O’zbekcha)</li>
+					<li data-value="vi">베트남어(Tiếng Việt)</li>
+					<li data-value="ne">네팔어(नेपाली)</li>
+					<li data-value="ky">키르기스어(Кыргыз тили)</li>
+					<li data-value="other">다른언어 선택(Other Languages)</li>
+				</ul>
+				<div>
+					<select id="custom_translate_selector" class="real-select" translate="no">
+						<option value="">원문</option>
+						<option value="en">영어(English)</option>
+						                                                                                                                            
+						<option value="vi">베트남어(O’zbekcha)</option>
+						<option value="uz">우즈베크어(Tiếng Việt)</option>
+						<option value="ne">네팔어(नेपाली)</option>
+						<option value="ky">키르기스어(Кыргыз тили)</option>
+					</select>
+					<div id="google_translate_element" style="display:none;"></div>
+				</div>
+			</div>
+			                   
+		</div>
+	</div>
+	                
+	<div class="logoSearchWrap">
+		                                                
+		<div class="logo"><a href="//www.daewon.ac.kr/mbs/daewon/"><img src="/mbs/daewon/images/logo.png" alt="DUC대원대학교 로고"/></a></div>
+		                                                                                                                        
+		                            
+		<div class="mSearchOpen"><a href="#this">검색열기</a></div>
+		                            
+		<div class="search">
+			<form name="searchForm" method="post" action="https://search.daewon.ac.kr/RSA/front_new/Search.jsp" target="_blank" title="새창 검색" onsubmit="return searchEngine();">
+				<input name="qt" type="text" placeholder="검색어를 입력하세요." title="검색어" />
+				<input type="submit" value="검색" title="새창열림" />
+			</form>
+			<div class="mSearchClose"><a href="#this">검색닫기</a></div>
+		</div>
+	</div>
+	                
+	                      
+	<div class="mOpen"><a href="#this">모바일메뉴</a></div>
+	                      
+	                   
+	<div id="gnb">
+		                     
+		<div class="gnbBg"></div>
+		                     
+		<div class="wrapGnb">
+			<ul>
+				<li><a href="#this">대학안내</a>
+					<div class="wrapGnbONC">
+						<ul>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_010101000000">학교소개</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010101000000">총장인사말</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010102010000">대학발자취</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010103000000">대학이념</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010104010000">학교상징</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010105000000">교육특성</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010106000000">중장기발전계획</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_010201000000">법인소개</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010201000000">설립자발자취</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010202000000">이사장인사말</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010203000000">법인개요</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010204000000">법인현황</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=5&amp;id=daewon_010205000000">이사회(개최, 회의록)</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010206000000">자매기관</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010207000000">학교법인 임원과 친족관계에 있는 교직원 현황</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_010301000000">대학기관</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010301000000">조직도</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010303000000">대학본부</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010304040000">부속기관</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010305010000">부설기관</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010306010000">산학협력단</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/jsp/rules/rules.jsp?configIdx=5&amp;cId=13&amp;id=daewon_010501000000">제규정안내</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/rules/rules.jsp?configIdx=5&amp;cId=13&amp;id=daewon_010501000000">규정집</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010502000000">행정편람</a></li>
+								</ul>
+							</li>
+							<li><a href="#this">캠퍼스안내</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010601000000">캠퍼스맵</a></li>
+									<li><a href="/mbs/daewon/jsp/album/gallery.jsp?boardType=02&amp;boardId=37&amp;listType=02&amp;mcategoryId=&amp;id=daewon_010602000000">캠퍼스갤러리</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010603000000">찾아오시는길</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="#this">입학/취업안내</a>
+					<div class="wrapGnbONC">
+						<ul>
+							<li><a href="/mbs/ipsi/index.jsp" target="_blank" title="새창 열림">대학입학</a>
+								<ul>
+									<li><a href="/mbs/ipsi/subview.jsp?id=ipsi_010101000000" target="_blank" title="새창 열림">모집요강</a></li>
+									<li><a href="/mbs/ipsi/jsp/board/list.jsp?boardId=41&amp;id=ipsi_020300000000" target="_blank" title="새창 열림">입학상담</a></li>
+									<li><a href="/mbs/ipsi/jsp/gradeCal/gradeCalBefore1997.jsp?id=ipsi_030101000000" target="_blank" title="새창 열림">입시도우미</a></li>
+									<li><a href="/mbs/ipsi/subview.jsp?id=ipsi_040101000000" target="_blank" title="새창 열림">학교정보</a></li>
+									<li><a href="/mbs/ipsi/subview.jsp?id=ipsi_010501000000" target="_blank" title="새창 열림">전공심화과정</a></li>
+									<li><a href="/mbs/ipsi/subview.jsp?id=ipsi_010601000000" target="_blank" title="새창 열림">편입학모집</a></li>
+								</ul>
+							</li>
+							<li><a href="https://wiz.daewon.ac.kr/user/adult/index.action" target="_blank" title="새창 열림">평생교육원</a>
+								<ul>
+									<li><a href="https://wiz.daewon.ac.kr/user/indexSub.action?codyMenuSeq=1905&amp;siteId=adult" target="_blank" title="새창 열림">평생교육원 소개</a></li>
+									<li><a href="https://wiz.daewon.ac.kr/user/indexSub.action?codyMenuSeq=1915&amp;siteId=adult" target="_blank" title="새창 열림">학점은행제</a></li>
+									<li><a href="https://wiz.daewon.ac.kr/user/indexSub.action?codyMenuSeq=1920&amp;siteId=adult" target="_blank" title="새창 열림">평생교육과정</a></li>
+									<li><a href="https://wiz.daewon.ac.kr/user/indexSub.action?codyMenuSeq=1925&amp;siteId=adult" target="_blank" title="새창 열림">온라인강좌신청</a></li>
+									<li><a href="https://wiz.daewon.ac.kr/user/indexSub.action?codyMenuSeq=1927&amp;siteId=adult" target="_blank" title="새창 열림">커뮤니티</a></li>
+								</ul>
+							</li>
+							<li><a href="https://wiz.daewon.ac.kr/user/job/index.action" target="_blank" title="새창 열림">취업안내</a>
+								<ul>
+									<li><a href="https://wiz.daewon.ac.kr/user/job/index.action" target="_blank" title="새창 열림">취업홈페이지</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="#this">학과소개</a>
+					<div class="wrapGnbONC">
+						<ul>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_030101010000">공학계열</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030101010000">전기전자과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030103010000">철도건설과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030105010000">멀티미디어과</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_030201010000">자연과학계열</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030201010000">간호학부</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030202010000">물리치료과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030203010000">방사선과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030204010000">응급구조과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030205010000">치위생과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030206010000">뷰티과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030207010000">보건의료행정과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030208010000">재활운동과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030209010000">바이오메디컬과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030210010000">호텔조리제빵과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030211010000">K-글로벌학부</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_030301010000">인문사회계열</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030301010000">유아교육과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030302010000">호텔관광경영과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030304010000">사회복지과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030307010000">경찰경호행정과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030308010000">문헌정보과</a></li>
+								</ul>
+							</li>
+							
+							                                                                                                                                                                                                                             
+							
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_030103050000">전공심화과정</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030103050000">철도건설공학과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030203050000">방사선학과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030204050000">응급구조학과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030206050000">뷰티학과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030301050000">유아교육학과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030304050000">사회복지학과</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="#this">대학생활</a>
+					<div class="wrapGnbONC">
+						<ul>
+							<li><a href="/mbs/daewon/jsp/academic_calender/academic_calender_month.jsp?academicIdx=2&amp;id=daewon_040101010000">학사안내</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/academic_calender/academic_calender_month.jsp?academicIdx=2&amp;id=daewon_040101010000">학사일정</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040102000000">대학요람</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040103000000">학적변동신청</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040104000000">증명서발급</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040105000000">장학/학자금대출</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040106000000">병무 및 예비군 안내</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040107000000">전공심화과정</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040108000000">교육과정 안내</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_040201000000">학생활동</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040201000000">학생자치회</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040202000000">동아리</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040203000000">체전축전</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_040301000000">생활정보</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040301000000">생활관안내</a></li>
+									<li><a href="/mbs/daewon/jsp/academic_calender/academic_calender_month.jsp?academicIdx=12&amp;id=daewon_040302000000">식당메뉴</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040303000000">통학버스안내</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_040401000000">편의시설</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040401000000">학생 편의공간</a></li>
+									                                                                                            
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040403000000">풋살장/족구장</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040404000000">무선인터넷</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040405000000">장애인시설</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040406000000">편의점</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_040501000000">Office365</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040501000000">Office365서비스</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040502000000">Office365가입방법</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040503000000">Office365사용안내</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040504000000">Office365설명서</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_040601000000">국제학생지원</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040601000000">생활지원</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040602000000">비자지원</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040603000000">취업지원</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040604000000">아르바이트</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040605000000">기숙사</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040606000000">학사지원</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040607000000">유학생회</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1599&amp;id=daewon_040608000000">대학생활안내자료실</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="#this">대원광장</a>
+					<div class="wrapGnbONC">
+						<ul>
+							<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=20&amp;id=daewon_050101000000">대원공지</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=20&amp;id=daewon_050101000000">공지사항</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=21&amp;id=daewon_050102000000">학사공지</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=42&amp;id=daewon_050103000000">입학공지</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=23&amp;id=daewon_050104000000">정보보호안내</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=24&amp;id=daewon_050105000000">입찰공고</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=25&amp;id=daewon_050106000000">예/결산공고</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=26&amp;id=daewon_050107000000">위원회회의록</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=65&amp;id=daewon_050108000000">자체평가</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=66&amp;id=daewon_050109000000">채용정보</a></li>
+                                    <li><a href="javascript:loginCheck();">제 규정 공고</a></li>	                          
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1549&amp;id=daewon_050111000000">안전관리</a></li>		                         
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1555&amp;id=daewon_050112000000">적립금 적립 및 사용 현황</a></li>		                         
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=27&amp;id=daewon_050201000000">상담센터</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=27&amp;id=daewon_050201000000">자주하는질문</a></li>
+									<li><a href="/mbs/daewon/jsp/minwon/minwon_category_map.jsp?id=daewon_050202000000&amp;boardId=1">묻고답하기</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/jsp/album/list.jsp?boardId=1545&amp;id=daewon_050303000000">여론광장</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/album/list.jsp?boardId=1545&amp;id=daewon_050303000000">학교가 달라졌어요</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1503&amp;id=daewon_050304000000">총장님께 바랍니다</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1510&id=daewon_050305000000">보건안내</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_050306000000">연구부정행위 제보 접수창구</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_050401000000">정보공개</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_050401000000">제도안내</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=38&amp;id=daewon_050402000000">정보공개청구</a></li>
+									<li><a href="/mbs/daewon/jsp/board/info_open_list.jsp?boardId=39&amp;id=daewon_050403000000">정보공개목록</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=40&amp;id=daewon_050404000000">사전정보공개</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1504&amp;id=daewon_050405000000">업무추진비</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1556&id=daewon_050406000000">재정지원사업 정보공개</a></li>
+								</ul>
+							</li>
+							<li><a href="#this">관련사이트</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/banner/banner_site.jsp?key=12&amp;id=daewon_050501000000">관련사이트</a></li>
+									<li><a href="/mbs/daewon/jsp/banner/banner_site.jsp?key=18&amp;id=daewon_050502000000">교내주요기관</a></li>
+									                                                                                                        
+								</ul>
+							</li>
+							<li><a href="#this">QR코드게시판</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/qrcode/list.jsp?spage=1&amp;id=daewon_050600000000">QR코드게시판</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="#this">대원미디어</a>
+					<div class="wrapGnbONC">
+						<ul>
+							<li><a href="#this">DUC뉴스</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/album/gallery.jsp?boardId=29&amp;id=daewon_060101000000">DUC뉴스</a></li>
+									<li><a href="/mbs/daewon/jsp/board/job_list.jsp?boardId=35&amp;id=daewon_060102000000">취업베스트</a></li>
+								</ul>
+							</li>
+							                                                                                                                                                                                                                                
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_060301060000">대원소식</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_060301060000">대원소식지</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_060302070000">대원신문</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_060401000000">홍보동영상</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_060401000000">홍보동영상</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/jsp/album/gallery.jsp?boardType=02&amp;boardId=46&amp;listType=02&amp;mcategoryId=&amp;id=daewon_060500000000">체전/축전</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/album/gallery.jsp?boardType=02&amp;boardId=46&amp;listType=02&amp;mcategoryId=&amp;id=daewon_060501000000">체전/축전</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/jsp/album/gallery.jsp?boardType=02&amp;boardId=47&amp;listType=02&amp;mcategoryId=&amp;id=daewon_060600000000">국제교류 활동</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/album/gallery.jsp?boardType=02&amp;boardId=47&amp;listType=02&amp;mcategoryId=&amp;id=daewon_060601000000">국제교류 활동</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	                   
+
+	                         
+	<div class="allOpen"><a href="#this">전체메뉴</a></div>
+	                         
+
+	                   
+	<div id="allMenu">
+		<div class="wrapAllmenu">
+			<ul>
+				<li><a href="#this">대학안내</a>
+						<ul>
+							<li><a href="#this">학교소개</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010101000000">총장인사말</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010102010000">대학발자취</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010103000000">대학이념</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010104010000">학교상징</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010105000000">교육특성</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010106000000">중장기발전계획</a></li>
+								</ul>
+							</li>
+							<li><a href="#this">법인소개</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010201000000">설립자발자취</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010202000000">이사장인사말</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010203000000">법인개요</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010204000000">법인현황</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=5&amp;id=daewon_010205000000">이사회(개최, 회의록)</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010206000000">자매기관</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010207000000">학교법인 임원과 친족관계에 있는 교직원 현황</a></li>
+								</ul>
+							</li>
+							<li><a href="#this">대학기관</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010301000000">조직도</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010303000000">대학본부</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010304040000">부속기관</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010305010000">부설기관</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010306010000">산학협력단</a></li>
+								</ul>
+							</li>
+							<li><a href="#this">제규정안내</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/rules/rules.jsp?configIdx=5&amp;cId=13&amp;id=daewon_010501000000">규정집</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010502000000">행정편람</a></li>
+								</ul>
+							</li>
+							<li><a href="#this">캠퍼스안내</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010601000000">캠퍼스맵</a></li>
+									<li><a href="/mbs/daewon/jsp/album/gallery.jsp?boardId=37&amp;id=daewon_010602000000&amp;boardType=02&amp;listType=02">캠퍼스갤러리</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_010603000000">찾아오시는길</a></li>
+								</ul>
+							</li>
+						</ul>
+				</li>
+				<li><a href="#this">입학/취업안내</a>
+						<ul>
+							<li><a href="/mbs/ipsi/index.jsp" target="_blank" title="새창 열림">대학입학</a>
+								<ul>
+									<li><a href="/mbs/ipsi/subview.jsp?id=ipsi_010101000000" target="_blank" title="새창 열림">모집요강</a></li>
+									<li><a href="/mbs/ipsi/jsp/board/list.jsp?boardId=41&amp;id=ipsi_020300000000" target="_blank" title="새창 열림">입학상담</a></li>
+									<li><a href="/mbs/ipsi/jsp/gradeCal/gradeCalBefore1997.jsp?id=ipsi_030101000000" target="_blank" title="새창 열림">입시도우미</a></li>
+									<li><a href="/mbs/ipsi/subview.jsp?id=ipsi_040101000000" target="_blank" title="새창 열림">학교정보</a></li>
+									<li><a href="/mbs/ipsi/subview.jsp?id=ipsi_010501000000" target="_blank" title="새창 열림">전공심화과정</a></li>
+								</ul>
+							</li>
+							<li><a href="https://wiz.daewon.ac.kr/user/adult/index.action" target="_blank" title="새창 열림">평생교육원</a>
+								<ul>
+									<li><a href="https://wiz.daewon.ac.kr/user/indexSub.action?codyMenuSeq=1905&amp;siteId=adult" target="_blank" title="새창 열림">평생교육원 소개</a></li>
+									<li><a href="https://wiz.daewon.ac.kr/user/indexSub.action?codyMenuSeq=1915&amp;siteId=adult" target="_blank" title="새창 열림">학점은행제</a></li>
+									<li><a href="https://wiz.daewon.ac.kr/user/indexSub.action?codyMenuSeq=1920&amp;siteId=adult" target="_blank" title="새창 열림">평생교육과정</a></li>
+									<li><a href="https://wiz.daewon.ac.kr/user/indexSub.action?codyMenuSeq=1925&amp;siteId=adult" target="_blank" title="새창 열림">온라인강좌신청</a></li>
+									<li><a href="https://wiz.daewon.ac.kr/user/indexSub.action?codyMenuSeq=1927&amp;siteId=adult" target="_blank" title="새창 열림">커뮤니티</a></li>
+								</ul>
+							</li>
+							<li><a href="https://wiz.daewon.ac.kr/user/job/index.action" target="_blank" title="새창 열림">취업안내</a>
+								<ul>
+									<li><a href="https://wiz.daewon.ac.kr/user/job/index.action" target="_blank" title="새창 열림">취업홈페이지</a></li>
+								</ul>
+							</li>
+						</ul>
+				</li>
+				<li><a href="#this">학과소개</a>
+						<ul>
+							<li><a href="#this">공학계열</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030101010000">전기전자과</a></li>
+									                                                                                                     
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030103010000">철도건설과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030105010000">멀티미디어과</a></li>
+								</ul>
+							</li>
+							<li><a href="#this">자연과학계열</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030201010000">간호학부</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030202010000">물리치료과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030203010000">방사선과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030204010000">응급구조과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030205010000">치위생과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030206010000">뷰티과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030207010000">보건의료행정과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030208010000">재활운동과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030209010000">바이오메디컬과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030210010000">호텔조리제빵과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030211010000">K-글로벌학부</a></li>
+								</ul>
+							</li>
+							<li><a href="#this">인문사회계열</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030301010000">유아교육과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030302010000">호텔관광경영과</a></li>
+									                                                                                               
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030304010000">사회복지과</a></li>
+									                                                                                                  
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030307010000">경찰경호행정과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030308010000">문헌정보과</a></li>
+								</ul>
+							</li>
+							                                                                                                                                                                                    
+							<li><a href="#this">전공심화과정</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030103050000">철도건설공학과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030203050000">방사선학과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030204050000">응급구조학과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030206050000">뷰티학과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030301050000">유아교육학과</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_030304050000">사회복지학과</a></li>
+								</ul>
+							</li>
+						</ul>
+				</li>
+				<li><a href="#this">대학생활</a>
+						<ul>
+							<li><a href="/mbs/daewon/jsp/academic_calender/academic_calender_month.jsp?academicIdx=2&amp;id=daewon_040101010000">학사안내</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/academic_calender/academic_calender_month.jsp?academicIdx=2&amp;id=daewon_040101010000">학사일정</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040102000000">대학요람</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040103000000">학적변동신청</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040104000000">증명서발급</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040105000000">장학/학자금대출</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040106010000">병무 및 예비군 안내</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040107000000">전공심화과정</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040108000000">교육과정 안내</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_040201010000">학생활동</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040201010000">학생자치회</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040202010000">동아리</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040203010000	">체전축전</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_040301000000">생활정보</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040301000000">생활관안내</a></li>
+									<li><a href="/mbs/daewon//jsp/academic_calender/academic_calender_month.jsp?academicIdx=12&amp;id=daewon_040302000000">식당메뉴</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040303000000">통학버스안내</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_040401000000">편의시설</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040401000000">학생 편의공간</a></li>
+									                                                                                            
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040403000000">풋살장/족구장</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040404000000">무선인터넷</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040405000000">장애인시설</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040406000000">편의점</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_040501000000">Office365</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040501000000">Office365서비스</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040502000000">Office365가입방법</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040503000000">Office365사용안내</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040504000000">Office365설명서</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_040601000000">국제학생지원</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040601000000">생활지원</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040602000000">비자지원</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040603000000">취업지원</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040604000000">아르바이트</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040605000000">기숙사</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040606000000">학사지원</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_040607000000">유학생회</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1599&amp;id=daewon_040608000000">대학생활안내자료실</a></li>
+								</ul>
+							</li>
+						</ul>
+				</li>
+				<li><a href="#this">대원광장</a>
+						<ul>
+							<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=20&amp;id=daewon_050101000000">대원공지</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=20&amp;id=daewon_050101000000">공지사항</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=21&amp;id=daewon_050102000000">학사공지</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=42&amp;id=daewon_050103000000">입학공지</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=23&amp;id=daewon_050104000000">정보보호안내</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=24&amp;id=daewon_050105000000">입찰공고</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=25&amp;id=daewon_050106000000">예/결산공고</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=26&amp;id=daewon_050107000000">위원회회의록</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=65&amp;id=daewon_050108000000">자체평가</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=66&amp;id=daewon_050109000000">채용정보</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1549&amp;id=daewon_050111000000">안전관리</a></li>		                         
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1555&amp;id=daewon_050112000000">적립금 적립 및 사용 현황</a></li>		                         
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=27&amp;id=daewon_050201000000">상담센터</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=27&amp;id=daewon_050201000000">자주하는질문</a></li>
+									<li><a href="/mbs/daewon/jsp/minwon/minwon_category_map.jsp?id=daewon_050202000000&amp;boardId=1">묻고답하기</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/jsp/album/list.jsp?boardId=1545&amp;id=daewon_050303000000">여론광장</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/album/list.jsp?boardId=1545&amp;id=daewon_050303000000">학교가 달라졌어요</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1503&amp;id=daewon_050304000000">총장님께 바랍니다</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1510&id=daewon_050305000000">보건안내</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_050306000000">연구부정행위 제보 접수창구</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_050401000000">정보공개</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_050401000000">제도안내</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=38&amp;id=daewon_050402000000">정보공개청구</a></li>
+									<li><a href="/mbs/daewon/jsp/board/info_open_list.jsp?boardId=39&amp;id=daewon_050403000000">정보공개목록</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=40&amp;id=daewon_050404000000">사전정보공개</a></li>
+									<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=1504&amp;id=daewon_050405000000">업무추진비</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/jsp/banner/banner_site.jsp?key=12&amp;id=daewon_050501000000">관련사이트</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/banner/banner_site.jsp?key=12&amp;id=daewon_050501000000">관련사이트</a></li>
+									<li><a href="/mbs/daewon/jsp/banner/banner_site.jsp?key=18&amp;id=daewon_050502000000">교내주요기관</a></li>
+									                                                                                                        
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/jsp/qrcode/list.jsp?spage=1&amp;id=daewon_050600000000">QR코드게시판</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/qrcode/list.jsp?spage=1&amp;id=daewon_050600000000">QR코드게시판</a></li>
+								</ul>
+							</li>
+						</ul>
+				</li>
+				<li><a href="#this">대원미디어</a>
+						<ul>
+							<li><a href="/mbs/daewon/jsp/album/gallery.jsp?boardId=29&amp;id=daewon_060101000000">DUC뉴스</a>
+								<ul>
+									<li><a href="/mbs/daewon/jsp/album/gallery.jsp?boardId=29&amp;id=daewon_060101000000">DUC뉴스</a></li>
+									<li><a href="/mbs/daewon/jsp/board/job_list.jsp?boardId=35&amp;id=daewon_060102000000">취업베스트</a></li>
+								</ul>
+							</li>
+							                                                                                                                                                                                                                  
+							</li> 
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_060301010000">대원소식</a>
+								<ul>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_060301010000">대원소식지</a></li>
+									<li><a href="/mbs/daewon/subview.jsp?id=daewon_060302070000">대원신문</a></li>
+								</ul>
+							</li>
+							<li><a href="/mbs/daewon/subview.jsp?id=daewon_060400000000">홍보동영상</a></li>
+							<li><a href="/mbs/daewon/jsp/album/gallery.jsp?boardType=02&amp;boardId=46&amp;listType=02&amp;mcategoryId=&amp;id=daewon_060500000000">체전/축전</a></li>
+							<li><a href="/mbs/daewon/jsp/album/gallery.jsp?boardType=02&amp;boardId=47&amp;listType=02&amp;mcategoryId=&amp;id=daewon_060600000000">국제교류 활동</a></li>
+						</ul>
+				</li>
+			</ul>
+			                         
+			<div class="allClose"><a href="#this">전체메뉴닫기</a></div>
+			                         
+		</div>
+	</div>
+	                   
+</header>
+             
+  
+<script>
+	// 선택된 언어 확인
+	function getTranslatedLang() {
+		var match = document.cookie.match(/googtrans=\/[a-z]{2}\/([a-z]{2})/);
+		return match ? match[1] : null;
+	}
+
+	function setGTransCookie(targetLang) {
+//		  var host = location.hostname.replace(/^www\./,'');
+//		  var val  = '/ko/' + targetLang;
+//		  var exp  = new Date(Date.now()+10*60*1000).toUTCString();
+//		  document.cookie = 'googtrans=' + val + '; expires=' + exp + '; path=/;';
+//		  document.cookie = 'googtrans=' + val + '; expires=' + exp + '; path=/; domain=.' + host;
+//
+//		  //document.cookie = 'googtr='+val+'; expires='+exp+'; path=/';
+//		  //var exp  = new Date(Date.now()+365*24*60*60*1000).toUTCString();
+//		  //document.cookie = 'googtrans='+val+'; expires='+exp+'; path=/';
+//		  //document.cookie = 'googtrans='+val+'; expires='+exp+'; path=/; domain=.'+host;
+	}
+
+	function clearGTransCookie() {
+		var host = location.hostname;
+		var parts = host.split('.');
+		var domains = [];
+
+		// 현재 호스트 쿠키용 (domain 생략 버전)
+		domains.push('current');
+
+		if (parts.length > 2) {
+			domains.push('.' + parts.slice(-2).join('.'));
+		}
+
+		document.cookie.split(";").forEach(function(c) {
+			if (c.indexOf("googtrans") > -1) {
+				domains.forEach(function(d) {
+					if (d === 'current') {
+						document.cookie = c
+							.replace(/^ +/, "")
+							.replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/");
+						//console.log("Deleted current domain cookie:", location.hostname);
+					} else {
+						document.cookie = c
+							.replace(/^ +/, "")
+							.replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/;domain=" + d);
+						//console.log("Deleted domain cookie:", d);
+					}
+				});
+			}
+		});
+	}
+
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'ko',
+			autoDisplay: false
+		}, 'google_translate_element');
+	}
+
+	(function () {
+		var gt = document.createElement('script');
+		gt.type = 'text/javascript';
+		gt.async = true;
+		gt.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+		document.getElementsByTagName('head')[0].appendChild(gt);
+	})();
+
+
+	document.getElementById('custom_translate_selector').addEventListener('change', function () {
+		var lang = this.value;
+		if (lang && lang!=='other') {
+		  var select = document.querySelector('.goog-te-combo');
+		  if (select) {
+
+			select.value = lang;
+			select.dispatchEvent(new Event('change'),{bubbles:true});
+
+			if(lang != "ko") {
+			
+				setTimeout(function () {
+					select.value = lang;
+					select.dispatchEvent(new Event('change'),{bubbles:true});
+				}, 50);
+
+				setTimeout(function () {
+					select.value = lang;
+					select.dispatchEvent(new Event('change'),{bubbles:true});
+				}, 100);
+
+			}
+		  }
+		} else if(lang === ""){
+			clearGTransCookie(); // 번역 쿠키 삭제
+			setTimeout(function() {
+				location.reload();
+			}, 300);
+		}
+	});
+	const langNativeMap = {
+		"en": "영어(English)",
+		"uz": "우즈베크어(O’zbekcha)",
+		"vi": "베트남어(Tiếng Việt)",
+		"ne": "네팔어(नेपाली)",
+		"ky": "키르기스어(Кыргыз тили)",
+		"gaa": "가어(Ga)",
+		"gl": "갈리시아어(Galego)",
+		"gn": "과라니어(Avañe'ẽ)",
+		"yue": "광둥어(粵語)",
+		"gu": "구자라트어(ગુજરાતી)",
+		"el": "그리스어(Ελληνικά)",
+		"kl": "그린란드어(Kalaallisut)",
+		"nhe": "나우아틀어(Nawatl)",
+		"nl": "네덜란드어(Nederlands)",
+		"new": "네팔 바사어(नेपाल भाषा)",
+		"no": "노르웨이어(Norsk)",
+		"nus": "뉘어(Thok Nath)",
+		"fa-AF": "다리어(دری)",
+		"da": "덴마크어(Dansk)",
+		"doi": "도그리어(डोगरी)",
+		"de": "독일어(Deutsch)",
+		"dov": "돔베어(Dombe)",
+		"dyu": "드율라어(Julkan)",
+		"dv": "디베히어(ދިވެހިބަސް)",
+		"din": "딩카어(Thuɔŋjäŋ)",
+		"lo": "라오어(ພາສາລາว)",
+		"ltg": "라트갈레어(Latgalīšu valoda)",
+		"lv": "라트비아어(Latviešu valoda)",
+		"la": "라틴어(Latina)",
+		"ru": "러시아어(Русский)",
+		"lmo": "롬바르디아어(Lumbard)",
+		"rom": "롬어(Romani)",
+		"lg": "루간다어(Luganda)",
+		"ro": "루마니아어(Română)",
+		"lua": "루바어(Tshiluba)",
+		"luo": "루오어(Dholuo)",
+		"lb": "룩셈부르크어(Lëtzebuergesch)",
+		"rn": "룬디어(Ikirundi)",
+		"lij": "리구리아어(Ligure)",
+		"lt": "리투아니아어(Lietuvių kalba)",
+		"li": "림뷔르흐어(Limburgs)",
+		"ln": "링갈라어(Lingála)",
+		"mad": "마두라어(Madhura)",
+		"mr": "마라티어(मराठी)",
+		"mwr": "마르와디어(मारवाड़ी)",
+		"mh": "마셜어(Kajin M̧ajeļ)",
+		"mi": "마오리어(Māori)",
+		"mai": "마이틸어(मैथिली)",
+		"mak": "마카사르어(Basa Mangkasara')",
+		"mk": "마케도니아어(Македонски)",
+		"mg": "말라가시어(Malagasy)",
+		"ml": "말라얄람어(മലയാളം)",
+		"ms": "말레이어(Bahasa Melayu)",
+		"ms-Arab": "말레이어(자위)(بهاس ملايو)",
+		"mam": "맘어(Qyol Mam)",
+		"gv": "맹크스어(Gaelg)",
+		"chm": "메도우 마리어(Олык Марий)",
+		"mni-Mtei": "메이테이어(মৈতেইলোন)",
+		"mfe": "모리셔스 크리올어(Morisyen)",
+		"mt": "몰타어(Malti)",
+		"mn": "몽골어(Монгол)",
+		"hmn": "몽어(Hmoob)",
+		"min": "미낭어(Minangkabau)",
+		"my": "미얀마어(မြန်မာစာ)",
+		"lus": "미조어(Mizo ṭawng)",
+		"eu": "바스크어(Euskara)",
+		"ba": "바시키르어(Башҡортса)",
+		"bci": "바울레어(Baoulé)",
+		"bts": "바탁 시말룽운어(Simalungun)",
+		"btx": "바탁 카로어(Karo)",
+		"bbc": "바탁토바어(Batak Toba)",
+		"bal": "발루치어(بلوچی)",
+		"ban": "발리어(Basa Bali)",
+		"bm": "밤바라어(Bamanankan)",
+		"vec": "베네치아어(Vèneto)",
+		"bew": "베타위어(Betawi)",
+		"ve": "벤다어(Tshivenda)",
+		"be": "벨라루스어(Беларуская)",
+		"bem": "벰바어(Chibemba)",
+		"bn": "벵골어(বাংলা)",
+		"bs": "보스니아어(Bosanski)",
+		"bho": "보즈푸리어(भोजपुरी)",
+		"bua": "부랴트어(Буряад)",
+		"bg": "불가리아어(Български)",
+		"br": "브르타뉴어(Brezhoneg)",
+		"bik": "비콜어(Bicol)",
+		"sm": "사모아어(Gagana Sāmoa)",
+		"se": "사미어(북부)(Davvisámegiella)",
+		"zap": "사포텍어(Diidxazá)",
+		"sa": "산스크리트어(संस्कृतम्)",
+		"sat-Latn": "산탈어(라틴)(Santali)",
+		"sat": "산탈어(올 치키)(සන්තාලි)",
+		"sg": "상고어(Sängö)",
+		"shn": "샨어(လိၵ်ႈတႆး)",
+		"sr": "세르비아어(Српски)",
+		"ceb": "세부아노어(Binisaya)",
+		"st": "세소토어(Sesotho)",
+		"crs": "세이셸 크리올어(Seselwa)",
+		"nso": "세페디어(Sesotho sa Leboa)",
+		"so": "소말리아어(Soomaali)",
+		"sn": "쇼나어(chiShona)",
+		"sus": "수수어(Susu)",
+		"su": "순다어(Basa Sunda)",
+		"ss": "스와티어(SiSwati)",
+		"sw": "스와힐리어(Kiswahili)",
+		"sv": "스웨덴어(Svenska)",
+		"gd": "스코틀랜드 게일어(Gàidhlig)",
+		"es": "스페인어(Español)",
+		"sk": "슬로바키아어(Slovenčina)",
+		"sl": "슬로베니아어(Slovenščina)",
+		"scn": "시칠리아어(Sicilianu)",
+		"sd": "신디어(سنڌي)",
+		"szl": "실레지아어(Ślōnskō gŏdka)",
+		"si": "싱할라어(සිංහල)",
+		"ar": "아랍어(العربية)",
+		"hy": "아르메니아어(Հայերեն)",
+		"av": "아바르어(Магӏарул мацӏ)",
+		"as": "아삼어(অসমীয়া)",
+		"awa": "아와디어(अवधी)",
+		"ay": "아이마라어(Aymar aru)",
+		"is": "아이슬란드어(Íslenska)",
+		"ht": "아이티 크리올어(Kreyòl ayisyen)",
+		"ga": "아일랜드어(Gaeilge)",
+		"az": "아제르바이잔어(Azərbaycan dili)",
+		"ace": "아체어(Basa Acèh)",
+		"ach": "아촐리어(Luo)",
+		"aa": "아파르어(Qafár af)",
+		"af": "아프리칸스어(Afrikaans)",
+		"alz": "알루르어(Alur)",
+		"sq": "알바니아어(Shqip)",
+		"am": "암하라어(አማርኛ)",
+		"ab": "압하지야어(Аԥсшәа)",
+		"sah": "야쿠트어(Саха тыла)",
+		"et": "에스토니아어(Eesti)",
+		"eo": "에스페란토어(Esperanto)",
+		"ee": "에웨어(Eʋegbe)",
+		"om": "오로모어(Afaan Oromoo)",
+		"or": "오리야어(ଓଡ଼ିଆ)",
+		"os": "오세트어(Ирон)",
+		"oc": "오크어(Occitan)",
+		"war": "와라이어(Winaray)",
+		"yo": "요루바어(Yorùbá)",
+		"udm": "우드무르트어(Удмурт кыл)",
+		"ur": "우르두어(اردو)",
+		"uk": "우크라이나어(Українська)",
+		"wo": "월로프어(Wolof)",
+		"cy": "웨일즈어(Cymraeg)",
+		"ug": "위구르어(ئۇيغۇرچه)",
+		"yua": "유카텍 마야어(Maaya t'aan)",
+		"ndc-ZW": "은다우어(Chindau)",
+		"nr": "은데벨레어(남부)(isiNdebele)",
+		"bm-Nkoo": "응코어(N'Ko)",
+		"ig": "이그보어(Asụsụ Igbo)",
+		"iu-Latn": "이누크티투트어(라틴)(Inuktitut)",
+		"iu": "이누크티투트어(음절)(ᐃᓄᒃᑎᑐᑦ)",
+		"yi": "이디시어(ייִדיש)",
+		"iba": "이반어(Saku Iban)",
+		"it": "이탈리아어(Italiano)",
+		"id": "인도네시아어(Bahasa Indonesia)",
+		"ilo": "일로카노어(Ilokano)",
+		"ja": "일본어(日本語)",
+		"jam": "자메이카 파투아어(Patois)",
+		"jw": "자바어(Basa Jawa)",
+		"ka": "조지아어(ქართული)",
+		"dz": "종카어(རྫོང་ခ)",
+		"zu": "줄루어(isiZulu)",
+		"zh-CN": "중국어(간체)(简体中文)",
+		"zh-TW": "중국어(번체)(繁體中文)",
+		"kac": "징포어(Jingpho)",
+		"ch": "차모로어(Chamoru)",
+		"ny": "체와어(Chichewa)",
+		"ce": "체첸어(Нохчийн)",
+		"cs": "체코어(Čeština)",
+		"ts": "총가어(Xitsonga)",
+		"cv": "추바시어(Чӑвашла)",
+		"chk": "추우케어(Chuukese)",
+		"tn": "츠와나어(Setswana)",
+		"kha": "카시어(Ka Ktien Khasi)",
+		"kk": "카자흐어(Қазақ тілі)",
+		"ca": "카탈로니아어(Català)",
+		"pam": "카팜팡안어(Kapampangan)",
+		"kn": "칸나다어(ಕನ್ನಡ)",
+		"kr": "칸누리어(Kanuri)",
+		"qu": "케추아어(Runasimi)",
+		"kek": "켁치어(Q'eqchi')",
+		"co": "코르시카어(Corsu)",
+		"kv": "코미어(Коми кыв)",
+		"xh": "코사어(isiXhosa)",
+		"trp": "콕보록어(Kokborok)",
+		"gom": "콘칸어(कोंकणी)",
+		"kg": "콩고어(Kikongo)",
+		"ckb": "쿠르드어(소라니)(کوردیی ناوەندی)",
+		"ku": "쿠르드어(쿠르만지)(Kurdî)",
+		"hr": "크로아티아어(Hrvatski)",
+		"kri": "크리오어(Krio)",
+		"crh-Latn": "크림 타타르어(라틴)(Qırımtatarca)",
+		"crh": "크림 타타르어(키릴)(Къырымтатарджа)",
+		"km": "크메르어(ភាសាខ្មែរ)",
+		"cgg": "키가어(Chiga)",
+		"rw": "키냐르완다어(Ikinyarwanda)",
+		"ktu": "키투바어(Kituba)",
+		"ber-Latn": "타마지트어(라틴)(Tamazight)",
+		"ber": "타마지트어(티피나그)(ⵜⴰⵎⴰⵣⵉⵖⵜ)",
+		"ta": "타밀어(தமிழ்)",
+		"tg": "타지크어(Тоҷикӣ)",
+		"tt": "타타르어(Татар)",
+		"ty": "타히티어(Reo Tahiti)",
+		"th": "태국어(ไทย)",
+		"tet": "테툼어(Tetun)",
+		"te": "텔루구어(తెలుగు)",
+		"tpi": "톡 피신어(Tok Pisin)",
+		"to": "통가어(Lea Faka-Tonga)",
+		"tk": "투르크멘어(Türkmen dili)",
+		"tyv": "투바어(Тыва дыл)",
+		"tcy": "툴루어(ತುಳು)",
+		"tum": "툼부카어(chiTumbuka)",
+		"tr": "튀르키예어(Türkçe)",
+		"ak": "트위어(Twi)",
+		"ti": "티그리냐어(ትግርኛ)",
+		"bo": "티베트어(བོད་སྐད་)",
+		"tiv": "티브어(Tiv)",
+		"ps": "파슈토어(پښتو)",
+		"pap": "파피아멘토어(Papiamentu)",
+		"pag": "팡가시난어(Pangasinan)",
+		"pa": "펀자브어(구르무키)(ਪੰਜਾਬੀ)",
+		"pa-Arab": "펀자브어(샤무키)(پنجابی)",
+		"fo": "페로어(Føroyskt)",
+		"fa": "페르시아어(فارسی)",
+		"pt": "포르투갈어(브라질)(Português)",
+		"pt-PT": "포르투갈어(포르투갈)(Português de Portugal)",
+		"fon": "폰어(Fon)",
+		"pl": "폴란드어(Polski)",
+		"ff": "풀라니어(Fulfulde)",
+		"fr": "프랑스어(Français)",
+		"fr-CA": "프랑스어(캐나다)(Français canadien)",
+		"fur": "프리울리어(Furlan)",
+		"fy": "프리지아어(Frysk)",
+		"fj": "피지어(Na Vosa Vakaviti)",
+		"fi": "핀란드어(Suomi)",
+		"tl": "필리핀어(Tagalog)",
+		"haw": "하와이어(ʻŌlelo Hawaiʻi)",
+		"ha": "하우사어(Hausa)",
+		"cnh": "하카 친어(Hakha Chin)",
+		"hu": "헝가리어(Magyar)",
+		"hrx": "훈스뤼크어(Hunsrik)",
+		"iw": "히브리어(עברית)",
+		"hi": "힌디어(हिन्दी)",
+		"hil": "힐리가이논어(Hiligaynon)"
+	};
+	document.addEventListener('DOMContentLoaded', function () {
+		var glang = getTranslatedLang();
+
+		if(glang && glang!="ko") {
+			$('#custom_translate_selector option[value^='+glang+']').prop('selected',true);
+		}
+	});
+
+	const langSelect = document.querySelector('.lang-select');
+	const trigger = document.querySelector('.lang-trigger');
+	const options = document.querySelectorAll('.lang-options li');
+	const realSelect = document.getElementById('custom_translate_selector');
+	const selectedText = document.querySelector('.selected-text');
+
+	// 드롭다운 열기/닫기
+	trigger.addEventListener('click', () => {
+	  langSelect.classList.toggle('active');
+	});
+
+	// 옵션 선택
+	options.forEach(option => {
+	  option.addEventListener('click', (e) => {
+		e.stopPropagation();
+		const value = option.dataset.value;
+		const text = option.textContent;
+
+		if (value === 'other') {
+            // 1. 구글 번역 위젯의 실제 select(콤보박스)를 찾습니다.
+            const googleCombo = document.querySelector('.goog-te-combo');
+            
+            if (googleCombo) {
+                // 2. 구글 언어 목록을 순회하며 li를 만듭니다.
+                const googleOptions = googleCombo.querySelectorAll('option');
+				const optionsUl = document.querySelector('.lang-options');
+                const existingValues = Array.from(optionsUl.querySelectorAll('li'))
+                                    .map(li => li.getAttribute('data-value'))
+                                    .filter(val => val !== null);
+                // 기존의 "다른언어 선택" li는 삭제 (목록을 새로 채우기 위함)
+                option.remove(); 
+
+                googleOptions.forEach(opt => {
+
+					const langCode = opt.value;
+					const displayLabel = langNativeMap[langCode] || opt.text;
+
+					const isExist = document.querySelector(`.lang-options li[data-value=""]`);
+					const alreadyHas = existingValues.includes(langCode);
+					// 이미 UI에 있는 언어(en, vi 등)와 빈 값, 한국어(ko)는 제외
+
+                    if (!alreadyHas && langCode !== "" ) {
+                        const newLi = document.createElement('li');
+                        newLi.dataset.value = langCode;
+                        newLi.textContent = displayLabel;
+                        
+                        // 새 li 클릭 시 번역 실행 이벤트 연결
+                        newLi.addEventListener('click', (e) => {
+							e.stopPropagation();
+                            selectedText.textContent = displayLabel;
+                            realSelect.value = langCode;
+                            langSelect.classList.remove('active');
+                            
+                            // 실제 구글 번역 이벤트 트리거
+                            googleCombo.value = langCode;
+                            googleCombo.dispatchEvent(new Event('change', { bubbles: true }));
+                        });
+                        const optionsUl = document.querySelector('.lang-options');
+                        optionsUl.appendChild(newLi); // ul 목록에 추가
+                    }
+                });
+                
+                // 목록이 새로 생겼으므로 드롭다운이 닫히지 않게 유지 (원할 경우)
+                return; 
+            } else {
+                alert("번역 위젯이 아직 로드되지 않았습니다. 잠시 후 다시 시도해주세요.");
+                return;
+            }
+        }
+
+		selectedText.textContent = text; // 커스텀 UI 변경
+		realSelect.value = value;       // 실제 select 값 변경
+		langSelect.classList.remove('active'); // 닫기
+
+			const changeEvent = new Event('change', { bubbles: true });
+        realSelect.dispatchEvent(changeEvent);
+	  });
+	});
+
+	// 바깥 클릭 시 닫기
+	document.addEventListener('click', (e) => {
+	  if (!langSelect.contains(e.target)) {
+		langSelect.classList.remove('active');
+	  }
+	});
+
+	</script>
+	<style>
+
+	/* Google 번역 상단 툴바 제거 */
+
+	.skiptranslate {
+		display: none !important;
+	} 
+	body {
+		top: 0px !important;
+	}
+	*/
+
+	/* 번역 UI (작은 팝업) 숨기기 */
+	
+	.goog-tooltip, 
+	.goog-tooltip:hover,
+	.goog-text-highlight {
+		display: none !important;
+		visibility: hidden !important;
+	}
+		/* ============== 전체 스타일 ============== */
+	.lang-select {
+	  width: 140px;
+	  font-family: 'Noto Sans';
+	  font-weight: 14px;
+	}
+
+	/* 실제 select 숨김 */
+	.real-select {
+	  display: none;
+	}
+
+	/* 버튼 */
+	.lang-trigger {
+	  width: 100%;
+	  height: 40px;
+	  background: #f37321;
+	  color: #fff;
+	  display: flex;
+	  align-items: center;
+	  gap: 6px;
+	  padding: 0 10px;
+	  cursor: pointer;
+	  box-sizing: border-box;
+	  outline: none;     /* 포커스 테두리 제거 */
+	  border: none;      /* 혹시 모를 기본 border 제거 */
+	}
+
+	.lang-trigger:focus {
+	  outline: none;     /* 포커스 제거 */
+	}
+
+	.lang-trigger .globe-icon {
+	  width: 16px;
+	  height: 16px;
+	}
+
+	.lang-trigger .arrow-icon {
+	  width: 9px;
+	  height: 6px;
+	  margin-left: auto;
+	}
+
+	/* 드롭다운 리스트 */
+	.lang-options {
+	  position: absolute;
+	  top: 44px;
+	  left: 0;
+	  width: 100%;
+	  background: #fff;
+	  border: 1px solid #ccc;
+	  list-style: none;
+	  padding: 4px 0;
+	  margin: 0;
+	  box-sizing: border-box;
+	  display: none;
+	  z-index: 10;
+	  overflow-y: auto;
+	  max-height: 320px;
+	}
+
+	.lang-options li {
+	  padding: 8px 10px;
+	  font-size: 14px;
+	  cursor: pointer;
+	  outline: none;
+	}
+
+	.lang-options li:focus {
+	  outline: none;
+	}
+
+	/* hover 시 주황색 */
+	.lang-options li:hover {
+	  background: #f37321;
+	  color: white;
+	}
+
+	/* 열렸을때 표시 */
+	.lang-select.active .lang-options {
+	  display: block;
+	}
+</style>
+
+
+
+<script type="text/javascript">try { document.domain="daewon.ac.kr"; } catch(e){}</script><noscript></noscript>
+
+
+
+                
+
+	<div class="subVisual png" style="background-image:url(/mbs/daewon/images/subVisual_01.jpg);">
+	<strong>국제교육원</strong>DAEWON UNIVERSITY COLLEGE
+</div>
+                
+
+                             
+<div class="locationFnWrap">
+  <div class="locationFnWrapInner">
+
+	                   
+	<div class="locationNav">
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+	  
+
+
+<ul>
+
+	                            <li><a href="/mbs/daewon/index.jsp" class="home">홈</a></li>                               <li><a href="#this">대학안내</a><ul><li><a href="/mbs/daewon/subview.jsp?id=daewon_010000000000">대학안내</a></li><li><a href="/mbs/ipsi/subview.jsp?id=ipsi_010101000000" target="_blank">입학/취업안내</a></li><li><a href="/mbs/daewon/subview.jsp?id=daewon_030000000000">학과소개</a></li><li><a href="/mbs/daewon/subview.jsp?id=daewon_040000000000">대학생활</a></li><li><a href="/mbs/daewon/subview.jsp?id=daewon_050000000000">대원광장</a></li><li><a href="/mbs/daewon/subview.jsp?id=daewon_060000000000">대원미디어</a></li><li><a href="/mbs/daewon/jsp/member/regist.jsp?id=daewon_070100000000" target="_self">MEMBER</a></li></ul></li>                               <li><a href="#this">대학기관</a><ul><li><a href="/mbs/daewon/subview.jsp?id=daewon_010100000000">학교소개</a></li><li><a href="/mbs/daewon/subview.jsp?id=daewon_010200000000">법인소개</a></li><li><a href="/mbs/daewon/subview.jsp?id=daewon_010300000000">대학기관</a></li><li><a href="/mbs/daewon/subview.jsp?id=daewon_010500000000">제규정안내</a></li><li><a href="/mbs/daewon/subview.jsp?id=daewon_010600000000">캠퍼스안내</a></li></ul></li>                               <li><a href="#this">부속기관</a><ul><li><a href="/mbs/daewon/subview.jsp?id=daewon_010301000000">조직도</a></li><li><a href="/mbs/daewon/subview.jsp?id=daewon_010303000000">대학본부</a></li><li><a href="/mbs/daewon/subview.jsp?id=daewon_010304040000" target="_self">부속기관</a></li><li><a href="/mbs/daewon/subview.jsp?id=daewon_010305000000">부설기관</a></li><li><a href="/mbs/daewon/subview.jsp?id=daewon_010306000000">산학협력단</a></li></ul></li>	
+</ul>
+
+	</div>
+	                
+	<div class="fnWrap">
+	  <ul>
+		<li><a href="#" onclick="jf_openPrintWindow();" title="인쇄_새창열림">인쇄</a></li>
+		<li><a href="#" onclick="jf_open();" title="SNS_공유">SNS 열기</a>
+		  <div class="wrapSns">
+			<dl>
+			  <dt>보내기</dt>
+			  <dd>
+				<a href="javascript:jf_snsSharer('1');" title="페이스북">페이스북</a>
+				<a href="javascript:jf_snsSharer('2');" title="트위터">트위터</a>
+				<a href="javascript:jf_casSharer();" title="카카오스토리">카카오스토리</a>
+				<a href="javascript:jf_pinterest();" title="핀터레스트">핀터레스트</a>
+			  </dd>
+			  <dt>URL 주소</dt>
+			  <dd><input type="text" title="URL" id="nowUrl" name="nowUrl" /><input type="button" title="복사" value="복사" onclick="jf_linkShare(); return false;"></dd>
+			</dl>
+			<a class="close" onclick="$('.wrapSns').hide(); return false;" href="#" title="SNS_공유창닫기">창닫기</a>
+		  </div>
+		</li>
+	  </ul>
+	</div>
+
+  </div>
+</div>
+                             
+
+             
+	<div id="wrapContent">
+		<div class="wrap1200">
+			<div class="wrapSub">
+				                      
+				<div class="contentContainer">
+				<h1>국제교육원</h1>
+				                          
+				<div class="location">대학안내 > 대학기관 > 부속기관</div>
+				                          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+
+
+
+
+                                     
+
+
+
+
+
+
+
+
+                                                 
+
+
+
+
+                                              
+
+
+
+                                           
+
+
+
+
+                                        
+
+
+                                              
+
+
+
+
+                                           
+
+
+
+                                              
+
+
+
+
+                                           
+
+
+
+
+
+	                   
+	<div class="btnEditContent">
+		
+	</div>
+	<div id="contents" style="test-overflow: ellipsis; word-break: keep-all; overflow: hidden; text-align: justify;">
+		
+
+
+
+<div class="tabNav divide4"><ul><li><a class="_active" href="https://www.daewon.ac.kr/mbs/daewon/subview.jsp?id=daewon_010304040000">국제교육원</a> </li><li><a href="https://www.daewon.ac.kr/mbs/daewon/subview.jsp?id=daewon_010304050000">평생교육원</a> </li><li><a href="https://www.daewon.ac.kr/mbs/daewon/subview.jsp?id=daewon_010304060000">도서관</a> </li><li><a href="https://www.daewon.ac.kr/mbs/daewon/subview.jsp?id=daewon_010304010000">신문방송국</a> </li><li><a href="https://www.daewon.ac.kr/mbs/daewon/subview.jsp?id=daewon_010304020000">학생생활관</a> </li><li><a href="https://www.daewon.ac.kr/mbs/daewon/subview.jsp?id=daewon_010304030000">보건진료소</a> </li></ul></div><h3 class="h3_01">구성원 소개</h3>
+
+
+<div class="table_01 tableM"><table style="width: 100%;"><caption>구성원의 직책,성명,담당업무,전화번호</caption><colgroup><col><col><col><col><col></colgroup><thead><tr><th colspan="2" style="width: 60.5px; height: 20px;" class="">
+
+직책 
+</th><th style="width: 143px; height: 20px;" class="">
+
+담당업무 
+</th><th style="width: 71px; height: 20px;" class="">
+
+전화번호 
+</th></tr></thead><tbody><tr><td colspan="2" scope="row" style="width: 60.5px; height: 20px;" class="">
+
+원장
+</td><td style="width: 143px; height: 20px;" class="">
+
+지휘감독 
+</td><td style="width: 71px; height: 20px;" class="">
+
+649-3433
+</td></tr><tr><td rowspan="5" style="width: 83px; height: 121.938px;" class=""><p style="line-height: 1.2; margin-top: 0px; margin-bottom: 0px;">국제교육팀</p></td><td scope="row" style="width: 35px; height: 21.1875px;" class=""><p style="line-height: 1.2; margin-top: 0px; margin-bottom: 0px;">팀장</p></td><td style="width: 143px; height: 21.1875px;" class=""><p style="line-height: 1.2; margin-top: 0px; margin-bottom: 0px;">업무총괄</p></td><td style="width: 71px; height: 21.1875px;" class=""><p style="line-height: 1.2; margin-top: 0px; margin-bottom: 0px;">649-3526</p></td></tr><tr><td scope="row" style="width: 35px; height: 21.1875px;" class=""><p>과장</p></td><td style="width: 143px; height: 21.1875px;" class=""><p>국제교육과장(D2)</p></td><td style="width: 71px; height: 21.1875px;" class=""><p>649-3297</p></td></tr><tr><td scope="row" style="width: 35px; height: 21.1875px;" class=""><p style="line-height: 1.2; margin-top: 0px; margin-bottom: 0px;">담당</p></td><td style="width: 143px; height: 21.1875px;" class=""><p style="line-height: 1.2; margin-top: 0px; margin-bottom: 0px;">국제교육담당(D4)</p></td><td style="width: 71px; height: 21.1875px;" class=""><p style="line-height: 1.2; margin-top: 0px; margin-bottom: 0px;">649-3431</p></td></tr><tr><td scope="row" style="width: 35px; height: 21.1875px;" class=""><p>담당</p></td><td style="width: 143px; height: 21.1875px;" class=""><p>국제교육담당(회계)</p></td><td style="width: 71px; height: 21.1875px;" class=""><p>649-3279</p></td></tr><tr><td scope="row" style="width: 35px; height: 21.1875px;" class=""><p>담당</p></td><td style="width: 143px; height: 21.1875px;" class=""><p>국제교육담당(총무)</p></td><td style="width: 71px; height: 21.1875px;" class=""><p>649-3435</p></td></tr></tbody></table></div><div class="t70">&nbsp;</div><h3 class="h3_01">업무현황</h3>
+
+
+<div class="table_01 tableM"><table><caption>업무현황 구분, 주요업무</caption><colgroup><col style="WIDTH: 20%"><col></colgroup><tbody><tr><th class="">
+
+구분
+</th><th class="">
+
+주요업무
+</th></tr><tr><td style="" class=""><p>국제교육팀</p></td><td class="left"><p>- 신입생 모집관리<br>- 대외협력교류 활성화를 위한 발전계획 수립 및 추진<br>- 국내·외 대학간 상호교류협약 체결 및 자매결연</p><p>- 국내·외 기관(산·관·연)간 협정에 관한 사항</p><p>- 국내·외 대학, 학술단체 및 유관기관과의 학술자료 교환<br>- 외국인 유학생 선발<br>- 외국에 대한 홍보책자 발간<br>- 외국인 한국어 교육 및 관리 운영/지도</p></td></tr></tbody></table></div>
+
+	</div>
+	                
+	
+	<p style="text-align:right; color:#999; font-size:11px; margin:10px 10px 0 0;">최종수정일 : 2025-09-22</p>
+	
+
+
+
+</div>
+                      
+
+                
+<div class="sideA">
+	             
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="duc_news">
+	<h3>DUC <span>뉴스</span></h3>
+
+				<img src="/upload/board/29/t_168749.jpg" alt="대원대학교 응급구조과, '2026학년도 창업 캠프 및 경진대회' 대상 수상 썸네일">
+				<dl>
+					<dt><a href="http://www.daewon.ac.kr/mbs/daewon/jsp/album/view.jsp?spage=1&amp;boardId=29&amp;boardSeq=168749&amp;mcategoryId=&amp;id=daewon_060101000000">대원대학교 응급구조과, '2026학년</a></dt>
+					<dd>
+						<a href="http://www.daewon.ac.kr/mbs/daewon/jsp/album/view.jsp?spage=1&amp;boardId=29&amp;boardSeq=168749&amp;mcategoryId=&amp;id=daewon_060101000000">   - 충주 켄싱턴 리조트에서 열린 실전형 창업 캠프에서 7개 학과 제치고 최고 영예 차지 -- 전공 지식 기반의 창의적 문제해결력과 뛰어난 팀워크로 빛난 결실 -  대원대학교(총장 김호현) 응급구조과가 지난 9월 9일(수)부터 10일(목)까지 충주 켄싱턴 리조트에서 열린 ‘2026학년도 창업 캠프 및 경진대회’에서 영예의 대상을 수상했다.대원대학교 입학학생취업처가 주관한 이번 행사에는 응급구조과를 비롯해 재활운동과, 물리치료과, 전기전자과, 호텔관광경영과 등 총 7개 학과에서 34명의 재학생이 참여했다. 이번 캠프는 학생들이 일상과 전공 영역에서 발견한 문제를 창업 아이디어로 발전시키고, 실행 가능한 사업모델(BM)을 직접 설계해 보는 실전형 프로그램으로 진행됐다.참여 학생들은 팀을 구성해 ▲아이디어 발굴 및 문제 정의 ▲고객 관점의 가치 제안 ▲비즈니스모델 설계 ▲최소기능제품(MVP) 구체화 ▲재무계획 수립 등의 단계를 차례로 수행했다. 특히 창업 전문가들의 밀착 피드백을 통해 아이디어의 완성도를 극대화했다.캠프 마지막 날 열린 경진대회 발표에서 응급구조과팀(팀명: 노는게 제일좋아)은 참신한 창의성과 실현 가능성이 높은 사업모델 “구급대원을 위한 웨어러블”을 제시해 심사위원단으로부터 호평을 받았다. 아이디어의 창의성, 문제 해결 가능성, 사업모델의 구체성, 발표 완성도 및 팀워크 등 전 평가 항목에서 고르게 높은 점수를 얻으며 최종 대상을 거머쥐었다.응급구조과 지도교수 및 참가 학생들은 “전공 과정에서 배운 현장 감각과 문제해결 능력이 이번 창업 아이디어 구상에 큰 도움이 됐다.”며, “팀원들과 밤새 고민하며 완성한 결과물이 대상이라는 큰 결실로 이어져 매우 기쁘다.”고 소감을 밝혔다.한편, 대원대학교는 이번 경진대회에서 발굴된 응급구조과의 우수 창업 아이디어가 일회성에 그치지 않고, 후속 전문가 멘토링과 교내·외 창업 지원 프로그램 및 대외 경진대회 출품으로 이어질 수 있도록 지속적인 지원을 아끼지 않을 방침이다.      </a>
+						<span><a href="http://www.daewon.ac.kr/mbs/daewon/jsp/album/view.jsp?spage=1&amp;boardId=29&amp;boardSeq=168749&amp;mcategoryId=&amp;id=daewon_060101000000">2026-09-18</a></span>
+					</dd>
+				</dl>
+	
+					<ul>
+
+				<li>
+					<img src="/upload/board/29/t_168716.jpg" alt="대원대학교, ‘AI 시대 합격을 결정하는 면접 전략’ 특강 운영 썸네일">
+					<dl>
+						<dt><a href="http://www.daewon.ac.kr/mbs/daewon/jsp/album/view.jsp?spage=1&amp;boardId=29&amp;boardSeq=168716&amp;mcategoryId=&amp;id=daewon_060101000000">대원대학교, ‘AI 시대 합격을 결정</a></dt>
+						<dd><a href="http://www.daewon.ac.kr/mbs/daewon/jsp/album/view.jsp?spage=1&amp;boardId=29&amp;boardSeq=168716&amp;mcategoryId=&amp;id=daewon_060101000000">2026-09-16</a></dd>
+					</dl>
+				</li>
+
+
+				<li>
+					<img src="/upload/board/29/t_168715.jpg" alt="대원대학교, 충북 PRIDE 공유대학 캠퍼스데이 운영 썸네일">
+					<dl>
+						<dt><a href="http://www.daewon.ac.kr/mbs/daewon/jsp/album/view.jsp?spage=1&amp;boardId=29&amp;boardSeq=168715&amp;mcategoryId=&amp;id=daewon_060101000000">대원대학교, 충북 PRIDE 공유대학</a></dt>
+						<dd><a href="http://www.daewon.ac.kr/mbs/daewon/jsp/album/view.jsp?spage=1&amp;boardId=29&amp;boardSeq=168715&amp;mcategoryId=&amp;id=daewon_060101000000">2026-09-16</a></dd>
+					</dl>
+				</li>
+
+
+				<li>
+					<img src="/upload/board/29/t_168708.jpg" alt="대원대학교 물리치료과, 제천시장애인보호작업장 업무협약 체결 썸네일">
+					<dl>
+						<dt><a href="http://www.daewon.ac.kr/mbs/daewon/jsp/album/view.jsp?spage=1&amp;boardId=29&amp;boardSeq=168708&amp;mcategoryId=&amp;id=daewon_060101000000">대원대학교 물리치료과, 제천시장애인보</a></dt>
+						<dd><a href="http://www.daewon.ac.kr/mbs/daewon/jsp/album/view.jsp?spage=1&amp;boardId=29&amp;boardSeq=168708&amp;mcategoryId=&amp;id=daewon_060101000000">2026-09-15</a></dd>
+					</dl>
+				</li>
+
+					</ul>
+
+	
+	<div class="more"><a href="http://www.daewon.ac.kr/mbs/daewon/jsp/album/gallery.jsp?boardId=29&amp;id=daewon_060101000000" title="DUC뉴스 더보기">더보기</a></div>
+</div>
+
+	
+	             
+	                
+	<div class="quick_link">
+		<h3>QUICK <span>LINK</span></h3>
+		<ul>
+			<li><a href="/mbs/daewon/html/timetable/timetable_01.html" title="강의시간표_새창열림" target="_blank" onclick="window.open(this.href, '강의시간표','width=450,height=485, scrollbars=yes'); return false;">강의시간표</a></li>
+			<li><a href="/mbs/daewon/subview.jsp?id=daewon_040301000000" title="생활관안내보기">생활관안내</a></li>
+			<li><a href="/mbs/daewon/subview.jsp?id=daewon_040303000000" title="통학버스안내보기">통학버스안내</a></li>
+			<li><a href="http://wiz.daewon.ac.kr/user/job" target="_blank" title="취업지원_새창열림">취업지원</a></li>
+		</ul>
+	</div>
+	                
+</div>
+                
+
+</div>
+</div>
+</div>
+             
+
+
+ 
+             
+<footer>
+	<div class="wrap1200">
+		<ul class="fMenu">
+			<li><a href="/mbs/daewon/subview.jsp?id=daewon_070400000000">개인정보처리방침</a></li>
+			<li><a href="/mbs/daewon/subview.jsp?id=daewon_070500000000">집단이메일수집거부</a></li>
+			<li><a href="/mbs/daewon/subview.jsp?id=daewon_070800000000">영상정보관리방침</a></li>
+			<li><a href="/mbs/daewon/subview.jsp?id=daewon_010106000000">중장기발전계획</a></li>
+			<li><a href="http://academyinfo.go.kr/popup/pubinfo1690/list.do?schlId=0000449" target="_blank" title="새창열림">대학정보공시</a></li>
+			<li><a href="/mbs/daewon/jsp/board/list.jsp?boardId=65&amp;id=daewon_050108000000">자체평가</a></li>
+		</ul>
+		<div class="relatedLink">
+			<h3><a href="#this" class="relatedBtn relatedBtnOpen">교내주요기관</a></h3>
+			<ul class="relatedLinkONC">
+				<li><a href="http://lib.daewon.ac.kr/" target="_blank" title="새창열림">디지털도서관</a></li>
+				<li><a href="https://daewon-lms.virtualcampus.kr/home/mainHome/Form/main" target="_blank" title="새창열림">사이버강좌</a></li>
+				                                                                                                                                 
+				<li><a href="http://www.daewon.ac.kr/exchange" target="_blank" title="새창열림">국제교육원</a></li>
+				<li><a href="http://www.daewon.ac.kr/contribute" target="_blank" title="새창열림">대학발전기금</a></li>
+				<li><a href="http://www.daewon.ac.kr/care" target="_blank" title="새창열림">방문요양센터</a></li>
+				<li><a href="http://www.daewon.ac.kr/volunteer" target="_blank" title="새창열림">DUC사회봉사단</a></li>
+				<li><a href="http://www.daewon.ac.kr/cooperate" target="_blank" title="새창열림">산학협력단</a></li>
+				<li><a href="http://www.daewon.ac.kr/counsel" target="_blank" title="새창열림">학생생활상담센터/인권센터</a></li>
+				<li><a href="http://www.daewon.ac.kr/dwbi" target="_blank" title="새창열림">대원창업보육센터</a></li>
+				<li><a href="http://wiz.daewon.ac.kr/user/indexSub.action?codyMenuSeq=2273&amp;siteId=cooperate" target="_blank" title="새창열림">놀이상담연구소</a></li>
+				<li><a href="http://www.daewon.ac.kr/adult" target="_blank" title="새창열림">평생교육원</a></li>
+				<li><a href="http://wiz.daewon.ac.kr/user/job/index.action" target="_blank" title="새창열림">학생취업팀</a></li>
+				<li><a href="https://www.daewon.ac.kr/mbs/daewon/subview.jsp?id=daewon_030103050000" target="_blank" title="새창열림">전공심화과정</a></li>
+				<li><a href="http://www.daewon.ac.kr/health" target="_blank" title="새창열림">헬스케어3.0센터</a></li>
+				<li><a href="http://www.daewon.ac.kr/handicap" target="_blank" title="새창열림">장애학생지원센터</a></li>
+			</ul>
+		</div>
+		<ul class="fSns">
+			<li><a href="https://www.youtube.com/@대원대학교공식채널" target="_blank" title="새창열림">유튜브</a></li>
+			<li><a href="https://www.instagram.com/daewon_1994/" target="_blank" title="새창열림">인스타</a></li>
+			                                                                                                                                                              
+			<li><a href="https://blog.naver.com/duc_story" target="_blank" title="새창열림">블로그</a></li>
+		</ul>
+		<div class="wrapAddCopy">
+			<address>27135 충청북도 제천시 대학로 316 (신월동) 대원대학교 T. 043.645.9171</address>
+			<p>copyright (C) Daewon University College. all rights reserved</p>
+		</div>
+		<ul class="mark">
+			<li>기관평가인증대학</li>
+			                                
+			<li>
+				
+				<a href="http://www.webwatch.or.kr/Situation/WA_Situation.html?MenuCD=110" target="_blank" title="한국웹접근성평가센터인증현황바로가기​">웹접근성인증</a>
+			</li>
+		</ul>
+	</div>
+</footer>
+             
+
+             
+<div class="goTop"><a href="#">위로이동</a></div>
+             
+
+                
+	<script>
+	// $(document).ready(function() {
+	// 	$('video').mediaelementplayer({
+	// 		alwaysShowControls: true,
+	// 		videoVolume: 'horizontal',
+	// 		features: ['playpause','progress','volume','fullscreen']
+	// 	});
+	// });
+	</script>
+                
+
+
+    
+
+
+
+<script type="text/javascript">
+$.ajax({
+	type:"POST",
+	url:"/manager/weblog.mbs",
+	data:{
+		"logUrl":"http://www.daewon.ac.kr/mbs/daewon/subview.jsp",
+		"menuId":"daewon_010304040000",
+		"pageTitle":"국제교육원",
+		"getIp":"112.156.62.61",
+		"siteId":"daewon"
+	},
+	async:false,
+	cache:false
+});
+</script>
+</body>
+
+
+</html>
+

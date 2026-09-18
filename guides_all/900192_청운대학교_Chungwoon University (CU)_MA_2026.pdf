@@ -1,0 +1,551 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="title" content="청운대학교">
+<meta name="keywords" content="청운대학교">
+<meta name="description" content="청운대학교">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:site_name" content="청운대학교">
+<meta property="og:url" content="url 표기">
+<meta property="og:title" content="청운대학교">
+<meta property="og:description" content="청운대학교">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/site/intro/css/intro.css">
+<script src="/site/intro/js/jquery-1.12.4.min.js"></script>
+<script src="/site/intro/js/jquery.screen.min.js"></script>
+<script src="/site/intro/js/slick.min.custom.1.6.0.8.js"></script>
+<!-- <script src="/site/intro/js/slick.min.js"></script> -->
+<!-- <script src="/site/intro/js/slick.min.custom.1.6.0.1.js"></script> -->
+<script src="/site/intro/js/slick.extensions.min.js"></script>
+<script src="/site/intro/js/intro.js"></script>
+<script src="/site/intro/js/floating.js"></script>
+<script src="/site/intro/js/layerpopup.js"></script>
+<!-- <script type="text/javascript">
+	location.href="https://home.chungwoon.ac.kr/home/index.do";
+</script> -->
+<title>청운대학교</title>
+    <style type="text/css">
+        #divpopup1 {position:absolute;left:120px;top:130px;z-index:100;} 
+        #divpopup2 {position:absolute;left:940px;top:130px;z-index:100;} 
+        #divpopup3 {position:absolute;left:530px;top:130px;z-index:100;} 
+        #divpopup4 {position:absolute;left:530px;top:130px;z-index:100;} 
+        #divpopup5 {position:absolute;left:120px;top:130px;z-index:100;} 
+        .divpopup_form { height:40px; background:#000; padding-top:3px; font-size:15px; }
+        .divpopup_form input { vertical-align:middle; margin-left:5px; }
+        .divpopup_form label { vertical-align:middle; margin-left:5px; }
+        .divpopup_chk { color:#ffffff; float:left; vertical-align:middle; }
+        .divpopup_close { float:right; margin-right:5px; }
+        .divpopup_close span { color:#fff333; font-weight:bold; }
+
+        @media screen and (max-width:1000px){
+        #divpopup1, #divpopup2, #divpopup3, #divpopup4, #divpopup5 {left:0px;}
+        }
+
+        @media screen and (max-width:640px){
+        #divpopup1, #divpopup2, #divpopup3, #divpopup4 {top:80px}
+        #divpopup1 img, #divpopup2 img, #divpopup3 img, #divpopup4 img, #divpopup5 img {width:100%;}
+        .divpopup_form{width:100%;}
+        }
+	</style>
+<script type="text/javascript">
+	function formSubmit(){
+   		if(document.RsaSearchForm1.qt.value==""){
+   			clickFldSet(document.RsaSearchForm1,'menu', '통합검색' );
+   		}else{
+   			document.RsaSearchForm1.submit();
+   		}
+   	}
+	function formSubmit2(text){
+   		var rsa = $(text).text();
+   		$('input[type=hidden]').val(rsa);
+		document.RsaSearchForm2.submit();
+   	}
+</script>
+</head>
+
+<body>
+<div class="accessibility">
+	<a href="#container">본문 바로가기</a>
+</div>
+<!--
+<div id="divpopup1">
+	<img src="../DATA/popup/20250722111405638893749.jpg" alt="2025 무릉별유천지 라벤더축제 - 2025. 6. 14.토 ~ 6. 22. 일/ 동해시 무릉별유천지 일원">
+	<form name="notice_form1">
+        <div class="divpopup_form clearfix">
+            <div class="divpopup_chk"><input type="checkbox" name="chkbox" id="chkbox1" value="checkbox"><label for="chkbox1">오늘하루동안 안보기</label></div>
+            <div class="divpopup_close"><a href="#n" onclick="main_closeWind('divpopup1', 'notice_form1');"><span>[닫기]</span></a></div>
+        </div>
+	</form>
+</div> 
+-->
+<div id="wrapper">
+	<header id="header">
+		<div class="header_top">
+			<div class="wrap clearfix">
+				<div class="linkbox site">
+					<button type="button" title="하위목록열기" class="link_btn">관련사이트</button>
+					<div class="layer">
+						<ul class="clearfix">
+							<li><a href="https://home.chungwoon.ac.kr/home/index.do">청운대학교</a></li>
+							<li><a href="https://enter.chungwoon.ac.kr/enter/index.do">입학처</a></li>
+							<li><a href="https://sanup.chungwoon.ac.kr/sanup/index.do">산업대학</a></li>
+							<li><a href="https://cwuis.chungwoon.ac.kr/lecture/">수강신청</a></li>
+							<li><a href="https://login.chungwoon.ac.kr/login.do?sso=ok">통합로그인</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="linkbox sns">
+					<button type="button" title="하위목록열기" class="link_btn">SNS</button>
+					<div class="layer">
+						<ul class="clearfix">
+							<li class="youtube"><a href="https://www.youtube.com/channel/UC6OsafiXRhbv2oRe5V_1m9A" title="새창" rel="noopener noreferrer">유튜브</a></li>
+							<li class="blog"><a href="https://blog.naver.com/cwu_official" title="새창" rel="noopener noreferrer">블로그</a></li>
+							<li class="facebook"><a href="https://www.facebook.com/chungwoonofficial" title="새창" rel="noopener noreferrer">페이스북</a></li>
+							<li class="instagram"><a href="https://www.instagram.com/chungwoon_official/" title="새창" rel="noopener noreferrer">인스타그램</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header_box">
+			<div class="wrap">
+				<!-- <div class="logo">
+					<h1><a href="./index.do">CWU청운대학교 CHUNGWOON UNIVERSITY “학생성공시대”</a></h1>
+				</div> -->
+				<div class="searchbox">
+					<!-- <div class="search_popup">
+						
+							
+								
+									<a href="https://enter.chungwoon.ac.kr/enter/index.do" target="_blank" title="새창"><img src="/DATA/popup/20200803101632686_JxlbUiZp.png" alt="입학처 바로가기" /></a>링크없을시 a태그 없이 적용
+								
+								
+							
+						
+					</div> -->
+					<div class="search">
+						<div class="formbox">
+							<form method="post" name="RsaSearchForm1" id="searchForm" action="https://search.chungwoon.ac.kr/front/Search.jsp">
+								<fieldset>
+									<legend>통합검색</legend>
+									<div class="inputbox">
+										<label for="total_search" class="skip">검색어입력</label>
+										<div class="labeltext">미래를 선도하는 <em> 산학협력 중심</em>대학!</div>
+										<input type="text" id="qt" name="qt" class="total_search" />
+										<span class="submitbox"><input type="submit" value="검색" onclick="formSubmit();"/></span>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+					<div class="popular">
+						<div class="titlebox"><h2>실시간 인기검색어</h2></div>
+						<div class="listbox">
+							<ul>
+								<form method="post" name="RsaSearchForm2" action="https://search.chungwoon.ac.kr/front/Search.jsp">
+									
+								</form>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="link_section">
+			<div class="link_wrap">
+				<!-- <div class="link_box_big">
+					<a href="https://home.chungwoon.ac.kr/30th/index.do" target="_blank" title="새창">
+						<img src="/site/intro/images/intro_30th.png" alt="청운대학교 개교30주년 기념 홈페이지 CHUNGWOON UNIVERSITY 30TH ANNIVERSARY GO HOME"class="link_img_pc">
+						<img src="/site/intro/images/intro_m_30th.png" alt="청운대학교 개교30주년 기념 홈페이지 CHUNGWOON UNIVERSITY 30TH ANNIVERSARY GO HOME"class="link_img_m">
+					</a>
+				</div> -->
+				<div class="link_box">
+					<a href="https://home.chungwoon.ac.kr/home/index.do" target="_blank" title="새창">
+						<img src="/site/intro/images/intro_home.png" alt="대표홈페이지 CHUNGWOON UNIVERSITY GO HOME">
+					</a>
+				</div>
+				<div class="link_box no2">
+					<a href="https://enter.chungwoon.ac.kr/enter/index.do" target="_blank" title="새창">
+						<img src="/site/intro/images/intro_enter.png" alt="입학홈페이지 학·생·성·공·시·대 GO HOME">
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="topgotitle">
+			<div class="title"><img src="/site/intro/images/topgotitle.png" alt="25th 2020 청운대학교 개교25주년 ANNIVERSARY CHUNGWOON UNIVERSITY" /></div>
+		</div> -->
+		<div id="floating" class="topgobox">
+			<div class="btnbox"><button type="button" class="lnbbtn">학과소개</button></div>
+		</div>
+		<script>JSFX_FloatDiv("floating",0,196).floatIt();</script>
+		<div class="lnbbox">
+			<div class="lnb">
+				<div class="lnb_topbox">
+					<div class="title">
+						<h2>
+							<span class="imagetext"><img src="/site/intro/images/lnb_title.png" alt="“학생 성공시대”" /></span>
+							<span class="text">청운대학교 학과소개</span>
+						</h2>
+					</div>
+				</div>
+				<nav class="menu">
+					<div class="campusbox">
+						<div class="depth depth1">
+							<ul class="depth_list depth1_list clearfix">
+								<li class="depth_item depth1_item"><a href="https://culture.chungwoon.ac.kr/culture/index.do" target="_blank" title="새창" class="depth_text depth1_text"><span>교양대학</span></a></li>
+								<!--<li class="depth_item depth1_item"><a href="https://teacher.chungwoon.ac.kr/teacher/index.do" target="_blank" title="새창" class="depth_text depth1_text"><span>교직학부</span></a></li>-->
+							</ul>
+						</div>
+					</div>
+					<div class="campusbox">
+						<h3>#홍성캠퍼스</h3>
+						<div class="depth depth1">
+							<ul class="depth_list depth1_list clearfix">
+								<li class="depth_item depth1_item">
+									<div class="depth_text depth1_text"><span>공연영상예술대학</span></div>
+									<button type="button" class="depth_text depth1_text"><span>공연영상예술대학</span></button>
+									<div class="depth depth2">
+										<ul class="depth_list depth2_list">
+											<li class="depth_item depth2_item">
+												<a href="http://acting.chungwoon.ac.kr/" target="_blank" title="새창" class="depth_text depth2_text"><span>연극예술학과</span></a>
+												<!--
+												<div class="depth depth3">
+													<ul class="depth_list depth3_list">
+														<li class="depth_item depth3_item"><a href="http://acting.chungwoon.ac.kr/" target="_blank" title="새창" class="depth_text depth3_text"><span>연기</span></a></li>
+														<li class="depth_item depth3_item"><a href="http://acting.chungwoon.ac.kr/" target="_blank" title="새창" class="depth_text depth3_text"><span>연출</span></a></li>
+														<li class="depth_item depth3_item"><a href="http://fa.chungwoon.ac.kr/" target="_blank" title="새창" class="depth_text depth3_text"><span>무대미술</span></a></li>
+													</ul>
+												</div>
+												-->
+											</li>
+											<li class="depth_item depth2_item"><a href="https://musical.chungwoon.ac.kr/musical/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>뮤지컬학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://music.chungwoon.ac.kr/music/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>뮤직트레이너학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://performingarts.chungwoon.ac.kr/performingarts/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>공연기획경영학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://bf.chungwoon.ac.kr/bf/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>방송영화영상학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://communication.chungwoon.ac.kr/communication/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>미디어커뮤니케이션학과</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="depth_item depth1_item">
+									<div class="depth_text depth1_text"><span>호텔관광대학</span></div>
+									<button type="button" class="depth_text depth1_text"><span>호텔관광대학</span></button>
+									<div class="depth depth2">
+										<ul class="depth_list depth2_list">
+											<li class="depth_item depth2_item">
+												<a href="/hotel/index.do" class="depth_text depth2_text"><span>호텔관광경영학부</span></a>
+												<!--<div class="depth depth3">
+													<ul class="depth_list depth3_list">
+														<li class="depth_item depth3_item"><a href="http://convention.chungwoon.ac.kr/" target="_blank" title="새창" class="depth_text depth3_text"><span>호텔경영전공</span></a></li>
+														<li class="depth_item depth3_item"><a href="http://tourism.chungwoon.ac.kr/" target="_blank" title="새창" class="depth_text depth3_text"><span>관광경영전공</span></a></li>
+													</ul>
+												</div>-->
+											</li>
+											<li class="depth_item depth2_item"><a href="https://home.chungwoon.ac.kr/convention/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>호텔경영학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://home.chungwoon.ac.kr/tourism/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>관광경영학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://hccm.chungwoon.ac.kr/hccm/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>호텔조리베이커리경영학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://airservice.chungwoon.ac.kr/airservice/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>항공서비스경영학과</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="depth_item depth1_item">
+									<div class="depth_text depth1_text"><span>창의융합대학</span></div>
+									<button type="button" class="depth_text depth1_text"><span>창의융합대학</span></button>
+									<div class="depth depth2">
+										<ul class="depth_list depth2_list">
+											<li class="depth_item depth2_item"><a href="https://home.chungwoon.ac.kr/site/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>융합경영학부</span></a></li>
+											<li class="depth_item depth2_item"><a href="http://space.chungwoon.ac.kr/" target="_blank" title="새창" class="depth_text depth2_text"><span>공간디자인학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="http://fashion.chungwoon.ac.kr/" target="_blank" title="새창" class="depth_text depth2_text"><span>패션디자인학과</span></a></li>
+											<!--<li class="depth_item depth2_item"><a href="#n" target="_blank" title="새창" class="depth_text depth2_text"><span>AI운영학과</span></a></li>-->
+											<li class="depth_item depth2_item"><a href="/um/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>자율전공학부</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://home.chungwoon.ac.kr/korea/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>글로벌한국어교육학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://home.chungwoon.ac.kr/sports/index.do" target="_self" class="depth_text depth2_text"><span>스포츠과학과</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="depth_item depth1_item">
+									<div class="depth_text depth1_text"><span>보건복지간호대학</span></div>
+									<button type="button" class="depth_text depth1_text"><span>보건복지간호대학</span></button>
+									<div class="depth depth2">
+										<ul class="depth_list depth2_list">
+											<li class="depth_item depth2_item"><a href="https://nursing.chungwoon.ac.kr/nursing/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>간호학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://nutrition.chungwoon.ac.kr/nutrition/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>식품영양학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://welfare.chungwoon.ac.kr/welfare/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>사회복지학과</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="depth_item depth1_item">
+									<div class="depth_text depth1_text"><span>외국어대학</span></div>
+									<button type="button" class="depth_text depth1_text"><span>외국어대학</span></button>
+									<div class="depth depth2">
+										<ul class="depth_list depth2_list">
+											<!--<li class="depth_item depth2_item">
+												<a href="#" class="depth_text depth2_text"><span>글로벌커뮤니케이션학과</span></a>
+												<div class="depth depth3">
+													<ul class="depth_list depth3_list">
+														<li class="depth_item depth3_item"><a href="http://eng.chungwoon.ac.kr/" target="_blank" title="새창" class="depth_text depth3_text"><span>영미문화전공</span></a></li>
+														<li class="depth_item depth3_item"><a href="http://china.chungwoon.ac.kr/" target="_blank" title="새창" class="depth_text depth3_text"><span>중화통상비즈니스전공</span></a></li>
+														<li class="depth_item depth3_item"><a href="http://cwvina.chungwoon.ac.kr/" target="_blank" title="새창" class="depth_text depth3_text"><span>베트남비즈니스전공</span></a></li>
+													</ul>
+												</div>
+											</li>-->
+											<li class="depth_item depth2_item"><a href="http://eng.chungwoon.ac.kr/" class="depth_text depth2_text"><span>영미문화전공</span></a></li>
+											<li class="depth_item depth2_item"><a href="http://china.chungwoon.ac.kr/" class="depth_text depth2_text"><span>중화통상비즈니스전공</span></a></li>
+											<li class="depth_item depth2_item"><a href="http://cwvina.chungwoon.ac.kr/" class="depth_text depth2_text"><span>베트남비즈니스전공</span></a></li>
+										</ul>
+									</div>
+								</li>
+
+								<li class="depth_item depth1_item">
+									<a href="https://coss.chungwoon.ac.kr/coss/index.do" target="_blank" title="새창" class="depth_text depth1_text"><span>사회서비스대학</span></a><button type="button" class="depth_text depth1_text"><span>사회서비스대학</span></button>
+									<!--<div class="depth depth2">
+										<ul class="depth_list depth2_list">
+											<li class="depth_item depth2_item"><a href="https://coss.chungwoon.ac.kr/coss/contents.do?key=5252" target="_blank" title="새창" class="depth_text depth2_text"><span>사회복지상담학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://coss.chungwoon.ac.kr/coss/contents.do?key=5269" target="_blank" title="새창" class="depth_text depth2_text"><span>청소년상담교육학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="#none" class="depth_text depth2_text"><span>e비즈니스창업학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="#none" class="depth_text depth2_text"><span>사회적경제학과</span></a></li>-->
+											<!--<li class="depth_item depth2_item"><a href="https://coss.chungwoon.ac.kr/coss/contents.do?key=5276" target="_blank" title="새창" class="depth_text depth2_text"><span>창업경영학과</span></a></li>-->
+											<!--<li class="depth_item depth2_item"><a href="https://coss.chungwoon.ac.kr/coss/contents.do?key=5283" target="_blank" title="새창" class="depth_text depth2_text"><span>사회적기업학과</span></a></li>-->
+											<!--<li class="depth_item depth2_item"><a href="https://coss.chungwoon.ac.kr/coss/contents.do?key=5391" target="_blank" title="새창" class="depth_text depth2_text"><span>뷰티산업학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://coss.chungwoon.ac.kr/coss/contents.do?key=6262" target="_blank" title="새창" class="depth_text depth2_text"><span>부동산경영학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="#none" class="depth_text depth2_text"><span>농생명식품융합학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="#none" class="depth_text depth2_text"><span>글로벌한국어교육학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="#n" target="_self" class="depth_text depth2_text"><span>평생교육체제지원사업단</span></a>
+												<div class="depth depth3">
+													<ul class="depth_list depth3_list">
+														<li class="depth_item depth3_item"><a href="#n" target="_self" class="depth_text depth3_text"><span>학사지원팀</span></a></li>
+													</ul>
+												</div>
+											</li>
+											<li class="depth_item depth2_item"><a href="#n" target="_self" class="depth_text depth2_text"><span>성인학습지원센터</span></a></li>
+										</ul>
+									</div>-->
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="campusbox">
+						<h3>#인천캠퍼스</h3>
+						<div class="depth depth1">
+							<ul class="depth_list depth1_list clearfix">
+								<li class="depth_item depth1_item">
+									<div class="depth_text depth1_text"><span>공과대학</span></div>
+									<button type="button" class="depth_text depth1_text"><span>공과대학</span></button>
+									<div class="depth depth2">
+										<ul class="depth_list depth2_list">
+											<li class="depth_item depth2_item"><a href="https://enter.chungwoon.ac.kr/archi/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>건축공학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="http://efire.chungwoon.ac.kr/efire/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>설비소방학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://cwuce.chungwoon.ac.kr/cwuce/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>토목환경공학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://bee.chungwoon.ac.kr/bee/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>전자공학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://ce.chungwoon.ac.kr/ce/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>컴퓨터공학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://multisun.chungwoon.ac.kr/multisun/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>멀티미디어학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://materials.chungwoon.ac.kr/materials/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>화학생명공학과</span>
+											<!-- <em class="small_font">(2023학년도 명칭변경예정<br> 화학생명공학과)</em> -->
+											</a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="depth_item depth1_item">
+									<div class="depth_text depth1_text"><span>경영대학</span></div>
+									<button type="button" class="depth_text depth1_text"><span>경영대학</span></button>
+									<div class="depth depth2">
+										<ul class="depth_list depth2_list">
+											<!--<li class="depth_item depth2_item">
+												<a href="http://global.chungwoon.ac.kr/" target="_blank" title="새창" class="depth_text depth2_text"><span>글로벌경영학과</span></a>
+												<div class="depth depth3">
+													<ul class="depth_list depth3_list">
+														<li class="depth_item depth3_item"><a href="#" class="depth_text depth3_text"><span>경영전공</span></a></li>
+														<li class="depth_item depth3_item"><a href="#" class="depth_text depth3_text"><span>무역전공</span></a></li>
+													</ul>
+												</div>
+											</li> -->
+											<li class="depth_item depth2_item"><a href="https://home.chungwoon.ac.kr/business/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>경영학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://home.chungwoon.ac.kr/trade/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>무역물류학과</span></a></li>
+											<li class="depth_item depth2_item"><a href="https://adpr.chungwoon.ac.kr/adpr/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>광고홍보학과</span></a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="depth_item depth1_item">
+									<div class="depth_text depth1_text"><span>융합대학</span></div>
+									<button type="button" class="depth_text depth1_text"><span>융합대학</span></button>
+									<div class="depth depth2">
+										<ul class="depth_list depth2_list">
+											<li class="depth_item depth2_item"><a href="https://home.chungwoon.ac.kr/fcu/index.do" target="_blank" title="새창" class="depth_text depth2_text"><span>미래융합자율전공학부</span></a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+				<div class="tailtext"><p><img src="/site/intro/images/tailtext.png" alt="Dream High Hope High" /></p></div>
+			</div>
+			<button type="button" class="lnb_close">닫기</button>
+		</div>
+		<div class="lnb_curtain"><button type="button" class="lnb_close">메뉴 닫기</button></div>
+	</header>
+	<div id="container">
+		<main>
+			<div class="rowgroup1">
+				<div class="wrap">
+					<section class="popup">
+						<div class="titlebox"><h2><img src="/site/intro/images/popup_title.png" alt="청운대는 오늘," /></h2></div>
+						<div class="popup_list">
+						
+							<div class="popup_item">
+								
+									
+										<a href="https://www.joongang.co.kr/article/25427685" target="_blank" ><img src="/DATA/popup/20260513042049430_lareGGXm.png" alt="2026 세계혁신대학랭킹 6년 연속 100대 혁신대학에 선정" /></a><!-- 링크없을시 a태그 없이 적용 -->
+									
+									
+								
+							</div>
+						
+							<div class="popup_item">
+								
+									
+										<a href="https://home.chungwoon.ac.kr/site/home/images/contents/popup_260721.png" target="_blank" ><img src="/DATA/popup/20260721054458520_AUmVDnxX.jpg" alt="홍성군 주민·소상공인·기업과 함께하는
+
+2026 충남 앵커사업
+지역현안 해결프로젝트
+참여자 모집
+
+자세히보기 &gt;" /></a><!-- 링크없을시 a태그 없이 적용 -->
+									
+									
+								
+							</div>
+						
+							<div class="popup_item">
+								
+									
+										<a href="https://home.chungwoon.ac.kr/home/selectBbsNttView.do?key=823&amp;bbsNo=44&amp;nttNo=732569&amp;searchCtgry=%EC%9D%BC%EB%B0%98%EA%B3%B5%EC%A7%8&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=1&amp;integrDeptCode=" target="_self" title="새창"><img src="/DATA/popup/20260904101514638_kduXDOar.jpg" alt="청운대학교
+대한민국 문화도시 홍성
+2026 G-YAF 글로벌 영아트 페스티벌 with 청운대
+일시 : 10. 30.(금) ~ 11. 01.(일)" /></a><!-- 링크없을시 a태그 없이 적용 -->
+									
+									
+								
+							</div>
+						
+							<div class="popup_item">
+								
+									
+										<a href="https://ext.chungwoon.ac.kr/university/payments" target="_blank" ><img src="/DATA/popup/20201218090239646_lOkYabSp.jpg" alt="통합정보 시스템
+대학생 등록고지서 조회 및 출력
+로그인 후 이용 가능합니다." /></a><!-- 링크없을시 a태그 없이 적용 -->
+									
+									
+								
+							</div>
+						
+							<div class="popup_item">
+								
+									
+										<a href="https://home.chungwoon.ac.kr/home/contents.do?key=6810" target="_self" title="새창"><img src="/DATA/popup/20201218090214012_rVuxtmNS.jpg" alt="스마트한 청운인
+캠퍼스내 스마트폰 와이파이 설정방법
+사용료는 무료입니다." /></a><!-- 링크없을시 a태그 없이 적용 -->
+									
+									
+								
+							</div>
+						
+						</div>					
+						<div class="control_area">
+							<div class="controlbox">
+								<div class="popup_control">
+									<button type="button" class="arrow prev">이전</button>
+									<button type="button" class="auto"></button>
+									<button type="button" class="arrow next">다음</button>
+								</div>
+								<a href="https://home.chungwoon.ac.kr/home/selectBbsNttList.do?bbsNo=1508&key=6818" class="more">팝업더보기</a>
+								<div class="popup_count">
+									<span class="current">2</span>
+									<span class="gap">/</span>
+									<span class="total">5</span>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+			<div class="rowgroup2">
+				<div class="wrap">
+					<section class="board">
+						<h2 class="skip">주요소식</h2>
+						<div class="listbox">
+							<ul>
+								<li class="list news clearfix">
+									<div class="title">
+										<h3>언론속 청운</h3>
+									</div>
+									<button type="button" title="리스트보기" class="board_btn">리스트펼치기</button>
+									<div class="layer">
+										<ul>
+											
+												<li><a href="/home/selectBbsNttView.do?key=917&amp;bbsNo=49&amp;nttNo=732821">[AIC 2026 포럼] AI 기술 경쟁력 위해 사람의 성장이 중요</a></li>
+											
+												<li><a href="/home/selectBbsNttView.do?key=917&amp;bbsNo=49&amp;nttNo=732820">청운대학교 호텔조리베이커리경영학과, ‘2026 글로벌 K-푸드 마케팅전략공모전’ 대상 수상</a></li>
+											
+												<li><a href="/home/selectBbsNttView.do?key=917&amp;bbsNo=49&amp;nttNo=732797">청운대학교 정윤 총장, 사회서비스대학 학생회와 소통간담회 개최</a></li>
+											
+												<li><a href="/home/selectBbsNttView.do?key=917&amp;bbsNo=49&amp;nttNo=732712">청운대학교 멀티미디어학과, AI 단편영화로 국제영화제 특별상 수상</a></li>
+											
+												<li><a href="/home/selectBbsNttView.do?key=917&amp;bbsNo=49&amp;nttNo=732711">청운대 ‘호위무사’ 올가을 바비큐축제서 뜬다</a></li>
+											
+										</ul>
+									</div>
+									<a href="/home/selectBbsNttList.do?key=917&amp;bbsNo=49" class="more">언론속 청운 더보기</a>
+								</li>
+								<li class="list notice clearfix">
+									<div class="title">
+										<h3>공지사항</h3>
+									</div>
+									<button type="button" title="리스트보기" class="board_btn">리스트펼치기</button>
+									<div class="layer">
+										<ul>
+											
+												<li><a href="/home/selectBbsNttView.do?key=820&amp;bbsNo=44&amp;nttNo=732839">(재)춘천인재육성장학재단 2026년 하반기 봄내장학생 선발 안내</a></li>
+											
+												<li><a href="/home/selectBbsNttView.do?key=820&amp;bbsNo=44&amp;nttNo=732837">충남 앵커 창업 아이디어 경진대회 참여 모집 안내</a></li>
+											
+												<li><a href="/home/selectBbsNttView.do?key=820&amp;bbsNo=44&amp;nttNo=732836">2026 영아트랩 「청소년 미디어랩 홍성 RE:PLAY」 참가자 모집</a></li>
+											
+												<li><a href="/home/selectBbsNttView.do?key=820&amp;bbsNo=44&amp;nttNo=732813">I-Union 혁신창업 생태계 구축 &lt;2026 인천 청년 글로벌 창업 역량 강화 프로그램&gt; 신청 안내</a></li>
+											
+												<li><a href="/home/selectBbsNttView.do?key=820&amp;bbsNo=44&amp;nttNo=732812">2026학년도 2학기 Blue Cloud 비교과 서포터즈 추가모집 안내</a></li>
+											
+										</ul>
+									</div>
+									<a href="/home/selectBbsNttList.do?key=820&amp;bbsNo=44" class="more">공지사항 더보기</a>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</div>
+			</div>
+		</main>
+	</div>
+	<div class="lnbbtnbox"><div class="wrap"><button type="button" class="lnbbtn"><span>학과소개</span></button></div></div>
+	<footer id="footer">
+		<div class="wrap">
+			<div class="footer_con">
+				<p class="copyright"><em>COPYRIGHT(C) 2020 BY</em><span>CHUNGWOON UNIVERSITY. ALL RIGHTS RESERVED.</span></p>
+			</div>
+		</div>
+	</footer>
+</div>
+
+
+</body>
+</html>

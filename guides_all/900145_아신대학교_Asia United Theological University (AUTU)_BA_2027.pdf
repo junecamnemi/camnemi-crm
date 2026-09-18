@@ -1,0 +1,408 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=3.0,user-scalable=yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<title> 입학안내</title>
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+<script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="/js/listTab.js" ></script>
+<script type="text/javascript" src="/js/scroll.js" ></script>
+<script type="text/javascript" src="/js/jquery.banner.js"></script>
+<script type="text/javascript" src="/admission/js/common.js"></script>
+<script type="text/javascript" src="/admission/js/template.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/font/font.css" />
+<link rel="stylesheet" type="text/css" href="/css/basic.css" />
+<link rel="stylesheet" type="text/css" href="/css/modules.css" />
+<link rel="stylesheet" type="text/css" href="/css/board.css" />
+<link rel="stylesheet" type="text/css" href="/css/admission/header.css" />
+<link rel="stylesheet" type="text/css" href="/css/admission/footer.css" />
+<link rel="stylesheet" type="text/css" href="/css/admission/theme.css" />
+<link rel="stylesheet" type="text/css" href="/css/modules-media.css" />
+<link rel="stylesheet" type="text/css" href="/css/admission/media.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="/js/DD_belatedPNG.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('.png');
+</script>
+<![endif]-->
+</head>
+<body>
+	<div id="skipNavi">
+		<a href="#nav">주메뉴 바로가기</a>
+		<a href="#contents">본문 바로가기</a>
+	</div>
+	<div id="siteWrap" class="sub">
+		<!--header -->
+
+		
+<div id="hdPopup" class="none">
+	<div class="wrapper">
+		<div class="row">
+		
+	
+			<!-- 반영시엔 주석 해제 -->
+			<ul class="hd_popup">
+
+            
+
+			</ul> 
+		</div>
+		<div class="closebox">
+			<div class="row">
+				<form name="popup_form">
+				   <label for="today_check">오늘 하루 이 창 열지 않기</label>
+				   <input type="checkbox" name="checkbox" value="checkbox" id="today_check" onclick="javascript:todaycloseWin();">
+				   <img src="/grad/design/images/mainpage/i_close.png" alt="" class="btn_close">
+			   </form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="header" class="header">
+	<div class="header__top ">
+		<div class="wrapper clearfix">
+			<p class="popup"><a href="#">POPUP ZONE <span class="pop_cnt">0</span></a></p>
+			<ul class="topMenu clearfix">
+				<li><a href="https://www.acts.ac.kr/admission/design/index.asp">HOME</a></li>
+				<li><a href="https://www.acts.ac.kr/design/index.asp">ACTS HOME</a></li>
+				
+				<li>
+					<form name="login_form" method="post" id="login_form" action="https://www.acts.ac.kr/modules/member/me_login.asp" style="display: none;">
+						<input type="hidden" name="referer" value="https://www.acts.ac.kr/modules/board/bd_view.asp?no=1243&id=univ_admission&ca_no=5&left=fore1" />
+					</form>
+					<a id="login_form_submit" style="cursor: pointer;">LOGIN</a>
+				</li>
+				
+				<li><a href="/english/design/index.asp" target="_blank" title="영문사이트 새창열림">ENGLISH</a></li>
+			</ul>
+			<script type="text/javascript">
+				//<![CDATA[
+
+				$(document).ready(function() {
+
+					$('.username-label').animate({ opacity: "0.5" })
+						.click(function() {
+							var thisFor	= $(this).attr('for');
+							$('.'+thisFor).focus();
+					});
+
+					$("#login_form_submit").click(function(){
+						$("#login_form").submit();
+					});
+
+					$('.username').focus(function() {
+
+						$('.username-label').animate({ opacity: "0" }, "fast");
+
+							if($(this).val() == "username")
+								$(this).val() == "";
+
+						}).blur(function() {
+
+							if($(this).val() == "") {
+								$(this).val() == "username";
+								$('.username-label').animate({ opacity: "0.5" }, "fast");
+							}
+						});
+					});
+				//]]>
+			</script>
+		</div>
+	</div><!--// header__top -->
+	<div class="header__cont ">
+		<div class="wrapper clearfix">
+			<div class="action">
+				<button type="button" id="btngnb" class="btn--gnb">
+					<span class="bar"></span>
+					<span class="hidden">모바일 메뉴</span>
+				</button>
+			</div>
+			<h1 class="logo">
+				<!-- <a href="/admission/design/index.asp"><img src="/admission/design/images/common/logo.png" alt="아세아연합신학대학교" /><span class="bar">&nbsp;</span><strong>입학안내</strong></a> -->
+				<a href="/admission/design/index.asp"><img src="/admission/design/images/logo_2023.png" alt="아신대학교" /><span class="bar">&nbsp;</span><strong>입학안내</strong></a>
+			</h1>	
+		</div>
+		<div id="gnb" class="gnb">
+			<h2 class="hidden">주요 서비스</h2>
+				<div class="wrapper">
+					<ul class="depth1 clearfix">
+						<li class="depth1__menu"><a href="/modules/board/bd_list.asp?id=univ_admission&amp;ca_no=2&amp;left=occa1" data="수시">수시</a>
+							<ul class="depth2">
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=univ_admission&amp;ca_no=2&amp;left=occa1" data="공지사항">공지사항</a></li>
+								<li class="depth2__menu"><a href="https://www.acts.ac.kr/admission/design/contents10.asp?code=301010&amp;left=occa2" data="모집요강">모집요강</a></li>
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=univ_form01&amp;ca_no=2&amp;left=occa3" data="제출서식">제출서식</a></li>
+								<li class="depth2__menu"><a href="/admission/design/admission08.asp?&left=occa4&cry=2027&crs=susi&mode=view" data="경쟁률조회">경쟁률조회</a></li>
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=uni_allbd&amp;ca_no=2&amp;left=occa5" data="입학상담Q&amp;A">입학상담Q&amp;A</a></li>
+								<li class="depth2__menu"><a href="/admission/design/admission06_popup1.asp?ca_no=2&amp;left=occa6" data="합격자발표">합격자발표</a></li>
+							</ul>
+						</li>
+						<li class="depth1__menu"><a href="/modules/board/bd_list.asp?id=univ_admission&amp;ca_no=3&amp;left=regu1" data="정시">정시</a>
+							<ul class="depth2">
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=univ_admission&amp;ca_no=3&amp;left=regu1" data="공지사항">공지사항</a></li>
+								<li class="depth2__menu"><a href="https://www.acts.ac.kr/admission/design/contents10.asp?code=311010&amp;left=regu2" data="모집요강">모집요강</a></li>
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=univ_form01&amp;ca_no=3&amp;left=regu3" data="제출서식">제출서식</a></li>
+								
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=uni_allbd&amp;ca_no=3&amp;left=regu5" data="입학상담Q&amp;A">입학상담Q&amp;A</a></li>
+								<li class="depth2__menu"><a href="/admission/design/admission06_popup1.asp?ca_no=3&amp;left=regu6" data="합격자발표">합격자발표</a></li>
+							</ul>
+						</li>
+						<li class="depth1__menu"><a href="/modules/board/bd_list.asp?id=univ_admission&amp;ca_no=6&amp;left=inco1" data="편입학">편입학</a>
+							<ul class="depth2">
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=univ_admission&amp;ca_no=6&amp;left=inco1" data="공지사항">공지사항</a></li>
+								<li class="depth2__menu"><a href="https://www.acts.ac.kr/admission/design/contents10.asp?code=321010&amp;left=inco2" data="모집요강">모집요강</a></li>
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=univ_form01&amp;ca_no=6&amp;left=inco3" data="제출서식">제출서식</a></li>
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=uni_allbd&amp;ca_no=6&amp;left=inco4" data="입학상담Q&amp;A">입학상담Q&amp;A</a></li>
+								<li class="depth2__menu"><a href="/admission/design/admission06_popup1.asp?ca_no=6&amp;left=inco5" data="합격자발표">합격자발표</a></li>
+							</ul>
+						</li>
+						<li class="depth1__menu"><a href="/modules/board/bd_list.asp?id=univ_admission&amp;ca_no=5&amp;left=fore1" data="재외국민과 외국인">재외국민과 외국인</a>
+							<ul class="depth2">
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=univ_admission&amp;ca_no=5&amp;left=fore1" data="공지사항">공지사항</a></li>
+								<li class="depth2__menu"><a href="https://www.acts.ac.kr/admission/design/contents10.asp?code=331010&amp;left=fore2" data="모집요강">모집요강</a></li>
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=univ_form01&amp;ca_no=5&amp;left=fore3" data="제출서식">제출서식</a></li>
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=uni_allbd&amp;ca_no=5&amp;left=fore4" data="입학상담Q&amp;A">입학상담Q&amp;A</a></li>
+								<li class="depth2__menu"><a href="/admission/design/admission06_popup1.asp?ca_no=5&amp;left=fore5" data="합격자발표">합격자발표</a></li>
+							</ul>
+						</li>
+						<li class="depth1__menu">
+							<a href="/modules/board/bd_list.asp?id=univ_faq&amp;left=admi1" data="입시도우미">입시도우미</a>
+							<ul class="depth2">
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=univ_faq&amp;left=admi1" data="입학상담FAQ">입학상담FAQ</a></li>
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=uni_allbd&amp;ca_no=&amp;left=admi2" data="입학상담Q&amp;A">입학상담Q&amp;A</a></li>
+								<li class="depth2__menu"><a href="/admission/design/admission0102.asp?left=1&amp;oa=2&amp;left=admi3" data="입시캘린더">입시캘린더</a></li>
+								<li class="depth2__menu"><a href="/admission/design/admission08.asp?cry=2022&amp;crs=%BC%F6%BD%C3&amp;left=admi4" data="합격자 평균 점수">합격자 평균 점수</a></li>
+								<li class="depth2__menu"><a href="/admission/design/admission09.asp?&amp;left=admi5" data="입시자료요청">입시자료요청</a></li>
+								<!-- <li class="depth2__menu"><a href="/admission/design/admission12.asp?7&amp;&amp;left=admi6" data="찾아가는입학설명회">찾아가는입학설명회</a></li> -->
+								<li class="depth2__menu" style="display: none;">
+									<a href="/modules/board/bd_list.asp?id=univ_admission&amp;left=admi7" data="공지사항">공지사항</a>
+									<a href="/modules/board/bd_list.asp?id=univ_form01&amp;left=admi8" data="제출서식">제출서식</a>
+								</li>
+							</ul>
+						</li>
+						<li class="depth1__menu">
+							<a href="/design/contents10.asp?code=111121&left=school2_2" data="학교정보">학교정보</a>
+							<ul class="depth2">
+								<!--<li class="depth2__menu"><a href="/design/contents10.asp?code=111115&left=school2_1" data="">학부/전공안내</a></li>-->
+								<!-- <li class="depth2__menu"><a href="/admission/design/univ1010.asp?&amp;left=univ0" data="">학과/전공안내</a></li> -->
+								<li class="depth2__menu"><a href="/design/contents10.asp?code=111121&left=school2_2" data="">학과안내</a></li>
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=youtube1&left=info1" data="학과소개">학과소개</a></li>
+								<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=youtube2&left=info2" data="아신대 추천합니다">아신대 추천합니다</a></li>
+								<li class="depth2__menu"><a href="/design/contents10.asp?code=16121110&left=unilife3_2" data="장학제도">장학제도</a></li>
+								<li class="depth2__menu"><a href="/design/contents10.asp?code=16111510&left=unilife2_6" data="생활관">생활관</a></li>
+								<li class="depth2__menu"><a href="/admission/design/contents10.asp?code=3514&amp;left=info4" data="교통안내">교통안내</a></li>
+								<li class="depth2__menu"><a href="/admission/design/contents10.asp?code=3515&amp;left=info5" data="캠퍼스지도">캠퍼스지도</a></li>
+							</ul>
+						</li>
+						<li class="depth1__menu hidden">
+							<a href="/admission/design/total_search.asp?&amp;left=util1" data="부가메뉴">부가메뉴</a>
+							<ul class="depth2">
+								<li class="depth2__menu"><a href="/admission/design/total_search.asp?&amp;left=util1" data="통합검색">통합검색</a></li>
+							</ul>
+						</li>
+						<li class="depth1__menu hidden">
+							<a href="/admission/design/univ1010.asp?&amp;left=univ0" data="학교정보">학교정보</a>
+							<ul class="depth2">
+								<li class="depth2__menu"><a href="/admission/design/univ1010.asp?&amp;left=univ0" data="신학과">신학과</a></li>
+								<li class="depth2__menu"><a href="/admission/design/univ1110.asp?&amp;left=univ1" data="선교문화복지학과">선교문화복지학과</a></li>
+								<li class="depth2__menu"><a href="/admission/design/univ1210.asp?&amp;left=univ2" data="기독교교육상담학과">기독교교육상담학과</a></li>
+								<li class="depth2__menu"><a href="/admission/design/univ1310.asp?&amp;left=univ3" data="선교영어학과">선교영어학과</a></li>
+								<li class="depth2__menu"><a href="/admission/design/univ1410.asp?&amp;left=univ4" data="선교중국어학과">선교중국어학과</a></li>
+								<li class="depth2__menu"><a href="/admission/design/univ1510.asp?&amp;left=univ5" data="교양과정">교양과정</a></li>
+							</ul>
+						</li>
+					</ul><!-- //gnb -->
+					<div class="modules">
+						<div class="totalSearch">
+							<form name="frm_search" id="search" class="totalSearch__form" method="get" action="/admission/design/total_search.asp" target="_blank">
+								<fieldset>
+									<legend>통합검색</legend>
+									<input type="text" name="sv" id="sv" class="totalSearch__inp" />
+									<input type="hidden" name="sleft" value="util1" />
+									<button type="submit" class="totalSearch__btn">
+										<i class="icoMain1 icoMain1--search"></i>
+										<span class="hidden">검색</span>
+									</button>
+								</fieldset>
+							</form>
+						</div>
+						<ul class="sns clearfix">
+							<li><a href="https://www.instagram.com/acts_official_/" target="_blank" style="background-color: #ee6798;" title="인스타그램 새창열림"><i class="icoSns icoSns--instagram"><span class="hidden">인스타그램</span></i></a></li>
+							<li><a href="https://blog.naver.com/actsadv" target="_blank" style="background-color: #4dd475;" title="네이버블로그 새창열림"><i class="icoSns icoSns--blog"><span class="hidden">네이버블로그</span></i></a></li>
+							<li><a href="https://www.youtube.com/channel/UCA25An5Hg7M1hBjlstaX5dA" target="_blank" style="background-color: #fa4c4c;" title="유튜브 새창열림"><i class="icoSns icoSns--youtube"><span class="hidden">유튜브</span></i></a></li>
+							<li><a href="http://facebook.com/acts.ac.kr" target="_blank" style="background-color: #7588bb;" title="페이스북 새창열림"><i class="icoSns icoSns--facebook"><span class="hidden">페이스북</span></i></a></li>
+						</ul>
+					</div>	
+				</div><!-- //wrapper -->
+			<div class="gnb__bg"></div>
+		</div><!-- //gnb -->
+	</div> <!-- //header__cont -->
+</div><!--// header -->
+		<!--//header -->
+		<div id="container">
+			<h2 class="hidden">입시도우미</h2>
+			<div class="banner">
+				<h3 class="hidden">배너 영역</h3>
+				<div class="subVisual">
+					<img src="/admission/design/images/subpage/txt_visual.png" class="subVisual__txt" alt="아세아 복음화와 세계선교는 ACTS로 부터!"/>
+				</div><!--//subVisual -->
+				<div id="lnb" class="lnb">
+					<div class="wrapper">					
+						<ul class="lnb__list">
+							<li class="lnb__home"><a href="/admission"><span class="hidden">홈페이지</span><i class="icoMain1 icoMain1--home"></i></a></li>
+							<li class="lnb__menu first">
+								<span id="lnbDepth1Text"></span>
+							</li>
+							<li class="lnb__menu">
+								<button type="button">
+									<span id="lnbDepth2Text"></span>
+									<i class="icoArr icoArr--down"></i>
+								</button>
+								<div id="lnbDepth2" class="lnb__depth"></div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="contents" class="wrapper">				<div id="board" class="board section">
+					<div class="section__head" >
+						<h3 class="section__tit">공지사항</h3>
+
+					</div>
+				
+					<div class="boardView article">
+						<h4 class="boardView__tit">
+						2027학년도 재외국민과 외국인 특별전형 모집요강
+						</h4>
+						<table class="tbl--vert">
+							<caption>게시판의 작성자, 등록일, 제목, 내용에 대해 설명하고있습니다2027학년도 재외국민과 외국인 특별전형 모집요강</caption>
+							<tbody>
+								<tr>
+									<th scope="row"><!-- <img src='/images/th_writer.gif' alt='작성자'/> -->작성자</th>
+									<td>교학지원팀()</td>
+									<th scope="row"><!-- <img src='/images/th_date.gif' alt='등록일'/> -->등록일</th>
+									<td>2026-05-27<!--날짜만 표기, 정지은주임요청, 2014-08-05, 최현식 처리--></td>
+								</tr>
+								
+								<tr>
+									<th scope="row"><!-- <img src='/images/th_category.gif' alt='카테고리'/> -->카테고리</th>
+									<td colspan="3">재외국민과 외국인</td>
+								</tr>
+								
+								<!--
+								<tr>
+									<th scope="row"> <img src='/images/th_title.gif' alt='제목'/> 제목</th>
+									<td colspan="3"></td>
+								</tr>
+								-->
+								
+								<tr>
+									<th scope="row"><!-- <img src='/images/th_uploadfile.gif' alt='업로드파일'/>1 -->첨부</th>
+									<td colspan="3">
+										
+										<a href="bd_download.asp?idx=27432" target="_blank">2027학년도_아신대학교_재외국민과외국인모집요강(종교문화콘텐츠학과 제외).pdf</a>
+										
+										<!-- <a href="/lib/download.asp?realname=2027학년도_아신대학교_재외국민과외국인모집요강(종교문화콘텐츠학과 제외).pdf&savename=univ_admission61450128x120260527150336.pdf&url=/upload/board">2027학년도_아신대학교_재외국민과외국인모집요강(종교문화콘텐츠학과 제외).pdf</a> -->
+									</td>
+								</tr>
+								
+								<tr>
+									<!-- <th scope="row">내용</th> -->
+									<td colspan="4" class="boardView__cont">
+										<p class="hidden">게시글 본문</p>
+										
+										<div>
+											<span letter-spacing:="" noto="" sans="" style="margin: 0px; padding: 0px; border: 0px; font-size: 16px; vertical-align: baseline; line-height: 25.6px; box-sizing: border-box; font-family: &quot;Noto Sans KR&quot;, sans-serif;">2027</span><span font-size:="" noto="" sans="" style="margin: 0px; padding: 0px; border: 0px; font-size: 16px; vertical-align: baseline; line-height: 25.6px; box-sizing: border-box; font-family: &quot;Noto Sans KR&quot;, sans-serif;">학년도 재외국민과 외국인 특별전형 모집요강을&nbsp;안내하여&nbsp;드립니다.</span><br font-size:="" noto="" sans="" style="font-family: &quot;Noto Sans KR&quot;, sans-serif; font-size: 16px;" />
+<span font-size:="" noto="" sans="" style="margin: 0px; padding: 0px; border: 0px; font-size: 16px; vertical-align: baseline; line-height: 25.6px; box-sizing: border-box; font-family: &quot;Noto Sans KR&quot;, sans-serif;">재외국민과 외국인 특별전형은 신입학의 수시 및 정시 모집시기와 동일하게 각각 모집하오니 첨부된 모집요강을 참고해 주시기 바랍니다.<br />
+<br />
+<span style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; line-height: 25.6px; box-sizing: border-box; color: rgb(0, 0, 255); font-size: inherit !important;"><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; line-height: 25.6px; box-sizing: border-box;">&#39;종교문화콘텐츠학과&#39;는 순수외국인 전담학과로 2027학년도 신입생을 신규 모집하오니 아래 홈페이지의 모집요강을 숙지하셔서 지원바랍니다.</strong></span></span><br />
+<a href="https://www.acts.ac.kr/asea_int/index.asp">https://www.acts.ac.kr/asea_int/index.asp</a><br />
+<br font-size:="" noto="" sans="" style="font-family: &quot;Noto Sans KR&quot;, sans-serif; font-size: 16px;" />
+<br font-size:="" noto="" sans="" style="font-family: &quot;Noto Sans KR&quot;, sans-serif; font-size: 16px;" />
+<strong noto="" sans="" style="margin: 0px; padding: 0px; border: 0px; font-size: 16px; vertical-align: baseline; line-height: 25.6px; box-sizing: border-box; font-family: &quot;Noto Sans KR&quot;, sans-serif;">문의 :&nbsp;</strong><span font-size:="" noto="" sans="" style="margin: 0px; padding: 0px; border: 0px; font-size: 16px; vertical-align: baseline; line-height: 25.6px; box-sizing: border-box; font-family: &quot;Noto Sans KR&quot;, sans-serif;">031-770-7701~7702</span><br font-size:="" noto="" sans="" style="font-family: &quot;Noto Sans KR&quot;, sans-serif; font-size: 16px;" />
+<br font-size:="" noto="" sans="" style="font-family: &quot;Noto Sans KR&quot;, sans-serif; font-size: 16px;" />
+<span font-size:="" noto="" sans="" style="margin: 0px; padding: 0px; border: 0px; font-size: 16px; vertical-align: baseline; line-height: 25.6px; box-sizing: border-box; font-family: &quot;Noto Sans KR&quot;, sans-serif;">감사합니다.</span><br font-size:="" noto="" sans="" style="font-family: &quot;Noto Sans KR&quot;, sans-serif; font-size: 16px;" />
+<br font-size:="" noto="" sans="" style="font-family: &quot;Noto Sans KR&quot;, sans-serif; font-size: 16px;" />
+<span font-size:="" noto="" sans="" style="margin: 0px; padding: 0px; border: 0px; font-size: 16px; vertical-align: baseline; line-height: 25.6px; box-sizing: border-box; font-family: &quot;Noto Sans KR&quot;, sans-serif;">2026. 5. 27.&nbsp;</span><br font-size:="" noto="" sans="" style="font-family: &quot;Noto Sans KR&quot;, sans-serif; font-size: 16px;" />
+<span font-size:="" noto="" sans="" style="margin: 0px; padding: 0px; border: 0px; font-size: 16px; vertical-align: baseline; line-height: 25.6px; box-sizing: border-box; font-family: &quot;Noto Sans KR&quot;, sans-serif;">아신대학교<br />
+교학지원팀&nbsp;</span>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table><!--// tbl--vert -->
+						<table class="tbl--vert" style="border-top:none;">
+							<caption>이전글과 다음글에 대해 설명하고 있습니다.</caption>
+							<tbody>
+								
+								<tr>
+									<th scope="row"><!-- <img src='/images/th_next.gif' alt='다음글'/> -->다음글</th>
+									<td colspan="3">
+										<a href="bd_view.asp?id=univ_admission&no=1244&mncode=&sleft=&left=fore1">2026학년도 2학기 재입학 모집요강 및 제출서식 안내</a>
+									</td>
+								</tr>
+								
+								<tr>
+									<th scope="row"><!-- <img src='/images/th_prev.gif' alt='이전글'/> -->이전글</th>
+									<td colspan="3" >
+										<a href="bd_view.asp?id=univ_admission&no=1242&mncode=&sleft=&left=fore1">2027학년도 수시모집요강 및 인터넷접수 안내</a>
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+						<div class="board__action action">
+							<div class="board__btn clearfix">
+								<a href="bd_list.asp?ListBlock=&gotopage=&Pagecount=&sk=&sv=&id=univ_admission&mncode=&last=&left=fore1&bd_academy_no=&sleft=&ca_no=5&title=&lnb_id=" class="btnList btn bg--sub">
+									목록<!-- <img src="/images/btn_list02.gif" alt="목록보기" /> -->
+								</a>
+								
+							</div>
+						</div>
+					</div><!--// boardView -->
+					<!--commnet-->
+					
+				</div><!--// board -->
+			</div><!--// contents -->
+		</div><!--// container -->
+	<button type="button" id="btnTop" class="btn bg--sub">TOP</button>
+	<div id="footer" class="footer">
+		<h2 class="hidden">하단 서비스 및 아세아연합신학대학교  정보</h2>
+		<div class="wrapper">
+			<div class="footer__top ">
+				<div id="fnb" class="fnb">
+					<ul class="fnb__list clearfix">
+						<li><a href="https://docs.google.com/document/d/12krlu4SmmKKlPka-80gI2FQOsYFQ1knq8tzjsx9aGvM/pub" class="color--sub" title="개인정보보호정책 새창열림" onclick="window.open(this.href, '_blank', 'width=860, height=800, toolbars=no, scrollbars=yes'); return false;" >개인정보보호정책</a></li>
+						<li><a href="/design/popup_email.asp" title="이메일무단수집거부 새창열림" onclick="window.open(this.href, '_blank', 'width=860, height=500, toolbars=no, scrollbars=yes'); return false;">이메일무단수집거부</a></li>
+						<li><a href="/admission/design/contents10.asp?code=3514&amp;sleft=info4">찾아오시는 길</a></li>
+					</ul>
+				</div><!--// siteFnb --> 
+			</div>
+			<div class="footer__cont row">
+				<div class="col-sm-10">
+					<div class="row">
+						<!--div class="footer__logo col-sm-3">
+							<img src="/admission/design/images/common/logo_footer.png" alt="아세아연합신학대학교"/>
+						</div-->
+						<div class="footer__info col-sm-9">
+							<ul class="address">
+								<li>12508 경기도 양평군 옥천면 경강로 1276 <br class="xs-show"/>아신대학교 교무지원팀</li>
+								<li>Tel. 031-770-7701~2</li>
+							</ul>
+							<p class="copyright"><small>ⓒ 2026 ACTS University. All rights reserved.</small></p>
+						</div>
+					</div>
+				</div>
+				<div class="footer__bnr col-sm-2">
+					<a href="https://www.adiga.kr/ucp/uvt/uni/univDetail.do?menuId=PCUVTINF2000&unvCd=0000145&searchSyr=2025" target="_blank" title="대학!어디가? 홈페이지 새창열기"><img src="/admission/design/images/common/bnr_adiga.jpg" alt="대학!어디가? 내가 원하는 모든 대입정보"/></a> 
+				</div>
+			</div><!--// footerMain -->
+		</div><!--// wrapper -->
+	</div><!--// footer -->
+ </body>
+</html>

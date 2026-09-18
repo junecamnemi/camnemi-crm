@@ -1,0 +1,1431 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+<meta name="format-detection" content="telephone=no" />
+
+
+
+<link rel="stylesheet" href="/assets/css/notokr.css?20260918172521">
+<link rel="stylesheet" href="/assets/css/reset.css?20260918172521">
+<link rel="stylesheet" href="/assets/css/common.css?20260918172521" />
+<link rel="stylesheet" href="/assets/css/sub.css?20260918172521" />
+<link rel="stylesheet" href="/assets/css/jAlert.css?20260918172521" />
+<link rel="stylesheet" href="/assets/css/new01.css?ver1.10" />
+
+<script type="text/javascript" src="/assets/js/jquery-1.11.3.min.js?20260918172521"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+<script type="text/javascript" src="/assets/js/basic.js?20260918172521"></script>
+<script type="text/javascript" src="/assets/js/jAlert.js?20260918172521"></script>
+
+
+
+<script>
+    $(document).ready(function() {
+        // ì ìíê²½ íì¸
+        var accessIP = "112.156.62.61";
+        if ( accessIP == "112.217.216.250" || accessIP == "127.0.0.1" || accessIP == "0:0:0:0:0:0:0:1" || accessIP == "106.250.174.34") {
+            // Do Nothing
+            // ì§ìì  ê°ë°ì ìí ìì¸ì²ë¦¬
+        } else {
+            if ( navigator.userAgent.indexOf("chwappa") > -1 || navigator.userAgent.indexOf("chwappi") > -1 ) {
+                // ëª¨ë°ì¼ ì± ì ì íì¸
+            } else {
+                var currnetPageUrl = document.location.href;
+                if ( currnetPageUrl.match('/Job/Job_00') ) {
+                    // Do Nothing
+                    // ëë¦¼ìºì¹ íì´ì§ ì¤íì ìí ìì¸ ì²ë¦¬
+                } else {
+                    // ëª¨ë°ì¼ ì¹ ë¸ë¼ì°ì ìì ì ê·¼í ê²½ì°
+                    //location.replace("http://portal.changwon.ac.kr/");
+                }
+
+            }
+        }
+        
+		var url = document.location.href;
+		if (document.location.protocol == 'http:' && url.indexOf("/campus/campus_005.do") > -1) {
+			//document.location.href = document.location.href.replace('http:', 'https:');
+		}
+		else if (document.location.protocol == 'https:' && url.indexOf("/campus/campus_005.do") == -1) {
+		//	document.location.href = document.location.href.replace('https:', 'http:');
+		}
+		
+		if (document.location.protocol == 'https:' && url.indexOf("/campus/campus_005.do") > -1) {
+			//document.location.href = document.location.href.replace('https:', 'http:');
+		}
+    });
+</script>
+
+<!-- êµ¬ê¸ ì ëë¦¬í±ì¤ ì¶ê° -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-92266548-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+	<title> 공지사항 &lt; 국립창원대학교 </title>
+</head>
+
+<script>
+	var boardContentsHeight = $(".board-contents").height();
+	$(".board-contents").css("height", boardContentsHeight);
+	$(document).ready(function() {
+		if ( navigator.userAgent.indexOf("chwappa") > -1 ) {
+			$(".board-contents").css("overflow", "auto");
+		}
+	});
+</script>
+
+<body>
+
+<p class="skip-navigation">
+	<a href="#container">본문으로 바로가기</a>
+</p>
+
+<!-- wrapper -->
+<div class="wrapper" id="wrapper">
+	<!-- header -->
+	<header>
+		
+
+
+
+
+
+
+
+
+
+<div class="header">
+<a href="javascript:history.go(-1)" class="btn-back">
+	<img src="/assets/images/common/btn_back.png" />
+</a>
+<h1>
+	공지사항
+</h1>
+
+<!-- 즐겨찾기 완료시 class="btn-bookmark" 에 클래스 active 추가 midx가 있을경우 -->
+
+<button type="button" class="btn-bookmark " midx="8" chkBookmark="" style="top:-2.5px;">
+	<span>
+		bookmark
+	</span>
+</button>
+
+
+<a href="javascript:" class="btn-total-menu">
+	<img src="/assets/images/common/btn_totalmenu.gif" alt="전체메뉴" />
+</a>
+</div>
+
+
+<!-- 전체 메뉴 -->
+<div class="mask"></div>
+<div class="total-menu-wrapper">
+	<!--
+	<a href="javascript:" class="btn-totalmenu-close">
+		<img src="/assets/images/common/btn_totalmenu_close.gif" alt="전체메뉴 닫기" />
+	</a>
+	-->
+	<div class="total-menu-area">
+		<div class="right">
+			<ul>
+				
+				
+					<li>
+						<button type="button" id="btn-topmenu1">
+							<img src="/assets/images/common/icon_topmenu01_off.png" />
+							<img src="/assets/images/common/icon_topmenu01_on.png" class="on" />
+							CWNU광장
+						</button>
+					</li>
+					
+				
+					<li>
+						<button type="button" id="btn-topmenu2">
+							<img src="/assets/images/common/icon_topmenu02_off.png" />
+							<img src="/assets/images/common/icon_topmenu02_on.png" class="on" />
+							학생지원프로그램
+						</button>
+					</li>
+					
+				
+					<li>
+						<button type="button" id="btn-topmenu3">
+							<img src="/assets/images/common/icon_topmenu03_off.png" />
+							<img src="/assets/images/common/icon_topmenu03_on.png" class="on" />
+							대학생활
+						</button>
+					</li>
+					
+				
+					<li>
+						<button type="button" id="btn-topmenu4">
+							<img src="/assets/images/common/icon_topmenu04_off.png" />
+							<img src="/assets/images/common/icon_topmenu04_on.png" class="on" />
+							드림캐치 (취업진로)
+						</button>
+					</li>
+					
+				
+					<li>
+						<button type="button" id="btn-topmenu5">
+							<img src="/assets/images/common/icon_topmenu05_off.png" />
+							<img src="/assets/images/common/icon_topmenu05_on.png" class="on" />
+							학내주요사이트
+						</button>
+					</li>
+					
+				
+				
+				
+			</ul>
+		</div>
+
+	                                  	<!-- 2021.03.17 ACE사업단, 생활관점호불참신청 메뉴 제거 -->
+		<div class="left">
+			<ul>
+				
+				
+					<li class="depth2-menu-area" id="depth2-menu1">
+						<p class="menu-depth1">
+							<span>
+								CWNU광장
+							</span>
+						</p>
+						<ul class="submenu">
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/board/list.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=8&bno=2932">
+											
+													공지사항
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/board/list.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=9&bno=3120">
+											
+													학사안내
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/board/list.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=104&bno=5849&cateno=null">
+											
+													장학안내
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/board/list.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=52&bno=4366">
+											
+													아르바이트
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/board/list.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=19&bno=4367">
+											
+													분실물센터
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/board/list.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=58&bno=4368">
+											
+													사고팔고
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/board/list.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=59&bno=4370">
+											
+													자취및하숙
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/cmsboard/list.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=10&bno=9999&cateno=null">
+											
+													와글홈공지
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/board/list.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=36&bno=2913">
+											
+													생활관<br/>공지사항
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="javascript:goHref('https://plus.kakao.com/home/@창원대불만제로');">
+											
+													불만제로<br/>(총학생회)
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/board/list.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=11&bno=2933">
+											
+													학내채용안내
+											</a>
+										</li>
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+						</ul>
+					</li>
+					
+				
+					<li class="depth2-menu-area" id="depth2-menu2">
+						<p class="menu-depth1">
+							<span>
+								학생지원프로그램
+							</span>
+						</p>
+						<ul class="submenu">
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/sso_adapter_edream.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=55">
+											
+													이뤄드림
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/Job/Job_002.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=56">
+											
+													드림캐치
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/board/list.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=57&bno=4404">
+											
+													IT·기타<br/>프로그램
+											</a>
+										</li>
+									
+								
+							
+								
+							
+						</ul>
+					</li>
+					
+				
+					<li class="depth2-menu-area" id="depth2-menu3">
+						<p class="menu-depth1">
+							<span>
+								대학생활
+							</span>
+						</p>
+						<ul class="submenu">
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/campus/campus_001.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=12">
+											
+													식단안내
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/campus/campus_004.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=23">
+											
+													교내연락처
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/campus/campus_005.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=24">
+											
+													캠퍼스지도
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/dorm/dorm_003.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=37">
+											
+													생활관<br/>선발자조회
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/campus/campus_008.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=17">
+											
+													대학시설물<br/>예약
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/campus/campus_009.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=18">
+											
+													대학시설물<br/>수리신청
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="javascript:goHref('https://cw-fund.or.kr/bbs/board.php?bo_table=lounge&mi=18326');">
+											
+													후원의집
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/iframe.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=102&title=온라인 심의(투표)&url=https://chains.changwon.ac.kr/nonstop/vote/mobile_poll/list.php">
+											
+													온라인 심의<br/>(투표)
+											</a>
+										</li>
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+						</ul>
+					</li>
+					
+				
+					<li class="depth2-menu-area" id="depth2-menu4">
+						<p class="menu-depth1">
+							<span>
+								드림캐치 (취업진로)
+							</span>
+						</p>
+						<ul class="submenu">
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="javascript:goHref('https://dreamcatch.changwon.ac.kr/main.do');">
+											
+													드림캐치
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/dreamcatch/community/myhome.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=90">
+											
+													마이홈
+											</a>
+										</li>
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+						</ul>
+					</li>
+					
+				
+					<li class="depth2-menu-area" id="depth2-menu5">
+						<p class="menu-depth1">
+							<span>
+								학내주요사이트
+							</span>
+						</p>
+						<ul class="submenu">
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="javascript:callApp2();">
+											
+													e-캠퍼스 앱<br/>(App)
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="javascript:goHref('https://lib.changwon.ac.kr');">
+											
+													도서관
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="javascript:goHref('http://m.changwon.korus.kr/');">
+											
+													KORUS<br/>(교직원)
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="javascript:goHref('http://mpress.changwon.ac.kr/');">
+											
+													창원대신문
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="javascript:goHref('http://mcub.changwon.ac.kr/');">
+											
+													창원대방송국
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="javascript:goHref('http://mjournal.changwon.ac.kr/ ');">
+											
+													창원대<br/>영자신문
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="javascript:goHref('https://humanrights.changwon.ac.kr');">
+											
+													인권센터
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="javascript:goHref('https://www.changwon.ac.kr/counseling/main.do');">
+											
+													학생상담센터
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/goHref.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=123&title=연구관리시스템&url=https://chains.changwon.ac.kr/cnu/sso/subject/app_to_subject.php">
+											
+													연구관리시스템
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/goHref.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=124&title=스포츠진흥원&url=https://sports.cwnu.ac.kr/site/cwnusports">
+											
+													스포츠진흥원
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="/goHref.do;jsessionid=C001AB53F116FC3C8D298FBCBF317AEE?midx=126&title=산학협력단&url=https://www.changwon.ac.kr/sanhak/main.do">
+											
+													산학협력단
+											</a>
+										</li>
+									
+								
+							
+								
+                                  	
+										<li>
+											
+		                                   	
+		                                    <a href="javascript:goHref('https://cw-fund.or.kr/');">
+											
+													발전기금
+											</a>
+										</li>
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+						</ul>
+					</li>
+					
+				
+				
+				
+
+			</ul>
+		</div>
+	</div>
+</div>
+	</header>
+	<!-- //header -->
+
+	<section>
+		<div class="container">
+			<article>
+				<div class="contents">
+
+					<div class="board-view">
+						<div class="board-title">
+							<h2>
+								2025학년도 학부 및 대학원 외국인 신입생 모집 안내
+							</h2>
+
+							<p class="info">
+								20241014 112957
+								<span class="icon-bar">|</span>
+								
+								조회수 : 729
+							</p>
+
+							
+								<p class="file">
+
+<!-- 										<img src="/assets/images/board/icon_file01.gif" alt="첨부파일 이미지" /> -->
+
+<!-- 									</a> -->
+									<a href="javascript:void(0);" onclick="goHref('https://www.changwon.ac.kr/common/nttFileDownload.do?fileKey=6ed436fc9ab794900de036b75197c44a');">
+										<img src="/assets/images/board/icon_file01.gif" alt="첨부파일 이미지" />
+										학부모집요강(한국,영어,중국어).zip
+									</a>
+								</p>
+							
+								<p class="file">
+
+<!-- 										<img src="/assets/images/board/icon_file01.gif" alt="첨부파일 이미지" /> -->
+
+<!-- 									</a> -->
+									<a href="javascript:void(0);" onclick="goHref('https://www.changwon.ac.kr/common/nttFileDownload.do?fileKey=ae429d2c0ed5b481bd230852f5136981');">
+										<img src="/assets/images/board/icon_file01.gif" alt="첨부파일 이미지" />
+										대학원(한국어,영어,중국어).zip
+									</a>
+								</p>
+							
+								<p class="file">
+
+<!-- 										<img src="/assets/images/board/icon_file01.gif" alt="첨부파일 이미지" /> -->
+
+<!-- 									</a> -->
+									<a href="javascript:void(0);" onclick="goHref('https://www.changwon.ac.kr/common/nttFileDownload.do?fileKey=e669367f6a53fc8c3d9b82e5fb50d5bb');">
+										<img src="/assets/images/board/icon_file01.gif" alt="첨부파일 이미지" />
+										2025학년도 전기 학부 및 대학원 외국인 모집 안내.hwp
+									</a>
+								</p>
+							
+
+						</div>
+
+						<div class="board-contents">
+							
+							<p style="font-family: &apos;맑은 고딕&apos;; font-size: 11pt; line-height: 180%;"><table 255);="" fixed;"="" 고딕",="" "malgun="" gothic",="" 돋움,="" dotum,="" sans-serif;="" 15px;="" rgb(255,="" 255,="" 255);"="" -0.5px;="" style="margin: 0px; padding: 0px; border: 0px currentcolor; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; font-size: 15px; font-family: &apos;맑은 고딕&apos;, &apos;Malgun Gothic&apos;, &apos;Malgun Gothic&apos;, 돋움, Dotum, sans-serif; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px; width: 822.26px; empty-cells: show; max-width: 100%; orphans: 2; text-align: start; text-transform: none; widows: 2; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; word-spacing: 0.42px; height: 11px; color: rgb(102, 102, 102); text-indent: 0px; letter-spacing: -0.5px; background-color: rgb(255, 255, 255); table-layout: auto !important;"><tbody style="margin: 0px; padding: 0px; border: 0px currentcolor; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;"><tr style="margin: 0px; padding: 0px; border: 0px currentcolor; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;"><td valign="middle" style="margin: 0px; padding: 1.41pt 5.1pt; border: 1px solid rgb(178, 178, 178); font: inherit; vertical-align: middle; width: 164.83px; height: 10px; color: rgb(68, 68, 68);"><p align="center" class="0" style="margin: 0px; padding: 0px; border: 0px currentcolor; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; line-height: inherit; font-family: &apos;맑은 고딕&apos;; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; max-width: 11700px; word-break: break-all; text-align: center; text-indent: 0pt; color: rgb(0, 0, 0);">담당자</p></td><td valign="middle" style="margin: 0px; padding: 1.41pt 5.1pt; border: 1px solid rgb(178, 178, 178); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: NotoSans; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: middle; width: 301.5px; height: 10px;"><p class="0" style="margin: 0px; padding: 0px; border: 0px currentcolor; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: 24px; font-family: NotoSans; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; max-width: 11700px; word-break: break-all; text-align: center; text-indent: 0pt;"><span style="margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: NotoSans; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; color: rgb(12, 79, 140);"><span style="margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14.6667px; line-height: inherit; font-family: NotoSans; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;"><span style="margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: &apos;맑은 고딕&apos;; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;">국제협력실</span></span></span></p></td><td valign="middle" style="margin: 0px; padding: 1.41pt 5.1pt; border: 1px solid rgb(178, 178, 178); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: NotoSans; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: middle; width: 199.5px; height: 10px; color: rgb(68, 68, 68);"><p class="0" style="margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 14.6667px; line-height: inherit; font-family: &apos;맑은 고딕&apos;; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; max-width: 11700px; word-break: break-all; text-align: center; color: rgb(10, 121, 180); text-indent: 0pt;">서윤희</p></td><td valign="middle" style="margin: 0px; padding: 1.41pt 5.1pt; border: 1px solid rgb(178, 178, 178); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: middle; width: 160.26px; height: 10px; color: rgb(68, 68, 68);"><p class="0" style="margin: 0px; padding: 0px; border: 0px currentcolor; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 16pt; line-height: 180%; font-family: &apos;맑은 고딕&apos;; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; max-width: 11700px; word-break: break-all; text-align: center; color: rgb(10, 121, 180); text-indent: 0pt;"><span style="margin: 0px; padding: 0px; border: 0px currentcolor; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 12pt; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;"><span style="margin: 0px; padding: 0px; border: 0px currentcolor; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 11pt; font-family: &apos;맑은 고딕&apos;; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;">213-2635</span></span></p></td></tr></tbody></table><br></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-weight: bold; font-size: 14pt;">2025</span><span style="font-family: &apos;맑은 고딕&apos;; font-weight: bold; font-size: 14pt;">학년도 전기 학부 및 대학원 외국인 모집 안내</span></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: &apos;맑은 고딕&apos;; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all; font-weight: bold; font-size: 14pt;"><br></p><p style="line-height: 180%; margin: 0pt 0pt 0pt 17.9pt; text-align: justify; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); text-indent: -17.9pt; background: rgb(255, 255, 255);"><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-weight:bold;font-size:12.0pt;background:#ffffff;">2025</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-weight:bold;font-size:12.0pt;background:#ffffff;">학년도 전기 학부 및 대학원 외국인 모집요강</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-size:12.0pt;background:#ffffff;">을 붙임과같이 안내하오니</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;background:#ffffff;">,&nbsp;</span><span style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; text-indent: -17.9pt; font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">희망하는 외국인이 지원할 수 있도록 안내하여 주시기 바랍니다</span><span style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; text-indent: -17.9pt; font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">.</span></p><p style="line-height: 180%; margin: 0pt 0pt 0pt 17.9pt; text-align: justify; vertical-align: baseline; font-family: &apos;맑은 고딕&apos;; color: rgb(0, 0, 0); text-indent: -17.9pt; font-size: 12pt; background: rgb(255, 255, 255);"><br></p><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: justify; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); background: rgb(255, 255, 255);"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-weight: bold; font-size: 13pt; background: rgb(255, 255, 255);">□</span><span style="font-family:휴먼고딕;font-family:휴먼고딕;font-weight:bold;font-size:13.0pt;background:#ffffff;"><span style="font-family: &apos;맑은 고딕&apos;;">전형일정</span></span></p><table style="border-collapse: collapse; border-width: initial; border-style: none; border-color: initial; width: 789px;"><tbody><tr><td style="width: 132px; height: 27px; padding: 1.41pt; border-top: 2px solid rgb(233, 174, 43); border-left: none; border-bottom: 1px solid rgb(233, 174, 43); border-right: 1px solid rgb(233, 174, 43); background: rgb(250, 237, 210);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-size: 12pt; color: rgb(0, 0, 0); font-family: &apos;맑은 고딕&apos;; font-weight: bold;">구분</p></td><td style="width: 115px; height: 27px; padding: 1.41pt; border-width: 2px 1px 1px; border-style: solid; border-color: rgb(233, 174, 43); background: rgb(250, 237, 210);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-size: 12pt; color: rgb(0, 0, 0); font-family: &apos;맑은 고딕&apos;; font-weight: bold;">학부</p></td><td style="width: 147px; height: 27px; padding: 1.41pt; border-width: 2px 1px 1px; border-style: solid; border-color: rgb(233, 174, 43); background: rgb(250, 237, 210);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-size: 12pt; color: rgb(0, 0, 0); font-family: &apos;맑은 고딕&apos;; font-weight: bold;">대학원</p></td><td style="width: 382px; height: 27px; padding: 1.41pt; border-top: 2px solid rgb(233, 174, 43); border-left: 1px solid rgb(233, 174, 43); border-bottom: 1px solid rgb(233, 174, 43); border-right: none; background: rgb(250, 237, 210);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-size: 12pt; color: rgb(0, 0, 0); font-family: &apos;맑은 고딕&apos;; font-weight: bold;">장소</p></td></tr><tr><td style="width: 132px; height: 64px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: none; border-bottom: 1px solid rgb(233, 174, 43); border-right: 1px solid rgb(233, 174, 43); background: rgb(255, 255, 255);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0);"><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">원서접수</span></p><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0);"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.9pt; font-size: 12pt;">(</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.9pt; font-size: 12pt;">전형료 납부</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.9pt; font-size: 12pt;">)</span></p></td><td style="width: 115px; height: 64px; padding: 1.41pt; border-width: 1px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">2024.11.1.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">금</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">) </span></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">- 11.14.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">목</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">)</span></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">18:00</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-weight: bold; vertical-align: super; font-size: 12pt; color: rgb(51, 0, 255);">*</span><span style="font-family: &apos;맑은 고딕&apos;; font-weight: bold; vertical-align: super; font-size: 12pt; color: rgb(51, 0, 255);">한국시간</span></p></td><td style="width: 147px; height: 64px; padding: 1.41pt; border-width: 1px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.1pt; font-size: 12pt;">2024.10.28.(</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.1pt; font-size: 12pt;">월</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.1pt; font-size: 12pt;">)∼11.22.(</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.1pt; font-size: 12pt;">금</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.1pt; font-size: 12pt;">)</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">&nbsp;</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">18:00</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-weight: bold; vertical-align: super; font-size: 12pt; color: rgb(0, 0, 255);">(</span><span style="font-family: &apos;맑은 고딕&apos;; font-weight: bold; vertical-align: super; font-size: 12pt; color: rgb(0, 0, 255);">한국시간</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-weight: bold; vertical-align: super; font-size: 12pt; color: rgb(0, 0, 255);">)</span></p></td><td style="width: 382px; height: 64px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: 1px solid rgb(233, 174, 43); border-bottom: 1px solid rgb(233, 174, 43); border-right: none;" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0); word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">인터넷 접수 홈페이지</span></p><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0); word-break: keep-all;"><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:-0.5pt;font-size:11.0pt;"><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">(</span><a href="http://www.jinhakapply.com" target="_blank"><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">http://www.jinhakapply.com</span></a><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">)</span></span></p></td></tr><tr><td style="width: 132px; height: 118px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: none; border-bottom: 1px solid rgb(233, 174, 43); border-right: 1px solid rgb(233, 174, 43); background: rgb(255, 255, 255);" valign="middle"><p style="margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; color: rgb(0, 0, 0); line-height: 180%; font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.6pt; font-size: 12pt;">구비서류 제출</p></td><td style="width: 115px; height: 118px; padding: 1.41pt; border-width: 1px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">2024.11.1.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">금</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">) </span></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">- 11.18.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">월</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">)</span></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">18:00</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">까지</span></p></td><td style="width: 147px; height: 118px; padding: 1.41pt; border-width: 1px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0);"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">2024.11.25.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">월</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">) </span></p><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0);"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">17:00</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">까지</span></p></td><td style="width: 382px; height: 118px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: 1px solid rgb(233, 174, 43); border-bottom: 1px solid rgb(233, 174, 43); border-right: none;" valign="middle"><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: left; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">▸</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">방문 </span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">: </span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">국제협력본부 행정실</span></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: left; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">▸</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">우편 </span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">: (51140)</span></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: left; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">&nbsp;&nbsp;</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.2pt; font-size: 12pt;">경남 창원시 의창구  창원대학로</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.2pt; font-size: 12pt;">20</span></p><p style="margin: 0pt 0pt 0pt 9.5pt; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-indent: -9.5pt; text-align: left; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">&nbsp;&nbsp;</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">국립창원대학교 국제협력본부 </span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.2pt; font-size: 12pt;">(</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.2pt; font-size: 12pt;">31</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.2pt; font-size: 12pt;">호관 </span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.2pt; font-size: 12pt;">312</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.2pt; font-size: 12pt;">호</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.2pt; font-size: 12pt;">) </span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.2pt; font-size: 12pt;">외국인 입시담당자</span></p></td></tr><tr><td style="width: 132px; height: 34px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: none; border-bottom: 1px solid rgb(233, 174, 43); border-right: 1px solid rgb(233, 174, 43); background: rgb(255, 255, 255);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; color: rgb(0, 0, 0); font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">학과심사</p></td><td style="width: 115px; height: 34px; padding: 1.41pt; border-width: 1px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">2024.11.26.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">화</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">)</span></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">- 11.27.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">수</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">)</span></p></td><td style="width: 147px; height: 34px; padding: 1.41pt; border-width: 1px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0);"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.1pt; font-size: 12pt;">2024.12.5.(</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.1pt; font-size: 12pt;">목</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.1pt; font-size: 12pt;">)~12.6.(</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.1pt; font-size: 12pt;">금</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.1pt; font-size: 12pt;">)</span></p></td><td style="width: 382px; height: 34px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: 1px solid rgb(233, 174, 43); border-bottom: 1px solid rgb(233, 174, 43); border-right: none;" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; color: rgb(0, 0, 0); word-break: keep-all; font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">해당 지원학과</p></td></tr><tr><td style="width: 132px; height: 37px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: none; border-bottom: 1px solid rgb(233, 174, 43); border-right: 1px solid rgb(233, 174, 43); background: rgb(255, 255, 255);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; color: rgb(0, 0, 0); font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">합격자 발표</p></td><td style="width: 115px; height: 37px; padding: 1.41pt; border-width: 1px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">2024.12.19.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">목</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">)</span></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all; font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">10:00</p></td><td style="width: 147px; height: 37px; padding: 1.41pt; border-width: 1px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0);"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">2024.12.23.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">월</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">)10:00</span></p></td><td style="width: 382px; height: 37px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: 1px solid rgb(233, 174, 43); border-bottom: 1px solid rgb(233, 174, 43); border-right: none;" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0); word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">국립창원대학교 홈페이지 공지</span></p><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; color: rgb(0, 0, 0); word-break: keep-all; font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">https://www.changwon.ac.kr</p></td></tr><tr><td style="width: 132px; height: 37px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: none; border-bottom: 1px solid rgb(233, 174, 43); border-right: 1px solid rgb(233, 174, 43); background: rgb(255, 255, 255);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0);"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.5pt; font-size: 12pt;">등록금 고지서</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">&nbsp;</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">출력</span></p></td><td style="width: 115px; height: 37px; padding: 1.41pt; border-width: 1px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">2025.1.2.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">목</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">)</span></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">- 1.6.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">월</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">)</span></p></td><td style="width: 147px; height: 37px; padding: 1.41pt; border-width: 1px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0);"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.4pt; font-size: 12pt;">2025.1.22.(</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.4pt; font-size: 12pt;">수</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.4pt; font-size: 12pt;">)~1.24.(</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.4pt; font-size: 12pt;">금</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.4pt; font-size: 12pt;">)</span></p></td><td style="width: 382px; height: 37px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: 1px solid rgb(233, 174, 43); border-bottom: 1px solid rgb(233, 174, 43); border-right: none;" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0); word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.2pt; font-size: 12pt;">국립창원대학교 홈페이지 공지</span></p><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; color: rgb(0, 0, 0); word-break: keep-all; font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">https://www.changwon.ac.kr</p></td></tr><tr><td style="width: 132px; height: 116px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: none; border-bottom: 1px solid rgb(233, 174, 43); border-right: 1px solid rgb(233, 174, 43); background: rgb(255, 255, 255);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; color: rgb(0, 0, 0); font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">등록금 납부기간</p></td><td style="width: 115px; height: 116px; padding: 1.41pt; border-width: 1px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">2025.1.2.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">목</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">)</span></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">- 1.6.(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">월</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">) 16:00</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-weight: bold; vertical-align: super; font-size: 12pt;">*</span><span style="font-family: &apos;맑은 고딕&apos;; font-weight: bold; vertical-align: super; font-size: 12pt; color: rgb(51, 0, 255);">한국시간</span></p></td><td style="width: 147px; height: 116px; padding: 1.41pt; border-width: 1px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0);"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.4pt; font-size: 12pt;">2025.1.22.(</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.4pt; font-size: 12pt;">수</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.4pt; font-size: 12pt;">)~1.24.(</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.4pt; font-size: 12pt;">금</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -1.4pt; font-size: 12pt;">)</span></p><p style="margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;맑은 고딕&apos;; color: rgb(0, 0, 0); line-height: 180%; font-size: 12pt;"><br></p><p style="margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">16:00</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-weight: bold; vertical-align: super; font-size: 12pt; color: rgb(0, 0, 255);">(</span><span style="font-family: &apos;맑은 고딕&apos;; font-weight: bold; vertical-align: super; font-size: 12pt; color: rgb(0, 0, 255);">한국시간</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-weight: bold; vertical-align: super; font-size: 12pt; color: rgb(0, 0, 255);">)</span></p></td><td style="width: 382px; height: 116px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: 1px solid rgb(233, 174, 43); border-bottom: 1px solid rgb(233, 174, 43); border-right: none;" valign="middle"><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0); word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">학교 지정은행</span></p><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;KoPub돋움체 Light&apos;; font-size: 10pt; color: rgb(0, 0, 0); word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">(</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">등록금 고지서 참조</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: -0.5pt; font-size: 12pt;">)</span></p></td></tr><tr><td style="width: 132px; height: 73px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: none; border-bottom: 2px solid rgb(233, 174, 43); border-right: 1px solid rgb(233, 174, 43); background: rgb(255, 255, 255);" valign="middle"><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-size: 12pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all; font-family: &apos;맑은 고딕&apos;; letter-spacing: -2.8pt;">표준입학허가서 교부</p></td><td style="width: 115px; height: 73px; padding: 1.41pt; border-width: 1px 1px 2px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">2025. 1</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">월</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">∼2</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">월</span></p></td><td style="width: 147px; height: 73px; padding: 1.41pt; border-width: 1px 1px 2px; border-style: solid; border-color: rgb(233, 174, 43);" valign="middle"><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: center; word-break: keep-all;"><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">2025. 1</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">월</span><span style="font-family: &apos;맑은 고딕&apos;; letter-spacing: 0pt; font-size: 12pt;">∼2</span><span style="font-family: &apos;맑은 고딕&apos;; font-size: 12pt;">월</span></p></td><td style="width: 382px; height: 73px; padding: 1.41pt; border-top: 1px solid rgb(233, 174, 43); border-left: 1px solid rgb(233, 174, 43); border-bottom: 2px solid rgb(233, 174, 43); border-right: none;" valign="middle"><p style="margin: 0pt; text-indent: 0pt; text-align: center; vertical-align: baseline; font-family: &apos;맑은 고딕&apos;; color: rgb(0, 0, 0); line-height: 180%; word-break: keep-all; font-size: 12pt;"><br></p></td></tr></tbody></table><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; text-align: justify; vertical-align: baseline; font-family: &apos;맑은 고딕&apos;; font-size: 10pt; color: rgb(0, 0, 0); background: rgb(255, 255, 255);"><br></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: left; background: rgb(255, 255, 255);"><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;background:#ffffff;">-</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-size:12.0pt;background:#ffffff;">국립창원대학교 국제협력본부 홈페이지</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;background:#ffffff;">:</span><a href="https://www.changwon.ac.kr/iae/"><u style="text-underline:#800080 single;"><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;color:#800080;background:#ffffff;">https://www.changwon.ac.kr/iae/</span></u></a></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: left; background: rgb(255, 255, 255);"><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;background:#ffffff;">-</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-size:12.0pt;background:#ffffff;">국립창원대학교 영문 홈페이지</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;background:#ffffff;">:</span><a href="http://eng.changwon.ac.kr/"><u style="text-underline:#0000ff single;"><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;color:#111111;background:#ffffff;">http://eng.changwon.ac.kr</span></u></a></p><p style="margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); line-height: 180%; text-align: left; background: rgb(255, 255, 255);"><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;background:#ffffff;">-</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-size:12.0pt;background:#ffffff;">국립창원대학교 중문 홈페이지</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;background:#ffffff;">:</span><a href="http://chi.changwon.ac.kr/"><u style="text-underline:#800080 single;"><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;color:#800080;background:#ffffff;">http://chi.changwon.ac.kr</span></u></a></p><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: &apos;맑은 고딕&apos;; text-align: left; font-size: 12pt; color: rgb(17, 17, 17); background: rgb(255, 255, 255);"><br></p><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); text-align: left; background: rgb(255, 255, 255);"><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-size:12.0pt;background:#ffffff;">붙임 </span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:-0.1pt;font-size:12.0pt;background:#ffffff;">1. </span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:-1.0pt;font-size:12.0pt;background:#ffffff;">2025</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;letter-spacing:-1.0pt;font-size:12.0pt;background:#ffffff;">학년도 전기 외국인특별전형 신편입학 모집요강</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:-1.0pt;font-size:12.0pt;background:#ffffff;">(</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;letter-spacing:-1.0pt;font-size:12.0pt;background:#ffffff;">영어</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:-1.0pt;font-size:12.0pt;background:#ffffff;">.</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;letter-spacing:-1.0pt;font-size:12.0pt;background:#ffffff;">중국어 포함</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:-1.0pt;font-size:12.0pt;background:#ffffff;">) 1</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;letter-spacing:-1.0pt;font-size:12.0pt;background:#ffffff;">부</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:-1.0pt;font-size:12.0pt;background:#ffffff;">.</span></p><p style="line-height: 180%; margin: 0pt; text-indent: 0pt; vertical-align: baseline; font-family: 함초롬바탕; font-size: 10pt; color: rgb(0, 0, 0); text-align: left; background: rgb(255, 255, 255);"><span style="background: rgb(255, 255, 255); font-family: &apos;맑은 고딕&apos;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;background:#ffffff;">2. </span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:-0.5pt;font-size:12.0pt;background:#ffffff;">2025</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;letter-spacing:-0.5pt;font-size:12.0pt;background:#ffffff;">학년도 전기 대학원 외국인 신입생 모집요강</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:-0.5pt;font-size:12.0pt;background:#ffffff;">(</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;letter-spacing:-0.5pt;font-size:12.0pt;background:#ffffff;">영어</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:-0.5pt;font-size:12.0pt;background:#ffffff;">.</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;letter-spacing:-0.5pt;font-size:12.0pt;background:#ffffff;">중국어 포</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-size:12.0pt;background:#ffffff;">함</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;background:#ffffff;">)1</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-size:12.0pt;background:#ffffff;">부</span><span style="font-family:맑은 고딕;font-family:맑은 고딕;font-family:맑은 고딕;font-width:100%;letter-spacing:0pt;font-size:12.0pt;background:#ffffff;">.</span></p><br>
+						</div>
+
+						
+							
+							
+								
+							
+						
+
+						<div class="btns-area pb10">
+							<p class="btns-right">
+								<a href="/board/list.do?midx=8&bno=2932&cateno=&pageIndex=1" class="btn-type01">
+									목록
+								</a>
+							</p>
+						</div>
+
+						<div class="paging-previous-next">
+							<dl>
+								<dt>
+									<img src="/assets/images/board/icon_up01.gif" alt="이전글" />
+									이전
+								</dt>
+								<dd>
+									
+										
+											<a href="/board/detail.do?midx=8&bno=2932&cateno=&postno=1349425&pageIndex=1">
+												중견기업 취업보장 일반대학원 원서접수 안내
+											</a>
+										
+										
+									
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<img src="/assets/images/board/icon_down01.gif" alt="다음글" />
+									다음
+								</dt>
+								<dd>
+									
+										
+											<a href="/board/detail.do?midx=8&bno=2932&cateno=&postno=1349507&pageIndex=1">
+												국립창원대학교 과학영재교육원 2025학년도 영재교육대상자(신입생) 모집 안내
+											</a>
+										
+										
+									
+								</dd>
+							</dl>
+						</div>
+
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+
+	<script>
+
+        $(document).ready(function() {
+            // 컨텐츠 내용 중 이미지(적용), 테이블(적용불가능) 가로길이 변경
+            $(".board-contents img, .board-contents table").css("width", "100%");
+        });
+
+        function imageOnload(img, maxWidth) {
+            var width = img.width;
+            var height = img.height;
+            if( width > maxWidth ) {
+                height = ( height * maxWidth ) / width;
+                width = maxWidth;
+                img.width = width;
+                img.height = height;
+            }
+        }
+
+	</script>
+
+	<!-- footer -->
+	
+<footer id="footer">
+
+	
+	<div class="footer">
+		<ul>
+			<li>
+				<a href="/">
+					<img src="/assets/images/common/btn_bottom_menu01.png?20171018" alt="Home" />
+				</a>
+			</li>
+			
+			<li>
+				<a href="/conf/conf_002.do">
+					<img src="/assets/images/common/btn_bottom_menu02.png?20171018" alt="로그인" />
+				</a>
+			</li>
+			
+
+			
+			<!--모바일 인증-->
+			<!-- <li>
+				<a href="/">
+					<img src="/assets/images/common/btn_bottom_menu06.png?20171018" alt="모바일인증" />
+				</a>
+			</li>-->
+			<!--교직원수첩-->
+			
+			
+			
+			
+			<!--시간표-->
+			
+			
+			
+			
+			 
+			 <!--교수, 교수 push 발송-->
+			
+		</ul>
+		<div class="ul_both"></div>
+	</div>
+</footer>
+
+<script type="text/javascript">
+var prevScrollpos = window.pageYOffset;
+
+window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+
+    // 스크롤 방향 확인
+    //if (prevScrollpos > currentScrollPos) {
+        // 스크롤이 올라갈 때: footer를 표시
+        document.getElementById("footer").style.bottom = "0";
+    /*} else {
+        // 스크롤이 내려갈 때: footer를 숨김
+        document.getElementById("footer").style.bottom = "-100px";
+    }*/
+
+    prevScrollpos = currentScrollPos;
+};
+
+    $( document ).ready(function() {
+
+//         // 로그인 여부에 따라 너비 조절
+//         if ( session.getAttribute("ss_user_id") == null ) {
+
+//         $(".footer li").width("33%");
+
+//         $(".footer li").width("25%");
+
+		// 로그아웃 여부 확인
+        /* $("#btn-logout-event").on("click", function() {
+            /* jConfirm("로그아웃하시겠습니까?", '창원대학교', function(r){
+                if(r==true){
+                    location.href = "/conf/logout.do";
+                }
+            }); */
+        	/*if(confirm("로그아웃하시겠습니까?")){
+        		location.href = "/conf/logout.do";
+            }
+		}); */
+		
+/** 수강신청기간 차단20260803		
+        var url="/push/ajax_get_badgeno.do";
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            async: false,
+            data: {},
+            success: function (data) {
+                console.log("badgeno :: " + JSON.stringify(data));
+                //$(".badge001").html(data.result);
+                
+                //alert(!getCookie("badgeno") ? 0 : getCookie("badgeno"));
+                
+                if($("#badgeno").length > 0){
+	                $("#badgeno").val(data.result);
+	                chkBadgeno();
+                }
+                
+                /*if(Number(data.result) > 0 && !getCookie("badgeno")){
+				//if(Number(data.result) > Number(!getCookie("badgeno") ? 0 : getCookie("badgeno"))){
+                	setCookie("badgeno", data.result);                	
+                }else if(Number(data.result) == 0){
+                	deleteCookie("badgeno");
+                }*/
+                
+                //alert(document.cookie);
+                //alert(getCookie("badgeno"));
+                //alert("badgeno ::: " + (!getCookie("badgeno")? 0 : getCookie("badgeno")) + ", " + (Number(data.result) > 0));
+                
+                if((Number(data.result) > 0) && Number(data.result) > (!getCookie("badgeno")? 0 : getCookie("badgeno"))){
+                //if(getCookie("badgeno")){
+                	$(".badge001").show();
+                }else{
+                	$(".badge001").hide();
+                }
+            }
+        });
+*/
+    });
+    
+    function fnLogout () {
+        /* jConfirm("로그아웃하시겠습니까?", '창원대학교', function(r){
+            if(r==true){
+                location.href = "/conf/logout.do";
+            }
+        }); */
+    	if(confirm("로그아웃하시겠습니까?")){
+    		location.href = "/conf/logout.do";
+        }
+	}
+    
+    function setCookie (name, value) {
+    	//alert(name + ", " + value);
+		//document.cookie = name + "=" + escape (value) + "; path=/; expires=" + expires.toGMTString();
+    	document.cookie = name + "=" + escape (value) + "; path=/;";
+	}
+    
+    function getCookie(Name) {
+  	  var search = Name + "=";
+  	  if (document.cookie.length > 0) {
+  	    offset = document.cookie.indexOf(search)
+  	    if (offset != -1) {
+  	      offset += search.length
+  	      // set index of beginning of value
+  	      end = document.cookie.indexOf(";", offset)
+  	      if (end == -1)
+  	        end = document.cookie.length
+  	      return unescape(document.cookie.substring(offset, end))
+  	    }
+  	  }
+  	}
+    
+    function deleteCookie(name) {
+    	//document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    	document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
+    }
+</script>
+
+	<!-- //footer -->
+
+</div>
+<!-- //wrapper -->
+
+</body>
+</html>
+

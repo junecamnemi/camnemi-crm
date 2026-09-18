@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="referrer" content="strict-origin" />
+
+
+ 
+ 		<meta name="viewport" content="width=1280" />  
+  	  
+  
+<meta name="description" content="경북대학교  The Graduate School of KNU 홈페이지 입니다.">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Graduate School of KNU" />
+<meta property="og:description" content="경북대학교  The Graduate School of KNU 홈페이지 입니다." />
+<link rel="shortcut icon" href="../data/img/favicon.ico" />
+<title>The Graduate School of KNU</title>
+<link rel="stylesheet" href="/css/jquery-ui-1.12.0.min.css" /><link rel="stylesheet" href="/HOME/data/css/font-awesome.min.css?" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" >
+<link rel="stylesheet" href="/HOME/data/css/font.css?" />
+<link rel="stylesheet" href="/HOME/data/css/animate.css?" />
+<link rel="stylesheet" href="/HOME/data/css/common.css?" />
+<link rel="stylesheet" href="/HOME/data/css/board.css?" /> 
+<link rel="stylesheet" href="/HOME/data/css/page_tmp.css?" />
+<link rel="stylesheet" href="/HOME/data/css/title_tmp.css?" />
+<link rel="stylesheet" href="/HOME/data/css/knu_tmp.css?" />
+<link rel="stylesheet" href="/HOME/data/css/swiper.min.css?">
+
+<script src="/js/jquery-3.7.1.min.js"></script>
+<!--
+<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+-->
+<script src="/HOME/data/js/jquery.bxslider.min.js"></script><script src="/js/jquery-ui-1.12.1.js"></script><script src="/HOME/data/js/jquery.form.min.js?"></script><script src="/HOME/data/js/common.js?"></script><script src="/HOME/data/js/tmp_js.js?"></script><script src="/HOME/data/js/wow.min.js?"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/HOME/data/js/swiper.min.js"></script>
+<script>
+	new WOW().init();
+
+	$(document).ready(function(){
+		$(".depth1").bind('mouseover focusin', function(){
+			$('header').addClass('active');
+		});
+		$(".depth1").bind('mouseout focusout', function(){
+			$('header').removeClass('active');
+		});
+	});
+</script>
+<script type="text/javascript">
+<!--
+/*
+	.addEventListener('touchstart', function(e) {
+  if(e.touches.length > 1) {
+    e.preventDefault();
+  }
+});
+*/
+-->
+</script>
+
+			<link rel="stylesheet" href="./css/content.css?1728365850" />
+	
+
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+
+<script>
+$(window).on("scroll", function() {
+		if ($(window).scrollTop() > 120) {
+		$("#header").addClass("fix");
+		$("#mo-snb").addClass("fix");
+		}else {
+		$("#header").removeClass("fix");
+		$("#mo-snb").removeClass("fix");
+		}
+	});
+
+	$(document).ready(function() {
+	 $("a.page-go").anchorAnimate()
+	});
+	jQuery.fn.anchorAnimate = function(settings) {
+	  settings = jQuery.extend({
+	  speed : 600
+	 }, settings); 
+
+	 return this.each(function(){
+	  var caller = this
+	  $(caller).click(function (event) { 
+	   event.preventDefault()
+	   var locationHref = window.location.href
+	   var elementClick = $(caller).attr("href")
+
+	   var destination = $(elementClick).offset().top;
+	   $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination}, settings.speed, function() {
+		window.location.hash = elementClick
+	   });
+		 return false;
+	  })
+
+	 })
+	}
+
+function linksite_tab(data) 
+	{
+	var show_ck = 0;
+	$(".linksite div.tab a").removeClass("on");
+	$('.site-cont').each(function(){
+		if($(this).css("display") != "none" ){
+			show_ck = 1;
+		}
+	});
+
+	$('.site-cont').each(function(){
+		if($(this).attr('id') == data){
+			if($(this).css("display") != "none" ){
+				$(this).slideUp();
+			}else{
+				$("#"+data+"_tab").addClass("on");
+				if(show_ck == 1){
+					$(this).show();
+				}else{
+					$(this).slideDown();
+				}
+			}
+		}else{
+			$(this).hide();
+		}
+	});
+
+}
+</script>
+
+<link rel="stylesheet" href="/HOME/data/css/owl.carousel.min.css?" />
+<link rel="stylesheet" href="/HOME/data/css/owl.theme.default.min.css?" />
+<script src="/HOME/data/js/owl.carousel.js?"></script>
+<script>
+$(function(){
+    var $win = $(window);
+    var top = $(window).scrollTop();
+ 
+    var speed          = 500;
+    var easing         = 'linear';
+    var $layer         = $('.main-section #aside-quick');
+    var layerTopOffset = 0;
+    $layer.css('position', 'absolute');
+    if (top > 0 )
+        $win.scrollTop(layerTopOffset+top);
+    else
+        $win.scrollTop(0);
+    $(window).scroll(function(){
+        yPosition = $win.scrollTop() - 110;
+        if (yPosition < 0)
+        {
+            yPosition = 40;
+        }
+        $layer.animate({"top":yPosition }, {duration:speed, easing:easing, queue:false});
+    });
+});
+
+$(function(){
+    var $win = $(window);
+    var top = $(window).scrollTop();
+ 
+    var speed          = 500;
+    var easing         = 'linear';
+    var $layer         = $('.sub-section #aside-quick');
+    var layerTopOffset = 0;
+    $layer.css('position', 'absolute');
+    if (top > 0 )
+        $win.scrollTop(layerTopOffset+top);
+    else
+        $win.scrollTop(0);
+    $(window).scroll(function(){
+        yPosition = $win.scrollTop() - 360;
+        if (yPosition < 0)
+        {
+            yPosition = 40;
+        }
+        $layer.animate({"top":yPosition }, {duration:speed, easing:easing, queue:false});
+    });
+});
+</script>
+
+<script type="text/javascript">
+$(window).on("scroll", function() {
+	if ($(window).scrollTop() > 160) {
+	$(".h-fix").addClass("fix");	
+	}else {
+	$(".h-fix").removeClass("fix");
+	}
+});
+    if(navigator.userAgent.match(/Trident\/7\./)) {
+    $('body').on("mousewheel", function () {
+        event.preventDefault();
+
+        var wheelDelta = event.wheelDelta;
+
+        var currentScrollPosition = window.pageYOffset;
+        window.scrollTo(0, currentScrollPosition - wheelDelta);
+    });
+
+    $('body').keydown(function (e) {
+        e.preventDefault(); // prevent the default action (scroll / move caret)
+        var currentScrollPosition = window.pageYOffset;
+
+        switch (e.which) {
+
+            case 38: // up
+                window.scrollTo(0, currentScrollPosition - 120);
+                break;
+
+            case 40: // down
+                window.scrollTo(0, currentScrollPosition + 120);
+                break;
+
+            default: return; // exit this handler for other keys
+        } 
+    });
+}
+</script>
+
+<div id="login_layer_bg" onclick="login_close();"></div>
+<div id="login_layer">
+	<div class="toptxt">자신의 신분에 맞는 로그인화면을 선택하세요.</div>
+	
+				<script type="text/javascript">
+		$(document).ready(function(){
+			var todayDate = new Date();
+			todayDate.setDate( todayDate.getDate() + Number(1) );
+			document.cookie = "reUrl=https://home.knu.ac.kr/HOME/graden; domain=knu.ac.kr; path=/; expires=" + todayDate.toGMTString() + ";"
+		});
+		</script>
+			<div class="login_section clearfix">
+			<div class="col_wrap clearfix">
+				<div class="col_d2"><a href="https://my.knu.ac.kr/stpo/comm/support/loginPortal/loginForm.action?redirUrl=https%3A%2F%2Fhome.knu.ac.kr%2FHOME%2Fgraden" class="ico1" title="학생포털시스템 로그인 페이지로 이동"><p class="tit">학생</p><p class="txt">학생 및 졸업생은<br>학생포털시스템을 통해 로그인 됩니다.</p></a></div>
+				<div class="col_d2"><a href="https://hi.knu.ac.kr//portal/comm/support/loginPortal/loginForm.action?redirUrl=https%3A%2F%2Fhome.knu.ac.kr%2FHOME%2Fgraden" class="ico2" title="교직원 업무포털시스템 로그인 페이지로 이동"><p class="tit">교직원</p><p class="txt">교수 및 교직원은<br>업무포털시스템을 통해 로그인 됩니다.</p></a></div>
+			</div>
+		</div>
+	
+	<div class="tac"><a href="#" onclick="login_close();" class="btn_d btn_gray">닫기</a></div>
+</div>
+<div id="skipwrap">
+<div id="skipnavi">
+	<ul>
+	<li><a href="#container">본문 내용으로 바로가기</a></li>
+	<li><a href="#gnb">주 메뉴로 바로가기</a></li>
+	</ul>
+</div>
+</div></head>
+<body class="bodybg">
+<script src="../data/js/menu.js?1743042183"></script>
+<svg>
+<style>
+#gnbmn ul.depth1 > li		{width:14%} /* 메뉴수에 따라 */
+
+#gnb		{background-color:rgb(255, 255, 255);} 
+#gnbmn ul.depth1 li a	{color:rgb(0, 0, 0);}
+#gnbmn ul.depth1 li a:hover,
+#gnbmn ul.depth1 li a.on{color:rgb(218, 33, 39);}
+#gnbmn ul.depth2 li a	{color:rgb(68, 68, 68);}
+#gnbmn ul.depth2 li a:hover,
+#gnbmn ul.depth2 li a.on{color:rgb(0, 0, 0);}
+.gnb_bg		{background-color:rgb(243, 243, 243);}
+</style>
+</svg>
+<!-- header -->
+<header class="h-fix">
+	<div id="topwrap">		
+		<div class="d_width clearfix">
+		<div class="toplogo">
+			<a href="http://knu.ac.kr/" target="_blank"><img src="../data/img/logo_sm_w.png" alt="로고이미지"/></a>
+		</div>
+		<div class="topmn clearfix">			
+
+			
+			
+			
+						
+
+											<a href="https://grad.knu.ac.kr/" target='_blank'>KO</a>
+									<a href="https://gradch.knu.ac.kr/" target='_blank'>CH</a>
+										
+															<a href="https://home.knu.ac.kr/sso/business.php" class="top-dk top-login"><i class="far fa-user mrp5"></i>Login</a>
+										
+			<a href="https://on.knu.ac.kr" target="_blank" class="top-portal"><i class="fas fa-unlock-alt mrp5"></i> 학생포탈시스템</a>
+
+
+		</div>
+		</div>
+	</div>
+
+
+	<div id="gnb">
+		<div class="d_width">
+		<div id="logo">
+			<a href="./index.htm">
+									<img src="./data/designImages/logo.png" alt="로고이미지"/>
+								<span class="sub_name">The Graduate <em>School of KNU</em></span>
+			</a>
+		</div>
+		</div>
+	<div id="gnbmn">
+			<nav>
+			<ul class="depth1 clearfix">
+								
+				<li><a href="./sub.htm?nav_code=gra1626847844"  id="top1m1" title ='Graduate school > Greetings from the Dean 페이지로 이동합니다.'>Graduate school</a>
+				
+					
+										<ul id="top2m1" class="depth2">
+										<li id="top2m1m1"><a href="./sub.htm?nav_code=gra1626847844"  title ='Greetings from the Dean 페이지로 이동합니다.'>Greetings from the Dean</a></li>
+										<li id="top2m1m2"><a href="./sub.htm?nav_code=gra1626849496"  title ='Globalization Programs 페이지로 이동합니다.'>Globalization Programs</a></li>
+										<li id="top2m1m3"><a href="./sub.htm?nav_code=gra1626849574"  title ='International Students 페이지로 이동합니다.'>International Students</a></li>
+										<li id="top2m1m4"><a href="https://en.knu.ac.kr/intro/global01.htm" target='_blank' title ='새창으로 Contact at department  페이지가 열립니다.'>Contact at department </a></li>
+										<li id="top2m1m5"><a href="./sub.htm?nav_code=gra1626849703"  title ='Campus information 페이지로 이동합니다.'>Campus information</a></li>
+					
+					</ul>
+									</li>
+								
+				<li><a href="./sub.htm?nav_code=gra1626849853"  id="top1m2" title ='Departments & Majors > Liberal Arts & Social Science 페이지로 이동합니다.'>Departments & Majors</a>
+				
+					
+										<ul id="top2m2" class="depth2">
+										<li id="top2m2m1"><a href="./sub.htm?nav_code=gra1626849853"  title ='Liberal Arts & Social Science 페이지로 이동합니다.'>Liberal Arts & Social Science</a></li>
+										<li id="top2m2m2"><a href="./sub.htm?nav_code=gra1626849862"  title ='Natural Science 페이지로 이동합니다.'>Natural Science</a></li>
+										<li id="top2m2m3"><a href="./sub.htm?nav_code=gra1626849872"  title ='Engineering 페이지로 이동합니다.'>Engineering</a></li>
+										<li id="top2m2m4"><a href="./sub.htm?nav_code=gra1626849884"  title ='Art & physical Education 페이지로 이동합니다.'>Art & physical Education</a></li>
+										<li id="top2m2m5"><a href="./sub.htm?nav_code=gra1626849926"  title ='Medical Science 페이지로 이동합니다.'>Medical Science</a></li>
+										<li id="top2m2m6"><a href="./sub.htm?nav_code=gra1626849936"  title ='Interdiciplinary Program 페이지로 이동합니다.'>Interdiciplinary Program</a></li>
+					
+					</ul>
+									</li>
+								
+				<li><a href="./sub.htm?nav_code=gra1626849981"  id="top1m3" title ='Admissions > College Admissions 페이지로 이동합니다.'>Admissions</a>
+				
+					
+										<ul id="top2m3" class="depth2">
+										<li id="top2m3m1"><a href="./sub.htm?nav_code=gra1626849981"  title ='College Admissions 페이지로 이동합니다.'>College Admissions</a></li>
+										<li id="top2m3m2"><a href="./sub.htm?nav_code=gra1626849991"  title ='International Student Admissions 페이지로 이동합니다.'>International Student Admissions</a></li>
+					
+					</ul>
+									</li>
+								
+				<li><a href="./sub.htm?nav_code=gra1626850199"  id="top1m4" title ='Academics > Changing your academic status 페이지로 이동합니다.'>Academics</a>
+				
+					
+										<ul id="top2m4" class="depth2">
+										<li id="top2m4m1"><a href="https://en.knu.ac.kr/edu/academic01.htm" target='_blank' title ='새창으로 Academic Calendar  페이지가 열립니다.'>Academic Calendar </a></li>
+										<li id="top2m4m2"><a href="./sub.htm?nav_code=gra1626850199"  title ='Academic Information 페이지로 이동합니다.'>Academic Information</a></li>
+										<li id="top2m4m3"><a href="./sub.htm?nav_code=gra1626850394"  title ='Writing a Thesis/Dissertation 페이지로 이동합니다.'>Writing a Thesis/Dissertation</a></li>
+										<li id="top2m4m4"><a href="./sub.htm?nav_code=gra1626850186"  title ='Academic FAQs 페이지로 이동합니다.'>Academic FAQs</a></li>
+					
+					</ul>
+									</li>
+								
+				<li><a href="./sub.htm?nav_code=gra1626850574"  id="top1m5" title ='Scholarships & Resources > School Scholarships 페이지로 이동합니다.'>Scholarships & Resources</a>
+				
+					
+										<ul id="top2m5" class="depth2">
+										<li id="top2m5m1"><a href="./sub.htm?nav_code=gra1626850534"  title ='Scholarship Information 페이지로 이동합니다.'>Scholarship Information</a></li>
+										<li id="top2m5m2"><a href="./sub.htm?nav_code=gra1626850601"  title ='KNU Learning Resources Project 페이지로 이동합니다.'>KNU Learning Resources Project</a></li>
+										<li id="top2m5m3"><a href="http://knusys9.knu.ac.kr/lang/comm/support/main/subPage.action?m_pagemode=HOME&m_top=3&m_sub=1&m_sub2=2&m_sub3=0" target='_blank' title ='새창으로 Korean Language Program  페이지가 열립니다.'>Korean Language Program </a></li>
+										<li id="top2m5m4"><a href="./sub.htm?nav_code=gra1728354122"  title ='BK21 FOUR 페이지로 이동합니다.'>BK21 FOUR</a></li>
+					
+					</ul>
+									</li>
+											</ul>
+			</nav>
+	</div>
+	</div>
+	<div id="id_gnb_bg" class="gnb_bg"></div>
+</header>
+<script>initTopMenu(0,0);max_2menu=6;</script>
+<!-- //header -->
+
+<script>
+<!--
+$(function(){
+	top1Menu = $('#gnbmn');
+	top1MenuW = top1Menu.width(); //상단메뉴의 전체길이
+	top1MenuLi = $('ul.depth1 > li');
+	top1MenuLiCnt = top1MenuLi.length; //1차메뉴 갯수
+	top1MenuLiW = top1MenuW / top1MenuLiCnt; //1차메뉴 넓이값
+	top1MenuLiW = top1MenuLiW.toFixed(1);
+	if(top1MenuW>400){
+		/* 1차메뉴 넓이 구하기(단위:%) */
+		top1MenuLiP = 100 / top1MenuLiCnt;
+		top1MenuLiP = top1MenuLiP.toFixed(1);
+		top1MenuLiP_tmp = top1MenuLiP * top1MenuLiCnt;
+
+		if(top1MenuLiP_tmp < 100){
+			top1MenuLiP_last = top1MenuLiP + (100 - top1MenuLiP_tmp);
+		}else{
+			top1MenuLiP_last = top1MenuLiP - (top1MenuLiP_tmp - 100);
+		}
+
+		/* 1차메뉴 넓이 구하기(단위:%) */
+
+		for(i=0;i<top1MenuLiCnt;i++){
+			if(i < (top1MenuLiCnt-1)){
+				$(top1MenuLi[i]).css('width',top1MenuLiP+"%"); //1차메뉴 넓이값 적용
+			}else{
+				$(top1MenuLi[i]).css('width',top1MenuLiP_last+"%"); //마지막메뉴는 따로 넓이값 적용
+			}
+		}
+	}
+});
+//-->
+</script>
+<!-- container -->
+<div id="wrap">
+<div id="container">
+	<!-- content -->
+	<div class="main-section">
+		<section id="mv-wrap">
+			<div class="bg">
+				
+<!-- visual -->
+		<div id="mvisual" style="height:430px;">
+	<div style="position:relative;z-index:3;height:430px;">
+							<div id="mvslide">
+			<div>
+			</div>
+			<ul id="slides">
+									<span class="mvslideimg"><img src="./data/designImages/MAIN_1626414886" alt="-" onError="this.src='../data/img/noimage.jpg';"></span>
+								</ul>
+								</div>
+		
+		</div>
+	</div>
+<!-- //visual -->			</div>
+			<div class="d_width clearfix">
+				<div class="col_wrap_flat">
+					<div class="col_w6">
+						
+<div class="tit_width">
+
+  
+	<div id="main-visual" class="d_width" style="height:280px;z-index:4;">
+		<div id="mv_title" style="position:absolute;width:805px;height:170px;left: 0px; top: 110px;z-index:99">
+			<div id="main_title_editarea">
+																			<div class="main-title">
+    <p class="stit">KNU GRADUATE SCHOOL</p>
+	<p class="tit1">As a globally-oriented, knowledge-driven university,</p>
+	<p class="tit2">KNU now starts to innovate.</p>
+</div>												</div>
+		</div>
+	</div>
+</div>					</div>
+					<div class="col_w4">
+						<div class="mv-quick clearfix">
+							<ul class="d2 clearfix">
+							<li id="mv-notice" class="wow fadeInRight delay4"></li>
+							<li class="wow fadeInRight delay3"><a href="./sub.htm?nav_code=gra1626850574" class="bg1">
+    <p class="stit">Scholarships & Resources</p>
+    <p class="tit">Scholarship <br>Information</p>
+    <p class="txt">School Scholarships</p>
+</a>
+
+<a href="./sub.htm?nav_code=gra1728354122" target="_self"  class="bg4">
+    <p class="stit">KNU</p>
+    <p class="tit">BK21 Four <br>Research group</p>
+</a></li>
+							<li class="wow fadeInRight delay5"><a href="https://ipsi2.knu.ac.kr" target="_blank" class="bg3">
+	<p class="tit">College Admissions</p>
+	<span class="ico"></span>
+	<span class="btn">Homepage</span>
+</a>
+
+<a href="https://knubk21four.knu.ac.kr/" target="_blank" class="bg2">
+    <span class="ico"></span>
+    <p class="tit">Creative Talent <br>BK21 FOUR</p>
+</a>
+
+</li>
+							</ul>
+						</div>
+					</div>
+									</div>
+			</div>
+		</section>
+
+		<section id="mnotice-wrap">
+			<div class="d_width">
+				<div class="col_wrap">
+					<div class="col_w7h">
+					<div id="main-notice" class="bx wow fadeInUp delay5">
+						<div class="mnotice" ><div class="tab_on" id="notice201"><a href="#notice201" onkeypress="" onclick="onNoticeShowAuto(2,1);return false;" class="dpb" title="공지사항 탭 보기">Academic FAQs</a><div class="tabcontent" id="notice201_menu" style="visibility:visible;"><ul><li><div class="txt-wrap"><p class="subject"><a href="./sub.htm?nav_code=gra1626850186">Can I apply for a new student card if I lose m..</a></p><p class="desc">Yes, you may pick up your new card two weeks after submitting an application electronically via the Integrated Portal System (http://yes.knu.ac.kr). The application can be completed at any time. Please remember to upload a photo when you submit your ..</p><p class="date"><SPAN>2021.07</SPAN>27</p><div class="txt-more"><a href="./sub.htm?nav_code=gra1626850186&mode=view&mv_data=aWR4PTQ0JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9ncmFkZW4mY29kZT1MYVY3Sjh1bmJDV2cmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mbGlzdF9zY2FsZT0mdmlld19sZXZlbD0mdmlld19jYXRlPSZ2aWV3X2NhdGUyPSZzaXRlX2NvZGU9Z3JhZGVu">+</a></div></div></li><li><div class="txt-wrap"><p class="subject"><a href="./sub.htm?nav_code=gra1626850186">Can graduate students get a long-term parking ..</a></p><p class="desc">If your car is registered in your or your spouse's name, please submit copies of the car's registration license and your family register (if the car is registered under your spouse's name) to the General Affairs Team and submit the application form f..</p><p class="date"><SPAN>2021.07</SPAN>27</p><div class="txt-more"><a href="./sub.htm?nav_code=gra1626850186&mode=view&mv_data=aWR4PTQzJnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9ncmFkZW4mY29kZT1MYVY3Sjh1bmJDV2cmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mbGlzdF9zY2FsZT0mdmlld19sZXZlbD0mdmlld19jYXRlPSZ2aWV3X2NhdGUyPSZzaXRlX2NvZGU9Z3JhZGVu">+</a></div></div></li><li><div class="txt-wrap"><p class="subject"><a href="./sub.htm?nav_code=gra1626850186">How can I request copies of official documents..</a></p><p class="desc">In-person: Documents can be requested at the Academic Affairs Department or by using the vending machines located on the first floor of the Student Services Center.You may also request documents by fax, mail, or over the internet. Check the KNU web s..</p><p class="date"><SPAN>2021.07</SPAN>27</p><div class="txt-more"><a href="./sub.htm?nav_code=gra1626850186&mode=view&mv_data=aWR4PTQyJnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9ncmFkZW4mY29kZT1MYVY3Sjh1bmJDV2cmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mbGlzdF9zY2FsZT0mdmlld19sZXZlbD0mdmlld19jYXRlPSZ2aWV3X2NhdGUyPSZzaXRlX2NvZGU9Z3JhZGVu">+</a></div></div></li><li><div class="txt-wrap"><p class="subject"><a href="./sub.htm?nav_code=gra1626850186">How much is the tuition for students who have ..</a></p><p class="desc">It is 10% of the regular student development fee.</p><p class="date"><SPAN>2021.07</SPAN>27</p><div class="txt-more"><a href="./sub.htm?nav_code=gra1626850186&mode=view&mv_data=aWR4PTQxJnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9ncmFkZW4mY29kZT1MYVY3Sjh1bmJDV2cmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mbGlzdF9zY2FsZT0mdmlld19sZXZlbD0mdmlld19jYXRlPSZ2aWV3X2NhdGUyPSZzaXRlX2NvZGU9Z3JhZGVu">+</a></div></div></li><li><div class="txt-wrap"><p class="subject"><a href="./sub.htm?nav_code=gra1626850186">Can students who have completed their coursewo..</a></p><p class="desc">As refunds are impossible for those who have already completed their coursework, please consider your decision carefully before registering.</p><p class="date"><SPAN>2021.07</SPAN>27</p><div class="txt-more"><a href="./sub.htm?nav_code=gra1626850186&mode=view&mv_data=aWR4PTQwJnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9ncmFkZW4mY29kZT1MYVY3Sjh1bmJDV2cmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mbGlzdF9zY2FsZT0mdmlld19sZXZlbD0mdmlld19jYXRlPSZ2aWV3X2NhdGUyPSZzaXRlX2NvZGU9Z3JhZGVu">+</a></div></div></li><li><div class="txt-wrap"><p class="subject"><a href="./sub.htm?nav_code=gra1626850186">How do students who have completed their cours..</a></p><p class="desc">Students who have completed their coursework requirements should submit registration forms to their departments in the middle of February and August and pay their tuition by printing out the tuition bills from the university web site.</p><p class="date"><SPAN>2021.07</SPAN>27</p><div class="txt-more"><a href="./sub.htm?nav_code=gra1626850186&mode=view&mv_data=aWR4PTM5JnN0YXJ0UGFnZT0mbGlzdE5vPSZ0YWJsZT1leF9iYnNfZGF0YV9ncmFkZW4mY29kZT1MYVY3Sjh1bmJDV2cmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mbGlzdF9zY2FsZT0mdmlld19sZXZlbD0mdmlld19jYXRlPSZ2aWV3X2NhdGUyPSZzaXRlX2NvZGU9Z3JhZGVu">+</a></div></div></li></ul></div><div id="notice201_add" class="more" style="visibility:visible;"><a href="./sub.htm?nav_code=gra1626850186" title="공지사항 더보기">+<span></span></a></div></div></div>					</div>
+					</div>
+					<div class="col_w2h">
+						<div class="bx wow fadeInUp delay7">
+							<script type="text/javascript">
+function formSubmit()
+   {     
+
+	  // 폼 전송 함수
+
+	  formSubmit = function () {
+
+		 fncEnCode( document .getElementById("UserName_client").value);
+
+
+
+		 /** 모바일 기기에 대해서 전송 변경 처리 시작 **/
+
+		 if ( navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)
+
+		   ){
+
+			document.getElementById("SubmitForm").action = "https://knu.eduwill.net/m/member/loginSSOCheck.will";
+
+			}
+
+		 /** 모바일 기기에 대해서 전송 변경 처리 끝 **/
+
+		 document.getElementById("SubmitForm").submit();
+
+	  }          
+
+	  // 회원명 인코딩 처리
+
+	  fncEnCode = function(param) {
+
+		 var encode = '';
+
+		 for (i = 0; i< param.length; i++){
+
+			var len   = '' + param.charCodeAt(i);
+
+			var token = '' + len.length;
+
+			encode += token + param.charCodeAt(i);
+
+		 }
+
+		 document.getElementById("UserName").value = encode;
+
+	  }
+
+	  // 폼 전송 실행
+
+	  formSubmit();
+
+	  
+
+   }
+   function login_go_layer(url){
+		if(confirm("로그인 후 이동 가능합니다. 로그인 하시겠습니까?")){	
+			//window.open("https://my.knu.ac.kr/stpo/comm/support/loginPortal/loginForm.action?redirUrl="+url);
+			location.href = "https://home.knu.ac.kr/sso/business.php";
+		}else{
+			return;
+		}
+		
+	}
+</script>
+
+<form action ="https://knu.eduwill.net/member/loginSSOCheck.will" id ="SubmitForm" method ="post" target ="_blank">
+	<input type="hidden" id ="UserName" name ="UserName">
+	<input type ="hidden" id ="UserID" name ="UserID" value ="">
+	<input type ="hidden" id ="UserName_client" name ="UserName_client" value="">
+	<input type ="hidden" id ="enc" name ="enc" value ="1">
+	<input type ="hidden" id ="JisaCode" name ="JisaCode" value ="knu">
+	<input type ="hidden" id ="content_idx" name ="content_idx">
+	<input type ="hidden" id ="content_dep" name ="content_dep" >
+
+	</form>
+
+<div id="popupzone2">
+	<h3>알림창</h3>
+	<ul class="Script_alrim">
+		
+					<li class="noimg"></li>
+				</ul>
+
+	<div class="pager">
+	<span><em id="popupzone_now_view">1</em> / 0</span>
+		</div>
+</div>
+
+	<script>
+	
+		
+	</script>
+							<div class="mbnr">
+	<ul>
+	<li><a href="https://home.knu.ac.kr/HOME/graden/sub.htm?nav_code=gra1626850186"><span class="ico"></span>Academic FAQs <div class="txt-more"><span></span></div></a></li> 
+	<li><a href="https://home.knu.ac.kr/HOME/graden/sub.htm?nav_code=gra1626849981"><span class="ico"></span>College Admissions<div class="txt-more"><span></span></div> </a></li> 
+	</ul>
+</div>						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="mintro-wrap">
+			<div class="main-dept">
+			<script>
+			function onDeptShow(str,n) {
+				for(i=1;i<=10;i++) {
+					if(document.getElementById('mdept-'+str+'-'+i) != null) {
+						if(n == i) {
+							$('#mdept-m'+str+'-'+i).attr('class','on');
+							document.getElementById('mdept-'+str+'-'+i).style.display = '';
+						}else{
+							$('#mdept-m'+str+'-'+i).attr('class','');
+							document.getElementById('mdept-'+str+'-'+i).style.display = 'none';
+						}
+					}
+				}
+
+			}
+			</script>
+			<div class="d_width">
+
+				<div class="col_wrap">
+				<div class="col_d2">
+					<div class="bx mdept-list  wow fadeInRight delay1  animated" style="visibility: visible; animation-name: fadeInRight;">
+						<div class="tit-wrap">
+							<p class="tit">Departments & Majors</p>
+							<p class="txt">The Graduate School of KNU Departments & Majors</p>
+						</div>
+						<ul class="d3 clearfix">
+							<li id="mdept-mlist1-1" class="on"><a href="#" onclick="onDeptShow('list1','1');return false;">Liberal Arts & Social Science</a></li>
+							<li id="mdept-mlist1-2"><a href="#" onclick="onDeptShow('list1','2');return false;">Natural Science</a></li>
+							<li id="mdept-mlist1-3"><a href="#" onclick="onDeptShow('list1','3');return false;">Engineering</a></li>
+							<li id="mdept-mlist1-4"><a href="#" onclick="onDeptShow('list1','4');return false;">Art&physical Education</a></li>
+							<li id="mdept-mlist1-5"><a href="#" onclick="onDeptShow('list1','5');return false;">Medical Science</a></li>
+							<li id="mdept-mlist1-6"><a href="#" onclick="onDeptShow('list1','6');return false;">Interdiciplinary Program</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col_d2">
+					<div class="bx wow fadeInLeft delay1  animated" style="visibility: visible; animation-name: fadeInLeft;">
+						<div class="mdept-info bg1" id="mdept-list1-1">
+							<div class="tt-wrap">
+							<div class="tit-wrap">
+								<p class="tit">Liberal Arts & Social Science</p>
+								<p class="txt"></p>
+							</div>
+							<a href="./sub.htm?nav_code=gra1626849853"><div class="txt-more"><span></span></div></a>
+							</div>
+						</div>
+
+						<div class="mdept-info bg2" id="mdept-list1-2" style="display:none;">
+							<div class="tt-wrap">
+							<div class="tit-wrap">
+								<p class="tit">Natural Science</p>
+								<p class="txt"></p>
+							</div>
+							<a href="./sub.htm?nav_code=gra1626849862"><div class="txt-more"><span></span></div></a>
+							</div>
+						</div>
+
+						<div class="mdept-info bg3" id="mdept-list1-3" style="display:none;">
+							<div class="tt-wrap">
+							<div class="tit-wrap">
+								<p class="tit">Engineering</p>
+								<p class="txt"></p>
+							</div>
+							<a href="./sub.htm?nav_code=gra1626849872"><div class="txt-more"><span></span></div></a>
+							</div>
+						</div>
+
+						<div class="mdept-info bg4" id="mdept-list1-4" style="display:none;">
+							<div class="tt-wrap">
+							<div class="tit-wrap">
+								<p class="tit">Art&physical Education</p>
+								<p class="txt"></p>
+							</div>
+							<a href="./sub.htm?nav_code=gra1626849884"><div class="txt-more"><span></span></div></a>
+							</div>
+						</div>
+
+						<div class="mdept-info bg5" id="mdept-list1-5" style="display:none;">
+							<div class="tt-wrap">
+							<div class="tit-wrap">
+								<p class="tit">Medical Science</p>
+								<p class="txt"></p>
+							</div>
+							<a href="./sub.htm?nav_code=gra1626849926"><div class="txt-more"><span></span></div></a>
+							</div>
+						</div>
+
+						<div class="mdept-info bg7" id="mdept-list1-6" style="display:none;">
+							<div class="tt-wrap">
+							<div class="tit-wrap">
+								<p class="tit">Interdiciplinary Program</p>
+								<p class="txt"></p>
+							</div>
+							<a href="./sub.htm?nav_code=gra1626849936"><div class="txt-more"><span></span></div></a>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>				
+			</div>
+			</div>
+		</section>
+
+		<section id="quick-wrap">
+			<div class="d_width">
+				<div class="quickmn">
+  <ul class="d7 clearfix">
+    <li class="wow fadeInRight delay1 animated"><a href="./sub.htm?nav_code=gra1626847844"><span class="ico ico1"></span>Greetings <br>from the Dean</a></li>
+    <li class="wow fadeInRight delay2 animated"><a href="./sub.htm?nav_code=gra1626849574"><span class="ico ico2"></span>International<br> Students</a></li>
+    <li class="wow fadeInRight delay3 animated"><a href="https://en.knu.ac.kr/edu/academic01.htm" target="_blank"><span class="ico ico3"></span>Academic<br> Calendar</a></li>
+    <li class="wow fadeInRight delay4 animated"><a href="./sub.htm?nav_code=gra1626850199"><span class="ico ico4"></span>Academic <br>Information</a></li>
+    <li class="wow fadeInRight delay5 animated"><a href="http://bk21plus.knu.ac.kr/" target="_blank"><span class="ico ico5"></span>BK21<br>FOUR</a></li>
+    <li class="wow fadeInRight delay6 animated"><a href="https://knujob.knu.ac.kr/" target="_blank"><span class="ico ico6"></span>Human Resources<br> Development Center</a></li>
+    <li class="wow fadeInRight delay7 animated"><a href="https://en.knu.ac.kr/intro/map04.htm" target="_blank"><span class="ico ico7"></span>Campus <br>Map</a></li>
+    <li class="wow fadeInRight delay8 animated"><a href="https://international.knu.ac.kr/" target="_blank"><span class="ico ico8"></span>International <br>Exchange Office</a></li>
+    <li class="wow fadeInRight delay9 animated"><a href="https://kudos.knu.ac.kr/eng/index.htm" target="_blank"><span class="ico ico9"></span>KNU <br>Library</a></li>
+    <li class="wow fadeInRight delay10 animated"><a href="https://kudos.knu.ac.kr/eng/sub.htm?nav_code=eng1598334583" target="_blank"><span class="ico ico10"></span>turnitin <br>(턴인잇)</a></li>
+    <li class="wow fadeInRight delay11 animated"><a href="https://iac.knu.ac.kr" target="_blank"><span class="ico ico11"></span>Industry Academic<br> Cooperation Foundation</a></li>
+    <li class="wow fadeInRight delay12 animated"><a href="https://uicc.knu.ac.kr" target="_blank"><span class="ico ico12"></span>Office of Information<br> Technology Services
+</a></li>
+    <li class="wow fadeInRight delay13 animated"><a href="http://lang.knu.ac.kr" target="_blank"><span class="ico ico13"></span>Language <br>Education Center</a></li>
+    <li class="wow fadeInRight delay14 animated"><a href="https://knupr.knu.ac.kr" target="_blank"><span class="ico ico14"></span>KNU <br>PR</a></li>
+  </ul>
+</div>			</div>
+		</section>
+	</div>
+	<!-- //content -->
+</div>
+</div>
+<!-- //container -->
+<!-- banner -->
+	
+	<!-- //banner -->
+
+
+<!-- footer -->
+	
+	<footer>
+	<div class="d_width clearfix">
+				<div class="f_cont">
+						<ul class="fmn clearfix">
+			<li><a href="http://knu.ac.kr/wbbs/wbbs/contents/index.action?menu_url=siteinfo/policy01&menu_idx=94" target="_blank" title="새창으로 개인정보처리방침페이지가 열립니다.">개인정보처리방침</a></li>
+<!-- 			<li><a href="http://knu.ac.kr/wbbs/wbbs/contents/index.action?menu_url=siteinfo/policy02&menu_idx=95" target="_blank" title="새창으로 이메일무단수집거부페이지가 열립니다.">이메일무단수집거부</a></li> -->
+			</ul>
+						<address>
+										<p>
+									[41566] 
+													대구광역시 북구 대학로 80 경북대학교
+													 / T.053-950-5114
+																									</p>
+							
+				<p class="copyright">Copyright ⓒ The Graduate <em>School of KNU</em>. All rights Reserved.</p>
+										
+			<div class="fcnt">
+				Total : 72,821명 / Today : 31명
+			</div>
+
+
+							<!-- <div class="fsns">
+					<a href="https://www.facebook.com/donggukgj.univ" target="_blank" class="facebook" title="새창으로  열립니다."></a>
+					<a href="https://blog.naver.com/dongguksns" target="_blank" class="blog" title="새창으로  열립니다."></a>
+					<a href="https://www.instagram.com/dongguk_gyeongju/" target="_blank" class="instagram" title="새창으로  열립니다."></a>
+					<a href="https://www.youtube.com/channel/UCHl_-tUWnOfqlH_4h-c66mg" target="_blank" class="youtube" title="새창으로  열립니다."></a>
+				</div> -->
+									
+
+			</address>		
+		</div>
+
+				<div class="f_link">
+				
+								<script>
+			<!--
+			function footer_link_go2(str){
+				var win = window.open(str);
+				if ( !win ) {
+					top.location.href=str;
+				}
+			}
+			//-->
+			</script>
+			<script>
+			<!--
+			function footer_link_go(str){
+				var win = window.open(str);
+				if ( !win ) {
+					top.location.href=str;
+				}
+			}
+			//-->
+			</script>
+			<select onchange="footer_link_go(this.value);" title="주요사이트">
+				<option value="">4단계 BK21사업 관련사이트</option>
+				<option value="https://bk21four.nrf.re.kr">한국연구재단 4단계 BK 사이트</option>
+				<option value="https://knubk21four.knu.ac.kr">산학협력단 4단계 BK 사이트</option>
+				<option value="https://physicsbk.knu.ac.kr">입자와 물질의 양자특성 교육연구단</option>
+				<option value="https://biobk4.knu.ac.kr/">경북대학교 첨단복합 생명과학 교육연구단</option>
+				<option value="https://mathbk21.knu.ac.kr/">경북대학교 BK 수학 교육연구단</option>
+				<option value="https://chembk.knu.ac.kr/">혁신화학소재 교육연구단</option>
+				<option value="https://bizbk4.knu.ac.kr/">지역산업의 혁신성장을 선도하는 창의형 경영인재 양성 교육연구단</option>
+				<option value="https://econbk21.knu.ac.kr">제도와 포용적 성장을 위한 교육연구단</option>
+				<option value="http://create.knu.ac.kr/main/index.html">스마트 순환 사회환경시스템 인재양성 교육연구단</option>
+				<option value="https://econbk21.knu.ac.kr/">지능기계 미래인재 교육연구단</option>
+				<option value="https://agrodatabk21.knu.ac.kr/">데이터 기반 농업생산 혁신기술 개발 인력양성 교육연구단</option>
+				<option value="https://bkmedi.knu.ac.kr/">KNU 융복합 의생명과학 미래 창의 인재양성 교육연구단</option>
+				<option value="https://seeebk21four.knu.ac.kr/">KNU 전자전기 융합인재양성 교육연구단</option>
+				<option value="https://bk.knu.ac.kr">지능융합 소프트웨어 교육연구단</option>
+				<option value="http://knuhistory.org/">초경계 지향 역사문화교육연구단</option>
+				<option value="http://bk21ync.org/">글로벌 시대의 지역 문화어문학 교육연구단	</option>
+				<option value="https://geobk21.knu.ac.kr">지질재해 전문 인력 교육연구팀</option>
+				<option value="https://tradebk21.knu.ac.kr">지역성장과 아시아 통상협력 교육연구팀</option>
+				<option value="https://polisci.knu.ac.kr/">정치학적 소양을 갖춘 데이터사이언스 인재양성 교육연구팀</option>
+				<option value="https://aranbk21four.knu.ac.kr">인류세 기술·지식·물질 네트워크와 문화 큐레이팅 전문가 양성 교육연구팀</option>
+				<option value="https://smartbk21four.knu.ac.kr">전통기록물 스마트 플랫폼 구축을 위한 디지털지식정보큐레이터 교육연구팀</option>
+				<option value="https://polymerbk21plus.knu.ac.kr">스마트 고분자 나노복합소재 교육연구팀	</option>
+				<option value="https://philosophybk21.knu.ac.kr">갈등해결 철학 전문인력 양성 교육연구팀	</option>
+				<option value="https://astc-bk21.knu.ac.kr">스마트융복합재난관리교육연구단</option>
+				<option value="https://btbk21.knu.ac.kr">산지생태축산 6차산업 전문인재양성 교육연구단</option>
+				<option value="https://pharmacybk21.knu.ac.kr">지역밀착형 지능형 혁신신약 개발 교육연구단	</option>
+				<option value="https://eid.knu.ac.kr">신종감염병관리 플랫폼 개발 교육연구단</option>
+				<option value="https://cfsebk21.knu.ac.kr/">기후변화대응 글로벌 에너지신산업 지역혁신인재양성교육연구단</option>
+				<option value="https://bkai.knu.ac.kr/">경북대 AI 융합혁신인재양성 교육연구단</option>
+				<option value="https://hortbk21four.knu.ac.kr">스마트팜 혁신 인재 양성 교육연구단	</option>
+				<option value="https://semiconductorbk.knu.ac.kr">미래 모빌리티용 시스템반도체 혁신인재 교육연구단</option>
+			</select>
+			<!-- <select onchange="footer_link_go2(this.value);" title="학과사이트">
+				<option value="">학과사이트</option>
+				 
+			</select>
+			-->
+					
+		</div>
+			</div>
+	</footer>
+
+
+	
+
+
+<!-- //footer -->
+
+<!-- 레이어팝업 : 반드시 body내에 위치시키고 작동여부를 검사할 것-->
+<link rel="stylesheet" href="../../cmsware/css/popup.css">
+<script>
+function setCookie( name, value, expiredays )
+{
+	var todayDate = new Date();
+	todayDate.setDate( todayDate.getDate() + Number(expiredays) );
+	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+
+function closeLayerP(idx,days){
+	var form=document.forms['main_layer_form'+idx];
+	var cookie_name= 'LAYER_COOKIE_graden_'+idx;
+
+	if ( form.popup_end.checked   == true) {
+		setCookie( cookie_name, 'NO', days );//쿠기 저장 기간은 1년로 한다.
+	}
+
+	$("#LayerDiv"+idx).hide();
+} 
+</script></body>
+</html>

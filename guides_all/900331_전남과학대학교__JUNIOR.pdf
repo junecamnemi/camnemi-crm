@@ -1,0 +1,1695 @@
+
+
+
+
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>전남과학대학교_입시센터</title>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: 'unsafe-inline' 'unsafe-eval' http: https:">
+<meta name="referrer" content="strict-origin-when-cross-origin" >
+
+<link rel="stylesheet" type="text/css" href="css/entrance.css"><!-- web -->
+<link rel="stylesheet" type="text/css" href="css/mentrance.css"><!-- mobile -->
+<link rel="stylesheet" href="css/jquery.bxslider.css" />
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="js/jquery.bxslider.min.js"></script>
+
+<style type="text/css">
+	/* 사용자 페이징 - 위치와 모양을 자유롭게 변형 */
+	#bx-pager1 {position: absolute; bottom:10px;}
+	#bx-pager1 a{float:left; margin:0 5px;display: block; width:20px; height:20px; font-size:12px; line-height:18px; text-align:center; background:#999; color:#333}
+	#bx-pager1 a:hover, .bx-pager1 a:active{ background: #000; color: #CCC;}
+	
+	/* 사용자 페이징 - 엑티브상태에 대한 속성값 지정 */
+	#bx-pager1 a.active{ background: #000; color: #CCC;}
+	
+	#bx-pager1{left:10px;}
+	#bx-pager1 a{width: 30px; height: 30px; line-height: 30px; border-radius: 30px; background-color:#fff !important; border: 4px solid #000; text-indent: -9999px;}
+	#bx-pager1 .active, #bx-pager1 a:hover{background-color:#3d4245 !important; color:#fff;}
+	
+	
+	/* 팝업 배너 관련 - 시작 - */
+	.pu_container *{
+		box-shadow:none !important;
+	}
+
+	.pu_container{
+		display:none;
+		width: 100%;
+		min-height: 100%;
+		background-color: rgba(0,0,0,0.75);
+		position: fixed;
+		top:0;
+		left:0;
+		z-index: 99999;
+		overflow: auto;
+	}
+	
+	.pu_bk{
+		position: fixed;
+		left:0;
+		top:0;
+	}
+	.pu_contents{
+		width: 100%;
+		/*height: 100%;*/
+		/*overflow: hidden;*/
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		/*max-width: 980px;*/
+		/*margin: 0 auto;*/
+		text-align: center;
+		padding-bottom: 100px;
+		max-width: 1348px;
+		padding: 0 16px;
+		height: fit-content;
+	}
+	/* 
+	.pu_contents > img{
+		display: block;
+		width: auto;
+		margin:0 auto;
+		margin-top:100px;
+		margin-bottom: 25px;
+	}
+	 */
+	
+	.pu_contents .slider{
+		/*margin-top:200px;*/
+	}
+	 
+	.slider > ul:after{
+		display: block;
+		content: '';
+		clear: both;
+	}
+	.slider > ul{
+		margin:0 auto;
+	}
+	.slider > ul > li{
+		float: left;
+		margin-right: 20px;
+		/*width: 300px;
+		height: 300px;*/
+	}
+	.slider > ul > li:last-child{
+		margin-right: 0;
+	}
+	.slider > ul > li > a{
+		display: block;
+		width: 100%;
+		transition-duration: 0.5s;
+	}
+	.slider > ul > li > a:hover{
+		position: relative;
+		top:-2.5px;
+	}
+	.slider > ul > li > a img{
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.sub_btn{
+		/*position: absolute;
+		bottom:30px;
+		right:0;*/
+		color:#fff;
+		font-weight: bold;
+		font-size: 18px;
+		display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-top: 66px; 
+	}
+	
+	.sub_btn input[type="checkbox"]{
+		margin-right: 5px;
+		vertical-align: middle;
+	}
+	.sub_btn span{
+		margin-left: 15px;
+		display: block;
+		width: 40px;
+		height: 40px;
+		/*float: right;
+		position: relative;
+		bottom:10px;*/
+		cursor: pointer;		
+	}
+	.sub_btn span:hover{
+		bottom:15px;
+	}
+	.sub_btn span img{
+		display: block;
+		width: 40px;
+		height: 40px;
+	}
+	.sub_btn span:hover{
+		
+	}
+	
+	.bx-pager.bx-default-pager a:hover, .bx-pager.bx-default-pager .active{
+		background-color:#00C6FF !important;
+		margin-top: 0 !important;
+	}
+	.bx-pager.bx-default-pager a{
+		display: block;
+		content: '';
+		width: 17.5px !important;
+		height: 17.5px !important;
+		border-radius: 17.5px !important;
+		background-color:#fff !important;
+	}
+	
+	.pu_img{
+		margin-top:-20px;
+		width: 100%;
+		background-color: rgba(245,174,31,0.9);
+	}
+	.pu_img ul:after{
+		display: block;
+		content: '';
+		clear: both;
+	}
+	.pu_img ul{
+		display: block;
+		text-align: center;
+	}
+	.pu_img ul li{
+		display: inline-block;
+		padding:20px 10px;
+	}
+	.pu_img ul li:hover{
+		/*background-color: #f5ae1f;*/
+	}
+	.pu_img ul li a{
+		display: block;
+	}
+	.pu_img ul li a:hover{
+		/* 
+		transform: scale(1.05);
+	    -webkit-transform: scale(1.05);
+	    -moz-transform: scale(1.05);
+	    -o-transform: scale(1.05);
+	    transition-duration: 0.25s;
+	     */
+	}
+	.pu_img ul li a img{
+		display: block;
+		width: 130px;
+		height: 130px;
+		margin: 0 auto;
+	}
+	
+	@media screen and (max-width : 1199px) {
+       .pu_container{
+          display: none !important;
+       }
+    }
+    
+    /* 200831 팝업 텍스트 추가 */
+	.text_popup_wrap{
+		width: 100%;
+		height: 181px;
+		background-color: rgb(53 71 134 / 68%);
+		margin-top:34px;
+	}
+	.text_popup{
+		width: 980px;
+		margin:0 auto;
+	}
+	.text_popup ul:after{
+		display: block;
+		content: '';
+		clear: both;
+	}
+	.text_popup ul{
+		display: block;
+		width: 100%;
+	}
+	.text_popup ul li:after{
+		display: block;
+		content: '';
+		position: absolute;
+		right:0;
+		top:41px;
+		width: 1px;
+		height: 50%;
+		background-color: #fff;
+	}
+	.text_popup ul li{
+		float: left;
+		display: block;
+		position:relative;
+		/* 
+		width: calc(100%/3 - 1px);
+		width: -webkit-calc(100%/3 - 1px);
+		width: -moz-calc(100%/3 - 1px);
+		width: -o-calc(100%/3 - 1px);
+		 */
+		 width: 100%;
+		 height: 140px;
+		 margin-right: 10px;
+	}
+	.text_popup ul li:last-child:after{
+		display: none;
+	}
+	.text_popup ul li:last-child{
+		margin-right: 0;
+	}
+	.text_popup ul li a{
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	.text_popup ul li a img{
+		display: block;
+		width: 100%;
+		
+	}
+    
+    /* 팝업 배너 관련 - 끝 - */
+	
+</style>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var mainslider = $('#main_slider').bxSlider({
+		auto: true,
+		autoControls: true,
+		/* slideWidth: 485, */
+		pager: true, 
+		controls: false,
+		pagerCustom: '#bx-pager1'
+	});
+	
+	$(window).on({
+		'load resize' : function(){
+			mainslider.reloadSlider();
+		}
+	})
+	
+	/* $(document).on('mouseover','.bx-pager',function() {
+		popupslider.stopAuto();
+		popupslider.startAuto();
+	});	 */
+		
+	popupShow();
+});
+
+
+function clickMainTab(tab) {
+	/* if(tab == 'news') {
+		$('#tab_news').addClass('active');
+		$('#tab_notice').removeClass('active');
+		
+		$('#list_news').show();
+		$('#list_notice').hide();
+	}
+	else {
+		$('#tab_news').removeClass('active');
+		$('#tab_notice').addClass('active');
+		
+		$('#list_news').hide();
+		$('#list_notice').show();
+	} */
+	
+	$('#tab_notice').removeClass('active');
+	$('#tab_notice1').removeClass('active');
+	$('#tab_notice2').removeClass('active');
+	$('#tab_notice3').removeClass('active');
+	$('#tab_notice4').removeClass('active');
+	$('#tab_notice5').removeClass('active');
+	$('#tab_notice6').removeClass('active');
+	
+	$('#list_notice').hide();
+	$('#list_notice1').hide();
+	$('#list_notice2').hide();
+	$('#list_notice3').hide();
+	$('#list_notice4').hide();
+	$('#list_notice5').hide();
+	$('#list_notice6').hide(); 
+	
+	$('#tab_notice'+tab).addClass('active');
+	$('#list_notice'+tab).show();
+}
+
+/// 파일 받기
+function ipsiFileDown(filename) {
+  location.href = "filedownload.cntu?path=/upload&filename="+encodeURIComponent(filename);
+}
+
+function newWindow(url) {
+	var win = window.open(url, '_blank');
+	win.focus();
+}
+
+
+
+//////////// 팝업 배너 처리
+var popupslider;
+
+function popupShow() {
+
+	if(checkPopupCookie('close') == false) {
+		$('.pu_container').show();
+		
+		popupslider = $('#popup_slider').bxSlider({
+			mode: 'horizontal',
+			auto: true,
+			/*minSlides: 3,
+			maxSlides: 3,*/
+			minSlides: 4,
+            maxSlides: 4,
+			moveSlides : 1,
+			slideWidth: 306,
+			slideMargin: 40,
+			infiniteLoop: true,
+			controls: false
+		});
+		
+		$('#btn_close').click(function(){
+			$('.pu_container').hide();
+			popupslider.destroySlider();
+		});
+	}
+
+}
+
+
+$(document).mouseup(function (e){
+	if($('.pu_contents').has(e.target).length === 0) {
+		$('.pu_container').hide();
+		popupslider.destroySlider();
+	}	
+});
+
+
+function closeDay() {
+	setCookie('close', 'close', 1);
+	$('.pu_container').hide();
+	popupslider.destroySlider();
+}
+
+
+/// 쿠키 처리 //////////////////////
+function checkPopupCookie(cookieName) {
+	var cookie = document.cookie;
+	
+	/// 현재 쿠키가 존재할 경우
+	if(cookie.length > 0) {	
+		startIndex = cookie.indexOf(cookieName);
+		
+		if(startIndex != -1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else {
+		return false;
+	}
+}
+
+function setCookie(name, value, expiredays) {
+	var d = new Date();
+	d.setDate(d.getDate() + expiredays);
+	document.cookie = name + "=" + escape(value) + "; path=/; expires=" + d.toGMTString() + ";";
+}
+
+function removeCookie(name) {
+	var d = new Date();
+	d.setDate(d.getDate() - 1);
+	document.cookie = name + "=" + escape(name) + "; path=/; expires=" + d.toGMTString() + ";";
+}
+/////////////////////////////////
+
+</script>
+    
+</head>
+
+<body>
+ 
+	
+
+<style>
+/* 전체 리스트 박스 스타일 */
+ul#list_dept {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 300px;
+}
+
+/* 상위 버튼 스타일 */
+button.linkselect {
+    background-color: #2c3e50;
+    color: #fff;
+    font-size: 16px;
+    padding: 4px 19px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* 버튼 호버 효과 */
+button.linkselect:hover {
+    background-color: linear-gradient(350deg, rgb(252 255 52) 21%, rgb(237 100 76) 100%) !important;
+}
+
+/* 계열 제목 스타일 */
+.linktitle {
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 28px;
+	font-size: 16px;
+}
+
+/* 학과 리스트 항목 스타일 */
+ul#list_dept li a {
+    display: block;
+    padding: 0px 3px;
+    color: #2c3e50;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+/* 학과 리스트 항목 호버 효과 */
+ul#list_dept li a:hover {
+    background-color: #eb9393;
+}
+
+/* 소형 폰트 클래스 예시 */
+.smallfont {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+/* scroll Bar*/
+/* 스크롤바 커스터마이징 (webkit 브라우저용) */
+ul#list_dept {
+    max-height: 400px; /* 스크롤 발생하도록 높이 제한 */
+    overflow-y: auto;
+}
+
+/* 스크롤바 폭 */
+ul#list_dept::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* 스크롤바 트랙 (배경) */
+ul#list_dept::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+/* 스크롤바 핸들 (움직이는 막대) */
+ul#list_dept::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 4px;
+}
+
+/* 스크롤바 핸들 호버 시 색상 */
+ul#list_dept::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* 파이어폭스용 기본 스타일 */
+ul#list_dept {
+    scrollbar-width: thin;
+    scrollbar-color: #999 #f1f1f1;
+}
+
+</style>
+
+<script type="text/javascript">
+	
+function toggleDeptList() {
+        const deptList = document.getElementById("list_dept");
+        if (deptList.style.display === "none" || deptList.style.display === "") {
+            deptList.style.display = "block";
+        } else {
+            deptList.style.display = "none";
+        }
+    }
+
+function goSSOLogin() {
+	
+	var urlrl = "https://logins.cntu.ac.kr/login.cntu?type=blank_noreload&url=https://ipsi.cntu.ac.kr/";
+
+    location.href = urlrl;    
+	
+}
+
+function logout() {
+	$.ajax({
+		type: "POST",
+		url: 'ipsia.cntu',
+		data: 'mode=logout',
+		success: function(ret){
+			location.reload();
+		}
+	});
+}
+
+/// 학과 리스트 토글.
+function toggleDeptList() {
+	if($('#list_dept').css('display') == 'none') {
+		$('#list_dept').slideDown(100);
+	} else {
+		$('#list_dept').slideUp(100);
+	}
+}
+
+/// 검색바 토글.
+function toggleSearchBar() {
+	if($('#div_search_bar').css('display') == 'none') {
+		$('#div_search_bar').slideDown(100);
+		$('#img_search').attr("src", 'img/close.png');
+		//document.getElementById('img_search').src = 'img/close.png';
+	} else {
+		$('#div_search_bar').slideUp(100);
+		$('#img_search').attr("src", 'img/serach.png');
+		//document.getElementById('img_search').src = 'img/serach.png';
+	}
+}
+
+/// 탑메뉴 호버 처리
+function menuHover(type, idx) {
+	if(type == 'on') {
+		$('#submenu_'+idx).css('background-color', '#216ac0');
+	}
+	else {
+		$('#submenu_'+idx).css('background-color', '');
+	}
+}
+
+/// 탑서브메뉴 호버 처리
+function submenuHover(type, idx) {
+	if(type == 'on') {
+		$('#topmenu_'+idx).css('color', '#195dae');
+		$('#topmenu_'+idx).css('font-weight', '700');
+		$('#topmenu_'+idx).css('border-bottom', '3px solid #195dae');
+		$('#topmenu_'+idx).css('margin-top', '-3px');
+		$('#topmenu_'+idx).css('transition-duration', '0.0s');
+	}
+	else {
+		$('#topmenu_'+idx).css('color', '');
+		$('#topmenu_'+idx).css('font-weight', '');
+		$('#topmenu_'+idx).css('border-bottom', '');
+		$('#topmenu_'+idx).css('margin-top', '');
+		$('#topmenu_'+idx).css('transition-duration', '0.1s');
+	}
+}
+
+
+/// 탑 메뉴 클릭 처리
+function menuClick(idx) {
+	if($(window).width() < 1200) {
+		if($('#topmenu_'+idx).hasClass('active')==true) {
+			$('#topmenu_'+idx).removeClass('active');
+			$('#mobile_sub_'+idx).slideUp(100);
+		} else if(idx == 9) {
+			alert('test');
+		} 
+		
+		else {
+			$('#topmenu_'+idx).addClass('active');
+			$('#mobile_sub_'+idx).slideDown(100);
+		}
+		
+		for(var i=1; i<7; i++) {
+			if(i!=idx) {
+				$('#topmenu_'+i).removeClass('active');
+				$('#mobile_sub_'+i).slideUp(100);
+			}
+		}
+	}
+	else {
+		/* if(idx==1 || idx==2) {
+			location.href = 'contents.cntu?cat1='+idx+'&cat2=1';
+		}
+		else if(idx == 3) {
+			location.href = 'board.cntu?mode=qna&cat1='+idx+'&cat2=1';
+		}
+		else if(idx == 4) {
+			location.href = 'contents.cntu?cat1='+idx+'&cat2=2';
+		}
+		else if(idx == 5) {
+			location.href = 'board.cntu?mode=board&boardType=news&cat1='+idx+'&cat2=1';
+		} */
+		if(idx==9) {
+			/*location.href = 'board.cntu?mode=board&boardType=news&cat1=16&cat2=1';*/
+			location.href = 'board.cntu?mode=board&boardType=notice&searchMojib=9&cat1=19&cat2=3';
+		}
+		else if(idx>=6 && idx<=8) {
+			location.href = 'contents.cntu?searchMojib='+(idx+1)+'&cat1=1'+(idx+1)+'&cat2=1';
+		}
+		else {
+			location.href = 'contents.cntu?searchMojib='+idx+'&cat1=1'+idx+'&cat2=1';
+		}
+	}
+}
+
+
+
+////모바일 메뉴 처리(ON/OFF)
+var menuToggle = 'off';
+function mobileMenu() {
+	if($(window).width() < 1200) {
+		
+		if(menuToggle == 'off') {
+			$('#mobile_menu_back').show();
+			$('#mobile_top_menu').slideDown(100);
+			
+			$('#top_menu_btn').css('background-image', "url(img/btn_menu_on.png)");
+			
+			menuToggle = 'on';
+		}
+		else {
+			$('#mobile_menu_back').hide();
+			$('#mobile_top_menu').slideUp(100);
+			
+			$('#top_menu_btn').css('background-image', "url(img/btn_menu.png)");
+			
+			menuToggle = 'off';
+		}
+		
+	}
+}
+
+/// 그냥 모바일 메뉴 닫기
+function mobileMenuOff() {
+	$('#mobile_menu_back').hide();
+	$('#mobile_top_menu').slideUp(100);
+	
+	$('#top_menu_btn').css('background-image', "url(img/btn_menu.png)");
+	
+	menuToggle = 'off';
+}
+
+
+function toggleQuick() {
+	if($('#quick_ul').is(':visible')==false) {
+		$('#quick_ul').show();
+	}
+	else {
+		$('#quick_ul').hide();
+	}
+}
+
+
+/// 사이트맵 토글.
+function toggleSitemap() {
+	if($('#sitemap').css('display') == 'none') {
+		$('#sitemap').show();
+	} else {
+		$('#sitemap').hide();
+	}
+}
+
+
+$(document).mouseup(function (e){
+	//console.log(e.target);
+	//console.log($('.linkselect').has(e.target).length);
+	/// 학과 선택 박스 외 클릭 시....
+	if($('#list_dept').has(e.target).length === 0)
+		$('#list_dept').slideUp(100);
+});
+
+</script>
+
+
+   <div class="header_container" style="z-index: 999;">
+    	
+    	<div class="logo_wrap">
+    		<h1 class="top_logo">  
+            	<img src="img/logo_ipsi.png" alt="전남과학대학교" onclick="javascript:location.href='index.cntu'" />
+        	</h1>
+    	</div>
+    
+        <div class="header_wrap">
+            <div class="header">
+                <ul class="header_left">
+                    <li class="homelink"><a href="http://www.cntu.ac.kr" title="전남과학대학교 홈페이지로 이동" >전남과학대학교<span class="smallfont">▶</span></a></li>
+                    <li>
+                        <button type="button" class="linkselect" onclick="javascript:toggleDeptList()">학과<span class="smallfont">▼</span></button>
+                        <ul id="list_dept" style="display: none;">
+                            <li class="linktitle">자연과학계열</li>
+                            <li><a href="https://www.cntu.ac.kr/nurse/" target="_blank" title="간호학과" >· 간호학과</a></li>
+                            <li><a href="https://www.cntu.ac.kr/physics/" target="_blank" title="물리치료과" >· 물리치료과</a></li>
+                            <!-- <li><a href="http://www.cntu.ac.kr/ctuot" target="_blank" title="작업치료과" >· 작업치료과</a></li> -->
+                            <li><a href="https://www.cntu.ac.kr/dental/" target="_blank" title="치위생과" >· 치위생과</a></li>
+                            <!-- <li><a href="http://www.cntu.ac.kr/optics" target="_blank" title="안경광학과" >· 안경광학과</a></li> -->
+                            <li><a href="https://www.cntu.ac.kr/skin/" target="_blank" title="뷰티미용과" >· 뷰티미용과</a></li>
+                            <li><a href="https://www.cntu.ac.kr/doom/" target="_blank" title="대체의학과" >· 대체의학과</a></li>
+                            <li><a href="https://www.cntu.ac.kr/flower/" target="_blank" title="화훼원예과" >· 화훼원예과</a></li>
+                            <li><a href="https://www.cntu.ac.kr/cooking/" target="_blank" title="호텔조리김치발효과" >· 호텔조리김치발효과</a></li>
+                            <li><a href="https://cafe.naver.com/hotelbar.cafe" target="_blank" title="호텔커피칵테일과" >· 호텔커피칵테일과</a></li>
+							<li><a href="https://www.cntu.ac.kr/horticulture/" target="_blank" title="스마트원예산업과" >· 스마트원예산업과</a></li>
+							<li><a href="https://www.cntu.ac.kr/glblBtyc/" target="_blank" title="글로벌뷰티케어과" >· 글로벌뷰티케어과</a></li>
+							
+                            <li class="linktitle">인문사회계열</li>
+                            <li><a href="https://www.cntu.ac.kr/rehab/" target="_blank" title="아동복지재활과" >· 아동복지재활과</a></li>
+                            <li><a href="https://www.cntu.ac.kr/social/" target="_blank" title="사회복지과" >· 사회복지과</a></li>
+							<li style="margin-bottom: 32px !important;"><a href="https://www.cntu.ac.kr/frgCrWrkDpr/" target="_blank" title="글로벌산업융합과(외국인요양보호사) 전공">· 글로벌산업융합과<br>(외국인요양보호사) 전공</a></li>
+
+                            <li class="linktitle">공학계열</li>
+                            <li><a href="https://www.cntu.ac.kr/car/" target="_blank" title="스마트융합자동차과" >· 스마트융합자동차과</a></li>
+                            <!-- <li>· e-스포츠융합계열</li>
+                            <li><a href="http://www.cntu.ac.kr/esports" target="_blank" title="e-스포츠전공" >&nbsp;&nbsp;&nbsp;- e-스포츠전공</a></li>
+                            <li><a href="http://www.cntu.ac.kr/game" target="_blank" title="게임제작전공" >&nbsp;&nbsp;&nbsp;- 게임제작전공</a></li> -->
+                            <li><a href="https://www.cntu.ac.kr/esports/" target="_blank" title="e-스포츠과" >· e-스포츠과</a></li>
+                            <li><a href="https://www.cntu.ac.kr/building/" target="_blank" title="건축과(야)" >· 건축과(야)</a></li>
+                            <li><a href="https://www.cntu.ac.kr/drone/" target="_blank" title="건설플랜트드론과" >· 건설플랜트드론과</a></li>
+							<li><a href="https://www.cntu.ac.kr/construction/" target="_blank" title="스마트건축과" >· 스마트건축과</a></li>	
+							<li><a href="https://www.cntu.ac.kr/industrial/" target="_blank" title="글로벌산업융합과" >· 글로벌산업융합과</a></li>
+							<li><a href="https://www.cntu.ac.kr/fire/" target="_blank" title="소방안전과(야)" >· 소방안전과(야)</a></li>
+							<li><a href="https://www.cntu.ac.kr/indsWldnFclt/" target="_blank" title="산업용접설비과" >· 산업용접설비과</a></li>
+                            <li class="linktitle">체육｜예술계열</li>
+                            <li><a href="https://www.cntu.ac.kr/sport/" target="_blank" title="생활체육과" >· 생활체육과</a></li>
+                            <li><a href="https://www.cntu.ac.kr/guard/" target="_blank" title="경호보안과" >· 경호보안과</a></li>
+                            <li><a href="https://www.cntu.ac.kr/taekwondo/" target="_blank" title="태권도체육과" >· 태권도체육과</a></li>
+                            <li><a href="https://www.cntu.ac.kr/music/" target="_blank" title="음악과" >· 음악과</a></li>
+                            <li><a href="https://www.cntu.ac.kr/golf/" target="_blank" title="골프레저과" >· 골프레저과</a></li>
+							<li><a href="https://blog.naver.com/fwart" target="_blank" title="피규어&웹툰아트과" >· 피규어&웹툰아트과</a></li>
+							<li><a href="https://www.cntu.ac.kr/snrPrfrArtsMdl/" target="_blank" title="시니어공연예술모델과" >· 시니어공연예술모델과</a></li>
+                            <li class="linktitle">군특수학과</li>
+                            <li><a href="https://www.cntu.ac.kr/armament/" target="_blank" title="특수장비산업안전과" >· 특수장비산업안전과</a></li>
+                            <!-- <li><a href="http://www.cntu.ac.kr/chem" target="_blank" title="화학부사관과" >· 화학부사관과</a></li> -->
+                            <li><a href="https://www.cntu.ac.kr/rader/" target="_blank" title="특수통신전기드론과" >· 특수통신전기드론과</a></li>
+                            <!-- <li><a href="http://www.cntu.ac.kr/helicopter" target="_blank" title="헬기정비과" >· 헬기정비과</a></li> -->
+                            <li><a href="http://www.cntu.ac.kr/wafare" target="_blank" title="특수전부사관과" >· 특수전부사관과</a></li>
+                            <li><a href="https://www.cntu.ac.kr/battle/" target="_blank" title="전투부사관과" >· 전투부사관과</a></li>
+							<li class="linktitle">전문기술석사과정</li>
+							<li><a href="https://www.cntu.ac.kr/agricultura/" target="_blank" title="저탄소스마트농업학과" >· 저탄소스마트농업학과</a></li>
+							<li><a href="https://www.cntu.ac.kr/nrtcHlthDprt/" target="_blank" title="뉴로테크헬스케어학과" >· 뉴로테크헬스케어학과</a></li>
+
+                        </ul>
+                    </li>
+                </ul> 
+                <ul class="header_right">
+                    <!--
+                    <il> 
+                        <button type="button" class="languageselect">＊language＊</button>
+                        <ul>
+                            <li>ENGLSH</li>
+                        </ul>
+                    </il>
+                    -->
+                    <li><a href="javascript:void(0)" onclick="javascript:removeCookie('close');popupShow();" title="팝업열기" class="top_popup"></a></li>
+                    <li><a href="javascript:void(0)" onclick="javascript:toggleSitemap()" title="사이트맵으로 이동" class="top_sitemap"></a></li>
+                    <!-- <li>
+                        <button type="button" class="searchicon" title="검색 열기/닫기" onclick="javascript:toggleSearchBar()">
+                            <span class="search">
+                                <img id="img_search" src="img/serach.png" alt="검색 열기/닫기" />
+                            </span>
+                        </button>
+                    </li> -->
+                </ul>
+                <ul class="header_user">
+                	<!-- <li><a href="#" target="_blank" title="로그아웃 하기">로그아웃</a></li>
+                	<li><a href="#" target="_blank" title="유저명">[김과학]</a></li> -->
+                	<!-- <li><a href="admin.cntu?menu=login" target="_blank" title="로그인 하기">로그인</a></li> -->
+                	
+                	<li><a href="javascript:void(0)" onclick="javascript:goSSOLogin()" title="로그인 하기">로그인<span class="smallfont">▶</span></a></li>
+                	
+                </ul>
+            </div><!-- header -->
+            <div class="header_seach_wrap" id="div_search_bar">
+                <div class="header_seach">
+                    <!-- <input type="text" placeholder="검색할 내용을 입력하세요"/>
+                    <input type="submit" value="검색" /> -->
+                </div><!-- header_seach -->
+            </div><!-- header_seach_warp -->
+        </div><!-- header_wrap -->
+
+        <div class="top_wrap">
+            <div class="top">
+                 <h1 class="top_logo_m">
+                    <img src="img/logo_ipsi.png" alt="전남과학대학교" width="300px" onclick="javascript:location.href='index.cntu'" />
+                </h1> 
+				
+                <div class="top_menu_wrap">
+                	<div class="top_menu_btn" id="top_menu_btn" onclick="javascript:mobileMenu()"></div>
+                    <div class="top_menu_back" id="mobile_menu_back" onclick="javascript:mobileMenuOff()"></div>
+                    <ul id="mobile_top_menu" class="top_menu">
+                        <li onmouseover="javascript:menuHover('on', 1)" onmouseout="javascript:menuHover('off', 1)"><a id="topmenu_1" href="javascript:void(0)" onclick="javascript:menuClick(1)">수시1차</a>
+                            <ul id="mobile_sub_1">
+								<li><a href="contents.cntu?searchMojib=1&cat1=11&cat2=1" target="_self">모집요강</a></li>
+								<li><a href="contents.cntu?searchMojib=1&cat1=11&cat2=6" target="_self">모집단위</a></li>
+								<li><a href="contents.cntu?searchMojib=1&cat1=11&cat2=7&page=3" target="_self">전형일정</a></li>
+								
+								<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=1&cat1=11&cat2=2" target="_self">자료실</a></li>
+								<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=1&cat1=11&cat2=3" target="_self">공지사항</a></li>
+								<li><a href="board.cntu?mode=faq&searchMojib=1&cat1=11&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                            </ul>
+                        </li>
+                        <li onmouseover="javascript:menuHover('on', 2)" onmouseout="javascript:menuHover('off', 2)"><a id="topmenu_2" href="javascript:void(0)" onclick="javascript:menuClick(2)">수시2차</a>
+                            <ul id="mobile_sub_2">
+								<li><a href="contents.cntu?searchMojib=2&cat1=12&cat2=1" target="_self">모집요강</a></li>
+                                <li><a href="contents.cntu?searchMojib=2&cat1=12&cat2=6&page=3" target="_self">모집단위</a></li>
+								<li><a href="contents.cntu?searchMojib=2&cat1=12&cat2=7&page=4" target="_self">전형일정</a></li>
+                                
+								<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=2&cat1=12&cat2=2" target="_self">자료실</a></li>
+								<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=2&cat1=12&cat2=3" target="_self">공지사항</a></li>
+								<li><a href="board.cntu?mode=faq&searchMojib=2&cat1=12&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                            </ul>
+                        </li>
+                        <li onmouseover="javascript:menuHover('on', 3)" onmouseout="javascript:menuHover('off', 3)"><a id="topmenu_3" href="javascript:void(0)" onclick="javascript:menuClick(3)">정시</a>
+                            <ul id="mobile_sub_3">
+								<li><a href="contents.cntu?searchMojib=3&cat1=13&cat2=1" target="_self">모집요강</a></li>
+                                <li><a href="contents.cntu?searchMojib=3&cat1=13&cat2=6&page=3" target="_self">모집단위</a></li>
+								<li><a href="contents.cntu?searchMojib=3&cat1=13&cat2=7&page=4" target="_self">전형일정</a></li>
+                                
+								<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=3&cat1=13&cat2=2" target="_self">자료실</a></li>
+								<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=3&cat1=13&cat2=3" target="_self">공지사항</a></li>
+								<li><a href="board.cntu?mode=faq&searchMojib=3&cat1=13&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                            </ul>
+                        </li>
+                        <li onmouseover="javascript:menuHover('on', 4)" onmouseout="javascript:menuHover('off', 4)"><a id="topmenu_4" href="javascript:void(0)" onclick="javascript:menuClick(4)">산업체위탁</a>
+                            <ul id="mobile_sub_4">
+								<li><a href="contents.cntu?searchMojib=4&cat1=14&cat2=1" target="_self">모집요강</a></li>
+								<li><a href="contents.cntu?searchMojib=4&cat1=14&cat2=6&page=2" target="_self">모집단위</a></li>
+								<li><a href="contents.cntu?searchMojib=4&cat1=14&cat2=7&page=2" target="_self">전형일정</a></li>
+
+								<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=4&cat1=14&cat2=2" target="_self">자료실</a></li>
+								<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=4&cat1=14&cat2=3" target="_self">공지사항</a></li>
+								<li><a href="board.cntu?mode=faq&searchMojib=4&cat1=14&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                            </ul>
+                        </li>
+                        <li onmouseover="javascript:menuHover('on', 5)" onmouseout="javascript:menuHover('off', 5)"><a id="topmenu_5" href="javascript:void(0)" onclick="javascript:menuClick(5)">전공심화</a>
+                            <ul id="mobile_sub_5">
+								<li><a href="contents.cntu?searchMojib=5&cat1=15&cat2=1" target="_self">모집요강</a></li>
+								<li><a href="contents.cntu?searchMojib=5&cat1=15&cat2=6&page=2" target="_self">모집단위</a></li>
+								<li><a href="contents.cntu?searchMojib=5&cat1=15&cat2=7&page=2" target="_self">전형일정</a></li>
+                                
+								<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=5&cat1=15&cat2=2" target="_self">자료실</a></li>
+								<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=5&cat1=15&cat2=3" target="_self">공지사항</a></li>
+								<li><a href="board.cntu?mode=faq&searchMojib=5&cat1=15&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                            </ul>
+                        </li>
+                        <li onmouseover="javascript:menuHover('on', 6)" onmouseout="javascript:menuHover('off', 6)"><a id="topmenu_6" href="javascript:void(0)" onclick="javascript:menuClick(6)">전문기술석사</a>
+                            <ul id="mobile_sub_6">
+								<li><a href="contents.cntu?searchMojib=7&cat1=17&cat2=1" target="_self">모집요강</a></li>
+								<li><a href="contents.cntu?searchMojib=7&cat1=17&cat2=6&page=3" target="_self">모집단위</a></li>
+								<li><a href="contents.cntu?searchMojib=7&cat1=17&cat2=7&page=3" target="_self">전형일정</a></li>
+                                
+								<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=7&cat1=17&cat2=2" target="_self">자료실</a></li>
+								<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=7&cat1=17&cat2=3" target="_self">공지사항</a></li>
+								<li><a href="board.cntu?mode=faq&searchMojib=7&cat1=17&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                            </ul>
+                        </li>
+                        <li onmouseover="javascript:menuHover('on', 7)" onmouseout="javascript:menuHover('off', 7)"><a id="topmenu_7" href="javascript:void(0)" onclick="javascript:menuClick(7)">편입학</a>
+                            <ul id="mobile_sub_7">
+								<li><a href="contents.cntu?searchMojib=8&cat1=18&cat2=1" target="_self">모집요강</a></li>
+								<li><a href="contents.cntu?searchMojib=8&cat1=18&cat2=6&page=3" target="_self">모집단위</a></li>
+								<li><a href="contents.cntu?searchMojib=8&cat1=18&cat2=7&page=3" target="_self">전형일정</a></li>
+                                
+								<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=8&cat1=18&cat2=2" target="_self">자료실</a></li>
+								<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=8&cat1=18&cat2=3" target="_self">공지사항</a></li>
+								<li><a href="board.cntu?mode=faq&searchMojib=8&cat1=18&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                            </ul>
+                        </li>
+                        <li onmouseover="javascript:menuHover('on', 8)" onmouseout="javascript:menuHover('off', 8)"><a id="topmenu_8" href="javascript:void(0)" onclick="javascript:menuClick(8)">e-MU</a>
+                            <ul id="mobile_sub_8">
+								<li><a href="contents.cntu?searchMojib=9&cat1=19&cat2=1" target="_self">모집요강</a></li>
+								<li><a href="contents.cntu?searchMojib=9&cat1=19&cat2=6&page=3" target="_self">모집단위</a></li>
+								<li><a href="contents.cntu?searchMojib=9&cat1=19&cat2=7&page=3" target="_self">전형일정</a></li>
+                                
+								<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=9&cat1=19&cat2=2" target="_self">자료실</a></li>
+								<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=9&cat1=19&cat2=3" target="_self">공지사항</a></li>
+								<li><a href="board.cntu?mode=faq&searchMojib=9&cat1=19&cat2=4" target="_self">자주 묻는 질문</a></li>  -->
+                            </ul> 
+                        </li>
+                        <li onmouseover="javascript:menuHover('on', 9)" onmouseout="javascript:menuHover('off', 9)"><a id="topmenu_9" href="javascript:void(0)" onclick="javascript:menuClick(9)">입학도우미</a>
+                            <ul id="mobile_sub_9">
+                               	<!-- <li><a href="board.cntu?mode=board&boardType=news&cat1=16&cat2=1" target="_self">새소식</a></li> -->
+								<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=9&cat1=19&cat2=3" target="_self">공지사항</a></li>
+								<li><a href="board.cntu?mode=qna&cat1=16&cat2=5" target="_self">입시상담</a></li>
+								<li><a href="board.cntu?mode=board&boardType=library&searchMojib=9&cat1=19&cat2=2" target="_self">자료실</a></li>
+								<li><a href="board.cntu?mode=faq&searchMojib=9&cat1=19&cat2=4" target="_self">자주 묻는 질문</a></li>
+								<!-- <li><a href="iphak.cntu?mode=bunho&cat1=16&cat2=2" target="_self">수험번호 찾기</a></li>
+								<li><a href="iphak.cntu?mode=wonseo&cat1=16&cat2=3" target="_self">원서접수 확인</a></li>
+								<li><a href="iphak.cntu?mode=balpyo&cat1=16&cat2=4" target="_self">합격조회</a></li> -->
+							
+							
+                            </ul>
+                        </li>
+                        <!-- <li onmouseover="javascript:menuHover('on', 7)" onmouseout="javascript:menuHover('off', 7)"><a href="">학과소개</a></li> -->
+                    </ul>
+                </div>
+            </div><!-- top -->
+            <!-- 마우스 올렸을 때 메뉴-->
+            <div class="top_secondmenu_wrap">
+                <div class="top_secondmenu">
+                    <ul id="submenu_1" onmouseover="javascript:submenuHover('on', 1)" onmouseout="javascript:submenuHover('off', 1)">
+						
+                        <li><a href="contents.cntu?searchMojib=1&cat1=11&cat2=1" target="_self">모집요강</a></li>
+                        <li><a href="contents.cntu?searchMojib=1&cat1=11&cat2=6&page=3" target="_self">모집단위</a></li>
+						<li><a href="contents.cntu?searchMojib=1&cat1=11&cat2=7&page=4" target="_self">전형일정</a></li>
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=1&cat1=11&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=1&cat1=11&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=1&cat1=11&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                    </ul>
+                    <ul id="submenu_2" onmouseover="javascript:submenuHover('on', 2)" onmouseout="javascript:submenuHover('off', 2)">
+						<li><a href="contents.cntu?searchMojib=2&cat1=12&cat2=1" target="_self">모집요강</a></li>
+						<li><a href="contents.cntu?searchMojib=2&cat1=12&cat2=6&page=3" target="_self">모집단위</a></li>
+                        <li><a href="contents.cntu?searchMojib=2&cat1=12&cat2=7&page=4" target="_self">전형일정</a></li>
+                        
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=2&cat1=12&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=2&cat1=12&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=2&cat1=12&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                    </ul>
+                    <ul id="submenu_3" onmouseover="javascript:submenuHover('on', 3)" onmouseout="javascript:submenuHover('off', 3)">
+						
+                        <li><a href="contents.cntu?searchMojib=3&cat1=13&cat2=1" target="_self">모집요강</a></li>
+						<li><a href="contents.cntu?searchMojib=3&cat1=13&cat2=6&page=3" target="_self">모집단위</a></li>
+                        <li><a href="contents.cntu?searchMojib=3&cat1=13&cat2=7&page=4" target="_self">전형일정</a></li>
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=3&cat1=13&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=3&cat1=13&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=3&cat1=13&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                    </ul>
+                    <ul id="submenu_4" onmouseover="javascript:submenuHover('on', 4)" onmouseout="javascript:submenuHover('off', 4)">
+                        <li><a href="contents.cntu?searchMojib=4&cat1=14&cat2=1" target="_self">모집요강</a></li>
+                        <li><a href="contents.cntu?searchMojib=4&cat1=14&cat2=6&page=2" target="_self">모집단위</a></li>
+						<li><a href="contents.cntu?searchMojib=4&cat1=14&cat2=7&page=2" target="_self">전형일정</a></li>
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=4&cat1=14&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=4&cat1=14&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=4&cat1=14&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                    </ul>
+                    <ul id="submenu_5" onmouseover="javascript:submenuHover('on', 5)" onmouseout="javascript:submenuHover('off', 5)">
+                        <li><a href="contents.cntu?searchMojib=5&cat1=15&cat2=1" target="_self">모집요강</a></li>
+						<li><a href="contents.cntu?searchMojib=5&cat1=15&cat2=6&page=2" target="_self">모집단위</a></li>
+						<li><a href="contents.cntu?searchMojib=5&cat1=15&cat2=7&page=2" target="_self">전형일정</a></li>
+                        
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=5&cat1=15&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=5&cat1=15&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=5&cat1=15&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                    </ul>
+                    <ul id="submenu_6" onmouseover="javascript:submenuHover('on', 6)" onmouseout="javascript:submenuHover('off', 6)"> 
+						<li><a href="contents.cntu?searchMojib=7&cat1=17&cat2=1" target="_self">모집요강</a></li>
+						<li><a href="contents.cntu?searchMojib=7&cat1=17&cat2=6&page=3" target="_self">모집단위</a></li>
+                        <li><a href="contents.cntu?searchMojib=7&cat1=17&cat2=7&page=3" target="_self">전형일정</a></li>
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=7&cat1=17&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=7&cat1=17&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=7&cat1=17&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                    </ul>
+                    <ul id="submenu_7" onmouseover="javascript:submenuHover('on', 7)" onmouseout="javascript:submenuHover('off', 7)">
+                        <li><a href="contents.cntu?searchMojib=8&cat1=18&cat2=1" target="_self">모집요강</a></li>
+						<li><a href="contents.cntu?searchMojib=8&cat1=18&cat2=6&page=3" target="_self">모집단위</a></li>
+						<li><a href="contents.cntu?searchMojib=8&cat1=18&cat2=7&page=3" target="_self">전형일정</a></li>
+						
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=8&cat1=18&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=8&cat1=18&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=8&cat1=18&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                    </ul>
+                    <ul id="submenu_8" onmouseover="javascript:submenuHover('on', 8)" onmouseout="javascript:submenuHover('off', 8)">
+                        <li><a href="contents.cntu?searchMojib=9&cat1=19&cat2=1" target="_self">모집요강</a></li>
+						<li><a href="contents.cntu?searchMojib=9&cat1=19&cat2=6&page=3" target="_self">모집단위</a></li>
+						<li><a href="contents.cntu?searchMojib=9&cat1=19&cat2=7&page=3" target="_self">전형일정</a></li>
+                        
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=9&cat1=19&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=9&cat1=19&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=9&cat1=19&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                    </ul>
+                    <ul id="submenu_9" onmouseover="javascript:submenuHover('on', 9)" onmouseout="javascript:submenuHover('off', 9)">
+                        	<!-- <li><a href="board.cntu?mode=board&boardType=news&cat1=16&cat2=1" target="_self">새소식</a></li> -->
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=9&cat1=19&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=qna&cat1=16&cat2=5" target="_self">입시상담</a></li>
+						<li><a href="board.cntu?mode=board&boardType=library&searchMojib=9&cat1=19&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=9&cat1=19&cat2=4" target="_self">자주 묻는 질문</a></li>
+						<!-- <li><a href="iphak.cntu?mode=bunho&cat1=16&cat2=2" target="_self">수험번호 찾기</a></li>
+						<li><a href="iphak.cntu?mode=wonseo&cat1=16&cat2=3" target="_self">원서접수 확인</a></li>
+						<li><a href="iphak.cntu?mode=balpyo&cat1=16&cat2=4" target="_self">합격조회</a></li> -->
+					
+					
+                    </ul>
+                </div>
+            </div><!-- top_secondmenu_wrap -->
+        </div><!-- top_wrap -->
+    
+    </div><!-- header_container -->
+    
+    
+    
+    <div class="ipsi_sitemap_wrap" id="sitemap" style="display: none; z-index: 998;">
+		<div class="ipsi_sitemap">
+			<h4>전남과학대학교 입시센터 사이트맵</h4>
+			<span onclick="javascript:toggleSitemap()"><img src="./img/close_wh.png" alt="close" /></span>
+			<ul>
+				<li onmouseover="javascript:menuHover('on', 1)" onmouseout="javascript:menuHover('off', 1)"><a id="topmenu_1" href="javascript:void(0)" onclick="javascript:menuClick(1)">수시1차</a>
+					<ul id="mobile_sub_1">
+	                    <li><a href="contents.cntu?searchMojib=1&cat1=11&cat2=1" target="_self">모집요강</a></li>
+	                    <li><a href="contents.cntu?searchMojib=1&cat1=11&cat2=6" target="_self">모집단위</a></li>
+	                    <li><a href="contents.cntu?searchMojib=1&cat1=11&cat2=7&page=4" target="_self">전형일정</a></li>
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=1&cat1=11&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=1&cat1=11&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=1&cat1=11&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                    </ul>
+                </li>
+				<li onmouseover="javascript:menuHover('on', 2)" onmouseout="javascript:menuHover('off', 2)"><a id="topmenu_2" href="javascript:void(0)" onclick="javascript:menuClick(2)">수시2차</a>
+					<ul id="mobile_sub_2">
+						<li><a href="contents.cntu?searchMojib=2&cat1=12&cat2=1" target="_self">모집요강</a></li>
+	                    <li><a href="contents.cntu?searchMojib=2&cat1=12&cat2=6" target="_self">모집단위</a></li>
+	                    <li><a href="contents.cntu?searchMojib=2&cat1=12&cat2=7&page=4" target="_self">전형일정</a></li>
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=2&cat1=12&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=2&cat1=12&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=2&cat1=12&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+					</ul>
+             	 </li>
+              	 <li onmouseover="javascript:menuHover('on', 3)" onmouseout="javascript:menuHover('off', 3)"><a id="topmenu_3" href="javascript:void(0)" onclick="javascript:menuClick(3)">정시</a>
+                    <ul id="mobile_sub_3">
+                        <li><a href="contents.cntu?searchMojib=3&cat1=13&cat2=1" target="_self">모집요강</a></li>
+	                    <li><a href="contents.cntu?searchMojib=3&cat1=13&cat2=6" target="_self">모집단위</a></li>
+	                    <li><a href="contents.cntu?searchMojib=3&cat1=13&cat2=7&page=4" target="_self">전형일정</a></li>
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=3&cat1=13&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=3&cat1=13&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=3&cat1=13&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                    </ul>
+                 </li>
+                 <li onmouseover="javascript:menuHover('on', 4)" onmouseout="javascript:menuHover('off', 4)"><a id="topmenu_4" href="javascript:void(0)" onclick="javascript:menuClick(4)">산업체위탁</a>
+                    <ul id="mobile_sub_4">
+						<li><a href="contents.cntu?searchMojib=4&cat1=14&cat2=1" target="_self">모집요강</a></li>
+	                    <li><a href="contents.cntu?searchMojib=4&cat1=14&cat2=6" target="_self">모집단위</a></li>
+	                    <li><a href="contents.cntu?searchMojib=4&cat1=14&cat2=7&page=4" target="_self">전형일정</a></li>
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=4&cat1=14&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=4&cat1=14&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=4&cat1=14&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+                    </ul>
+                 </li>
+                 <li onmouseover="javascript:menuHover('on', 5)" onmouseout="javascript:menuHover('off', 5)"><a id="topmenu_5" href="javascript:void(0)" onclick="javascript:menuClick(5)">전공심화</a>
+                    <ul id="mobile_sub_5">
+						<li><a href="contents.cntu?searchMojib=5&cat1=15&cat2=1" target="_self">모집요강</a></li>
+	                    <li><a href="contents.cntu?searchMojib=5&cat1=15&cat2=6" target="_self">모집단위</a></li>
+	                    <li><a href="contents.cntu?searchMojib=5&cat1=15&cat2=7&page=4" target="_self">전형일정</a></li>
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=5&cat1=15&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=5&cat1=15&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=5&cat1=15&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+					</ul>
+                 </li>
+                 <li onmouseover="javascript:menuHover('on', 6)" onmouseout="javascript:menuHover('off', 6)"><a id="topmenu_6" href="javascript:void(0)" onclick="javascript:menuClick(6)">전문기술석사</a>
+                    <ul id="mobile_sub_6">
+						<li><a href="contents.cntu?searchMojib=7&cat1=17&cat2=1" target="_self">모집요강</a></li>
+	                    <li><a href="contents.cntu?searchMojib=7&cat1=17&cat2=6" target="_self">모집단위</a></li>
+	                    <li><a href="contents.cntu?searchMojib=7&cat1=17&cat2=7&page=4" target="_self">전형일정</a></li>
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=7&cat1=17&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=7&cat1=17&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=7&cat1=17&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+					</ul>
+                 </li>
+                 <li onmouseover="javascript:menuHover('on', 7)" onmouseout="javascript:menuHover('off', 7)"><a id="topmenu_7" href="javascript:void(0)" onclick="javascript:menuClick(7)">편입학</a>
+                    <ul id="mobile_sub_7">
+						<li><a href="contents.cntu?searchMojib=8&cat1=18&cat2=1" target="_self">모집요강</a></li>
+	                    <li><a href="contents.cntu?searchMojib=8&cat1=18&cat2=6" target="_self">모집단위</a></li>
+	                    <li><a href="contents.cntu?searchMojib=8&cat1=18&cat2=7&page=4" target="_self">전형일정</a></li>
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=8&cat1=18&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=8&cat1=18&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=8&cat1=18&cat2=4" target="_self">자주 묻는 질문</a></li> -->
+					</ul>
+                 </li>
+                 <li onmouseover="javascript:menuHover('on', 8)" onmouseout="javascript:menuHover('off', 8)"><a id="topmenu_8" href="javascript:void(0)" onclick="javascript:menuClick(8)">e-MU</a>
+                    <ul id="mobile_sub_8">
+						<li><a href="contents.cntu?searchMojib=9&cat1=19&cat2=1" target="_self">모집요강</a></li>
+	                    <li><a href="contents.cntu?searchMojib=9&cat1=19&cat2=6" target="_self">모집단위</a></li>
+	                    <li><a href="contents.cntu?searchMojib=9&cat1=19&cat2=7&page=4" target="_self">전형일정</a></li>
+						<!-- <li><a href="board.cntu?mode=board&boardType=library&searchMojib=9&cat1=19&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=9&cat1=19&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=9&cat1=19&cat2=4" target="_self">자주 묻는 질문</a></li>  -->
+					</ul>
+                 </li>
+                <li onmouseover="javascript:menuHover('on', 9)" onmouseout="javascript:menuHover('off', 9)"><a id="topmenu_9" href="javascript:void(0)" onclick="javascript:menuClick(9)">입학도우미</a>
+					<ul id="mobile_sub_9">
+						<!-- <li><a href="board.cntu?mode=board&boardType=news&cat1=16&cat2=1" target="_self">새소식</a></li> -->
+						<li><a href="board.cntu?mode=board&boardType=notice&searchMojib=9&cat1=19&cat2=3" target="_self">공지사항</a></li>
+						<li><a href="board.cntu?mode=qna&cat1=16&cat2=5" target="_self">입시상담</a></li>
+						<li><a href="board.cntu?mode=board&boardType=library&searchMojib=9&cat1=19&cat2=2" target="_self">자료실</a></li>
+						<li><a href="board.cntu?mode=faq&searchMojib=9&cat1=19&cat2=4" target="_self">자주 묻는 질문</a></li>
+						<li><a href="iphak.cntu?mode=bunho&cat1=16&cat2=2" target="_self">수험번호 찾기</a></li>
+						<li><a href="iphak.cntu?mode=wonseo&cat1=16&cat2=3" target="_self">원서접수 확인</a></li>
+						<li><a href="iphak.cntu?mode=balpyo&cat1=16&cat2=4" target="_self">합격조회</a></li>
+					
+					
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	
+	
+
+    
+    
+  
+      
+     <div class="quick_btn_wrap">
+    	<div class="quick_btn">
+    		<ul>
+    			<li><span style="font-size: 19px; color: #ffffff;">퀵 메뉴</span></li>
+    			<!--<li><a href="https://apply.jinhakapply.com/Notice/4131032/A" target="_blank" title=""><img src="img/jinhak.jpg" alt="진학사 아이콘" />수시 2차<br>원서접수처</a></li>-->
+				<!--<li style="cursor: pointer;"><a onclick="javascript:ipsiFileDown('org_wonseo.pdf')" style="    background: linear-gradient(350deg, rgb(252 255 52) 21%, rgb(237 100 76) 100%) !important;"><img src="img/quick04.png" alt="수시·정시" />수시·정시<br>입학원서</a></li>-->
+				<li style="cursor: pointer;"><a onclick="window.open('https://app.cntu.ac.kr/ipsi/special_incrpr_mosy.do')" style="    background: linear-gradient(350deg, rgb(252 255 52) 21%, rgb(237 100 76) 100%) !important;"><img src="img/quick04.png" alt="원서접수" />원서접수</a></li>
+				<!-- <li style="cursor: pointer;"><a onclick="javascript:alert('준비중입니다.');" style="    background: linear-gradient(350deg, rgb(252 255 52) 21%, rgb(237 100 76) 100%) !important;"><img src="img/quick04.png" alt="원서접수" />원서접수</a></li> -->
+    			<li><a href="https://www.cntu.ac.kr/board.es?mid=a60401000000&bid=0283&list_no=31606&act=view" target="_blank" title=""><img src="img/dormitory.png" alt="기숙사 아이콘" />기숙사 안내</a></li> 
+    			<li><a href="https://www.cntu.ac.kr/menu.es?mid=a20506010000" target="_blank" title=""><img src="img/school_bus.png" alt="스쿨버스 아이콘" />스쿨버스 노선</a></li>  
+				<li><a href="https://www.emu.ac.kr/hmpg/main/entsch/RceptIntro.do" target="_blank" title=""><img src="img/EMU.png" alt="e-MU아이콘" />e-MU 접수</a></li>
+    		</ul>
+    	</div>
+    </div>
+    
+   <!-- 
+    <div class="mquick_btn_wrap">
+    	<div class="mquick_btn">
+    		<ul>
+    			<li onclick="javascript:toggleQuick()">인터넷<br>원서접수처</li>
+    				<ul id="quick_ul">
+		    			<li><a href="https://ipsi2.uwayapply.com/coll/chunnam-c/?CHA=1" target="_blank" title=""><img src="img/uway.jpg" alt="유웨이 아이콘" /></a></li>
+		    			<li><a href="https://apply.jinhakapply.com/Notice/4131024/A" target="_blank" title=""><img src="img/jinhak.jpg" alt="진학사 아이콘" /></a></li>
+    				</ul>
+    			</li>
+    		</ul>
+    	</div>
+    </div>
+    -->
+
+	
+	<div class="ipsi_container">
+		<div class="ipsi_wrap">
+			<div class="ipsi_01">
+				<ul id="main_slider">
+				
+					<li><a href="#none;" target="_self"><img src="upload/banner1/banner1_1788150328596.png" alt="배너" /></a></li>
+				
+					<li><a href="https://www.cntu.ac.kr/menu.es?mid=a20406010000" target="_self"><img src="upload/banner1/banner1_1743991976426.jpg" alt="배너" /></a></li>
+				
+					<li><a href="#" target="_self"><img src="upload/banner1/banner1_1631766342676.png" alt="배너" /></a></li>
+				
+					<li><a href="#" target="_self"><img src="upload/banner1/banner1_1760320720449.png" alt="배너" /></a></li>
+				
+					<li><a href="#" target="_self"><img src="upload/banner1/banner1_1759210935266.png" alt="배너" /></a></li>
+				
+				</ul>
+				<div id="bx-pager1">
+				
+				<a data-slide-index="0" href="#">0</a>
+				
+				<a data-slide-index="1" href="#">1</a>
+				
+				<a data-slide-index="2" href="#">2</a>
+				
+				<a data-slide-index="3" href="#">3</a>
+				
+				<a data-slide-index="4" href="#">4</a>
+				
+			    </div>
+			</div>
+				<div class="ipsi_right_col">
+
+	<!-- ★ ipsi_02 : 4×2 퀵메뉴 그리드 ★ 아이콘: Feather Icons (MIT License) - https://feathericons.com-->
+	<div class="ipsi_02">
+
+		<!-- 1. 모집요강 -->
+		<div class="qmenu-item qm-1" onclick="window.open('contents.cntu?searchMojib=1&cat1=11&cat2=1', '_blank')">
+			<div class="qmenu-icon">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M9 12h6M9 16h6M7 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/>
+					<rect x="7" y="2" width="10" height="4" rx="1"/>
+				</svg>
+			</div>
+			<span class="qmenu-label">모집요강</span>
+		</div>
+
+		<!-- 2. 원서접수 -->
+		<div class="qmenu-item qm-3" onclick="window.open('https://app.cntu.ac.kr/ipsi/special_incrpr_mosy.do')">
+		<!-- <div class="qmenu-item qm-3" onclick="javascript:alert('준비중입니다.');"> -->
+			<div class="qmenu-icon">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+					<polyline points="22 4 12 14.01 9 11.01"/>
+				</svg>
+			</div>
+			<span class="qmenu-label">원서접수</span>
+		</div>
+
+		<!-- 3. 원서접수 조회 -->
+		<div class="qmenu-item qm-4" onclick="window.open('https://app.cntu.ac.kr/ipsi/recept_check_mosy.do')">
+			<div class="qmenu-icon">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+					<circle cx="12" cy="7" r="4"/>
+				</svg>
+			</div>
+			<span class="qmenu-label">원서접수 조회</span>
+		</div>
+
+		<!-- 4. 합격자조회 -->
+		<div class="qmenu-item qm-2" onclick="window.open('https://app.cntu.ac.kr/ipsi/psexam_check_mosy.do')">
+			<div class="qmenu-icon">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+					<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+				</svg>
+			</div>
+			<span class="qmenu-label">합격자조회</span>
+		</div>
+
+		
+
+		<!-- 6. 예치금납부 -->
+		<div class="qmenu-item qm-6" onclick="window.open('https://app.cntu.ac.kr/ipsi/psexam_check_mosy.do')">
+			<div class="qmenu-icon">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+					<polyline points="9 22 9 12 15 12 15 22"/>
+				</svg>
+			</div>
+			<span class="qmenu-label">예치금</br>0원등록</span>
+		</div>
+
+		<!-- 7. 등록조회 -->
+		<div class="qmenu-item qm-7" onclick="window.open('https://app.cntu.ac.kr/ipsi/pay_check_mosy.do')">
+			<div class="qmenu-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<polyline points="9 11 12 14 22 4"></polyline>
+					<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+				</svg>
+			</div>
+			<span class="qmenu-label">등록조회</span>
+		</div>
+
+		<!-- 8. 등록포기 -->
+		<div class="qmenu-item qm-8" onclick="window.open('https://app.cntu.ac.kr/ipsi/pay_check_mosy.do')">
+			<div class="qmenu-icon">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M22.61 16.95A5 5 0 0 0 18 10h-1.26a8 8 0 0 0-7.05-6M5 5a8 8 0 0 0 4 15h9a5 5 0 0 0 1.7-.3"/>
+					<line x1="1" y1="1" x2="23" y2="23"/>
+				</svg>
+			</div>
+			<span class="qmenu-label">등록포기</span>
+		</div>
+
+		<!-- 5. 스쿨버스 노선 -->
+		<div class="qmenu-item qm-5" onclick="window.open('https://www.cntu.ac.kr/menu.es?mid=a20506010000')">
+			<div class="qmenu-icon">
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<rect x="2" y="7" width="20" height="14" rx="2"/>
+					<path d="M16 21v-4M8 21v-4M2 11h20M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/>
+					<circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/>
+				</svg>
+			</div>
+			<span class="qmenu-label">스쿨버스 노선</span>
+		</div>
+
+
+	</div><!-- /ipsi_02 -->
+
+
+				<!-- 전화번호 섹션 -->
+				<a href="tel:1588-5051" class="ipsi_phone">
+					<div class="phone-inner">
+						<div class="phone-icon">
+							<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37a2 2 0 0 1 1.99-2.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.08 6.08l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+							</svg>
+						</div>
+						<div class="phone-text">
+							<span class="phone-label">입학문의</span>
+							<span class="phone-number">1588-5051, 061-360-5050~1</span>
+						</div>
+					</div>
+				</a>
+
+				<!-- 카카오톡 채팅 섹션 -->
+				<div class="ipsi_kakao" onclick="window.open('https://pf.kakao.com/_ZCgFxj/chat')">
+					<div class="kakao-inner">
+						<div class="kakao-logo">
+							<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#FEE500">
+								<path d="M12 3C6.48 3 2 6.69 2 11.25c0 2.88 1.7 5.42 4.29 6.97L5.25 21l4.15-2.07A11.45 11.45 0 0 0 12 19.5c5.52 0 10-3.69 10-8.25S17.52 3 12 3z"/>
+							</svg>
+						</div>
+						<div class="kakao-text">
+							<span class="kakao-sub">실시간 카카오톡 채팅 상담</span>
+							<span class="kakao-main">1:1 채팅 상담 시작하기</span>
+						</div>
+						<span class="kakao-arrow">→</span>
+					</div>
+				</div>
+
+			</div><!-- /ipsi_right_col -->
+
+			<div class="ipsi_03">
+				<div class="ipsi_03_wrap">
+					<ul class="tab_name">
+						<li id="tab_notice" class="active" onclick="javascript:clickMainTab('')">공지사항</li>
+					<!--<li id="tab_notice1" onclick="javascript:clickMainTab('1')">수시1차</li>
+						<li id="tab_notice2" onclick="javascript:clickMainTab('2')">수시2차</li> 
+						<li id="tab_notice3" onclick="javascript:clickMainTab('3')">정시</li>
+						<li id="tab_notice4" onclick="javascript:clickMainTab('4')">산업체위탁</li>
+						<li id="tab_notice5" onclick="javascript:clickMainTab('5')">전공심화</li>
+						<li id="tab_notice6" onclick="javascript:clickMainTab('6')">전문기술석사</li>  -->	
+					</ul>
+					
+					<!-- 새소식 목록 -->
+					
+					        
+					<!-- 공지 전체 -->
+					<div class="ipsi_notice" id="list_notice">  
+					
+						<div class="notice_new"
+							onclick="javascript:location.href='board.cntu?mode=board_view&boardType=notice&searchMojib=1&cat1=11&cat2=3&pageNum=1&searchType=all&searchText=&board_seq=3226'">
+							<h6>전남과학대학교 외국인 입학전형 제출서류 안내</h6>
+							
+							<p>전남과학대학교 외국인 입학전형 제출서류를 안내합니다.순수외국인 모집관련 문의사항은 입시홍보센터 061-360-5050, 5051로 연락 주시기 바랍니다.감사합니다.&nbsp;&nbsp;</p>
+							<span>26.09.02</span>
+						</div>
+						<ul>
+						
+							<li><a href="board.cntu?mode=board_view&boardType=notice&searchMojib=1&cat1=11&cat2=3&pageNum=1&searchType=all&searchText=&board_seq=3225">2027학년도 전남과학대학교 신입생 모집요강</a><span>26.08.20</span></li>
+						
+							<li><a href="board.cntu?mode=board_view&boardType=notice&searchMojib=1&cat1=11&cat2=3&pageNum=1&searchType=all&searchText=&board_seq=3224">[편입학]2026학년도 9월 특별편입학 모집요강</a><span>26.07.28</span></li>
+						
+							<li><a href="board.cntu?mode=board_view&boardType=notice&searchMojib=1&cat1=11&cat2=3&pageNum=1&searchType=all&searchText=&board_seq=3223">[편입학]2026학년도 9월 특별편입학 모집요강</a><span>26.07.22</span></li>
+						
+							<li><a href="board.cntu?mode=board_view&boardType=notice&searchMojib=1&cat1=11&cat2=3&pageNum=1&searchType=all&searchText=&board_seq=3222">2027학년도 전남과학대학교 신입생 모집요강</a><span>26.06.29</span></li>
+						
+						</ul>
+					
+					</div>
+
+					
+					<!-- 공지(수시1차) -->
+					<div class="ipsi_notice" id="list_notice1" style="display: none;">
+					
+					</div>
+					
+					<!-- 공지(수시2차) -->
+					<div class="ipsi_notice" id="list_notice2" style="display: none;">
+					
+					</div>
+					
+					<!-- 공지(정시) -->
+					<div class="ipsi_notice" id="list_notice3" style="display: none;">
+					
+					</div>
+					
+					
+					
+					<!-- 공지(산업체위탁) -->
+					<div class="ipsi_notice" id="list_notice4" style="display: none;">
+					
+					</div>
+					
+					
+					<!-- 공지(전공심화) -->
+					<div class="ipsi_notice" id="list_notice5" style="display: none;" >
+					
+					</div>
+					
+					
+					<!-- 공지(전문기술석사) -->
+					<div class="ipsi_notice" id="list_notice6" style="display: none;">
+					
+					</div>
+					
+					
+					
+				</div>
+			</div>
+
+			<div class="ipsi_05">
+				<div class="ipsi_05_01" onclick="javascript:ipsiFileDown('2026indCns_wonseo.pdf')">
+					<p>산업체위탁<br>입학원서</p> 
+				</div>
+			    <!-- <div class="ipsi_05_01" onclick="javascript:ipsiFileDown('2020_won_san.pdf')"> -->
+			    <div class="ipsi_05_01" onclick="javascript:location.href='contents.cntu?searchMojib=4&cat1=14&cat2=1'">
+					<p>산업체위탁<br>모집요강</p> 
+				</div>
+				<div class="ipsi_05_02" onclick="javascript:ipsiFileDown('2026dpnMjr_wonseo.pdf')">
+					<p>전공심화<br>입학원서</p>
+				</div> 
+				<!-- <div class="ipsi_05_02" onclick="javascript:ipsiFileDown('2020_won_jun.pdf')"> -->
+				<div class="ipsi_05_02" onclick="javascript:location.href='contents.cntu?searchMojib=5&cat1=15&cat2=1'">  
+					<p>전공심화<br>모집요강</p>
+				</div>
+				<!-- <div class="ipsi_05_03" onclick="javascript:ipsiFileDown('.pdf')"> -->
+				<div class="ipsi_05_03" onclick="javascript:ipsiFileDown('2026proTech_wonseo.pdf')">
+					<p>전문기술석사<br>입학원서</p>
+				</div>
+			    <div class="ipsi_05_03" onclick="javascript:location.href='contents.cntu?searchMojib=7&cat1=17&cat2=1'">
+					<p>전문기술석사<br>모집요강</p>
+				</div>
+				<!-- <div class="ipsi_05_04" onclick="javascript:ipsiFileDown('.pdf')"> || 편입학 입학원서 : 2025_transferRcrt.pdf || 편입학 모집요강 : 2025_transferPrspc-->
+				<div class="ipsi_05_04" onclick="javascript:ipsiFileDown('2026_transferRcrt.pdf')">    
+					<p>편입학<br>입학원서</p>
+				</div>
+				<div class="ipsi_05_04" onclick="javascript:ipsiFileDown('2026_transferPrspc.pdf')">     
+					<p>편입학<br>모집요강</p> 
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+    
+
+
+<script type="text/javascript">
+/// 맨위로 스크롤
+function scrollOnTop() {
+	$('html, body').animate({scrollTop:0}, 400);
+}
+</script>
+
+    <div class="footer_wrap">
+        <div class="footer">
+            <div class="footer_info_wrap">
+                <div class="footer_menu">
+                    <ul>
+                        <li><a href="http://www.cntu.ac.kr/menu.es?mid=a20111060000" style="font-size: 13px;" target="_blank" title="찾아오시는 길">찾아오시는 길</a></li>
+                        <li><a href="http://www.cntu.ac.kr/menu.es?mid=a20613100000" style="font-size: 13px;" target="_blank" title="개인정보처리방침">개인정보처리방침</a></li>
+                        <li><a href="http://www.cntu.ac.kr/menu.es?mid=a20613110000" style="font-size: 13px;" target="_blank" title="이메일무단수집거부">이메일무단수집거부</a></li>
+                        <li><a href="http://www.cntu.ac.kr/menu.es?mid=a20613120000" style="font-size: 13px;" target="_blank" title="영상정보처리기기 운영관리방침">영상정보처리기기 운영관리방침</a></li>
+                    </ul>
+                </div><!-- footer_menu -->
+                <div class="footer_info">
+            		<img src="./img/logo_gr.png" alt="전남과학대학교" />
+                    <address style="font-size: 10px;">57500 전남광주통합특별시 곡성군 옥과면 대학로 113 전남과학대학교 061-360-5000<br>COPYRIGHT(C) 2018 CHUNNAM TECHNO UNIVERSITY ALL RESERVED.</address>
+	                <div class="footer_call">
+	                	<!--<a href="https://pf.kakao.com/_xfxbaLj" target="_blank"><img src="./img/ft_kakao.png" alt="전남과학대학교 카카오톡 채팅 상담" title="전남과학대학교 카카오톡 채팅 상담" /></a>-->
+						<a href="https://pf.kakao.com/_ZCgFxj/chat" target="_blank"><img src="./img/ft_kakao.png" alt="전남과학대학교 카카오톡 채팅 상담" title="전남과학대학교 카카오톡 채팅 상담" /></a>
+	                	<p>입시상담 1588-5051</p>
+	                	<span><b>평일</b> : 09:00~18:00</span>
+	                </div>
+                </div>
+            </div><!-- footer_info_wrap -->
+            <!-- 
+            <div class="top_mov">
+                <a href="javascript:void(0)" onclick="javascript:scrollOnTop()" title="맨위로"><span class="smallfont">▲</span>맨위로</a>
+            </div>
+             -->
+            <div class="main_medal_wrap">
+		    	<div class="main_medal">
+				    <dl>
+						<dd>
+							<img src="img/badge01.png" alt="고등직업교육 품질인증대학" title="고등직업교육 품질인증대학" />
+							<div>
+								<p>대학기관평가인증</p>
+								<span>고등직업교육평가인증원에서 사회적 신뢰를 부여하는 제도</span>
+							</div>
+						</dd>
+						<dd>
+						
+							<img src="img/badge02.png" alt="세계적 수준의 전문대학" title="세계적 수준의 전문대학" />
+							<div>
+								<p>세계적 수준의<br>전문대학(WCC)</p>
+								<span>우리나라를 대표하는 전문대학을 육성하는 사업</span>
+							</div>
+						</dd>
+						<dd>
+							<img src="img/badge03.png" alt="제303학생군사교육단" title="제303학생군사교육단" />
+		    				<div>
+			     				<p>제303학생군사<br/>교육단(RNTC)</p>
+			     				<span>전문대학 중 3개 대학이 선정 우수한 부사관 인력 배출 제도</span>
+		    				</div>
+						</dd>
+		    			<dd>
+		    				<img src="img/badge04.png" alt="한국간호교육평가원 인증" title="한국간호교육평가원 인증" />
+							<div>
+								<p>간호교육인증평가</p>
+								<span>간호교육의 적합성을 판단하고 인증하는 제도</span>
+							</div>
+						</dd>
+						<dd>
+							<img src="img/badge05.png" alt="대한민국 혁신전문대학" title="대한민국 혁신전문대학" />
+							<div>
+								<p>혁신지원사업</p>
+								<span>고등직업교육 체제 및 대학 교육 전반적인 혁신을 지원하는 사업</span>
+							</div>
+						</dd>
+						<!--
+						<dd>
+							<img src="img/badge06.png" alt="후진학 선도대학" title="후진학 선도대학" />
+							<div>
+								<p>후진학선도형</p>
+								<span>다양한 학습자 맞춤형 직업교육 및 지역사회·산업체 연계 강화 사업</span>
+							</div>
+						</dd>
+					-->
+						<dd>
+							<img src="img/badge11.png" alt="RISE사업" title="RISE사업" />
+		    				<div>
+			     				<p>RISE사업</p>
+			     				<span>RISE사업</span>
+		    				</div>
+						</dd>
+						<dd>
+							<img src="img/badge12.png" alt="마이스터대지원사업" title="마이스터대지원사업" />
+		    				<div>
+			     				<p>마이스터대지원사업</p>
+			     				<span>마이스터대지원사업</span>
+		    				</div>
+						</dd>
+						<dd>
+							<img src="img/badge13.png" alt="전문기술석사과정" title="전문기술석사과정" />
+		    				<div>
+			     				<p>전문기술석사과정</p>
+			     				<span>전문기술석사과정</span>
+		    				</div>
+						</dd>
+					</dl>
+				</div><!-- main_medal -->
+			</div><!-- main_medal_wrap end -->
+             
+        </div><!-- footer -->
+    </div><!-- footer_wrap -->
+    
+    
+    <!-- popup 배너 -->
+	<!-- <div class="pu_container" style="display: none;"> --> 
+	<div class="pu_container">
+		<div class="pu_bk"></div>		
+
+		<div class="text_popup_wrap" style="display: none;">
+		<!-- <div class="text_popup_wrap" style="height: 190px; display: none;"> -->
+		
+		
+			<div class="text_popup">
+				<ul>
+					<li>
+						<a href="#none" target="_blank">
+							<img src="img/text_popup012.png" alt="2026학년도 추가"  usemap="#map02" />
+							<!-- 
+							<h6>2020년 희망플러스 장학금 장학생 선발</h6>
+							<p>
+								◇ 기 간 : 2020.08.18 10:00 ~ 2002.09.02 17:00
+								<br>◇ 신청방법 : 서울장학재단 홈페이지 온라인 신청 후 서류 등기 우편제출
+								<br>◇ 유의사항 : <b>신청 전 공고문을 통해 선발관련 내용을 반드시 확인</b>
+							</p>
+							 -->
+					</a>
+					</li>
+					<!-- <li>
+						<a href="https://ipsi.cntu.ac.kr/contents.cntu?searchMojib=1&cat1=11&cat2=1">
+							<img src="img/text_popup02.png" alt="홍보동영상" title="자세히보기" />
+							
+							<h6>2020학년도 2학기 고졸 후학습자 장학금(희망사다리2유형) 신청안내</h6>
+							<p>
+								◇ 기 간 : 2020.08.26 ~ 2002.09.09
+								<br>◇ 신청방법 : 한국장학재단 홈페이지(http://www.kosaf.go.kr)에서 학생 직접 신청
+								<br><b> -> 학생이 SGI서울보증보험 홈페이지 가입 및 조회동의</b>
+							</p>
+							
+						</a>
+					</li>
+					 
+					<li>
+						<a href="#">
+							<img src="img/text_popup03.png" alt="인터넷원서접수처" title="자세히보기" style="display: block; width: 100%; height: auto;" usemap="#map01" />
+						</a>
+					</li>
+					
+					
+					<li>
+					    
+						<a href="https://ipsi.cntu.ac.kr/contents.cntu?searchMojib=3&cat1=13&cat2=7">
+						 <img src="img/text_popup03.png" alt="정시안내" title="자세히보기" />
+							
+						</a>
+					</li> -->
+				
+				</ul>
+			</div>
+			
+		</div>	
+		<!-- <div class="pu_contents" style="margin-top: 150px;"> -->
+		<div class="pu_contents" style="">
+			<!-- <div class="slider"> -->
+			<!--<div class="slider" style="margin-top: 100px;">-->
+			<div class="slider">
+				<ul id="popup_slider">
+				
+					<li><a href="https://ipsi.cntu.ac.kr/contents.cntu?searchMojib=1&cat1=11&cat2=1" target="_blank"><img src="upload/banner2/banner2_1788228403328.png" alt="popup banner" /></a></li>
+				
+				
+					<li><a href="#none;" target="_self"><img src="upload/banner2/banner2_1788151037490.png" alt="popup banner" /></a></li>
+				
+				
+				</ul>
+				<div class="sub_btn">
+					<input type="checkbox" value="오늘하루안보기" title="오늘하루안보기" onclick="javascript:closeDay()" />오늘 그만보기
+					<span id="btn_close"><img src="img/close.png" alt="close" /></span>
+				</div>
+			</div>
+			
+		</div>
+		<!-- 
+		<div class="pu_img">
+			<ul>
+				<li><a href="http://ipsi.cntu.ac.kr/board.cntu?mode=board_view&boardType=news&searchMojib=all&cat1=16&cat2=1&board_seq=86&pageNum=2&searchType=all&searchText="><img src="img/ipsi_popup6_01.png" onmouseover="this.src='img/ipsi_popup6_01_on.png'" onmouseout="this.src='img/ipsi_popup6_01.png'" alt="" /></a></li>
+				<li><a href="http://ipsi.cntu.ac.kr/board.cntu?mode=board_view&boardType=news&searchMojib=all&cat1=16&cat2=1&board_seq=86&pageNum=2&searchType=all&searchText="><img src="img/ipsi_popup6_02.png" onmouseover="this.src='img/ipsi_popup6_02_on.png'" onmouseout="this.src='img/ipsi_popup6_02.png'" alt="" /></a></li>
+				<li><a href="http://ipsi.cntu.ac.kr/board.cntu?mode=board_view&boardType=news&searchMojib=all&cat1=16&cat2=1&board_seq=86&pageNum=2&searchType=all&searchText="><img src="img/ipsi_popup6_03.png" onmouseover="this.src='img/ipsi_popup6_03_on.png'" onmouseout="this.src='img/ipsi_popup6_03.png'" alt="" /></a></li>
+				<li><a href="http://ipsi.cntu.ac.kr/board.cntu?mode=board_view&boardType=news&searchMojib=all&cat1=16&cat2=1&board_seq=86&pageNum=2&searchType=all&searchText="><img src="img/ipsi_popup6_04.png" onmouseover="this.src='img/ipsi_popup6_04_on.png'" onmouseout="this.src='img/ipsi_popup6_04.png'" alt="" /></a></li>
+				<li><a href="http://ipsi.cntu.ac.kr/board.cntu?mode=board_view&boardType=news&searchMojib=all&cat1=16&cat2=1&board_seq=86&pageNum=2&searchType=all&searchText="><img src="img/ipsi_popup6_05.png" onmouseover="this.src='img/ipsi_popup6_05_on.png'" onmouseout="this.src='img/ipsi_popup6_05.png'" alt="" /></a></li>
+				<li><a href="http://ipsi.cntu.ac.kr/board.cntu?mode=board_view&boardType=news&searchMojib=all&cat1=16&cat2=1&board_seq=86&pageNum=2&searchType=all&searchText="><img src="img/ipsi_popup6_06.png" onmouseover="this.src='img/ipsi_popup6_06_on.png'" onmouseout="this.src='img/ipsi_popup6_06.png'" alt="" /></a></li>
+				<li><a href="http://ipsi.cntu.ac.kr/board.cntu?mode=board_view&boardType=news&searchMojib=all&cat1=16&cat2=1&board_seq=86&pageNum=2&searchType=all&searchText="><img src="img/ipsi_popup6_07.png" onmouseover="this.src='img/ipsi_popup6_07_on.png'" onmouseout="this.src='img/ipsi_popup6_07.png'" alt="" /></a></li>
+			</ul>
+		</div>
+		 -->
+	</div>
+	
+		<map name="map01">
+               <area shape="rect" coords="5,60,150,135" href="https://ipsi2.uwayapply.com/coll/chunnam-c/?CHA=1" target="_blank" alt="유웨이 인터넷접수" title="유웨이 인터넷접수" />  
+               <area shape="rect" coords="180,60,315,135" href="https://apply.jinhakapply.com/Notice/4131024/A" target="_blank"  alt="진학사 인터넷접수" title="진학사 인터넷접수" />
+		</map>
+		<!--
+		<map name="map02">
+               <area shape="rect" coords="203,18,930,82" href="https://www.cntu.ac.kr/board.es?mid=a20601010000&bid=0004&tag=&act=view&list_no=25548" target="_blank" alt="전남과학대학교, 2024학년도부터 ‘저탄소 스마트 농업’ 전문기술석사과정 신설" title="전남과학대학교, 2024학년도부터 ‘저탄소 스마트 농업’ 전문기술석사과정 신설" />  
+               
+               <area shape="rect" coords="209,103,932,179" href="https://apply.jinhakapply.com/Notice/4131027/A" alt="정시원서접수 바로가기" title="정시원서접수 바로가기" />
+		      
+		</map>
+		--> 
+</body>
+</html>

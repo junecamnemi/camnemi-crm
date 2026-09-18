@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, target-densitydpi=medium-dpi" />
+<meta name="format-detection" content="telephone=no, address=no, email=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>외국인 신입학</title>
+<link rel="shortcut icon" href="../img/favicon.ico">
+
+
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/jquery-ui-1.12.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js/wow.min.js"></script>
+<script src="../js/jquery.mmenu.min.all.js"></script>
+<script src="../js/jquery.easing.1.3.min.js"></script>
+<script src="../js/jquery.cycle2.js"></script>
+<script src="../js/jquery.cycle2.carousel.js"></script>
+<script src="../js/jquery.rwdImageMaps.js"></script>
+<script src="../js/jquery.rwdImageMaps.min.js"></script>
+<script src="../js/menu_ibsi.js?1562203762"></script>
+<script src="../js/common_ibsi.js?1574752211"></script>
+<script src="../js/sub_menu_ibsi.js?1562203763"></script>
+
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" >
+<!-- <link rel="stylesheet" href="https://www.dhu.ac.kr/korean/js/jquery-ui-themes-1.12.1/themes/smoothness/jquery-ui.css"> -->
+<link rel="stylesheet" href="../css/ibsi_bootstrap.min.css">
+<link rel="stylesheet" href="../css/ibsi_bootstrap-theme.min.css">
+<link rel="stylesheet" href="../css/ibsi_font-awesome.min.css">
+<link rel="stylesheet" href="../css/ibsi_jquery-ui.min.css">
+<link rel="stylesheet" href="../css/ibsi_jquery.mmenu.all.css">
+<link rel="stylesheet" href="../css/ibsi_animate.css">
+<link rel="stylesheet" href="../css/ibsi_reset.css">
+<link rel="stylesheet" href="../css/ibsi_font.css">
+<link rel="stylesheet" href="../css/ibsi_board.css">
+<link rel="stylesheet" href="../css/ibsi_common.css">
+<link rel="stylesheet" href="../css/ibsi_page_set.css">
+<link rel="stylesheet" href="../css/ibsi_admission.css">
+
+
+<script>
+	new WOW().init();
+
+	$(window).on("scroll", function() {
+		if ($(window).scrollTop() > 120) {
+		$("#header").addClass("fix");
+		$("#mo-snb").addClass("fix");
+		}else {
+		$("#header").removeClass("fix");
+		$("#mo-snb").removeClass("fix");
+		}
+	});
+
+	$(document).ready(function() {
+	 $("a.page-go").anchorAnimate()
+	});
+	jQuery.fn.anchorAnimate = function(settings) {
+	  settings = jQuery.extend({
+	  speed : 600
+	 }, settings); 
+
+	 return this.each(function(){
+	  var caller = this
+	  $(caller).click(function (event) { 
+	   event.preventDefault()
+	   var locationHref = window.location.href
+	   var elementClick = $(caller).attr("href")
+
+	   var destination = $(elementClick).offset().top;
+	   $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination}, settings.speed, function() {
+		window.location.hash = elementClick
+	   });
+		 return false;
+	  })
+
+	 })
+	}
+
+	$(function(){
+		$("#btn-share").click(function(){
+			$("#share-view").fadeToggle("normal");
+		});							
+	});
+</script>
+
+<script>
+$(function() {
+  setTimeout(function(){
+	  $(".loading-wrap").fadeOut(600);
+  },0);
+  
+});
+</script>
+</head>
+<body>
+<div id="wrap" class="sbg">
+
+<div id="skipwrap" class="d_width">
+<div id="skipnavi">
+	<ul>
+	<li><a href="#content">본문 내용으로 바로가기</a></li>
+	<li><a href="#gnb">주 메뉴로 바로가기</a></li>
+	</ul>
+</div>
+</div>
+
+
+<header id="header">
+	<div class="topwrap">
+	<div class="d_width">
+		<div class="left">
+		<a href="./index.htm" class="on" title="대구한의대학교 입학안내 홈페이지">대구한의대학교 입학안내</a>
+		<a href="http://www.dhu.ac.kr/pages" target="_blank" title="(새창)대구한의대학교 대표홈페이지 이동">대구한의대학교</a>
+		</div>
+
+		<div class="right">
+				<a href="https://portal.dhu.ac.kr/user/login.face?returnURL=http://www.dhu.ac.kr/ibsi/index.htm" title="로그인 페이지로 이동">로그인</a>
+				<a href="http://portal.dhu.ac.kr" target="_blank" title="(새창)웹메일로 이동">웹메일</a>
+		</div>
+	</div>
+	</div>
+
+	<div id="gnb" class="hbg2">
+					<!-- gnbmn -->
+					<div id="gnbmn" class="d_width">
+					<div id="logo"><a href="./index.htm" title="메인 페이지로 이동" id="main_logo_id"><span class="n1"><img src="../img/logo_w.png" alt="대구한의대학교"></span><span class="n2"><img src="../img/logo.png" alt="대구한의대학교"></span></a></div>
+
+						
+					<nav id="menu">
+					
+						
+						<ul id="top1menu" class="depth1 clearfix ">			
+						<div class="title">
+							<p class="tit">더 큰 세상을 향한 도전,<br>대구한의대학교!</p>
+							<p class="txt">DAEGU HAANY UNIVERSITY</p>
+						</div>
+
+												
+				
+						<li class="Script_first_li" ><a href="./sub.htm?nav_code=ibs1636520263"   id="top1m1">수시모집</a>
+
+														<ul id="top2m1" class="depth2">
+							<!-- <p class="side-txt">DAEGU HAANY UNIVERISITY</p> -->
+							
+																					<li id="top2m1m1" ><a href="./sub.htm?nav_code=ibs1636520263"   title ='주요사항 페이지로 이동합니다.'>주요사항</a>
+												
+							</li>
+																					<li id="top2m1m2" ><a href="./sub.htm?nav_code=ibs1636683606"   title ='모집요강 페이지로 이동합니다.'>모집요강</a>
+												
+							</li>
+																					<li id="top2m1m3" ><a href="./sub.htm?nav_code=ibs1636520277"   title ='필요서식 페이지로 이동합니다.'>필요서식</a>
+												
+							</li>
+																					<li id="top2m1m4" ><a href="./sub.htm?nav_code=ibs1636684457"   title ='학생부종합전형 가이드북 페이지로 이동합니다.'>학생부종합전형 가이드북</a>
+												
+							</li>
+																					<li id="top2m1m5" ><a href="./sub.htm?nav_code=ibs1636520307"   title ='전년도 입시결과 페이지로 이동합니다.'>전년도 입시결과</a>
+												
+							</li>
+																					<li id="top2m1m6" ><a href="./sub.htm?nav_code=ibs1788911311"   title ='학과소개 페이지로 이동합니다.'>학과소개</a>
+												
+							</li>
+							
+							</ul>
+													</li>
+												
+				
+						<li class="Script_first_li" ><a href="./sub.htm?nav_code=ibs1636520314"   id="top1m2">정시모집</a>
+
+														<ul id="top2m2" class="depth2">
+							<!-- <p class="side-txt">DAEGU HAANY UNIVERISITY</p> -->
+							
+																					<li id="top2m2m1" ><a href="./sub.htm?nav_code=ibs1636520314"   title ='주요사항 페이지로 이동합니다.'>주요사항</a>
+												
+							</li>
+																					<li id="top2m2m2" ><a href="./sub.htm?nav_code=ibs1636686023"   title ='모집요강 페이지로 이동합니다.'>모집요강</a>
+												
+							</li>
+																					<li id="top2m2m3" ><a href="./sub.htm?nav_code=ibs1636520328"   title ='필요서식 페이지로 이동합니다.'>필요서식</a>
+												
+							</li>
+																					<li id="top2m2m4" ><a href="./sub.htm?nav_code=ibs1636520357"   title ='전년도 입시결과 페이지로 이동합니다.'>전년도 입시결과</a>
+												
+							</li>
+							
+							</ul>
+													</li>
+												
+				
+						<li class="Script_first_li" ><a href="./sub.htm?nav_code=ibs1636691236"   id="top1m3">편입학/특별편입학</a>
+
+														<ul id="top2m3" class="depth2">
+							<!-- <p class="side-txt">DAEGU HAANY UNIVERISITY</p> -->
+							
+																					<li id="top2m3m1" ><a href="./sub.htm?nav_code=ibs1636691236"   title ='편입학모집요강 페이지로 이동합니다.'>편입학모집요강</a>
+												
+							</li>
+																					<li id="top2m3m2" ><a href="./sub.htm?nav_code=ibs1636691241"   title ='특별편입학모집요강 페이지로 이동합니다.'>특별편입학모집요강</a>
+												
+							</li>
+																					<li id="top2m3m3" ><a href="./sub.htm?nav_code=ibs1636520425"   title ='필요서식 페이지로 이동합니다.'>필요서식</a>
+												
+							</li>
+							
+							</ul>
+													</li>
+												
+				
+						<li class="Script_first_li" ><a href="./sub.htm?nav_code=ibs1725331217"   id="top1m4">성인학습자/외국인</a>
+
+														<ul id="top2m4" class="depth2">
+							<!-- <p class="side-txt">DAEGU HAANY UNIVERISITY</p> -->
+							
+																					<li id="top2m4m1" ><a href="./sub.htm?nav_code=ibs1725331217"   title ='성인학습자 모집요강 페이지로 이동합니다.'>성인학습자 모집요강</a>
+												
+							</li>
+																					<li id="top2m4m2" class="mm-selected"><a href="./sub.htm?nav_code=ibs1636690765"   title ='외국인 신입학 페이지로 이동합니다.'>외국인 신입학</a>
+												
+							</li>
+																					<li id="top2m4m3" ><a href="./sub.htm?nav_code=ibs1636690771"   title ='외국인 편입학 페이지로 이동합니다.'>외국인 편입학</a>
+												
+							</li>
+																					<li id="top2m4m4" ><a href="./sub.htm?nav_code=ibs1636520379"   title ='필요서식 페이지로 이동합니다.'>필요서식</a>
+												
+							</li>
+							
+							</ul>
+													</li>
+												
+				
+						<li class="Script_first_li" ><a href="./sub.htm?nav_code=ibs1636526816"   id="top1m5">입시도우미</a>
+
+														<ul id="top2m5" class="depth2">
+							<!-- <p class="side-txt">DAEGU HAANY UNIVERISITY</p> -->
+							
+																					<li id="top2m5m1" ><a href="./sub.htm?nav_code=ibs1636526816"   title ='공지사항 페이지로 이동합니다.'>공지사항</a>
+												
+							</li>
+																					<li id="top2m5m2" ><a href="./sub.htm?nav_code=ibs1636526823"   title ='자주묻는 질문 페이지로 이동합니다.'>자주묻는 질문</a>
+												
+							</li>
+																					<li id="top2m5m3" ><a href="./sub.htm?nav_code=ibs1636692171"   title ='학생부성적산출 페이지로 이동합니다.'>학생부성적산출</a>
+												
+							</li>
+																					<li id="top2m5m4" ><a href="./sub.htm?nav_code=ibs1636692177"   title ='수능성적산출 페이지로 이동합니다.'>수능성적산출</a>
+												
+							</li>
+																					<li id="top2m5m5" ><a href="./sub.htm?nav_code=ibs1636526844"   title ='입학자료실 페이지로 이동합니다.'>입학자료실</a>
+												
+							</li>
+																					<li id="top2m5m6" ><a href="./sub.htm?nav_code=ibs1636526849"   title ='Q&A게시판 페이지로 이동합니다.'>Q&A게시판</a>
+												
+							</li>
+							
+							</ul>
+													</li>
+												
+				
+						<li class="Script_first_li" ><a href="./sub.htm?nav_code=ibs1636526859"   id="top1m6">대학소개</a>
+
+														<ul id="top2m6" class="depth2">
+							<!-- <p class="side-txt">DAEGU HAANY UNIVERISITY</p> -->
+							
+																					<li id="top2m6m1" ><a href="./sub.htm?nav_code=ibs1636526859"   title ='학부(과)소개 페이지로 이동합니다.'>학부(과)소개</a>
+												
+							</li>
+																					<li id="top2m6m2" ><a href="../pages/sub.htm?nav_code=dhu1574335929" target='_blank' class='ico_nw' onclick="targetLinkCounter('ibs1636526886');" title ='새창으로 대한대HOT뉴스 페이지가 열립니다.'>대한대HOT뉴스</a>
+												
+							</li>
+																					<li id="top2m6m3" ><a href="https://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1572851543" target='_blank' class='ico_nw' onclick="targetLinkCounter('ibs1636526893');" title ='새창으로 장학제도 페이지가 열립니다.'>장학제도</a>
+												
+							</li>
+																					<li id="top2m6m4" ><a href="../HOME/dhulife/" target='_blank' class='ico_nw' onclick="targetLinkCounter('ibs1636526899');" title ='새창으로 기숙사 페이지가 열립니다.'>기숙사</a>
+												
+							</li>
+																					<li id="top2m6m5" ><a href="../pages/sub.htm?nav_code=dhu1572844184" target='_blank' class='ico_nw' onclick="targetLinkCounter('ibs1636526905');" title ='새창으로 교직이수 페이지가 열립니다.'>교직이수</a>
+												
+							</li>
+																					<li id="top2m6m6" ><a href="../pages/sub.htm?nav_code=dhu1572841390" target='_blank' class='ico_nw' onclick="targetLinkCounter('ibs1636526910');" title ='새창으로 복수전공 페이지가 열립니다.'>복수전공</a>
+												
+							</li>
+																					<li id="top2m6m7" ><a href="https://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1752800624" target='_blank' class='ico_nw' onclick="targetLinkCounter('ibs1752806412');" title ='새창으로 전공자율선택제 페이지가 열립니다.'>전공자율선택제</a>
+												
+							</li>
+																					<li id="top2m6m8" ><a href="../HOME/exchange/" target='_blank' class='ico_nw' onclick="targetLinkCounter('ibs1636526915');" title ='새창으로 국제교육교류 페이지가 열립니다.'>국제교육교류</a>
+												
+							</li>
+																					<li id="top2m6m9" ><a href="../HOME/rotc/" target='_blank' class='ico_nw' onclick="targetLinkCounter('ibs1636526920');" title ='새창으로 ROTC 페이지가 열립니다.'>ROTC</a>
+												
+							</li>
+																					<li id="top2m6m10" ><a href="../pages/sub.htm?nav_code=dhu1638255132" target='_blank' class='ico_nw' onclick="targetLinkCounter('ibs1636526925');" title ='새창으로 캠퍼스안내도 페이지가 열립니다.'>캠퍼스안내도</a>
+												
+							</li>
+																					<li id="top2m6m11" ><a href="../VR/campus_map.html" target='_blank' class='ico_nw' onclick="targetLinkCounter('ibs1657780291');" title ='새창으로 캠퍼스 VR-Tour 페이지가 열립니다.'>캠퍼스 VR-Tour</a>
+												
+							</li>
+																					<li id="top2m6m12" ><a href="../pages/sub.htm?nav_code=dhu1574303246" target='_blank' class='ico_nw' onclick="targetLinkCounter('ibs1636526931');" title ='새창으로 찾아오시는길 페이지가 열립니다.'>찾아오시는길</a>
+												
+							</li>
+							
+							</ul>
+													</li>
+						
+						</ul>
+						</nav>
+
+						<div class="topmn">
+							<div class="left">
+														<a href="https://portal.dhu.ac.kr/user/login.face?returnURL=http://www.dhu.ac.kr/admission/sub.htm" title="로그인 페이지로 이동"><img src="../img/ibsi/loginico.png" alt="로그인 이미지"></a>
+														</div>
+
+							<div class="right">
+							<a href="./sub.htm?nav_code=ibs1636531949" id="pc-navicon" title="사이트맵 페이지로 이동"></a>
+							<a href="#menu" id="mobile-navicon" title="메뉴"></a>
+							</div>
+							
+						</div>
+
+					</div>					
+					<!-- gnbmn -->
+					<div id="id_gnb_bg" class="gnb_bg"></div>
+	</div>
+	
+</header>	
+
+<script> var wfBypassCheck = false;var wfContext = '';</script>
+<script type="text/javascript">
+	// 중복 로딩 방지용 헬퍼
+	function isScriptLoaded(partialName) {
+		var scripts = document.getElementsByTagName('script');
+		for (var i = 0; i < scripts.length; i++) {
+			if (scripts[i].src && scripts[i].src.indexOf(partialName) !== -1) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	// jquery-ui 관련 파일이 로딩되었는지 확인 (버전 포함 혹은 min 포함 시도 방지)
+	function isJqueryUiLoaded() {
+		var scripts = document.getElementsByTagName('script');
+		for (var i = 0; i < scripts.length; i++) {
+			var src = scripts[i].src;
+			if (src && src.indexOf('jquery-ui') !== -1) {
+				// 버전번호 또는 min 파일이 이미 로딩된 경우 → 로딩 불필요
+				if (src.match(/jquery-ui(\.min)?(\.js)?(\?|\#|$)/) || src.match(/jquery-ui[\.\-]([0-9]+)/)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	function loadScript(src, callback) {
+		if (isScriptLoaded(src)) {
+			if (typeof callback === 'function') callback();
+			return;
+		}
+		var script = document.createElement('script');
+		script.src = src;
+		script.charset = 'UTF-8';
+		script.onload = (typeof callback === 'function') ? callback : function () {};
+		document.head.appendChild(script);
+	}
+
+	function loadStyle(href) {
+		if (document.querySelector('link[href="' + href + '"]')) return;
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.href = href;
+		document.head.appendChild(link);
+	}
+
+	function loadWebFilterResources(withJQuery, onComplete) {
+		var loadCoreScripts = function () {
+			if (!isJqueryUiLoaded()) {
+				loadScript(wfContext + '/webfilter/js/jquery-ui.js', function () {
+					loadStyle(wfContext + '/webfilter/css/webfilter.css');
+					loadScript(wfContext + '/webfilter/js/webfilter.js', function () {
+						if (typeof onComplete === 'function') onComplete();
+					});
+				});
+			} else {
+				loadStyle(wfContext + '/webfilter/css/webfilter.css');
+				loadScript(wfContext + '/webfilter/js/webfilter.js', function () {
+					if (typeof onComplete === 'function') onComplete();
+				});
+			}
+		};
+
+		if (withJQuery) {
+			loadScript(wfContext + '/webfilter/js/jquery-1.11.3.min.js', loadCoreScripts);
+		} else {
+			loadCoreScripts();
+		}
+	}
+
+	try {
+		var needsOldJQuery = true;
+		if (typeof jQuery !== 'undefined' && jQuery.fn && jQuery.fn.jquery) {
+			var version = jQuery.fn.jquery.split('.');
+			var major = parseInt(version[0], 10);
+			var minor = parseInt(version[1], 10);
+			needsOldJQuery = isNaN(major) || isNaN(minor) || (major < 1 || (major === 1 && minor < 6));
+		}
+		loadWebFilterResources(needsOldJQuery);
+	} catch (e) {
+		// fallback
+		loadWebFilterResources(true);
+	}
+</script>
+<div class="sub-visual">
+	<div class="svbg bg4"></div>
+	<div class="d_width">
+	<p class="svtit"><span class="tit">성인학습자/외국인</span></p>
+	<!-- <a href="#content" class="fast-btn fas fa-arrow-down"></a> -->
+	</div>
+</div>
+<div id="location-wrap">
+	<div class="d_width" id="submn">
+		<div class="location" id="sub_menu">
+			<ul class="depth1 clearfix" id="location-ul">
+			<li class="home"><a href="./index.htm" title="홈으로 이동합니다."></a></li>
+			
+			<li class="sub_first_li"><span><a href="#" id="sub_menu_01">성인학습자/외국인</a></span>
+				<ul class="depth4_1">
+								<li><a href="./sub.htm?nav_code=ibs1636520263"   title="수시모집 페이지로 이동합니다.">수시모집</a></li>
+								<li><a href="./sub.htm?nav_code=ibs1636520314"   title="정시모집 페이지로 이동합니다.">정시모집</a></li>
+								<li><a href="./sub.htm?nav_code=ibs1636691236"   title="편입학/특별편입학 페이지로 이동합니다.">편입학/특별편입학</a></li>
+								<li class='on'><a href="./sub.htm?nav_code=ibs1725331217"   title="성인학습자/외국인 페이지로 이동합니다.">성인학습자/외국인</a></li>
+								<li><a href="./sub.htm?nav_code=ibs1636526816"   title="입시도우미 페이지로 이동합니다.">입시도우미</a></li>
+								<li><a href="./sub.htm?nav_code=ibs1636526859"   title="대학소개 페이지로 이동합니다.">대학소개</a></li>
+								</ul>
+			</li>
+
+			
+			
+			<li class="sub_sec_li"><span><a href="#" id="sub_menu_02">외국인 신입학</a></span>
+				<ul class="depth4_2">
+								<li><a href="./sub.htm?nav_code=ibs1725331217"   title ='성인학습자 모집요강 페이지로 이동합니다.'>성인학습자 모집요강</a></li>
+								<li class='on'><a href="./sub.htm?nav_code=ibs1636690765"   title ='외국인 신입학 페이지로 이동합니다.'>외국인 신입학</a></li>
+								<li><a href="./sub.htm?nav_code=ibs1636690771"   title ='외국인 편입학 페이지로 이동합니다.'>외국인 편입학</a></li>
+								<li><a href="./sub.htm?nav_code=ibs1636520379"   title ='필요서식 페이지로 이동합니다.'>필요서식</a></li>
+								</ul>
+			</li>
+			
+			
+			</ul>
+		</div>
+
+		<div id="pnb">
+			<div class="pnb_bx">
+			<ul>
+			<li><a href="#null" onclick="zoomFont(1);return false;" onkeypress="if(event.keyCode == 13){this.onclick}" title="글씨크기를 확대합니다">+</a></li>
+			<li><a href="#null" onclick="zoomFont(0);return false;" onkeypress="if(event.keyCode == 13){this.onclick}" title="글씨크기를 기본값으로 합니다">A</a></li>
+			<li><a href="#null" onclick="zoomFont(-1);return false;" onkeypress="if(event.keyCode == 13){this.onclick}" title="글씨크기를 축소합니다">-</a></li>
+			<li><a href="#null" onclick="contentPrint(1);return false;" onkeypress="if(event.keyCode == 13){this.onclick}" title="새창을 띄워 화면을 프린트합니다"><img src="../img/ibsi/btn_print.png" alt="인쇄" class="hand"/></a></li>
+			</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+<!--
+$(document).ready(function()  
+{  
+	i=0;
+	loc_num = $('#location-ul > li').length;
+	$('#location-ul > li').each(function(){
+		i++;
+		if(i != loc_num && i > 1){
+			$(this).addClass('mobile_none');
+		}		
+	});
+}); 	
+//-->
+</script><!-- container -->
+<section id="container">
+<div class="d_width sub-section sub-type4">
+	<div id="snb">
+	<h2>성인학습자/외국인</h2>
+
+	
+	<div id="snbmn">
+		<ul id="snb2m">
+				<li id="snb2m1"><a href="./sub.htm?nav_code=ibs1725331217"  title ='성인학습자 모집요강 페이지로 이동합니다.'>성인학습자 모집요강</a>
+					</li>
+				<li id="snb2m2"><a href="./sub.htm?nav_code=ibs1636690765"  title ='외국인 신입학 페이지로 이동합니다.'>외국인 신입학</a>
+					</li>
+				<li id="snb2m3"><a href="./sub.htm?nav_code=ibs1636690771"  title ='외국인 편입학 페이지로 이동합니다.'>외국인 편입학</a>
+					</li>
+				<li id="snb2m4"><a href="./sub.htm?nav_code=ibs1636520379"  title ='필요서식 페이지로 이동합니다.'>필요서식</a>
+					</li>
+				</ul>
+	</div>
+	<script type="text/javascript">initsnbMenu(2,0);</script>
+			<div class="snb-bnr mtp20">
+						<!-- <a href="javascript:alert('현재 신청기간이 아닙니다.\n기타 문의사항은 아래의 Q&A 게시판을 이용해 주시기 바랍니다.')" class="bg1 mbx" title="입시자료신청 페이지로 이동">입시자료신청</a>-->
+		<a href="./sub.htm?nav_code=ibs1636940202" class="bg1 mbx" title="입시자료신청 페이지로 이동">입시자료신청</a>
+		<a href="./sub.htm?nav_code=ibs1636526844" class="bg2 mbx" title="입학자료실 페이지로 이동">입학자료실</a>
+		<a href="./sub.htm?nav_code=ibs1636526849" class="bg3 mbx" title="입시Q&A 페이지로 이동">입시Q&A</a>
+	</div>
+</div>	<div id="content" >
+		<div id="body_head" class="clearfix">
+	<h1>외국인 신입학</h1>
+</div>		<div id="body_content">
+												
+				
+				
+								
+
+	
+	
+	<style>
+		#container .aside-wrap	{display:none;}
+		.pdf_menu{overflow:auto; width:24%; height:100%; border-top:2px solid #007a66;}
+		.pdf_menu>ul>li{border-bottom:1px solid #ddd;}
+		.pdf_menu>ul>li>a{display:block; padding:0.8em 0.5em; color:#444; font-weight:500;}
+		.pdf_menu>ul>li>a:hover,
+		.pdf_menu>ul>li>a.on{color:#3AA382;}
+		
+		@media only screen and (max-width:1440px){
+			#content{width:980px !important;}
+		}
+		@media only screen and (max-width: 1239px){
+			#content{width:100% !important;}
+		}
+		@media only screen and (max-width:767px){
+			.pdf_menu{display:none;}
+			.moview{width:100% !important;}
+		}
+	</style>
+
+	<script>
+	$(document).ready(function(){
+		$("#content").css("width", "1120px");
+	});
+
+	function viewPdfjs(pageNumber, id) {
+		var $iframe = $('#pdf_object1');
+		var iframeWindow = $iframe.prop('contentWindow'); 
+
+		if (!iframeWindow) {
+			console.error("iframe contentWindow에 접근할 수 없습니다.");
+			return;
+		}
+
+		$(".pdf_index").removeClass("on");
+		$("#"+id).addClass("on");
+
+		try {
+			var pdfViewerApp = iframeWindow.PDFViewerApplication;
+			if (pdfViewerApp) {
+				pdfViewerApp.page = pageNumber;
+			} else {
+			}
+		} catch (e) {
+		}
+	}
+	</script>
+
+	
+		<div class="mbp20 tar">
+			<a href="../data/bbsData/202607131608216a548ee5791b8.pdf#scrollbar=1&toolbar=1&statusbar=0&navpanes=0&zoom=100" target="_blank" class="btn_d btn_dgray btn_small" title="(새창) pdf 페이지가 열립니다.">전체화면으로 보기</a>
+						<a href="../bbs/bbs_download.php?mv_data=aWR4PTQmdGFibGU9Y3NfaWJzaV9wZGY=||&download=hwp&type=0" class="btn_d btn_gray btn_small" title="HWP파일이 다운로드됩니다.">HWP파일 다운로드</a>
+									<a href="../bbs/bbs_download.php?mv_data=aWR4PTQmdGFibGU9Y3NfaWJzaV9wZGY=||&download=h" class="btn_d btn_gray btn_small" title="PDF파일이 다운로드됩니다.">PDF파일 다운로드</a>
+									<a href="http://get.adobe.com/kr/reader/" target="_blank" class="btn_d btn_small" title="(새창) PDF뷰어 다운로드 페이지로 이동합니다.">PDF뷰어 다운로드</a>
+		</div>
+	
+									<div style="display:flex;justify-content: space-between;">
+				<div class="pdf_menu">
+					<ul>
+												<li><a href="#" onclick="viewPdfjs(3,'pdf_index_15');return false;" id="pdf_index_15" class="pdf_index ">1. 전형일정</a></li>
+												<li><a href="#" onclick="viewPdfjs(3,'pdf_index_16');return false;" id="pdf_index_16" class="pdf_index ">2. 모집단위별 모집인원</a></li>
+												<li><a href="#" onclick="viewPdfjs(4,'pdf_index_17');return false;" id="pdf_index_17" class="pdf_index ">3. 지원자격 및 어학능력기준</a></li>
+												<li><a href="#" onclick="viewPdfjs(5,'pdf_index_18');return false;" id="pdf_index_18" class="pdf_index ">4. 전형방법</a></li>
+												<li><a href="#" onclick="viewPdfjs(5,'pdf_index_19');return false;" id="pdf_index_19" class="pdf_index ">5. 선발기준</a></li>
+												<li><a href="#" onclick="viewPdfjs(5,'pdf_index_20');return false;" id="pdf_index_20" class="pdf_index ">6. 전형료</a></li>
+												<li><a href="#" onclick="viewPdfjs(6,'pdf_index_21');return false;" id="pdf_index_21" class="pdf_index ">7. 제출서류 (원서접수)</a></li>
+												<li><a href="#" onclick="viewPdfjs(7,'pdf_index_22');return false;" id="pdf_index_22" class="pdf_index ">8. 제출서류 (비자관련)</a></li>
+												<li><a href="#" onclick="viewPdfjs(8,'pdf_index_23');return false;" id="pdf_index_23" class="pdf_index ">9. 지원자 유의사항</a></li>
+												<li><a href="#" onclick="viewPdfjs(8,'pdf_index_24');return false;" id="pdf_index_24" class="pdf_index ">10. 등록포기 및 등록금 환불</a></li>
+												<li><a href="#" onclick="viewPdfjs(9,'pdf_index_83');return false;" id="pdf_index_83" class="pdf_index ">11. 장학안내</a></li>
+											</ul>
+				</div>
+				<div class="moview " id="pdf_viewer" style="width:74%;max-width:100%;">
+					<iframe id="pdf_object1" src="/addon/pdfjs/web/viewer.html?file=/data/bbsData/202607131608216a548ee5791b8.pdf#zoom=page-fit" width="100%" height="1000px"></iframe>
+				</div>
+			</div>
+						
+		</div>
+	</div>
+
+	<script>
+$(function(){
+    var $win = $(window);
+    var top = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
+ 
+    /*사용자 설정 값 시작*/
+    var speed          = 500;     // 따라다닐 속도 : "slow", "normal", or "fast" or numeric(단위:msec)
+    var easing         = 'linear'; // 따라다니는 방법 기본 두가지 linear, swing
+    var $layer         = $('.aside-wrap'); // 레이어 셀렉팅
+    var layerTopOffset = 0;   // 레이어 높이 상한선, 단위:px
+    $layer.css('position', 'absolute');
+    /*사용자 설정 값 끝*/
+ 
+    // 스크롤 바를 내린 상태에서 리프레시 했을 경우를 위해
+    if (top > 0 )
+        $win.scrollTop(layerTopOffset+top);
+    else
+        $win.scrollTop(0);
+ 
+    //스크롤이벤트가 발생하면
+    $(window).scroll(function(){
+        yPosition = $win.scrollTop() - 390;
+        if (yPosition < 0)
+        {
+            yPosition = 0;
+        }
+        $layer.animate({"top":yPosition }, {duration:speed, easing:easing, queue:false});
+    });
+});
+</script>
+
+<div class="aside-wrap">
+<div class="aside mbx">
+	<ul>
+		<li><a href="./sub.htm?nav_code=ibs1636526859" title="학과소개 페이지로 이동합니다."><span class="ico1"></span>학과소개</a></li>
+		<li><a href="https://www.dhu.ac.kr/VR/campus_map.html" target="_blank" title="(새창) 캠퍼스 VR-Tour 페이지로 이동합니다."><span class="ico6"></span>캠퍼스 VR-Tour</a></li>
+		<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1572851543" target="_blank" title="(새창) 장학제도 페이지로 이동합니다."><span class="ico5"></span>장학제도</a></li>
+		<li><a href="http://www.dhu.ac.kr/HOME/dhulife/" target="_blank"><span class="ico3" title="(새창) 기숙사 페이지로 이동합니다."></span>기숙사</a></li>
+		<li><a href="http://www.dhu.ac.kr/HOME/rotc/" target="_blank"><span class="ico4" title="(새창) ROTC 페이지로 이동합니다."></span>ROTC</a></li>
+		<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574303246" target="_blank" title="(새창) 오시는 길 페이지로 이동합니다."><span class="ico2"></span>오시는 길</a></li>
+		<!-- <li><a href="../dhulife/04.htm"><span class="ico5"></span>장학제도</a></li>
+		<li><a href="../dhulife/05.htm"><span class="ico3"></span>기숙사 안내</a></li>
+		<li><a href="../dhulife/09.htm"><span class="ico4"></span>ROTC</a></li>
+		<li><a href="../dhulife/11.htm"><span class="ico2"></span>오시는 길</a></li> -->
+		</ul>
+</div>
+</div>	<div class="clear"></div>
+</div>
+</section>
+<!-- //container -->
+
+<footer>
+	<div class="fmn">
+	<div class="d_width">
+		<a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574343235" target="_blank" title="(새창) 개인정보취급방침 페이지로 이동합니다.">개인정보취급방침</a>
+		<a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574343259" target="_blank" title="(새창) 이메일무단수집거부 페이지로 이동합니다.">이메일무단수집거부</a>
+		<a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574343266" target="_blank" title="(새창) 저작권보호방침 페이지로 이동합니다.">저작권보호방침</a>
+		<a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574303246" target="_blank" title="(새창) 찾아오시는길 페이지로 이동합니다.">찾아오시는길</a>
+		<a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1571815061" target="_blank" title="(새창) 통학버스 페이지로 이동합니다.">통학버스</a>
+		<a href="http://www.dhu.ac.kr/HOME/dhulife/" target="_blank" title="(새창) 생활관 페이지로 이동합니다.">기숙사(생활관)</a>
+		<a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574343279" target="_blank" title="(새창) 뷰어다운로드 페이지로 이동합니다.">뷰어다운로드</a>
+		<div class="fsns">
+			<a href="https://www.facebook.com/daeguhaany.univ" target="_blank" title="(새창) 대구한의대학교 페이스북 페이지로 이동합니다."><img src="../img/ibsi/ico_sns_f.png" alt="페이스북 아이콘이미지"></a>
+			<a href="http://blog.naver.com/dhusns" target="_blank" title="(새창) 대구한의대학교 블로그 페이지로 이동합니다."><img src="../img/ibsi/ico_sns_b.png" alt="블로그 아이콘이미지"></a>
+		</div>
+	</div>
+	</div>
+	<div class="d_width">	
+		<div class="copyright">	
+			<p>[38610] 경상북도 경산시 한의대로 1 대구한의대학교 입학팀 전화번호 : 053-819-1702~3  / 팩스번호 : 053-819-1254</p>
+			<p>COPYRIGHT(C)DAEGU HAANY UNIVERSITY. ALL RIGHTS RESERVED.</p>
+		</div>
+		<div class="fbnr">
+			<a href="http://www.adiga.kr/" target="_blank" title="(새창) 대입정보포털 어디가 홈페이지로 이동합니다."><img src="../img/ibsi/fbnr.jpg" alt="내가 원하는 모든 대입정보! 대학!어디가?"></a>
+			<a href="http://www.webwatch.or.kr/Situation/WA_Situation.html?MenuCD=110" target="_blank" class="mlp10" title="새창으로 국가 공인 인증기관 : 웹와치 홈페이지가 열립니다"><img src="../img/ibsi/webwatch2020.png" alt="과학기술정보통신부 WEB ACCESSIBILITY 마크(웹 접근성 품질인증 마크)"></a>
+		</div>
+	</div>
+</footer>
+
+</div>
+</body>
+<script type="text/javascript">
+
+	// to top right away
+	if ( window.location.hash ) scroll(0,0);
+	// void some browsers issue
+	setTimeout( function() { scroll(0,0); }, 1);
+
+	// any position
+	$(function() {
+		  // *only* if we have anchor on the url
+		if(window.location.hash) {
+			// smooth scroll to the anchor id
+			$('html, body').animate({
+				scrollTop: ($(window.location.hash).offset().top-100) + 'px'
+			}, 400, 'swing');
+		}
+	});
+</script>
+</html>

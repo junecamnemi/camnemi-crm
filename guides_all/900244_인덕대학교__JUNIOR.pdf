@@ -1,0 +1,965 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<meta name="google-site-verification" content="BWNEAcLyHjFLfK2VJeSwRGgH5CDGjKuqcpe03P80Q_E" />
+<title>모집요강 | 외국인 / 새터민 | 인덕대학교</title>
+<link rel="stylesheet" href="/resources/css/jquery-ui.min.css" />
+<link rel="stylesheet" href="/resources/template/A/css/default.css" />
+<link rel="stylesheet" href="/resources/css/dev.css" />
+<script type="text/javascript">
+var contextPath = "";
+var resourcesPath = "/resources";
+var svcMode = "REAL";
+var templateCd = "A";
+var templatePath = "/template/A";
+var domainCd = "IPSI";
+var domainSn = "1";
+</script>
+<!--[if lte IE 9]>
+<script src="/resources/js/html5shiv.js"></script>
+<script src="/resources/js/placeholders.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/resources/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/resources/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.tmpl.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.form.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.jqtransform.js"></script>
+<script type="text/javascript" src="/resources/template/A/js/design.js"></script>
+<script type="text/javascript" src="/resources/template/A/js/snap.min.js"></script>
+<script type="text/javascript" src="/resources/js/util.js"></script>
+<script type="text/javascript" src="/resources/js/comm.js"></script>
+<script type="text/javascript" src="/resources/js/CM.js"></script>
+<script type="text/javascript" src="/resources/js/cheditor/cheditor.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+var menuDivTemplates = {
+    CN : {HREF_TEMPLATE : null, ONCLICK_TEMPLATE : null}
+
+,
+LN : {HREF_TEMPLATE : "{%=HREF%}", ONCLICK_TEMPLATE : null}
+
+,
+PU : {HREF_TEMPLATE : "#", ONCLICK_TEMPLATE : function(metadata){ window.open(metadata.HREF); return false; }}
+
+,
+IF : {HREF_TEMPLATE : null, ONCLICK_TEMPLATE : null}
+
+,
+BB : {HREF_TEMPLATE : null, ONCLICK_TEMPLATE : null}
+
+,
+PG : {HREF_TEMPLATE : null, ONCLICK_TEMPLATE : null}
+
+,
+ME : {HREF_TEMPLATE : null, ONCLICK_TEMPLATE : null}
+
+
+}
+
+// 각 메뉴 검사해서 메뉴구분(MENU_DIV)에 따라 이벤트 변경
+function fn_cms_processMenu() {
+    var $menu1LvElement = $("#gnb>li>a[target!='_blank']");
+    $(".menu_element").each(function(){
+        var $this = $(this);
+        var is1Lv = $this.is("#gnb>li>a[target!='_blank']") && $this.next('ul').find('li').length >= 1;
+        
+        $.each(menuDivTemplates, function(key, val){
+            if(! $this.is(".menu_" + key)) return;
+            
+            var replaceData = {};
+            replaceData.HREF = $this.attr('href');
+            replaceData.MENU_DIV = key;
+            replaceData.CONTEXT_PATH = '';
+            
+            $(this).off('click');
+            
+            if(! is1Lv) {
+                if(val.HREF_TEMPLATE != null) $this.attr('href', fn_cms_replaces(val.HREF_TEMPLATE, replaceData));
+                if(val.ONCLICK_TEMPLATE != null) $this.on('click', function(){fn_util_removeAllCookies("PAGE_", "/"); return val.ONCLICK_TEMPLATE(replaceData)});
+                $this.on('click', function(){fn_util_removeAllCookies('PAGE_');});
+            }
+        });
+        
+        if($this.is("#gnb>li>a[target!='_blank'].menu_LN")) {
+            $this.off('click');
+        }
+    });
+}
+function fn_cms_replaces(targetStr, data) {
+    targetStr = fn_util_replaceAll(targetStr, '{%=HREF%}', data.HREF);
+    targetStr = fn_util_replaceAll(targetStr, '{%=CONTEXT_PATH%}', data.CONTEXT_PATH);
+    return fn_util_replaceAll(targetStr, '{%=MENU_DIV%}', data.MENU_DIV);
+}
+$(document).ready(function(){
+    fn_cms_processMenu();
+});
+</script>
+</head>
+<body>
+<section id="continer">
+    <button id="menu_open">메뉴열기</button>
+    <div id="header_bg"></div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PH9GG9X');</script>
+    <script type="text/javascript">
+    // 1레벨 메뉴 중 하위 메뉴가 없는 메뉴의 하위 ul태그 제거
+    $(document).ready(function() {
+        $("#gnb>li").each(function() {
+            var $this = $(this);
+            if($this.find('>ul>li').length <= 0)
+                $this.find('>ul').remove();
+        });
+    });
+    </script>
+    <!-- header -->
+    <header id="header">
+        <h1><a href="/IPSI/index.do"><img src="/resources/template/A/img/logo.png" alt="인덕대학교 입학안내" /></a></h1>
+        <p><a href="/IPSI/index.do">HOME</a></p>
+        <ul id="gnb">
+  <li>
+    <a href="/IPSI/cms/menu.do?MENU_SN=31" class="menu_element menu_ME">수시1차</a>
+    <ul id="ToggleGnb_31">
+      <li>
+        <a href="/IPSI/cms/CM_PV01_CON/CM_PV01_V01.do?MENU_SN=32" class="menu_element menu_PG">모집요강</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=33" class="menu_element menu_BB">제출서류서식</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_CN01_CON/index.do?MENU_SN=243" class="menu_element menu_LN">전년도 입시결과</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=173&amp;CATEGORY_CD=01" class="menu_element menu_LN">입시FAQ</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=260&amp;CATEGORY_CD=01" class="menu_element menu_LN">입시상담</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/IPSI/cms/menu.do?MENU_SN=71" class="menu_element menu_ME">수시2차</a>
+    <ul id="ToggleGnb_71">
+      <li>
+        <a href="/IPSI/cms/CM_PV01_CON/CM_PV01_V01.do?MENU_SN=72" class="menu_element menu_PG">모집요강</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=73" class="menu_element menu_BB">제출서류서식</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_CN01_CON/index.do?MENU_SN=244" class="menu_element menu_LN">전년도 입시결과</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=173&amp;CATEGORY_CD=02" class="menu_element menu_LN">입시FAQ</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=260&amp;CATEGORY_CD=01" class="menu_element menu_LN">입시상담</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/IPSI/cms/menu.do?MENU_SN=106" class="menu_element menu_ME">정시</a>
+    <ul id="ToggleGnb_106">
+      <li>
+        <a href="/IPSI/cms/CM_PV01_CON/CM_PV01_V01.do?MENU_SN=107" class="menu_element menu_PG">모집요강</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=108" class="menu_element menu_BB">제출서류서식</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_CN01_CON/index.do?MENU_SN=245" class="menu_element menu_LN">전년도 입시결과</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=173&amp;CATEGORY_CD=03" class="menu_element menu_LN">입시FAQ</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=260&amp;CATEGORY_CD=03" class="menu_element menu_LN">입시상담</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/IPSI/cms/menu.do?MENU_SN=161" class="menu_element menu_ME">학사학위 전공심화</a>
+    <ul id="ToggleGnb_161">
+      <li>
+        <a href="/IPSI/cms/CM_PV01_CON/CM_PV01_V01.do?MENU_SN=162" class="menu_element menu_PG">모집요강</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=163" class="menu_element menu_BB">제출서류서식</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=260&amp;CATEGORY_CD=06" class="menu_element menu_LN">입시상담</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/IPSI/cms/menu.do?MENU_SN=155" class="menu_element menu_ME">산업체위탁</a>
+    <ul id="ToggleGnb_155">
+      <li>
+        <a href="/IPSI/cms/CM_PV01_CON/CM_PV01_V01.do?MENU_SN=156" class="menu_element menu_PG">모집요강</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=157" class="menu_element menu_BB">제출서류서식</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=173&amp;CATEGORY_CD=05" class="menu_element menu_LN">입시FAQ</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=260&amp;CATEGORY_CD=05" class="menu_element menu_LN">입시상담</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/IPSI/cms/menu.do?MENU_SN=167" class="menu_element menu_ME">외국인 / 새터민</a>
+    <ul id="ToggleGnb_167">
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=169" class="menu_element menu_BB">모집요강</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/IPSI/cms/menu.do?MENU_SN=364" class="menu_element menu_ME">편입학</a>
+    <ul id="ToggleGnb_364">
+      <li>
+        <a href="/IPSI/cms/CM_PV01_CON/CM_PV01_V01.do?MENU_SN=365" class="menu_element menu_PG">모집요강</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/IPSI/cms/CM_CN01_CON/index.do?MENU_SN=448" class="menu_element menu_ME">계약학과</a>
+    <ul id="ToggleGnb_448">
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=449" class="menu_element menu_BB">모집요강</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/IPSI/cms/menu.do?MENU_SN=242" class="menu_element menu_ME">전년도입시결과</a>
+    <ul id="ToggleGnb_242">
+      <li>
+        <a href="/IPSI/cms/menu.do?MENU_SN=243" class="menu_element menu_ME">수시1차</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/menu.do?MENU_SN=244" class="menu_element menu_ME">수시2차</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/menu.do?MENU_SN=245" class="menu_element menu_ME">정시</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="/IPSI/cms/menu.do?MENU_SN=171" class="menu_element menu_ME">입학상담</a>
+    <ul id="ToggleGnb_171">
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=172" class="menu_element menu_BB">공지사항</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=260" class="menu_element menu_BB">입시상담</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/CM_BB01_CON/CM_BB01_L01.do?MENU_SN=173" class="menu_element menu_BB">입시FAQ</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/menu.do?MENU_SN=177" class="menu_element menu_ME">학생부 및 수능성적산출</a>
+      </li>
+      <li>
+        <a href="/IPSI/cms/menu.do?MENU_SN=183" class="menu_element menu_ME">전년도 최종예비순위</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="https://www.induk.ac.kr/KR/cms/frCmnCon/index.do?MENU_ID=540" class="menu_element menu_PU">찾아오시는 길</a>
+    <ul id="ToggleGnb_403"></ul>
+  </li>
+</ul>
+
+        <button id="menu_close">메뉴닫기</button>
+    </header>
+    <!-- //header -->
+
+    <script type="text/javascript">
+    var gnbDep1 = 6;
+    var gnbDep2 = 1;
+    var tabDep1 = 0;
+    var tabDep2 = 0;
+    var tabDep3 = 0;
+    </script>
+    <section id="contents">
+        
+
+
+
+
+<hgroup>
+    <h2></h2>
+    <p><a href="/">홈</a><a href=""></a><span></span></p>
+    <a href="javascript:history.back();" class="btn_back">이전</a>
+    <a href="#searchBox" class="btn_search">검색</a>
+</hgroup>
+        <article>
+            
+
+
+
+
+
+            <!-- menu3 : tab -->
+
+            
+
+
+
+
+
+            <!-- menu4 : tab_sub -->
+
+            
+
+
+            
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var dataLength=0;
+    var flagCheck = "";
+    
+    $(document).ready(function(){
+        $("#SEARCH_TEXT").text("모집요강 통합검색");
+
+        
+        $("[name='LIST_GB']").val("Y");
+        
+        
+        fn_init();
+        
+
+        
+    });
+
+    /*학부, 학과 리스트*/
+    function fn_orgList(orgPcd, orgCd){
+        fn_comm_ajax({
+            url: "/ajax/CM_BB01_SVC/CM_BB01_ORG.do",
+            dataType: "json",
+            data: {
+                FC_ORG_PCD : orgPcd,
+                FC_ORG_CD : orgCd
+            },
+            success: function(data) {
+                $("[name='FC_ORG_CD']").html('<option value="">학과</option>');
+                if(orgPcd == null || orgPcd == ''){
+                    $("[name='FC_ORG_PCD']").html('<option value="">학부</option>');
+                    $("[name='FC_ORG_PCD']").fn_comm_makeSelect({
+                        data : data,
+                        jsonName : "ORG_PCD",
+                        jsonValue : "ORG_PNM"
+                    })
+                }else{
+                    $("[name='FC_ORG_CD']").fn_comm_makeSelect({
+                        data : data,
+                        jsonName : "ORG_CD",
+                        jsonValue : "ORG_NM"
+                    })
+                }
+            }
+        });
+    }
+
+    function fn_init(){
+        $("#contents").addClass("board");
+        
+        $("#schfrm").fn_comm_setFromCookie("CM_BB01_169");
+        fn_R00();
+    };
+    
+    function fn_R00(){
+        fn_comm_ajax({
+            url: "/ajax/CM_BB01_SVC/CM_BB01_R00.do", 
+            dataType: "json",
+            data: $("#schfrm").serialize() + "&MENU_SN=169",
+            success: function(data) {
+                dataLength = data.length;
+                
+                $("#tbody").empty();
+                
+                if($("[name='pageNo']").val()=="1") {
+                    fn_comm_setList("#tbody", data, "#listTemplate", null);
+                }
+                
+                fn_R01();
+            }
+        });
+    };
+    
+    function fn_R01(){
+        fn_comm_ajax({
+            url: "/ajax/CM_BB01_SVC/CM_BB01_R01.do", 
+            dataType: "json",
+            data: $("#schfrm").serialize()+"&paginationJsFunction=linkPage&MENU_SN=169",
+            pageId:"CM_BB01_169",
+            success: function(data) {
+                fn_comm_setList2("#tbody", data, "#listTemplate", null, null, "#ul_pagination");
+                
+                if(data.list.length==0&&dataLength==0) {
+                    $("#noData").show();
+                }else{
+                    $("#noData").hide();
+                }
+            }
+        });
+        
+    };
+    
+    fn_comm_setList2 = function(parentId, data, dataTemplateId, noDataTemplateId, rowCountId, paginationId) {
+        var isPaging = !fn_comm_isNull(paginationId);
+        var list = null;
+        if (isPaging) {
+            list = data.list;
+        } else {
+            list = data;
+        }
+        
+        if($("[name='pageNo']").val()!="1") {
+            $(parentId).empty();
+        }
+        if (list==null || list.length==0) {
+            if (rowCountId) {
+                $(rowCountId).text(0);
+            }
+            if (noDataTemplateId) {
+                $(noDataTemplateId).tmpl({}).appendTo(parentId);
+            }
+            if (isPaging) {
+                $(paginationId).html("");
+            }
+            return;
+        }
+
+        if (rowCountId) {
+            var cnt = 0;
+            if (isPaging) {
+                var cntVal = String(list[0]["__CNT__"]);
+                if(! fn_util_isEmpty(cntVal)) cnt = Number(cntVal);
+            } else {
+                cnt = list.length;
+            }
+            cnt = fn_util_makeComma(cnt);
+            $(rowCountId).text(cnt);
+        }
+        for (var idx=0; idx<list.length; idx++) {
+            var dataObj = list[idx];
+            if (isPaging) {
+                dataObj.rownum = dataObj["__RNUM__"];
+            } else {
+                dataObj.rownum = (idx+1);
+            }
+        }
+        $(dataTemplateId).tmpl(list).appendTo(parentId);
+        if (isPaging) {
+            var pagination = fn_comm_processScalarAjax({
+                url : contextPath + "/CM_CM03_CON/CM_CM03_R01.do",
+                data : {
+                    currentPageNo : data.currentPageNo,
+                    totalRecordCount : data.totalRecordCount,
+                    recordCountPerPage : data.recordCountPerPage,
+                    templateCd : templateCd,
+                    templatePath : templatePath
+                }
+            });
+            $(paginationId).html(pagination);
+        }
+    };
+    
+    // 페이지 이동
+    function linkPage(pageNo){
+        $("#schfrm [name='pageNo']").val(pageNo);
+        fn_R00();
+    }
+    
+    
+    function fn_allDown(sn) {
+        fn_comm_ajax({
+            url: "/ajax/CM_BB01_SVC/FILE_ALL_DOWN.do", 
+            dataType: "json",
+            data: {"BBS_SN":sn},
+            success: function(data) {
+                for(var idx=0;idx<data.length;idx++) {
+                    window.open("/ajax/CM_BB01_SVC/CM_BB01_R97.do?TABLE_ID=AP_BBS&PK_COL="+sn+"&ATCH_SN="+data[idx].ATCH_SN+"&isTemp=false",idx,"");
+                }
+            }
+        });
+    }
+    
+    function fn_zipDown(sn) {
+        window.open("/ajax/CM_BB01_SVC/FILE_ZIP.do?MENU_SN=169&BBS_SN=" + sn ,"TEST","");
+    }
+    
+    function fn_rowClick(sn, code, flag) {
+        fn_comm_ajax({
+            url: "/ajax/CM_BB01_SVC/CM_BB01_R82.do", 
+            dataType: "json",
+            data: {"BBS_SN":sn,"MENU_SN":"169"},
+            success: function(data) {
+                
+                if(data.READ_GB=="Y") {
+                    if(flag=="F") {
+                        fn_fileDown(sn, code);
+                    }else{
+                        if(code=="1") {
+                            location.href="CM_BB01_V01.do?MENU_SN=169&BBS_SN=" + sn ;
+                        }else{
+                            location.href="CM_BB01_V01.do?MENU_SN=169&BBS_SN=" + sn + "&" + $("#schfrm").serialize();
+                        }
+                    }
+                }else{
+                    flagCheck = flag;
+                    
+                    $("#frm_popup [name='BBS_SN']").val(sn);
+                    
+                    $("#pop_pw").show();
+                    
+                    $("#BBS_PW").focus();
+                }
+                
+            }
+        });
+    }
+    
+    function fn_submitPass() {
+        fn_comm_ajax({
+            url: "/ajax/CM_BB01_SVC/CM_BB01_R80.do", 
+            dataType: "json",
+            data: $("#frm_popup").serialize(),
+            success: function(data) {
+                if(data.PASS=="Y") {
+                    if(flagCheck=="F") {
+                        fn_fileDown(sn, code);
+                    }else{
+                        location.href="CM_BB01_V01.do?MENU_SN=169&BBS_SN=" + $("#frm_popup [name='BBS_SN']").val()
+                            + "&ATTR_SN=1";
+                    }
+                }else{
+                    alert("비밀번호를 확인하세요.");
+                    $("#BBS_PW").val("");
+                }
+            }
+        });
+    }
+    
+    function closePop() {
+        $("#frm_popup [name='BBS_PW']").val("");
+        $("#frm_popup [name='BBS_SN']").val("");
+        $("#pop_pw").hide();
+    }
+    
+    function fn_tabList() {
+        // 매개변수로 어떤 탭 볼 건지를 받았으면 해당 탭 선택 처리
+        if(! fn_util_isEmpty("")) {
+            $("[name='tabs']").removeClass("active").removeClass('on');
+            $("[name='tabs'][data-cd='']").addClass("active on");
+            
+            $("[name='FC_CATEGORY_CD']").val("");
+        }
+    }
+    
+    function fn_tabClick(obj, cd) {
+        $("[name='tabs']").removeClass("active on");
+        $(obj).addClass("active on");
+        
+        $("[name='FC_CATEGORY_CD']").val(cd);
+        
+        linkPage(1);
+    }
+    
+    function fn_fileDown(sn, cnt) {
+        if(cnt > 1) {
+            fn_zipDown(sn);
+        }else{
+            fn_allDown(sn);
+        }
+    }
+</script>
+<style type="text/css">
+
+.tableWrap .icon_new{
+    background-image:url(/resources/template/A/img/m/icon_new.png);
+    background-size:100% auto;vertical-align:top;
+    margin-top:3px
+}
+
+.tableWrap .icon_secret{
+    margin-top:10px;
+    background-image:url(/resources/template/A/img/m/icon_secret.png);
+    background-size:100% auto;vertical-align:6px;
+    margin-right:8px;
+}
+    
+.tableWrap .icon_new{
+    display:inline-block;width:14px;height:14px;
+    background:url(/resources/template/A/img/icon_new.png) no-repeat;
+    margin-left:7px;vertical-align:10px;
+    font-size:0
+}
+.tableWrap .icon_secret{
+    position:absolute;
+    display:inline-block;width:17px;height:17px;
+    background:url(/resources/template/A/img/icon_secret.png) no-repeat;
+    margin-right:13px;vertical-align:13px;
+    font-size:0
+}
+.tableWrap .icon_secret+a{display:inline-block;padding-left:27px}
+
+select {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 160px !important;
+    height: 45px;
+    line-height: 43px;
+    border: 1px solid #fff;
+    border-bottom-right-radius: 5px;
+    background: url('/resources/template/A/img/searchBox_icon1.png') no-repeat right center;
+    padding-left: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    color: #fff;
+    font-size: 14px;
+    text-align: left;
+}
+
+option {
+    display: block;
+    padding: 4px 15px;
+    text-align: left;
+    color: #555;
+}
+
+
+select::-ms-expand{
+    display: none;
+}
+
+</style>
+
+
+<form id="schfrm" onsubmit="linkPage(1); return false;">
+    <input type="hidden" name="pageNo" value="1"/>
+    <input type="hidden" name="recordCountPerPage" value="15"/>
+    <input type="hidden" name="FC_CATEGORY_CD" value=""/>
+    <input type="hidden" name="LIST_DIV" value="1"/>
+    <input type="hidden" name="LIST_GB" value=""/>
+    <input type="hidden" name="ATTR_SN"  value=""/>
+
+    <fieldset id="searchBox">
+        <legend id="SEARCH_TEXT"></legend>
+        
+        <span class="w">
+            <select title="검색어 분류" name="FC_SEARCH_GB">
+                <option value="ALL">전체</option>
+                <option value="SJ">제목</option>
+                <option value="ID">작성자</option>
+            </select>
+        </span>
+        <select title="검색어 분류" name="FC_SEARCH_GB_M" class="m">
+            <option value="ALL">전체</option>
+            <option value="SJ">제목</option>
+            <option value="ID">작성자</option>
+        </select>
+        <input type="text" name="FC_SEARCH_CONTENTS" placeholder="검색어를 입력하세요." value="" title="검색어를 입력하세요." />
+        <button title="검색">검색</button>
+    </fieldset>
+</form>
+<table class="listTable">
+    <caption>제출서류서식 리스트</caption>
+    <colgroup>
+        <col width="8%"  class="w" />
+        
+        <col width="*"             />
+        
+        <col width="7%"  class="w" />
+        
+        
+        <col width="9%"  class="w" />
+        <col width="12%" class="w" />
+        <col width="8%"  class="w" />
+    </colgroup>
+    <thead class="w">
+        <tr>
+            <th scope="col">번호</th>
+            
+            <th scope="col">제목</th>
+            
+            <th scope="col">첨부파일</th>
+            
+            
+            <th scope="col">등록자</th>
+            <th scope="col">등록일</th>
+            <th scope="col">조회수</th>
+        </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+    <script type="text/x-jquery-tmpl" id="listTemplate">
+        <tr {%if BBS_DIV=="NT"&&CODE=="1"%}class="notice"{%/if%}>
+            <td class="w" style="text-align:center;">{%if BBS_DIV=="NT"&&CODE=="1"%}공지{%else%}{%= rownum %}{%/if%}</td>
+            {%if ORG_CD != null %}
+            <td class="w" style="text-align:center;">{%= ORG_NM %}</td>
+            {%/if%}
+            <td class="al" title="{%= SJ_VIEW %}">
+                {%if LVL>0%}
+                <img src="/resources/template/A/img/bu_view_blue.png" alt="답변" title="답변"/>
+                {%/if%}
+                {%if SECRET_AT=="Y"%}
+                <i title="비밀글" class="icon_secret">비밀글</i>
+                {%/if%}
+                <a href="javascript:fn_rowClick('{%= BBS_SN %}','{%= CODE %}', 'V');">
+                    
+                    {%= SJ_VIEW %}
+                    
+                    {%if NEWRECORD=="Y"%}
+                    <i title="새글" class="icon_new" style="margin-top:0px;">새글</i>
+                    {%/if%}
+                    
+                </a>
+            </td>
+            
+            <td class="w">
+                {%if FILE_CNT>0%}
+                    <img src="/resources/template/A/img/icon_file2.png" alt="첨부파일" title="첨부파일" onclick="fn_rowClick({%= BBS_SN %}, '{%= FILE_CNT %}', 'F');" style="cursor:pointer;"/>
+                {%/if%}
+            </td>
+            
+            
+            <td class="w">{%= USER_NM %}</td>
+            <td class="w">{%= REG_DT %}</td>
+            <td class="w">{%= READ_CNT %}</td>
+        </tr>
+    </script>
+    <script type="text/x-jquery-tmpl" id="noListTemplate">
+        <tr>
+            <td class="no_data" colspan="5">등록된 게시물이 없습니다</td>
+        </tr>
+    </script>
+</table>
+<div class="data_none" style="display:none;" id="noData">
+    등록된 게시물이 없습니다.
+</div>
+
+<div class="paging" id="ul_pagination"></div>
+
+
+<div class="pop_wrap" id="pop_pw" style="display:none;">
+    <form id="frm_popup" onsubmit="return false;">
+        <input type="hidden" name="BBS_SN" value=""/>
+        <input type="hidden" name="MENU_SN" value="169"/>
+        <input type="hidden" name="ATTR_SN" value="1"/>
+        <div class="pop_ct">
+            <h3>비밀번호 입력</h3>
+            <fieldset><input type="password" name="BBS_PW" value="" title="패스워드를 입력하세요."/></fieldset>
+            <p class="btn_c">
+                <button onclick="fn_submitPass();" title="비밀번호 확인">비밀번호 확인</button>
+                <button onclick="closePop();" title="팝업닫기">팝업닫기</button>
+            </p>
+            <a href="javascript:closePop();" class="pop_close">팝업닫기</a>
+        </div>
+    </form>
+</div>
+
+
+
+<!-- contents -->
+
+<!-- //contents -->
+            
+
+
+        </article>
+    </section>
+    
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    fn_quickmenu_R01();
+});
+function fn_quickmenu_click(type) { // 원서접수 버튼 클릭함
+    alert('원서 접수 기간이 아닙니다.');
+    // return false;
+}
+function fn_quickmenu_R01() {
+    fn_comm_ajax({
+        url: "/ajax/CM_MN02_SVC/CM_MN02_R12.do",
+        dataType: "json",
+        data: {
+            DOMAIN_SN:'1',
+            INFO_DIV_CD:'F1',
+            USE_AT:'Y'
+        },
+        async:true,
+        success: function(data, textStatus, jqXHR) {
+            // console.log(data);
+            if(data == null || $.isEmptyObject(data)) {
+                $("#quick").hide();
+                return;
+            }
+            $("#quick").show().empty();
+            for(var idx=0; idx<data.length; idx++) {
+                data[idx].PATH = data[idx].INFO_CN;
+                $("#sidebar_template").tmpl(data[idx]).appendTo("#quick");
+            }
+        }
+    });
+}
+function fn_quickmenu_applyLink(url) {
+    var today = fn_CM_getTime();
+	var fromDt = new Date(2017, 0, 3);
+    var toDt   = new Date(2017, 0, 13);
+    fromDt.setHours(9, 0, 0, 0);
+    toDt.setHours(20, 0, 0, 0);
+    var result = fn_util_linkFrom(url, true, fromDt, toDt, today);
+    if(! result) alert('원서접수 기간이 아닙니다.');
+}
+</script>
+<a href="#quick" id="quick_btn">퀵메뉴</a>
+<ul id="quick">
+    <!--
+    <li><a href="#" onclick="fn_quickmenu_click(); return false;"><img src="/resources/template/A/img/quick1.png" alt="원서접수" />원서접수</a></li>
+    -->
+    <li><a href="http://ipsi1.uwayapply.com/coll2/induk/?CHA=1" target="_blank"><img src="/resources/template/A/img/quick_uway.png" alt="원서접수 유웨이" />원서접수 유웨이</a></li>
+    <li><a href="http://apply.jinhakapply.com/Notice/4124002/A" target="_blank"><img src="/resources/template/A/img/quick_jinhak.png" alt="원서접수 진학사" />원서접수 진학사</a></li>
+    
+    
+    <li><a href="/IPSI/cms/IP_SE01_CON/IP_SE01_V01.do?MENU_SN=247"><img src="/resources/template/A/img/quick2.png" alt="조회서비스" />입시조회<br />서비스</a></li>
+    <li><a href="/IPSI/cms/IP_NE01_CON/IP_NE01_V01.do?MENU_SN=178"><img src="/resources/template/A/img/quick3.png" alt="학생부 성적산출" />학생부 및<br />수능성적산출</a></li>
+    <li><a href="/IPSI/cms/CM_CN01_CON/index.do?MENU_SN=183"><img src="/resources/template/A/img/quick4.png" alt="입시 경쟁률" />전년도<br />최종예비순위</a></li>
+    <li><a href="http://www.induk.ac.kr/KR/cms/CM_CN01_CON/index.do?MENU_SN=371" target="_blank" title="새창"><img src="/resources/template/A/img/quick5.png" alt="장학제도" />장학안내</a></li>
+    <li><a href="http://www.induk.ac.kr/KR/cms/CM_CN01_CON/index.do?MENU_SN=81" target="_blank" title="새창"><img src="/resources/template/A/img/quick6.png" alt="학과소개" />학과소개</a></li>
+    <li><a href="http://www.induk.ac.kr/KR/cms/CM_CN01_CON/index.do?MENU_SN=78" target="_blank" title="새창"><img src="/resources/template/A/img/quick7.png" alt="캠퍼스맵" />캠퍼스맵</a></li>
+    <li><a href="http://www.induk.ac.kr/KR/cms/CM_CN01_CON/index.do?MENU_SN=77" target="_blank" title="새창"><img src="/resources/template/A/img/quick8.png" alt="오시는길" />오시는길</a></li>
+</ul>
+<script type="text/x-jquery-tmpl" id="sidebar_template">
+<li>
+    <li class="quick_{%= INFO_DIV_CD %}_{%= INFO_SN %}">
+        <a href="{%= PATH %}" {%if POPUP_AT == 'Y'%}target="_blank"{%/if%}>
+            <img src='{%= VISUAL_PATH %}' onerror="$(this).attr('src', '/resources/images/intro_bu01.png')" alt='{%= INFO_SJ %}'/>
+            {%= INFO_SJ %}
+        </a>
+    </li>
+</li>
+</script>
+    <a href="#header" id="btn_top">TOP</a>
+    
+
+
+
+
+
+<script type="text/javascript">
+/**
+ * 푸터 링크 동작을 처리합니다.
+ */
+function fn_footer_open(url) {
+    if($.isEmptyObject(url)) return;
+    if(url == '#') return;
+    url = fn_util_replaceAll(url, "__CMS_INDUK_URL__", "http://www.induk.ac.kr");
+    url = fn_util_replaceAll(url, "__CMS_INDUK_IPSI_URL__", "http://ipsi.induk.ac.kr");
+    if(fn_footer_needOpenPop(url)) {
+        window.open(url);
+        return;
+    }
+    location.href = url;
+}
+/**
+ * URL을 받아 이 URL을 팝업으로 띄울지 현재 화면에서 띄울지를 판별해 true / false 로 반환합니다.
+ */
+function fn_footer_needOpenPop(url) {
+    // 파일을 직접 가리키는 경우 무조건 팝업
+    if(fn_util_endsWith(url, ".pdf"))  return true;
+    if(fn_util_endsWith(url, ".xls"))  return true;
+    if(fn_util_endsWith(url, ".xlsx")) return true;
+    if(fn_util_endsWith(url, ".doc"))  return true;
+    if(fn_util_endsWith(url, ".docx")) return true;
+    if(fn_util_endsWith(url, ".ppt"))  return true;
+    if(fn_util_endsWith(url, ".pptx")) return true;
+    if(fn_util_endsWith(url, ".hwp"))  return true;
+    if(fn_util_endsWith(url, ".xps"))  return true;
+    if(fn_util_endsWith(url, ".zip"))  return true;
+    
+    // 도메인 내 화면이면 팝업 아님
+    var domainWithContext = "/IPSI";
+    if(url.indexOf(domainWithContext) == 0) return false;
+    return true;
+}
+</script>
+<!-- footer -->
+<footer>
+    <address>
+        <b>
+            <span>서울특별시 노원구 초안산로 12</span> <span>인덕대학교</span>
+        </b>
+        <b>
+            <span class='tel'>TEL 02-950-7052~7</span>
+            <span class='fax'>FAX 02-950-7059</span>
+        </b>
+    </address>
+    <ul>
+        
+          <li><a href="#" onclick="fn_footer_open('https://www.induk.ac.kr/KR/cms/frCmnCon/index.do?MENU_ID=1640'); return false;">개인정보처리방침</a></li>
+        
+          <li><a href="#" onclick="fn_footer_open('/IPSI/CM_MN03_CON/CM_MN03_V03.do'); return false;">이메일무단수집거부</a></li>
+        
+          <li><a href="#" onclick="fn_footer_open('https://www.induk.ac.kr/KR/cms/frCmnCon/index.do?MENU_ID=540'); return false;">찾아오시는 길</a></li>
+        
+          <li><a href="#" onclick="fn_footer_open('/IPSI/CM_MN03_CON/CM_MN03_V02.do'); return false;">사이트맵</a></li>
+        
+    </ul>
+    <em><span><span style="font-weight:bold;">Copyright INDUK University</span><span style="font-weight:bold;">All rights reserved.</span></span></em>
+</footer>
+<!-- //footer -->
+</section>
+</body>
+</html>

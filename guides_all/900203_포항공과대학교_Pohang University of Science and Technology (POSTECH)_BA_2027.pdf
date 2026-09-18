@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="CSRFToken" content="047ab196d11180d1b511bc677e8a99bbc92ce663f66064e36ec30fef4c824c8bbd3911a5468c960338bf54566d825dbcb41ff0cb1cc3fe6fdf6a15acf389530f2f72d20ab368275659f1733643df20a6">
+<link rel="shortcut icon" type="image/png" href="/content/02comm/css/images/ico/favicon.png">
+<title>POSTECH Undergraduate Admissions</title>
+<script type="text/javascript" src="/content/01lib/jquery/jquery-3.7.1.min.js"></script>
+<!-- 개발 공통 시작 -->
+<script type="text/javascript" src="/content/pgm/js/syPgmCustomTags.js"></script>
+<script type="text/javascript" src="/content/pgm/js/syPgmFunction.js"></script>
+<script type="text/javascript" src="/content/02comm/js/syworksWebToAppBase.js"></script>
+<!-- 캡쳐 js -->
+<script type="text/javascript" src="/content/01lib/html2canvas/html2canvas.js"></script>
+<!-- 개발 공통 끝 -->
+<!-- 퍼블 공통 시작 -->
+<!-- lib 시작 -->
+<!-- jquery 시작 -->
+<link rel="stylesheet" type="text/css" href="/content/01lib/jquery/jquery-ui.css" media="all" />
+<script type="text/javascript" src="/content/01lib/jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="/content/01lib/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="/content/01lib/jquery/jquery.ui.touch-punch.min.js"></script>
+<!-- 달력시간관련 소스 시작 -->
+<link rel="stylesheet" type="text/css" href="/content/01lib/jquery/jquery.timepicker.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/01lib/jquery/jquery.ui.datetimepicker.css" media="all" />
+<script type="text/javascript" src="/content/01lib/jquery/jquery.placeholder.js"></script>
+<script type="text/javascript" src="/content/01lib/jquery/jquery.ui.datetimepicker.js"></script>
+<script type="text/javascript" src="/content/01lib/jquery/jquery.timepicker.js"></script>
+<!-- 달력시간관련 소스 끝 -->
+<script type="text/javascript" src="/content/01lib/calendar/index.global.js"></script>
+<!-- 에디터 소스 시작 -->
+<!-- [DK][210526][에디터변경:사용자5/관리자4] -->
+<!-- ckeditor4 -->
+<!-- <script type="text/javascript" src="/content/01lib/ckeditor/ckeditor.js" charset="utf-8"></script> -->
+<!-- ckeditor5 -->
+<script type="text/javascript" src="/content/01lib/ckeditor5/build/ckeditor.js" charset="utf-8"></script>
+<!-- [DK][210526][에디터변경:사용자5/관리자4] -->
+<!-- [DK][201013][Naver Smart Editor] -->
+<script type="text/javascript" src="/content/01lib/se2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+<!-- [DK][201013][Naver Smart Editor] -->
+<!-- 에디터 소스 끝 -->
+<!-- 트리 -->
+<script type="text/javascript" src="/content/01lib/tree/simTree.js"></script>
+<link rel="stylesheet" type="text/css" href="/content/01lib/tree/simTree.css" media="all" />
+<!-- 슬라이드 소스 시작 -->
+<link rel="stylesheet" type="text/css" href="/content/01lib/swiper/swiper.min.css" media="all" />
+<script type="text/javascript" src="/content/01lib/swiper/swiper.min.js"></script>
+<!-- 슬라이드 소스 끝 -->
+<!-- 스크롤 시작 -->
+<script type="text/javascript" src="/content/01lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/content/01lib/mCustomScrollbar/jquery.mCustomScrollbar.css" media="all" />
+<!-- 스크롤 시작 -->
+<!-- 공통 코드 관련 소스 시작 -->
+<link rel="stylesheet" href="/content/01lib/jquery/fancytree/jquery.fancytree.css">
+<script type="text/javascript" src="/content/01lib/jquery/fancytree/jquery.fancytree.js"></script>
+<script type="text/javascript" src="/content/01lib/jquery/fancytree/jquery.fancytree.dnd.js"></script>
+<script type="text/javascript" src="/content/01lib/jquery/jquery.ui-contextmenu.js"></script>
+<!-- 공통 코드 관련 소스 끝 -->
+<!-- jquery 끝 -->
+<!--[if lt IE 9]>
+		<script src="/content/01lib/html5/html5.js"></script>
+		<script src="/content/01lib/respond/respond.min.js"></script>
+	<![endif]-->
+<!-- lib 끝 -->
+<!-- 메뉴관련 및 공통 소스 시작-->
+<link rel="stylesheet" type="text/css" href="/content/02comm/js/syCntCustomTags.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/02comm/js/syCntUploadFile.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/pgm/lib/cropprt/cropper.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/pgm/lib/cropprt/cropper.min.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/bgrins-spectrum/spectrum.css" />
+<script type="text/javascript" src="/content/bgrins-spectrum/spectrum.js"></script>
+<script type="text/javascript" src="/content/02comm/js/common.js"></script>
+<!-- <script type="text/javascript" src="/content/02comm/js/ex.js"></script> -->
+<script type="text/javascript" src="/content/02comm/js/gnb.js"></script>
+<script type="text/javascript" src="/content/02comm/js/syCntFunction.js"></script>
+<script type="text/javascript" src="/content/02comm/js/syCntCustomTags.js"></script>
+<!-- <script type="text/javascript" src="/content/02comm/js/sySurvValidate.js" ></script> -->
+<script type="text/javascript" src="/content/02comm/js/syCntUploadFile.js"></script>
+<script type="text/javascript" src="/content/02comm/js/multilanguage.js"></script>
+<script type="text/javascript" src="/content/02comm/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/content/01lib/nestedSortable-master/jquery.mjs.nestedSortable.js"></script>
+<script type="text/javascript" src="/content/pgm/lib/cropprt/cropper.js"></script>
+<script type="text/javascript" src="/content/pgm/lib/cropprt/cropper.min.js"></script>
+<script type="text/javascript" src="/content/01lib/jquery/jquery.toJSON.js"></script>
+<script type="text/javascript" src="/content/pgm/plugin/syworks.jquery.dialog.js" charset="utf-8"></script>
+<script src="/content/01lib/etc/postcode.v2.js"></script>
+<!-- aesEnc.js -->
+<script type="text/javascript" src="/content/pgm/js/aesEnc.js"></script>
+<script src="/content/01lib/etc/core-min.js"></script>
+<script src="/content/01lib/etc/cipher-core-min.js"></script>
+<script src="/content/01lib/etc/sha256.js"></script>
+<script src="/content/01lib/etc/aes.js"></script>
+<!-- aesEnc.js -->
+<!-- 유튜브 iframe -->
+<!-- <script src="https://www.youtube.com/iframe_api"></script> -->
+<!-- 유튜브 iframe -->
+<!-- 기본 css 시작 -->
+<link rel="stylesheet" type="text/css" href="/content/02comm/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/02comm/css/font.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/02comm/css/header.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/02comm/css/gnb.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/02comm/css/footer.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/02comm/css/table.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/02comm/css/button.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/02comm/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/02comm/css/mgnb.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/02comm/css/input.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/02comm/css/design.css" media="all" />
+<!-- 레이아웃 설정 시작 -->
+<script type="text/javascript" src="/content/03layout/style0001/common.js"></script>
+<link rel="stylesheet" type="text/css" href="/content/03layout/style0001/style.css" media="all" />
+<!-- 레이아웃 설정 끝 -->
+<!-- 반응형 설정 시작 -->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	<!-- js만 모바일화면에 임포트되도록 변경해야됨 -->
+		<script type="text/javascript" src="/content/03layout/view/common.js"></script>
+		<link rel="stylesheet" type="text/css" href="/content/03layout/view/view.css" media="all" />
+	<!-- 반응형 설정 끝 -->
+<!-- 스타일 설정 시작 -->
+<script type="text/javascript" src="/content/05sub/style0006/common.js"></script>
+<link rel="stylesheet" type="text/css" href="/content/05sub/style0006/style.css" media="all" />
+<!-- 스타일 설정 끝 -->
+<!-- 디자인 css 끝 -->
+<!-- 메뉴관련 및 공통 소스 끝-->
+<script type="text/javascript">
+	$( document ).ready( function () {
+		$( document ).customTags();
+		$( document ).pgmCustomTags();
+		$( ".btn_back" ).click( function ( e ) {
+			e.preventDefault();
+			window.history.back();
+		} );
+
+		Multilanguage.start( '' ,'1002245' ,'kor' );
+	} );
+</script>
+<!-- 퍼블 공통 끝 -->
+
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js"
+  integrity="sha384-mXVrIX2T/Kszp6Z0aEWaA8Nm7J6/ZeWXbL8UpGRjKwWe56Srd/iyNmWMBhcItAjH" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('aad40ca8d965f61ae1c891be1a4db24f'); // 사용하려는 앱의 JavaScript 키 입력
+</script>
+<script type="text/javascript">
+
+	function printPage(){
+		window.print();
+	}
+
+	function getCurrentURL() {
+		return window.location.href;
+	}
+	
+	function shareMessage() {
+		var currentURL = getCurrentURL();
+	    Kakao.Share.sendDefault({
+	      objectType: 'feed',
+	      content: {
+	        title: '포스텍 학부 외국인 입학',
+	        description: '#포스텍 학부 외국인 입학',
+	        imageUrl:
+	          'http://cpx-egov-kus.red.syworks.net/content/02comm/css/images/common/bsc_kus_logo.png',
+	        		  //http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png 이런식의 사진 링크를 넣어주세요~
+
+	        link: {
+	          // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+	          mobileWebUrl: currentURL,
+	          webUrl: currentURL,
+	        },
+	      },
+	      social: {
+	        likeCount: 286,
+	        commentCount: 45,
+	        sharedCount: 845,
+	      },
+	      buttons: [
+	        {
+	          title: '웹으로 보기',
+	          link: {
+	            mobileWebUrl: currentURL,
+	            webUrl: currentURL,
+	          },
+	        },
+	        {
+	          title: '앱으로 보기',
+	          link: {
+	            mobileWebUrl: currentURL,
+	            webUrl: currentURL,
+	          },
+	        },
+	      ],
+	    });
+	  }
+	 function shareNaver() {
+     	var url = encodeURI(encodeURIComponent(getCurrentURL()));
+        var title = encodeURI(getCurrentURL());
+        var shareURL = "https://share.naver.com/web/shareView?url=" + url + "&title=" + title;
+        document.location = shareURL;
+     }
+
+	 function shareTwitter() {
+	    var sendText = "포스텍 학부 외국인 입학"; // 전달할 텍스트
+	    var sendUrl = getCurrentURL(); // 전달할 URL
+	    window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
+	 }
+	 function shareFacebook() {
+	    var sendUrl = getCurrentURL(); // 전달할 URL
+	    window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+	 }
+
+	 function copyLink() {
+		 var currentURL = window.location.href;
+
+		  // 텍스트 선택을 도와주는 코드
+		  var tempInput = document.createElement('input');
+		  tempInput.value = currentURL;
+		  document.body.appendChild(tempInput);
+		  tempInput.select();
+		  document.execCommand('copy');
+		  document.body.removeChild(tempInput);
+
+		  alert('URL이 클립보드에 복사되었습니다: ' + currentURL);
+	 }
+</script>
+	 	 
+</head>
+<body class=" layout01  style03  sub">
+	<!-- Skip Nav -->
+	<div id="skipnavigation">
+		<a href="#gnb">주메뉴 바로가기</a>
+		<a href="#container">본문내용 바로가기</a>
+		<a href="#footer">사이트정보 바로가기</a>
+	</div>
+	<!-- //Skip Nav -->
+	<!-- header -->
+	<script type="text/javascript">
+	$( document ).ready( function () {
+		// 언어변경 : 한국어 - kor, 영어 - eng
+		$("#langChange").on("change", function(){
+			var sclType = $(this).val();
+			$.ajax({
+				"url" : "/comm/member/user/userLangProc.do" ,
+				"dataType": "text" ,
+				"data": {
+					"sclType" : sclType ,
+					"id" : "",
+				},
+				"success": function( result ) {
+					location.reload();
+				}
+			});
+		} );
+	} );
+</script>
+<header class="type02">
+	<!--
+		type00 : 2뎁스 이상 X
+		type01 : [오버] 2뎁스까지 노출
+		type02 : [오버] 전체 2뎁스까지만 노출
+		type03 : [클릭] 2뎁스 노출 / [오버] 3,4뎁스 노출
+		type04 : [클릭] 2뎁스까지 노출
+		type05 : [오버] 2,3뎁스까지 노출
+	-->
+	<article>
+		<h1 class="logo_wrap">
+			<span>POSTECH LOGO</span>
+			<a href="/user/index.do">
+				<img src="/content/05sub/style0006/images/common/sub_logo.png" class="pc" alt="Header Image"/>
+				<img src="/content/02comm/css/images/common/logo_m.png" class="mob" alt="Header Image"/>
+				<img src="/content/05sub/style0006/images/common/logo_gnb_hover.png" class="pc hover" alt="Header Image"/>
+			</a>
+		</h1>
+	
+	<!-- nav -->
+	<a href="javascript:void(0);" class="btn_gnb">
+		<i></i> <i></i><i></i>
+		<span>메뉴</span>
+	</a>
+	<nav id="gnb" class="gnb">
+		<a href="#" class="btn_close">
+			<i></i> <i></i><i></i>
+			<span>닫기</span>
+		</a>
+		<ul>
+			<!-- [DK][메뉴숨기기추가] -->
+					<li class="gnb_1dep ">
+							<a href="/user/comm/menu/9a5a815c64cbd043ee4096a973bf82c5/content/index.do"  class="">
+								<span>About POSTECH</span>
+							</a>
+							<div class="sub_2 t1">
+									<ul>
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="https://postech.ac.kr/eng/about/postech_glance.do" target="_blank" class="">POSTECH At A Glance</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="https://postech.ac.kr/eng/about/campus_map.do" target="_blank" class="">Visit POSTECH</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/menu/9a5a815c64cbd043ee4096a973bf82c5/content/index.do"  class="">Campus Facilities</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/menu/9ff16baf2871a82edcff1443a0300a4a/content/index.do"  class="">ISSS</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										</ul>
+								</div>
+							</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- [DK][메뉴숨기기추가] -->
+					<li class="gnb_1dep open">
+							<a href="/user/comm/menu/3317587a17a23d4dacdb9ffc4762bf4a/content/index.do"  class="on">
+								<span>Apply Guide</span>
+							</a>
+							<div class="sub_2 t1">
+									<ul>
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/menu/3317587a17a23d4dacdb9ffc4762bf4a/content/index.do"  class="">Overview</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="open">
+													<a href="/user/admission/guide/international.do"  class="on">International Admissions</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/admission/guide/gks.do"  class="">Global Korea Scholarship (GKS)</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/admission/result/index.do"  class="">Admission Decision</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										</ul>
+								</div>
+							</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- [DK][메뉴숨기기추가] -->
+					<li class="gnb_1dep ">
+							<a href="/user/comm/menu/e2afb97fa1b8f43c574be0dabef78f87/content/index.do"  class="">
+								<span>Support</span>
+							</a>
+							<div class="sub_2 t1">
+									<ul>
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/menu/e2afb97fa1b8f43c574be0dabef78f87/content/index.do"  class="">Scholarship</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/menu/83909f392f09eeae3d02bb2d4236eeb1/content/index.do"  class="">External Scholarship</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/menu/ba6492f421eff5cdad5694ac88469538/content/index.do"  class="">Welcome Guide for New Students</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/menu/4a69b7aee6a156d3c2ddb7413544ab2c/content/index.do"  class="">Cost of Attendence</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										</ul>
+								</div>
+							</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- [DK][메뉴숨기기추가] -->
+					<li class="gnb_1dep ">
+							<a href="/user/schedule/index.do"  class="">
+								<span>Board</span>
+							</a>
+							<div class="sub_2 t1">
+									<ul>
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/schedule/index.do"  class="">Admission Schedule</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/board/86728f5cbd62c6d9ae38c8d2f624c150/index.do"  class="">Notice</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/board/5841aa0415a689d7a5fd8d244a647e21/index.do"  class="">Testimonials</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/board/7699dd106cb84b2e26748d3db5e78de6/index.do"  class="">FAQ</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/menu/8cb9b5a01be83664701e080c5e0d3469/content/index.do"  class="">Contact</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										</ul>
+								</div>
+							</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- [DK][메뉴숨기기추가] -->
+					<li class="gnb_1dep ">
+							<a href="/user/comm/menu/dc5f6b45df9dc757089961a3e94427f9/content/index.do"  class="">
+								<span>Links</span>
+							</a>
+							<div class="sub_2 t1">
+									<ul>
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/menu/dc5f6b45df9dc757089961a3e94427f9/content/index.do"  class="">Undergraduate</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										<!-- [DK][메뉴숨기기추가] -->
+											<li class="">
+													<a href="/user/comm/menu/b7f8c54d6eaff431c253db1c8b9bcb45/content/index.do"  class="">Related Departments</a>
+												</li>
+											<!-- [DK][메뉴숨기기추가] -->
+										</ul>
+								</div>
+							</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!--
+			gnb 구조
+			<ul>
+				<li class="gnb_1dep">
+					<a href="javascript:void(0);">
+						<span>menu1</span> 1뎁스
+					</a>
+					<div class="sub_2">
+						<ul>
+							<li class="">
+								<a href="javascript:void(0);" class="">menu11</a>2뎁스
+								<ul class="sub_3">
+									<li>
+										<a href="javascript:void(0);" class="">menu111</a>3뎁스
+										<ul class="sub_4">
+											<li>
+												<a href="javascript:void(0);" class="">menu1111</a>4뎁스
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+			 -->
+			</ul>
+	</nav>
+	<!-- nav -->
+	<div class="etc">
+		<a href="https://www.postech.ac.kr/eng/" target="_blank" class="postech" title="POSTECH">POSTECH</a>
+		<ul>
+			<li>
+				<a href="https://www.youtube.com/@POSTECH1986/videos" class="youtube" title="youtube" target="_blank">youtube</a>
+			</li>
+			<li>
+				<a href="https://www.instagram.com/postech.global?igsh=aW4wdnhkdjNkdmZp" class="instagram" title="instagram" target="_blank">instagram</a>
+			</li>
+		</ul>
+	</div>
+	<!-- pc 두뎁스 배경  -->
+	<div class="bg_gnb">
+		<div class="bg_gnb_box">
+			<p class="bottom_text">POSTECH<br> INTERNATIONAL UNDERGRADUATE</p>
+		</div>
+	</div>
+	</article>
+	<!-- 모바일 gnb  -->
+	<div class="m_gnb">
+		<div class="m_gnb_wrap ui_b">
+			<!--
+				A Type : ui_a 화면전환
+				B Type : ui_b 드롭다운
+				C Type : ui_c 2단구성
+
+			 -->
+			<!-- S:1뎁스 -->
+			<ul class="m_gnb_list">
+				<!-- [DK][메뉴숨기기추가] -->
+					<li class="">
+							<a href="javascript:void(0);" class="depth_tit1">About POSTECH</a>
+							<!-- S:2뎁스 -->
+							<ul class="m_gnb_list2">
+								<li>
+										<a href="https://postech.ac.kr/eng/about/postech_glance.do" target="_blank" class="tit "><span>POSTECH At A Glance</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="https://postech.ac.kr/eng/about/campus_map.do" target="_blank" class="tit "><span>Visit POSTECH</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/comm/menu/9a5a815c64cbd043ee4096a973bf82c5/content/index.do"  class="tit "><span>Campus Facilities</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/comm/menu/9ff16baf2871a82edcff1443a0300a4a/content/index.do"  class="tit "><span>ISSS</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<!-- 							<li> -->
+								<!-- 								<a href="javascript:void(0);" class="tit">2depth3</a> -->
+								<!-- 							</li> -->
+							</ul>
+							<!-- E:2뎁스 -->
+						</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- [DK][메뉴숨기기추가] -->
+					<li class="open">
+							<a href="javascript:void(0);" class="depth_tit1">Apply Guide</a>
+							<!-- S:2뎁스 -->
+							<ul class="m_gnb_list2">
+								<li>
+										<a href="/user/comm/menu/3317587a17a23d4dacdb9ffc4762bf4a/content/index.do"  class="tit "><span>Overview</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/admission/guide/international.do"  class="tit on"><span>International Admissions</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/admission/guide/gks.do"  class="tit "><span>Global Korea Scholarship (GKS)</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/admission/result/index.do"  class="tit "><span>Admission Decision</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<!-- 							<li> -->
+								<!-- 								<a href="javascript:void(0);" class="tit">2depth3</a> -->
+								<!-- 							</li> -->
+							</ul>
+							<!-- E:2뎁스 -->
+						</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- [DK][메뉴숨기기추가] -->
+					<li class="">
+							<a href="javascript:void(0);" class="depth_tit1">Support</a>
+							<!-- S:2뎁스 -->
+							<ul class="m_gnb_list2">
+								<li>
+										<a href="/user/comm/menu/e2afb97fa1b8f43c574be0dabef78f87/content/index.do"  class="tit "><span>Scholarship</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/comm/menu/313372af71877af7c5a2d7f0c0260c4f/content/index.do"  class="tit "><span>Presidential Fellowship</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/comm/menu/83909f392f09eeae3d02bb2d4236eeb1/content/index.do"  class="tit "><span>External Scholarship</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/comm/menu/ba6492f421eff5cdad5694ac88469538/content/index.do"  class="tit "><span>Welcome Guide for New Students</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/comm/menu/4a69b7aee6a156d3c2ddb7413544ab2c/content/index.do"  class="tit "><span>Cost of Attendence</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<!-- 							<li> -->
+								<!-- 								<a href="javascript:void(0);" class="tit">2depth3</a> -->
+								<!-- 							</li> -->
+							</ul>
+							<!-- E:2뎁스 -->
+						</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- [DK][메뉴숨기기추가] -->
+					<li class="">
+							<a href="javascript:void(0);" class="depth_tit1">Board</a>
+							<!-- S:2뎁스 -->
+							<ul class="m_gnb_list2">
+								<li>
+										<a href="/user/schedule/index.do"  class="tit "><span>Admission Schedule</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/comm/board/86728f5cbd62c6d9ae38c8d2f624c150/index.do"  class="tit "><span>Notice</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/comm/board/5841aa0415a689d7a5fd8d244a647e21/index.do"  class="tit "><span>Testimonials</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/comm/board/7699dd106cb84b2e26748d3db5e78de6/index.do"  class="tit "><span>FAQ</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/comm/menu/8cb9b5a01be83664701e080c5e0d3469/content/index.do"  class="tit "><span>Contact</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<!-- 							<li> -->
+								<!-- 								<a href="javascript:void(0);" class="tit">2depth3</a> -->
+								<!-- 							</li> -->
+							</ul>
+							<!-- E:2뎁스 -->
+						</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- [DK][메뉴숨기기추가] -->
+					<li class="">
+							<a href="javascript:void(0);" class="depth_tit1">Links</a>
+							<!-- S:2뎁스 -->
+							<ul class="m_gnb_list2">
+								<li>
+										<a href="/user/comm/menu/dc5f6b45df9dc757089961a3e94427f9/content/index.do"  class="tit "><span>Undergraduate</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<li>
+										<a href="/user/comm/menu/b7f8c54d6eaff431c253db1c8b9bcb45/content/index.do"  class="tit "><span>Related Departments</span></a>
+										<!-- 								S:3뎁스 -->
+										<ul class="depth3">
+											</ul>
+										<!-- 								E:3뎁스 -->
+									</li>
+								<!-- 							<li> -->
+								<!-- 								<a href="javascript:void(0);" class="tit">2depth3</a> -->
+								<!-- 							</li> -->
+							</ul>
+							<!-- E:2뎁스 -->
+						</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- 				<li> -->
+				<!-- 					<a href="javascript:void(0);" class="depth_tit1">1depth2</a> -->
+				<!-- 				</li> -->
+				<!-- 				<li> -->
+				<!-- 					<a href="javascript:void(0);" class="depth_tit1">1depth3</a> -->
+				<!-- 				</li> -->
+				<!-- 				<li> -->
+				<!-- 					<a href="javascript:void(0);" class="depth_tit1">1depth4</a> -->
+				<!-- 				</li> -->
+				<!-- 				<li> -->
+				<!-- 					<a href="javascript:void(0);" class="depth_tit1">1depth5</a> -->
+				<!-- 				</li> -->
+			</ul>
+			<!-- E:1뎁스 -->
+			<div class="mob_etc">
+				<a href="/index.do" class="home_btn" title="POSTECH WEBSITE"><span>POSTECH WEBSITE</span></a>
+				<div class="etc">
+					<p><span>POSTECH</span> OFFICIAL SNS</p>
+					<ul>
+						<li>
+							<a href="https://www.youtube.com/@POSTECH1986/videos" class="youtube" title="youtube" target="_blank">youtube</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/postech.global?igsh=aW4wdnhkdjNkdmZp" class="instagram" title="instagram" target="_blank">instagram</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //모바일 gnb  -->
+</header>
+
+<!-- /header -->
+	<!-- Container -->
+	<div id="container" class="container">
+		<!-- 내용 -->
+		<section>
+			<!-- 2019-08-21 김형섭 임시 -->
+<script type="text/javascript">
+	$( document ).ready( function () {
+		//2019-08-20 김형섭 의견접수 추가
+		( function () {
+			$( ".userFeedBackBtn" ).click( function ( e ) {
+				e.preventDefault();
+				//메뉴id가없을경우 리턴
+				if ( "system" == '' ) {
+					$.alert( '등록되지 않은 메뉴입니다.' );
+					return false;
+				}
+				var params = {
+					"smlbSeq" : "1002245" ,
+					"siteDomain" : "system" ,
+					"siteUrl" : $( location ).attr( 'pathname' )
+				};
+				$.ajax( {
+					"url" : "/comm/feedBack/dialog/userFeedBack.do" ,
+					"dataType" : "text" ,
+					"data" : params ,
+					"success" : function ( html ) {
+						var $html = $( html );
+						$html.layout( {
+							"width" : 1500 ,
+							"title" : "의견접수" ,
+							"buttons" : [ {
+								text : "저장" ,
+								addClass : "di_btn_conf" ,
+								click : function () {
+									var $form = $html.find( "[name='userFeedBackForm']" );
+									/* [DK][201013][Naver Smart Editor] */
+									if ( $form.find( "[class*=ime][class*=editor]" ).length ) {
+										$form.find( "[class*=ime][class*=editor]" ).each( function () {
+											var info = $( this ).classData();
+											if ( info.required ) {
+												// CKEDitor 내용 가져오기
+												$( this ).val( eval( "CKEDITOR.instances." + $( this ).attr( "name" ) + ".getData()" ) );
+												if ( $( this ).val() == "" ) {
+													$.alert( "[" + $( this ).attr( "title" ) + "]항목을 입력해주세요." );
+													contChk = true;
+												}
+											}
+										} );
+									}
+									if ( $form.find( "[class*=ime][class*=smartEdit]" ).length ) {
+										$form.find( "[class*=ime][class*=smartEdit]" ).each( function () {
+											var info = $( this ).classData();
+											if ( info.required ) {
+												// Naver Smart Editor get data
+												$( this ).val( eval( "oEditors.getById['" + $( this ).attr( "id" ) + "'].getIR()" ) );
+												if ( $( this ).val() == "" ) {
+													$.alert( "[" + $( this ).attr( "title" ) + "]항목을 입력해주세요." );
+													contChk = true;
+												}
+											}
+										} );
+									}
+									/* [DK][201013][Naver Smart Editor] */
+									if ( $.trim( $form.find( "[name='cont']" ).val() ) == "" || $form.find( "[name='cont']" ).val() == null ) {
+										$.alert( '내용을 입력해주세요.' );
+										return false;
+									}
+									if ( !$form.validate() ) return;
+									global.confirm( $form ,"/comm/feedBack/dialog/proc.do" ,"저장" ,retAction );
+								}
+							} ,{
+								text : "닫기" ,
+								addClass : "di_btn_close" ,
+								click : function () {
+									$html.dialog( 'close' );
+								}
+							} ]
+						} );
+					}
+				} );
+			} );
+		} )();
+		function retAction () {
+			location.reload();
+		}
+	} );
+</script>
+<div class="sub_visual_box">
+	<div class="inner">
+		<div class="h3_box">
+			<div class="inbox">
+			<p>Apply Guide</p>
+				<h3 class="title">Ideas for a <br> Brighter Tomorrow</h3>
+				<span class="s_txt">POSTECH INTERNATIONAL UNDERGRADUATE</span>
+				<!-- 김형섭 -->
+				<!-- <div class="opinion_btn">
+					<a href="javascript:void(0);" class="userFeedBackBtn">의견접수</a>
+					<span>의견접수</span>
+				</div> -->
+				<ul class="navigation">
+					<li><a href="/user/index.do" title="Home">Home</a></li>
+					<li class="">Apply Guide</li>
+					<li class="last">International Admissions</li>
+					</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="swiper-container m_navigation">
+	<ul class="swiper-wrapper ">
+		<li claass="swiper-slide"></li>
+		<li class="swiper-slide">
+					<a href="#" class="title">
+						Apply Guide</a>
+					<ul class="depth_box">
+						<li>
+								<a href="/menu/redirect.do?url=/user/comm/menu/9a5a815c64cbd043ee4096a973bf82c5/content/index.do"  class="">About POSTECH</a>
+							</li>
+						<li>
+								<a href="/menu/redirect.do?url=/user/comm/menu/3317587a17a23d4dacdb9ffc4762bf4a/content/index.do"  class="on">Apply Guide</a>
+							</li>
+						<li>
+								<a href="/menu/redirect.do?url=/user/comm/menu/e2afb97fa1b8f43c574be0dabef78f87/content/index.do"  class="">Support</a>
+							</li>
+						<li>
+								<a href="/menu/redirect.do?url=/user/schedule/index.do"  class="">Board</a>
+							</li>
+						<li>
+								<a href="/menu/redirect.do?url=/user/comm/menu/dc5f6b45df9dc757089961a3e94427f9/content/index.do"  class="">Links</a>
+							</li>
+						</ul>
+				</li>
+			<li class="swiper-slide">
+							<a href="#" class="title">
+								International Admissions</a>
+							<ul class="depth_box">
+								<li>
+										<a href="/menu/redirect.do?url=/user/comm/menu/3317587a17a23d4dacdb9ffc4762bf4a/content/index.do"  class="">Overview</a>
+									</li>
+								<li>
+										<a href="/menu/redirect.do?url=/user/admission/guide/international.do"  class="on">International Admissions</a>
+									</li>
+								<li>
+										<a href="/menu/redirect.do?url=/user/admission/guide/gks.do"  class="">Global Korea Scholarship (GKS)</a>
+									</li>
+								<li>
+										<a href="/menu/redirect.do?url=/user/admission/result/index.do"  class="">Admission Decision</a>
+									</li>
+								</ul>
+						</li>
+					</ul>
+	<div class="swiper-button-next nav_left"></div>
+	<div class="swiper-button-prev nav_right"></div>
+</div><div class="con_wrap">
+				<div class="inner">
+					<!-- 레프트 메뉴 -->
+					<aside class="left_gnb">
+	<div class="left_gnb_title">
+		<h2><a href="/user/comm/menu/3317587a17a23d4dacdb9ffc4762bf4a/content/index.do" >Apply Guide</a></h2>
+		</div>
+	<nav class="gnb_list">
+		<ul>
+			<!-- [DK][메뉴숨기기추가] -->
+						<li class="">
+							<p class="tit">
+									<a href="/user/comm/menu/3317587a17a23d4dacdb9ffc4762bf4a/content/index.do"  class="" class="subUse">
+										<span><em>Overview</em></span>
+									</a>
+								</p>
+							
+							</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- [DK][메뉴숨기기추가] -->
+						<li class="open">
+							<p class="tit">
+									<a href="/user/admission/guide/international.do"  class="on" class="subUse">
+										<span><em>International Admissions</em></span>
+									</a>
+								</p>
+							
+							</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- [DK][메뉴숨기기추가] -->
+						<li class="">
+							<p class="tit">
+									<a href="/user/admission/guide/gks.do"  class="" class="subUse">
+										<span><em>Global Korea Scholarship (GKS)</em></span>
+									</a>
+								</p>
+							
+							</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- [DK][메뉴숨기기추가] -->
+						<li class="">
+							<p class="tit">
+									<a href="/user/admission/result/index.do"  class="" class="subUse">
+										<span><em>Admission Decision</em></span>
+									</a>
+								</p>
+							
+							</li>
+					<!-- [DK][메뉴숨기기추가] -->
+				<!-- BMW소스 -->
+			</ul>
+	</nav>
+	<!-- //gnbList -->
+	</aside>
+<script>
+	$( document ).ready( function () {
+		$( ".banner_wrap" ).find( "a" ).each( function () {
+			var hrefStr = $( this ).attr( "href" );
+			if ( hrefStr.length > 1 && hrefStr.indexOf( "http" ) < 0 ) {
+				$( this ).attr( "href" ,"http://" + hrefStr );
+			}
+		} );
+	} )
+</script><!-- /레프트 메뉴 -->
+					<div class="page_cont">
+						<div class="top_wrap">
+							<h4 class="sub_2dep_title">International Admissions</h4>
+							<div class="etc_btn_box">
+								<div class="box">
+									<a href="javascript:printPage()" title="print" class="print">print</a>
+									<a href="#;" title="share" class="share">share</a>
+									<ul class="sns_list_box">
+										<!-- <li>
+											<a href="javascript:shareMessage()" title="kakaotalk" class="kakaotalk">kakaotalk</a>
+										</li> -->
+										<li>
+											<a href="javascript:shareFacebook()" title="facebook" class="facebook">facebook</a>
+										</li>
+										<li>
+											<a href="javascript:shareTwitter()" title="twitter" class="twitter">twitter</a>
+										</li>
+										<li>
+											<a href="javascript:copyLink()" title="url" class="url">url</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="con_box">
+							<script type="text/javascript">
+$(document).ready(function(){
+
+	function getFirstSeq() {
+		return $( document ).find("div.tabmenu").find(".tab_type1 a:first").data("seq");
+	}
+
+	function setPdfViewer( dataSeq ) {
+
+		if( !dataSeq ) dataSeq = getFirstSeq();
+
+		let data = [];
+		data.push( {'name': "admissionType", 'value':"international"} );
+		data.push( {'name': "dataSeq", 'value':dataSeq} );
+
+		$.ajax( {
+			"url" : "page/pdfViewer.do" ,
+			"dataType" : "html" ,
+			"data" :  data,
+			"success" : function ( result ) {
+				// console.log("result > ", result);
+				let divName = "div.pdfViewer." +dataSeq;
+				$(divName).html( result );
+			}
+		} );
+	}
+
+	$( document ).find("div.tabmenu").find(".tab_type1 a").click(function(){
+		let $this = $(this);
+		let dataSeq = $this.data("seq");
+
+		setPdfViewer( dataSeq );
+	});
+
+	$( document ).find("select[name=selPdfSelect]").change(function(){
+		let $this = $(this);
+		let dataSeq = $this.find("option:selected").data("seq");
+
+		setPdfViewer( dataSeq );
+	});
+
+	setPdfViewer();
+
+
+});
+
+</script>
+<div class="int_adm_wrap">
+	<div class="top_tit">
+		<h4 class="h4_tit">Admissions Process</h4>
+		<div class="btn-box">
+
+			<!--<a href="/comm/cmfile/download.do?encFileGrpSeq=5817ff5596f1a24aedce3621c047550e&encFileSeq=b5c90a0c4acbb7156ac1dfc3d5832774" class="btn01 col02 download" title="[POSTECH] Undergraduate Admissions Forms_2027 Spring.zip">
+					<span>Documents For Application</span>
+				</a>
+				-->
+
+
+			<a href="https://www.studyinkorea.go.kr/ko/receipt/OnlineReceipt11.do" class="btn01 col01 comm" title="Apply" target="_blank">
+				<span>Apply</span>
+			</a>
+			</div>
+	</div>
+
+
+	<!-- <div class="procress_step_wrap">
+		<ul>
+			<li class="step1">
+				<div>
+					<span>STEP 1</span>
+					<p>Application</p>
+				</div>
+			</li>
+			<li class="step2">
+				<div>
+					<span>STEP 2</span>
+					<p>Document<br>Review</p>
+				</div>
+			</li>
+			<li class="step3">
+				<div>
+					<span>STEP 3</span>
+					<p>(If necessary)<br>Interview</p>
+				</div>
+			</li>
+			<li class="step4">
+				<div>
+					<span>STEP 3</span>
+					<p>Announcement</p>
+				</div>
+			</li>
+			<li class="step5">
+				<div>
+					<span>STEP 4</span>
+					<p>Enrollment Confirmation</p>
+				</div>
+			</li>
+			<li class="step6">
+				<div>
+					<span>STEP 5</span>
+					<p>Visa Issuance</p>
+				</div>
+			</li>
+			<li class="step7">
+				<div>
+					<span>STEP 6</span>
+					<p>Semester<br>Begin</p>
+				</div>
+			</li>
+		</ul>
+	</div> -->
+	<div class="content_box"><div class="procress_step_wrap">
+<ul>
+	<li class="step1">
+	<div><span>STEP 1</span>
+	<p>Application</p>
+	</div>
+	</li>
+	<li class="step2">
+	<div><span>STEP 2</span>
+	<p>Document<br />
+	Review</p>
+	</div>
+	</li>
+	<!-- <li class="step3">
+	<div><span>STEP 3</span>
+	<p>(If necessary)<br />
+	Interview</p>
+	</div>
+	</li> -->
+	<li class="step4">
+	<div><span>STEP 3</span>
+	<p>Announcement</p>
+	</div>
+	</li>
+	<li class="step5">
+	<div><span>STEP 4</span>
+	<p>Enrollment&nbsp;Confirmation<br />
+	and Registration</p>
+	</div>
+	</li>
+	<li class="step6">
+	<div><span>STEP 5</span>
+	<p>Certificate of Admission<br />
+	& Visa Issuance</p>
+	</div>
+	</li>
+	<li class="step7">
+	<div><span>STEP 6</span>
+	<p>Semester<br />
+	Begin</p>
+	</div>
+	</li>
+</ul>
+</div></div>
+</div>
+
+<h4 class="h4_tit">Admissions Guide</h4>
+<div class="tabmenu dn">
+	<div class="tab_type1">
+		<ul>
+			<li class="on"><a href="#con1" data-seq="21">[POSTECH] Undergraduate Admissions Guideline_2027 Spring</a></li>
+			</ul>
+	</div>
+	<div class="sm_select">
+		<select name="selPdfSelect" id="tabmenu">
+			<option value="#con1" data-seq="21">[POSTECH] Undergraduate Admissions Guideline_2027 Spring</option>
+			</select>
+	</div>
+</div>
+<div id="con1" class="tab_cont pdfViewer 21" style="display:block;">
+</div>
+</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- 내용 -->
+		</div>
+	<!-- Container -->
+	<!-- footer -->
+	<script>
+	function userTerm () {
+		var url = "/policy/service.do";
+		var option = "width=800, height=900, top=50, left=200, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no";
+		window.open( url ,"windowPop" ,option );
+	}
+	$(document).ready(function(){
+		$(".footer_wrap").find("a").each(function(){
+			var hrefStr = $(this).attr("href");
+			if(hrefStr.length > 1 && hrefStr.indexOf("http") < 0 ){
+				$(this).attr("href","http://" + hrefStr);
+			}
+		});
+	})
+</script>
+<footer id="footer">
+	<div class="inner">
+		<div class="logo">
+			<img src="/content/02comm/css/images/common/logo.png" class="pc" alt="postech">
+			<img src="/content/02comm/css/images/common/logo_m.png" class="mob" alt="postech">
+		</div>
+		<div class="text">
+			<div class="link">
+				<ul>
+					<li>
+						<a href="https://adm-iu.postech.ac.kr/user/comm/menu/8cb9b5a01be83664701e080c5e0d3469/content/index.do" title="Contact Us">Contact Us</a>
+					</li>
+					<li>
+						<a href="https://www.postech.ac.kr/eng/usage-guide/privacy_policy.do" title="Personal Information Policy" target="_blank">Personal Information Policy</a>
+					</li>
+				</ul>
+			</div>
+			<div class="info">
+				<ul>
+					<li>POSTECH Undergraduate Admissions 77 Cheongam-Ro. Nam-Gu. Pohang. Gyeongbuk. Korea 37673</li>
+					<li><span> TEL: +82-54-279-3629 </span> <a href="mailto:postech-iuadmission@postech.ac.kr" title="메일전송">E-mail: postech-iuadmission@postech.ac.kr</a></li>
+					<li class="copy">COPYRIGHT 2024 Pohang University of Science and Technology. ALL RIGHTS RESERVED.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="family_site">
+			<p><span>POSTECH </span> FAMILY SITE</p>
+			<div class="site-box">
+				<a href="#;" title="Family Site">
+					<span>Family Site</span>
+				</a>
+				<ul>
+					<li><a href="https://adm-u.postech.ac.kr/" target="blank" title="Undergraduate Admissions KR">Undergraduate Admissions KR</a></li>
+					<li><a href="https://adm-g.postech.ac.kr/" target="blank" title="Graduate Admissions KR">Graduate Admissions KR</a></li>
+					<li><a href="https://adm-g.postech.ac.kr/ENG/" target="blank" title="Graduate Admissions EN">Graduate Admissions EN</a></li>
+				</ul>
+			</div>
+			<div class="site-box">
+				<a href="#;" title="Related Link">
+					<span>Related Link</span>
+				</a>
+				<ul>
+					<li><a href="http://niied.go.kr/main/main.do" target="blank" title="National Institute for International Education">National Institute for International Education</a></li>
+					<li><a href="https://www.studyinkorea.go.kr/ko/main.do" target="blank" title="Study in Korea">Study in Korea</a></li>
+				</ul>
+			</div>
+		</div>
+		<a href="javascript:void(0);" class="btn_back" title="이전페이지">이전페이지</a>
+		<a href="javascript:void(0);" class="btn_top" title="TOP">TOP</a>
+	</div>
+</footer><!-- footer -->
+
+</body>
+</html>
+<script>
+	$( document ).ready( function () {
+		$( ".link_wrap" ).find( "li a" ).each( function () {
+			var hrefStr = $( this ).attr( "href" );
+			if ( hrefStr.length > 1 && hrefStr.indexOf( "http" ) < 0 ) {
+				$( this ).attr( "href" ,"http://" + hrefStr );
+			}
+		} );
+	} )
+</script>

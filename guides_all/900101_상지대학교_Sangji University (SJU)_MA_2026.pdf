@@ -1,0 +1,2273 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="/images/kor/common/favicon.ico">
+<link rel="stylesheet" href="/common/css/common.css;jsessionid=2EA949C997A1F47DADE1A4A48929669A" />
+<!-- template -->
+<link rel="stylesheet" href="/css/gradgo/common.css;jsessionid=2EA949C997A1F47DADE1A4A48929669A" />
+<link rel="stylesheet" href="/css/gradgo/layouts.css;jsessionid=2EA949C997A1F47DADE1A4A48929669A" />
+<!-- template -->
+<link rel="stylesheet" href="/common/css/bootstrap.min.css;jsessionid=2EA949C997A1F47DADE1A4A48929669A" />
+<link rel="stylesheet" href="/common/css/font-awesome.css;jsessionid=2EA949C997A1F47DADE1A4A48929669A" />
+<link rel="stylesheet" href="/common/css/acego.ui.min.css;jsessionid=2EA949C997A1F47DADE1A4A48929669A" />
+<link rel="stylesheet" href="/common/css/content.min.css;jsessionid=2EA949C997A1F47DADE1A4A48929669A" />
+
+<link rel="stylesheet" href="/common/css/ui.css" />
+
+<!-- content -->
+<link rel="stylesheet" href="/css/gradgo/content.css;jsessionid=2EA949C997A1F47DADE1A4A48929669A" />
+<!-- content -->
+<link rel="stylesheet" href="/common/css/program.css;jsessionid=2EA949C997A1F47DADE1A4A48929669A" />
+<link rel="stylesheet" href="/common/css/bootstrap.min.css">
+<link rel="stylesheet" href="/common/css/board.min.css;jsessionid=2EA949C997A1F47DADE1A4A48929669A" />
+<script src="/common/js/jquery-3.7.1.min.js"></script>
+<script src="/common/js/jquery-compat-3x.js"></script>
+<script src="/common/js/jquery-easing-shim.js"></script>
+<script src="/common/js/bootstrap.bundle.min.js"></script>
+<script>
+(function ($, window) {
+  if (!$) return;
+
+  // jQuery 3.x: $.fn.size() 제거 → 폴리필
+  if (!$.fn.size) $.fn.size = function(){ return this.length; };
+
+  // jQuery 3.x: $(...).load(fn) 이벤트 단축 제거 → 폴리필
+  var _ajaxLoad = $.fn.load;
+  $.fn.load = function (a,b,c) {
+    if (typeof a === "function") return this.on("load", a);
+    return _ajaxLoad.call(this, a,b,c);
+  };
+})(window.jQuery, window);
+</script>
+<!--
+<script src="/common/js/jquery-1.12.4.min.js;jsessionid=2EA949C997A1F47DADE1A4A48929669A"></script>
+<script src="/common/js/jquery-ui-1.10.1.custom.min.js;jsessionid=2EA949C997A1F47DADE1A4A48929669A"></script>
+<script src="/common/js/bootstrap.min.js;jsessionid=2EA949C997A1F47DADE1A4A48929669A"></script>
+-->
+<script src="/common/js/common.js;jsessionid=2EA949C997A1F47DADE1A4A48929669A"></script>
+<script src="/js/gradgo/common.js;jsessionid=2EA949C997A1F47DADE1A4A48929669A"></script>
+<script src="/js/gradgo/gnbTitle.js;jsessionid=2EA949C997A1F47DADE1A4A48929669A"></script>
+<script src="/js/gradgo/stateScrollObj.js"></script>
+<script src="/common/js/print/jquery.PrintArea.js;jsessionid=2EA949C997A1F47DADE1A4A48929669A"></script>
+<script>
+$(function () {
+  function _in(event) {
+    $("#txt").printArea({
+      popWd: $(window).width(),
+      popHt: $(window).height(),
+      mode: "popup",
+      popClose: true,
+      //extraCss:"/css/narae/print.css",
+      retainAttr: ["id", "class"],
+      extraHead: '<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">'
+    });
+
+    event.preventDefault();
+  }
+
+  $("#print a[href='#none']").on("click", _in);
+});
+</script>
+
+
+<!--[if lt IE 9]>
+    <script src="/common/js/html5shiv.js"></script>
+<![endif]-->
+
+
+<title>
+			
+			
+				
+				
+					
+				
+					
+				
+					 
+											 외국인 >
+						 
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+				
+				
+					 
+											 모집요강 >
+						 
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+		 상지대학교 대학원입학
+</title>
+</head>
+<body>
+
+<div class="left_util_bg"></div>
+
+<!-- 스킵네비케이션시작 -->
+<div id="skipnavi">
+    <a href="#txt">본문 바로가기</a>
+	<a href="#gnbbox">대메뉴 바로가기</a>
+</div>
+<!-- 스킵네비케이션끝 -->
+<!-- top_layout :s -->
+<ul class="utile_wrap left">
+	<li><a href="https://www.sangji.ac.kr/kor/index.do" title="새창열림" target="_blank">상지대학교</a></li>
+    <li><a href="https://www.sangji.ac.kr/gradgo/index.do" title="새창열림" target="_blank">입학안내</a></li>
+    <li><a href="https://caam.sangji.ac.kr/main/mainPage.do" title="새창열림" target="_blank">학생역량</a></li>
+    <li><a href="https://www.sangji.ac.kr/onestop/index.do" title="새창열림" target="_blank">학생지원</a></li>
+</ul>
+<ul class="utile_wrap right">
+	 
+         
+         
+         		<li class="login"><a href="/kor/login.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A">LOGIN</a></li>
+         
+    
+	<li class="sitemap2"><a href="/gradgo/sitemap.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A">SITEMAP</a></li>
+</ul>
+<div id="top_layout" class="a_type">
+	<!-- gnb_layout :s --> 
+	  
+ 
+
+
+
+
+
+
+
+<!-- 240103 홍보대행사 콜랩네트워크 구글 애널릭틱 삽입 시작 -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K58XKP78');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K58XKP78"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- 240103 홍보대행사 콜랩네트워크 구글 애널릭틱 삽입 끝 -->
+
+<!-- Global site tag (gtag.js) - Google Ads: 561102144 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-561102144"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-561102144');
+</script>
+
+<!-- Global site tag (gtag.js) - Google Ads: 840456342 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-840456342"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-840456342');
+</script>	
+<script>
+$(function(){
+	
+	function getCookie(name) {
+		var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+		return value? value[2] : null;
+	}
+	
+	if(getCookie("sangji") == null){
+	
+		$.ajax({
+    		type: 'GET',
+        	url:'https://sso.sangji.ac.kr:4443/api/sso/login/check',
+        	xhrFields: {
+            	withCredentials: true
+        	},
+        	cache: false,
+        	dataType: 'json',
+        	crossDomain: true,
+        	success:function(data){
+            	if(data.dataMap.valid) {
+            		location.href = 'https://sso.sangji.ac.kr:4443/sso/auth?client_id=homepage&response_type=code&rd_c_p=kor&redirect_uri=http://www.sangji.ac.kr/sso/ssoLoginResult.do';
+            	}
+        	},
+        	error: function(jqXHR, textStatus, errorThrown){
+            	console.log(jqXHR,textStatus,errorThrown);
+        	}
+
+		});
+	}
+	
+	if(getCookie("sangji") != null){
+	
+		$.ajax({
+    		type: 'GET',
+        	url:'https://sso.sangji.ac.kr:4443/api/sso/login/check',
+        	xhrFields: {
+            	withCredentials: true
+        	},
+        	cache: false,
+        	dataType: 'json',
+        	crossDomain: true,
+        	success:function(data){
+            	if(!data.dataMap.valid) {
+            		location.href = '/sso/ssoLogout.do';
+            	}
+        	},
+        	error: function(jqXHR, textStatus, errorThrown){
+            	console.log(jqXHR,textStatus,errorThrown);
+        	}
+
+		});
+	}
+});
+</script>
+<!-- 상단 팝업 -->
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+<header class="top_wrap">
+	<h1 class="logo_wrap"><a href="/gradgo/index.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A">상지대학교 입학</a></h1>  
+    <ul class="left_utile">
+        <li class="sitemap"><a id="btnAllmenu" href="/gradgo/sitemap.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A">전체메뉴</a></li>
+        <li class="lnk0"><a href="/grad/index.do" target="_blank" title="새창열림">대학원바로가기</a></li>
+        <li class="lnk1"><a href="/kor/index.do" target="_blank" title="새창열림">대학바로가기</a></li>
+        <li class="lnk2"><a href="/go/index.do" target="_blank" title="새창열림">대학입학</a></li> 
+    </ul>
+</header>
+<nav id="gnb_layout" class="dt_type" data-gnb="dt_type">
+    	<!-- 공통메뉴틀 시작 -->
+        <!-- 모바일유틸 시작 -->
+        <div class="topUtile">
+            <div class="link_wrap">
+                <a href="/gradgo/index.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A">HOME</a>
+                
+                    
+                    
+                        <a href="/gradgo/login.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A">LOGIN</a>
+                    
+                
+                <a href="/gradgo/sitemap.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A">SITEMAP</a>
+            </div>
+            <div class="link_wrap">
+                <a href="/kor.do" title="새창열림" target="_blank">대학바로가기</a>
+                <a href="/go.do" title="새창열림" target="_blank">대학입학</a>
+            </div>
+            
+            <div class="lan_wrap dropDown">
+                <a href="#">LANGUAGE</a>
+                <ul>
+                   <li><a href="https://www5.sangji.ac.kr/user/indexMain.action?command=&siteId=english" title="새창열림" target="_blank">English</a></li>
+						<li><a href="http://www5.sangji.ac.kr/china/main/main.jsp" title="새창열림" target="_blank">Chinese</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 모바일유틸 끝 -->
+    	<div id="gnbbox" class="gnb_wrap">
+    	<!-- 메뉴 시작 -->
+        <!-- 
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            <ul class="depth1_ul n4">
+                
+                    
+                        <li class="n1">
+                            <a href="/gradgo/sub01_01.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A"><span>모집요강</span></a> 
+                            <ul class="depth2_ul">  
+                                
+                                    
+                                    
+                                    
+                                         <li><a href="/gradgo/sub01_01.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >일반/특수(신ㆍ편입)</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="/gradgo/sub01_02.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >외국인</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                    
+                    
+                    
+                    
+                    
+                        <li class="n4">
+                            <a href="/prog/bbsArticle/BBSMSTR_000000000222/list.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A"><span>커뮤니티</span></a> 
+                            <ul class="depth2_ul">  
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                         <li><a href="/prog/bbsArticle/BBSMSTR_000000000222/list.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >공지사항</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="/prog/bbsArticle/BBSMSTR_000000000350/list.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >자료실</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="/prog/bbsArticle/BBSMSTR_000000000351/list.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >FAQ</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="/prog/bbsArticle/BBSMSTR_000000000362/list.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >Q&A</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        <li class="n9">
+                            <a href="http://seoksa.sangji.ac.kr/ibsi/"><span>원서접수 및 합격확인</span></a> 
+                            <ul class="depth2_ul">  
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                         <li><a href="https://seoksa.sangji.ac.kr/ibsi/wonser_insert/personal_information_Agreement.jsp" >신입학 원서접수</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="https://seoksa.sangji.ac.kr/ibsi_transfer/wonser_insert/personal_information_Agreement.jsp" >편입학 원서접수</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="https://seoksa.sangji.ac.kr/ibsi/wonser_update/update_input.jsp" >신입학 원서접수 확인</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="https://seoksa.sangji.ac.kr/ibsi_transfer/wonser_update/update_input.jsp" >편입학 원서접수 확인</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="https://seoksa.sangji.ac.kr/ibsi/wonser_check/check_input.jsp" >신입학 제출서류 접수확인</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="https://seoksa.sangji.ac.kr/ibsi_transfer/wonser_check/check_input.jsp" >편입학 제출서류 접수확인</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="http://seoksa.sangji.ac.kr/ibsi/pass/pass_input.jsp" >신입학 합격자 조회</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="http://seoksa.sangji.ac.kr/ibsi_transfer/pass/pass_input.jsp" >편입학 합격자 조회</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        <li class="n18">
+                            <a href="https://www.sangji.ac.kr/grad/index.do"><span>대학원소개</span></a> 
+                            <ul class="depth2_ul">  
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                         <li><a href="/kor/sub09_01_01.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >학교소개</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="/grad/sub03_02.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >장학제도 안내</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="/grad/sub03_01.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >등록금 안내</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="/kor/sub06_04_01_01.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >통학버스 안내</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="http://library.sangji.ac.kr" >학술정보원 안내</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="https://www.sangji.ac.kr/dorm/index.do" >생활관 안내</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                         <li><a href="/kor/sub09_10_03.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >찾아오시는길</a>
+                                                  
+                                            </li>         
+                                        
+                                    
+                                    
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                     
+                  -->
+                  
+        
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+
+		<ul class="depth1_ul n4">
+		  
+          
+ 
+	          
+	          
+		  		 
+	             <li class="n1">
+                	<a href="/gradgo/sub01_01.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" ><span>모집요강</span></a> 
+	                <ul class="depth2_ul">  
+	                  
+	                        
+         
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="/gradgo/sub01_01.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >일반/특수(신ㆍ편입)</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="/gradgo/sub01_02.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >외국인</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+	                  
+	                 </ul>
+	             </li>
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+	          
+		  		 
+	             <li class="n2">
+                	<a href="/prog/bbsArticle/BBSMSTR_000000000222/list.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" ><span>커뮤니티</span></a> 
+	                <ul class="depth2_ul">  
+	                  
+	                        
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000222/list.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >공지사항</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000350/list.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >자료실</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000351/list.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >FAQ</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="/prog/bbsArticle/BBSMSTR_000000000362/list.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >Q&A</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+	                  
+	                 </ul>
+	             </li>
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+	          
+		  		 
+	             <li class="n3">
+                	<a href="http://seoksa.sangji.ac.kr/ibsi/"  target="_blank" title="원서접수 및 합격확인 은(는) 새창으로 열립니다." ><span>원서접수 및 합격확인</span></a> 
+	                <ul class="depth2_ul">  
+	                  
+	                        
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="https://seoksa.sangji.ac.kr/ibsi/wonser_insert/personal_information_Agreement.jsp"  target="_blank" title="신입학 원서접수 은(는) 새창으로 열립니다." >신입학 원서접수</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="https://seoksa.sangji.ac.kr/ibsi_transfer/wonser_insert/personal_information_Agreement.jsp"  target="_blank" title="편입학 원서접수 은(는) 새창으로 열립니다." >편입학 원서접수</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="https://seoksa.sangji.ac.kr/ibsi/wonser_update/update_input.jsp"  target="_blank" title="신입학 원서접수 확인 은(는) 새창으로 열립니다." >신입학 원서접수 확인</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="https://seoksa.sangji.ac.kr/ibsi_transfer/wonser_update/update_input.jsp"  target="_blank" title="편입학 원서접수 확인 은(는) 새창으로 열립니다." >편입학 원서접수 확인</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="https://seoksa.sangji.ac.kr/ibsi/wonser_check/check_input.jsp"  target="_blank" title="신입학 제출서류 접수확인 은(는) 새창으로 열립니다." >신입학 제출서류 접수확인</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="https://seoksa.sangji.ac.kr/ibsi_transfer/wonser_check/check_input.jsp"  target="_blank" title="편입학 제출서류 접수확인 은(는) 새창으로 열립니다." >편입학 제출서류 접수확인</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="http://seoksa.sangji.ac.kr/ibsi/pass/pass_input.jsp"  target="_blank" title="신입학 합격자 조회 은(는) 새창으로 열립니다." >신입학 합격자 조회</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="http://seoksa.sangji.ac.kr/ibsi_transfer/pass/pass_input.jsp"  target="_blank" title="편입학 합격자 조회 은(는) 새창으로 열립니다." >편입학 합격자 조회</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+	                  
+	                 </ul>
+	             </li>
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+	          
+		  		 
+	             <li class="n4">
+                	<a href="https://www.sangji.ac.kr/grad/index.do"  target="_blank" title="대학원소개 은(는) 새창으로 열립니다." ><span>대학원소개</span></a> 
+	                <ul class="depth2_ul">  
+	                  
+	                        
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="/kor/sub09_01_01.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A"  target="_blank" title="학교소개 은(는) 새창으로 열립니다." >학교소개</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="/grad/sub03_02.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A"  target="_blank" title="장학제도 안내 은(는) 새창으로 열립니다." >장학제도 안내</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="/grad/sub03_01.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A"  target="_blank" title="등록금 안내 은(는) 새창으로 열립니다." >등록금 안내</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="/kor/sub06_04_01_01.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A"  target="_blank" title="통학버스 안내 은(는) 새창으로 열립니다." >통학버스 안내</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="http://library.sangji.ac.kr"  target="_blank" title="학술정보원 안내 은(는) 새창으로 열립니다." >학술정보원 안내</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="https://www.sangji.ac.kr/dorm/index.do"  target="_blank" title="생활관 안내 은(는) 새창으로 열립니다." >생활관 안내</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+						         <li><a href="/kor/sub09_10_03.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A"  target="_blank" title="찾아오시는길 은(는) 새창으로 열립니다." >찾아오시는길</a>
+						          		
+						         </li>	 	
+						         
+ 
+	          				
+         
+						         
+ 
+	          				
+	                  
+	                 </ul>
+	             </li>
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+          
+ 
+	          
+ 
+ 
+            
+          
+          </ul>    
+                  
+        <!--          
+        <ul class="depth1_ul n10">
+            <li class="n1">
+                <a href="#"><span>수시</span></a>
+                <ul class="depth2_ul n5">
+                    <li><a href="#">메뉴1-1</a></li>
+                    <li>
+                        <a href="#">메뉴1-2</a>
+                        <ul class="depth3_ul">
+                            <li><a href="#">메뉴1-2-1</a></li>
+                            <li><a href="#">메뉴1-2-2</a></li>
+                            <li><a href="#">메뉴1-2-3</a></li>
+                            <li><a href="#">메뉴1-2-4</a></li>
+                            <li><a href="#">메뉴1-2-5</a></li>
+                            <li><a href="#">메뉴1-2-6</a></li>
+                            <li><a href="#">메뉴1-2-7</a></li>
+                            <li><a href="#">메뉴1-2-8</a></li>
+                            <li><a href="#">메뉴1-2-9</a></li>
+                            <li><a href="#">메뉴1-2-10</a></li>
+                            <li><a href="#">메뉴1-2-11</a></li>
+                            <li><a href="#">메뉴1-2-12</a></li>
+                            <li><a href="#">메뉴1-2-13</a></li>
+                            <li><a href="#">메뉴1-2-14</a></li>
+                            <li><a href="#">메뉴1-2-15</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴1-3</a></li>
+                    <li><a href="#">메뉴1-4</a></li>
+                    <li>
+                        <a href="#">메뉴1-5</a>
+                        <ul class="depth3_ul">
+                            <li><a href="#">메뉴1-5-1</a></li>
+                            <li><a href="#">메뉴1-5-2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="n2">
+                <a href="#"><span>정시</span></a>
+                <ul class="depth2_ul n4">
+                    <li><a href="#">메뉴2-1</a></li>
+                    <li><a href="#">메뉴2-2</a></li>
+                    <li>
+                        <a href="#">메뉴2-3</a>
+                        <ul class="depth3_ul">
+                            <li><a href="#">메뉴2-3-1</a></li>
+                            <li><a href="#">메뉴2-3-2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴2-4</a></li>
+                </ul>
+            </li>
+            <li class="n3">
+                <a href="#"><span>학생부종합전형</span></a>
+                <ul class="depth2_ul n5">
+                    <li><a href="#">메뉴3-1</a></li>
+                    <li><a href="#">메뉴3-2</a></li>
+                    <li><a href="#">메뉴3-3</a></li>
+                    <li><a href="#">메뉴3-4</a></li>
+                    <li><a href="#">메뉴3-5</a></li>
+                </ul>
+            </li>
+            <li class="n4">
+                <a href="#"><span>편입학</span></a>
+                <ul class="depth2_ul n3">
+                    <li><a href="#">메뉴4-1</a></li>
+                    <li>
+                        <a href="#">메뉴4-2</a>
+                        <ul class="depth3_ul">
+                            <li><a href="#">메뉴4-2-1</a></li>
+                            <li><a href="#">메뉴4-2-2</a></li>
+                            <li><a href="#">메뉴4-2-3</a></li>
+                            <li><a href="#">메뉴4-2-4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴4-3</a></li>
+                </ul>
+            </li>
+            <li class="n5">
+                <a href="#"><span>계약학과</span></a>
+                <ul class="depth2_ul n4">
+                    <li><a href="#">메뉴5-1</a></li>
+                    <li><a href="#">메뉴5-2</a></li>
+                    <li>
+                        <a href="#">메뉴5-3</a>
+                        <ul class="depth3_ul">
+                            <li><a href="#">메뉴5-3-1</a></li>
+                            <li><a href="#">메뉴5-3-2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴5-4</a></li>
+                </ul>
+            </li>
+            <li class="n6">
+                <a href="#"><span>군위탁생</span></a>
+                <ul class="depth2_ul n4">
+                    <li><a href="#">메뉴6-1</a></li>
+                    <li><a href="#">메뉴6-2</a></li>
+                    <li>
+                        <a href="#">메뉴6-3</a>
+                        <ul class="depth3_ul">
+                            <li><a href="#">메뉴6-3-1</a></li>
+                            <li><a href="#">메뉴6-3-2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴6-4</a></li>
+                </ul>
+            </li>
+            <li class="n7">
+                <a href="#"><span>재외국민</span></a>
+                <ul class="depth2_ul n4">
+                    <li><a href="#">메뉴7-1</a></li>
+                    <li><a href="#">메뉴7-2</a></li>
+                    <li>
+                        <a href="#">메뉴7-3</a>
+                        <ul class="depth3_ul">
+                            <li><a href="#">메뉴7-3-1</a></li>
+                            <li><a href="#">메뉴7-3-2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴7-4</a></li>
+                </ul>
+            </li>
+            <li class="n8">
+                <a href="#"><span>입학안내</span></a>
+                <ul class="depth2_ul n4">
+                    <li><a href="#">메뉴8-1</a></li>
+                    <li><a href="#">메뉴8-2</a></li>
+                    <li>
+                        <a href="#">메뉴8-3</a>
+                        <ul class="depth3_ul">
+                            <li><a href="#">메뉴8-3-1</a></li>
+                            <li><a href="#">메뉴8-3-2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴8-4</a></li>
+                </ul>
+            </li>
+            <li class="n9">
+                <a href="#"><span>입학도우미</span></a>
+                <ul class="depth2_ul n4">
+                    <li><a href="#">메뉴9-1</a></li>
+                    <li><a href="#">메뉴9-2</a></li>
+                    <li>
+                        <a href="#">메뉴9-3</a>
+                        <ul class="depth3_ul">
+                            <li><a href="#">메뉴9-3-1</a></li>
+                            <li><a href="#">메뉴9-3-2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴9-4</a></li>
+                </ul>
+            </li>
+            <li class="n10">
+                <a href="#"><span>학교정보</span></a>
+                <ul class="depth2_ul n4">
+                    <li><a href="#">메뉴10-1</a></li>
+                    <li><a href="#">메뉴10-2</a></li>
+                    <li>
+                        <a href="#">메뉴10-3</a>
+                        <ul class="depth3_ul">
+                            <li><a href="#">메뉴10-3-1</a></li>
+                            <li><a href="#">메뉴10-3-2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴10-4</a></li>
+                </ul>
+            </li>
+        </ul>
+        -->
+    <!-- 메뉴 끝 -->
+    </div>
+	<!-- 공통메뉴틀 끝 -->
+    <!-- 공통메뉴배경 시작 -->
+    <span class="gnb_bg"></span>
+    <!-- 공통메뉴배경 끝 -->
+    <!-- 모바일메뉴닫기 시작 -->
+    <a id="btnClose_gnb" class="gnbClose" href="#">닫기</a>
+    <!-- 모바일메뉴닫기 끝 -->
+</nav>
+	<!-- gnb_layout :e -->
+</div>
+<!-- top_layout :e -->
+
+<!-- 비쥬얼 시작 -->
+<div id="svisual_layout" class="b_type">
+	<div class="svisual_wrap">
+       	<div class="title_wrap">
+           <strong><span>상상하는 모든것을 이룰 수 있는 대학</span></strong>
+           <p>
+	           
+	           	세상으로 도약하는 상지대학교​
+	           	
+	           	
+	           	
+	           	
+	           	
+	           	
+	           
+           </p>
+       	</div>
+       		
+	           	<img class="movImg" src="/images/go/svisual_img_sub01.jpg" alt="상지대학교 이미지">
+	           	
+	           	
+	           	
+	           	
+	           	
+	           	
+	          
+       	
+   	</div>
+</div>
+<!-- 비쥬얼 끝 -->
+<!-- body_layout :s -->
+<div id="body_layout" class="b_type">
+	<div class="body_wrap">
+		<!-- lnb_layout :s -->
+		<!--
+		<aside id="lnb_layout" class="lnb_wrap">
+
+			
+
+
+        	
+		</aside>
+		-->
+		<!-- lnb_layout :e -->
+	
+		<!-- content_layout :s -->
+		<div class="contents_wrap">
+			<!-- title_layout :s -->
+			<div class="title_wrap">
+	            
+
+
+
+
+
+
+
+
+
+<!-- 페이지 타이틀 시작 -->
+<div class="title_wrap">
+	<h2>외국인</h2>
+	<!-- 유틸 시작 -->
+	<div class="utile_wrap">
+		<!-- 로케이션 시작 -->
+		<ul class="location_wrap">
+			<li class="n1"><a href="/gradgo/index.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A">HOME</a></li>
+			
+			
+			
+				
+					
+						<li class="n2"><a href="/gradgo/sub01_01.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >모집요강</a></li>
+						
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+				
+					
+				
+					
+				
+					
+						<li class="n3"><a href="/gradgo/sub01_02.do;jsessionid=2EA949C997A1F47DADE1A4A48929669A" >외국인</a></li>
+						
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+		</ul>
+    	<!-- 로케이션 끝 -->
+    	<!-- 프린트 시작 -->
+        <ul class="print_wrap">
+        	<li id="sns_layout" class="n2">
+            	<a id="snsOpen" href="#">SNS공유</a>
+                <div class="sns_wrap">
+                	<a class="fa" href="#" onclick="facebookOpen(); return false;" title="facebook, 새창에서 열림">페이스북</a>
+                	<a class="copy_url" href="#" onclick="CopyUrl(); return false;">URL</a>
+                	
+                	<a id="snsClose" class="btnClose" href="#">닫기</a>
+                </div>
+            </li>
+        	<li class="n1" id="print"><a href="#">프린트</a></li>
+        </ul>
+    	<!-- 프린트 끝 -->
+    </div>
+    <!-- 유틸 끝 -->
+</div>
+<!-- 페이지 타이틀 끝 -->
+
+            	
+            	
+			</div>
+			<!-- title_layout :e -->
+			<!-- content :s -->
+			<div id="txt">
+				
+
+
+
+
+
+
+
+
+
+
+ 
+
+					
+				
+				
+				
+					
+
+
+
+<script>
+		var nav = 2;
+		$(function(){
+			var myPDF;
+			var options = {
+				pdfOpenParams: { 
+					navpanes: 0,
+					toolbar: 0,
+					statusbar: 0, 
+					view: "FitV",
+					pagemode: "none",
+					page: 1 
+				},
+				forcePDFJS: true,
+				PDFJS_URL: "/common/pdfViewer/web/viewer.html"
+			};
+		});
+
+		function movePage(page) {
+			$('.pdf_view iframe').contents().find("#thumbnailView a").eq(page-1).trigger('click'); 
+			if($(this).next().children().length == 0){  
+				$(this).next().remove();
+			}
+			$(this).parent().addClass('selected').siblings().removeClass('selected');
+			return false;
+		}
+
+		$(document).ready(function() {
+		  $('.gotop').bind('click', function() {
+			$('html, body').animate({scrollTop: '0'}, 200);
+		  });
+		  // 애니메이션 효과로 자연스럽게 이동됨, 0.68초
+
+		  $('.gotop2').on('click', function() {
+			$('html').scrollTop('710');
+		  });
+		  // 애니메이션 효과없이 즉시 해당 위치 0 지점으로 이동함
+		});
+	</script>
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<iframe width="100%" height="1000" id="pdf"  title="PDF 파일보기" src="/module/pdf.js/web/viewer.html;jsessionid=2EA949C997A1F47DADE1A4A48929669A?file=/thumbnail/pdf/CMS_202606251014136511.pdf;jsessionid=2EA949C997A1F47DADE1A4A48929669A"></iframe>
+	
+
+<!--<iframe width="100%" height="1000" id="pdf"  title="PDF 파일보기" src="/module/pdf.js/web/viewer.html;jsessionid=2EA949C997A1F47DADE1A4A48929669A?file=/thumbnail/pdf/CMS_202606251014136511.pdf;jsessionid=2EA949C997A1F47DADE1A4A48929669A"></iframe>-->
+				
+				
+	            
+	            
+			</div>
+			<!-- content :e -->
+	
+		</div>
+		<!-- content_layout :e -->
+	</div>
+</div>
+<!-- body_layout :e -->
+<!-- footer_layout :s -->
+<footer id="foot_layout">
+	
+	  
+ 
+  
+
+
+
+	
+
+
+
+	<!-- 유관기관 시작 -->
+	<div id="link_book" class="">
+		<div class="book_btn"><a href="#">
+		<p>
+			<b><span>SJU</span> <span>LINK</span></b>
+			<span>상지대학교 기관 및 대학원 보기</span>
+		</p>
+		</a></div>
+
+		<div class="book_cnt">
+			<div class="cnt_wrap">
+			<div class="sector1">
+				<strong>대학원 전체보기</strong>
+				<ul class="college">
+					<!-- <li><a href="https://www5.sangji.ac.kr/user/indexSub.action?codyMenuSeq=20009783&siteId=graduate&menuType=T&uId=1&sortChar=AAB&linkUrl=01_0102.html&mainFrame=right" target="_blank" title="새창열림"><span>일반대학원</span></a></li>
+					<li><a href="https://www5.sangji.ac.kr/user/indexSub.action?codyMenuSeq=20009797&siteId=graduate&menuType=T&uId=1&sortChar=AAB&linkUrl=01_0202.html&mainFrame=right" target="_blank" title="새창열림"><span>교육대학원</span></a></li>
+					<li><a href="https://www5.sangji.ac.kr/user/indexSub.action?codyMenuSeq=20009813&siteId=graduate&menuType=T&uId=1&sortChar=AAB&linkUrl=01_0302.html&mainFrame=right" target="_blank" title="새창열림"><span>사회복지정책대학원</span></a></li>
+					<li><a href="https://www5.sangji.ac.kr/user/indexSub.action?codyMenuSeq=20009828&siteId=graduate&menuType=T&uId=1&sortChar=AAB&linkUrl=01_0402.html&mainFrame=right" target="_blank" title="새창열림"><span>사회융합대학원</span></a></li>
+					<li><a href="https://www5.sangji.ac.kr/user/indexSub.action?codyMenuSeq=20454532&siteId=graduate&menuType=T&uId=1&sortChar=AAB&linkUrl=01_0502.html&mainFrame=right" target="_blank" title="새창열림"><span>평화안보&middot;상담심리대학원</span></a></li> -->
+					<li><a href="/grad/sub01_02_01.do" target="_blank" title="새창열림"><span>일반대학원</span></a></li>
+					<li><a href="/grad/sub01_03_01.do" target="_blank" title="새창열림"><span>교육대학원</span></a></li>
+					<li><a href="/grad/sub01_04_01.do" target="_blank" title="새창열림"><span>사회복지정책대학원</span></a></li>
+					<li><a href="/grad/sub01_05_01.do" target="_blank" title="새창열림"><span>사회융합대학원</span></a></li>
+					<li><a href="/grad/sub01_06_01.do" target="_blank" title="새창열림"><span>평화안보&middot;상담심리대학원</span></a></li>
+				</ul>
+			</div>
+
+
+			<div class="sector2">
+
+				<strong>대학기관</strong>
+
+				<ul class="department">
+				    <li><a href="http://library.sangji.ac.kr/" title="새창열림" target="_blank">학술정보원</a></li>
+				    <li><a href="http://cyber.sangji.ac.kr" title="새창열림" target="_blank">사이버캠퍼스(LMS)</a></li>
+				    <li><a href="/dorm/index.do" title="새창열림" target="_blank">생활관(행복기숙사)</a></li>
+					<li><a href="https://caam.sangji.ac.kr/main/jobplus/mainPage.do" title="새창열림" target="_blank">대학일자리플러스센터</a></li>
+				    <li><a href="/edulife/index.do" title="새창열림" target="_blank">평생교육원</a></li>
+					<li><a href="/hrd/index.do" title="새창열림" target="_blank">HRD직업능력개발과정</a></li>
+					<!--li><a href="/sui/index.do" title="새창열림" target="_blank">대학혁신사업단</a></li-->
+					<li><a href="/anchor/index.do" title="새창열림" target="_blank">앵커사업단</a></li>
+					<li><a href="/huss/index.do" title="새창열림" target="_blank">HUSS사업단</a></li>
+					<li><a href="/hrd/index.do" title="새창열림" target="_blank">AI융합교육혁신원</a></li>
+				    <li><a href="/mirae/index.do" title="새창열림" target="_blank">미래교육혁신원</a>
+				        <ul class="department2">
+							<li><a title="새창열림" target="_blank" href="/ctl/index.do">교수학습개발센터</a></li>
+							<!--<li><a title="새창열림" target="_blank" href="/performance/index.do">교육성과관리센터</a></li>-->
+							<li><a title="새창열림" target="_blank" href="/cde/index.do">원격교육개발센터</a></li>
+						</ul>
+					</li>
+				    <li><a href="/global/index.do" title="새창열림" target="_blank">국제교류처</a></li>
+					<li><a href="/medi/index.do" title="새창열림" target="_blank">한방병원</a></li>
+				    <li><a href="/sanhak/index.do" title="새창열림" target="_blank">산학협력단</a></li>
+				    <li><a href="/fund/index.do" title="새창열림" target="_blank">발전기금</a></li>
+				    <li><a href="/rotc/index.do" title="새창열림" target="_blank">학군단(R.O.T.C)</a></li>
+				    <li><a href="/yebigun/index.do" title="새창열림" target="_blank">예비군연대</a></li>
+				    <!--<li><a href="/global/index.do" title="새창열림" target="_blank">국제교류팀</a></li>-->
+				    <li><a href="/press/index.do" title="새창열림" target="_blank">미디어센터</a>
+						<!--2.0
+				        <ul class="department2">
+							<li><a title="새창열림" target="_blank" href="/press/index.do">상지신문사</a></li>
+							<li><a title="새창열림" target="_blank" href="/sbs/index.do">상지방송국</a></li>
+							<li><a title="새창열림" target="_blank" href="/herald/index.do">상지영자신문사</a></li>
+						</ul>
+						-->
+				    </li>
+				    <!--<li><a href="/humanrights/index.do" title="새창열림" target="_blank">인권센터</a></li>-->
+				    <li><a href="/counsel/index.do" title="새창열림" target="_blank">심리상담ㆍ인권센터</a></li>
+					<li><a href="/ssvc/index.do" title="새창열림" target="_blank">사회봉사단</a></li>
+
+				    <li><a href="/intern/index.do" title="새창열림" target="_blank">현장실습지원센터</a></li>
+
+				    <li><a href="/together/index.do" title="새창열림" target="_blank">장애학생지원센터</a></li>
+					<li><a href="/broso/index.do" title="새창열림" target="_blank">발달장애인통합지원센터</a></li>
+					
+					<li><a href="/netzero/index.do" title="새창열림" target="_blank">탄소중립지원센터</a></li>
+					<li><a href="/ir/index.do" title="새창열림" target="_blank">IR센터</a></li>
+					<li><a href="/sjprof/index.do" title="새창열림" target="_blank">교수협의회</a></li>
+				    <!--<li><a href="/dongmun/index.do" title="새창열림" target="_blank">총동문회</a></li>-->
+				    <li><a href="/student/index.do" title="새창열림" target="_blank">총학생회</a></li>
+					<li><a href="/abeek/index.do" title="새창열림" target="_blank">공학교육센터</a></li>
+				    <li><a href="http://www.wjsc.kr/" title="새창열림" target="_blank">원주시노인복지관</a></li>
+				    <li><a href="https://cafe.naver.com/sjbic2002" title="새창열림" target="_blank">창업보육센터</a></li>
+				    <li><a href="http://www.omic.kr/" title="새창열림" target="_blank">한방의료기기산업진흥센터</a></li>					
+					<li><a href="http://www.sjcoop.or.kr/main.php" title="새창열림" target="_blank">소비자생활협동조합</a></li>
+					<!--li><a href="/sae/index.do" title="새창열림" target="_blank">농업과학교육원</a></li-->
+					<!--li><a href="/isoac/index.do" title="새창열림" target="_blank">국제친환경유기농센터</a></li-->
+					<!--li><a href="http://www.gwse.or.kr/" title="새창열림" target="_blank">강원도사회적경제지원센터</a></li-->
+				</ul>
+
+			</div>
+			</div>
+		</div>
+	</div>
+	<!-- 유관기관 끝 -->
+
+	<script type="text/javascript">
+		$(function(){
+			main_popup_controll_AC();
+		});
+
+		function main_popup_controll_AC(){
+			var ch = $("body[class*='site_']").size();
+			var obj = $("#op_layout");
+
+			if(ch == 0){
+				if(!obj.hasClass("on")) obj.addClass('on');
+			}
+		}
+	</script>
+
+    <!-- 푸터틀 시작 -->
+    <div class="foot_wrap">
+    <ul class="utile_wrap">
+		<li class="n1"><a href="/kor/sub10_16.do" title="새창열림" target="_blank">홈페이지운영지침</a></li>
+		<li class="n2"><a href="/kor/sub10_02_01.do" title="새창열림" target="_blank">개인정보처리방침</a></li>
+		<li class="n3"><a href="/kor/sub10_03.do" title="새창열림" target="_blank">이메일무단수집거부</a></li>
+		<li class="n4"><a href="/kor/sub10_04_01.do" title="새창열림" target="_blank">정보공개</a></li>
+		<li class="n5"><a href="/kor/sub10_14_01.do" title="새창열림" target="_blank">시설안전관리</a></li>
+		<li class="n6"><a href="/prog/bbsArticle/BBSMSTR_000000000375/list.do" title="새창열림" target="_blank">교육만족도</a></li>
+		<li class="n7"><a href="/kor/sub12_04_02_01.do" title="새창열림" target="_blank">청탁금지법</a></li>
+    </ul>
+	<ul class="utile_wrap">
+		<li class="n1"><a href="/kor/sub10_05.do" title="새창열림" target="_blank">성희롱ㆍ성폭력 예방교육</a></li>
+		<li class="n2"><a href="/kor/sub10_07.do" title="새창열림" target="_blank">장애인식개선</a></li>
+		<li class="n3"><a href="https://www.isic.co.kr/sangji/sangjiIndex.jsp" title="새창열림" target="_blank">국제학생증</a></li>
+		<li class="n4"><a href="https://www.ygoon.com/cus_alnc/index?sangji" title="새창열림" target="_blank">교육할인스토어</a></li>
+		<li class="n5"><a href="https://www.zeus.go.kr/" title="새창열림" target="_blank">ZEUS 장비활용</a></li>
+		<li class="n6"><a href="https://cert.sangji.ac.kr/icerti" title="새창열림" target="_blank">증명서 발급</a></li>
+		<li class="n7"><a href="https://www.academyinfo.go.kr/pubinfo/pubinfo1600/doInit.do?schlId=0000119" title="새창열림" target="_blank">대학정보공시</a></li>
+    </ul>
+    <div><address><span>26339 강원특별자치도 원주시 상지대길 83(우산동)</span> <span>상지대학교  TEL 033)730-0682</span></address></div>
+    <p class="copy"><span>COPYRIGHT ⓒ </span><span>Sangji University. All Rights Reserved.</span></p>
+    </div>
+    <!-- 푸터틀 끝 -->
+
+
+<!-- google analytics -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147632691-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147632691-4');
+</script>
+
+
+
+</footer>
+<!-- footer_layout :e -->
+<!--
+<div class="row">
+<a href="https://validator.w3.org/unicorn/check?ucn_uri=http://www.sangji.ac.kr/gradgo/sub01_02.do&amp;ucn_task=conformance" target='_blank' title="새창으로 열림" class="btn btn-success">W3C(HTML)</a>
+</div>
+-->
+</body>
+</html>
+

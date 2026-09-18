@@ -1,0 +1,2220 @@
+
+
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5HB9T45L');</script>
+	<!-- End Google Tag Manager -->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-57P1F3566J"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		
+		gtag('config', 'G-57P1F3566J');
+	</script>
+	
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8 ">
+
+	<meta name="subject" content="호서대학교 입시안내" />
+	<meta name="keywords" content="호서대학교 입시안내" />
+	<meta name="description" content="호서대학교 입시안내" />
+	
+	<link rel="stylesheet" type="text/css" href="/resources/temp_1/css/contents.css">
+	<link rel="stylesheet" type="text/css" href="/resources/temp_1/css/layout.css">
+	<link rel="stylesheet" type="text/css" href="/resources/temp_1/css/style.css">
+	<script type="text/javascript" src="/resources/temp_1/js/libs/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="/resources/temp_1/js/libs/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/resources/temp_1/js/libs/slick.min.js"></script>
+	<script type="text/javascript" src="/resources/temp_1/js/libs/iscroll.js"></script>
+	<script type="text/javascript" src="/resources/temp_1/js/base.js"></script>
+	<script type="text/javascript" src="/resources/temp_1/js/module-ui.js"></script>
+	<script type="text/javascript" src="/resources/temp_1/js/layout.js"></script>
+	<script type="text/javascript" src="/resources/temp_1/js/common.js"></script>
+	<script type="text/javascript" src="/resources/temp_1/js/jquery.bxslider.js"></script>
+
+ 	<title>호서대학교 입시안내</title>
+
+</head>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HB9T45L" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) --> 
+<body>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+	function openUrl(link_url, link_type) {
+		// 1. URL 객체를 사용하여 URL 파싱
+		const urlObject = new URL(link_url);
+		const searchParams = urlObject.searchParams;
+
+		// URL에서 쿼리 문자열만 추출
+		//const queryString = link_url.split('?')[1];
+		// 쿼리 문자열 추출
+		const queryString = link_url.includes("?") ? link_url.split("?")[1] : "";
+
+
+		let decodedMenuurl = '';
+		let otherParams = '';
+
+		if (queryString) {
+			// 쿼리 문자열을 '&' 기준으로 분리
+			const params = queryString.split('&');
+
+
+			// 각 파라미터를 순회하며 'menuurl'과 그 외 파라미터 분리
+			for (const param of params) {
+				// +, &, =, / 대응
+				if (param.startsWith('menuurl=')) {
+					// 'menuurl=' 부분을 제외한 순수한 값만 추출
+					const menuurlValue = param.substring(8);
+
+					// 추출된 값의 '+'를 '%2B'로 변환
+					decodedMenuurl = menuurlValue.replace(/\+/g, '%2B');
+
+					// 올바르게 디코딩
+					decodedMenuurl = decodeURIComponent(decodedMenuurl);
+
+				} else {
+					// 'menuurl'이 아닌 다른 파라미터는 그대로 저장
+					if (otherParams) {
+						otherParams += '&' + param;
+					} else {
+						otherParams = param;
+					}
+				}
+			}
+
+			// 3. 디코딩된 값을 다시 설정
+			searchParams.set('menuurl', decodedMenuurl);
+		}
+
+		//const newUrl = urlObject.origin+urlObject.pathname+'?'+searchParams.toString();
+		// 새 URL 생성 (쿼리스트링이 없으면 그대로 이동)
+		const newUrl = urlObject.origin + urlObject.pathname + (searchParams.toString() ? "?" + searchParams.toString() : "");
+
+		if (link_type == "1") {
+			window.open(newUrl)
+		} else {
+			document.location.href = newUrl;
+		}
+
+	}
+
+	function setParentHref(obj) {
+		if ($("ul.gnb > li." + $(obj).find("ul.gnb_depth2 li").length > 0)) {
+			console.log($(obj).find(">a").attr("href"));
+			$(obj).find(">a").attr("href",$(obj).find("li > a").eq(0).attr("href"));
+			console.log($(obj).find(">a").attr("href"));
+			$(obj).find(">a").attr($(obj).find("li > a").eq(0).attr("href"));
+			$(obj).find(">a").attr("target", $("." + $(obj).find(">a").data("menuno") + "> .gnb_depth2 > li:eq(0) > a").attr("target"));
+		}
+	}
+
+	function leftSearchForm(content_type) {
+		var url = '/search.do?';
+
+		if(content_type != null){
+			if(content_type.indexOf('hash') > -1){
+				var hashtag = $("#" + content_type).html();
+				content_type = null;
+				/*해시태그 클릭 시 전체 검색으로 오픈*/
+				hashtag = hashtag.split("#")[1];
+
+				$("#id_left_searchtext").val(hashtag);
+			}else if(content_type != ''){
+				url += '&content_type=' + content_type;
+			}
+		}
+
+		if($("#id_left_searchtext").val().indexOf('#') > -1){
+			// url += '&searchNo=4'
+			/*해시태그 클릭 시 전체 검색으로 오픈*/
+			url += '&searchNo=1'
+		}else{
+			url += '&searchNo=1'
+		}
+
+		if ($("#id_left_searchtext").val()) {
+			url += '&searchtext=' + encodeURIComponent($("#id_left_searchtext").val());
+		}
+
+		document.location.href = url;
+	}
+
+	$(function () {
+		$(document).on("click", "ul.gnb li", function () {
+			// setParentHref($(this));
+		});
+	});
+</script>
+
+	
+	
+	
+	<!-- popup wrapper -->
+	
+	<!-- popup wrapper -->
+
+<!-- wrapper -->
+
+
+
+
+	
+		
+
+<div class="wrap  " id="wrap">	
+	<!-- HEADER -->
+	<!-- [개발] 페이지별 클래스
+		메인 : <header class="header header__open">
+		일반 : <header class="header"> -->
+	<header class="header header__sub">
+		<div class="header_top">
+			<div class="ly_centered hp_flex">
+				<h1 class="header_logo">
+					<a href="/main.do">
+						<span class="header_logo_img">호서대학교</span>
+						<span class="header_logo_txt">입학안내</span>
+					</a>
+				</h1>
+
+				<div class="header_util">
+					
+						
+						
+							<span class="btn_issue">
+						
+					
+					Issue
+					</span>
+					<ul>
+						<li>
+							<a href="/main.do">홈</a>
+						</li>
+						<li>
+							<a href="/submenu.do?menuurl=9i3Q8ftvjoljsz2ty%2fiqfg%3d%3d&">사이트맵</a>
+						</li>
+						<li>
+							<a href="http://www.hoseo.ac.kr/">호서대학교 바로가기</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="global_wrap">
+					<div class="mnb">
+						<button type="button" class="mnb_btnMenu"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="20" viewBox="0 0 35 20">
+								<path fill="currentColor" d="M0 0h35v2H0zm0 9h35v2H0zm15 9h20v2H15z" /></svg></button>
+						<div class="mnb_dim"></div>
+						<div class="mnb_panel">
+							<div class="mnb_panel_head">
+								<div class="mnb_panel_util">
+									<a href="#none" class="mnb_panel_btnHome"><img src="/resources/temp_1/img/layout/mnb_home.svg" alt=""></a>
+								</div>
+							</div>
+
+							<div class="mnb_panel_scroll">
+								<div class="mnb_panel_nav">
+									<ul class="mnb_navLg">
+										 
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">수시모집</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=7dcKmGI5ZvQB9F1mAEBAGg%3d%3d&" target="_self">수시 모집요강 안내</a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=EzpIzuwH1A2n48YETCr2EA%3d%3d&" target="_self">학생부종합전형이란?</a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=nzHFJ5hTM2ojX8u0TzwHvA%3d%3d&" target="_self">2024~2026 입시결과</a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('https://consult.mncapro.co.kr/solution/hoseoipsi/page01.php?period=susi','1')">수시모집★합격예측★</a>
+													
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=zkPI8fKjDfytPC4dxih5mA%3d%3d&" target="_self">수시자료실</a>
+													
+												</li>
+											
+											
+										 
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">정시모집</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=69HsiUDd88Yz%2f6q8AbV4%2bA%3d%3d&" target="_self">정시 모집요강 안내</a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=SBB%2fyMNMYxojUu6FFXSY3w%3d%3d&" target="_self">2024~2026 입시결과</a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=a28u1Dp%2fiMtKhNH8HevAkw%3d%3d&" target="_self">정시자료실</a>
+													
+												</li>
+											
+											
+										 
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">편입학</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=hB8GYKGYSI7BBlNJFDXa%2bQ%3d%3d&" target="_self">편입학 모집요강 안내</a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&" target="_self">2024~2026 입시결과</a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=st9Ev3%2bxxFZPMegaaaiHLg%3d%3d&" target="_self">편입학자료실</a>
+													
+												</li>
+											
+											
+										 
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">조기취업형<br>계약학과</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										 
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">재외국민(인)</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=DgiYv19qOmenudTJ2AKY2A%3d%3d&" target="_self">재외국민(인)자료실</a>
+													
+												</li>
+											
+											
+										 
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">입학상담</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=DnP7U09acR3d3pi41w63Zw%3d%3d&" target="_self">공지사항</a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=4YdTNEbm%2bFbZTe%2b07KCQbQ%3d%3d&" target="_self">온라인입시상담소</a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=2LzZbH%2fR%2bB4HzyuYmPyHoA%3d%3d&" target="_self">입시설명회 신청</a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=zbmTuTPixF3VceCRvMj0SQ%3d%3d&" target="_self">입시자료 신청</a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=RkQcS3bNf2vXeSoX3eEx3A%3d%3d&" target="_self"><span>2028학년도 입학전형주요사항</span></a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=GRhJVBrpVzZAVEZyutY3jQ%3d%3d&" target="_self"><span>2027학년도 입학전형주요사항</span></a>
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_2007081640','1')">장애학생지원센터</a>
+													
+													
+												</li>
+											
+											
+										 
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">학교소개</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708210006','1')">총장인사</a>
+													
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_2105181713','1')">비전</a>
+													
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708220017','1')">연혁</a>
+													
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('http://www.hoseo.ac.kr/Home/Depart.mbz?action=MAPP_1708220026&schMaincode=DEPT_00033','1')">조직도</a>
+													
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('https://hoseoin.hoseo.ac.kr/Home/Main.mbz','1')">기숙사안내</a>
+													
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708220056','1')">찾아오시는길</a>
+													
+													
+												</li>
+											
+											
+										 
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('/map/campusMap.do','2')">캠퍼스맵</a>
+													
+													
+												</li>
+											
+											
+										 
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">이의신청</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+												</ul></li>
+											
+										  
+									</ul> 
+								</div>
+							</div>
+
+							<button type="button" class="mnb_btnClose pop-close">
+								<img src="/resources/temp_1/img/layout/mnb_close.svg" alt="">
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="gnb">
+			<div class="ly_centered">
+				<ul class="gnb_navLg"> 
+					 
+						
+						 
+						<li>
+							
+								
+								
+									<a href="#none" class="gnb_navLg_txt" target="_self">수시모집</a>
+									<ul class="gnb_navMd">
+								
+							
+
+<!-- 								<ul class="gnb_navMd"> -->
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=7dcKmGI5ZvQB9F1mAEBAGg%3d%3d&" target="_self">수시 모집요강 안내</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=EzpIzuwH1A2n48YETCr2EA%3d%3d&" target="_self">학생부종합전형이란?</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=nzHFJ5hTM2ojX8u0TzwHvA%3d%3d&" target="_self">2024~2026 입시결과</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('https://consult.mncapro.co.kr/solution/hoseoipsi/page01.php?period=susi','1')">수시모집★합격예측★</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=zkPI8fKjDfytPC4dxih5mA%3d%3d&" target="_self">수시자료실</a>
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+							
+								
+								
+									<a href="#none" class="gnb_navLg_txt" target="_self">정시모집</a>
+									<ul class="gnb_navMd">
+								
+							
+
+<!-- 								<ul class="gnb_navMd"> -->
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=69HsiUDd88Yz%2f6q8AbV4%2bA%3d%3d&" target="_self">정시 모집요강 안내</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=SBB%2fyMNMYxojUu6FFXSY3w%3d%3d&" target="_self">2024~2026 입시결과</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=a28u1Dp%2fiMtKhNH8HevAkw%3d%3d&" target="_self">정시자료실</a>
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+							
+								
+								
+									<a href="#none" class="gnb_navLg_txt" target="_self">편입학</a>
+									<ul class="gnb_navMd">
+								
+							
+
+<!-- 								<ul class="gnb_navMd"> -->
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=hB8GYKGYSI7BBlNJFDXa%2bQ%3d%3d&" target="_self">편입학 모집요강 안내</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&" target="_self">2024~2026 입시결과</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=st9Ev3%2bxxFZPMegaaaiHLg%3d%3d&" target="_self">편입학자료실</a>
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+							
+								
+									<a href="https://riseearly.hoseo.ac.kr/main/main.php" class="gnb_navLg_txt" target="_self">조기취업형<br>계약학과</a>
+									<ul class="gnb_navMd">
+								
+								
+							
+
+<!-- 								<ul class="gnb_navMd"> -->
+						
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+							
+								
+								
+									<a href="#none" class="gnb_navLg_txt" target="_self">재외국민(인)</a>
+									<ul class="gnb_navMd">
+								
+							
+
+<!-- 								<ul class="gnb_navMd"> -->
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=DgiYv19qOmenudTJ2AKY2A%3d%3d&" target="_self">재외국민(인)자료실</a>
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+							
+								
+								
+									<a href="#none" class="gnb_navLg_txt" target="_self">입학상담</a>
+									<ul class="gnb_navMd">
+								
+							
+
+<!-- 								<ul class="gnb_navMd"> -->
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=DnP7U09acR3d3pi41w63Zw%3d%3d&" target="_self">공지사항</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=4YdTNEbm%2bFbZTe%2b07KCQbQ%3d%3d&" target="_self">온라인입시상담소</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=2LzZbH%2fR%2bB4HzyuYmPyHoA%3d%3d&" target="_self">입시설명회 신청</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=zbmTuTPixF3VceCRvMj0SQ%3d%3d&" target="_self">입시자료 신청</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=RkQcS3bNf2vXeSoX3eEx3A%3d%3d&" target="_self"><span>2028학년도 입학전형주요사항</span></a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=GRhJVBrpVzZAVEZyutY3jQ%3d%3d&" target="_self"><span>2027학년도 입학전형주요사항</span></a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_2007081640','1')">장애학생지원센터</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+							
+								
+								
+									<a href="#none" class="gnb_navLg_txt" target="_self">학교소개</a>
+									<ul class="gnb_navMd">
+								
+							
+
+<!-- 								<ul class="gnb_navMd"> -->
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708210006','1')">총장인사</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_2105181713','1')">비전</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708220017','1')">연혁</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('http://www.hoseo.ac.kr/Home/Depart.mbz?action=MAPP_1708220026&schMaincode=DEPT_00033','1')">조직도</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('https://hoseoin.hoseo.ac.kr/Home/Main.mbz','1')">기숙사안내</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708220056','1')">찾아오시는길</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('/map/campusMap.do','1')">캠퍼스맵</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+							
+								
+									<a href="javascript:alert('지금은 이의신청 기간이 아닙니다.');" class="gnb_navLg_txt" target="_self">이의신청</a>
+									<ul class="gnb_navMd">
+								
+								
+							
+
+<!-- 								<ul class="gnb_navMd"> -->
+						
+						
+						
+							</ul></li>
+						
+					 
+				</ul>
+			</div>
+		</div> 
+	</header><!-- //HEADER -->
+	<!-- // issueBg -->
+	
+		
+		
+			<div class="issueBg">
+		
+	
+		<span class="btn_close"><img src="/resources/img/common/btn_close4.png" alt="닫기"></span>
+		<div class="issueCon">
+			<div class="issueSlider clfix">
+				
+					
+						
+							<div class="linkCategory linkCategory_normal">
+								<a href="http://ipsi.hoseo.ac.kr/detail.do?menuurl=zkPI8fKjDfytPC4dxih5mA%3D%3D&amp;board_seq=1949&amp;pageNo=1&amp;categoryid=" target="_blank">
+									<h3>
+										<span class="commonTxt">★ 수시모집 ★</span>
+										<p class="h3Title">면접전형 예상문제 바로가기</p>
+									</h3>
+								</a>
+							</div>
+						
+						
+					
+				
+					
+						
+							<div class="linkCategory linkCategory_normal">
+								<a href="https://ipsi.hoseo.ac.kr/detail.do?menuurl=zkPI8fKjDfytPC4dxih5mA%3D%3D&amp;board_seq=2030&amp;pageNo=1&amp;categoryid=" target="_blank">
+									<h3>
+										<span class="commonTxt">★ 수시모집 ★	</span>
+										<p class="h3Title">디자인계열 문제은행 바로가기</p>
+									</h3>
+								</a>
+							</div>
+						
+						
+					
+				
+			</div><!-- // issueSlider -->
+		</div><!-- // issueCon -->
+	</div><!-- // issueBg -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date()); 
+				gtag('config', '');
+			</script>
+
+	
+
+
+
+	
+
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+
+
+<script>
+
+	function setSnbHref(obj) {
+		if ($("ul.gnb > li." + $(obj).find("ul.gnb_depth2 li").length > 0)) {
+			$(obj).find(">a").attr("href",$(obj).find("li > a").eq(0).attr("href"));
+			$(obj).find(">a").attr($(obj).find("li > a").eq(0).attr("href"));
+			$(obj).find(">a").attr("target", $("." + $(obj).find(">a").data("menuno") + "> .gnb_depth2 > li:eq(0) > a").attr("target"));
+		}
+	}
+
+	$(function () {
+		$(document).on("click", "ul.lnb1 li", function(){
+			setSnbHref($(this),$(this));
+		});
+	});
+
+	function clip(){
+		var url = '';
+		var textarea = document.createElement("textarea");
+		document.body.appendChild(textarea);
+		url = window.document.location.href;
+		textarea.value = url;
+		textarea.select();
+		document.execCommand("copy");
+		document.body.removeChild(textarea);
+		alert("URL이 복사되었습니다.")
+	}
+
+	// 인쇄
+	$(function(){
+		$(".btn_print").bind("click", function(){
+			window.print();
+		});
+	});
+
+	// 텍스트 크기 조절
+	$(document).ready(function(){
+		function getSize() {
+			size = $( ".bbsList" ).css( "font-size" );
+			size = parseInt(size, 10);
+			$( "#font-size" ).text(  size  );
+		}
+
+		//get inital font size
+		getSize();
+
+		$( "#up" ).on( "click", function() {
+			// parse font size, if less than 50 increase font size
+			if ((size + 2) <= 50) {
+				$( ".bbsList" ).css( "font-size", "+=2" );
+				$( "#font-size" ).text(  size += 2 );
+			}
+		});
+
+		$( "#down" ).on( "click", function() {
+			if ((size - 2) >= 12) {
+				$( ".bbsList" ).css( "font-size", "-=2" );
+				$( "#font-size" ).text(  size -= 2  );
+			}
+		});
+	});
+
+</script>
+
+
+
+
+
+
+
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+		
+	
+	
+		
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+
+	
+	
+		
+	
+
+	
+	
+		
+			
+		
+	
+
+	
+	
+		
+			
+		
+	
+
+	
+	
+		
+			
+		
+	
+
+	
+	
+		
+			
+		
+	
+
+	
+	
+		
+			
+		
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+		
+			
+		
+	
+	
+
+	
+		
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+ 
+ 
+	<div class="bl_subVisual" style="background: url(/resources/temp_1/img/layout/img_subvisual_6.jpg);">
+		<h2 class="bl_subVisual_tit">재외국민(인)</h2>
+		<p class="bl_subVisual_desc"></p>
+
+		<div class="bl_path">
+			<ul class="bl_path_links">
+				<li class="bl_path_home">
+					<a href="/main.do">홈</a>
+				</li>
+				<li>
+					<a href="#none">재외국민(인)</a>
+				</li>
+				<li>
+					<strong>재외국민(인)자료실</strong>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+    <div class="snb">
+        <div class="ly_centered">
+            <a href="#none" class="snb_current">재외국민(인)자료실</a>
+            <ul class="nav">
+            	
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						 
+							 
+								
+							
+							
+						
+						<li class = "is_active">
+							
+							
+								
+								<a href="/submenu.do?menuurl=DgiYv19qOmenudTJ2AKY2A%3d%3d&" target="_self">
+							
+							재외국민(인)자료실
+							</a>
+						</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+            </ul>
+        </div>
+       </div>  
+<script>
+	var menuId = 68;
+	var gnbDep1 = 6;		//GNB 1depth
+	var gnbDep2 = 2;		//GNB 2depth
+</script>
+
+
+<script>	
+	
+	
+	
+
+	$(document).ready(function () {
+		$("#id_searchtext").keydown(function (key) {
+			if (key.keyCode == 13) {
+				searchForm();
+			}
+		});
+
+		$("#id_chkusercode").keydown(function (key) {
+			if (key.keyCode == 13) {
+				Chk_UserCode();
+			}
+		})
+	})
+
+	function searchCategory(categoryid) {
+		var url = '/submenu.do?menuurl=' + encodeURIComponent($("#id_menuurl").val());
+
+		if (categoryid != "") { 
+			url += '&categoryid=' + categoryid;
+		}
+
+		document.location.href = url;
+	}
+
+	function searchForm() {
+		var url = '/submenu.do?menuurl=' + encodeURIComponent($("#id_menuurl").val());
+
+		if ($("#id_category").val()) {
+			url += '&categoryid=' + $("#id_category").val();
+		}
+		if ($("#id_searchNo").val()) {
+			url += '&searchNo=' + $("#id_searchNo").val();
+		}
+		if ($("#id_searchtext").val()) {
+			url += '&searchtext=' + encodeURIComponent($("#id_searchtext").val());
+		}
+
+		document.location.href = url;
+	}
+
+	function pop_pass_open(board_seq, secretYn) {
+		$("input[name=userpwd]").val('');
+		$("input[name=board_seq]").val(board_seq);
+		if(board_seq==2029){
+			alert("외국인 안내 영상은 추후 공개될 예정입니다.(10월 예정)\n" +
+					"제공 언어: 러시아어, 베트남어, 영어, 중국어");
+		}
+
+		if (secretYn == "Y") {
+			$("#pop_area").show();
+		} else {
+			$("#frm").submit();
+		}
+	}
+
+	function Chk_UserCode() {
+		if ($("#id_userpwd").val() == "") {
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}
+
+		$("#frm").submit();
+	}
+
+	function openUrl(link_url, link_type, board_seq) {
+		if(board_seq != null && board_seq != ''){
+			$.ajax({
+				url: "/ajax/updateBoardDataHit.do",
+				data: {
+					board_seq: board_seq
+				},
+				type: "post",
+				dataType: "json",
+				success: function (data) {
+					if (data != null) {
+						if(data < 1){
+							alert('hit update error 001: ' + data);
+						}
+					}else{
+						alert('hit update error 002: ' + data);
+					}
+				}
+			});
+		}
+
+		// 1. URL 객체를 사용하여 URL 파싱
+		const urlObject = new URL(link_url);
+		const searchParams = urlObject.searchParams;
+
+		// URL에서 쿼리 문자열만 추출
+		//const queryString = link_url.split('?')[1];
+		// 쿼리 문자열 추출
+		const queryString = link_url.includes("?") ? link_url.split("?")[1] : "";
+
+		if (queryString) {
+			// 쿼리 문자열을 '&' 기준으로 분리
+			const params = queryString.split('&');
+
+			let decodedMenuurl = '';
+			let otherParams = '';
+
+			// 각 파라미터를 순회하며 'menuurl'과 그 외 파라미터 분리
+			for (const param of params) {
+				// +, &, =, / 대응
+				if (param.startsWith('menuurl=')) {
+					// 'menuurl=' 부분을 제외한 순수한 값만 추출
+					const menuurlValue = param.substring(8);
+
+					// 추출된 값의 '+'를 '%2B'로 변환
+					decodedMenuurl = menuurlValue.replace(/\+/g, '%2B');
+
+					// 올바르게 디코딩
+					decodedMenuurl = decodeURIComponent(decodedMenuurl);
+
+				} else {
+					// 'menuurl'이 아닌 다른 파라미터는 그대로 저장
+					if (otherParams) {
+						otherParams += '&' + param;
+					} else {
+						otherParams = param;
+					}
+				}
+			}
+
+			// 3. 디코딩된 값을 다시 설정
+			searchParams.set('menuurl', decodedMenuurl);
+		}
+
+		//const newUrl = urlObject.origin+urlObject.pathname+'?'+searchParams.toString();
+		const newUrl = urlObject.origin + urlObject.pathname + (searchParams.toString() ? "?" + searchParams.toString() : "");
+
+		if (link_type == "1") {
+			window.open(newUrl)
+		} else {
+			document.location.href = newUrl;
+		}
+
+	}
+
+</script> 
+<!-- CONTAINER -->
+	<div class="container">
+
+		<!-- CONTENT -->
+		<div class="content">
+			<div class="bl_sectTit">
+				<div class="ly_centered">
+					<h3 class="el_lv1Heading el_lv1Heading__bul">재외국민(인)자료실</h3>
+				</div>
+			</div> 
+			<div class="bl_sectSub">
+				<div class="ly_centered">
+					<!-- NAV : TAB -->
+					  
+					
+					<!-- //NAV : TAB -->
+					<div class="bl_brd_wrap">
+						<!-- BOARD : CONTROLLER --> 
+						
+						<div class="bl_brd_ctrls">
+							<div class="bl_brd_ctrls_lft">
+								<dl class="bl_brd_ctrls_total">
+									<dt>전체</dt>
+									<dd>
+										<strong>1</strong>
+									</dd>
+								</dl>
+							</div>
+
+							<div class="bl_brd_ctrls_rgt">
+								<div class="bl_filter">
+									<div class="div">
+										<div class="el_select">
+											<input type="hidden" id="id_category" name="category" value="0"/>
+											<select title="구분"  name="searchno" id="id_searchNo">
+												<option value="0">전체</option>
+												<option value="1" >제목</option> 
+												<option value="2" >내용</option>
+											</select>
+										</div>
+
+										<span class="el_inp_txt">
+											<input type="text" placeholder="검색어를 입력해주세요." title="검색어를 입력해 주세요" name="searchtext" id="id_searchtext" value="">
+										</span>
+										<button type="submit" alt="검색" class="el_btn el_btn__small" onclick="return searchForm();">검색</button>
+									</div>
+								</div>
+							</div>
+						</div><!-- //BOARD : CONTROLLER -->
+
+						<!-- BOARD : LIST -->
+						<div class="bl_board">
+							<div class="bl_board_head">
+								<div class="bl_board_no">No.</div>
+								<div class="bl_board_subject">제목</div>
+								
+									<div class="bl_board_hit">첨부파일</div>
+								
+								<div class="bl_board_autor">작성자</div> 
+								
+									<div class="bl_board_date">등록일</div>
+								
+								
+									<div class="bl_board_hit">조회수</div>
+								 
+							</div>
+							
+							<div class="bl_board_body"> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											1
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('1943','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 재외국민전형 신입학 모집요강 안내</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+											<i class="el_ico el_ico__new">
+													
+													2025.05.28
+											</i>
+										 
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+													<img src="/resources/img/sub/download.png" alt="">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">호서대입학처</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2025-05-28</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">1380</div>
+										 
+									</div> 
+								
+							</div>
+						</div><!-- //BOARD : LIST -->
+
+						<!-- PAGINATE -->
+						<div class="bl_paginate">
+							<div class="bl_paginate_scrlX">
+								<div class="bl_pageNums">
+									
+										
+										
+										
+										
+										
+										
+										
+									
+
+
+
+
+
+
+		
+		
+
+		
+			<a><img src="/resources/img/sub/pager_first.png" alt="첫페이지"></a>
+			
+		
+	
+		
+			<a class="btn-preview prev"><img src="/resources/img/sub/pager_prev.png" alt="이전페이지"></a>
+			
+		
+		
+		
+			<a href='/submenu.do?menuurl=DgiYv19qOmenudTJ2AKY2A%3d%3d&searchNo=&searchtext=&boardid=15&categoryid=0&content_type=&&pageNo=1' class="active" target="_self">1</a>
+		
+
+		
+			
+			<a><img src="/resources/img/sub/pager_next.png" alt="다음페이지"></a>
+			
+			
+		
+	
+		
+			
+			<a><img src="/resources/img/sub/pager_end.png" alt="마지막페이지"></a>
+			
+			
+		
+
+								</div>
+							</div>
+						</div>
+						<!--//PAGINATE -->
+						<div class="pager">
+							
+						</div> 
+						
+						<div class="pop_wrap" style="display: none;" id="pop_area">
+							<div class="pop_alert search">
+								<h2>비밀번호 입력</h2>
+								<form id="frm" id="frm" action="/detail.do" method="post">
+									<input type="hidden" name="menuurl" id="id_menuurl" value="DgiYv19qOmenudTJ2AKY2A==">
+									<input type="hidden" name="board_seq">
+									<input type="hidden" name="pageNo" value="1">
+									<input type="hidden" name="categoryid" value="0">
+									<p><input class="txt" type="password" id="id_userpwd" name="userpwd" placeholder="비밀번호를 입력하세요">
+										<a href="javascript:" onclick="Chk_UserCode();" class="btn_board search" id="detail_submit">확인</a>
+									</p>
+									<button type="button" class="pop_close">닫기</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div><!-- //CONTENT -->
+	</div><!-- //CONTAINER --> 
+	
+	<script type="text/javascript">
+	
+	  $(function() {
+		 
+		  let menu_name = $(".bl_navTab_panel > .is_active > a").html();
+		  $(".bl_navTab_current").html(menu_name); 
+		  
+	  }); 
+	  
+	</script>
+
+
+ 
+
+
+
+			</div><!-- //contents-navigation-wrapper -->
+		</div><!-- //#container -->
+	</section>
+	<!-- //container -->
+	
+
+
+ 
+
+
+<!-- FOOTER -->
+	<footer class="footer">
+		<a href="#wrap" class="el_quickTop js_quickTop">
+			<i class="icon icon-quick-top"></i>
+		</a>
+
+		<div class="footer_topArea">
+			<div class="ly_centered">
+				<ul class="footer_policy">
+					<li>
+						<a href="http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708310223" target="_blank">개인정보 처리방침</a>
+					</li>
+					<li>
+						<a href="http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708310229" target="_blank">이메일주소무단수집거부</a>
+					</li>
+					<li>
+						<a href="http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708310238" target="_blank">교내전화번호 안내</a>
+					</li>
+					<li>
+						<a href="http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708220056" target="_blank">오시는길</a>
+					</li>
+				</ul>
+
+				<div class="footer_famsites">
+					<div class="footer_select">
+						<span class="footer_select_current">관련사이트</span>
+						<select class="footer_select_panel" onchange="window.open(value, '_bank')">
+							<option value="http://www.hoseo.ac.kr/">호서대학교</option>
+							<option value="https://portal.hoseo.edu/">포털시스템</option> 
+							<option value="https://intranet.hsu.ac.kr/">학사시스템</option>
+							<option value="http://office.hoseo.edu/">교직원그룹웨어</option>
+							<option value="http://intranet.hoseo.edu/">행정정보시스템</option>
+							<!-- <option value="http://ctl.hoseo.ac.kr/">교수학습센터</option>-->
+							<!--<option value="http://ojtcenter.hoseo.edu">현장실습지원센터</option>-->
+							<option value="http://chapel.hoseo.ac.kr/">교목실</option>
+							<option value="http://counseling.hoseo.ac.kr/">Caritas상담센터</option>
+							<!--<option value="http://health.hoseo.ac.kr/">보건진료센터</option>-->
+							<option value="http://hoseoin.hoseo.ac.kr/">생활관</option>
+							<!--<option value="http://learn.hoseo.edu/">블랙보드</option>-->
+							<option value="http://ieec.hoseo.edu/">국제업무팀</option>
+							<option value="http://intranet.hsu.ac.kr/ple/pLELogin/PLELogin.do">한국어학당</option>
+							<option value="http://cando.hoseo.ac.kr/main/">CanDo시스템</option>
+							<option value="http://artspacek.hoseo.ac.kr">ART SPACE HOSEO</option>
+							<option value="http://rotc.hoseo.ac.kr">학군단</option>
+							<option value="http://safety.hoseo.edu">연구실안전관리정보시스템</option>
+							<option value="http://le.hoseo.ac.kr/">평생교육원(학점은행제/보육교사)</option>
+							<!--<option value="http://gsvle.hoseo.ac.kr/">벤처대학원평생교육원(서울)</option>-->
+							<option value="http://google.hoseo.ac.kr/">호서대학교 메일신청 <!--구글앱스(학생메일신청)--></option>
+							<option value="http://as82.kr/hoseo">원격지원</option>
+							<!-- <option value="http://news.hoseo.ac.kr/">호서대신문사 </option>-->
+							<!-- <option value="http://fusionlab.hoseo.ac.kr">융합기술연구소</option>-->
+							<option value="http://irb.hoseo.ac.kr">생명윤리위원회</option>
+							<option value="http://ojtcenter.hoseo.ac.kr" >현장실습지원센터</option>
+							<option value="http://volunteering.hoseo.ac.kr">Caritas봉사센터</option>
+							<option value="http://volunteering.hoseo.ac.kr">장애학생지원센터</option>
+							<option value="http://linc.hoseo.ac.kr/">LINC3.0사업단 </option>
+							<option value="http://iacf.hoseo.ac.kr">산학협력단 </option>
+							<option value="http://startup.hoseo.ac.kr" >창업지원단 </option>
+							<option value="https://aisw.hoseo.ac.kr/"> AI·SW중심대학사업단 </option>
+							<option value="https://library.hoseo.ac.kr/#/"> 호서대학교 중앙도서관 </option>
+							<option value="https://hoseo.iwcc.kr">HoW클리닉(글쓰기시스템)</option>
+							<option value="http://huicc.hoseo.ac.kr"> 산학융합캠퍼스 </option>
+						</select>
+					</div>
+
+
+				</div>
+
+				<ul class="footer_sns">
+					<li>
+						<a href="https://twitter.com/HoseoSNS" target="_blank">
+							<i class="el_ico el_ico__tw">트위터</i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.facebook.com/HoseoUniversity" target="_blank">
+							<i class="el_ico el_ico__fb">페이스북</i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com/channel/UCTQdkr2SCDTPJSHhAFiL2vg" target="_blank">
+							<i class="el_ico el_ico__yt">유투브</i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="footer_botArea">
+			<div class="ly_centered">
+				<p class="footer_logo">
+					<span class="footer_logo_img">호서대학교</span> 
+				</p>
+
+				<div class="footer_addrs">
+					<address class="footer_addr">
+						<span class="footer_addr_ttl">아산캠퍼스</span>
+						<span>충남 아산시 배방읍 호서로79번길 20 (우)31499</span> /
+						<span>Tel : 041-540-5114</span> /
+						<span>E-mail : <a href="mailto:hoseo@hoseo.edu">hoseo@hoseo.edu</a>
+						</span>
+					</address>
+					<address class="footer_addr">
+						<span class="footer_addr_ttl">천안캠퍼스</span>
+						<span>충남 천안시 동남구 호서대길 (우)31066</span> /
+						<span>Tel : 041-560-8114</span> /
+						<span>E-mail : <a href="mailto:hoseo@hoseo.edu">hoseo@hoseo.edu</a>
+						</span>
+					</address>
+
+					<address class="footer_addr">
+						<span class="footer_addr_ttl">당진캠퍼스</span>
+						<span>충남 당진시 석문면 산단7로 201 (우)31702</span> /
+						<span>Tel : 041-360-4811~2</span> /
+						<span>E-mail : <a href="mailto:hoseo@hoseo.edu">hoseo@hoseo.edu</a>
+						</span>
+					</address>
+
+					<address class="footer_addr">
+						<span class="footer_addr_ttl">서울캠퍼스</span>
+						<span>서울특별시 서초구 남부순환로 2497 (우)06724</span> /
+						<span>Tel : 02-2059-2312</span> /
+						<span>E-mail : <a href="mailto:hoseo@hoseo.edu">hoseo@hoseo.edu</a>
+						</span>
+					</address>
+
+					<address class="footer_addr">
+						<span class="footer_addr_ttl">고유번호 : </span>
+						<span>312-82-00670</span>
+					</address>
+
+					<p class="footer_copyright">COPYRIGHT&copy; 2014 HOSEO UNIVERSITY. ALL RIGHTS RESERVED</p>
+				</div>
+
+				<div class="footer_qr">
+					<a href="#none" target="_blank"><img src="/resources/temp_1/img/layout/img_qr.jpg" alt=""></a>
+				</div>
+			</div>
+		</div>
+	</footer><!-- //FOOTER -->
+
+<!-- //wrapper -->
+<script>
+	var as = document.getElementsByTagName('a');
+	for(var i = 0 ; i < as.length; i++){
+		if(as[i].getAttribute('target') != '_blank'){
+			if( as[i].getAttribute('href') != null
+				&& as[i].getAttribute('href').indexOf('/main.do') < 0
+				&& as[i].getAttribute('href').indexOf('/file/download.do') < 0
+				&& as[i].getAttribute('href').indexOf('javascript') < 0){
+
+				as[i].setAttribute('target', '_self');
+			}
+		}
+	}
+</script>
+	<style>
+	</style>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<link rel="shortcut icon" href="/img/fix/favicon/fav.png" />
+<link rel="shortcut icon" type="image/x-icon" href="/img/fix/favicon/.png">
+<link rel="shortcut icon" sizes="196x196" href="/img/fix/favicon/android_196x196.png" />
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/img/fix/favicon/ios_57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/fix/favicon/ios_72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/fix/favicon/ios_114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/img/fix/favicon/ios_120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/fix/favicon/ios_144x144.png" />
+
+
+<title>대신대학교</title>
+<link rel="stylesheet" href="../../share/fix/css/fix.css?ver=20260918102531" type="text/css" />
+
+<link rel="stylesheet" href="../../share/fix/css/fix_program.css?ver=20260918102531" type="text/css" />
+<link rel="stylesheet" href="../../share/fix/css/program_jyb.css" type="text/css" />
+<link rel="stylesheet" href="../../share/fix/css/jquery.bxslider.min.css" type="text/css" />
+<link rel="stylesheet" href="../../share/fix/css/ra.css" type="text/css" />
+<link rel="stylesheet" href="../../share/fix/css/slick/slick.css" type="text/css" />
+<link rel="stylesheet" href="../../share/fix/css/slick/slick_style.css" type="text/css" />
+<link rel="stylesheet" href="../../share/fix/css/slick/slick-theme.css" type="text/css" />
+<link rel="stylesheet" href="../../share/fix/js/dist/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="../../share/fix/js/mcustomscrollbar/jquery.mCustomScrollbar.min.css" />
+
+<script type="text/javascript" src="../../share/fix/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../../share/fix/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../../share/fix/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../share/fix/js/program_jyb.js"></script>
+<script type="text/javascript" src="../../share/fix/js/gnb.js"></script>
+<script type="text/javascript" src="../../share/fix/js/scrollreveal-master/dist/scrollreveal.js"></script>
+<script type="text/javascript" src="../../share/fix/js/velocity.min.js"></script>
+<script type="text/javascript" src="../../share/fix/js/jquery.bxslider.min.js"></script>
+
+<script type="text/javascript" src="../../share/fix/css/slick/slick.js"></script>
+<script type="text/javascript" src="../../share/fix/js/TweenMax.js"></script>
+<script type="text/javascript" src="../../share/fix/js/ScrollToPlugin.min.js"></script>
+<script src="../../share/fix/js/mcustomscrollbar/jquery.mCustomScrollbar.js"></script>
+<script src="../../share/fix/js/dist/owl.carousel.min.js"></script>
+<script type="text/javascript" src="../../share/fix/js/jquery.animateNumber.min.js"></script>
+<style>
+.btn-box{position:absolute; right:30px; padding:0px;}
+.btn-box .more-btn{display:flex;position:relative;width:75px;height:30px;padding:0 0 2px 2px; line-height:1;color:#fff;background:var(--primary);filter:drop-shadow(2px 8px 15px var(--primary))}
+.btn-box .more-btn > span:nth-child(2){animation-delay:0.5s}
+.btn-box .more-btn > span:nth-child(3){animation-delay:1s}
+.btn-box .more-btn > span{position:absolute;left:0;top:0px;opacity:0;margin:0;width:100%;height:100%;border:1px solid rgba(250, 166, 26, 0.5); animation:active-circle 1.5s cubic-bezier(1, 2, 0.66, 3) infinite}
+@keyframes active-circle{0%{-webkit-transform:scale(1);transform:scale(1);opacity:0.5}50%{opacity:1.0}100%{-webkit-transform:scale(1.2);transform:scale(1.2);opacity:0}}
+.btn-1 {
+	cursor:pointer;
+	z-index:99999;
+}
+.btn-1:hover {
+	background-color:#0FF;
+	color:#FFF;
+}
+</style>
+
+<Script>
+	function openInNewTab(url) {
+		if(url == '/') {
+			$('.goog-te-combo').val('ko').trigger('selected');
+			const gtcombo = document.querySelector('.goog-te-combo');
+			gtcombo.value = 'ko';
+			gtcombo.dispatchEvent(new Event('change'));
+		}
+		window.open(url, '_blank').focus();
+	}
+</Script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages : 'ko,en,zh-CN,vi',autoDisplay: true}, 'google_translate_element');
+	//new google.translate.TranslateElement({pageLanguage: 'ko',autoDisplay: true}, 'google_translate_element');
+}
+function googleTranslateElementInitEN() {
+	//alert('en');
+	new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages : 'ko,en,zh-CN',autoDisplay: true}, 'google_translate_element');
+	$('.goog-te-combo').val('en').trigger('selected');
+	const gtcombo = document.querySelector('.goog-te-combo');
+	gtcombo.value = 'en';
+	gtcombo.dispatchEvent(new Event('change')); 
+}
+function googleTranslateElementInitCH() {
+	//alert('ch');
+	new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages : 'ko,en,zh-CN,vi',autoDisplay: true}, 'google_translate_element');
+	$('.goog-te-combo').val('zh-CN').trigger('selected');
+	const gtcombo = document.querySelector('.goog-te-combo');
+	gtcombo.value = 'zh-CN';
+	gtcombo.dispatchEvent(new Event('change')); 
+}
+function googleTranslateElementInitVI() {
+	//alert('ch');
+	new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages : 'ko,en,zh-CN,vi',autoDisplay: true}, 'google_translate_element');
+	$('.goog-te-combo').val('vi').trigger('selected');
+	const gtcombo = document.querySelector('.goog-te-combo');
+	gtcombo.value = 'vi';
+	gtcombo.dispatchEvent(new Event('change')); 
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</head>
+<body style="background:url(/img/fix/layout/intro_bg.png) center center no-repeat; background-size:cover;">
+<div id="google_translate_element" style="display:none;"></div>
+<div class="contents">
+	<div style="width:100%;max-width:1400px;padding-top:20px;" class="tar">
+		<a href="#none" class="language_hover fwb " style="padding:10px 30px;" onclick="openInNewTab('/')">KO</a><a onclick="googleTranslateElementInitEN()" class="language_hover fwb " style="cursor:pointer;padding:10px 30px;">EN</a><a onclick="googleTranslateElementInitCH()" class="language_hover fwb" style="cursor:pointer;padding:10px 30px;">CH</a><a onclick="googleTranslateElementInitVI()" class="language_hover fwb" style="cursor:pointer;padding:10px 30px;">VI</a>
+	</div>
+
+	
+	<div class="h_100p w_100p dpt re mdpb">
+		<div class="tac pdt_50 ab mst" style="top:0; left:0; width:100%;">
+			<img src="/img/fix/layout/intro_logo.png" alt="" style="width:30%;"/>
+		</div>
+		<!--div class="tac ab mst" style="top:0; left:0; width:100%; padding-top:150px;">
+			<p class="dpib fc_white vam" style="font-size:70px; font-weight:bold;">DAESHIN UNIVERSITY</p>
+		</div-->
+		<div class="dptc vam pdtb_100 mdpb">
+			<div class="container2">
+				<div class="cf fc_white fs18 pdb_20">
+					<div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/00_main/">
+							<div class="w_100p pdtb_20 intro_hover">
+								<p class="dpib fc_white vam mfs14"><img src="/img/fix/layout/intro_icon1.png" alt="" class="vam pdr_10" /> <span class="vam">대신대학교 홈페이지</span></p>
+								<div class="dpib view_img tac tar vam" style="width:50px;"><img src="/img/fix/layout/intro_arrow1.png" alt="" class="vam" /></div>
+							</div>
+						</a>
+					</div>
+					<div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/">
+							<div class="w_100p pdtb_20 intro_hover">
+								<p class="dpib fc_white vam"><img src="/img/fix/layout/intro_icon2.png" alt="" class="vam pdr_10" /> <span class="vam">입학홈페이지</span></p>
+								<div class="dpib view_img tac tar vam" style="width:50px;"><img src="/img/fix/layout/intro_arrow1.png" alt="" class="vam" /></div>
+							</div>
+						</a>
+					</div>
+					<div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/03_edu/03_4_1.php">
+							<div class="w_100p pdtb_20 intro_hover">
+								<p class="dpib fc_white vam mfs12"  style="line-height:12px;"><img src="/img/fix/layout/intro_icon3.png" alt="" class="vam pdr_10" style="position:relative; top:10px; left:-50px;" /> <span class="vam" style="font-size:16px;">International&nbsp;Exchange&nbsp;&<br /><span style="padding-left:10px;" />Education&nbsp;Institute(국제교류교육원)</span></p>
+								<!--div class="dpib view_img tac tar vam" style="width:50px;"><img src="/img/fix/layout/intro_arrow1.png" alt="" class="vam" /></div-->
+							</div>
+						</a>
+					</div>
+					<div class="w_25p_m30 fl mgr_30 mgb_10">
+						<a href="/html/03_edu/03_5_1.php">
+							<div class="w_100p pdtb_20 intro_hover">
+								<p class="dpib fc_white vam mfs14"><img src="/img/fix/layout/intro_icon4.png" alt="" class="vam pdr_10" /> <span class="vam">산학협력단</span></p>
+								<div class="dpib view_img tac tar vam" style="width:50px;"><img src="/img/fix/layout/intro_arrow1.png" alt="" class="vam" /></div>
+							</div>
+						</a>
+					</div>
+					<div class="w_25p_m30 fl mgr_30 mgb_10">
+						<a href="/html/03_edu/03_3_1.php">
+							<div class="w_100p pdtb_20 intro_hover">
+								<p class="dpib fc_white vam mfs14"><img src="/img/fix/layout/intro_icon5.png" alt="" class="vam pdr_10" /> <span class="vam">평생교육원</span></p>
+								<div class="dpib view_img tac tar vam" style="width:50px;"><img src="/img/fix/layout/intro_arrow1.png" alt="" class="vam" /></div>
+							</div>
+						</a>
+					</div>
+					<div class="w_25p_m30 fl mgr_30 mgb_10">
+						<a href="/html/04_campus/02_3.php">
+							<div class="w_100p pdtb_20 intro_hover">
+								<p class="dpib fc_white vam mfs14"><img src="/img/fix/layout/intro_icon6.png" alt="" class="vam pdr_10" /> <span class="vam">경건회설교</span></p>
+								<div class="dpib view_img tac tar vam" style="width:50px;"><img src="/img/fix/layout/intro_arrow1.png" alt="" class="vam" /></div>
+							</div>
+						</a>
+					</div>
+					<div class="w_25p_m30 fl mgr_0 mgb_10">
+						<a href="/html/03_edu/03_9_1.php">
+							<div class="w_100p pdtb_20 intro_hover">
+								<p class="dpib fc_white vam mfs14"><img src="/img/fix/layout/intro_icon7.png" style="height:31px;" alt="" class="vam pdr_10" /> <span class="vam">비교과</span></p>
+								<div class="dpib view_img tac tar vam" style="width:50px;"><img src="/img/fix/layout/intro_arrow1.png" alt="" class="vam" /></div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="cf fs18">
+
+					<!--div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/01_7.php">
+							<div class="w_100p mdpb intro_table mfs14" style="table-layout:fixed;">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#152c46;">2026학년도 추가 모집 신입생 모집요강</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2026. 02. 20(금) ~ 02. 23(월)</div>
+										<div class="square re">입학전형일 :<br />2026. 02. 24(화) 10시</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow3.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div-->
+					
+					
+					<div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/01_1.php">
+							<div class="w_100p mdpb intro_table mfs14">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#901616;">2027학년도 신입생 수시모집<br />&nbsp;</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2026. 09. 07(월) ~ 2026. 09. 11(금)</div>
+										<div class="square re">입학전형일 :<br />2026. 10. 19(월) 13시30분</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow2.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+
+					<div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/01_2.php">
+							<div class="w_100p mdpb intro_table mfs14">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#901616;">2027학년도 정시"다"군<br /> 신입생모집</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2027. 01. 04(월) ~ 07(목)</div>
+										<div class="square re">입학전형일 :<br />2027. 01. 25(월) 13:30</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow2.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					<div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/02_1.php">
+							<div class="w_100p mdpb intro_table mfs14">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#901616;">2027학년도(전기)<br /> 대학원 신입생모집</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2026. 11. 10(화) ~ 2026. 11. 12(목)</div>
+										<div class="square re">입학전형일 :<br />2026. 11. 23(월) 14:00</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow2.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+
+					<div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/02_2.php">
+							<div class="w_100p mdpb intro_table mfs14">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#901616;">2027학년도(전기)<br /> 신학대학원 신입생모집</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2026. 11. 10(화) ~ 2026. 11. 12(목)</div>
+										<div class="square re">입학전형일 :<br />2026. 11. 23(월) 14:00</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow2.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+
+					<div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/02_6.php">
+							<div class="w_100p mdpb intro_table mfs14">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#901616;">2027학년도(전기)<br /> 특수 대학원 신입생모집</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2026. 11. 10(화) ~ 2026. 11. 12(목)</div>
+										<div class="square re">입학전형일 :<br />2026. 11. 23(월) 14:00</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow2.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+
+					<!--div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/01_4.php">
+							<div class="w_100p mdpb intro_table mfs14" style="table-layout:fixed;">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#152c46;"><br />2026학년도 편입생 모집요강<br />&nbsp;</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2025. 12. 15(월) ~ 12. 17(수)</div>
+										<div class="square re">입학전형일 :<br />2025. 12. 29(월) 14시</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow3.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div-->
+
+					<!--div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/02_1.php">
+							<div class="w_100p mdpb intro_table mfs14">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#901616;">2025학년도 대학원 및<br />신학대학원 신입생 추가모집</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2025. 02. 03(월) ~ 2025. 02. 05(수)</div>
+										<div class="square re">입학전형일 :<br /><span style="padding-left:20px;">2025. 02. 12(월) 일반대학원 14시</span><br />
+										<span style="padding-left:20px;">2025. 02. 12(수) 신학대학원 14시</span></div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow2.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div-->
+
+					<!--div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/02_1.php">
+							<div class="w_100p mdpb intro_table mfs14">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#901616;">2025학년도 대학원 <br />신입생 후기모집</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2025. 06. 23(월) ~ 2025. 06. 25(수)</div>
+										<div class="square re">입학전형일 :<br />2025. 07. 08(화) 14:00</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow2.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div-->
+
+					<!--div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/02_6.php">
+							<div class="w_100p mdpb intro_table mfs14">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#901616;">2025학년도 휴먼케어영상콘텐츠<br />대학원 신입생 후기모집</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2025. 06. 23(월) ~ 2025. 06. 25(수)</div>
+										<div class="square re">입학전형일 :<br />2025. 07. 08(화) 14:00</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow2.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div-->
+
+					<!--div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/01_4.php">
+							<div class="w_100p mdpb intro_table mfs14" style="table-layout:fixed;">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#152c46;">2025학년도 편입생 추가 모집요강</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2025. 02. 03(월) ~ 02. 05(수)</div>
+										<div class="square re">입학전형일 :<br />2025. 02. 12(수) 10시</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow3.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div-->
+
+					<!--div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/02_1.php">
+							<div class="w_100p mdpb intro_table mfs14" style="table-layout:fixed;">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#766859;">2024학년도 대학원(신학대학원) 신입생모집</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2023. 12. 13(수) ~ 12. 15(금)</div>
+										<div class="square re">입학전형일 :<br />2023. 12. 27(수)</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow3.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div-->
+
+					<!--div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/01_4.php">
+							<div class="w_100p mdpb intro_table mfs14" style="table-layout:fixed;">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#152c46;">2023학년도 학부 편입생 모집</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2022. 12. 19(월) ~ 12. 22(목)</div>
+										<div class="square re">입학전형일 :<br />2023. 01. 04(수) 오후 14시</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow3.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div-->
+
+					<!--div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/02_1.php">
+							<div class="w_100p mdpb intro_table mfs14" style="table-layout:fixed;">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#a69889;">2023학년도 신학대학원 및 대학원 모집</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2023. 02. 07(화) ~ 02. 10(금)</div>
+										<div class="square re">입학전형일 : <br />- 신학대학원 : 2023.02.15(수) 오전 10시<br />- 대학원(석·박사) :</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow4.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div-->
+
+					<!--div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="/html/02_admission/01_7.php">
+							<div class="w_100p mdpb intro_table mfs14" style="table-layout:fixed;">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#a69889;">2024학년도 추가 신입생 모집</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">원서접수 :<br />2024. 02. 22(목) ~ 02. 23(금)</div>
+										<div class="square re">입학전형일 : <br />- 예비소집 : 2024. 02. 24(토) 10:00<br />- 면<span style="padding-left:30px;"/>접 : 2024. 02. 24(토) 10:30</div>
+									</div>
+									<div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow4.png" alt="" class="vam" style="width:32px;" />
+									</div>
+								</div>
+							</div>
+						</a>
+					</div-->
+
+					<!--div class="w_33p-30 fl mgr_30 mgb_10">
+						<a href="#none" style="cursor:default;">
+							<div class="w_100p mdpb intro_table mfs14" style="table-layout:fixed;">
+								<div class="pdtb_20 mpdtb_20 fs18 fc_white mdpb tac mfs16" style="background:#a69889;">기관평가인증 관련 외부전부가 초청 웍크샵</div>
+								<div class="tal mdpb pd_20 bg_ddd re fs16 m_h_auto" style="line-height:1.5; height:200px;">
+									<div class="pdl_15">
+										<div class="square re mgb_10">강사 : 정재민 교수</div>
+										<div class="square re mgb_10">일시 : 2023년 2월 20일 ~ 21일(양일간)</div>
+										<div class="square re mgb_10">장소 : 본관 회의실</div>
+										<div class="square re">대상 : 전체 교직원</div>
+									</div-->
+									<!--div class="ab mst tar" style="right:20px; bottom:20px;">
+										<img src="/img/fix/layout/intro_arrow4.png" alt="" class="vam" style="width:32px;" />
+									</div-->
+								<!--/div>
+							</div>
+						</a>
+					</div-->
+
+				</div>
+			</div>
+		</div>
+		<div class="dpn mdpb" style="height:125px;"></div>
+		<div class="bg_f5 pdtb_20 tac ab pdlr_50" style="bottom:0; left:0; width:100%; line-height:1.2; color:#aaa;">
+			<p class="mfs12">주소 : 38649 경상북도 경산시 경청로 222길 33 (백천동 137번지)<br class="dpn mdpb"><span class="mdpn"> / </span>전화 : 053-810-0701~3 / 팩스 : 053-813-0006</p>
+			<p class="mfs12">COPYRIGHT 2022 DAESHIN UNIVERSITY ALL RIGHTS RESERVED.</p>
+		</div>
+		<div id="banner" style="position:absolute; bottom:12px; right:45px;"  class="mdpn">
+			<A href='https://apply.jinhakapply.com/Notice/1048026/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/s0_ap_mv4.gif' border='0'></A>
+			<!--A href='https://apply.jinhakapply.com/Notice/1048024/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/j0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://enter.jinhakapply.com/Notice/1048025/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/p_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://enter.jinhakapply.com/Notice/1048023/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/d_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048022/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/s0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048021/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/c_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048019/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/j0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://enter.jinhakapply.com/Notice/1048020/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/p_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://enter.jinhakapply.com/Notice/1048018/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/d_ap_mv4.gif' border='0'></A-->
+			<!--A href="http://apply.jinhakapply.com/Notice/1048017/A" target="_blank"><IMG src="https://nadmin.jinhakapply.com/Banner/Images/s0_ap_mv4.gif" border="0"></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048016/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/j0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048014/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/j0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://enter.jinhakapply.com/Notice/1048015/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/p_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://enter.jinhakapply.com/Notice/1048013/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/d_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048012/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/s0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048009/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/j0_ap_mv4.gif' border='0'></A-->
+		</div>
+	</div>
+</div>
+<style>
+	table {border:none !important}
+	table tr td {border:none !Important;}
+</style>
+<script>
+	$(document).ready(function(){
+		if (window.innerWidth < 768)
+		{
+			$('.contents').css('height', 'auto');
+		}
+		else
+		{
+			$('.contents').css('height', window.innerHeight);
+		}
+	});
+	$(window).resize(function(){
+		if (window.innerWidth < 768)
+		{
+			$('.contents').css('height', 'auto');
+		}
+		else
+		{
+			$('.contents').css('height', window.innerHeight);
+		}
+	});
+</script>
+<style>
+	.footer_link_img img {height:20px;}
+</style>
+<!-- /container -->
+<script src="../../share/fix/js/animate.js"></script>
+<script src="../../share/fix/js/smoothscroll.js"></script>
+</body>
+</html>

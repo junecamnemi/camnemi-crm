@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi=medium-dpi">
+<title>초당대학교 대학원</title>
+<!-- 구글애널리틱스 -->
+<script>
+//   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+//   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+//   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+//   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+//   ga('create', 'UA-73274815-1', 'auto');
+//   ga('send', 'pageview');
+</script>
+<!-- 구글애널리틱스 -->
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/smartAdminPack/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/swiper.css">
+<link rel="stylesheet" type="text/css" href="/css/fontawesome.css">
+<link rel="stylesheet" type="text/css" href="/js/plugins/fullpage/fullpage.css" />
+<link rel="stylesheet" type="text/css" href="/css/aos.css">
+
+<link rel="stylesheet" type="text/css" href="/layouts/department1/css/department1.css">
+
+<script type="text/javascript" src="/layouts/department1/js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="/layouts/department1/js/aos.js"></script>
+<script type="text/javascript" src="/js/swiper.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.12.1.min.js"></script>
+<script type="text/javascript" src="/js/moment-2.20.1/moment.min.js"></script>
+<script type="text/javascript" src="/js/moment-2.20.1/locale-ko.js"></script>
+<script type="text/javascript" src="/js/bootstrap-datetimepicker-4.17.47/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap-datetimepicker-4.17.47/locale-ko.min.js"></script>
+<script type="text/javascript" src="/js/jquery.alphanumberic.js"></script>
+<script type="text/javascript" src="/js/moainfo.common.js"></script>
+<script type="text/javascript" src="/js/mcms.js"></script>
+<script type="text/javascript" src="/js/jquery.form.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/jquery.redirect-1.0.3.js"></script>
+<script type="text/javascript" src="/js/jquery.actual.js"></script>
+<script type="text/javascript" src="/js/jquery.easing.1.3.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fullpage/fullpage.js"></script>
+<script type="text/javascript" src="/layouts/department1/js/common.js"></script>
+<script type="text/javascript" src="/layouts/department1/js/layout.js"></script>
+<script type="text/javascript" src="/layouts/department1/js/ui.js"></script>
+<script type="text/javascript" src="/js/jquery.bxslider.js"></script>
+<script type="text/javascript" src="/layouts/department1/js/cdu.js"></script>
+<style>
+.close_media{font-size:20px; color:#FFF; font-weight:bold; margin-right:8px; display:none;}
+
+.board_wrap .board_list.notice .board_title {background-color: #0691bc;}
+.board_wrap .board_list.notice .board_cont .recent .tit a {color: #bc003e;}
+</style>
+
+<script>
+var app_path = "";
+var isAdmin = false;
+var isLogin = false;
+var redirect_url = "/index.do";
+
+$(function(){
+	setGlobalMenu();
+	setScroll();
+	AOS.init({offset: 30});
+	getShift("2026-09-18");
+	$(window).scrollTop(0);
+
+
+	if($("body").hasClass("pc") === true)
+	{
+		/* 팝업 OPEN */
+		
+	}
+
+	//상단 팝업이 있을 경우
+	if($(".popupArea").length > 0)
+	{
+		//상단 팝업 롤링처리
+		var popupSlider = $("#popupSlider").bxSlider({
+			auto: true,
+			pause: 8000,
+			controls: true,
+			nextText: '<img src="'+app_path+'/images/btn_pop_next.png" />',
+			prevText: '<img src="'+app_path+'/images/btn_pop_pre.png" />',
+			nextSelector: '.popup_right',
+			prevSelector: '.popup_left',
+			pagerCustom: "#popupPaging",
+			onSlideBefore: function() {
+				$("#popupPaging > a > img").each(function(idx){
+					if(idx == popupSlider.getCurrentSlide()){
+						$(this).attr( "src", $(this).attr("src").replace("_off.","_on.") );
+						$(this).attr( "alt", "position" );
+					}else{
+						$(this).attr( "src", $(this).attr("src").replace("_on.","_off.") );
+						$(this).attr( "alt", "next" );
+					}
+				});
+				popupSlider.startAuto(true);
+			}
+		});
+
+		//닫기 버튼을 눌렀을 경우
+		$(".popup_close .closeBtn").click(function(event){
+			$(".popupArea").slideUp(300);
+		});
+	}
+});
+
+$(window).resize(function(){
+	var mobileWidth = 1025;
+	var tableWidth = 768;
+
+	var headerHeight = $("#header").height();
+	var popupHeight = $(".popupArea").height();
+
+	if (!pcOnly){
+		if(window.innerWidth < mobileWidth && !$("body").hasClass("mobile")){
+			$("#header").css("top", 0);
+			$(".main_visual").css("padding-top", headerHeight); //메뉴 위치조정
+			$(".popupArea").hide();
+		}
+
+		if(window.innerWidth > mobileWidth && !$("body").hasClass("pc")){
+			$("#header").css("top", popupHeight);
+			$(".main_visual").css("padding-top", headerHeight + popupHeight + "px"); //메뉴 위치조정
+
+			
+		}
+	} else {
+		//$("#fullpage").css("padding-top","271px");
+		//$("#header").css("top","140px");
+		//$(".popupArea").show();
+	}
+}).resize();
+
+/*
+function loadPdf(url, target, width, height)
+{
+	url = app_path+encodeURIComponent(url)
+
+	window.open(app_path+"/pdfV.do?url="+url);
+}
+*/
+</script>
+</head>
+<body>
+<div id="pdfArea"></div>
+<!-- 상단 팝업 -->
+<div id="all_menu">
+	<div class="top_wrap">
+		<h1 class="logo"><a href="/"></a></h1>
+		<a href="#" class="btn_close_allmenu"><i class="fal fa-times"></i><span class="blind">닫기</span></a>
+	</div>
+
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+						<ul class="depth1">
+			<li><a href="/mod/page/view.do?MID=GRADUATE_C01010100" target="_self"><span>대학원 소개</span></a>
+				<ul class="depth2">
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C01010100" target="_self"><span>인사말</span></a></li>
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C01020100" target="_self"><span>교육목적 · 목표</span></a></li>
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C01030100" target="_self"><span>학칙 · 규정</span></a></li>
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C01050100" target="_self"><span>구성원 소개</span></a></li>
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C01060100" target="_self"><span>오시는 길</span></a></li>
+				</ul>
+			</li>
+			<li><a href="/mod/page/view.do?MID=GRADUATE_C02010100" target="_self"><span>전공 소개</span></a>
+				<ul class="depth2">
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C02010100" target="_self"><span>일반대학원</span></a>
+						<ul class="depth3">
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C02010100" target="_self"><span>간호학과</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C02010600" target="_self"><span>국제문화경영학과</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C02010700" target="_self"><span>국제문화교육학과</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C02010200" target="_self"><span>사회복지상담학과</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C02020600" target="_self"><span>사회복지상담학과(계약)</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C02010400" target="_self"><span>조리과학과</span></a></li>
+						</ul>
+					</li>
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C02020100" target="_self"><span>산업대학원</span></a>
+						<ul class="depth3">
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C02020100" target="_self"><span>경영학과</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C02020200" target="_self"><span>국제문화학과</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C02020700" target="_self"><span>뷰티디자인학과</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C02020300" target="_self"><span>사회복지상담학과</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C02020600" target="_self"><span>사회복지상담학과(계약)</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C02020500" target="_self"><span>항공산업학과</span></a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a href="/mod/board/list.do?MID=GRADUATE_B05010100" target="_self"><span>커뮤니티</span></a>
+				<ul class="depth2">
+					<li><a href="/mod/board/list.do?MID=GRADUATE_B05010100" target="_self"><span>공지사항</span></a></li>
+					<li><a href="/mod/board/list.do?MID=GRADUATE_B05020100" target="_self"><span>대학원 소식</span></a></li>
+					<li><a href="/mod/board/list.do?MID=GRADUATE_B05030100" target="_self"><span>자료실</span></a></li>
+					<li><a href="/mod/board/list.do?MID=GRADUATE_B05050100" target="_self"><span>Q&A</span></a></li>
+				</ul>
+			</li>
+			<li><a href="/mod/page/view.do?MID=GRADUATE_C03010100" target="_self"><span>입학 안내</span></a>
+				<ul class="depth2">
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C03010100" target="_self"><span>일반대학원</span></a>
+						<ul class="depth3">
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C03010100" target="_self"><span>신·편입학</span></a></li>
+						</ul>
+					</li>
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C03020100" target="_self"><span>산업대학원</span></a>
+						<ul class="depth3">
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C03020100" target="_self"><span>신·편입학</span></a></li>
+						</ul>
+					</li>
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C03030100" target="_self"><span>계약학과</span></a>
+						<ul class="depth3">
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C03030100" target="_self"><span>신입학</span></a></li>
+						</ul>
+					</li>
+					<li><a href="/mod/board/list.do?MID=GRADUATE_B03040100" target="_self"><span>입학 자료실</span></a></li>
+					<li><a href="/mod/board/list.do?MID=GRADUATE_B03050100" target="_self"><span>입학상담 · 문의</span></a></li>
+				</ul>
+			</li>
+			<li><a href="/mod/page/view.do?MID=GRADUATE_C01070100" target="_self"><span>학사 정보</span></a>
+				<ul class="depth2">
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C01070100" target="_self"><span>대학원 A to Z</span></a></li>
+					<li><a href="/mod/page/view.do?MID=KR_04010101" target="_self"><span>학사일정</span></a></li>
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C04030100" target="_self"><span>CUPID 정보서비스</span></a></li>
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C04010100" target="_self"><span>일반대학원</span></a>
+						<ul class="depth3">
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C04010100" target="_self"><span>등록 · 휴학 · 복학</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C04010200" target="_self"><span>장학</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C04010300" target="_self"><span>졸업요건</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C04010400" target="_self"><span>자격시험</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C04010500" target="_self"><span>학위논문</span></a></li>
+						</ul>
+					</li>
+					<li><a href="/mod/page/view.do?MID=GRADUATE_C04020100" target="_self"><span>산업대학원</span></a>
+						<ul class="depth3">
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C04020100" target="_self"><span>등록 · 휴학 · 복학</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C04020200" target="_self"><span>장학</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C04020300" target="_self"><span>졸업요건</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C04020400" target="_self"><span>자격시험</span></a></li>
+							<li><a href="/mod/page/view.do?MID=GRADUATE_C04020500" target="_self"><span>학위논문</span></a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+		</div>
+		<!-- Add Scroll Bar -->
+		<div class="swiper-scrollbar"></div>
+	</div>
+</div>
+<div id="wrap">
+	<div id="header">
+	<div class="gnb_bottom"></div>
+	<div class="gnb_dim_bg"></div>
+	<div class="top_wrap">
+		<div class="inner_wrap">
+<ul class="top_menu left">
+<li><a href="https://www.cdu.ac.kr" target="_self">초당대학교</a></li>
+<li><a href="https://ipsi.cdu.ac.kr" target="_self">입학안내</a></li>
+</ul>
+			<ul class="top_menu right" style="font-weight:bold">
+				<li>
+					<a href="/login.do">로그인</a>
+				</li>
+				<!-- 				<li class="lang"> -->
+<!-- 					<a href="#" class="selected">KR</a> -->
+<!-- 					<div class="lang_layer"> -->
+<!-- 						<a href="#">KR</a> -->
+<!-- 						<a href="#">EN</a> -->
+<!-- 						<a href="#">CN</a> -->
+<!-- 						<a href="#">JP</a> -->
+<!-- 					</div> -->
+<!-- 				</li> -->
+			</ul>
+			<ul class="top_sns">
+<li><a href="http://goto.kakao.com/jiz41ddz" target="_blank" title="카카오 채널"><i class="ico ico_kakao"></i></a></li>
+<li><a href="https://blog.naver.com/chodang_univ" target="_blank" title="네이버 블로그"><i class="ico ico_blog"></i></a></li>
+<li><a href="https://www.instagram.com/chodang.univ" target="_blank" title="인스타그램"><i class="fab fa-instagram"></i></a></li>
+<li><a href="http://www.nesin.com/chat/?dCode=160" target="_blank" title="화상상담"><i class="fas fa-video"></i></a></li>
+<li><a href="https://www.facebook.com/chodang.univ" target="_blank" title="페이스북"><i class="fab fa-facebook-f"></i></a></li>
+</ul>
+		</div>
+	</div>
+	<div id="gnb">
+		<div class="inner_wrap">
+			<h1 class="logo">
+				<a href="/index.do" target="_self">
+					<span class="logo_img">초당대학교</span>
+					<span class="logo_txt">대학원</span>
+				</a>
+			</h1>
+			<div class="gnb_set">
+				<nav id="nav">
+					<div class="nav_top">
+						<div class="top_title">
+							<a href="/login.do" class="arr">
+									<span><i class="fal fa-arrow-right"></i> 로그인</span>
+								</a>
+							</div>
+						<!-- <ul class="info_list">
+							<li>
+								<a href="#" class="my"><span><i class="fal fa-user"></i> 마이페이지</span></a>
+							</li>
+						</ul> -->
+					</div>
+
+										<ul class="nav_menu dep1">
+						<li class="menu01">
+							<a href="/mod/page/view.do?MID=GRADUATE_C01010100" target="_self"><span>대학원 소개</span></a><div class="nav_sub"><div class="menu_wrap"><div class="menu_list"><div class="menu_inner">							<ul class="dep2">
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C01010100" target="_self"><span>인사말</span></a></li>
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C01020100" target="_self"><span>교육목적 · 목표</span></a></li>
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C01030100" target="_self"><span>학칙 · 규정</span></a></li>
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C01050100" target="_self"><span>구성원 소개</span></a></li>
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C01060100" target="_self"><span>오시는 길</span></a></li>
+							</ul>
+</div></div></div></div>						</li>
+						<li class="menu02">
+							<a href="/mod/page/view.do?MID=GRADUATE_C02010100" target="_self"><span>전공 소개</span></a><div class="nav_sub"><div class="menu_wrap"><div class="menu_list"><div class="menu_inner">							<ul class="dep2">
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C02010100" target="_self"><span>일반대학원</span></a>									<ul class="dep3">
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C02010100" target="_self"><span>간호학과</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C02010600" target="_self"><span>국제문화경영학과</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C02010700" target="_self"><span>국제문화교육학과</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C02010200" target="_self"><span>사회복지상담학과</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C02020600" target="_self"><span>사회복지상담학과(계약)</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C02010400" target="_self"><span>조리과학과</span></a></li>
+									</ul>
+								</li>
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C02020100" target="_self"><span>산업대학원</span></a>									<ul class="dep3">
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C02020100" target="_self"><span>경영학과</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C02020200" target="_self"><span>국제문화학과</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C02020700" target="_self"><span>뷰티디자인학과</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C02020300" target="_self"><span>사회복지상담학과</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C02020600" target="_self"><span>사회복지상담학과(계약)</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C02020500" target="_self"><span>항공산업학과</span></a></li>
+									</ul>
+								</li>
+							</ul>
+</div></div></div></div>						</li>
+						<li class="menu03">
+							<a href="/mod/board/list.do?MID=GRADUATE_B05010100" target="_self"><span>커뮤니티</span></a><div class="nav_sub"><div class="menu_wrap"><div class="menu_list"><div class="menu_inner">							<ul class="dep2">
+								<li><a href="/mod/board/list.do?MID=GRADUATE_B05010100" target="_self"><span>공지사항</span></a></li>
+								<li><a href="/mod/board/list.do?MID=GRADUATE_B05020100" target="_self"><span>대학원 소식</span></a></li>
+								<li><a href="/mod/board/list.do?MID=GRADUATE_B05030100" target="_self"><span>자료실</span></a></li>
+								<li><a href="/mod/board/list.do?MID=GRADUATE_B05050100" target="_self"><span>Q&A</span></a></li>
+							</ul>
+</div></div></div></div>						</li>
+						<li class="menu04">
+							<a href="/mod/page/view.do?MID=GRADUATE_C03010100" target="_self"><span>입학 안내</span></a><div class="nav_sub"><div class="menu_wrap"><div class="menu_list"><div class="menu_inner">							<ul class="dep2">
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C03010100" target="_self"><span>일반대학원</span></a>									<ul class="dep3">
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C03010100" target="_self"><span>신·편입학</span></a></li>
+									</ul>
+								</li>
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C03020100" target="_self"><span>산업대학원</span></a>									<ul class="dep3">
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C03020100" target="_self"><span>신·편입학</span></a></li>
+									</ul>
+								</li>
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C03030100" target="_self"><span>계약학과</span></a>									<ul class="dep3">
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C03030100" target="_self"><span>신입학</span></a></li>
+									</ul>
+								</li>
+								<li><a href="/mod/board/list.do?MID=GRADUATE_B03040100" target="_self"><span>입학 자료실</span></a></li>
+								<li><a href="/mod/board/list.do?MID=GRADUATE_B03050100" target="_self"><span>입학상담 · 문의</span></a></li>
+							</ul>
+</div></div></div></div>						</li>
+						<li class="menu05">
+							<a href="/mod/page/view.do?MID=GRADUATE_C01070100" target="_self"><span>학사 정보</span></a><div class="nav_sub"><div class="menu_wrap"><div class="menu_list"><div class="menu_inner">							<ul class="dep2">
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C01070100" target="_self"><span>대학원 A to Z</span></a></li>
+								<li><a href="/mod/page/view.do?MID=KR_04010101" target="_self"><span>학사일정</span></a></li>
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C04030100" target="_self"><span>CUPID 정보서비스</span></a></li>
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C04010100" target="_self"><span>일반대학원</span></a>									<ul class="dep3">
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C04010100" target="_self"><span>등록 · 휴학 · 복학</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C04010200" target="_self"><span>장학</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C04010300" target="_self"><span>졸업요건</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C04010400" target="_self"><span>자격시험</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C04010500" target="_self"><span>학위논문</span></a></li>
+									</ul>
+								</li>
+								<li><a href="/mod/page/view.do?MID=GRADUATE_C04020100" target="_self"><span>산업대학원</span></a>									<ul class="dep3">
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C04020100" target="_self"><span>등록 · 휴학 · 복학</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C04020200" target="_self"><span>장학</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C04020300" target="_self"><span>졸업요건</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C04020400" target="_self"><span>자격시험</span></a></li>
+										<li><a href="/mod/page/view.do?MID=GRADUATE_C04020500" target="_self"><span>학위논문</span></a></li>
+									</ul>
+								</li>
+							</ul>
+</div></div></div></div>						</li>
+					</ul>
+</nav>
+				<a href="#" class="btn_side_close">
+					<i class="fal fa-times"></i>
+					<span class="blind">메뉴닫기</span>
+				</a>
+			</div>
+			<a href="#" role="button" class="btn_all">
+				<span class="blind">전체메뉴</span>
+				<span class="icon">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+			</a>
+		</div>
+	</div>
+</div>
+<div id="container">
+		<div id="fullpage">
+			<div id="section01" class="section main_visual fp-auto-height" data-anchor="section1">
+				<div class="swiper-inner-wrap">
+					<div class="swiper-pagination1"></div>
+				</div>
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide slide_1" style="background:url('/mod/mainImage/downloadFile.do?MAIN_IMAGE_NO=164059217175471') #313a39 no-repeat 50% 0; background-size:cover;">
+								<div class="slide-inner">
+									<div class="inner_wrap">
+										<div class="top_slash">
+											<img src="/layouts/department1/images/main/top_slash.png" />
+										</div>
+										<div class="slogun">
+											<h2 class="title">초당대학교 대학원</h2>
+											<p class="desc">글로벌화의 흐름 속에서 경쟁력 있는 글로컬 리더를 양성합니다.</p>
+										</div>
+										<div class="bottom_slash">
+											<img src="/layouts/department1/images/main/top_slash.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+
+				<div class="details_page_link" id="moveDown">
+					<span class="arrow top"></span>
+					<span class="arrow bt"></span>
+				</div>
+			</div>
+
+			<div id="section02" class="section department1_intro fp-auto-height" data-anchor="section2" style="background-image: url('/layouts/department1/images/main/img_section2_bg.png'); background-size: cover;">
+				<div class="inner_wrap">
+					<!-- 퀵 링크 영역 -->
+					<div class="quick_link">
+						<div class="box1">
+							<a href="/mod/page/view.do?MID=GRADUATE_C03010100" target="_blank">
+								<i class="fal fa-book-open"></i><br/>
+								<span class="ql_title">입학안내</span>
+							</a>
+						</div>
+						<div class="box2">
+							<a href="/mod/board/list.do?MID=GRADUATE_B03050100" target="_blank">
+								<span class="icon"><i class="far fa-comment-alt-lines"></i></span><br />
+								<span class="ql_title">입학문의</span>
+							</a>
+						</div>
+						<div class="box3">
+							<a href="https://cupid.cdu.ac.kr/" target="_blank">
+								<span class="icon"><i class="fal fa-globe"></i></span><br />
+								<span class="ql_title">학생포털</span>
+							</a>
+						</div>
+						<div class="box4">
+							<a href="/mod/page/view.do?MID=KR_04010101">
+								<span class="icon"><i class="far fa-calendar-alt"></i></span><br />
+								<span class="ql_title">대학원학사일정</span>
+							</a>
+						</div>
+					</div>
+
+					<p class="en_title_sub">About : Dept. of Graduate</p>
+					<p class="depart_title">학과소개<img class="depart_line" src="/layouts/department1/images/main/depart_line.gif"></p>
+					<p class="depart_sub_title">글로컬 인재 양성을 통하여 지역을 넘어 세계로!</p>
+					<p class="depart_txt">글로컬 리더 양성은 구호로만 그치지 않습니다. 초당대학교는 국제화 교육 프로그램과 각종 해외어학연수 프로그램 등을 통해 글로벌 마인드를 갖춘 “우물 밖 개구리”를 길러냅니다. </p>
+
+					<!--  기본 이미지 처리 -->
+					<div class="depart_promotion_view">
+						<div class="depart_image">
+						<!-- 각 학과별 홍보 이미지  default -->
+<img style="background: url('/images/main/layout/graduate/graduate.png') 50% 0px / cover no-repeat;" width="464" height="379">
+</div>
+					</div>
+
+					<div class="more_btn">
+						<a href="/mod/page/view.do?MID=GRADUATE_C02010100"><img src="/layouts/department1/images/main/more_btn_black.jpg" /></a>
+					</div>
+
+					<div class="border_line"></div>
+
+					<p class="depart_sub_title2">교육목표</p>
+					<table class="txt_table">
+						<colgroup>
+							<col width="50%" />
+							<col width="50%" />
+						</colgroup>
+						<tr>
+							<td class="tl">
+								창의적전문가</td>
+							<td class="tr">
+								전문인 양성</td>
+						</tr>
+						<tr>
+							<td class="tl">
+								교양인 양성</td>
+							<td class="tr">
+								글로컬 리더 양성</td>
+						</tr>
+					</table>
+
+					<div class="more_btn">
+							<a href="/mod/page/view.do?MID=GRADUATE_C01020100"><img src="/layouts/department1/images/main/more_btn_blue.jpg" /></a>
+						</div>
+					</div>
+			</div>
+			<div id="section03" class="section department1_news fp-auto-height" data-anchor="section3" >
+				<div class="inner_wrap">
+					<p class="en_title_sub">News : Dept. of Graduate</p>
+					<p class="depart_title">학과소식 <img class="depart_line" src="/layouts/department1/images/main/depart_line.gif"></p>
+
+					<div class="content_wrap">
+						<div class="notice_content">
+							<div id="NormalNotice" class="tab_on">
+								<a href="javascript:viewNoticeTab('N')" class="tab">공지사항</a>
+								<div class="tab_content">
+									<div class="more">
+										<a href="/mod/board/list.do?MID=GRADUATE_B05010100">MORE<i class="fal fa-plus-circle"></i></a>
+									</div>
+									<!-- 최근 게시 글 영역 -->
+									<div class="lately_posts_wrap">
+										<p class="tit">
+												<a href="/mod/board/view.do?MID=GRADUATE_B05010100&DOC_NO=178813475565976&page=1" title="2026학년도 2학기 대학원 수강정정 기간 및 2차 등록금 수납 일정 안내"><img src="/layouts/department1/images/main/icon_speak.png">
+												<!-- 최근 게시물 제목 -->
+												2026학년도 2학기 대학원 수강정정 기간 및 2차 등록금 수납 일정 안내</a>
+											</p>
+
+											<p class="txt">
+</p>
+										<div class="border_line_gray"></div>
+										</div>
+									<div class="posts_wrap">
+										<div class="list">
+											<p class="list_title"><img class="dot_gray"><a href="/mod/board/view.do?MID=&DOC_NO=178477428008936&page=1" title="2026학년도 2학기 수강신청 및 등록금 납부 일정 변경 안내">2026학년도 2학기 수강신청 및 등록금 납부 일정 변경 안내</a>	<span class="date">2026-07-23</span></p>
+										</div>
+										<div class="list">
+											<p class="list_title"><img class="dot_gray"><a href="/mod/board/view.do?MID=&DOC_NO=178416039011855&page=1" title="2026학년도 후기 대학원(일반대, 산업대) 신·편입생 추가모집 안내">2026학년도 후기 대학원(일반대, 산업대) 신·편입생 추가모집 안내</a>	<span class="date">2026-07-16</span></p>
+										</div>
+										<div class="list">
+											<p class="list_title"><img class="dot_gray"><a href="/mod/board/view.do?MID=&DOC_NO=177907791685284&page=1" title="2026학년도 후기 대학원(일반대, 산업대) 신·편입생 모집 안내">2026학년도 후기 대학원(일반대, 산업대) 신·편입생 모집 안내</a>	<span class="date">2026-05-18</span></p>
+										</div>
+										<div class="list">
+											<p class="list_title"><img class="dot_gray"><a href="/mod/board/view.do?MID=&DOC_NO=177821713788068&page=1" title="2026년 일반대학원 및 산업대학원 학과사무실 연락처 안내">2026년 일반대학원 및 산업대학원 학과사무실 연락처 안내</a>	<span class="date">2026-05-08</span></p>
+										</div>
+										<div class="list">
+											<p class="list_title"><img class="dot_gray"><a href="/mod/board/view.do?MID=&DOC_NO=177821686691249&page=1" title="2026학년도 대학원 학사일정 안내">2026학년도 대학원 학사일정 안내</a>	<span class="date">2026-05-08</span></p>
+										</div>
+										</div>
+								</div>
+							</div>
+							<div id="bachelorNotice" class="tab_off">
+								<!-- 대표사이트 데이터를 가져옴. -->
+								<a href="javascript:viewNoticeTab('B')" class="tab">대학원소식</a>
+								<div class="tab_content">
+									<div class="more">
+										<a href="/mod/board/list.do?MID=GRADUATE_B05020100">MORE<i class="fal fa-plus-circle" style="font-size: 28px;"></i></a>
+									</div>
+									<!-- 최근 게시 글 영역 -->
+									<div class="lately_posts_wrap">
+										<p class="tit">
+												<a href="https://www.cdu.ac.kr/mod/board/view.do?MID=GRADUATE_B05020100&DOC_NO=178027727701786&page=1" title="『2026년 창원시 AI·데이터 활용 공모전』" ><img src="/layouts/department1/images/main/icon_speak.png">
+												<!-- 최근 게시물 제목 -->
+												『2026년 창원시 AI·데이터 활용 공모전』</a>
+											</p>
+
+											<p class="txt">
+</p>
+										<div class="border_line_gray"></div>
+										</div>
+									<div class="posts_wrap">
+										<div class="list">
+											<p class="list_title"><img class="dot_gray"><a href="https://www.cdu.ac.kr/mod/board/view.do?MID=GRADUATE_B05020100&DOC_NO=178027688448315&page=1" title="2026년도 하반기 질병관리청 국립보건연구원  박사 후 연수생 상시 채용공고" target="_blank">2026년도 하반기 질병관리청 국립보건연구원  박사 후 연수생 상시 채용공고</a>	<span class="date">2026-05-29</span></p>
+										</div>
+										<div class="list">
+											<p class="list_title"><img class="dot_gray"><a href="https://www.cdu.ac.kr/mod/board/view.do?MID=GRADUATE_B05020100&DOC_NO=177976950576031&page=1" title="2026년 이공계 장애 대학(원)생  공공연구기관 탐방 캠프 참여자 모집" target="_blank">2026년 이공계 장애 대학(원)생  공공연구기관 탐방 캠프 참여자 모집</a>	<span class="date">2026-05-26</span></p>
+										</div>
+										<div class="list">
+											<p class="list_title"><img class="dot_gray"><a href="https://www.cdu.ac.kr/mod/board/view.do?MID=GRADUATE_B05020100&DOC_NO=177871993233621&page=1" title="학술정보원 「2026 전자정보박람회」 개최" target="_blank">학술정보원 「2026 전자정보박람회」 개최</a>	<span class="date">2026-05-14</span></p>
+										</div>
+										<div class="list">
+											<p class="list_title"><img class="dot_gray"><a href="https://www.cdu.ac.kr/mod/board/view.do?MID=GRADUATE_B05020100&DOC_NO=177863404857244&page=1" title="2026 AI Pilot Top Gun Challenge 개최" target="_blank">2026 AI Pilot Top Gun Challenge 개최</a>	<span class="date">2026-05-13</span></p>
+										</div>
+										<div class="list">
+											<p class="list_title"><img class="dot_gray"><a href="https://www.cdu.ac.kr/mod/board/view.do?MID=GRADUATE_B05020100&DOC_NO=177848087106427&page=1" title="「2026 모의 유네스코 회의」 대표단 모집" target="_blank">「2026 모의 유네스코 회의」 대표단 모집</a>	<span class="date">2026-05-11</span></p>
+										</div>
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="board_wrap">
+						<div class="board_list recruit">
+							<h3 class="board_title"><span>서식자료실</span> <a href="/mod/board/list.do?MID=GRADUATE_B05030100"><i class="fal fa-plus-circle"></i></a></h3>
+							<div class="board_cont">
+								<div class="list">
+								<p class="list_title">
+											<a href="/mod/board/view.do?MID=GRADUATE_B05030100&DOC_NO=177846683329829&page=1" title="2026학년도 대학원 요람" class="">2026학년도 대학원 요람</a>
+											<img src="/layouts/department1/images/main/icon_file.png">
+											<span class="date">2026-05-11</span>
+										</p>
+										<div class="border_line_gray"></div>
+										<p class="list_title">
+											<a href="/mod/board/view.do?MID=GRADUATE_B05030100&DOC_NO=20864&page=1" title="(일반_산업)대학원 입학원서" class="">(일반_산업)대학원 입학원서</a>
+											<img src="/layouts/department1/images/main/icon_file.png">
+											<span class="date">2025-12-23</span>
+										</p>
+										<div class="border_line_gray"></div>
+										<p class="list_title">
+											<a href="/mod/board/view.do?MID=GRADUATE_B05030100&DOC_NO=175133149390382&page=1" title="2025학년도 대학원 요람" class="">2025학년도 대학원 요람</a>
+											<img src="/layouts/department1/images/main/icon_file.png">
+											<span class="date">2025-07-01</span>
+										</p>
+										</div>
+							</div>
+						</div>
+
+						<div class="pop_zone">
+							<h3 class="pop_title">POPUP ZONE</h3>
+							<div class="main_popup">
+								<div class="popup_content">
+									<div class="swiper-container">
+										<div class="swiper-wrapper">
+		<a class="swiper-slide"  href="http://#" target="_blank">
+													<img src="/mod/banner/downloadFile.do?BANNER_NO=159825212753287" style="background-size:cover" />
+												</a>
+			</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+<div id="section05" class="">
+				<div class="inner_wrap">
+					<ul class="icon_list">
+						<li>
+								<a href="/mod/page/view.do?MID=KR_04010101" target="_blank">
+									<span class="icon"><i class="fal fa-calendar-alt"></i></span>
+									<span class="name">대학원학사일정</span>
+								</a>
+							</li>
+						<li>
+								<a href="https://cupid.cdu.ac.kr" target="_blank">
+									<span class="icon"><i class="fal fa-id-card"></i></span>
+									<span class="name">학생포털</span>
+								</a>
+							</li>
+						<li>
+								<a href="http://sugang.cdu.ac.kr" target="_blank">
+									<span class="icon"><i class="fal fa-comment-alt-check"></i></span>
+									<span class="name">수강신청</span>
+								</a>
+							</li>
+						<li>
+								<a href="http://library.cdu.ac.kr" target="_blank">
+									<span class="icon"><i class="fal fa-book-reader"></i></span>
+									<span class="name">도서관</span>
+								</a>
+							</li>
+						<li>
+								<a href="https://ecampus.cdu.ac.kr" target="_blank">
+									<span class="icon"><i class="fal fa-desktop-alt"></i></span>
+									<span class="name">이러닝</span>
+								</a>
+							</li>
+						<li>
+								<a href="http://dorm.cdu.ac.kr" target="_blank">
+									<span class="icon"><i class="fal fa-home-heart"></i></span>
+									<span class="name">생활관</span>
+								</a>
+							</li>
+						<li>
+								<a href="http://career.cdu.ac.kr" target="_blank">
+									<span class="icon"><i class="fal fa-award"></i></span>
+									<span class="name">취창업정보</span>
+								</a>
+							</li>
+						<li>
+								<a href="http://counsel.cdu.ac.kr" target="_blank">
+									<span class="icon"><i class="fal fa-user-friends"></i></span>
+									<span class="name">학생상담</span>
+								</a>
+							</li>
+						<li>
+								<a href="https://cert.cdu.ac.kr/" target="_blank">
+									<span class="icon"><i class="fal fa-user-graduate"></i></span>
+									<span class="name">증명발급</span>
+								</a>
+							</li>
+						</ul>
+				</div>
+			</div>
+			</div>
+		<div id="indicator" class="indicator">
+			<ul id="indicator_menu" class="indi_list">
+				<li data-menuanchor="section1">
+					<a href="#section1">
+						<span class="indi_title">메인</span>
+						<span class="icon">
+							<i class="fal fa-house-flood"></i>
+						</span>
+					</a>
+				</li>
+				<li data-menuanchor="section2">
+					<a href="#section2">
+						<span class="indi_title">소개</span>
+						<span class="icon">
+							<i class="fal fa-video"></i>
+						</span>
+					</a>
+				</li>
+				<li data-menuanchor="section3">
+					<a href="#section3">
+						<span class="indi_title">소식</span>
+						<span class="icon">
+							<i class="fal fa-poll-h"></i>
+						</span>
+					</a>
+				</li>
+</ul>
+		</div>
+	</div>
+	<footer id="footer">
+	<div class="footer_inner">
+		<div class="inner_wrap">
+			<strong class="logo">
+				<a href="#"></a>
+			</strong>
+			<div class="copy_menu">
+				<ul>
+					<li><a href="#">회사소개</a></li>
+					<li><a href="#">인재채용</a></li>
+					<li><a href="#">윤리경영</a></li>
+				</ul>
+			</div>
+			<div class="info_list">
+				<ul>
+<li><a href="https://www.cdu.ac.kr/mod/page/view.do?MID=KR_07010000" target="_self">개인정보처리방침</a></li>
+<li><a href="https://www.cdu.ac.kr/mod/page/view.do?MID=KR_07020000" target="_self">이메일무단수집거부</a></li>
+</ul>
+			</div>
+			<div class="admission_site" style="top:15px; right:0;">
+				<p><a href="https://admission.cdu.ac.kr/index.do" class="" target="_blank">입학안내 바로가기</a></p>
+				<div class="site_layer">
+					<ul>
+					</ul>
+				</div>
+				<a href="https://admission.cdu.ac.kr/index.do" class="btn_go" target="_blank">GO</a>
+			</div>
+		</div>
+	</div>
+	<div class="footer_bottom">
+		<div class="inner_wrap">
+			<div class="address">
+				<address>
+<span>[58530] 전남 무안군 무안읍 무안로 380</span>
+</address>
+				<ul>
+					<li>입학문의 1577-2859 / 대표전화 061.453.4960(ARS) / 팩스 061.453.4969</li>
+				</ul>
+				<span class="copy">COPYRIGHT (C)2015 CHODANG UNIVERSITY ALL RIGHTS RESERVED</span>
+			</div>
+			<span class="logo"></span>
+			<div class="family_site" style="top:10px; right:0;">
+				<p><a href="#" class="">교내주요기관</a></p>
+				<div class="site_layer">
+					<ul>
+<li><a href="https://sanhak.cdu.ac.kr" target="_self">산학협력단</a></li>
+<li><a href="https://ino.cdu.ac.kr" target="_self">학생성공진흥센터</a></li>
+<li><a href="https://career.cdu.ac.kr" target="_self">취창업지원센터</a></li>
+<li><a href="https://ilec.cdu.ac.kr" target="_self">국제교류교육원</a></li>
+<li><a href="https://condor.cdu.ac.kr" target="_self">비행교육원</a></li>
+<li><a href="https://library.cdu.ac.kr" target="_self">학술정보원(도서관)</a></li>
+<li><a href="https://ctl.cdu.ac.kr" target="_self">교수학습개발센터</a></li>
+<li><a href="https://ecampus.cdu.ac.kr" target="_self">이러닝강의실</a></li>
+<li><a href="https://counsel.cdu.ac.kr" target="_self">학생상담센터</a></li>
+<li><a href="https://dorm.cdu.ac.kr" target="_self">생활관</a></li>
+<li><a href="https://dream.cdu.ac.kr" target="_self">장학안내</a></li>
+<li><a href="https://cert.cdu.ac.kr/" target="_self">인터넷증명발급</a></li>
+<li><a href="https://lcc.cdu.ac.kr/" target="_self">초당지역공헌센터</a></li>
+<li><a href="https://llec.cdu.ac.kr/" target="_self">평생교육원</a></li>
+</ul>
+				</div>
+				<a href="#" class="btn_go" target="_blank">GO</a>
+			</div>
+
+			<div class="family_site2" style="top:60px;">
+				<p><a href="#" class="">학과홈페이지</a></p>
+				<div class="site_layer2">
+					<ul>
+<li><a href="#" target="">= 창의융합대학 =</a></li>
+<li><a href="https://fire.cdu.ac.kr" target="_self">소방행정학과</a></li>
+<li><a href="https://military.cdu.ac.kr" target="_self">군사학과</a></li>
+<li><a href="https://human.cdu.ac.kr" target="_self">사회복지상담학과</a></li>
+<li><a href="https://beauty.cdu.ac.kr" target="_self">뷰티디자인학과</a></li>
+<li><a href="https://cobiz.cdu.ac.kr" target="_self">창업경영학과</a></li>
+<li><a href="https://culinary.cdu.ac.kr" target="_self">호텔조리베이커리학과</a></li>
+<li><a href="https://medical.cdu.ac.kr" target="_self">의약관리학과</a></li>
+<li><a href="#" target="">= 간호대학 =</a></li>
+<li><a href="https://nursing.cdu.ac.kr" target="_self">간호학과</a></li>
+<li><a href="https://dental.cdu.ac.kr" target="_self">치위생학과</a></li>
+<li><a href="#" target="">= 항공대학 =</a></li>
+<li><a href="https://drone.cdu.ac.kr" target="_self">항공드론학과</a></li>
+<li><a href="https://stwd.cdu.ac.kr" target="_self">항공관광서비스학과</a></li>
+<li><a href="https://pilot.cdu.ac.kr" target="_self">항공운항학과</a></li>
+<li><a href="https://flight.cdu.ac.kr" target="_self">항공정비학과</a></li>
+<li><a href="https://airtl.cdu.ac.kr/" target="_self">항공교통물류학과</a></li>
+<li><a href="#" target="">= 글로벌혁신대학 =</a></li>
+<li><a href="https://dis.cdu.ac.kr" target="">국제학과</a></li>
+<li><a href="https://globalinno.cdu.ac.kr" target="">글로벌비즈니스학과</a></li>
+<li><a href="https://globalinno.cdu.ac.kr/" target="">글로벌실버케어학과</a></li>
+</ul>
+				</div>
+				<a href="#" class="btn_go" target="_blank">GO</a>
+			</div>
+		</div>
+	</div>
+</footer>
+</div>
+</body>
+</html>

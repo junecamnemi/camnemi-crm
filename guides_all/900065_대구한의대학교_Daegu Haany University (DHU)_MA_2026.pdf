@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+<meta name="viewport" content="width=1480" />
+<meta name="description" content="대구한의대학교 대학원 홈페이지 입니다.">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="대구한의대학교 대학원" />
+<meta property="og:description" content="대구한의대학교 대학원 홈페이지 입니다." />
+<meta property="og:url" content="http://www.dhu.ac.kr/HOME/graduate/" />
+
+<title>대구한의대학교 대학원</title>
+<link rel="stylesheet" href="https://www.dhu.ac.kr/css/jquery-ui-1.12.0.min.css" /><link rel="stylesheet" type="text/css" href="../data/css/font-awesome.min.css?1787539025">
+<link rel="stylesheet" type="text/css" href="../data/css/font.css?1787538889">
+<link rel="stylesheet" type="text/css" href="../data/css/animate.css?1567762970">
+<link rel="stylesheet" type="text/css" href="../data/css/swiper.min.css?1747112309">
+<link rel="stylesheet" type="text/css" href="../data/css/common.css?1657794880">
+<link rel="stylesheet" type="text/css" href="../data/css/board.css?1638943520"> 
+<link rel="stylesheet" type="text/css" href="../data/css/page_tmp.css?1571120112">
+<link rel="stylesheet" type="text/css" href="../data/css/title_tmp.css?1574908702">
+<link rel="stylesheet" type="text/css" href="../data/css/dhu_tmp.css?1749450970">
+
+<script src="https://www.dhu.ac.kr/js/jquery-3.1.1.min.js"></script>
+<script src="//t1.kakaocdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="../data/js/jquery.bxslider.min.js"></script><script type="text/javascript" src="https://www.dhu.ac.kr/js/jquery-ui-1.12.1.js"></script><script src="../data/js/jquery.form.min.js?1567762985"></script><script src="../data/js/common.js?1683678863"></script><script src="../data/js/tmp_js.js?1567762985"></script><script src="../data/js/wow.min.js?1567762985"></script>
+<script type="text/javascript" src="https://www.dhu.ac.kr/cmsware/js/bootstrap.min.js"></script>
+<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="../data/css/ie.css?1592206861">
+	<script src="../data/js/html5shiv.min.js"></script>
+<![endif]-->
+<script>
+	new WOW().init();
+
+	$(document).ready(function(){		
+		if (window.location.href.includes("glocal")) {
+			$(".depth1, .topmn").bind('mouseover focusin', function(){
+				$('header').addClass('active');
+			});
+			$(".depth1, .topmn").bind('mouseout focusout', function(){
+				$('header').removeClass('active');
+			});
+		} else {
+			$(".depth1").bind('mouseover focusin', function(){
+				$('header').addClass('active');
+			});
+			$(".depth1").bind('mouseout focusout', function(){
+				$('header').removeClass('active');
+			});
+		}
+	});
+</script>
+
+			<link rel="stylesheet" type="text/css" href="./css/content.css?1781756065">
+	
+
+
+
+
+
+<script>
+$(window).on("scroll", function() {
+		if ($(window).scrollTop() > 120) {
+		$("#header").addClass("fix");
+		$("#mo-snb").addClass("fix");
+		}else {
+		$("#header").removeClass("fix");
+		$("#mo-snb").removeClass("fix");
+		}
+	});
+
+	$(document).ready(function() {
+	 $("a.page-go").anchorAnimate()
+	});
+	jQuery.fn.anchorAnimate = function(settings) {
+	  settings = jQuery.extend({
+	  speed : 600
+	 }, settings); 
+
+	 return this.each(function(){
+	  var caller = this
+	  $(caller).click(function (event) { 
+	   event.preventDefault()
+	   var locationHref = window.location.href
+	   var elementClick = $(caller).attr("href")
+
+	   var destination = $(elementClick).offset().top;
+	   $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination}, settings.speed, function() {
+		window.location.hash = elementClick
+	   });
+		 return false;
+	  })
+
+	 })
+	}
+
+function linksite_tab(data) 
+	{
+	var show_ck = 0;
+	$(".linksite div.tab a").removeClass("on");
+	$('.site-cont').each(function(){
+		if($(this).css("display") != "none" ){
+			show_ck = 1;
+		}
+	});
+
+	$('.site-cont').each(function(){
+		if($(this).attr('id') == data){
+			if($(this).css("display") != "none" ){
+				$(this).slideUp();
+			}else{
+				$("#"+data+"_tab").addClass("on");
+				if(show_ck == 1){
+					$(this).show();
+				}else{
+					$(this).slideDown();
+				}
+			}
+		}else{
+			$(this).hide();
+		}
+	});
+
+}
+</script><script>
+	$(document).ready(function() {
+		if($(".main-about > div.cont").length > 1) {
+			cont_slider = $('.main-about').bxSlider({
+				mode: 'fade',
+				slideMargin: 0,//박스간 간격
+				controls: false,
+				speed: 500,//슬라이드속도
+				pager: false,//페이징
+				pause: 3000,//슬라이드 빈도 1000 -> 1초
+				autoHover: true,//마우스오버 할 때 슬라이드기능 멈춤
+				minSlides: 1,//최소 박스 수
+				maxSlides: 1,//최대 박스 수
+				moveSlides: 1,//한번에 이동하는 박스 수
+				auto: true,//자동재생
+				autoControls: false,
+				slideSelector: "div.cont"
+			});
+		} else {
+			$(".main-about > .control").hide();
+		}
+	});
+
+	function cont_slider_prev() {
+		cont_slider.goToPrevSlide();
+	}
+	function cont_slider_next() {
+		cont_slider.goToNextSlide();
+	}
+	function cont_slider_stop() {
+		cont_slider.stopAuto();
+		$(".main-about > .control > a.stop").hide();
+		$(".main-about > .control > a.play").show();
+	}
+	function cont_slider_start() {
+		cont_slider.startAuto();
+		$(".main-about > .control > a.stop").show();
+		$(".main-about > .control > a.play").hide();
+	}
+</script>
+</head>
+<body class="bodybg">
+<script src="../data/js/menu.js?1780964631"></script><style type="text/css">
+#gnbmn ul.depth1 > li		{width:17%} /* 메뉴수에 따라 */
+
+#gnb		{background-color:rgba(0, 0, 0, 0);} 
+#gnbmn ul.depth1 li a	{color:rgb(51, 51, 51);}
+#gnbmn ul.depth1 li a:hover,
+#gnbmn ul.depth1 li a.on{color:rgb(58, 163, 112);}
+#gnbmn ul.depth2 li a	{color:#555555;}
+#gnbmn ul.depth2 li a:hover,
+#gnbmn ul.depth2 li a.on{color:rgb(58, 163, 112);}
+.gnb_bg		{background-color:#FFFFFF;}
+
+</style>
+<!-- header -->
+<header>
+	<div id="topwrap">
+		<div class="d_width">
+		<div id="logo">
+					<a href="./index.htm"><img src="./data/designImages/logo.png" alt="로고이미지"/></a>
+							<a href="./index.htm"><span class="sub_name">대학원</span></a>
+				</div>
+		<div class="topmn">		
+																				<a href="https://blog.naver.com/dhusns" target='_blank'>블로그</a>
+									<a href="https://www.facebook.com/daeguhaany.univ" target='_blank'>페이스북</a>
+													<!-- <a href="./index.htm">HOME</a> -->
+							
+			<a href="../../sso/business.php?reUrl=https://www.dhu.ac.kr/HOME/graduate/index.htm?nav_code=" title="로그인하기">로그인</a>
+
+<!-- 				<a href="https://portal.dhu.ac.kr/user/login.face?returnURL=http://www.dhu.ac.kr/HOME/graduate/" class="login">로그인</a> -->
+									<a href="http://www.dhu.ac.kr/pages" target="_blank">대구한의대학교</a>
+					</div>
+		</div>
+	</div>
+	<div id="gnb">	
+	<div id="gnbmn">
+			<nav>
+			<ul class="depth1">
+								
+				<li><a href="./sub.htm?nav_code=gra1635818298"  id="top1m1"  title ='대학원안내 > 연혁 페이지로 이동합니다.'>대학원안내</a>
+				
+					
+										<ul id="top2m1" class="depth2">
+										<li id="top2m1m1"><a href="./sub.htm?nav_code=gra1635818298"   title ='연혁 페이지로 이동합니다.'>연혁</a></li>
+										<li id="top2m1m2"><a href="./sub.htm?nav_code=gra1635818305"   title ='행정부서 페이지로 이동합니다.'>행정부서</a></li>
+										<li id="top2m1m3"><a href="./sub.htm?nav_code=gra1635818334"   title ='일반대학원 페이지로 이동합니다.'>일반대학원</a></li>
+										<li id="top2m1m4"><a href="./sub.htm?nav_code=gra1635818376"   title ='보건복지대학원 페이지로 이동합니다.'>보건복지대학원</a></li>
+										<li id="top2m1m5"><a href="./sub.htm?nav_code=gra1635818405"   title ='K-MEDI융합산업대학원 페이지로 이동합니다.'>K-MEDI융합산업대학원</a></li>
+					
+					</ul>
+									</li>
+								
+				<li><a href="./sub.htm?nav_code=gra1635818673"  id="top1m2"  title ='학사안내 > 학사운영주요사항 페이지로 이동합니다.'>학사안내</a>
+				
+					
+										<ul id="top2m2" class="depth2">
+										<li id="top2m2m1"><a href="./sub.htm?nav_code=gra1635818673"   title ='학사운영주요사항 페이지로 이동합니다.'>학사운영주요사항</a></li>
+										<li id="top2m2m2"><a href="./sub.htm?nav_code=gra1635818678"   title ='학위수여자격요건 페이지로 이동합니다.'>학위수여자격요건</a></li>
+										<li id="top2m2m3"><a href="./sub.htm?nav_code=gra1635818834"   title ='학사일정 페이지로 이동합니다.'>학사일정</a></li>
+										<li id="top2m2m4"><a href="./sub.htm?nav_code=gra1778825052"  class='highlight' title ='학사일정 로드맵 페이지로 이동합니다.'>학사일정 로드맵</a></li>
+					
+					</ul>
+									</li>
+								
+				<li><a href="./sub.htm?nav_code=gra1635818859"  id="top1m3"  title ='대학원규정 > 대학원학칙시행세칙 페이지로 이동합니다.'>대학원규정</a>
+				
+					
+										<ul id="top2m3" class="depth2">
+										<li id="top2m3m1"><a href="./sub.htm?nav_code=gra1637900582"   title ='대학원학칙 페이지로 이동합니다.'>대학원학칙</a></li>
+										<li id="top2m3m2"><a href="./sub.htm?nav_code=gra1635818859"   title ='대학원학칙시행세칙 페이지로 이동합니다.'>대학원학칙시행세칙</a></li>
+										<li id="top2m3m3"><a href="./sub.htm?nav_code=gra1637730777"   title ='학과별 교과과정 페이지로 이동합니다.'>학과별 교과과정</a></li>
+										<li id="top2m3m4"><a href="./sub.htm?nav_code=gra1637730816"   title ='기타 규정 페이지로 이동합니다.'>기타 규정</a></li>
+					
+					</ul>
+									</li>
+								
+				<li><a href="./sub.htm?nav_code=gra1749431640"  id="top1m4"  title ='입학안내 > 2026년 후기(9월 입학) 페이지로 이동합니다.'>입학안내</a>
+				
+					
+										<ul id="top2m4" class="depth2">
+										<li id="top2m4m1"><a href="./sub.htm?nav_code=gra1635819211"   title ='2027년 전기(3월 입학) 페이지로 이동합니다.'>2027년 전기(3월 입학)</a></li>
+										<li id="top2m4m2"><a href="./sub.htm?nav_code=gra1749431640"   title ='2026년 후기(9월 입학) 페이지로 이동합니다.'>2026년 후기(9월 입학)</a></li>
+					
+					</ul>
+									</li>
+								
+				<li><a href="./sub.htm?nav_code=gra1635819317"  id="top1m5"  title ='계약학과 > 계약학과 소개 페이지로 이동합니다.'>계약학과</a>
+				
+					
+										<ul id="top2m5" class="depth2">
+										<li id="top2m5m1"><a href="./sub.htm?nav_code=gra1635819317"   title ='계약학과 소개 페이지로 이동합니다.'>계약학과 소개</a></li>
+										<li id="top2m5m2"><a href="./sub.htm?nav_code=gra1635819333"   title ='노인의료복지학과 페이지로 이동합니다.'>노인의료복지학과</a></li>
+										<li id="top2m5m3"><a href="./sub.htm?nav_code=gra1635819353"   title ='학과별소개(블로그) 페이지로 이동합니다.'>학과별소개(블로그)</a></li>
+					
+					</ul>
+									</li>
+								
+				<li><a href="./sub.htm?nav_code=gra1635817150"  id="top1m6"  title ='게시판 > 공지사항 페이지로 이동합니다.'>게시판</a>
+				
+					
+										<ul id="top2m6" class="depth2">
+										<li id="top2m6m1"><a href="./sub.htm?nav_code=gra1635817150"   title ='공지사항 페이지로 이동합니다.'>공지사항</a></li>
+										<li id="top2m6m2"><a href="./sub.htm?nav_code=gra1635819375"   title ='일반공지 페이지로 이동합니다.'>일반공지</a></li>
+										<li id="top2m6m3"><a href="./sub.htm?nav_code=gra1635817149"   title ='양식자료실 페이지로 이동합니다.'>양식자료실</a></li>
+										<li id="top2m6m4"><a href="./sub.htm?nav_code=gra1635819392"   title ='입학 Q&A 페이지로 이동합니다.'>입학 Q&A</a></li>
+					
+					</ul>
+									</li>
+											</ul>
+			</nav>
+	</div>
+	</div>
+	<div id="id_gnb_bg" class="gnb_bg"></div>
+</header>
+<script type="text/javascript">initTopMenu(0,0);max_2menu=5;</script>
+<!-- //header -->
+<script type="text/javascript">
+<!--
+$(function(){
+	top1Menu = $('#gnbmn');
+	top1MenuW = top1Menu.width(); //상단메뉴의 전체길이
+	top1MenuLi = $('ul.depth1 > li');
+	top1MenuLiCnt = top1MenuLi.length; //1차메뉴 갯수
+	top1MenuLiW = top1MenuW / top1MenuLiCnt; //1차메뉴 넓이값
+	top1MenuLiW = top1MenuLiW.toFixed(1);
+	if(top1MenuW>400){
+		/* 1차메뉴 넓이 구하기(단위:%) */
+		top1MenuLiP = 100 / top1MenuLiCnt;
+		top1MenuLiP = top1MenuLiP.toFixed(1);
+		top1MenuLiP_tmp = top1MenuLiP * top1MenuLiCnt;
+
+		if(top1MenuLiP_tmp < 100){
+			top1MenuLiP_last = top1MenuLiP + (100 - top1MenuLiP_tmp);
+		}else{
+			top1MenuLiP_last = top1MenuLiP - (top1MenuLiP_tmp - 100);
+		}
+
+		/* 1차메뉴 넓이 구하기(단위:%) */
+
+		for(i=0;i<top1MenuLiCnt;i++){
+			if(i < (top1MenuLiCnt-1)){
+				$(top1MenuLi[i]).css('width',top1MenuLiP+"%"); //1차메뉴 넓이값 적용
+			}else{
+				$(top1MenuLi[i]).css('width',top1MenuLiP_last+"%"); //마지막메뉴는 따로 넓이값 적용
+			}
+		}
+	}
+});
+//-->
+</script>
+<!-- container -->
+<div id="wrap">
+<div class="mv-wrap">
+	
+<!-- visual -->
+ <script src="https://www.youtube.com/iframe_api"></script>
+ <script type="text/javascript">
+function change_sound_m_title(id){
+	
+	if( $("video").prop('muted')==true ) {
+        $("#"+id).prop('muted', false);
+		$("#"+id+"_img").attr("src", "../kiuphoto/img/mv_sound_on.png");
+    } else {
+		$("#"+id).prop('muted', true);
+		$("#"+id+"_img").attr("src", "../kiuphoto/img/mv_sound.png");
+    }
+}
+
+function do_change_sound_m_title(id){
+	
+	if( $("video").get(0).paused == true ) {
+        $("#"+id).get(0).play();
+		$("#"+id+"_img_do").attr("src", "../contents/img/mv_pause.png");
+		
+    } else {
+		$("#"+id).get(0).pause();
+		$("#"+id+"_img_do").attr("src", "../contents/img/mv_play.png");
+    }
+}
+
+
+</script>
+		<div id="mvisual" style="height:750px;">
+	<div style="position:relative;z-index:3;height:750px;">
+			
+				<div id="mvslide">
+			
+			<ul id="slides">
+																<li class="mvslideimg" style="height:750px;"><img src="./data/designImages/MAIN_1638183427" alt="메인이미지"  onError="this.src='../data/img/noimage.jpg';"></li>
+																								<li class="mvslideimg" style="height:750px;"><img src="./data/designImages/MAIN_1638183927" alt="메인이미지"  onError="this.src='../data/img/noimage.jpg';"></li>
+																								<li class="mvslideimg" style="height:750px;"><img src="./data/designImages/MAIN_1638183442" alt="메인이미지"  onError="this.src='../data/img/noimage.jpg';"></li>
+														
+			</ul>
+						<script type="text/javascript">
+			<!--
+				var visual_slides = "";
+				$(document).ready(function(){
+				visual_slides = $('#slides').bxSlider({
+					mode: "fade",
+					speed: 400,//슬라이드속도
+					pager: true,//페이징
+					auto: true,//슬라이드 자동시작
+					controls: false,
+					pause: 5000,//슬라이드 빈도 1000 -> 1초
+					autoHover: false,//마우스오버 할 때 슬라이드기능 멈춤
+					minSlides: 1,//최소 박스 수
+					maxSlides: 1,//최대 박스 수
+					moveSlides: 1,//한번에 이동하는 박스 수
+					slideMargin: 0,//박스간 간격
+					onSlideBefore: function(slideElement,oldIndex,newIndex){
+						num_tmp = newIndex+1;
+						$("#mvslide > .control > span > em").html(num_tmp);
+											}
+				});
+				$('#pause').click(function(){
+					$(this).toggleClass('pause play');
+					$(this).find('i').toggleClass('fa-pause fa-play');
+					if($(this).hasClass('pause')){
+						mvslide_start();
+					}else{
+						mvslide_stop();
+					}
+				});
+				});
+
+				function mvslide_prev() {
+					visual_slides.goToPrevSlide();
+				}
+				
+				function mvslide_stop(){
+					
+					visual_slides.stopAuto();
+				}
+
+				function mvslide_start(){
+					visual_slides.startAuto();
+				}
+
+				function mvslide_next() {
+					visual_slides.goToNextSlide();
+				}
+				
+							//-->
+				$('video').on('play', function() { visual_slides.stopAuto(); });
+				$('video').on('ended', function() { visual_slides.goToNextSlide(); visual_slides.startAuto(); });
+				function onYouTubeIframeAPIReady() {
+					$('iframe[src*="youtube.com"]').each(function() {
+						var player = new YT.Player(this.id, {
+						events: {
+							onStateChange: function(event) {
+							if (event.data === YT.PlayerState.PLAYING) visual_slides.stopAuto();
+							if (event.data === YT.PlayerState.ENDED) {
+								visual_slides.goToNextSlide();
+								visual_slides.startAuto();
+							}
+							}
+						}
+						});
+					});
+				}
+			</script>
+						
+						<div class="control">
+								<a href="#" onclick="mvslide_prev();return false;" class="prev"><i class="fa fa-chevron-left"></i></a>
+								<span><em>1</em> / 3</span>
+								<a href="#" onclick="mvslide_next();return false;" class="next"><i class="fa fa-chevron-right"></i></a>
+			</div>
+					</div>
+			</div>
+	</div>
+<!-- //visual --></div>
+<div class="mv-cont">
+	<div class="cont">
+		
+<div class="tit_width">
+
+  
+	<div id="main-visual" class="d_width" style="height:370px;z-index:4;">
+		<div style="position:absolute;width:500px;height:160px;left: 100px; top: 131px;z-index:99">
+			<div id="main_title_editarea">
+																			<div class="main-title">
+    <p class="en">DAEGU HAANY UNIVERSITY</p>
+	<p class="txt">건강한 인재를 양성하는</p>
+	<p class="tit">대구한의대학교</p>
+
+</div>												</div>
+		</div>
+	</div>
+</div>		<div class="main-quick">
+			<p class="tit">QUICK SERVICE</p>
+			<ul class="clearfix">
+			<li><a href="http://www.dhu.ac.kr/HOME/graduate/sub.htm?nav_code=gra1635818334"><span class="ico2"></span>대학원 소개</a></li>
+			<li><a href="http://www.dhu.ac.kr/HOME/graduate/sub.htm?mode=view&mv_data=aWR4PTYxMCZzdGFydFBhZ2U9MCZsaXN0Tm89NzU1JnRhYmxlPWV4X2Jic19kYXRhX2dyYWR1YXRlJm5hdl9jb2RlPWdyYTE2MzU4MTcxNTAmY29kZT0zckVZQ0NyTFdIRVomc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mbGlzdF9zY2FsZT0mdmlld19sZXZlbD0mdmlld19jYXRlPSZ2aWV3X2NhdGUyPQ==||"><span class="ico1"></span>장학금 안내</a></li>
+			<li><a href="https://portal.dhu.ac.kr/sso/checkserver.jsp" target="_blank"><span class="ico3"></span>DHU포털시스템</a></li>
+			<li><a href="./sub.htm?nav_code=gra1635818305"><span class="ico4"></span>행정부서</a></li>
+			<li><a href="./sub.htm?nav_code=gra1635819289"><span class="ico5"></span>대학원 학과별 소개</a></li>
+			<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1572860873" target="_blank"><span class="ico6"></span>증명서 발급안내</a></li>
+			</ul>
+			<a href="./sub.htm?nav_code=gra1635818298" class="more"></a>
+		</div>	</div>
+</div>
+<div class="clear"></div>
+<div id="container">
+	<!-- content -->
+	<div class="main-section">
+		<div class="d_width">
+				<div class="col_wrap">
+				<div class="col5">
+				<div class="bx">
+					<div class="mnoticetop-date-attach" ><div class="tab_on" id="notice101"><a href="#notice101" onkeypress="" onclick="onNoticeShowAuto(1,1);return false;" class="dpb" title="공지사항 탭 보기">공지사항</a><div class="tabcontent" id="notice101_menu" style="visibility:visible;"><div class="recent"><span class="date"><SPAN>09.11</SPAN>2026</span><a href="./sub.htm?nav_code=gra1635817150&mode=view&mv_data=aWR4PTM5ODkmc3RhcnRQYWdlPSZsaXN0Tm89JnRhYmxlPWV4X2Jic19kYXRhX2dyYWR1YXRlJmNvZGU9M3JFWUNDckxXSEVaJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=||"><span class="subject"><b>2026학년도 2학기(2027년 2월 졸업) 학위논문 심사 일정 안..</b></span></a><div class="attach"><a href="../../../../cmsware/bbs_download.php?mv_data=aWR4PTM5ODkmdGFibGU9ZXhfYmJzX2RhdGFfZ3JhZHVhdGUmc2l0ZV9jb2RlPWdyYWR1YXRl||&download=h&dir_type=site&seq=0">논문표절검사시스템(카피킬러) 샘플.pdf</a> , <a href="../../../../cmsware/bbs_download.php?mv_data=aWR4PTM5ODkmdGFibGU9ZXhfYmJzX2RhdGFfZ3JhZHVhdGUmc2l0ZV9jb2RlPWdyYWR1YXRl||&download=h&dir_type=site&seq=1">디콜렉션 매뉴얼.pdf</a> , <a href="../../../../cmsware/bbs_download.php?mv_data=aWR4PTM5ODkmdGFibGU9ZXhfYmJzX2RhdGFfZ3JhZHVhdGUmc2l0ZV9jb2RlPWdyYWR1YXRl||&download=h&dir_type=site&seq=2">석·박사 학위논문 작성지침(최종).hwp</a> , <a href="../../../../cmsware/bbs_download.php?mv_data=aWR4PTM5ODkmdGFibGU9ZXhfYmJzX2RhdGFfZ3JhZHVhdGUmc2l0ZV9jb2RlPWdyYWR1YXRl||&download=h&dir_type=site&seq=3">학위논문 관련 규정(대학원학칙 및 대학원학칙시행세칙).hwp</a> , <a href="../../../../cmsware/bbs_download.php?mv_data=aWR4PTM5ODkmdGFibGU9ZXhfYmJzX2RhdGFfZ3JhZHVhdGUmc2l0ZV9jb2RlPWdyYWR1YXRl||&download=h&dir_type=site&seq=4">학위논문 관련 서식(논문작성자용).hwp</a> , <a href="../../../../cmsware/bbs_download.php?mv_data=aWR4PTM5ODkmdGFibGU9ZXhfYmJzX2RhdGFfZ3JhZHVhdGUmc2l0ZV9jb2RlPWdyYWR1YXRl||&download=h&dir_type=site&seq=5">학위수여요건.pdf</a> , <a href="../../../../cmsware/bbs_download.php?mv_data=aWR4PTM5ODkmdGFibGU9ZXhfYmJzX2RhdGFfZ3JhZHVhdGUmc2l0ZV9jb2RlPWdyYWR1YXRl||&download=h&dir_type=site&seq=6">2026학년도 2학기(2027년 2월 졸업) 대학원 논문심사 실시계획서(수정).pdf</a></div></div><ul><li><a href="./sub.htm?nav_code=gra1635817150&mode=view&mv_data=aWR4PTM5ODImc3RhcnRQYWdlPSZsaXN0Tm89JnRhYmxlPWV4X2Jic19kYXRhX2dyYWR1YXRlJmNvZGU9M3JFWUNDckxXSEVaJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=||"><b>2026학년도 2학기 수료자 등록 안내</b></a><span class="date">2026/08/13</span></li><li><a href="./sub.htm?nav_code=gra1635817150&mode=view&mv_data=aWR4PTM5OTAmc3RhcnRQYWdlPSZsaXN0Tm89JnRhYmxlPWV4X2Jic19kYXRhX2dyYWR1YXRlJmNvZGU9M3JFWUNDckxXSEVaJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=||">2026-2학기 연구윤리 교과목 수강 안내</a><span class="date">2026/09/17</span></li><li><a href="./sub.htm?nav_code=gra1635817150&mode=view&mv_data=aWR4PTM5ODgmc3RhcnRQYWdlPSZsaXN0Tm89JnRhYmxlPWV4X2Jic19kYXRhX2dyYWR1YXRlJmNvZGU9M3JFWUNDckxXSEVaJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=||">2026-2학기 한가족장학금 선발 안내</a><span class="date">2026/09/11</span></li><li><a href="./sub.htm?nav_code=gra1635817150&mode=view&mv_data=aWR4PTM5ODcmc3RhcnRQYWdlPSZsaXN0Tm89JnRhYmxlPWV4X2Jic19kYXRhX2dyYWR1YXRlJmNvZGU9M3JFWUNDckxXSEVaJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=||">2026-2학기 외국어시험 시험시간표 안내</a><span class="date">2026/09/10</span></li></ul></div><div id="notice101_add" class="more" style="visibility:visible;"><a href="./sub.htm?nav_code=gra1635817150" title="공지사항 더보기"></a></div></div><div class="tab_off" id="notice102"><a href="#notice102" onkeypress="" onclick="onNoticeShowAuto(1,2);return false;" class="dpb" title="양식자료실 탭 보기">양식자료실</a><div class="tabcontent" id="notice102_menu" style="visibility:hidden;"><div class="recent"><span class="date"><SPAN>06.30</SPAN>2026</span><a href="./sub.htm?nav_code=gra1635817149&mode=view&mv_data=aWR4PTM5Njcmc3RhcnRQYWdlPSZsaXN0Tm89JnRhYmxlPWV4X2Jic19kYXRhX2dyYWR1YXRlJmNvZGU9UjlFSEN4RktRcXpkJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=||"><span class="subject">2026-1학기 교육보조장학금 신청서</span></a><div class="attach"><a href="../../../../cmsware/bbs_download.php?mv_data=aWR4PTM5NjcmdGFibGU9ZXhfYmJzX2RhdGFfZ3JhZHVhdGUmc2l0ZV9jb2RlPWdyYWR1YXRl||&download=h&dir_type=site&seq=0">2026-1학기교육보조장학금 신청서.hwp</a></div></div><ul><li><a href="./sub.htm?nav_code=gra1635817149&mode=view&mv_data=aWR4PTM5NjQmc3RhcnRQYWdlPSZsaXN0Tm89JnRhYmxlPWV4X2Jic19kYXRhX2dyYWR1YXRlJmNvZGU9UjlFSEN4RktRcXpkJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=||">교과목설정（변경、 폐지）신청서、 해설、 회의록 첨부</a><span class="date">2026/06/26</span></li><li><a href="./sub.htm?nav_code=gra1635817149&mode=view&mv_data=aWR4PTM5NTMmc3RhcnRQYWdlPSZsaXN0Tm89JnRhYmxlPWV4X2Jic19kYXRhX2dyYWR1YXRlJmNvZGU9UjlFSEN4RktRcXpkJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=||">복학원서_내국인</a><span class="date">2026/06/11</span></li><li><a href="./sub.htm?nav_code=gra1635817149&mode=view&mv_data=aWR4PTM5NTImc3RhcnRQYWdlPSZsaXN0Tm89JnRhYmxlPWV4X2Jic19kYXRhX2dyYWR1YXRlJmNvZGU9UjlFSEN4RktRcXpkJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=||">복학, 휴학(연기) 원서_외국인</a><span class="date">2026/06/11</span></li><li><a href="./sub.htm?nav_code=gra1635817149&mode=view&mv_data=aWR4PTM5NTEmc3RhcnRQYWdlPSZsaXN0Tm89JnRhYmxlPWV4X2Jic19kYXRhX2dyYWR1YXRlJmNvZGU9UjlFSEN4RktRcXpkJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9Jm9yZGVyX2xpc3Q9Jmxpc3Rfc2NhbGU9JnZpZXdfbGV2ZWw9JnZpZXdfY2F0ZT0mdmlld19jYXRlMj0=||">자퇴원서_외국인</a><span class="date">2026/06/11</span></li></ul></div><div id="notice102_add" class="more" style="visibility:hidden;"><a href="./sub.htm?nav_code=gra1635817149" title="공지사항 더보기"></a></div></div></div>					
+				</div>
+				</div>
+				<div class="col1">
+				<div class="bx mbnr">
+					<div class="bg">
+					<p class="tit">학사안내</p>					
+					<ul>
+						<li><a href="./sub.htm?nav_code=gra1635818673">학사운영주요사항</a></li>
+						<li><a href="./sub.htm?nav_code=gra1635818678">학위수여자격요건</a></li>
+						<li><a href="./sub.htm?nav_code=gra1635818834">학사일정</a></li>
+						<li><a href="./sub.htm?nav_code=gra1778825052" class="fwb">학사일정 로드맵</a></li>
+					</ul>
+				</div>
+				</div>
+				</div>
+			</div>
+			
+			<div class="col_wrap mtp30">
+				<div class="col1">
+				<div class="bx">
+					
+<div id="popupzone2">
+	<h3>알림창</h3>
+	<ul class="Script_alrim">
+		
+			<li class="noimg"></li>
+		</ul>
+
+	<div class="pager">
+	<span><em id="popupzone_now_view">1</em> / 0</span>
+		</div>
+</div>
+
+	<script type="text/javascript">
+	<!--
+		//-->
+	</script>
+				</div>
+				</div>
+				<div class="col3">
+				<div class="bx">
+					<div class="main-about">
+						<p class="tit">계약학과</p>
+						<div class="cont">
+							<div class="img"><img src="./img/mabout_img2.png"></div>
+							<div class="txt-wrap">
+								<p class="subject"><a href="./sub.htm?nav_code=gra1635819333">노인의료복지학과</a></p>
+								<ul>
+								<li><span><i class="fa fa-bookmark"></i>학과명</span><span>노인의료복지학과 석·박사과정</span></li>
+								<li><span><i class="fa fa-pencil"></i>전공</span><span>석사(노인의료복지학)<br>박사(노인의료복지학)</span></li>
+								</ul>
+								<div class="more"><a href="./sub.htm?nav_code=gra1635819333">자세히보기</a></div>
+							</div>
+						</div>
+						<!--
+						<div class="cont">
+							<div class="img"><img src="./img/mabout_img1.png"></div>
+							<div class="txt-wrap">
+								<p class="subject"><a href="./sub.htm?nav_code=gra1635819343">산림비즈니스학과</a></p>
+								<ul>
+								<li><span><i class="fa fa-bookmark"></i>학과명</span><span>산림비즈니스학과 석·박사과정</span></li>
+								<li><span><i class="fa fa-pencil"></i>소개</span><span>석사(환경.조경학전공)<br>박사(환경.조경학전공)</span></li>
+								</ul>
+								<div class="more"><a href="./sub.htm?nav_code=gra1635819343">자세히보기</a></div>
+							</div>
+						</div>
+						-->
+						<div class="control">
+						<a href="#" onclick="cont_slider_prev();return false;" class="prev"><i class="fa fa-caret-left"></i></a>
+						<a href="#" onclick="cont_slider_stop();return false;" class="stop"><i class="fa fa-pause"></i></a>
+						<a href="#" onclick="cont_slider_start();return false;" class="play" style="display:none;"><i class="fa fa-play"></i></a>
+						<a href="#" onclick="cont_slider_next();return false;" class="next"><i class="fa fa-caret-right"></i></a>
+						</div>
+					</div>				</div>
+				</div>
+				<div class="col1">
+				<div class="bx">
+					<div class="main-bnr">
+						<a href="./sub.htm?nav_code=gra1635818334" class="bg2">
+							<p class="tit">일반대학원</p>
+							<!--<p class="txt">한의학의 발전과<br>민족의학으로서의 주체성을 확립</p>-->
+						</a>						<a href="./sub.htm?nav_code=gra1635818376" class="bg1">
+							<p class="tit">보건복지대학원</p>
+							<!--<p class="txt">보건복지분야의 정보화, 세계화에<br>대처할 수 있는 전문인 양성</p>-->
+						</a>
+						
+						<a href="./sub.htm?nav_code=gra1635818405" class="bg3">
+							<p class="tit">K-MEDI<br>융합산업대학원</p>
+							<!--<p class="txt">한방산업의 지도적 자격을 갖춘 전문인</p>-->
+						</a>					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //content -->
+</div>
+</div>
+<!-- //container -->
+<!-- banner -->
+
+		<!-- //banner -->
+
+
+<!-- 레이어팝업 : 반드시 body내에 위치시키고 작동여부를 검사할 것-->
+<link rel="stylesheet" type="text/css" href="../../cmsware/css/popup.css">
+<style>
+.Layerhover:hover{opacity:1 !important;}
+</style>
+<script language="Javascript">
+function setCookie( name, value, expiredays )
+{
+	var todayDate = new Date();
+	todayDate.setDate( todayDate.getDate() + parseInt(expiredays) );	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+
+function closeLayer(idx,days){
+	var form=document.forms['main_layer_form'+idx];
+	var cookie_name= 'LAYER_COOKIE_graduate_'+idx;
+
+	if ( form.popup_end.checked   == true) {
+		setCookie( cookie_name, 'NO', days );//쿠기 저장 기간은 1년로 한다.
+	}
+
+	$("#LayerDiv"+idx).hide();
+} 
+</script><div class="linksite site2022">
+	<div class="va-pc go-top"><a href="#wrap" class="page-go" title="최상단으로 이동">TOP</a></div>
+	<div class="tab">
+		<div class="d_width">
+			<ul class="clearfix">
+			<li><a href="" onclick="linksite_tab('site01');return false;" id="site01_tab" title="2025학년도 탭으로 이동">2025학년도 학과</a></li>
+			<li><a href="" onclick="linksite_tab('site02');return false;" id="site02_tab" title="2024학년도 이전 탭으로 이동">2024학년도 이전 학과</a></li>
+			<li><a href="" onclick="linksite_tab('site03');return false;" id="site03_tab" title="교내주요사이트 탭으로 이동">교내주요사이트</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="cont site-cont site-dept" id="site01" style="display:none;">
+		<div class="d_width">
+			<ul class="clearfix">
+			<li><a href="https://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574683698" target="_blank" title="새창으로 한의과대학 소개 페이지가 열립니다."><span>한의과대학</span></a>
+				<ul class="bu">
+				<li><a href="https://www.dhu.ac.kr/HOME/kmc/" target="_blank" title="새창으로 한의(예)학과 홈페이지가 열립니다.">한의(예)학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/nurse/" target="_blank" title="새창으로 간호학과 홈페이지가 열립니다.">간호학과</a></li>
+				</ul>
+			</li>
+			<li><a href="https://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1687848272" target="_blank" title="새창으로 K-바이오헬스대학 소개 페이지가 열립니다."><span>K-바이오헬스대학</span></a>
+				<ul class="bu">
+					<li><a href="https://www.dhu.ac.kr/HOME/ptherapy/" target="_blank" title="새창으로 물리치료학과 홈페이지가 열립니다.">물리치료학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/biomedical/" target="_blank" title="새창으로 임상병리학과 홈페이지가 열립니다.">임상병리학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/AnimalHealth/" target="_blank" title="새창으로 반려동물보건학과 홈페이지가 열립니다.">반려동물보건학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/petIndustry/"  target="_blank" title="새창으로 반려동물산업학과 홈페이지가 열립니다.">반려동물산업학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/cst/" target="_blank" title="새창으로 화장품학과 홈페이지가 열립니다.">화장품학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/beautycare/" target="_blank" title="새창으로 뷰티케어학과 홈페이지가 열립니다.">뷰티케어학과</a></li>
+                                                        <li><a href="https://www.dhu.ac.kr/HOME/hairmakeupdesign/" target="_blank" title="새창으로 헤어메이크업디자인학과 홈페이지가 열립니다.">헤어메이크업디자인학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/Kbeautybiz/" target="_blank" title="새창으로 K-뷰티비즈니스학과 홈페이지가 열립니다.">K-뷰티비즈니스학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/pharm/" target="_blank" title="새창으로 제약공학과 홈페이지가 열립니다.">제약공학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/Rmedicaleng/" target="_blank" title="새창으로 재활치료학부 홈페이지가 열립니다.">재활치료학부</a>
+						<ul>
+						<li>재활치료학전공</li>
+						<li>디지털재활의료공학전공</li>
+						</ul>
+					</li>
+					<li><a href="https://www.dhu.ac.kr/HOME/Medicare/" target="_blank" title="새창으로 보건의료행정학과 홈페이지가 열립니다.">보건의료행정학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/artstherapy/" target="_blank" title="새창으로 미술심리치료학과 홈페이지가 열립니다.">미술심리치료학과</a></li>
+				</ul>
+			</li>
+
+			<li><a href="https://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1687848297" target="_blank" title="새창으로 K-웰니스대학 소개 페이지가 열립니다."><span>K-웰니스대학</span></a>
+				<ul class="bu">
+					<li><a href="https://www.dhu.ac.kr/HOME/osm/" target="_blank" title="새창으로 한방재활스포츠의학과 홈페이지가 열립니다.">한방재활스포츠의학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/HotelFoodSCA/" target="_blank" title="새창으로 호텔외식조리베이커리학과 홈페이지가 열립니다.">호텔외식조리베이커리학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/FireSafety/" target="_blank" title="새창으로 소방안전환경학과 홈페이지가 열립니다.">소방안전환경학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/InteriorArch/" target="_blank" title="새창으로 실내건축디자인학과 홈페이지가 열립니다.">실내건축디자인학과</a></li>
+					<li>상담복지학부
+						<ul>
+						<li><a href="https://www.dhu.ac.kr/HOME/childyouthwelfarecounseling/" target="_blank" title="새창으로 아동청소년복지상담전공 홈페이지가 열립니다.">아동청소년복지상담전공</a></li>
+						<li><a href="https://www.dhu.ac.kr/HOME/psych/" target="_blank" title="새창으로 상담심리전공 홈페이지가 열립니다.">상담심리전공</a></li>
+						</ul>
+					</li>
+					<li><a href="https://www.dhu.ac.kr/HOME/police/" target="_blank" title="새창으로 경찰행정학과 홈페이지가 열립니다.">경찰행정학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/specialedu/" target="_blank" title="새창으로 중등특수교육과 홈페이지가 열립니다.">중등특수교육과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/senior/" target="_blank" title="새창으로 체육학과 홈페이지가 열립니다.">체육학과</a></li>
+
+
+					</ul>
+			</li>
+			<li><a href="https://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1687848316"  title="새창으로 글로컬융합대학 소개 페이지가 열립니다."><span>글로컬융합대학</span></a>
+				<ul class="bu">
+				<li>글로벌인재학부
+					<ul>
+					<li><a href="https://www.dhu.ac.kr/HOME/AviationandTourism/" target="_blank" title="새창으로 글로벌관광전공 홈페이지가 열립니다.">글로벌관광전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/nutrition/" target="_blank" title="새창으로 식품영양전공 홈페이지가 열립니다.">식품영양전공</a></li>
+					<li><a href="http://www.dhu.ac.kr/HOME/koreancultural/" target="_blank" title="새창으로 한국문화산업전공 홈페이지가 열립니다.">한국문화산업전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/globaldigital/" target="_blank" title="새창으로 글로벌디지털비즈니스전공 홈페이지가 열립니다.">글로벌디지털비즈니스전공</a></li>
+					</ul>
+				</li>
+				<li><a href="https://www.dhu.ac.kr/HOME/globalkoreanstudies/" target="_blank" title="새창으로 글로벌한국어학과 홈페이지가 열립니다.">글로벌한국어학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/globalfoodbiz/" target="_blank" title="새창으로 K-푸드비즈니스학과 홈페이지가 열립니다.">K-푸드비즈니스학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/globalbeauty/" target="_blank" title="새창으로 글로벌뷰티학과 홈페이지가 열립니다.">글로벌뷰티학과</a></li>
+
+				<li>하이라이프경영학부
+					<ul>
+					<li><a href="https://www.dhu.ac.kr/HOME/#"  onclick="alert(' 준비중입니다. ');return false;" title="새창으로 토탈뷰티전공 홈페이지가 열립니다.">토탈뷰티전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/selfmanagement/" target="_blank" title="새창으로 자기경영헬스전공 홈페이지가 열립니다.">자기경영헬스전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/welfaremanage/" target="_blank" title="새창으로 사회복지경영전공 홈페이지가 열립니다.">사회복지경영전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/sportsmanage/" target="_blank" title="새창으로 스포츠경영전공 홈페이지가 열립니다.">스포츠경영전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/Kwellnessindust/"  target="_blank" title="새창으로 한방웰니스산업경영전공 홈페이지가 열립니다.">한방웰니스산업경영전공</a></li>
+					</ul>
+				</li>
+				<li><a href="https://www.dhu.ac.kr/HOME/realestate/" target="_blank" title="새창으로 부동산학부 홈페이지가 열립니다.">부동산학부</a>
+					<ul>
+						<li>부동산개발전공</li>
+						<li>부동산경영전공</li>
+					</ul>
+				</li>
+				<li><a href="https://www.dhu.ac.kr/HOME/orientalculture/" target="_blank" title="새창으로 동양문화융합산업학부 홈페이지가 열립니다.">동양문화융합산업학부</a>
+					<ul>
+						<li>응용심리산업전공</li>
+						<li>동양문화산업전공</li>
+						<li>차문화치유산업전공</li>
+					</ul>
+				</li>
+				<li><a href="http://www.dhu.ac.kr/HOME/cosmeticindustry/" target="_blank" title="새창으로 향장산업학과 홈페이지가 열립니다.">향장산업학과</a></li>	
+				<li><a href="https://www.dhu.ac.kr/HOME/healthrecovery/" target="_blank" title="새창으로 인체정화생명공학과 홈페이지가 열립니다.">인체정화생명공학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/Yaksun/" target="_blank" title="새창으로 약선푸드테크비즈니스학과 홈페이지가 열립니다.">약선푸드테크비즈니스학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/healingindustry/" target="_blank" title="새창으로 치유산업학과 홈페이지가 열립니다.">치유산업학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/Localstartup/" target="_blank" title="새창으로 지역사회창업학과 홈페이지가 열립니다.">지역사회창업학과</a></li>	 
+				<li><a href="https://www.dhu.ac.kr/HOME/yeongdeok/" target="_blank" title="새창으로 영덕지역돌봄학과 홈페이지가 열립니다.">영덕지역돌봄학과</a></li>	 
+				</ul>
+			</li>
+			<li><a href="https://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574683729" target="_blank" title="새창으로 미래라이프융합대학 소개 페이지가 열립니다."><span>미래라이프융합대학</span></a>
+				<ul class="bu">
+				<li><a href="https://www.dhu.ac.kr/HOME/lifelongedu/" target="_blank" title="새창으로 평생교육융합학부 홈페이지가 열립니다.">평생교육융합학부</a>
+					<ul>
+						<li>평생교육복지전공</li>
+						<li>평생교육경영전공</li>
+					</ul>
+				</li>
+				<li><a href="https://www.dhu.ac.kr/HOME/forestbiz/" target="_blank" title="새창으로 산림비즈니스학과 홈페이지가 열립니다.">산림비즈니스학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/medifood/" target="_blank" title="새창으로 메디푸드HMR산업학과 홈페이지가 열립니다.">메디푸드HMR산업학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/bio/" target="_blank" title="새창으로 한약개발학과 홈페이지가 열립니다.">한약개발학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/cheongdohrd/" target="_blank" title="새창으로 청도인적자원개발학과 홈페이지가 열립니다.">청도인적자원개발학과</a></li>
+				</ul>
+			</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="cont site-cont site-dept" id="site02" style="display:none;">
+		<div class="d_width">
+			<ul class="clearfix">
+			<li><a <span>한의과대학</span></a>
+				<ul class="bu">
+				<li><a href="https://www.dhu.ac.kr/HOME/kmc/" target="_blank" title="새창으로 한의(예)학과 홈페이지가 열립니다.">한의(예)학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/nurse/" target="_blank" title="새창으로 간호학과 홈페이지가 열립니다.">간호학과</a></li>
+				</ul>
+			</li>
+
+			<li><a <span>K-바이오헬스대학</span></a>
+				<ul class="bu">
+					<li><a href="https://www.dhu.ac.kr/HOME/ptherapy/" target="_blank" title="새창으로 물리치료학과 홈페이지가 열립니다.">물리치료학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/biomedical/" target="_blank" title="새창으로 임상병리학과 홈페이지가 열립니다.">임상병리학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/AnimalHealth/" target="_blank" title="새창으로 반려동물보건학과 홈페이지가 열립니다.">반려동물보건학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/cst/" target="_blank" title="새창으로 화장품학과 홈페이지가 열립니다.">화장품학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/beautycare/" target="_blank" title="새창으로 뷰티케어학과 홈페이지가 열립니다.">뷰티케어학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/Kbeautybiz" target="_blank" title="새창으로 K-뷰티비즈니스학과 홈페이지가 열립니다.">K-뷰티비즈니스학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/pharm/" target="_blank" title="새창으로 제약공학과 홈페이지가 열립니다.">제약공학과</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/Rmedicaleng/" target="_blank" title="새창으로 재활치료학부 홈페이지가 열립니다.">재활치료학부</a></il>
+						<ul class="bu">
+						<li>재활치료학전공</li>
+						<li>디지털재활의료공학전공</li>
+						</ul>
+					</li>
+					<li>보건학부</a>
+						<ul class="bu">
+						<li><a href="https://www.dhu.ac.kr/HOME/Medicare/" target="_blank" title="새창으로 보건의료행정전공 홈페이지가 열립니다.">보건의료행정전공</a></li>
+						<li><a href="https://www.dhu.ac.kr/HOME/HSE/" target="_blank" title="새창으로 안전보건전공 홈페이지가 열립니다.">안전보건전공</a></li>
+						</ul>
+					</li>
+					<li><a href="https://www.dhu.ac.kr/HOME/artstherapy/" target="_blank" title="새창으로 미술심리치료학과 홈페이지가 열립니다.">미술심리치료학과</a></li>
+				</ul>
+			</li>
+
+			<li><a <span>K-웰니스대학</span></a>
+				<ul class="bu">
+					<li><a href="https://www.dhu.ac.kr/HOME/osm/" target="_blank" title="새창으로 한방스포츠의학과 홈페이지가 열립니다.">한방스포츠의학과</a></li>
+					<li><a href="http://www.dhu.ac.kr/HOME/HotelFoodSCA" target="_blank" title="새창으로 호텔외식조리베이커리학과 홈페이지가 열립니다.">호텔외식조리베이커리학과</a></li>
+					<li><a href="http://www.dhu.ac.kr/HOME/FireSafety" target="_blank" title="새창으로 소방안전환경학과 홈페이지가 열립니다.">소방안전환경학과</a></li>
+					<li><a href="http://www.dhu.ac.kr/HOME/InteriorArch" target="_blank" title="새창으로 실내건축디자인학과 홈페이지가 열립니다.">실내건축디자인학과</a></li>
+					<li>상담복지학부
+						<ul>
+							<li><a href="http://www.dhu.ac.kr/HOME/counsel/" target="_blank" title="새창으로 청소년교육상담전공 홈페이지가 열립니다.">청소년교육상담전공</a></li>
+							<li><a href="http://www.dhu.ac.kr/HOME/child" target="_blank" title="새창으로 아동복지상담전공 홈페이지가 열립니다.">아동복지상담전공</a></li>
+							<li><a href="http://www.dhu.ac.kr/HOME/psych/" target="_blank" title="새창으로 상담심리전공 홈페이지가 열립니다.">상담심리전공</a></li>
+						</ul>
+					</li>
+					<li><a href="http://www.dhu.ac.kr/HOME/police/" target="_blank" title="새창으로 경찰행정학과 홈페이지가 열립니다.">경찰행정학과</a></li>
+					<li><a href="http://www.dhu.ac.kr/HOME/specialedu/" target="_blank" title="새창으로 중등특수교육과 홈페이지가 열립니다.">중등특수교육과</a></li>
+					<li><a href="http://www.dhu.ac.kr/HOME/senior/" target="_blank" title="새창으로 체육학과 홈페이지가 열립니다.">체육학과</a></li>
+
+
+					</ul>
+			</li>
+			<li><a <span>글로컬융합대학</span></a>
+				<ul class="bu">
+				<li>글로벌인재학부
+					<ul class="bu">
+					<li><a href="https://www.dhu.ac.kr/HOME/AviationandTourism"  target="_blank" title="새창으로 글로벌관광전공 홈페이지가 열립니다.">글로벌관광전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/globalfoodbiz"  target="_blank" title="새창으로 글로벌푸드비즈니스전공 홈페이지가 열립니다.">글로벌푸드비즈니스전공</a></li>
+					<li><a href="http://www.dhu.ac.kr/HOME/nutrition" target="_blank" title="새창으로 식품영양전공 홈페이지가 열립니다.">식품영양전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/koreancultural/" target="_blank" title="새창으로 한국문화산업전공 홈페이지가 열립니다.">한국문화산업전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/globaldigital" target="_blank" title="새창으로 글로벌디지털비즈니스전공 홈페이지가 열립니다.">글로벌디지털비즈니스전공</a></li>
+				     </ul>
+				<li>하이라이프경영학부
+					<ul class="bu">
+					<li><a href="http://www.dhu.ac.kr/HOME/#"  onclick="alert(' 준비중입니다. ');return false;" title="새창으로 토탈뷰티전공 홈페이지가 열립니다.">토탈뷰티전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/selfmanagement/" target="_blank" title="새창으로 자기경영헬스전공 홈페이지가 열립니다.">자기경영헬스전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/welfaremanage/" target="_blank" title="새창으로 사회복지경영전공 홈페이지가 열립니다.">사회복지경영전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/sportsmanage/" target="_blank" title="새창으로 스포츠경영전공 홈페이지가 열립니다.">스포츠경영전공</a></li>
+					<li><a href="https://www.dhu.ac.kr/HOME/Kwellnessindust" target="_blank" title="새창으로 한방웰니스산업경영전공 홈페이지가 열립니다.">한방웰니스산업경영전공</a></li>
+					</ul>
+				</li>
+				<li><a href="https://www.dhu.ac.kr/HOME/realestate/" target="_blank" title="새창으로 부동산개발학과 홈페이지가 열립니다.">부동산개발학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/healthrecovery/" target="_blank" title="새창으로 인체정화생명공학과 홈페이지가 열립니다.">인체정화생명공학과</a></li>
+				<li><a href="http://www.dhu.ac.kr/HOME/Yaksun/" target="_blank" title="새창으로 푸드케어약선학과 홈페이지가 열립니다.">푸드케어약선학과</a></li>
+				<li><a href="http://www.dhu.ac.kr/HOME/healingindustry/" target="_blank" title="새창으로 치유산업학과 홈페이지가 열립니다.">치유산업학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/Localstartup/" target="_blank" title="새창으로 지역사회창업학과 홈페이지가 열립니다.">지역사회창업학과</a></li>	
+				</ul>
+			</li>
+			<li><a <span>미래라이프융합대학</span></a>
+				<ul class="bu">
+				<li><a href="http://www.dhu.ac.kr/HOME/lifelongedu/" target="_blank" title="새창으로 평생교육융합학부 홈페이지가 열립니다.">평생교육융합학부</a>
+					<ul>
+						<li>평생교육복지전공</li>
+						<li>평생교육경영전공</li>
+					</ul>
+				</li>
+				<li><a href="http://www.dhu.ac.kr/HOME/forestbiz/" target="_blank" title="새창으로 산림비즈니스학과 홈페이지가 열립니다.">산림비즈니스학과</a></li>
+				<li><a href="http://www.dhu.ac.kr/HOME/medifood/" target="_blank" title="새창으로 메디푸드HMR산업학과 홈페이지가 열립니다.">메디푸드HMR산업학과</a></li>
+				<li><a href="http://www.dhu.ac.kr/HOME/bio/" target="_blank" title="새창으로 한약개발학과 홈페이지가 열립니다.">한약개발학과</a></li>
+				<li><a href="https://www.dhu.ac.kr/HOME/cheongdohrd/" target="_blank" title="새창으로 청도인적자원개발학과 홈페이지가 열립니다.">청도인적자원개발학과</a></li>
+				</ul>
+			</li>
+			<br><br>
+			<li><a <span>2023학년 이전 학과</span></a>
+				<ul class="bu">
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1687911949" target="_blank" title="새창으로 자율전공학부 홈페이지가 열립니다.">자율전공학부</li></a>
+				<li><a href="https://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1687915095" target="_blank" title="새창으로 자기설계융합학부 홈페이지가 열립니다.">자기설계융합학부</li></a>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1688086859"  target="_blank" title="새창으로 노인복지상담학과 홈페이지가 열립니다.">노인복지상담학과 </a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1655251763" target="_blank" title="새창으로 경영학과 홈페이지가 열립니다.">경영학과</a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1653354255" target="_blank" title="새창으로 컴퓨터공학과 홈페이지가 열립니다.">컴퓨터공학과</a></li>	
+				</ul>
+			</li>
+		</div>
+	</div>
+
+
+	<div class="cont site-cont site-inst" id="site03" style="display:none;">
+		<div class="d_width">
+			<ul class="bu clearfix">
+
+			<!--<li>CORE사업단</li>-->
+			<!--<li>PRIME사업단</li>-->
+			<!--<li><a href="http://inno.dhu.ac.kr" target="_blank" title="새창으로 이노캠퍼스엑셀러레이팅사업단 홈페이지가 열립니다.">이노캠퍼스엑셀러레이팅사업단</a></li>-->
+			<!--<li><a href="http://www.rcbrom.or.kr" target="_blank" title="새창으로 한방생명자원연구센터 홈페이지가 열립니다.">한방생명자원연구센터</a></li>-->
+
+			<li><a href="../../HOME/ceo" target="_blank" title="새창으로 DHU건강CEO아너스클럽 홈페이지가 열립니다.">DHU건강CEO아너스클럽</a></li>
+			<li><a href="../../HOME/dhubio" target="_blank" title="새창으로 DHU바이오 융·복합시험센터 홈페이지가 열립니다.">DHU바이오 융·복합시험센터</a></li>
+			<li><a href="http://practice.dhu.ac.kr" target="_blank" title="새창으로 IPP사업단 홈페이지가 열립니다.">IPP사업단</a></li>
+			<li><a href="http://linc.dhu.ac.kr/" target="_blank" title="새창으로 LINC3.0 사업단 홈페이지가 열립니다.">LINC3.0 사업단</a></li>
+			<li><a href="../../HOME/gsnfa" target="_blank" title="새창으로 경산체력인증센터 홈페이지가 열립니다.">경산체력인증센터</a></li>
+			<li><a href="../../HOME/inno/" target="_blank" title="새창으로 교육혁신처 홈페이지가 열립니다.">교육혁신처</a></li>
+			<li><a href="../../HOME/dhulupic" target="_blank" title="새창으로 국제협력선도대학사업단 홈페이지가 열립니다.">국제협력선도대학사업단</a></li>
+			<li><a href="../../HOME/exchange" target="_blank" title="새창으로 글로벌대한대 홈페이지가 열립니다.">글로벌대한대</a></li>
+			<li><a href="../../HOME/graduate/" target="_blank" title="새창으로 대학원 홈페이지가 열립니다.">대학원</a></li>
+			<li><a href="https://www.dhu.ac.kr/dhuru/pages/index.htm" target="_blank" title="새창으로 대학일자리플러스센터/취업지원팀 홈페이지가 열립니다.">대학일자리플러스센터/취업지원팀</a></li>
+			<li><a href="../../HOME/innovation/" target="_blank" title="새창으로 대학혁신사업단 홈페이지가 열립니다.">대학혁신사업단</a></li>
+			<li><a href="../../HOME/media" target="_blank" title="새창으로 미디어센터 홈페이지가 열립니다.">미디어센터</a></li>
+			<li><a href="http://museum.dhu.ac.kr" target="_blank" title="새창으로 박물관 홈페이지가 열립니다.">박물관</a></li>
+			<li><a href="../../HOME/fund" target="_blank" title="새창으로 발전기금 홈페이지가 열립니다.">발전기금</a></li>
+			<li><a href="http://iacf.dhu.ac.kr" target="_blank" title="새창으로 산학협력단 홈페이지가 열립니다.">산학협력단</a></li>
+			<li><a href="../../HOME/dhulife" target="_blank" title="새창으로 생활관 홈페이지가 열립니다.">생활관</a></li>
+			<li><a href="http://medical.dhu.ac.kr" target="_blank" title="새창으로 의료원 홈페이지가 열립니다.">의료원</a></li>
+			<li><a href="../../HOME/hrc/" target="_blank" title="새창으로 인권센터 홈페이지가 열립니다.">인권센터</a></li>
+			<li><a href="http://www.jaan.co.kr/" target="_blank" title="새창으로 자안쇼핑몰 홈페이지가 열립니다.">자안쇼핑몰</a></li>
+			<li><a href="./sub.htm?nav_code=dhu1575435565" title="장애학생지원센터 페이지로 이동합니다.">장애학생지원센터</a></li>
+			<li><a href="../../HOME/career" target="_blank" title="새창으로 진로개발센터 홈페이지가 열립니다.">진로개발센터</a></li>
+			<li><a href="../../HOME/startup" target="_blank" title="새창으로 창업지원단 홈페이지가 열립니다.">창업지원단</a></li>
+			<li><a href="../../HOME/alumni" target="_blank" title="새창으로 총동창회 홈페이지가 열립니다.">총동창회</a></li>
+			<li><a href="../../HOME/lifelong" target="_blank" title="새창으로 평생교육원 홈페이지가 열립니다.">평생교육원</a></li>
+			<li><a href="../../HOME/lifesupport/" target="_blank" title="새창으로 평생교육체제지원사업단 홈페이지가 열립니다.">평생교육체제지원사업단</a></li>
+			<li><a href="../../HOME/healthcare" target="_blank" title="새창으로 학생건강증진센터 홈페이지가 열립니다.">학생건강증진센터</a></li>
+			<li><a href="../../HOME/rotc" target="_blank" title="새창으로 학생군사교육단(학군단) 홈페이지가 열립니다.">학생군사교육단(학군단)</a></li>
+			<li><a href="../../HOME/consult" target="_blank" title="새창으로 학생상담센터 홈페이지가 열립니다.">학생상담센터</a></li>
+			<li><a href="http://library.dhu.ac.kr" target="_blank" title="새창으로 향산도서관 홈페이지가 열립니다.">향산도서관</a></li>
+
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+	<script type="text/javascript" src="http://www.dhu.ac.kr/js/jquery.touchFlow.js?"></script>
+	<script>
+	$(document).ready(function() {
+		$(".fmn").touchFlow({
+			axis: "x"
+		});
+	});
+	</script>
+	<footer id="footer">
+		<div class="d_width">
+		<div class="va-mo go-top"><a href="#wrap" class="page-go">TOP</a></div>
+			<div class="fmn clearfix">
+				<ul>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574343235" title="개인정보처리방침 페이지로 이동합니다.">개인정보처리방침</a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574343246" title="영상정보기기운영관리방침 페이지로 이동합니다.">영상정보기기운영관리방침</a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574343259" title="이메일무단수집거부 페이지로 이동합니다.">이메일무단수집거부</a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574343266" title="저작권보호방침 페이지로 이동합니다.">저작권보호방침</a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1576479449" title="입찰정보 페이지로 이동합니다.">입찰정보</a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574154496" title="예산공고 페이지로 이동합니다.">예산공고</a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574154501" title="결산공고 페이지로 이동합니다.">결산공고</a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574303246" title="찾아오시는 길 페이지로 이동합니다.">찾아오시는 길</a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1571815061" title="통학버스 페이지로 이동합니다.">통학버스</a></li>
+				<li><a href="https://www.academyinfo.go.kr/popup/pubinfo1690/list.do?schlId=0000061" target="_blank" title="새창으로 대학정보공시 홈페이지가 열립니다.">대학정보공시</a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574498922" title="청탁금지법 페이지로 이동합니다.">청탁금지법</a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1578623029" title="기관장업무추진비 페이지로 이동합니다.">기관장업무추진비</a></li>
+				<li><a href="http://www.dhu.ac.kr/pages/sub.htm?nav_code=dhu1574343279" title="뷰어다운로드 페이지로 이동합니다.">뷰어다운로드</a></li>
+				<li><a href="https://www.dhu.ac.kr/data/upload/2024021909221265d29f344590f" title="2024최저임금공시 페이지로 이동합니다.">2024최저임금공시</a></li>
+				</ul>
+			</div>
+			<address>
+							<p><span>삼성캠퍼스</span><span style="width:400px">(우편번호 38610) 경상북도 경산시 한의대로 1 바이오센터 804호 대학원행정팀      </span><span style="width:300px">전화번호 : 053-819-1567, 1563, 1566, 1568, 1569</span></p>
+
+						</address>
+			<div id="copyright">
+				<p>COPYRIGHT (C) DAEGU HAANY UNIVERSITY.<span class="va-mo"></span>ALL RIGHTS RESERVED.</p>
+			</div>
+		</div>
+	</footer>
+	
+</body>
+</html>

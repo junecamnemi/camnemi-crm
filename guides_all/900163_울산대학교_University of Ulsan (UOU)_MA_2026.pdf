@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	Tell the browser to be responsive to screen width
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/> -->
+    <meta charset="utf-8">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+	<meta name="mobile-web-app-capable" content="yes">	
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="Robots" content="ALL" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<link rel="shortcut icon" href="/images/favicon/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/x2/plugins/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="/x2/plugins/jvectormap/jquery-jvectormap-1.2.2.css" />
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="/x2/plugins/datepicker/datepicker3.css" />
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="/x2/plugins/daterangepicker/daterangepicker-bs3.css" />
+    
+    <link rel="stylesheet" href="/css/front/slick.css" />
+    <link rel="stylesheet" href="/css/front/slick-theme.css" />
+    <link rel="stylesheet" href="/css/front/bootstrap.css" />
+    <link rel="stylesheet" href="/css/front/default.css" />
+    <link rel="stylesheet" href="/css/front/font.css" />
+
+    <!-- main_temp -->
+    <link rel="stylesheet" href="/css/front/main_temp/community/community.css" />
+    
+    <link rel="stylesheet" href="/css/front/main_temp/footer/footer.css" />
+    
+    <link rel="stylesheet" href="/css/front/main_temp/gallery/gallery.css" />
+    
+    <link rel="stylesheet" href="/css/front/main_temp/header/header.css" />
+    
+    <link rel="stylesheet" href="/css/front/main_temp/mainBanner/mainBanner.css" />
+    
+    <link rel="stylesheet" href="/css/front/main_temp/popup/popup.css" />
+    
+    <link rel="stylesheet" href="/css/front/main_temp/quick/quick.css" />
+    
+    <link rel="stylesheet" href="/css/front/main_temp/sns/sns.css" />
+    
+    <link rel="stylesheet" href="/css/front/main_temp/food/foodSche.css" />
+    <!-- main_temp -->
+    
+    <!-- sub_cont -->
+    <link rel="stylesheet" href="/css/front/sub_cont/sub_cont.css" />
+    <link rel="stylesheet" href="/css/front/sub_cont/snsList.css" />
+    <!-- sub_temp -->
+    <link rel="stylesheet" href="/css/front/sub_temp/sub_temp.css" />
+    
+    <link rel="stylesheet" href="/css/front/main_temp/anim/anim.css" />
+    
+    <script>
+	var pageContext = "";
+	var sUserId = "";
+	var sUserName = "";
+	var sUserNo = "";
+	var sUserNum = "";
+	var sUserLevel = "";
+	
+	function searchPost() {
+		
+	    new daum.Postcode({
+	        oncomplete: function(data) {
+	            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+	            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+	            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+	            var fullAddr = ''; // 최종 주소 변수
+	            var extraAddr = ''; // 조합형 주소 변수
+
+	            // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+	            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+	                fullAddr = data.roadAddress;
+
+	            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+	                fullAddr = data.jibunAddress;
+	            }
+
+	            // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+	            if(data.userSelectedType === 'R'){
+	                //법정동명이 있을 경우 추가한다.
+	                if(data.bname !== ''){
+	                    extraAddr += data.bname;
+	                }
+	                // 건물명이 있을 경우 추가한다.
+	                if(data.buildingName !== ''){
+	                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+	                }
+	                // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+	                fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+	            }
+				
+	            $(".zip").val(data.zonecode);
+	            $(".addr1").val(fullAddr);
+	            $(".addr2").focus();
+	        }
+	    }).open();
+	}
+	
+	</script>
+    
+    <script src="/x4/plugins/jquery/jquery.min.js"></script>
+    <script src="/x2/plugins/validate/jquery.validate.js"></script>
+   	<script type="text/javascript" src="/js/front/jquery.easing.1.2.js"></script>
+	<script type="text/javascript" src="/js/front/placeholders.min.js"></script>
+	
+	<script type="text/javascript" src="/js/front/slick_.js"></script>
+	
+	<script type="text/javascript" src="/js/front/common.js"></script>
+	<script type="text/javascript" src="/js/front/mapType.js"></script>
+	<script type="text/javascript" src="/js/front/jquery.rwdImageMaps.min.js"></script>
+	<script type="text/javascript" src="/js/front/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="/js/common/common.js"></script>
+	
+	<!-- pdf viewer -->
+	<script src="/x4/plugins/pdfjs/build/pdf.js"></script>
+	<script src="/x4/plugins/pdfobject/pdfobject.min.js"></script>
+    
+    <script src="/x4/plugins/font-awesome/5.8.1/js/all.min.js"></script>
+    
+    <!-- datepicker -->
+    <script src="/x2/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="/x2/plugins/datepicker/locales/bootstrap-datepicker.kr.js"></script>
+    
+    <!-- daterangepicker -->
+    <script src="/x2/plugins/moment/2.10.2/moment.min.js"></script>  
+    <script src="/x2/plugins/moment/2.10.2/ko.js"></script>
+    <script src="/x2/plugins/daterangepicker/daterangepicker.js"></script>
+    
+    <script src="/x4/plugins/rsa/jsbn.js"></script>
+	<script src="/x4/plugins/rsa/rsa.js"></script>
+	<script src="/x4/plugins/rsa/prng4.js"></script>
+	<script src="/x4/plugins/rsa/rng.js"></script>
+    <script src="/x4/plugins/jquery/jquery.cookie.js"></script>
+    
+    <script src="/js/front/aos.js"></script>
+    <script src="/js/front/main_temp/anim_conts.js"></script>
+    <script src="/js/front/main_temp/community2024_01.js"></script>
+    <script src="/js/front/main_temp/header2024_01.js"></script>
+    <script src="/js/front/main_temp/photoGallery2024_01.js"></script>
+    <script src="/js/front/main_temp/quick2024_01.js"></script>
+    <script src="/js/front/main_temp/sns2024_01.js"></script>
+    
+   <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5b3e616199ce56b29925142e6f10bbbc&libraries=services"></script> --> <!-- LOCAL -->
+	<!-- <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=75115e2b6e202a98273021eb037fc2ac&libraries=services"></script> --> <!-- DEV -->
+	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=3f81e648a19fdfb618bd09a29241c004&libraries=services"></script> <!-- ULSAN REAL SEVER -->
+
+	<script src="/js/front/jquery.marquee.min.js"></script>
+	<script src="/js/front/jquery.waitforimages.min.js"></script>
+	
+	
+	
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+	<!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/jquery.waitforimages.min.js"></script> -->
+
+  <script>
+var fail_common_msg		=	"에러가 발생했습니다!";
+var fail_common_sql		=	"sql 에러가 발생했습니다! error code: {0}, error msg: {1}";
+var info_nodata_msg		=	"해당 데이터가 없습니다.";
+var errors_prefix		=	"<div class='error'> "; 
+var errors_suffix		=	"</div><br/>";
+var errors_required		=	"{0} 은 필수 입력값입니다.";
+var errors_minlength	=	"{0} 은 {1}자 이상 입력해야 합니다.";
+var errors_maxlength	=	"{0} 은 {1}자 이상 입력할수 없습니다.";
+var errors_invalid		=	"{0} 은 유효하지 않은 값입니다.";
+var errors_byte			=	"{0} 은 byte 타입이어야 합니다.";
+var errors_short		=	"{0} 은 short 타입이어야 합니다.";
+var errors_integer		=	"{0} 은 integer 타입이어야 합니다.";
+var errors_long			=	"{0} 은 long 타입이어야 합니다.";
+var errors_float		=	"{0} 은 float 타입이어야 합니다.";
+var errors_double		=	"{0} 은 double 타입이어야 합니다.";
+var errors_date			=	"{0} 은 날짜 유형이 아닙니다.";
+var errors_range		=	"{0} 은 {1} 과 {2} 사이의 값이어야 합니다.";
+var errors_creditcard	=	"{0} 은 유효하지 않은 신용카드 번호입니다.";
+var errors_email		=	"{0} 은 유효하지 않은 이메일 주소입니다.";
+var errors_ihidnum		=	"유효하지 않은 주민등록번호입니다.";
+var errors_korean		=	"{0}은 한글을 입력하셔야 합니다.";
+</script>
+
+
+
+<script>
+$(function(){
+	
+	var src1 = $("#tab01src").val();
+	var src2 = $("#tab02src").val();
+	
+	$("#tab01Frame").attr("src", src1);
+	$("#tab02Frame").attr("src", src2);
+	
+	$('.tab_prof_content > div').hide();
+	$('.tab_prof_nav a').click(function () {
+	    $('.tab_prof_content > div').hide().filter(this.hash).fadeIn();
+	    $('.tab_prof_nav a').removeClass('active');
+	    $(this).addClass('active');
+	    return false;
+	}).filter(':eq(0)').click();
+});
+</script>
+
+</head>	             
+<body>        
+<section class="wrap">                                                                         
+	<head>
+<title>울산대학교 | 일반대학원</title>
+<script>
+
+function incQckToggle(){
+	var windowWidth = $( window ).width();
+	if(windowWidth > 1670) {
+	//창 가로 크기가 500 미만일 경우
+	$('.incQck').css('display','block')
+	} else {
+	//창 가로 크기가 500보다 클 경우
+	$('.incQck').css('display','none')
+	}
+}
+$( window ).resize(function() {
+	   //창크기 변화 감지
+	   if('3334' > 1){
+	   	   incQckToggle()
+	   }
+	});
+$(function(){
+	
+	var session_id = "null";
+	
+	if(session_id == "null"){ // 로그인
+		$('#login_do').show();
+		$('#logout_do').hide();
+	}else{ // 로그아웃
+		$('#login_do').hide();
+		$('#logout_do').show();
+	}
+	
+	$(".navbar-toggler").on("click", function(){
+		$('#sidebar').toggleClass('active');
+	});	
+	
+    var LogOutTimer = function() {
+        var S = {
+                      timer : null,
+                      limit : 1000 * 60 * 60, 
+                      fnc   : function() {},
+                      start : function() {
+                                S.timer = window.setTimeout(S.fnc, S.limit);
+                              },
+                      reset : function() {
+                                window.clearTimeout(S.timer);
+                                S.start();
+                              }
+                    };
+            
+    	document.onmousemove = function() { S.reset(); };
+            
+            return S;
+          }();
+          
+          // 로그아웃 체크시간 설정
+          LogOutTimer.limit = 1000 * 60 * 60;
+          
+          // 로그아웃 함수 설정
+          LogOutTimer.fnc = function() {
+            //alert("LogOut");
+            if('' != ''){
+            alert("장시간 사용하지 않아 로그아웃 되었습니다.");
+            location.href="/main";
+            }
+          }
+          
+          // 로그아웃 타이머 실행
+          LogOutTimer.start();
+          
+});
+
+function authLow() {
+	  alert("해당글은 비밀글 입니다.");
+}
+
+
+function getCookie(name){
+	var cookieName = name + "=";
+	var i = 0;
+	while(i <= document.cookie.length){
+		var c = (i + cookieName.length);
+		if(document.cookie.substring(i, c) == cookieName){
+			if((lastCharCookie = document.cookie.indexOf(";", c)) == -1) lastCharCookie = document.cookie.length;
+			return encodeURI(document.cookie.substring(c, lastCharCookie));
+		}
+		
+		i = document.cookie.indexOf(" ", i) + 1
+		if(i == 0) break;			
+	}
+	return "";
+}
+
+
+
+$(function() {
+    AOS.init();
+});
+
+
+</script>
+
+</head>
+
+<div class="skipNav skipNav001">
+	<a href="#defaultGrid">본문바로가기</a>
+</div>
+<header class="header001">
+    <!--헤더 바로가기메뉴-->
+    <section class="container-wrap">
+        <nav class="inner">
+            <div class="gnb-top">
+                <!--헤더-top-left-->
+                <div class="gnb-left">
+                    <ul>
+                        <li><a href="https://www.ulsan.ac.kr/" title="울산대학교 대표홈페이지" target="_blank">울산대학교 대표홈페이지</a></li>
+                    </ul>
+                </div>
+                
+                <!--헤더-top-right-->
+                <div class="gnb-right">
+                    <ul>
+                        <li class="login" id="login_do"><a href="/sso/preProc.jsp" title="통합로그인">통합로그인</a></li>
+                        <li class="logout" id="logout_do"><a href="/logout.do" title="로그아웃">로그아웃</a></li>
+                        <li class="sitemap"><a href="/grad/9999" title="사이트맵">사이트맵</a></li>
+                        <li class="potal"><a href="https://uwins.ulsan.ac.kr/Login.aspx" title="UWINS" target="_blank">UWINS</a></li>
+                    </ul> 
+                </div>
+            </div>
+        </nav>
+    </section>
+    
+    <!--헤더 메뉴gnb-->
+    <section class="container-wrap">
+        <div class="gnb-wrap inner">
+            <div class="gnb">
+                <h1 class="logo">
+                	<a href="/grad/1" title="메인페이지바로가기">
+                		<img src="/upload//352/logo/2022/10/19/906013ec-5da8-474d-92b3-9be38fcbab25.png" alt="울산대학교">	
+			        		</a>
+                </h1>
+                <!--헤더 메뉴 1뎁스-->
+                <div class="menu-wrap">
+                    <ul class="menu">
+                    	<li>
+	                            <h4 class="menu-1dep"><a href="/grad/3078" target="_self"  title="대학원소개">대학원소개</a>
+	                            	<span></span>
+			                    	</h4>
+	                            <!--헤더 메뉴 2뎁스-->
+	                            <ul class="menu-2dep inner" > 
+	                            	<li>
+		                                    <h5>
+		                                    	<a href="/grad/3085"  target="_self" title="대학원장 인사말">대학원장 인사말</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3086"  target="_self" title="교육이념 및 교육목표">교육이념 및 교육목표</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3087"  target="_self" title="연혁">연혁</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3088"  target="_self" title="역대원장">역대원장</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3089"  target="_self" title="위치 및 연락처">위치 및 연락처</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3090" class="linklink" target="_blank" title="대학원장기발전계획">대학원장기발전계획</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                </ul>
+	                        </li>
+                        <li>
+	                            <h4 class="menu-1dep"><a href="/grad/3079" target="_self"  title="학과소개">학과소개</a>
+	                            	<span></span>
+			                    	</h4>
+	                            <!--헤더 메뉴 2뎁스-->
+	                            <ul class="menu-2dep inner" > 
+	                            	<li>
+		                                    <h5>
+		                                    	<a href="/grad/3091"  target="_self" title="대학원 과정별 입학정원">대학원 과정별 입학정원</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3092"  target="_self" title="학과안내">학과안내</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3093"  target="_self" title="학과내규">학과내규</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                </ul>
+	                        </li>
+                        <li>
+	                            <h4 class="menu-1dep"><a href="/grad/3080" target="_self"  title="입학">입학</a>
+	                            	<span></span>
+			                    	</h4>
+	                            <!--헤더 메뉴 2뎁스-->
+	                            <ul class="menu-2dep inner" > 
+	                            	<li>
+		                                    <h5>
+		                                    	<a href="/grad/3094"  target="_self" title="입학 공지사항">입학 공지사항</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3095"  target="_self" title="일반전형 및 학연산협동과정">일반전형 및 학연산협동과정</a>
+		                                    	<span></span>
+							                        		</h5>
+		                                    <ul class="menu-3dep">
+		                                    	<li>
+		                                        	<span></span>
+		                                        	<a href="/grad/4903"  target="_self" title="후기모집">후기모집</a>
+		                                        </li>
+		                                        </ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/4625"  target="_self" title="학·석사 연계과정">학·석사 연계과정</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3097"  target="_self" title="International Students">International Students</a>
+		                                    	<span></span>
+							                        		</h5>
+		                                    <ul class="menu-3dep">
+		                                    	<li>
+		                                        	<span></span>
+		                                        	<a href="/grad/5232"  target="_self" title="외국인특별전형 모집요강(국문)">외국인특별전형 모집요강(국문)</a>
+		                                        </li>
+		                                        <li>
+		                                        	<span></span>
+		                                        	<a href="/grad/5233"  target="_self" title="Admission Guide(English)">Admission Guide(English)</a>
+		                                        </li>
+		                                        </ul>
+		                                </li>
+	                                </ul>
+	                        </li>
+                        <li>
+	                            <h4 class="menu-1dep"><a href="/grad/3081" target="_self"  title="학사안내">학사안내</a>
+	                            	<span></span>
+			                    	</h4>
+	                            <!--헤더 메뉴 2뎁스-->
+	                            <ul class="menu-2dep inner" > 
+	                            	<li>
+		                                    <h5>
+		                                    	<a href="/grad/3100"  target="_self" title="일반대학원 학적변동">일반대학원 학적변동</a>
+		                                    	<span></span>
+							                        		</h5>
+		                                    <ul class="menu-3dep">
+		                                    	<li>
+		                                        	<span></span>
+		                                        	<a href="/grad/3323"  target="_self" title="일반대학원 개인정보변경">일반대학원 개인정보변경</a>
+		                                        </li>
+		                                        <li>
+		                                        	<span></span>
+		                                        	<a href="/grad/3324"  target="_self" title="일반대학원 휴학·복학">일반대학원 휴학·복학</a>
+		                                        </li>
+		                                        <li>
+		                                        	<span></span>
+		                                        	<a href="/grad/3325"  target="_self" title="일반대학원 자퇴·제적">일반대학원 자퇴·제적</a>
+		                                        </li>
+		                                        <li>
+		                                        	<span></span>
+		                                        	<a href="/grad/3326"  target="_self" title="일반대학원 재입학">일반대학원 재입학</a>
+		                                        </li>
+		                                        </ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3101"  target="_self" title="수업(대학원)">수업(대학원)</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3102"  target="_self" title="성적·졸업(대학원)">성적·졸업(대학원)</a>
+		                                    	<span></span>
+							                        		</h5>
+		                                    <ul class="menu-3dep">
+		                                    	<li>
+		                                        	<span></span>
+		                                        	<a href="/grad/3327"  target="_self" title="성적확인">성적확인</a>
+		                                        </li>
+		                                        <li>
+		                                        	<span></span>
+		                                        	<a href="/grad/3328"  target="_self" title="학점이전">학점이전</a>
+		                                        </li>
+		                                        <li>
+		                                        	<span></span>
+		                                        	<a href="/grad/3329"  target="_self" title="수료·졸업">수료·졸업</a>
+		                                        </li>
+		                                        <li>
+		                                        	<span></span>
+		                                        	<a href="/grad/3330"  target="_self" title="조기수료">조기수료</a>
+		                                        </li>
+		                                        </ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3103"  target="_self" title="학위논문">학위논문</a>
+		                                    	<span></span>
+							                        		</h5>
+		                                    <ul class="menu-3dep">
+		                                    	<li>
+		                                        	<span></span>
+		                                        	<a href="/grad/3331"  target="_self" title="논문제출자격시험">논문제출자격시험</a>
+		                                        </li>
+		                                        <li>
+		                                        	<span></span>
+		                                        	<a href="/grad/3332"  target="_self" title="학위논문신청">학위논문신청</a>
+		                                        </li>
+		                                        <li>
+		                                        	<span></span>
+		                                        	<a href="/grad/3333"  target="_self" title="학위논문제출시한 연장 신청">학위논문제출시한 연장 신청</a>
+		                                        </li>
+		                                        </ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3104"  target="_self" title="등록·장학(대학원)">등록·장학(대학원)</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3098"  target="_self" title="학칙/규정">학칙/규정</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/5209"  target="_self" title="일반대학원 학사일정">일반대학원 학사일정</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                </ul>
+	                        </li>
+                        <li>
+	                            <h4 class="menu-1dep"><a href="/grad/3082" target="_self"  title="게시판">게시판</a>
+	                            	<span></span>
+			                    	</h4>
+	                            <!--헤더 메뉴 2뎁스-->
+	                            <ul class="menu-2dep inner" > 
+	                            	<li>
+		                                    <h5>
+		                                    	<a href="/grad/4950"  target="_self" title="공지사항(대학원)">공지사항(대학원)</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3105"  target="_self" title="공지사항(일반)">공지사항(일반)</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                <li>
+		                                    <h5>
+		                                    	<a href="/grad/3106"  target="_self" title="서식다운로드">서식다운로드</a>
+		                                    	</h5>
+		                                    <ul class="menu-3dep">
+		                                    	</ul>
+		                                </li>
+	                                </ul>
+	                        </li>
+                        <li>
+	                            <h4 class="menu-1dep"><a href="/grad/3084" target="_blank"  title="논문표절예방 시스템">논문표절예방 시스템</a>
+	                            	</h4>
+	                            <!--헤더 메뉴 2뎁스-->
+	                            <ul class="menu-2dep inner" style="visibility: hidden;"> 
+	                            	</ul>
+	                        </li>
+                        <li>
+	                            <h4 class="menu-1dep"><a href="/grad/4754" target="_self"  title="연구윤리교육안내">연구윤리교육안내</a>
+	                            	</h4>
+	                            <!--헤더 메뉴 2뎁스-->
+	                            <ul class="menu-2dep inner" style="visibility: hidden;"> 
+	                            	</ul>
+	                        </li>
+                        <li>
+	                            <h4 class="menu-1dep"><a href="/grad/4755" target="_self"  title="권리장전">권리장전</a>
+	                            	</h4>
+	                            <!--헤더 메뉴 2뎁스-->
+	                            <ul class="menu-2dep inner" style="visibility: hidden;"> 
+	                            	</ul>
+	                        </li>
+                        <li>
+	                            <h4 class="menu-1dep"><a href="/grad/5137" target="_self"  title="English">English</a>
+	                            	</h4>
+	                            <!--헤더 메뉴 2뎁스-->
+	                            <ul class="menu-2dep inner" style="visibility: hidden;"> 
+	                            	</ul>
+	                        </li>
+                        </ul>
+                </div>
+
+                <!--헤더 햄버거-->
+                <div class="hambug">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+<a href="javascript:void(0);" class="ender" title="ender">ender</a>
+
+
+
+
+<!-- 배너 공통부분 스타일 -->
+<style type="text/css">
+	body {
+		scroll-behavior: smooth;
+	}
+
+	.division-banner {
+		position: relative;
+		height: 1080px;
+		width: 100%; 
+		display: -webkit-flex;
+		/* Safari */
+		display: flex;
+		overflow: hidden;
+		max-height: 1080px;
+	}
+
+	.division-banner .slick-slide {
+		height: 100%;
+	}
+
+	.division-banner .flex-slide {
+		-webkit-flex: 1;
+		/* Safari 6.1+ */
+		-ms-flex: 1;
+		/* IE 10 */
+		flex: 1;
+		cursor: pointer;
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+
+		position: relative;
+		overflow: hidden;
+	}
+	.division-banner .flex-slide:hover {
+		-webkit-flex-grow: 3;
+		flex-grow: 3;
+	}
+
+
+	.division-banner .flex-title {
+		color: #f1f1f1;
+		position: absolute;
+		font-size: 30px;
+		letter-spacing: -0.03em;
+		font-weight: 800;
+		margin: auto;
+		text-align: left;
+		left: 50%;
+		transform: translateX(-50%) rotate(90deg);
+		top: 40%;
+		width: 300px;
+	}
+
+	.division-banner .flex-title span {
+		display: block;
+		font-weight: 300;
+		font-size: 17px;
+		letter-spacing: -0.03em;
+		text-align: left;
+		color: #fff;
+		opacity: 0.6;
+	}
+	.division-banner .flex-about {
+		opacity: 0;
+		color: #f1f1f1;
+		/* position: relative; */
+
+		line-height: 1.3;
+		margin: auto;
+		text-align: center;
+
+    	overflow: hidden;
+		transition: none;
+		
+		height: 100%;
+    	max-height: 560px;
+    	
+    	/*가로고정*/
+		position: absolute;
+		margin: 0 auto;
+		width: 330px;
+	    top: 50%;
+	    left: 50%;
+	    margin: 0 auto;
+	    transform: translate(-50%, -50%);
+	}
+
+	.division-banner .flex-about h3 {
+		font-weight: bold;
+		font-size: 40px;
+		letter-spacing: -0.03em;
+		line-height: 46px;
+		text-align: center;
+		color: #fff;
+		margin-bottom: 20px;
+	}
+	.division-banner .flex-about span {
+		display: block;
+		font-weight: 300;
+		font-size: 22px;
+		letter-spacing: -0.03em;
+		color: #fff;
+		opacity: 0.6;
+	    margin: 10px 0;
+	}
+	.division-banner .flex-about a {
+		width: 104px;
+		height: 104px;
+		background: #ffffff33;
+		display: flex;
+		border-radius: 50%;
+		margin: 0 auto;
+		margin-top: 40px;
+		color: #fff !important;
+		text-decoration: none;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.division-banner .flex-slide p {
+		font-size: 20px;
+		opacity: 0.9;
+	}
+
+
+	/*점*/
+	.division-banner .slick-dots {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 20px;
+		display: flex;
+		gap: 4px;
+		list-style: none;
+		padding: 4px 7px;
+		background: #00000060;
+		border-radius: 40px;
+		width: fit-content;
+	}
+	.division-banner .slick-dots li {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.division-banner .slick-dots button {
+		background: #fff;
+		border: unset;
+		padding: unset;
+		border-radius: 50%;
+		width: 10px;
+		height: 10px;
+		color: transparent;
+		opacity: 0.6;
+	}
+	.division-banner .slick-dots li.slick-active button {
+		opacity: 1;
+	}
+
+	@media (max-width: 1600px) {
+		.division-banner {
+			height: 100vh;
+			margin-bottom: 0 !important;
+		}
+		.division-banner .slick-track {
+			height: 100%;
+		}
+		.division-banner .flex-slide {
+			overflow: unset;
+			display: flex;
+	        align-items: center;
+        	justify-content: center;
+		}
+		.division-banner .flex-title {
+			display: none;
+		}
+		.division-banner .flex-about {
+			opacity: 1 !important;
+			
+	    	/*가로고정*/
+			position: relative;
+			width: 70%;
+    		top: unset;
+			left: unset;
+		    margin: 0 auto;
+		    transform: unset;
+		    max-height: unset;
+       		height: fit-content;
+		}
+		.division-banner .flex-about h3 {
+			font-size: 36px;
+		}
+	}
+	@media (max-width: 768px) {
+		.division-banner .flex-slide p {
+			font-size: 18px;
+		}
+	}
+
+</style>
+
+
+
+
+
+
+<!-- 예술학부 -->
+<!-- 바이오메디컬헬스학부 -->
+<!-- 에너지화학공학부 -->
+<!-- 공공인재학부 -->
+<!-- 경영경제융합학부 -->
+<!-- 건축·도시환경학부 -->
+<!-- 디자인융합학부 -->
+<!-- ICT융합학부 -->
+<!-- 전기전자융합학부 -->
+<!-- 신소재·반도체융합학부 -->
+<!-- 미래모빌리티공학부 -->
+<!-- 글로벌인문학부 -->
+<div id="container" class="">		
+		
+
+<script src="/js/front/sns/kakao.js"></script>
+<script>
+$(function() {
+	$('.subShare').on('click', function(){
+		$('.sns-list').toggle();
+	});
+
+});
+
+var currentZoom = 100;
+// 줌아웃
+function zoomOut(){
+	currentZoom = currentZoom - 10;
+	zoomDisplay();
+}
+//줌인
+function zoomIn(){
+	currentZoom = currentZoom + 10;
+	zoomDisplay();
+}
+// 줌화면 표시
+function zoomDisplay(){
+	if(currentZoom <= 50){
+		if('KOR' == 'KOR'){
+			alert("더 이상 축소할 수 없습니다.");
+			document.body.style.zoom = '60%';
+			currentZoom = 60;
+		}else{
+			alert("Can't zoom out any more.");
+			document.body.style.zoom = '60%';
+			currentZoom = 60;
+		}
+	}
+	if(currentZoom >= 150){
+		if('KOR' == 'KOR'){
+			alert("더 이상 확대할 수 없습니다.");
+			document.body.style.zoom = '140%';
+			currentZoom = 140;
+		}else{
+			alert("Can't zoom in any more.");
+			document.body.style.zoom = '140%';
+			currentZoom = 140;
+		}
+	}
+	if(currentZoom > 50 && currentZoom < 150){
+		document.body.style.zoom = currentZoom + '%';
+	}
+}
+
+var pageSNSShare = {
+
+	init:function(settings){
+		if(typeof(settings)!="undefined"){
+			this.cfg = $.extend({},{},settings);
+		}
+
+	},
+	// 네이버
+	sendToNaver:function(title,url){
+		
+		var titleArr = [];
+		var global_title = "";
+		$('.subNav dd .btn').each(function(index, item){
+			
+			titleArr.push($(item).text());
+		})
+		
+		global_title = titleArr.join('>');
+		
+		//2017-08-30
+		var sUrl = encodeURIComponent(url);
+		var sTitle = encodeURI(global_title);
+		var shareURL = "http://share.naver.com/web/shareView.nhn?url=" + sUrl + "&title=" + sTitle;
+
+		this.openShareWin(shareURL);
+	},
+	// 네이버 밴드
+	sendToBand:function(title,url){
+		
+		var titleArr = [];
+		var global_title = "";
+		$('.subNav dd .btn').each(function(index, item){
+			
+			titleArr.push($(item).text());
+		})
+		
+		global_title = titleArr.join('>');
+		
+		//2017-08-30
+		var sUrl = encodeURIComponent(url);
+		var sTitle = encodeURI(global_title);
+		var shareURL = "http://band.us/plugin/share??url=" + sUrl + "&body=" + sTitle + " " + url  + "&route=" + url;
+
+		this.openShareWin(shareURL);
+	},
+	// 페이스북
+	sendToFacebook:function(title,url,share){
+		
+		var titleArr = [];
+		var global_title = "";
+		$('.subNav dd .btn').each(function(index, item){
+			
+			titleArr.push($(item).text());
+		})
+		
+		global_title = titleArr.join('>');
+		
+		if(typeof(share)=="undefined") var share  = {};
+
+		//2017-08-30
+		var sUrl = encodeURIComponent(url);
+		var sTitle = encodeURI(global_title);
+		var shareURL = "http://www.facebook.com/sharer/sharer.php?u=" + sUrl + "";
+		
+		this.openShareWin(shareURL);
+	},
+	// 트위터
+	sendToTwitter:function(title,url,share){
+		
+		
+		var titleArr = [];
+		var global_title = "";
+		$('.subNav dd .btn').each(function(index, item){
+			
+			titleArr.push($(item).text());
+		})
+		
+		global_title = titleArr.join('>');
+		
+		if(typeof(share)=="undefined") var share  = {};
+		//2017-08-30
+		var sendTxt = "[" + global_title +"] " + url;
+		var sUrl = encodeURIComponent(url);
+		var sTitle = encodeURI(global_title);
+
+		var shareURL = "http://twitter.com/intent/tweet?text=" + sTitle+"&url="+ sUrl ;
+
+		this.openShareWin(shareURL);
+
+
+	},
+	// 구글
+	sendToGoogle:function(title,url,share){
+		
+		var titleArr = [];
+		var global_title = "";
+		$('.subNav dd .btn').each(function(index, item){
+			
+			titleArr.push($(item).text());
+		})
+		
+		global_title = titleArr.join('>');
+		
+		if(typeof(share)=="undefined") var share  = {};
+		//2017-08-30
+		var sendTxt = "[" + global_title +"] " + url;
+		var sUrl = encodeURIComponent(url);
+		var sTitle = encodeURI(global_title);
+
+		var shareURL = "https://plus.google.com/share?url="+ sUrl ;
+
+		this.openShareWin(shareURL);
+
+
+	},
+	// 카카오톡
+	initKaKao:function(){
+		
+		var key = '3f81e648a19fdfb618bd09a29241c004&libraries=services';
+		
+		Kakao.init(key);
+	},
+	sendToKakaoStory:function(title,url,share){
+		
+		var titleArr = [];
+		var global_title = "";
+		$('.subNav dd .btn').each(function(index, item){
+			
+			titleArr.push($(item).text());
+		})
+		
+		global_title = titleArr.join('>');
+		
+		
+		var shareData ={
+			"url":url,
+			"text": global_title
+		  };
+		if(MobileCheck()){
+			Kakao.Story.open(shareData);	//앱으로 공유
+		}else{
+			Kakao.Story.share(shareData);	//웹으로 공유
+		}
+    },
+	
+	sendToKakao:function(title,url,share){
+		
+		var titleArr = [];
+		var global_title = "";
+		$('.subNav dd .btn').each(function(index, item){
+			
+			titleArr.push($(item).text());
+		})
+		
+		global_title = titleArr.join('>');
+		
+		
+		if(MobileCheck()){
+			try{ this.initKaKao();}catch(e){}
+			try{
+				
+				Kakao.Link.sendScrap({
+					requestUrl: url
+				});
+			}catch(e){
+				alert(e);
+				alert("카카오톡이 설치된 스마트폰에서만 지원됩니다");
+			}
+		}else{
+			alert("스마트폰에서만 지원됩니다");
+		}
+
+
+    },
+
+	openShareWin:function(url){
+		var wp = window.open(url, 'shareWin', 'width=450,height=600');
+		if ( wp ) {
+			wp.focus();
+		}
+
+	}
+}
+
+function MobileCheck(){
+    var $agent = navigator.userAgent;
+    var MobileArray  = ["iphone","lgtelecom","skt","mobile","samsung","nokia","blackberry","android","android","sony","phone"];
+
+
+    var checkCount = 0;
+    for(var i=0; i<MobileArray.length; i++){
+        var checkStr = $agent.toLowerCase().match(MobileArray[i]);
+        if(checkStr!=null && checkStr==MobileArray[i]) {checkCount++; break; }
+        //if(preg_match("/$MobileArray[$i]/", strtolower($_SERVER["HTTP_USER_AGENT"]))){ $checkCount++; break; }
+    }
+   return (checkCount >= 1) ? true : false;
+}
+
+function snsToggle(){
+    
+	$('.sns-list').toggle();
+}
+</script>
+<!-- 배너 -->
+<div class="sub001_banner" >
+	<div>
+		<div>
+			<h2>입학</h2>
+		</div>
+	</div>
+</div>
+<!-- 배너 -->
+
+<!-- 서브 네비게이션 메뉴 -->
+
+<div class="sub001_nav">
+	<div class="container">
+		<!-- 네비게이션 바 -->
+		<dl class="subNav">
+			<dt><a href="/grad/1" title="home"><img src="/images/front/main_temp/header/header001/nav_home.png" alt="메인화면 바로가기"></a></dt>
+			<dd>
+				<a href="#" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="입학">입학</a>
+				<ul>
+					<li>
+								<a href="/grad/3078" class="" title="대학원소개" target="_self">대학원소개</a>
+							</li>
+						<li>
+								<a href="/grad/3079" class="" title="학과소개" target="_self">학과소개</a>
+							</li>
+						<li>
+								<a href="/grad/3080" class="on" title="입학" target="_self">입학</a>
+							</li>
+						<li>
+								<a href="/grad/3081" class="" title="학사안내" target="_self">학사안내</a>
+							</li>
+						<li>
+								<a href="/grad/3082" class="" title="게시판" target="_self">게시판</a>
+							</li>
+						<li>
+								<a href="/grad/3084" class="linklink" title="논문표절예방 시스템" target="_blank">논문표절예방 시스템</a>
+							</li>
+						<li>
+								<a href="/grad/4754" class="" title="연구윤리교육안내" target="_self">연구윤리교육안내</a>
+							</li>
+						<li>
+								<a href="/grad/4755" class="" title="권리장전" target="_self">권리장전</a>
+							</li>
+						<li>
+								<a href="/grad/5137" class="" title="English" target="_self">English</a>
+							</li>
+						</ul>
+			</dd>
+			<dd>
+				<a href="#" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="일반전형 및 학연산협동과정">일반전형 및 학연산협동과정</a>
+				<ul>
+				<li>
+						<a href="/grad/3094" class="" target="_self" title="입학 공지사항">입학 공지사항</a>
+								</li>
+				<li>
+						<a href="/grad/3095" class="on" target="_self" title="일반전형 및 학연산협동과정">일반전형 및 학연산협동과정</a>
+								</li>
+				<li>
+						<a href="/grad/4625" class="" target="_self" title="학·석사 연계과정">학·석사 연계과정</a>
+								</li>
+				<li>
+						<a href="/grad/3097" class="" target="_self" title="International Students">International Students</a>
+								</li>
+				</ul>
+			</dd>
+		</dl>
+
+		<!-- 세팅버튼 -->
+		<div class="subSet">
+			<a href="#" class="subShare" title="공유">공유</a>
+			<a href="javascript:window.print() return false;" class="subPrt" onclick="window.print()" title="프린트">프린트</a>
+		</div>
+		<!-- 세팅버튼 -->
+		
+		<!-- 공유 버튼 -->
+		<div class="sns-list" style="display: none;">
+			<h4 class="stit">SNS Share</h4>
+            <button type="button" class="btn-fb" onclick="pageSNSShare.sendToFacebook('', location.href, null);"><span class="blind">facebook</span></button>
+           	<button type="button" class="btn-tw" onclick="pageSNSShare.sendToTwitter('', location.href, null)"><span class="blind">Twitter</span></button>
+            <button type="button" class="btn-nb" onclick="pageSNSShare.sendToNaver('', location.href, null)"><span class="blind">Blog</span></button>
+            <button type="button" class="btn-kakao" onclick="pageSNSShare.sendToKakao('', location.href, null)"><span class="blind">Kakaotalk</span></button>
+            <button type="button" class="btn-close" onclick="snsToggle();"><span class="blind">닫기</span></button>
+        </div>
+		<!-- 공유 버튼 -->
+
+	</div>
+</div>
+<!-- 네비게이션바 -->
+<div id="defaultGrid"> </div>
+<!-- 서브 레프트 메뉴 -->
+
+<div class="sub001">
+	<div class="container">
+		<div class="subWrap">
+			<!-- 콘텐츠 영역 -->
+			<div class="subCont">
+				<h3 class="subTitle">전기모집</h3>
+				
+				<!-- 3뎁스 탭메뉴 -->
+				<ul class="subTab_menu">
+						<li>
+								<a href="/grad/4903" class="" title="후기모집">후기모집</a>
+									</li>
+						</ul>
+				<!-- 3뎁스 탭메뉴 -->
+
+				<div class="contLine"></div>
+<!-- 레프트 메뉴 -->
+<div id="textDiv "> </div>
+<!-- 콘텐츠 -->
+					<div class="contents"><style> .subCont_small_btn > a { color: white !important; } 
+</style>
+<div class="contents">
+<div class="mb-3" style="display: inline;"><a href="/usingDownload.do?no=631" target="_blank" title="일반전형 모집요강 다운로드" class="subCont_small_download">일반전형 모집요강 다운로드(PDF)<br /></a></div>
+<div class="mb-3" style="display: inline;">
+<p><br /></p>
+<p><a style="margin-right: 10px;" href="/usingDownload.do?no=633" target="_blank" title="일반전형 외국인 지원자 관련 안내(PDF)" class="subCont_small_download">일반전형 외국인 지원자 관련 안내(PDF)</a><a href="/usingDownload.do?no=634" target="_blank" title="일반전형 외국인 지원자 관련 안내(영문)" class="subCont_small_download">Information on general admission foreign applicants</a></p></div>
+<p><br /></p>
+<p><span style="font-size: 12pt;">※&nbsp;'일반전형 외국인 입학'과 '외국인특별전형'은 다른 종류의 입학입니다.</span></p>
+<p><span style="font-size: 12pt;">&nbsp; &nbsp;'General admission for foreigners' and 'Special admission for foreigners' are different types of admission.</span></p>
+<p><span style="font-size: 12pt;">※&nbsp;'일반전형 외국인 입학'과 '외국인특별전형'은 입학 진행이 따로 주체되기 때문에, 별도로 원서접수를 해야합니다.</span></p>
+<p><span style="font-size: 12pt;">&nbsp; &nbsp;&nbsp;The admission for 'General admission for foreigners' and 'Special admission for foreigners' are subject to&nbsp;separate type, so you have to apply separately too.</span></p>
+<p><span style="font-size: 12pt;">※&nbsp;'일반전형 외국인 입학'은 '외국인특별전형'과 수혜가능한 장학 종류가 완전히 다릅니다.</span></p>
+<p><span style="font-size: 12pt;">&nbsp; &nbsp;'General admission for foreigners' is completely different from 'Special admission for foreigners' in the type of scholarship that can be benefited from.</span></p>
+<p><span style="font-size: 12pt;">※&nbsp;'일반전형 외국인 입학'은 면접고사 시, 한국인 지원자들과 함께 진행 및 경쟁됩니다.</span></p>
+<p><span style="font-size: 12pt;">&nbsp; &nbsp;'General admission for foreigners' is conducted and competed with Korean applicants during the interview.</span></p>
+<p><span style="font-size: 12pt;">※&nbsp;외국인특별전형으로 입학을 원할 경우, [입학] > [International Students] > [Admission Guide(English)]를 참고하시길 바랍니다.</span></p>
+<p><span style="font-size: 12pt;">&nbsp; &nbsp;&nbsp;If you want to enter through a special admission for foreigners, please refer to [입학] > International Students > [Admission Guide (English).</span></p>
+<p><br />
+<br /></p>
+<p class="bull_tit">2026학년도 전기&nbsp;입학전형 일정</p>
+<div class="mt-2 sub_table">
+<p><br /></p>
+<p><br /></p>
+<table class="" style="height: 697px;">
+<caption> 일반대학원 모집요강 </caption>
+<colgroup> 
+<col width="15%" /> 
+<col width="20%" /> 
+<col width="15%" /> 
+<col width="35%" /> 
+<col width="15%" /> 
+</colgroup>
+<thead> 
+<tr>
+<th scope="col" class="NamoSE_border_show" style="width: 142px; height: 16px;">구 분</th>
+<th scope="col" class="NamoSE_border_show" style="width: 194px; height: 16px;">일 정</th>
+<th scope="col" class="NamoSE_border_show" style="width: 184px; height: 16px;">대 상</th>
+<th scope="col" class="NamoSE_border_show" style="width: 337px; height: 16px;">비 고</th>
+<th scope="col" class="NamoSE_border_show" style="height: 16px; width: 149px;"></th>
+</tr> 
+</thead>
+<tbody>
+<tr>
+<td style="height: 61px; width: 142px;">원서접수</td>
+<td style="height: 61px; width: 194px;"> 2025. 11. 10(월) ~<br /> 11. 14(금), 16:00까지 </td>
+<td style="height: 61px; width: 184px;"> 
+<p style="text-align: center;">전 모집단위</p> </td>
+<td style="height: 61px; width: 337px;"> 
+<p>인터넷 원서접수 : (주)유웨이어플라이</p> 
+<p>(http://www.uwayapply.com)</p> </td>
+<td style="height: 61px; width: 149px;"> 
+<div class="subCont_small_btn w-100"><a href="https://ipsi2.uwayapply.com/2026/gradu1/ulsan/?CHA=1" target="_blank">원서접수바로가기</a></div> 
+<div class="subCont_small_btn w-100"><a href="https://ipsi2.uwayapply.com/2026/gradu1/ulsan/1/service/applyer.htm" target="_blank">접수확인하기</a></div> </td>
+</tr>
+<tr>
+<td style="height: 59px; width: 142px;">제출서류 마감</td>
+<td style="height: 59px; width: 194px;">2025. 11. 18(화), 17:00까지</td>
+<td style="height: 59px; width: 184px;"> 
+<p style="text-align: center;">전 모집단위</p> </td>
+<td style="height: 59px; width: 337px;">[울산대학교 대학원 홈페이지>입학>모집요강>일반전형>제출서류 도착확인]에서 도착여부 확인</td>
+<td style="height: 59px; width: 149px; cursor: row-resize;"> 
+<div class="subCont_small_btn w-100"><a href="https://ipsi2.uwayapply.com/2026/gradu1/ulsan/1/service/arrival.htm" target="_blank">제출서류 도착확인</a></div> </td>
+</tr>
+<tr>
+<td rowspan="4" style="height: 239px; width: 142px;">면접고사</td>
+<td style="height: 85px; width: 194px;">2025. 12. 13(토), 09:30</td>
+<td style="height: 85px; width: 184px;"> 
+<p style="text-align: center;">전 모집단위 <br /> (일부 전공&nbsp;제외)</p> </td>
+<td style="height: 85px; width: 337px;"> 당일 09:00까지 지정 고사장 집결</td>
+<td rowspan="4" style="height: 239px; width: 149px;"> 
+<div class="subCont_small_btn w-100"><a href="https://uwin.ulsan.ac.kr/enff/posa/w/btw21U.aspx?ibhag_gb=B35003&amp;mojib_gb=B01005" target="_blank"><span style="color: rgb(255, 255, 255);">고사장조회</span></a></div> </td>
+</tr>
+<tr>
+<td style="height: 44px; width: 194px;">2025. 12. 13(토), 11:00</td>
+<td style="height: 44px; width: 184px;"> 
+<p style="text-align: center;">의학과</p> </td>
+<td class="border-end" style="height: 44px; width: 337px;"> 당일 10:50까지 의과대학 지정 고사장에 집결</td>
+</tr>
+<tr>
+<td style="height: 44px; width: 194px;" rowspan="1"> 
+<p>2025. 12. 13(토), 10:00</p></td>
+<td style="height: 44px; width: 184px;" rowspan="1"> 
+<p style="text-align: center;">의과학과</p></td>
+<td class="border-end" style="height: 44px; width: 337px;" rowspan="1"> 
+<p style="text-align: center;">당일 09:30까지 <span style="color: rgb(255, 0, 0);">본 대학교 지정 고사장 집결</span></p></td>
+</tr>
+<tr>
+<td style="height: 44px; width: 194px;">2025. 12. 13(토), 11:00</td>
+<td style="height: 44px; width: 184px;"> 
+<p style="text-align: center;">간호학과</p> </td>
+<td class="border-end" style="height: 44px; width: 337px;">당일 10:50까지 본 대학교 지정 고사장 집결</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" style="width: 142px; height: 81px;">필기고사</td>
+<td style="height: 15px; width: 194px;">2025. 12. 13(토), 09:30&nbsp;</td>
+<td style="height: 15px; width: 184px;"> 
+<p style="text-align: center;">의학과</p> </td>
+<td style="height: 15px; width: 337px;"> 당일 09:00까지 의과대학 지정 고사장 집결<br /></td>
+<td style="height: 15px; width: 149px;"> 
+<div class="subCont_small_btn w-100"><a title="고사장조회" href="https://uwin.ulsan.ac.kr/enff/posa/w/btw21U.aspx?ibhag_gb=B35003&amp;mojib_gb=B01005" target="_blank" class="text-white small">고사장조회</a></div> </td>
+</tr>
+<tr>
+<td style="height: 39px; width: 194px;">2025. 12. 13(토), 09:00</td>
+<td style="height: 39px; width: 184px;"> 
+<p style="text-align: center;">간호학과(박사)</p> </td>
+<td style="height: 39px; width: 337px;">당일 08:50까지 지정 고사장 집결</td>
+<td style="height: 39px; width: 149px;"> 
+<div class="subCont_small_btn w-100"><a title="고사장조회" href="https://uwin.ulsan.ac.kr/enff/posa/w/btw21U.aspx?ibhag_gb=B35003&amp;mojib_gb=B01005" target="_blank" class="text-white small">고사장조회</a></div> </td>
+</tr>
+<tr>
+<td style="height: 39px; width: 142px;">실기고사</td>
+<td style="height: 39px; width: 194px;">2025. 12. 13(토), 09:30</td>
+<td style="height: 39px; width: 184px;"> 
+<p style="text-align: center;">음악학과</p> 
+<p style="text-align: center;"><span style="font-size: 11pt;">(피아노교수학&nbsp;제외)</span></p> </td>
+<td style="height: 39px; width: 337px;">당일 09:00 까지 지정 고사장 집결</td>
+<td style="height: 39px; width: 149px;"> 
+<div class="subCont_small_btn w-100"><a title="고사장조회" href="https://uwin.ulsan.ac.kr/enff/posa/w/btw21U.aspx?ibhag_gb=B35003&amp;mojib_gb=B01005" target="_blank" class="text-white small">고사장조회</a></div> </td>
+</tr>
+<tr>
+<td style="height: 70px; width: 142px;">합격자발표</td>
+<td style="height: 70px; width: 194px;"> 2026. 01. 09(금),<br /> 15:00 예정 </td>
+<td style="height: 70px; width: 184px;"> 
+<p style="text-align: center;">전 모집단위</p> </td>
+<td style="height: 70px; width: 337px;"> 울산대학교대학원 홈페이지(<a href="http://grad.ulsan.ac.kr/" target="_blank" title="울산대학교대학원 홈페이지 바로가기">http://grad.ulsan.ac.kr</a>)에서 본인 직접 확인<b style="font-size: 12px;"><span style="font-size: 12pt;">(개별통보하지 않음)</span></b> </td>
+<td style="height: 70px; width: 149px;"> 
+<div class="subCont_small_btn w-100"><a title="합격자" href="https://uwin.ulsan.ac.kr/enff/posa/w/btw21U.aspx?ibhag_gb=B35003&amp;mojib_gb=B01005" target="_blank" class="text-white small">합격자조회</a></div> </td>
+</tr>
+<tr>
+<td style="height: 59px; width: 142px;">합격자등록</td>
+<td style="height: 59px; width: 194px;"> 2026. 01.&nbsp;26(월)<br />
+ &sim; 01. 28(수),<br /> 09:00&nbsp;~&nbsp;16:00</td>
+<td style="height: 59px; width: 184px;"> 
+<p style="text-align: center;">전 모집단위</p> </td>
+<td style="height: 59px; width: 337px;"> 경남은행 전국 각 지점 납부 또는 가상계좌 입금 
+<p><span style="font-weight: bold;"><span style="color: rgb(255, 0, 0); font-size: 11pt;">(</span><span style="color: rgb(255, 0, 0); font-size: 11pt;">※&nbsp;</span><span style="color: rgb(255, 0, 0); font-size: 11pt;">등록금 고지서 출력일 :&nbsp;</span></span><span style="color: rgb(0, 0, 0); font-size: 11pt;"><span style="font-weight: bold;"><span style="font-size: 11pt; color: rgb(255, 0, 0);">2026.01</span><span style="font-size: 11pt; color: rgb(255, 0, 0);">.23 17시~</span></span><span style="font-size: 10pt; color: rgb(255, 0, 0);"><span style="font-weight: bold;">)</span></span></span></p></td>
+<td style="height: 59px; width: 149px;"> 
+<div class="subCont_small_btn w-100"><a title="등록금고지서출력" href="https://uwin.ulsan.ac.kr/enff/posa/w/btw21U.aspx?ibhag_gb=B35003&amp;mojib_gb=B01005" target="_blank" class="text-white small">등록금고지서 출력</a></div> </td>
+</tr>
+</tbody>
+</table></div>
+<p><br /></p>
+<div style="margin-top: 3rem; height: 1150px !important;">
+<div style="height: 1150px !important;">
+<div class="rdmPdf pdfobject-container" id="pdf311647" style="border: 1px solid black; position: relative; overflow: auto; height: 100%; width: 90%; margin: 0px auto;">
+<div style="position: absolute; inset: 0px;"><iframe src="/x4/plugins/pdfjs/web/viewer.html?file=%2Fupload%2F352%2Fboard%2F2025%2F10%2F15%2Fcf587262-a1e3-4021-9770-b16118c6174d.pdf#navpanes=0&amp;toolbar=0&amp;statusbar=0&amp;view=FitV&amp;pagemode=thumbs&amp;page=1&amp;suppressConsole=true" class="pdfobject" style="border: none; width: 100%; height: 100%;"></iframe></div></div></div></div></div>
+<p><br /></p></div>
+					<!-- 콘텐츠 -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<!--footer 003-->
+<footer class="footer003"> 
+    <!--footerBanner-->
+    <section class="ft-family-wrap">
+        <div class="inner">
+            <div class="family-box">
+                <dl>
+                    <dt class="title"><a href="#none">단과대학/학부(과)/대학원</a></dt>
+                    <dd class="family-cont">
+                        <ul>
+                            <li><a href="https://humanity.ulsan.ac.kr" target="_blank" title="새창열림">■인문대학</a></li>
+							<li><a href="https://korea.ulsan.ac.kr" target="_blank" title="새창열림">▷국어국문학부</a></li>
+							<li><a href="https://english.ulsan.ac.kr" target="_blank" title="새창열림">▷영어영문학과</a></li>
+							<li><a href="https://japan.ulsan.ac.kr" target="_blank" title="새창열림">▷일본어·일본학과</a></li>
+							<li><a href="https://china.ulsan.ac.kr" target="_blank" title="새창열림">▷중국어·중국학과</a></li>
+							<li><a href="https://france.ulsan.ac.kr" target="_blank" title="새창열림">▷프랑스어·프랑스학과</a></li>
+							<li><a href="https://spain.ulsan.ac.kr" target="_blank" title="새창열림">▷스페인·중남미학과</a></li>
+							<li><a href="https://history.ulsan.ac.kr" target="_blank" title="새창열림">▷역사·문화학과</a></li>
+							<li><a href="https://sopia.ulsan.ac.kr" target="_blank" title="새창열림">▷철학·상담학과</a></li>
+							<li><a href="https://ss.ulsan.ac.kr" target="_blank" title="새창열림">■사회과학대학</a></li>
+							<li><a href="https://ss.ulsan.ac.kr" target="_blank" title="새창열림">▷사회과학부</a></li>
+							<li><a href="https://economics.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ경제학전공</a></li>
+							<li><a href="https://public.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ행정학전공</a></li>
+							<li><a href="https://ir.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ국제관계학전공</a></li>
+							<li><a href="https://sociologyandsocialwelfare.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ사회·복지학전공</a></li>
+							<li><a href="https://law.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ법학전공</a></li>
+							<li><a href="https://policescience.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ경찰학전공</a></li>
+							<li><a href="https://cba.ulsan.ac.kr" target="_blank" title="새창열림">■경영대학</a></li>
+							<li><a href="https://mgmt.ulsan.ac.kr" target="_blank" title="새창열림">▷경영학부</a></li>
+							<li><a href="https://mgmt.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ경영학전공</a></li>
+							<li><a href="https://mgmt.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ글로벌경영학전공</a></li>
+							<li><a href="https://mgmt.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ경영학전공(야)</a></li>
+							<li><a href="https://mis.ulsan.ac.kr" target="_blank" title="새창열림">▷경영정보학과</a></li>
+							<li><a href="https://accounting.ulsan.ac.kr" target="_blank" title="새창열림">▷회계학과</a></li>
+							<li><a href="https://nasti.ulsan.ac.kr" target="_blank" title="새창열림">■과학기술융합대학</a></li>
+							<li><a href="https://math.ulsan.ac.kr" target="_blank" title="새창열림">▷수학과</a></li>
+							<li><a href="https://chem.ulsan.ac.kr" target="_blank" title="새창열림">▷나노에너지화학과</a></li>
+							<li><a href="https://physics.ulsan.ac.kr" target="_blank" title="새창열림">▷물리학과</a></li>
+							<li><a href="https://semiconductor.ulsan.ac.kr" target="_blank" title="새창열림">▷반도체학과</a></li>
+							<li><a href="https://biology.ulsan.ac.kr" target="_blank" title="새창열림">▷생명과학부</a></li>
+							<li><a href="https://biology.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ생명과학전공 / 의생명과학</a></li>
+							<li><a href="https://sports.ulsan.ac.kr" target="_blank" title="새창열림">▷스포츠과학부</a></li>
+							<li><a href="https://sports.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ생활체육전공</a></li>
+							<li><a href="https://sports.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ운동건강관리전공</a></li>
+							<li><a href="https://hecology.ulsan.ac.kr" target="_blank" title="새창열림">■생활과학대학</a></li>
+							<li><a href="https://hecology.ulsan.ac.kr" target="_blank" title="새창열림">▷생활과학부</a></li>
+							<li><a href="https://child.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ아동·가정복지학전공</a></li>
+							<li><a href="https://housing.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ주거환경학전공</a></li>
+							<li><a href="https://nutri.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ식품영양학전공</a></li>
+							<li><a href="https://ct.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ의류학전공</a></li>
+							<li><a href="https://uit.ulsan.ac.kr" target="_blank" title="새창열림">■공과대학</a></li>
+							<li><a href="https://meuou.ulsan.ac.kr" target="_blank" title="새창열림">▷기계공학부</a></li>
+							<li><a href="https://meuou.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ기계자동차공학전공</a></li>
+							<li><a href="https://meuou.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ항공우주공학전공</a></li>
+							<li><a href="https://ie.ulsan.ac.kr" target="_blank" title="새창열림">▷산업경영공학부</a></li>
+							<li><a href="https://naoe.ulsan.ac.kr" target="_blank" title="새창열림">▷조선해양공학부</a></li>
+							<li><a href="https://see.ulsan.ac.kr" target="_blank" title="새창열림">▷전기공학부</a></li>
+							<li><a href="https://ee.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ전기전자공학전공</a></li>
+							<li><a href="https://bme.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ의공학전공</a></li>
+							<li><a href="https://che.ulsan.ac.kr" target="_blank" title="새창열림">▷화학공학부</a></li>
+							<li><a href="https://mse.ulsan.ac.kr" target="_blank" title="새창열림">▷첨단소재공학부</a></li>
+							<li><a href="https://itc.ulsan.ac.kr" target="_blank" title="새창열림">▷IT융합학부</a></li>
+							<li><a href="https://cicweb.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍIT융합전공</a></li>
+							<li><a href="https://ai.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍAI융합전공</a></li>
+							<li><a href="https://ce.ulsan.ac.kr" target="_blank" title="새창열림">▷건설환경공학부</a></li>
+							<li><a href="https://ucad.ulsan.ac.kr" target="_blank" title="새창열림">■디자인·건축융합대학</a></li>
+							<li><a href="https://usoa.ulsan.ac.kr" target="_blank" title="새창열림">▷건축학부</a></li>
+							<li><a href="https://archi.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ건축학전공(5년)</a></li>
+							<li><a href="https://building.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ건축공학전공</a></li>
+							<li><a href="https://isd.ulsan.ac.kr" target="_blank" title="새창열림">▷실내공간디자인학과</a></li>
+							<li><a href="https://ucad.ulsan.ac.kr" target="_blank" title="새창열림">▷디자인학부</a></li>
+							<li><a href="https://ped.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ산업디자인학전공</a></li>
+							<li><a href="https://dcd.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ디지털콘텐츠디자인학전공</a></li>
+							<li><a href="https://vcd.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ시각디자인학전공</a></li>
+							<li><a href="https://arts.ulsan.ac.kr" target="_blank" title="새창열림">■예술대학</a></li>
+							<li><a href="https://music.ulsan.ac.kr" target="_blank" title="새창열림">▷음악학부</a></li>
+							<li><a href="https://music.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ성악전공</a></li>
+							<li><a href="https://music.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ피아노전공</a></li>
+							<li><a href="https://music.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ관현악전공</a></li>
+							<li><a href="https://uouart.ulsan.ac.kr" target="_blank" title="새창열림">▷미술학부</a></li>
+							<li><a href="https://uouart.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ동양화전공</a></li>
+							<li><a href="https://uouart.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ서양화전공</a></li>
+							<li><a href="https://uouart.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ조소전공</a></li>
+							<li><a href="https://uouart.ulsan.ac.kr" target="_blank" title="새창열림"> ㆍ섬유디자인학전공</a></li>
+							<li><a href="https://www.medulsan.ac.kr" target="_blank" title="새창열림">■의과대학</a></li>
+							<li><a href="https://www.medulsan.ac.kr" target="_blank" title="새창열림">▷의예과 / 의학과</a></li>
+							<li><a href="https://nursing.ulsan.ac.kr" target="_blank" title="새창열림">▷간호학과</a></li>
+							<li><a href="https://cge.ulsan.ac.kr" target="_blank" title="새창열림">■교양대학</a></li>
+							<li><a href="https://cge.ulsan.ac.kr" target="_blank" title="새창열림">▷교양학부</a></li>
+							<li><a href="https://grad.ulsan.ac.kr" target="_blank" title="새창열림">■일반대학원</a></li>
+							<li><a href="https://edu.ulsan.ac.kr" target="_blank" title="새창열림">■교육대학원</a></li>
+							<li><a href="https://gspp.ulsan.ac.kr" target="_blank" title="새창열림">■정책대학원</a></li>
+							<li><a href="https://mba.ulsan.ac.kr" target="_blank" title="새창열림">■경영대학원</a></li>
+							<li><a href="https://industry.ulsan.ac.kr" target="_blank" title="새창열림">■산업대학원</a></li>
+							<li><a href="https://uouapn.ulsan.ac.kr" target="_blank" title="새창열림">▷임상전문간호학전공</a></li>
+							<li><a href="https://gencoun.ulsan.ac.kr" target="_blank" title="새창열림">▷유전상담학전공</a></li>
+							<li><a href="https://education.ulsan.ac.kr" target="_blank" title="새창열림">■교육학과</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <div class="family-box">
+                <dl>
+                    <dt class="title"><a href="#none">부서/부속기관/사업단</a></dt>
+                    <dd class="family-cont">
+                        <ul>
+                            <li><a href="https://rfc.ulsan.ac.kr" target="_blank" title="새창열림">공동기기센터</a></li>
+                            <li><a href="https://icee.ulsan.ac.kr" target="_blank" title="새창열림">공학교육혁신센터</a></li>
+                            <li><a href="https://gifted.ulsan.ac.kr" target="_blank" title="새창열림">과학영재교육원</a></li>
+                            <li><a href="https://teaching.ulsan.ac.kr" target="_blank" title="새창열림">교무처교직팀</a></li>
+                            <li><a href="https://uoukorean.ulsan.ac.kr" target="_blank" title="새창열림">국어문화원</a></li>
+                            <li><a href="https://international.ulsan.ac.kr" target="_blank" title="새창열림">국제교류처</a></li>
+                            <li><a href="https://bsri.ulsan.ac.kr" target="_blank" title="새창열림">기초과학연구소</a></li>
+                            <li><a href="https://bkphysics.ulsan.ac.kr" target="_blank" title="새창열림">물리BK 미래혁신응집물질물리인재교육연구단</a></li>
+                            <li><a href="https://makerspace.ulsan.ac.kr" target="_blank" title="새창열림">메이커스페이스</a></li>
+                            <li><a href="https://uoubts.ulsan.ac.kr" target="_blank" title="새창열림">미래기술혁신융합형인재양성센터</a></li>
+                            <li><a href="https://bangudae.ulsan.ac.kr" target="_blank" title="새창열림">반구대암각화유적보존연구소</a></li>
+                            <li><a href="https://boyuk.ulsan.ac.kr" target="_blank" title="새창열림">보육교사교육원</a></li>
+                            <li><a href="https://linc.ulsan.ac.kr" target="_blank" title="새창열림">산학연협력선도대학육성사업(LINC3.0)사업단</a></li>
+                            <li><a href="https://eeck.ulsan.ac.kr" target="_blank" title="새창열림">스마트전자(ICT) 창의·융합기술 인력양성사업단</a></li>
+                            <li><a href="https://smartmfg.ulsan.ac.kr" target="_blank" title="새창열림">스마트제조고급인력양성센터</a></li>
+                            <li><a href="https://yebigun.ulsan.ac.kr" target="_blank" title="새창열림">예비군연대</a></li>
+                            <li><a href="https://lec.ulsan.ac.kr" target="_blank" title="새창열림">외국어교육센터</a></li>
+                            <li><a href="https://media.ulsan.ac.kr" target="_blank" title="새창열림">울산대미디어</a></li>
+                            <li><a href="https://bk21four.ulsan.ac.kr" target="_blank" title="새창열림">울산대학교 BK21 FOUR</a></li>
+                            <li><a href="https://fund.ulsan.ac.kr" target="_blank" title="새창열림">울산대학교 발전기금</a></li>
+                            <li><a href="https://bmit.ulsan.ac.kr" target="_blank" title="새창열림">의과학기술연구소</a></li>
+                            <li><a href="https://info.ulsan.ac.kr" target="_blank" title="새창열림">정보통신원</a></li>
+                            <li><a href="https://encounter.ulsan.ac.kr" target="_blank" title="새창열림">진로심리상담센터</a></li>
+                            <li><a href="https://startup.ulsan.ac.kr/" target="_blank" title="새창열림">창업지원단</a></li>
+                            <li><a href="https://uousports.ulsan.ac.kr" target="_blank" title="새창열림">체육지원국</a></li>
+                            <li><a href="https://cec.ulsan.ac.kr" target="_blank" title="새창열림">평생교육원</a></li>
+                            <li><a href="https://140rotc.ulsan.ac.kr" target="_blank" title="새창열림">학생군사교육단</a></li>
+                            <li><a href="https://dormitory.ulsan.ac.kr" target="_blank" title="새창열림">학생생활관</a></li>
+                            <li><a href="https://uoasis.ulsan.ac.kr/uoasis" target="_blank" title="새창열림">현장학습포털</a></li>
+                            <li><a href="https://icit.ulsan.ac.kr" target="_blank" title="새창열림">화학산업종합연구소</a></li>
+                            <li><a href="https://bk21bio.ulsan.ac.kr" target="_blank" title="새창열림">BK21 면역대사 통합형 인재양성 교육연구팀</a></li>
+                            <li><a href="https://bk21fourchem.ulsan.ac.kr" target="_blank" title="새창열림">BK21 산학융합형 정밀화학 미래인재양성 교육연구팀</a></li>
+                            <li><a href="https://bk21cheme.ulsan.ac.kr" target="_blank" title="새창열림">BK21 지역 화학산업 융합 연구인력양성 교육연구팀</a></li>
+                            <li><a href="https://bk21me.ulsan.ac.kr" target="_blank" title="새창열림">BK21PLUS 기계공학부</a></li>
+                            <li><a href="https://uspchamber.ulsan.ac.kr" target="_blank" title="새창열림">USP chamber</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <div class="family-box">
+                <dl>
+                    <dt class="title"><a href="#none">관련사이트</a></dt>
+                    <dd class="family-cont">
+                        <ul>
+							<li><a href="https://ulsan.familynet.or.kr" target="_blank" title="새창열림"><span>건강가정지원센터</span></a></li>
+							<li><a href="https://kyohyup.ulsan.ac.kr" target="_blank" title="새창열림"><span>교수협의회</span></a></li>
+							<li><a href="https://www.knbank.co.kr" target="_blank" title="새창열림"><span>구내(경남)은행</span></a></li>
+							<li><a href="https://cafe.naver.com/uoulaborunion" target="_blank" title="새창열림"><span>노동조합</span></a></li>
+							<li><a href="https://uouirb.ulsan.ac.kr" target="_blank" title="새창열림"><span>생명윤리위원회</span></a></li>
+							<li><a href="https://linc.ulsan.ac.kr" target="_blank" title="새창열림"><span>온라인 기술거래 플랫폼</span></a></li>
+							<li><a href="https://media.ulsan.ac.kr" target="_blank" title="새창열림"><span>울산대신문</span></a></li>
+							<li><a href="http://alumni.ulsan.ac.kr" target="_blank" title="새창열림"><span>울산대학교 총동문회</span></a></li>
+							<li><a href="https://www.uuh.ulsan.kr" target="_blank" title="새창열림"><span>울산대학교병원</span></a></li>
+							<li><a href="https://safety.ulsan.ac.kr" target="_blank" title="새창열림"><span>캠퍼스안전관리</span></a></li>
+							<li><a href="https://ulms.ulsan.ac.kr" target="_blank" title="새창열림"><span>UCLASS</span></a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container-wrap">
+        <div class="inner">
+            <div class="logo">
+                <a href="#" title="울산대학교">
+                    <img src="/images/front/main_temp/footer/footer003/footer-logo.png" alt="울산대학교로고"/>
+                </a>
+            </div>
+            <div class="ft-wrap">
+                <div class="ft-top">
+                    <ul>
+                    	<li><a href="https://www.ulsan.ac.kr/kor/CMS/PrivaciesMgr/list.do?mCode=MN260" target="_blank" title="개인정보처리방침">개인정보처리방침</a></li>
+                        <li><a href="http://www.ulsan.ac.kr/kor/CMS/Contents/Contents.do?mCode=MN290" target="_blank" title="이메일무단수집거부">이메일무단수집거부</a></li>
+                        <li><a href="http://www.ulsan.ac.kr/kor/CMS/Contents/Contents.do?mCode=MN178" target="_blank" title="홈페이지의무공개대상">홈페이지의무공개대상</a></li>
+                    </ul>
+                </div>
+                <div class="ft-info">
+                    <p class="ft-addr">
+                    	울산광역시 남구 대학로 93 울산대학교 22호관 320호</p>
+                    <p class="ft-copy">COPYRIGHT &copy; 2022 UNIVERSITY OF ULSAN. ALL RIGHTS RESERVED.</p>
+                </div>
+            </div>
+            
+            <div class="ft-bot"> 
+                <span  class="ft_sns">
+                    <a href="https://www.youtube.com/channel/UClb8Gcy7ZwVnuPPQuXqfd6Q"  target="_blank" title="울산대학교유튜브"><img src="/images/front/main_temp/footer/footer003/footer_youtube.png" alt="울산대학교유튜브"></a>
+                    <a href="https://www.facebook.com/universityofulsan" target="_blank" title="울산대학교페이스북"><img src="/images/front/main_temp/footer/footer003/footer_facebook.png" alt="울산대학교페이스북"></a>
+                    <a href="https://www.instagram.com/university_of_ulsan/"  target="_blank" title="울산대학교인스타그램"><img src="/images/front/main_temp/footer/footer003/footer_instagram.png" alt="울산대학교인스타그램"></a>
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer003-->
+<button type="button" class="topBtn border-0"></button>
+
+
+</section>	
+</body>
+</html>

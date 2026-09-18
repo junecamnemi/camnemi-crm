@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no" />
+<meta property="og:url" content="https://suborg.kiwu.ac.krinternational/index.do" />
+<meta property="og:title" content="국제교류원에 오신것을 환영합니다." />
+<meta property="og:description" content="메인" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="국제교류원에 오신것을 환영합니다."/>
+<title>국제교류원에 오신것을 환영합니다. 메인</title>
+
+<!--[if lt IE 9]>
+<script src="../js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="/type/common/css/common.css" /><!-- reset -->
+<link rel="stylesheet" type="text/css" href="/type/common/css/board.css" /><!-- board -->
+<link rel="stylesheet" type="text/css" href="/type/DEPT_A/css/layout.css" /><!-- 개별 -->
+<link rel="stylesheet" type="text/css" href="/type/DEPT_A/css/main.css" /><!-- main -->
+<link rel="stylesheet" type="text/css" href="/type/common/css/pop_zone.css" />
+
+<script src="/js/jquery-2.2.1.min.js"></script>
+<script src="/type/common/js/jquery.font-accessibility.dev.js"></script>
+
+<!-- slick -->
+<link rel="stylesheet" type="text/css" href="/type/common/js/slick/slick.css" />
+<script src="/type/common/js/slick/slick.min.js"></script>
+<!-- <script src="/type/common/js/slick/slick.acc.js"></script> -->
+
+<!-- mCustomScrollbar -->
+<link rel="stylesheet" type="text/css" href="/type/common/js/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+<script src="/type/common/js/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<!-- main -->
+
+
+<script src="/js/jquery.form.js"></script>
+<script src="/js/jquery-ui.min.js"></script>
+<script src="/type/common/js/comm_fr.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/jquery.tmpl.js"></script>
+
+<script type="text/javascript" src="/type/common/js/board.js"></script><!-- board -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PHWRRKT');</script>
+<!-- End Google Tag Manager -->
+<!-- <script type="text/javascript" src="/type/common/js/counter/waypoints.min.js"></script>
+<script type="text/javascript" src="/type/common/js/counter/jquery.counterup.min.js"></script> -->
+<script>
+
+//	if("true" == 'true'){
+//		location.href = '/sso/business.jsp';
+//	}
+
+var date = new Date();
+
+$().ready(function() {
+	if(getCookie("isSsoCheck") == ""){
+		if("true" == 'true'){
+			//location.href = '/sso/business.jsp';
+		}
+	}
+	
+ 	 
+    
+	$(document).on("click",".mBoard .btn_arrMore", function(){
+		var obj = $(".mBoard .board_tab li").find("button.on");
+        location.href = "/international/cms/CMN_CON/MainLink.do?GBN=BL&TEMP_CODE="+$(obj).data("tc")+"&BASE_SITE_NO="+$(obj).data("bsn")+"&CONFIG_CD="+$(obj).data("cc")+"&CONFIG_SEQ="+$(obj).data("cs")+"&SUB_SEQ="+$(obj).data("ss");
+	});  
+});
+
+function closePop(obj){
+    if($(obj).prop("checked")){
+        setCookie($(obj).parents("div.pop").attr("id"),"done",1);
+    }
+    $(obj).parents("div.pop").remove();
+}
+
+function closeTopBanner(obj){
+    if($(obj).prop("checked")){
+        setCookie("headTop_bnr","done",1);
+    	$("#header").removeAttr('style');
+		$("body").removeClass('typeHeadBnr');
+    }
+}
+
+function removeTag( html ) {
+	if(html == null) return html;
+	else return html.replace(/(<([^>]+)>)/gi, "");
+}
+
+</script>
+</head>
+<body class="typeMain">
+    
+<div id="skip_menu">
+	<a href="#header">헤더 바로가기</a>
+	<a href="#contents">컨텐츠 바로가기</a>
+	<a href="#footer">푸터 바로가기</a>
+</div>
+
+<div id="dim"></div>
+
+
+
+
+
+<script>
+var gnbDep1 = 1;
+var gnbDep2 = 0;
+var gnbDep3 = 0;
+
+function setHref(obj, org){
+	if(window.innerWidth >= 1041){
+		if($(obj).find("> ul > li").length > 0){
+			if($(obj).find(">a").data("sub")=="Y"){
+				$(org).find(">a").attr("href",$(obj).find("> ul > li:eq(0) > a").attr("href"));
+				$(org).find(">a").attr("target",$(obj).find("> ul > li:eq(0) > a").attr("target"));
+			}else{
+				$(org).find(">a").attr("href",$(org).find(">a").attr("href"));
+			}
+			setHref($(obj).find("> ul > li:eq(0)"),org);
+		}	
+	}
+}
+
+function isChk(obj){
+	return $(obj).find("li.chk").length > 0 ? true : $(obj).hasClass("chk");
+}
+
+function fn_ssoLogin(){
+	
+		location.href = '/sso_new/login.jsp';
+		//location.href = '/sso_new/business.jsp';
+	
+}
+function fn_ssoLogout(){
+	
+}
+
+
+$(function(){
+	$(document).on("click", "ul#gnb li, ul#snb li", function(){
+		setHref($(this),$(this));
+	});
+	
+	$("ul#gnb>li").each(function(idx){
+		if(isChk($(this))) gnbDep1 = idx+1;
+	});
+	$("ul#gnb>li:nth-child("+gnbDep1+") > ul > li").each(function(idx){
+		if(isChk($(this))) gnbDep2 = idx+1;
+	});
+	$("ul#gnb>li:nth-child("+gnbDep1+")> ul > li:nth-child("+gnbDep2+") > ul > li").each(function(idx){
+		if(isChk($(this))) gnbDep3 = idx+1;
+	});
+	$("ul#gnb>li:nth-child("+gnbDep1+")> ul > li:nth-child("+gnbDep2+") > ul > li:nth-child("+gnbDep3+") > ul > li").each(function(idx){
+		if(isChk($(this))){
+			gnbDep4 = idx+1;
+		}
+	});
+	
+	$("div.sVisual .sVisual_tit").text($("#gnb > li:nth-child("+gnbDep1+") > a").text());
+	$("#contents .pageTit").text("");
+	
+	$(document).on("click", ".btn_topSearch", function(){
+		ifrPop('SearchPop','/international/cms/FR_CON/SearchPop.do');
+		$("#iframeSearchPop").css("top","");
+	});
+	
+	$(document).on("click", ".btn_topSitemap", function(){
+	    fn_comm_ajax({
+	        url : "/ajaxf/FR_SVC/SiteMap.do",
+	        data : {SITE_NO : '42'},
+	        dataType : "json",
+	        success : function(data) {
+	            if(data != null && data != ""){
+	            	location.href = "/international/cms/FR_CON/index.do?MENU_ID=" + data.MENU_NO;
+	            }
+	        }
+	    });
+	});
+	
+	$(window).bind('load', function(){
+		logoSizeChg();
+	});
+	
+	$(window).bind('resize', function(){
+		logoSizeChg();
+	});
+	
+	function logoSizeChg(){
+		if(window.innerWidth <= 768){
+			$(".logo a").css("background-size","100% auto");
+		}else{
+			$(".logo a").css("background-size","");
+		}
+	}
+});
+
+</script>
+<style>
+</style>
+<div id="header">
+	<header>
+		<h1 class="logo">
+			<a href="/international/index.do">
+				<img src="/ajaxf/CMN_SVC/FileView.do?GBN=X01&SITE_GROUP_NO=5&SITE_NO=42" alt="국제교류원에 오신것을 환영합니다." />
+				<span><img src="/ajaxf/CMN_SVC/FileView.do?GBN=X01&MOBILE=Y&SITE_GROUP_NO=5&SITE_NO=42" alt="국제교류원에 오신것을 환영합니다." /></span>
+			</a>
+		</h1>
+		
+		<button type="button" id="btn_mMenu">MENU</button>
+		
+        <div id="gnb_dim"></div>
+        <nav>
+			<ul id="gnb">
+				
+				<li class="child" >
+					<a href="/international/cms/FR_CON/index.do?MENU_ID=30" data-sub="Y" target="_self" title="현재창">대학입학</a>
+					
+					
+						<ul class="menuM">
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=350" target="_self" data-sub="Y" title="현재창">대학 입학 안내(9월 학기)</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=360" target="_self" data-sub="Y" title="현재창">지원자격 및 제출서류</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=390" target="_self" data-sub="Y" title="현재창">입학지원서 및 자기소개서(D-2)</a>
+								
+							</li>
+						
+						</ul>
+					
+				</li>
+				
+				<li class="child" >
+					<a href="/international/cms/FR_CON/index.do?MENU_ID=20" data-sub="Y" target="_self" title="현재창">한국어과정</a>
+					
+					
+						<ul class="menuM">
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=160" target="_self" data-sub="Y" title="현재창">학사정보</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=170" target="_self" data-sub="Y" title="현재창">지원 및 등록</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=180" target="_self" data-sub="Y" title="현재창">기숙사</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=190" target="_self" data-sub="Y" title="현재창">장학금 및 한국 문화체험</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=200" target="_self" data-sub="Y" title="현재창">진학지도</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=210" target="_self" data-sub="Y" title="현재창">학교생활 및 체류안내</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=220" target="_self" data-sub="Y" title="현재창">입학지원서 및 자기소개서(D-4)</a>
+								
+							</li>
+						
+						</ul>
+					
+				</li>
+				
+				<li class="child" >
+					<a href="/international/cms/FR_CON/index.do?MENU_ID=40" data-sub="Y" target="_self" title="현재창">자료실</a>
+					
+					
+						<ul class="menuM">
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=230" target="_self" data-sub="Y" title="현재창">공지사항</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=240" target="_self" data-sub="Y" title="현재창">유익한 정보</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=250" target="_self" data-sub="Y" title="현재창">양식 자료실</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=410" target="_self" data-sub="Y" title="현재창">지난 모집요강</a>
+								
+							</li>
+						
+						</ul>
+					
+				</li>
+				
+				<li class="child" >
+					<a href="/international/cms/FR_CON/index.do?MENU_ID=400" data-sub="N" target="_self" title="현재창">글로벌홍보</a>
+					
+					
+						<ul class="menuM">
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=370" target="_self" data-sub="N" title="현재창">영상앨범</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=260" target="_self" data-sub="N" title="현재창">포토앨범</a>
+								
+							</li>
+						
+						</ul>
+					
+				</li>
+				
+				<li class="child" >
+					<a href="/international/cms/FR_CON/index.do?MENU_ID=10" data-sub="Y" target="_self" title="현재창">조직소개</a>
+					
+					
+						<ul class="menuM">
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=120" target="_self" data-sub="Y" title="현재창">소개</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=140" target="_self" data-sub="Y" title="현재창">찾아오시는 길</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=150" target="_self" data-sub="Y" title="현재창">담당업무	</a>
+								
+							</li>
+						
+						</ul>
+					
+				</li>
+				
+				<li class="child" style="display : none;">
+					<a href="/international/cms/FR_CON/index.do?MENU_ID=50" data-sub="Y" target="_self" title="현재창">English</a>
+					
+					
+						<ul class="menuM">
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=270" target="_self" data-sub="Y" title="현재창">Introduction</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=280" target="_self" data-sub="Y" title="현재창">Korean Language Program</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=290" target="_self" data-sub="Y" title="현재창">Admission to University</a>
+								
+							</li>
+						
+						</ul>
+					
+				</li>
+				
+				<li class="child" style="display : none;">
+					<a href="/international/cms/FR_CON/index.do?MENU_ID=60" data-sub="Y" target="_self" title="현재창">汉语</a>
+					
+					
+						<ul class="menuM">
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=300" target="_self" data-sub="Y" title="현재창">大学介绍</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=310" target="_self" data-sub="Y" title="현재창">韩国语课程</a>
+								
+							</li>
+						
+						</ul>
+					
+				</li>
+				
+				<li class="child" style="display : none;">
+					<a href="/international/cms/FR_CON/index.do?MENU_ID=80" data-sub="Y" target="_self" title="현재창">Монгол хэл</a>
+					
+					
+						<ul class="menuM">
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=320" target="_self" data-sub="Y" title="현재창">танилцуулга</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=330" target="_self" data-sub="Y" title="현재창">Солонгос хэлний сургалт</a>
+								
+							</li>
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=340" target="_self" data-sub="Y" title="현재창">Дээд сургуулийн элсэлт	</a>
+								
+							</li>
+						
+						</ul>
+					
+				</li>
+				
+				<li class="" style="display : none;">
+					<a href="/international/cms/FR_CON/index.do?MENU_ID=90" data-sub="Y" target="_self" title="현재창">Tiếng Việt Nam</a>
+					
+					
+				</li>
+				
+				<li class="child" style="display : none;">
+					<a href="/international/cms/FR_CON/index.do?MENU_ID=100" data-sub="Y" target="_self" title="현재창">사이트맵</a>
+					
+					
+						<ul class="menuM">
+						
+							<li class="">
+								<a href="/international/cms/FR_CON/index.do?MENU_ID=110" target="_self" data-sub="Y" title="현재창">사이트맵</a>
+								
+							</li>
+						
+						</ul>
+					
+				</li>
+				
+			</ul>
+			
+			<div class="top_util">
+				<a href="http://www.kiwu.ac.kr/ko/index.do">대학홈페이지</a>
+				
+				
+					<button type="button" class="btn_login" onclick="fn_ssoLogin();">로그인</button>
+				
+				
+				
+				<button type="button" id="btn_topSitemap" class="btn_topSitemap">사이트맵</button>
+				
+			</div>
+			<button type="button" id="btn_mClose">CLOSE</button>
+		</nav>
+	</header>
+</div>			
+<script src="/type/DEPT_A/js/layout.js"></script><script>
+var gnbDep1 = 0;
+var gnbDep2 = 0;
+var gnbDep3 = 0;
+
+	$(function(){
+		var C1401_1_isAuto = true;
+		var C1401_1_playSpeed = 3000;
+		
+	    if("1" < 2 || "N" != "Y"){
+	    	C1401_1_isAuto = false;
+	    	$(".mVisual .list_control").hide();
+	    }else{
+	    	if("" != "") C1401_1_playSpeed = Number("") * 1000;
+	    }
+		
+		$('.mVisual .list').slick({
+			infinite: true,
+			arrows: false,
+			dots: false,
+	        autoplay: C1401_1_isAuto,
+	        autoplaySpeed: C1401_1_playSpeed
+		});
+		
+		var C1401_2_isAuto = true;
+		var C1401_2_playSpeed = 3000;
+		
+	    if("1" < 2 || "N" != "Y"){
+	    	C1401_2_isAuto = false;
+	    	$(".mAlbum .list_control").hide();
+	    }else{
+	    	if("" != "") C1401_2_playSpeed = Number("") * 1000;
+	    }
+
+		$('.mAlbum .list').slick({
+			infinite: true,
+			arrows: true,
+			dots: false,
+	        autoplay: C1401_2_isAuto,
+	        autoplaySpeed: C1401_2_playSpeed
+		});
+		var mSlideNum = $('.mAlbum .list .unit').length;
+		if(mSlideNum == 1){
+			$(".mAlbum .list+.list_control").hide();
+		}else{
+			$(".mAlbum .list+.list_control").show();
+		}
+
+		$('.mQuick .list').slick({
+			infinite: true,
+			arrows: false,
+			dots: false,
+			autoplay:false,
+			autoplaySpeed: 3500,
+			slidesToShow: 5,
+  			slidesToScroll: 1,
+			focusOnSelect: true,
+			swipeToSlide: true,
+			responsive: [
+				{
+					breakpoint: 768,
+					settings: {
+						arrows: true,
+						slidesToShow: 4
+					}
+				},
+				{
+					breakpoint: 560,
+					settings: {
+						arrows: true,
+						slidesToShow: 3
+					}
+				},
+				,
+				{
+					breakpoint: 360,
+					settings: {
+						arrows: true,
+						slidesToShow: 2
+					}
+				}
+			]
+		});
+
+		$('.mJob .list').slick({
+			infinite: false,
+			arrows: false,
+			dots: false,
+			slidesToShow: 4,
+  			slidesToScroll: 1,
+			variableWidth: true,
+			focusOnSelect: true,
+			swipeToSlide: true,
+			responsive: [
+				{
+					breakpoint: 1041,
+					settings: {
+						slidesToShow: 3,
+					}
+				},
+				{
+					breakpoint: 920,
+					settings: {
+						slidesToShow: 2,
+					}
+				},
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 1,
+					}
+				}
+			]
+		});
+
+		$(".mBoard .board_tab li button").click(function(){
+			var tab_loc = $(this).parent('li').index();
+
+			$(".mBoard .board_tab li button").removeClass('on');
+			$(".mBoard .board_list .grp").removeClass('on');
+			$(this).addClass('on');
+			$(".mBoard .board_list .grp:nth-of-type(" + (tab_loc+1) + ")").addClass('on');
+		});
+	});
+
+</script>
+<section id="contents">
+	<div class="top_conts">
+		<div class="mVisual">
+				<div class="list">
+					<div class="unit" style="background-image:url(/ajaxfile/CMN_SVC/FileView.do?GBN=X04&TEMP_CODE=DEPT_A&CONFIG_CD=C1401&CONFIG_SEQ=1&SITE_NO=42&SUB_SEQ=1)">
+							<span class="mImg"><img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X04&MOBILE=Y&TEMP_CODE=DEPT_A&CONFIG_CD=C1401&CONFIG_SEQ=1&SITE_NO=42&SUB_SEQ=1" alt="Global Education Center Global Kyungin을 위한 창구" /></span>
+							<dl>
+								<dt>
+									Global Education Center</dt>
+								<dd>
+									Global Kyungin을 위한 창구</dd>
+							</dl>
+						</div>
+					</div>
+			</div>
+		<div class="mAlbum">
+				<h2>국제교류원 소개</h2>
+				<div class="list">
+					<div class="unit">
+							<a href="/international/cms/FR_CON/index.do?MENU_ID=150" target="_self">
+								<dl style="background-image:url(/ajaxfile/CMN_SVC/FileView.do?GBN=X04&TEMP_CODE=DEPT_A&CONFIG_CD=C1401&CONFIG_SEQ=2&SITE_NO=42&SUB_SEQ=1)">
+									<dt>Introduction</dt>
+									<dd>경인여자대학교 국제교류원에 오신 여러분을 환영합니다.</dd>
+								</dl>
+							</a>
+						</div>
+					</div>
+				<div class="list_control">
+					<button type="button" class="btn_pause">일시정지</button>
+					<button type="button" class="btn_play">재생</button>
+				</div>
+			</div>
+		<div class="mBoard">
+				<ul class="board_tab">
+					<li>
+							<button  class="on" data-tc="DEPT_A" data-bsn="42" data-cc="C1418" data-cs="1" data-ss="1">
+								공지사항</button>
+						</li>
+					<li>
+							<button  data-tc="DEPT_A" data-bsn="42" data-cc="C1418" data-cs="1" data-ss="2">
+								자료실</button>
+						</li>
+					</ul>
+	
+				<div class="board_list">
+					<div class="grp on">
+							<ul>
+									<li>
+											<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1418&CONFIG_SEQ=1&SUB_SEQ=1&SITE_NO=42&BOARD_SEQ=405&BBS_SEQ=1002728">[문화체육관광부] TalkTalk Korea 2026 공모전 참가 안내(9.28(월)까지)</a>
+											<span class="date">2026.09.14</span>
+										</li>
+									<li>
+											<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1418&CONFIG_SEQ=1&SUB_SEQ=1&SITE_NO=42&BOARD_SEQ=405&BBS_SEQ=1002727">[성평등가족부] 폭력피해이주여성 지원 서비스 안내</a>
+											<span class="date">2026.09.08</span>
+										</li>
+									<li>
+											<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1418&CONFIG_SEQ=1&SUB_SEQ=1&SITE_NO=42&BOARD_SEQ=405&BBS_SEQ=1002723">2026-2학기 경인여자대학교  LMS 수강신청 안내</a>
+											<span class="date">2026.08.14</span>
+										</li>
+									<li>
+											<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1418&CONFIG_SEQ=1&SUB_SEQ=1&SITE_NO=42&BOARD_SEQ=405&BBS_SEQ=1002724">[교육혁신센터(교양)] 2026-2학기 교양선택과목 수강신청 안내 및 시간표 공지</a>
+											<span class="date">2026.08.12</span>
+										</li>
+									</ul>
+								
+								<a href="#;" class="btn_more btn_arrMore">더보기</a>
+							</div>
+					<div class="grp ">
+							<ul>
+									<li>
+											<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1418&CONFIG_SEQ=1&SUB_SEQ=2&SITE_NO=42&BOARD_SEQ=532&BBS_SEQ=995905">GKS 정부초청 장학생 Application Form(1~7)</a>
+											<span class="date">2026.09.11</span>
+										</li>
+									<li>
+											<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1418&CONFIG_SEQ=1&SUB_SEQ=2&SITE_NO=42&BOARD_SEQ=532&BBS_SEQ=995903">거주 / 숙소제공 확인서 양식</a>
+											<span class="date">2026.05.14</span>
+										</li>
+									<li>
+											<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1418&CONFIG_SEQ=1&SUB_SEQ=2&SITE_NO=42&BOARD_SEQ=532&BBS_SEQ=995902">한국어학당 등록금 환불 신청 양식 및 환불 절차 안내</a>
+											<span class="date">2026.05.14</span>
+										</li>
+									<li>
+											<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1418&CONFIG_SEQ=1&SUB_SEQ=2&SITE_NO=42&BOARD_SEQ=532&BBS_SEQ=995894">경인여자대학교 입학지원서 및 자기소개서(D-2, Korean)_word</a>
+											<span class="date">2026.04.09</span>
+										</li>
+									</ul>
+								
+								<a href="#;" class="btn_more btn_arrMore">더보기</a>
+							</div>
+					</div>
+			</div>
+		</div>
+			
+		<div class="mQuick">
+				<div class="list">
+					<div class="unit">
+							<a href="/international/cms/FR_CON/index.do?MENU_ID=270" target="_self">
+								<span class="img"><img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X04&TEMP_CODE=DEPT_A&CONFIG_CD=C1402&CONFIG_SEQ=1&SITE_NO=42&SUB_SEQ=1" alt="English" alt="English" /></span>
+								English</a>
+						</div>
+					<div class="unit">
+							<a href="/international/cms/FR_CON/index.do?MENU_ID=300" target="_self">
+								<span class="img"><img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X04&TEMP_CODE=DEPT_A&CONFIG_CD=C1402&CONFIG_SEQ=1&SITE_NO=42&SUB_SEQ=2" alt="汉语" alt="汉语" /></span>
+								汉语</a>
+						</div>
+					<div class="unit">
+							<a href="/international/cms/FR_CON/index.do?MENU_ID=320" target="_self">
+								<span class="img"><img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X04&TEMP_CODE=DEPT_A&CONFIG_CD=C1402&CONFIG_SEQ=1&SITE_NO=42&SUB_SEQ=3" alt="Монгол хэл" alt="Монгол хэл" /></span>
+								Монгол хэл</a>
+						</div>
+					<div class="unit">
+							<a href="/international/cms/FR_CON/index.do?MENU_ID=90" target="_self">
+								<span class="img"><img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X04&TEMP_CODE=DEPT_A&CONFIG_CD=C1402&CONFIG_SEQ=1&SITE_NO=42&SUB_SEQ=4" alt="Tiếng Việt Nam" alt="Tiếng Việt Nam" /></span>
+								Tiếng Việt Nam</a>
+						</div>
+					<div class="unit">
+							<a href="/international/cms/FR_CON/index.do?MENU_ID=140" target="_self">
+								<span class="img"><img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X04&TEMP_CODE=DEPT_A&CONFIG_CD=C1402&CONFIG_SEQ=1&SITE_NO=42&SUB_SEQ=5" alt="오시는길" alt="오시는길" /></span>
+								오시는길</a>
+						</div>
+					</div>
+			</div>
+		<div class="mJob">
+			<div class="mTit">
+				<h2>포토앨범</h2>
+				<p class="tit_txt">경인여자대학교 국제교류원을 소개합니다.</p>
+			</div>
+
+			<div class="list">
+						<div class="unit">
+								<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1419&CONFIG_SEQ=1&SUB_SEQ=1&SITE_NO=42&BOARD_SEQ=408&BBS_SEQ=995953" class="btn_more"> 
+									<dl style="background-image:url(/ajaxf/CMN_SVC/FileView.do?GBN=X02&SITE_NO=42&BOARD_SEQ=408&BBS_SEQ=995953)">
+										<dt>2026년 겨울학기 외국인 유학생 케이크 만들기 문화체험활동</dt>
+										<dd>2026.01.02</dd>
+									</dl>
+								</a>
+								<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1419&CONFIG_SEQ=1&SUB_SEQ=1&SITE_NO=42&BOARD_SEQ=408&BBS_SEQ=995953" class="btn_more">View More</a>
+							</div>
+						<div class="unit">
+								<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1419&CONFIG_SEQ=1&SUB_SEQ=1&SITE_NO=42&BOARD_SEQ=408&BBS_SEQ=995952" class="btn_more"> 
+									<dl style="background-image:url(/ajaxf/CMN_SVC/FileView.do?GBN=X02&SITE_NO=42&BOARD_SEQ=408&BBS_SEQ=995952)">
+										<dt>경인여자대학교 한국어학당, 2025년 겨울학기 개강식 성료</dt>
+										<dd>2025.12.15</dd>
+									</dl>
+								</a>
+								<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1419&CONFIG_SEQ=1&SUB_SEQ=1&SITE_NO=42&BOARD_SEQ=408&BBS_SEQ=995952" class="btn_more">View More</a>
+							</div>
+						<div class="unit">
+								<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1419&CONFIG_SEQ=1&SUB_SEQ=1&SITE_NO=42&BOARD_SEQ=408&BBS_SEQ=995951" class="btn_more"> 
+									<dl style="background-image:url(/ajaxf/CMN_SVC/FileView.do?GBN=X02&SITE_NO=42&BOARD_SEQ=408&BBS_SEQ=995951)">
+										<dt>ASEAN-TVET 인도네시아 교환학생, 문화 소개 이벤트 개최</dt>
+										<dd>2025.12.08</dd>
+									</dl>
+								</a>
+								<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1419&CONFIG_SEQ=1&SUB_SEQ=1&SITE_NO=42&BOARD_SEQ=408&BBS_SEQ=995951" class="btn_more">View More</a>
+							</div>
+						<div class="unit">
+								<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1419&CONFIG_SEQ=1&SUB_SEQ=1&SITE_NO=42&BOARD_SEQ=408&BBS_SEQ=995950" class="btn_more"> 
+									<dl style="background-image:url(/ajaxf/CMN_SVC/FileView.do?GBN=X02&SITE_NO=42&BOARD_SEQ=408&BBS_SEQ=995950)">
+										<dt>경인여자대학교, 외국인 유학생 대상 문화체험 및 스포츠 교류 프로그램 운영</dt>
+										<dd>2025.12.01</dd>
+									</dl>
+								</a>
+								<a href="/international/cms/CMN_CON/MainLink.do?GBN=BA&TEMP_CODE=DEPT_A&BASE_SITE_NO=42&CONFIG_CD=C1419&CONFIG_SEQ=1&SUB_SEQ=1&SITE_NO=42&BOARD_SEQ=408&BBS_SEQ=995950" class="btn_more">View More</a>
+							</div>
+						</div>
+				</div>
+	<div class="btm_conts">
+		<div class="inner">
+			<div class="mBtmBnr">
+					<a href="/international/cms/FR_CON/index.do?MENU_ID=120" target="_self" style="background-color:#634938;background-image:url(/ajaxfile/CMN_SVC/FileView.do?GBN=X04&TEMP_CODE=DEPT_A&CONFIG_CD=C1405&CONFIG_SEQ=1&SITE_NO=42&SUB_SEQ=1)">
+						<p>
+							<strong>인사말</strong>
+							경인의 국제교류를 활성화하고 세계 유수 대학들과의 국제 협력을 통해 우리 대학의 국제화를 추진함과 동시에 각국의 유학생을 유치함으로써 경인의 대내외 경쟁력을 강화하는 중요한 역할을 담당한다.</p>
+					</a>
+				</div>
+			<div class="mSns">
+					<div class="mTit">
+						<h2>SNS</h2>
+						<p class="tit_txt">우리 대학 SNS를 소개합니다.</p>
+					</div>
+					<div class="list">
+						<a href="https://www.facebook.com/playkyungin/" target="_blank"><img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X04&TEMP_CODE=DEPT_A&CONFIG_CD=C1420&CONFIG_SEQ=1&SITE_NO=42&SUB_SEQ=1" alt="페이스북" /></a>
+						<a href="https://blog.naver.com/brandkic" target="_blank"><img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X04&TEMP_CODE=DEPT_A&CONFIG_CD=C1420&CONFIG_SEQ=1&SITE_NO=42&SUB_SEQ=2" alt="블로그" /></a>
+						<a href="https://www.youtube.com/user/brandkic" target="_blank"><img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X04&TEMP_CODE=DEPT_A&CONFIG_CD=C1420&CONFIG_SEQ=1&SITE_NO=42&SUB_SEQ=3" alt="유튜브" /></a>
+						<a href="https://www.instagram.com/kyungin_w_u/" target="_blank"><img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X04&TEMP_CODE=DEPT_A&CONFIG_CD=C1420&CONFIG_SEQ=1&SITE_NO=42&SUB_SEQ=4" alt="인스타그램" /></a>
+						</div>
+				</div>
+			</div>
+	</div>
+</section>
+	<!-- //container -->
+	
+
+
+<!-- floating 메뉴 -->
+<script>
+$(function(){
+	var bnrNum = $(".floatingMenu li").length;
+	$(".floatingMenu ul").removeClass('menu01 menu02 menu03 menu04').addClass('menu0' + bnrNum);
+	/* $(".floatingMenu ul a").each(function (idx){
+		if(idx%2==1){
+			$(this).addClass("on");
+		}	
+	}); */
+
+	var bnrLoc;
+	$(window).scroll(function(){
+		bnrLoc = $(window).scrollTop();
+		fixLoc = $("#footer").offset().top - window.innerHeight;
+
+		if(bnrLoc > fixLoc){
+			$(".floatingMenu").addClass('fixed');
+		}else{
+			$(".floatingMenu").removeClass('fixed');
+		}
+	});
+});
+</script>
+
+<!-- //floating 메뉴 -->
+<div id="footer">
+	
+	<div id="quick_menu">
+		<div class="familySite">
+			
+				<button type="button">대학 홈페이지</button>
+			
+				<button type="button">부속기관 홈페이지</button>
+					
+		</div>
+	</div>
+	
+	
+	<div class="pop_wrap" id="familySite1" style="display:none;">
+		<!-- popup layer(레이어) -->
+		<section class="popLayout2 popLayer">
+			<h1 class="popTit">대학 홈페이지</h1>
+			<div class="popConts">
+			<!-- 팝업 내용 입력-->
+				<div class="popInner limit">
+					<div class="pop_familySite">
+							
+								<ul class="grade2">
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/nursing/index.do" title="새창" target="_blank">간호학과(4년제)</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/design/index.do" title="새창" target="_blank">디지털미디어디자인학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/trade/index.do" title="새창" target="_blank">세무·통상학과_국제통상전공</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/global/index.do" title="새창" target="_blank">관광학과_관광외국어전공</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/health/index.do" title="새창" target="_blank">보건의료행정학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/environment/index.do" title="새창" target="_blank">바이오환경학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/welfare/index.do" title="새창" target="_blank">사회복지학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/tax/index.do" title="새창" target="_blank">세무·통상학과_세무회계전공</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/food/index.do" title="새창" target="_blank">식품영양학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/childart/index.do" title="새창" target="_blank">아동미술보육학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/video/index.do" title="새창" target="_blank">영상방송학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/childedu/index.do" title="새창" target="_blank">유아교육학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/fashion/index.do" title="새창" target="_blank">패션디자인학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/beauty/index.do" title="새창" target="_blank">뷰티학과(2026)</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/airline/index.do" title="새창" target="_blank">항공서비스학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/hotel/index.do" title="새창" target="_blank">관광학과_호텔관광전공</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/ibelle/index.do" title="새창" target="_blank">헤어뷰티학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/culinaryarts/index.do" title="새창" target="_blank">호텔조리베이커리학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://dept.kiwu.ac.kr/software/index.do" title="새창" target="_blank">컴퓨터소프트웨어학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/pettotal/index.do" title="새창" target="_blank">반려동물보건학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/sportshealthcare/index.do" title="새창" target="_blank">스포츠헬스케어학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://dept.kiwu.ac.kr/business-administration/index.do" title="새창" target="_blank">경영학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://dept.kiwu.ac.kr/liberalarts/index.do" title="새창" target="_blank">자유전공학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://dept.kiwu.ac.kr/paramedics/index.do" title="새창" target="_blank">응급구조학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://dept.kiwu.ac.kr/kiwuot/index.do" title="새창" target="_blank">작업치료학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://dept.kiwu.ac.kr/dental/index.do" title="새창" target="_blank">치위생학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://dept.kiwu.ac.kr/animalindustry/index.do" title="새창" target="_blank">반려동물산업학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://dept.kiwu.ac.kr/global-korean-studies/index.do" title="새창" target="_blank">글로벌한국학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://dept.kiwu.ac.kr/rehab/index.do" title="새창" target="_blank">스포츠재활학과</a>
+										</li>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+								</ul>
+								
+								<strong>4년제 학사학위과정</strong>
+								<ul class="grade4">
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<li>
+											<a href="http://univ.kiwu.ac.kr/nursing/index.do" title="새창" target="_blank">간호학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://univ.kiwu.ac.kr/trade/index.do" title="새창" target="_blank">국제통상학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://univ.kiwu.ac.kr/design/index.do" title="새창" target="_blank">디지털미디어디자인학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://univ.kiwu.ac.kr/environment/index.do" title="새창" target="_blank">바이오환경학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://univ.kiwu.ac.kr/tax/index.do" title="새창" target="_blank">세무회계학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://univ.kiwu.ac.kr/food/index.do" title="새창" target="_blank">식품영양학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://univ.kiwu.ac.kr/broadcast/index.do" title="새창" target="_blank">영상방송학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://univ.kiwu.ac.kr/childedu/index.do" title="새창" target="_blank">유아교육학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://univ.kiwu.ac.kr/airline/index.do" title="새창" target="_blank">항공서비스학과</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://univ.kiwu.ac.kr/hotel/index.do" title="새창" target="_blank">호텔관광학과</a>
+										</li>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+								</ul>
+							
+							
+							
+					</div>
+				</div>
+			<!-- //팝업 내용 입력 -->
+			</div>
+			<button type="button" class="btn_popClose">창닫기</button>
+		</section>
+	</div>
+	
+	<div class="pop_wrap" id="familySite2" style="display:none;">
+		<!-- popup layer(레이어) -->
+		<section class="popLayout2 popLayer">
+			<h1 class="popTit">부속기관 홈페이지</h1>
+			<div class="popConts">
+			<!-- 팝업 내용 입력-->
+				<div class="popInner limit">
+					<div class="pop_familySite">
+							
+							
+							
+								<ul>
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<li>
+											<a href="http://suborg.kiwu.ac.kr/chapel/index.do" title="새창" target="_blank">교목실</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://suborg.kiwu.ac.kr/international/index.do" title="새창" target="_blank">국제교류원</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://suborg.kiwu.ac.kr/globalcareer/index.do" title="새창" target="_blank">글로벌커리어센터</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://suborg.kiwu.ac.kr/volunteer/index.do" title="새창" target="_blank">사회공헌센터</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://suborg.kiwu.ac.kr/job/index.do" title="새창" target="_blank">취창업진로지원센터</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://suborg.kiwu.ac.kr/counseling/index.do" title="새창" target="_blank">학생상담센터</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://suborg.kiwu.ac.kr/professor/index.do" title="새창" target="_blank">교육혁신센터</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://lec.kiwu.ac.kr/education/index.do" title="새창" target="_blank">평생교육원</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://suborg.kiwu.ac.kr/degree/index.do" title="새창" target="_blank">학사학위센터</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://suborg.kiwu.ac.kr/service/index.do" title="새창" target="_blank">종합서비스센터</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://placement.kiwu.ac.kr" title="새창" target="_blank">현장실습지원센터</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://library.kiwu.ac.kr" title="새창" target="_blank">도서관</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://suborg.kiwu.ac.kr/computer/index.do" title="새창" target="_blank">전산정보원</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://suborg.kiwu.ac.kr/fund/index.do" title="새창" target="_blank">발전기금</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://www.kidkiwu.co.kr" title="새창" target="_blank">부속유치원</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="http://inno.kiwu.ac.kr/" title="새창" target="_blank">혁신지원사업단</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://suborg.kiwu.ac.kr/hurights/index.do" title="새창" target="_blank">인권센터</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="https://suborg.kiwu.ac.kr/knsc/index.do" title="새창" target="_blank">간호시뮬레이션센터</a>
+										</li>
+									
+								
+								</ul>
+							
+					</div>
+				</div>
+			<!-- //팝업 내용 입력 -->
+			</div>
+			<button type="button" class="btn_popClose">창닫기</button>
+		</section>
+	</div>
+	
+	
+	<footer>
+		<ul class="f_menu">
+		
+			<li class="point">
+				<a href="https://www.kiwu.ac.kr/ko/cms/FR_CON/index.do?MENU_ID=2620" target="_blank" title="새창열림">개인정보처리방침</a>
+			</li>
+		
+		</ul>
+
+		<p class="snsList">
+			
+				<a href="#" target="_blank" title="새창열림"><img src="/ajaxf/CMN_SVC/FileView.do?GBN=X08&BASIC_SEQ=6&INFO_SEQ=7" alt="유튜브" /></a>
+			
+		</p>
+		
+		<p><br></p>
+
+	</footer>
+</div>
+<noscript>
+	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHWRRKT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript></body>
+</html>

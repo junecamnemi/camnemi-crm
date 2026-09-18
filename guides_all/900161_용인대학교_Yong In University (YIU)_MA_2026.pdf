@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<!--<![endif]-->
+<head>
+<!-- title config.value로 나중에 교체 -->
+<title>
+대학원 입학
+ - 용인대학교
+</title>
+<meta charset="UTF-8" />
+<meta http-equiv="content-type-options" content="nosniff" />
+<meta http-equiv="Cache-control" content="no-cache, no-store, max-age=0, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Security-Policy"
+	content="
+		default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval';
+		img-src     'self' data: https://www.google.com https://translate.google.com https://translate.googleapis.com https://www.google-analytics.com https://www.gstatic.com https://img.youtube.com https://i.ytimg.com https://mts.daumcdn.net https://t1.daumcdn.net; 
+		style-src   'self' 'unsafe-inline' https://translate.googleapis.com https://fonts.googleapis.com https://www.gstatic.com;
+		font-src    'self' data: 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.rawgit.com;
+		script-src  'self' 'unsafe-inline' 'unsafe-eval' https://t1.daumcdn.net https://translate.google.com https://translate.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com http://t1.kakaocdn.net https://t1.kakaocdn.net http://developers.kakao.com https://dapi.kakao.com;
+		connect-src 'self' https://translate.googleapis.com https://www.google-analytics.com;
+		frame-src   'self' https://www.youtube.com ;
+	"
+/>
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta name="description" content="" />
+<meta name="viewport" content="" /><!-- 용인대학교 -->
+<link rel="shortcut icon" type="image/x-icon" href="/css/yonginUser/images/common/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/css/yonginUser/lib/css/webfonts.css?ver=1">
+<link rel="stylesheet" type="text/css" href="/css/yonginUser/lib/css/default.css?ver=1">
+<!-- <link rel="stylesheet" type="text/css" href="/css/yonginUser/lib/css/default.min.css?ver=1"> -->
+<!-- <link rel="stylesheet" type="text/css" href="/css/jquery/redmond/jquery-ui-1.8.23.custom.user.css?ver=1" /> -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131233743-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131233743-1');
+</script>
+<!-- wvtex -->
+<script type="text/javaScript" language="javascript" src="/css/yonginUser/lib/js/modernizr.custom.js"></script>
+<script type="text/javaScript" language="javascript" src="/css/yonginUser/lib/js/jquery-1.12.4.min.js"></script>
+<script type="text/javaScript" language="javascript" src="/css/yonginUser/lib/js/jquery-ui-custom.js"></script>
+<script type="text/javaScript" language="javascript" src="/css/yonginUser/lib/js/swiper.min.js"></script>
+<script type="text/javaScript" language="javascript" src="/css/yonginUser/lib/js/main.min.js"></script>
+<script type="text/javaScript" language="javascript" src="/js/wvtex/jquery.wvtex.util.js?ver=3"></script>
+<script type="text/javaScript" language="javascript" src="/js/wvtex/jquery.wvtex.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+
+<script type="text/javascript">
+/**
+ * 페이지 로드시 실행되는 함수
+ */
+function initPage() {
+};
+
+
+</script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	if (typeof initPage === "function") {
+		initPage();
+	}
+	setPageDesign();
+
+	setMainType();
+});
+
+function setPageDesign() {
+	// 디자인 맞추기
+	var totalCnt = $(".pagination").find("li").length;
+
+	if (typeof $(".pagination") !== 'undefined' && totalCnt < 5) {
+		$(".pagination").find("li").attr("style", "border-left:0")
+	}
+};
+
+function setMainType() {
+	var INO = UT.getCookie("INO");
+	if(INO == 'OUT') {
+		$("#INOOUT").addClass('active');
+		$("#INOIN").removeClass('active');
+	} else {
+		$("#INOOUT").removeClass('active');
+		$("#INOIN").addClass('active');
+	}
+};
+</script>
+</head>
+<body onload="">
+	<div class="wrapper">
+		<!-- 메뉴 이동용 폼 -->
+<form name="defaultMenuForm" id="defaultMenuForm" method="post">
+	<input type="hidden" name="currentMenuNo" id="currentMenuNo">
+</form>
+<form name="defaultSearchForm" id="defaultSearchForm" method="post">
+	<input type="hidden" name="searchKeyword">
+</form>
+<header class="header" id="header">
+	<!-- 수정된 슬라이드 top banner  -->
+	<div class="topNav">
+		<div class="topNav--inner topNav__gnb">
+			<nav class="nav">
+				<div class="logo"><a href="/cmn/main/main.do"><img src="/css/yonginUser/images/top_logo.png" alt="Yong In Unversity"></a></div>
+				<div class="lnb-wrap">
+					<ul class="lnb">
+							<li>
+											<a href="#">용인스토리</a>
+												<div class="sm">
+												<div class="kv-nav kv-nav--01">
+		                                            <div class="cont">
+		                                                <p class="name">YONG IN</p>
+		                                                <!--
+		                                                <strong>용인스토리</strong>
+		                                                 -->
+		                                                <p><strong>용인스토리</strong><p>큰 사람을 키우는 대인 교육<br>용인대학교는 70여 년간 재능과 인성을 갖춘<br>진정한 龍仁人을 양성해 오고 있습니다.</p></p>
+		                                            </div>
+		                                        </div>
+												<div class="sm--inner">
+													<ul class="dep2">
+									<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/story/storyMain.do','10707000', 'defaultMenuForm');">용인하이라이트</a>
+																</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/eliteSports/eliteSportsMain.do','107010000', 'defaultMenuForm');">엘리트스포츠</a>
+																</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/world/worldMain.do','107020000', 'defaultMenuForm');">세계가 주목하는 대학</a>
+																</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/tradition/traditionMain.do','107030000', 'defaultMenuForm');">전통문화 계승대학</a>
+																</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/human/humanMain.do','107040000', 'defaultMenuForm');">Y 피플</a>
+																</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/hotNew/hotNewMain.do','107050000', 'defaultMenuForm');">Y 스토리</a>
+																</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/ctrDept/ctrDeptMain.do','107060000', 'defaultMenuForm');">특성화 학과</a>
+																</li>
+													</ul>
+													</div>
+												</div>
+											</li>
+											<li>
+											<a href="#">학교소개</a>
+												<div class="sm">
+												<div class="kv-nav kv-nav--02">
+		                                            <div class="cont">
+		                                                <p class="name">YONG IN</p>
+		                                                <!--
+		                                                <strong>학교소개</strong>
+		                                                 -->
+		                                                <p><strong>학교 소개</strong><p>인공지능 및 4차 산업혁명의 시대에 인간 고유의 영역으로 남을 체육, 문화예술, 복지, 환경분야를 특화시켜 육성하는 <br>용인대학교는 지덕체 함양을 위한 전인교육을 통해 국가 사회를 견인할 지도자를 키워냅니다.</p></p>
+		                                            </div>
+		                                        </div>
+												<div class="sm--inner">
+													<ul class="dep2">
+									<li>
+															<a href="#">학교법인</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101010300/htmlMenuView.do','101010300', 'defaultMenuForm');">학교법인 단호학원</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="#">총장실</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101020100/htmlMenuView.do','101020100', 'defaultMenuForm');">총장 인사말</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101020500/htmlMenuView.do','101020500', 'defaultMenuForm');">개교 73주년 기념사</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101020400/htmlMenuView.do','101020400', 'defaultMenuForm');">총장 취임사</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101020200/htmlMenuView.do','101020200', 'defaultMenuForm');">총장 약력</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="#">대학개요</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101030100/htmlMenuView.do','101030100', 'defaultMenuForm');">건학이념, 교육이념</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101030400/htmlMenuView.do','101030400', 'defaultMenuForm');">WITHUS-HEARTS©⁶</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101030500/htmlMenuView.do','101030500', 'defaultMenuForm');">VISION 2030</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101030200/htmlMenuView.do','101030200', 'defaultMenuForm');">연혁</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/dept/deptMain.do','101030300', 'defaultMenuForm');">대학기구표</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="#">대학기관</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/dept/DSC003/deptMain.do','101040100', 'defaultMenuForm');">대학본부</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/dept/DSC006/deptMain.do','101040200', 'defaultMenuForm');">부속기관</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="#">대학상징</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101050100/htmlMenuView.do','101050100', 'defaultMenuForm');">UI</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101050200/htmlMenuView.do','101050200', 'defaultMenuForm');">캐릭터</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101050300/htmlMenuView.do','101050300', 'defaultMenuForm');">교가</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="#">대학현황</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101060500/htmlMenuView.do','101060500', 'defaultMenuForm');">대학현황</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000006/bbsList.do','101060200', 'defaultMenuForm');">예결산공고</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000042/bbsList.do','101060600', 'defaultMenuForm');">업무추진비 사용내역</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000005/bbsList.do','101060100', 'defaultMenuForm');">규정집 및 행정편람</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000007/bbsList.do','101060300', 'defaultMenuForm');">등록금심의위원회</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000008/bbsList.do','101060400', 'defaultMenuForm');">대학평의원회</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101060700/htmlMenuView.do','101060700', 'defaultMenuForm');">대학자체평가결과</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101060800/htmlMenuView.do','101060800', 'defaultMenuForm');">공무수행사인 공개</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000066/bbsList.do','101060900', 'defaultMenuForm');">적립금 운용현황</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000010/bbsList.do','101070000', 'defaultMenuForm');">용인 Media</a>
+																</li>
+													<li>
+															<a href="#">캠퍼스 안내</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/campusMap/campusMapMain.do','101080100', 'defaultMenuForm');">캠퍼스맵</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101080200/htmlMenuView.do','101080200', 'defaultMenuForm');">통학ㆍ셔틀버스안내</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101080300/htmlMenuView.do','101080300', 'defaultMenuForm');">찾아오시는길</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000031/bbsList.do','101090000', 'defaultMenuForm');">학교소식</a>
+																</li>
+													<li>
+															<a href="#">대학혁신지원사업</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101100100/htmlMenuView.do','101100100', 'defaultMenuForm');">사업소개</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101100200/htmlMenuView.do','101100200', 'defaultMenuForm');">사업목표 및 추진전략</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000064/bbsList.do','101100300', 'defaultMenuForm');">공지사항</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000065/bbsList.do','101100400', 'defaultMenuForm');">사업소식</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+													</div>
+												</div>
+											</li>
+											<li>
+											<a href="#">대학 · 대학원</a>
+												<div class="sm">
+												<div class="kv-nav kv-nav--03">
+		                                            <div class="cont">
+		                                                <p class="name">YONG IN</p>
+		                                                <!--
+		                                                <strong>대학 · 대학원</strong>
+		                                                 -->
+		                                                <p><strong>대학 · 대학원</strong><p>용인대학교는 무도·체육뿐만 아니라 문화·예술, 복지, 환경, 문화관광, 경영, 경찰행정, 군사, 경호,<br>문화콘텐츠, 외국어(영어,중국어), 전통문화(문화재, 국악, 전통무용)를 총망라한 미래를 지향하는 종합대학교입니다.</p></p>
+		                                            </div>
+		                                        </div>
+												<div class="sm--inner">
+													<ul class="dep2">
+									<li>
+															<a href="#">학과 통합뷰</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/103041000/htmlMenuView.do','103041000', 'defaultMenuForm');">학과통합뷰(SNS, 홍보영상)</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="#">무전공 및 계열전공</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/103051000/htmlMenuView.do','103051000', 'defaultMenuForm');">무전공 및 계열전공 통합뷰</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="#">대학</a>
+															<ul class="dep3">
+															<li>
+																<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000001/colDeptMain.do','1030101001', 'defaultMenuForm');">무도대학</a>
+																	<ul class="dep4">
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000001/colDeptMain.do','1030101001', 'defaultMenuForm');">유도학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000002/colDeptMain.do','1030102002', 'defaultMenuForm');">유도경기지도학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000003/colDeptMain.do','1030103003', 'defaultMenuForm');">무도학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000005/colDeptMain.do','1030106006', 'defaultMenuForm');">태권도학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000007/colDeptMain.do','1030108008', 'defaultMenuForm');">경호학과</a>
+																		</li>
+																	</ul>
+															</li>
+														<li>
+																<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000017/colDeptMain.do','1030206001', 'defaultMenuForm');">체육과학대학</a>
+																	<ul class="dep4">
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000017/colDeptMain.do','1030206001', 'defaultMenuForm');">스포츠레저학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000013/colDeptMain.do','1030202002', 'defaultMenuForm');">체육학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000014/colDeptMain.do','1030203003', 'defaultMenuForm');">골프학부</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000015/colDeptMain.do','1030204004', 'defaultMenuForm');">특수체육교육과</a>
+																		</li>
+																	</ul>
+															</li>
+														<li>
+																<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000030/colDeptMain.do','1030312001', 'defaultMenuForm');">문화예술대학</a>
+																	<ul class="dep4">
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000030/colDeptMain.do','1030312001', 'defaultMenuForm');">무용과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000042/colDeptMain.do','1030324002', 'defaultMenuForm');">미디어디자인학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000021/colDeptMain.do','1030303003', 'defaultMenuForm');">회화학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000022/colDeptMain.do','1030304004', 'defaultMenuForm');">연극학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000024/colDeptMain.do','1030306005', 'defaultMenuForm');">국악과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000023/colDeptMain.do','1030305006', 'defaultMenuForm');">영화영상학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000026/colDeptMain.do','1030308007', 'defaultMenuForm');">문화유산학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000046/colDeptMain.do','1030328008', 'defaultMenuForm');">문화콘텐츠학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000009/colDeptMain.do','1030301009', 'defaultMenuForm');">실용음악과</a>
+																		</li>
+																	</ul>
+															</li>
+														<li>
+																<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000049/colDeptMain.do','1030403001', 'defaultMenuForm');">인문사회융합대학</a>
+																	<ul class="dep4">
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000049/colDeptMain.do','1030403001', 'defaultMenuForm');">경영학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000055/colDeptMain.do','1030408002', 'defaultMenuForm');">관광경영학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000047/colDeptMain.do','1030401004', 'defaultMenuForm');">경찰행정학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000048/colDeptMain.do','1030402005', 'defaultMenuForm');">중국학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000071/colDeptMain.do','1030612003', 'defaultMenuForm');">사회복지학과</a>
+																		</li>
+																	</ul>
+															</li>
+														<li>
+																<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000060/colDeptMain.do','1030503001', 'defaultMenuForm');">AI바이오융합대학</a>
+																	<ul class="dep4">
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000060/colDeptMain.do','1030503001', 'defaultMenuForm');">보건환경안전학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000010/colDeptMain.do','1030501005', 'defaultMenuForm');">바이오생명공학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000057/colDeptMain.do','1030601002', 'defaultMenuForm');">물리치료학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000059/colDeptMain.do','1030603001', 'defaultMenuForm');">식품영양학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000184/colDeptMain.do','1030507001', 'defaultMenuForm');">식품조리학과</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000181/colDeptMain.do','1030409001', 'defaultMenuForm');">AI융합학부</a>
+																		</li>
+																	</ul>
+															</li>
+														<li>
+																<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/1030801001/htmlMenuView.do','1030801001', 'defaultMenuForm');">용오름대학</a>
+																	<ul class="dep4">
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/1030801001/htmlMenuView.do','1030801001', 'defaultMenuForm');">용오름대학 소개</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/1030801002/htmlMenuView.do','1030801002', 'defaultMenuForm');">교양교육과정</a>
+																		</li>
+																	<li>
+																			<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000001/dragonsoarList.do','1030801003', 'defaultMenuForm');">공지사항</a>
+																		</li>
+																	</ul>
+															</li>
+														</ul>
+												</li>
+											<li>
+															<a href="http://graduate.yongin.ac.kr/" target="_blank" class="no-sub">대학원</a>
+																</li>
+													<li>
+															<a href="#">계약학과</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000011/colDeptMain.do','103030100', 'defaultMenuForm');">무도스포츠산업학과</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+													</div>
+												</div>
+											</li>
+											<li>
+											<a href="#">연구 · 교육</a>
+												<div class="sm">
+												<div class="kv-nav kv-nav--04">
+		                                            <div class="cont">
+		                                                <p class="name">YONG IN</p>
+		                                                <!--
+		                                                <strong>연구 · 교육</strong>
+		                                                 -->
+		                                                <p><strong>연구ㆍ교육</strong><p>세상을 이롭게 하는 전인 교육<br>용인대학교는 시대를 선도하는 교육 패러다임으로 지성과 재능을 갖춘 참된 지성인을 양성합니다.</p></p>
+		                                            </div>
+		                                        </div>
+												<div class="sm--inner">
+													<ul class="dep2">
+									<li>
+															<a href="#">연구기관</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000001/studyEduMain.do','104010100', 'defaultMenuForm');">스포츠·웰니스연구센터</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000002/studyEduMain.do','104010200', 'defaultMenuForm');">무도연구소</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000003/studyEduMain.do','104010300', 'defaultMenuForm');">체육과학연구소</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000004/studyEduMain.do','104010400', 'defaultMenuForm');">특수체육연구소</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000005/studyEduMain.do','104010500', 'defaultMenuForm');">자연과학연구소</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000006/studyEduMain.do','104010600', 'defaultMenuForm');">인문사회과학연구소</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000008/studyEduMain.do','104010800', 'defaultMenuForm');">문화예술연구소</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="#">열린교육</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000011/studyEduMain.do','104020100', 'defaultMenuForm');">생활체육지도자연수원</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000012/studyEduMain.do','104020200', 'defaultMenuForm');">미래인재교육원</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000013/studyEduMain.do','104020300', 'defaultMenuForm');">교육연수원</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000015/studyEduMain.do','104020500', 'defaultMenuForm');">장애인스포츠지도자연수원</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000016/studyEduMain.do','104020600', 'defaultMenuForm');">학생군사교육단</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000009/studyEduMain.do','104020900', 'defaultMenuForm');">학생생활상담센터</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000070/studyEduMain.do','104021000', 'defaultMenuForm');">인권센터</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000010/studyEduMain.do','104021100', 'defaultMenuForm');">기관생명윤리위원회</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+													</div>
+												</div>
+											</li>
+											<li>
+											<a href="#">학사지원</a>
+												<div class="sm">
+												<div class="kv-nav kv-nav--05">
+		                                            <div class="cont">
+		                                                <p class="name">YONG IN</p>
+		                                                <!--
+		                                                <strong>학사지원</strong>
+		                                                 -->
+		                                                <p><strong>학사지원</strong><p>꿈꾸고 실천하는 용인대인, 지난 70여년간 오로지 올곧게 인재만을 양성했습니다.<br>인성교육을 필두로 명품교육을 구현하기 위해 모든 대학 구성원들이 혼연일체가 되어 최선을 다하고 있습니다.</p></p>
+		                                            </div>
+		                                        </div>
+												<div class="sm--inner">
+													<ul class="dep2">
+									<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/academic/academicMain.do','105010000', 'defaultMenuForm');">학사일정</a>
+																</li>
+													<li>
+															<a href="#">학사정보</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105020100/htmlMenuView.do','105020100', 'defaultMenuForm');">등록안내</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105020200/htmlMenuView.do','105020200', 'defaultMenuForm');">수업 · 성적안내</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105020300/htmlMenuView.do','105020300', 'defaultMenuForm');">학적 · 졸업안내</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105020400/htmlMenuView.do','105020400', 'defaultMenuForm');">학점교류</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105020500/htmlMenuView.do','105020500', 'defaultMenuForm');">교직이수 · 군사학</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000009/bbsList.do','105020600', 'defaultMenuForm');">서식자료실</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000001/stdtmngList.do','105020700', 'defaultMenuForm');">학사공지사항</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="#">장학 · 대출제도</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105040100/htmlMenuView.do','105040100', 'defaultMenuForm');">장학ㆍ대출</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('https://www.kosaf.go.kr/ko/scholar.do?pg=scholarship_main','105040200', 'defaultMenuForm');">국가장학금</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('https://www.kosaf.go.kr/ko/tuition.do?pg=tuition_main','105040300', 'defaultMenuForm');">학자금대출</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000014/bbsList.do','105040400', 'defaultMenuForm');">FAQ</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000017/bbsList.do','105040500', 'defaultMenuForm');">Q&amp;A</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000001/scholarList.do','105040600', 'defaultMenuForm');">장학ㆍ대출 공지사항</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105050000/htmlMenuView.do','105050000', 'defaultMenuForm');">온라인증명서</a>
+																</li>
+													<li>
+															<a href="#">IT서비스</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105060100/htmlMenuView.do','105060100', 'defaultMenuForm');">교내시스템</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105060200/htmlMenuView.do','105060200', 'defaultMenuForm');">용인대학교 앱</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105060300/htmlMenuView.do','105060300', 'defaultMenuForm');">무선랜 (WIFI)</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105060400/htmlMenuView.do','105060400', 'defaultMenuForm');">Office365서비스</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105060500/htmlMenuView.do','105060500', 'defaultMenuForm');">이메일</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/105060600/htmlMenuView.do','105060600', 'defaultMenuForm');">백신 (Virus)</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+													</div>
+												</div>
+											</li>
+											<li>
+											<a href="#">대학생활</a>
+												<div class="sm">
+												<div class="kv-nav kv-nav--06">
+		                                            <div class="cont">
+		                                                <p class="name">YONG IN</p>
+		                                                <!--
+		                                                <strong>대학생활</strong>
+		                                                 -->
+		                                                <p><strong>대학생활</strong><p>세상을 바꾸는 바른교육, 바른인성으로 용인대의 꿈은 계속됩니다.</p></p>
+		                                            </div>
+		                                        </div>
+												<div class="sm--inner">
+													<ul class="dep2">
+									<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106140000/htmlMenuView.do','106140000', 'defaultMenuForm');">대학생활가이드</a>
+																</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101080200/htmlMenuView.do','106110000', 'defaultMenuForm');">통학ㆍ셔틀버스안내</a>
+																</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106020000/htmlMenuView.do','106020000', 'defaultMenuForm');">학생증카드발급</a>
+																</li>
+													<li>
+															<a href="#">체육 · 편의시설</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106060100/htmlMenuView.do','106060100', 'defaultMenuForm');">체육시설</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106060200/htmlMenuView.do','106060200', 'defaultMenuForm');">편의시설</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106060300/htmlMenuView.do','106060300', 'defaultMenuForm');">대관문의</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="#">지원안내</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106030100/htmlMenuView.do','106030100', 'defaultMenuForm');">학생심리상담</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106030200/htmlMenuView.do','106030200', 'defaultMenuForm');">교수학습지원(CTL)</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106030300/htmlMenuView.do','106030300', 'defaultMenuForm');">취창업지원</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106030400/htmlMenuView.do','106030400', 'defaultMenuForm');">사회봉사</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106030500/htmlMenuView.do','106030500', 'defaultMenuForm');">장애학생지원</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="#">보건 · 병무</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106040100/htmlMenuView.do','106040100', 'defaultMenuForm');">보건지원</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106040200/htmlMenuView.do','106040200', 'defaultMenuForm');">병무안내</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="#">학생활동</a>
+															<ul class="dep3">
+															<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106050100/htmlMenuView.do','106050100', 'defaultMenuForm');">축제 · 행사</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106050200/htmlMenuView.do','106050200', 'defaultMenuForm');">동아리</a>
+														</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106050300/htmlMenuView.do','106050300', 'defaultMenuForm');">자치그룹</a>
+														</li>
+													</ul>
+												</li>
+											<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/sns/snsMain.do','106070000', 'defaultMenuForm');">용인SNS</a>
+																</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000018/bbsList.do','106080000', 'defaultMenuForm');">분실물 · 습득물</a>
+																</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/meal/mealMain.do','106010000', 'defaultMenuForm');">학생식당</a>
+																</li>
+													<li>
+															<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/board/SYSTEM_DEFAULT000001/noticeList.do','106100000', 'defaultMenuForm');">공지사항</a>
+																</li>
+													</ul>
+													</div>
+												</div>
+											</li>
+											<li>
+											<a href="#">입학안내</a>
+												<div class="sm">
+												<div class="kv-nav kv-nav--07">
+		                                            <div class="cont">
+		                                                <p class="name">YONG IN</p>
+		                                                <!--
+		                                                <strong>입학안내</strong>
+		                                                 -->
+		                                                <p><strong>입학안내</strong><p>용인대학교는 전통을 바탕으로 실용적이고<br>창의적인 교육을 통해 여러분들의 꿈을 실현하는 특성화대학입니다.</p></p>
+		                                            </div>
+		                                        </div>
+												<div class="sm--inner">
+													<ul class="dep2">
+									<li>
+															<a href="https://ipsi.yongin.ac.kr" target="_blank" class="no-sub">대학</a>
+																</li>
+													<li>
+															<a href="http://graduate.yongin.ac.kr/" target="_blank" class="no-sub">대학원</a>
+																</li>
+													<li>
+															<a href="https://www.yongin.ac.kr/cmn/board/SYSTEM_DEFAULT000001/3729noticeDetail.do" target="_blank" class="no-sub">계약학과</a>
+																</li>
+													</ul>
+											</div>
+										</div>
+									</li>
+								</ul>
+					</div>
+				<div class="util">
+                    <ul>
+                        <li class="mode">
+                        	<a href="javascript:void(0);" onclick="UT.changeViewMode('OUT');" id="INOOUT">일반인</a>
+                        	<a href="javascript:void(0);" onclick="UT.changeViewMode('IN');" id="INOIN">용인인</a>
+                        </li>
+                        <li>
+                        	 <!--
+                        	<a href="/usr/member/login/login.do">로그인</a>
+                        		
+							 -->
+	                    </li>
+                        <li>
+                            <ul class="lang-wrap">
+                                <li>
+                                    <a href="#">KOR</a>
+                                    <ul class="lang">
+										<li><a href="https://www.yongin.ac.kr/cmn/en/main/main.do" target="_blank">ENG</a></li>
+										<li><a href="https://www.yongin.ac.kr/cmn/cn/main/main.do" target="_blank">CHN</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="search">
+                         <label class="search-icon" for="topSearch">
+							<input class="search-input" type="text" name="searchKeyword" placeholder="Search">
+                             <span></span>
+                         </label>
+                         <button type="button" onclick="UT.totalSearch(this);" class="close"><span class="sr-only">닫기</span></button>
+                     </div>
+                </div>
+			</nav>
+		</div>
+	</div>
+</header>
+<script>
+	$("input[name='searchKeyword']").bind('keyup keydown',function(){
+		if(event.keyCode==13){
+			UT.totalSearch(this);
+		}
+	 });
+</script><div class="container">
+		    		<div class="container--inner">
+				    	<div class="kv ">
+	<div class="kv--inner">
+		</div>
+</div>
+<div class="breadclumb">
+		<div class="inner">
+			<a href="/cmn/main/main.do" class="home">홈</a>
+
+			<ul class="dir">
+					<li>
+						<a href="javascript:void(0);">입학</a>
+							<ul class="bsm">
+							<li>
+												<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/story/storyMain.do','10707000', 'defaultMenuForm');">용인스토리</a>
+													</li>
+										<li>
+												<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/101010300/htmlMenuView.do','101010300', 'defaultMenuForm');">학교소개</a>
+													</li>
+										<li>
+												<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/colDept/COL_DEPT_00000000001/colDeptMain.do','1030101001', 'defaultMenuForm');">대학 · 대학원</a>
+													</li>
+										<li>
+												<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/studyEdu/RNE_0000000000000001/studyEduMain.do','104010100', 'defaultMenuForm');">연구 · 교육</a>
+													</li>
+										<li>
+												<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/wvtex/nibr/academic/academicMain.do','105010000', 'defaultMenuForm');">학사지원</a>
+													</li>
+										<li>
+												<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/106140000/htmlMenuView.do','106140000', 'defaultMenuForm');">대학생활</a>
+													</li>
+										<li>
+												<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('https://ipsi.yongin.ac.kr','102010000', 'defaultMenuForm');">입학안내</a>
+													</li>
+										</ul>
+					</li>
+<li>
+								<a href="#" class="current">대학원 입학</a>
+								<ul class="bsm">
+									<li>
+												<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/605010000/htmlMenuView.do','605010000', 'defaultMenuForm');">학부입학</a>
+											</li>
+										<li>
+												<a href="javascript:void(0);" onclick="UT.moveByMenuUrl('/cmn/sym/mnu/mpm/605020000/htmlMenuView.do','605020000', 'defaultMenuForm');">대학원 입학</a>
+											</li>
+										</ul>
+							</li>
+						</ul>
+			</div>
+	</div>
+<div class="common-btn-list">
+	<ul class="clearfix">
+		<li class="print-btn"><a href="#" onclick="window.print();"><span class="sr-only">인쇄</span></a></li>
+		<li class="share-btn"><a href="#"><span class="sr-only">공유하기</span></a>
+			<div class="share-list">
+				<ul>
+					<li id="kakao-link-btn" class="kakao"><a href="#"><span>kakao</span></a></li>
+					<li class="facebook"><a href="#" onclick="UT.goSnsRegist('facebook');"><span>facebook</span></a></li>
+					<li class="copy"><a href="#"  onclick="UT.goSnsRegist('urlCopy');"><span>URL copy</span></a></li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+	<input type="hidden" id="currentUrlToCopy" />
+</div>
+
+<div class="page-wrap">
+					    	
+<!-- 	메뉴명 시작 -->
+<!-- 		<div class="tabBox"> -->
+<!-- 			<ul> -->
+<!-- 					</li> -->
+<!-- 			</ul> -->
+<!-- 		</div> -->
+<!-- 	메뉴명 종료 -->
+<!-- page-wrap -->
+				<div class="page-wrap">
+					<div class="cont-tab depth3-tab">
+						<a href="#" class="select-head mobile">모집학과 및 지원자격</a>
+						
+						<ul>
+							<li class="is-active"><a href="#">모집학과 및 지원자격</a></li>
+							<li><a href="#">제출서류</a></li>
+							<li><a href="#">입학 상세 안내</a></li>
+						</ul>
+						
+						<div class="cont-tab-sec">
+							<div class="tab-sec is-active">
+								<div class="cont-sec">
+									<h2>대학원 입학홈페이지 바로가기</h2>
+									<div class="btn-wrap">
+										<a href="https://graduate.yongin.ac.kr/cmn/board/SYSTEM_DEFAULT000056/bbsList.do" class="btn link" target="_blank"><span>입학 홈페이지로 이동하기</span></a>
+									</div>
+								</div>
+								
+								<div class="cont-sec">
+									<h2>모집학과</h2>
+									<div class="cont-box-wrap bg-gray">
+										<!-- cont-box -->
+										<div class="cont-box">
+											<h3>박사 - 일반대학원</h3>
+											<div class="scroll-relative">
+												<div class="table-wrap table-scroll mini">
+													<table>
+														<thead>
+															<tr>
+																<th>학과</th>
+																<th>한국어트랙</th>
+																<th>영어트랙</th>
+																<th>학기</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>체육학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+																<td rowspan="7">5학기제</td>
+															</tr>
+															<tr>
+																<td>경영학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>경호학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>물리치료학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>무도학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>예술치료학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>문화재보존학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										<!-- //cont-box -->
+										
+										<!-- cont-box -->
+										<div class="cont-box">
+											<h3>석사 - 일반대학원</h3>
+											<div class="scroll-relative">
+												<div class="table-wrap table-scroll mini">
+													<table>
+														<thead>
+															<tr>
+																<th>학과</th>
+																<th>한국어트랙</th>
+																<th>영어트랙</th>
+																<th>학기</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>체육학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+																<td rowspan="8">4학기제</td>
+															</tr>
+															<tr>
+																<td>환경보건학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>식품영양학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>경호학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>생명과학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>무도학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>문화재보존학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>고고학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										<!-- //cont-box -->
+										
+										<!-- cont-box -->
+										<div class="cont-box">
+											<h3>석사 - 경영대학원</h3>
+											<div class="scroll-relative">
+												<div class="table-wrap table-scroll mini">
+													<table>
+														<thead>
+															<tr>
+																<th>학과</th>
+																<th>한국어트랙</th>
+																<th>영어트랙</th>
+																<th>학기</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>경영학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+																<td rowspan="2">4학기제</td>
+															</tr>
+															<tr>
+																<td>뷰티비지니스학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										<!-- //cont-box -->
+										
+										<!-- cont-box -->
+										<div class="cont-box">
+											<h3>석사 - 문화예술대학원</h3>
+											<div class="scroll-relative">
+												<div class="table-wrap table-scroll mini">
+													<table>
+														<thead>
+															<tr>
+																<th>학과</th>
+																<th>한국어트랙</th>
+																<th>영어트랙</th>
+																<th>학기</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>무용학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+																<td rowspan="6">4학기제</td>
+															</tr>
+															<tr>
+																<td>거리예술공연학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>연극치료학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>회화학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>국악과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>문화콘텐츠학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										<!-- //cont-box -->
+										
+										<!-- cont-box -->
+										<div class="cont-box">
+											<h3>석사 - 스포츠과학대학원</h3>
+											<div class="scroll-relative">
+												<div class="table-wrap table-scroll mini">
+													<table>
+														<thead>
+															<tr>
+																<th>학과</th>
+																<th>한국어트랙</th>
+																<th>영어트랙</th>
+																<th>학기</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>골프학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+																<td rowspan="3">4학기제</td>
+															</tr>
+															<tr>
+																<td>체육과학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>스포츠레저학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										<!-- //cont-box -->
+										
+										<!-- cont-box -->
+										<div class="cont-box">
+											<h3>석사 - 재활복지대학원</h3>
+											<div class="scroll-relative">
+												<div class="table-wrap table-scroll mini">
+													<table>
+														<thead>
+															<tr>
+																<th>학과</th>
+																<th>한국어트랙</th>
+																<th>영어트랙</th>
+																<th>학기</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>물리치료학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+																<td rowspan="3">4학기제</td>
+															</tr>
+															<tr>
+																<td>사회복지학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>언어치료학과</td>
+																<td>TOPIK 4급</td>
+																<td></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										<!-- //cont-box -->
+										
+										<!-- cont-box -->
+										<div class="cont-box">
+											<h3>석사 - 태권도대학원</h3>
+											<div class="scroll-relative">
+												<div class="table-wrap table-scroll mini">
+													<table>
+														<thead>
+															<tr>
+																<th>학과</th>
+																<th>한국어트랙</th>
+																<th>영어트랙</th>
+																<th>학기</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>태권도학과</td>
+																<td>TOPIK 3급</td>
+																<td></td>
+																<td>4학기제</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										<!-- //cont-box -->
+										<!-- <p class="red desc red-star">로 표시된 학과는 영어트랙운영 학과입니다.</p> -->
+									</div>
+								</div>
+								
+								<div class="cont-sec">
+									<h2>지원자격</h2>
+									<div class="cont-box-wrap bg-gray">
+										<div class="cont-box">
+											<h3>박사(한국어트랙)</h3>
+											<p class="box-desc num">1 . 부모 모두 외국인인 순수 외국인이며, 국내외 초, 중, 고, 대학 및 석사과정을 이수한 자</p>
+											<p class="box-desc num">2 . 한국어능력기준<br>
+											인문사회 및 자연과학계열 : TOPIK 4급 이상<br>
+											체육 및 예술계열 : TOPIK 3급 이상</p>
+										</div>
+										<div class="cont-box">
+											<h3>석사(한국어트랙)</h3>
+											<p class="box-desc num">1 . 부모 모두 외국인인 순수 외국인이며, 국내외 초, 중, 고, 대학 및 석사과정을 이수한 자</p>
+											<p class="box-desc num">2 . 한국어능력기준<br>
+											인문사회 및 자연과학계열 : TOPIK 4급 이상<br>
+											체육 및 예술계열 : TOPIK 3급 이상</p>
+										</div>
+										<!-- <div class="cont-box">
+											<h3>석사(영어트랙)</h3>
+											<p class="box-desc num">1 . 부모 모두 외국인인 순수 외국인</p>
+											<p class="box-desc num">2 . 국내외 초, 중, 고, 대학과정을 이수한 자</p>
+											<p class="box-desc num">3 . 영어능력기준 <a href="#layEntrancePop_2_1" class="btn mini blue js-openLay"><span>자세히보기</span></a><br>
+											경영대학원 경영학과 : IELTS 5.5 혹은 이에 상응하는 공인어학성적표 제출 가능자<br>
+											문화예술대학원 미술치료학과 : IELTS 5.0 혹은 이에 상응하는 공인어학성적표 제출 가능자</p>
+										</div> -->
+										<!--<p class="box-desc red">※ 단, 영어를 공용어로 사용하는 국가의 국적을 소지한 학생은 이를 증빙할 수 있는 서류와 현지 고등학교 졸업증명서로 언어능력시험을 대체할 수 있음</p>-->
+									</div>
+								</div>
+							</div>
+							<div class="tab-sec">
+								<div class="cont-sec">
+									<h2>제출서류</h2>
+									<ul class="num-list">
+										<li><span>입학원서 (인터넷접수 후 출력) <a href="/css/yonginUser/file/5.graduate_apply(foreign).pdf" class="btn mini black" target="_blank"><span>서식 다운로드</span></a></span></li>
+										<li><span>대학교 졸업(예정)증명서 중 해당 서류 1부 <em class="red">-영사확인 문서 또는 아포스티유 문서만 인정</em>
+										<p class="red">단, 중국 소재 대학에서 수료 · 재학 · 졸업 및 학위를 취득한 경우에는 中國高等敎育學歷認證報告(www.chsi.com.cn) 또는 中國高等敎育學歷査詢報告(www.cdgdc.edu.cn)를 추가로 제출해야 함 </p></span></li>
+										<li><span>대학교 및 대학원 성적증명서 <em class="red">-영사확인 문서 또는 아포스티유 문서만 인정</em></span></li>
+										<li><span>여권 사본</span></li>
+										<li><span>외국인등록증 사본(국내 거주 외국인만 제출)</span></li>
+										<li><span>학생, 부모가 외국인임을 증명할 수 있는 외국 정부기관 발행 증명서
+										<p class="red">중국국적 지원자의 경우 ‘호구부’ 사본 제출(합격 후 원본 제출)해야 하며, 하나의 호구부에 부, 모, 학생이 모두 기재되지 않은 경우 ‘친족관계증명서’ 공증본을 추가로 제출해야 함</p></span></li>
+										<li><span>한국어능력시험(TOPIK) 4급(예체능 계열은 3급 이상) 취득 성적표 원본 1부
+										<p class="red">토픽성적 유효기간 : 원서접수 마감일 기준 역산 2년</p></span></li>
+										<li><span>재정능력 입증서류 원본</span>
+											<div class="bg-gray">
+												<div class="cont-box">
+													<p class="cont-subtit">아래의 증명서 중 하나를 선택해 제출해야 함</p>
+													<p class="box-desc num">1. 재정보증인(본인 또는 부모)의 미화 $20,000 이상 국외 예금잔고증명서 <em class="tag">공증 불필요</em><br>
+													<span class="red">(인터넷 원서 접수일 기준 역산 30일 이내 발급한 것)</span></p>
+													<p class="box-desc num">2. 미화 $20,000 이상 국내 송금(환전)증명서 <em class="tag">공증 불필요</em></p>
+													<p class="box-desc red">※ 서류는 입학자격 요건 충족 시 필요하며, 사증발급 관련 추가서류는 담당부서인 국제교류교육과에서 별도로 요구할 수 있음</p>
+												</div>
+											</div>
+										</li>
+										<li><span>학력조회동의서</span></li>
+										<li><span>자기소개서</span></li>
+										<li><span>전공 학업계획</span></li>
+									</ul>
+									
+									<div class="btn-wrap center">
+										<a href="https://graduate.yongin.ac.kr/cmn/board/SYSTEM_DEFAULT000053/bbsList.do" class="btn black" target="_blank"><span>9~11번 서식 다운로드</span></a>
+										<a href="#layEntrancePop_2_2" class="btn blue js-openLay"><span>서류 제출시 유의사항 자세히 보기</span></a>
+									</div>
+								</div>
+							</div>
+							<div class="tab-sec">
+								<div class="cont-sec">
+									<h2>전형방법</h2>
+									<p>제출된 서류를 바탕으로 학업적합도 및 수학능력 적 · 부 평가</p>
+								</div>
+								<div class="cont-sec">
+									<h2>수험생 유의사항</h2>
+									<ul class="num-list">
+										<li><span>제출된 서류는 일체 반환하지 않으며 제출서류는 최근 3개월 이내 발급받은 서류만 인정</span></li>
+										<li><span>입학지원서 등의 기재 내용이 사실과 다른 경우 합격 또는 입학을 취소함</span></li>
+										<li><span>합격자는 입학 전 보험가입을 해야 함 ☞ 보험가입비 : KRW 60,000원 (6개월)</span></li>
+										<!-- <li><span>합격자는 종합시험 전 한국어능력시험(TOPIK) 4급 이상 취득해야 졸업 가능함(단, 예체능계열은 3급 이상 취득해야 졸업 가능함)</span></li> -->
+										<li><span>합격 취소</span>
+											<div class="bg-gray">
+												<div class="cont-box">
+													<p class="box-desc num">1. 서류 합격자 중 지정 기일 내에 등록을 하지 않은 자</p>
+													<p class="box-desc num">2. 개강 후 3주까지 미입국자</p>
+													<p class="box-desc num">3. 유학비자(D-2) 불허받은 자</p>
+													<p class="box-desc num">4. 출신학교 학력조회 결과 자격 미달자 또는 허위 사실로 판명되는 경우 재학 중이라도 입학을 취소함</p>
+												</div>
+											</div>
+										</li>
+										<li><span>등록금 환불</span>
+											<div class="bg-gray">
+												<div class="cont-box">
+													<p class="box-desc num">1. 등록금 환불 절차 : 대학원 홈페이지에서 등록금 환불신청서를 download한 후 대학원에 제출</p>
+													<p class="box-desc num">2. 등록금 환불금액</p>
+													<div class="table-wrap row">
+														<table>
+															<colgroup>
+																<col class="col_1">
+																<col class="col_2">
+															</colgroup>
+															<tbody>
+																<tr>
+																	<th>학기 개시 전</th>
+																	<td>등록금액의 100%(전액)</td>
+																</tr>
+																<tr>
+																	<th>학기 개시 후</th>
+																	<td>본교 「학교수업료 및 입학금에 관한 규정」 에 의거 일정금액 공제 후 환불</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								
+								<div class="cont-sec">
+									<h2>장학금 제도</h2>
+									<div class="table-wrap row">
+										<table>
+											<colgroup>
+												<col class="col_1">
+												<col class="col_2">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th>입학금 면제</th>
+													<td>본교 한국어학당 출신자 / 본교 대학 졸업(예정)자</td>
+												</tr>
+												<tr>
+													<th>등록금의 30% 장학금</th>
+													<td>TOPIK 3급 이하</td>
+												</tr>
+												<tr>
+													<th>등록금의 40% 장학금</th>
+													<td>TOPIK 4급 소지자 / 본교 자매결연대학 출신자</td>
+												</tr>
+												<tr>
+													<th>등록금의 50% 장학금</th>
+													<td>TOPIK 5급 이상 소지자</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								
+								<div class="cont-sec">
+									<h2>전형료 : <span class="pay">박사과정 KRW 80,000 / 석사과정 KRW 50,000</span></h2>
+									<div class="table-wrap row">
+										<table>
+											<colgroup>
+												<col class="col_1">
+												<col class="col_2">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th>전형료 결제 방법</th>
+													<td>해당 서류제출 기한 내에 국제교류교육원 방문 납부</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p class="desc red">※ 서류 제출 기한 중 납부해야 하며, 전형료는 반환하지 않음</p>
+								</div>
+								
+								<section class="cont-sec">
+									<h2>모집요강 &amp; 신청서 양식</h2>
+									<div class="btn-wrap">
+										<a href="https://graduate.yongin.ac.kr/cmn/board/SYSTEM_DEFAULT000056/bbsList.do" class="btn link" target="_blank"><span>입학 홈페이지로 이동하기</span></a>
+									</div>
+									<!-- <div class="btn-wrap">
+										<a href="/css/yonginUser/file/7. graduate_application.pdf" class="btn black" target="_blank"><span>모집요강 다운로드</span></a>
+									</div> -->
+									<div class="btn-wrap">
+										<a href="https://graduate.yongin.ac.kr/cmn/board/SYSTEM_DEFAULT000053/bbsList.do" class="btn black" target="_blank"><span>각종 신청서 및 양식 다운로드</span></a>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //page-wrap -->
+			
+		
+		<!-- //contents -->
+		
+		<!-- layEntrancePop_2_1 -->
+		<div id="layEntrancePop_2_1" class="hidden insert full-pop">
+			<div class="title">
+				<h1>석사(영어트랙) – 영어능력기준 자세히 보기</h1>
+				<a href="#" class="close-x js-closeLay"><span class="sr-only">창닫기</span></a>
+			</div>
+			<div class="lay-cont">
+				<!-- [S] layer contents -->
+				
+				<div class="lay-inner">
+					<div class="cont-box">
+						<div class="text-wrap">
+							<h4 class="blue">경영대학원 경영학과</h4>
+							<p class="cont-desc">IELTS 5.5 혹은 이에 상응하는 공인어학성적표 제출 가능자</p>
+						</div>
+						<div class="table-wrap">
+							<table>
+								<thead>
+									<tr>
+										<th colspan="2">TOEFL</th>
+										<th rowspan="2">TEPS</th>
+										<th rowspan="2">ILETS</th>
+									</tr>
+									<tr>
+										<th>PBL</th>
+										<th>IBT</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr><td>550</td>
+									<td>80</td>
+									<td>600</td>
+									<td>5.5</td>
+								</tr></tbody>
+							</table>
+						</div>
+					</div>
+					<div class="cont-box">
+						<div class="text-wrap">
+							<h4 class="blue">문화예술대학원 미술치료학과</h4>
+							<p class="cont-desc">IELTS 5.0 혹은 이에 상응하는 공인어학성적표 제출 가능자</p>
+						</div>
+						<div class="table-wrap">
+							<table>
+								<thead>
+									<tr>
+										<th colspan="2">TOEFL</th>
+										<th rowspan="2">TEPS</th>
+										<th rowspan="2">ILETS</th>
+									</tr>
+									<tr>
+										<th>PBL</th>
+										<th>IBT</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr><td>500</td>
+									<td>68</td>
+									<td>500</td>
+									<td>5.0</td>
+								</tr></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				
+				<!-- [E] layer contents -->
+				<div class="btn-wrap">
+					<a href="#" class="btn close js-closeLay"><span>닫기</span></a>
+				</div>
+			</div>
+		</div>
+		<!-- //layEntrancePop_2_1-->
+		
+		<!-- layEntrancePop_2_2 -->
+		<div id="layEntrancePop_2_2" class="hidden insert full-pop">
+			<div class="title">
+				<h1>서류 제출시 유의사항</h1>
+				<a href="#" class="close-x js-closeLay"><span class="sr-only">창닫기</span></a>
+			</div>
+			<div class="lay-cont">
+				<!-- [S] layer contents -->
+				
+				<div class="lay-inner">
+					<ul class="dot-list">
+						<li><span>영어 이외의 외국어로 된 모든 서류는 한글번역본을 공증하여 첨부하여야 함</span></li>
+						<li><span>외국 학교의 성적‧졸업증명서는 해당국가의 한국영사관 또는 주한 자국공관에서 발행하는 “재외 교육기관 확인서” 또는 “영사확인”을 한 후 제출하여야 하며 아포스티유 협약 가입국의 문서는 관련기관에서 “아포스티유 확인서” 를 발급받아 첨부할 수 있음</span></li>
+						<li><span>원본 제출이 안되는 서류는 원본대조 후 반환가능하며 공증받은 서류는 반드시 원본을 제출하여야 함</span></li>
+					</ul>
+				</div>
+				
+				<!-- [E] layer contents -->
+				<div class="btn-wrap">
+					<a href="#" class="btn close js-closeLay"><span>닫기</span></a>
+				</div>
+			</div>
+		</div>
+		<!-- //layEntrancePop_2_2--></div>
+		    		</div>
+		    		<button class="top-btn"><span>TOP</span></button>
+		    	</div>
+				<script>
+/**
+ * 개인정보처리방침
+ */
+function doPersonDetail(nttId) {
+	var form = $("#FormPersonList");
+	form.find(":input[name=nttId]").val(nttId);
+
+	$.ajax({
+		url: "/cmn/wvtex/nibr/main/personDetailAjax.do",
+		type: "POST",
+		contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+		data: form.serialize(),
+		dataType: 'html',
+		success: function(result){
+			$("#persInfo").html(result);
+
+			$('#persInfo .scroll-box').slimScroll({
+				height: '400px',
+				railVisible: true,
+				railDraggable: true,
+				alwaysVisible: true
+			});
+
+		},
+		error:function(msg){
+	    }
+	});
+}
+
+/**
+ * 학생인권지킴이 등록
+ */
+function doInsertStuHum() {
+	if (confirm("등록하시겠습니까?")) {
+		var form = $("#FormInsert");
+
+		$.ajax({
+			url: "/cmn/board/insertBbsAjax.do",
+			type: "POST",
+			contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+			data: form.serialize(),
+			dataType: 'json',
+			success: function(result){
+				if (result.resultCode == "SUCCESS") {
+					alert("등록하였습니다.");
+
+					$(".js-closeLay").trigger("click");
+					$("input[name='extraCode1']").removeAttr("checked");
+					$("#nttSj").val("");
+					$("#extraColumn1").val("");
+					$("#extraColumn2").val("");
+					$("#nttCn").val("");
+				} else {
+					alert("등록에 실패하였습니다.");
+				}
+			},
+			error:function(msg){
+				console.log("msg",msg);
+		    }
+		});
+	}
+};
+</script>
+<script type='text/javascript'>
+Kakao.init('c6a099216901670218281ce4a3400ad2');
+var currentUrl = window.location.href;
+
+if ($("#kakao-link-btn").length > 0) {
+	 Kakao.Link.createDefaultButton({
+	      container: '#kakao-link-btn',
+	      objectType: 'feed',
+	      content: {
+	        title: document.title,
+	        description: '',
+	        imageUrl: '',
+	        link: {
+	          mobileWebUrl: currentUrl,
+	          webUrl: currentUrl
+	        }
+	      }
+	    });
+}
+</script>
+<div id="overlay"></div>
+<!-- 개인정보처리방침 -->
+<div id="persInfo" class="hidden insert">
+</div>
+<!-- //개인정보처리방침 -->
+<!-- 이메일무단수집거부 -->
+<div id="emailCol" class="hidden insert">
+	<div class="title">
+		<h1>이메일 무단수집거부</h1>
+		<a href="#" class="close-x js-closeLay"><span class="sr-only">창닫기</span></a>
+	</div>
+	<div class="lay-cont">
+		<!-- [S] layer contents -->
+		<div>
+			<h2>용인대학교 홈페이지는 이메일 주소 무단수집을 거부합니다.</h2>
+			<p>용인대학교 홈페이지에 게시된 이메일 주소가 자동수집 되는 것을 거부하며, 이를 위반 시 정보통신망법에 의해 처벌됨을 유념하시기 바랍니다.<br>
+			용인대학교 홈페이지에 게재된 모든 내용은 저작권법에 의해서 보호됨을 알려드립니다.</p>
+		</div>
+		<!-- [E] layer contents -->
+		<div class="btn-list alC">
+			<a href="#" class="btn js-closeLay">닫기</a>
+		</div>
+	</div>
+</div>
+<!-- //이메일무단수집거부 -->
+
+<!-- 온라인발급증명 -->
+<div id="layolCertPop" class="hidden insert">
+	<div class="title">
+		<h1>인터넷 증명서 발급 안내</h1>
+		<a href="#" class="close-x js-closeLay"><span class="sr-only">창닫기</span></a>
+	</div>
+	<div class="lay-cont">
+		<!-- [S] layer contents -->
+		<div class="scroll-box">
+			<div class="btn-wrap clearfix">
+				<a href="http://yongin.webminwon.kr" class="btn green" target="_blank">인터넷 증명서 발급 신청 <br>
+				한국정보인증(주) 바로가기 (1644-2378)</a>
+				<a href="http://postyongin.webminwon.kr" class="btn blue" target="_blank">해외 우편 증명서 <br>
+				발송 서비스 바로가기</a>
+			</div>
+
+			<div class="txt-cont">
+				<h2>1. 발급방법</h2>
+				<p>인터넷 증명 발급 센터에서 발급절차에 따라 신청한 후 개인 프린터로 출력</p>
+			</div>
+			<div class="txt-cont">
+				<h2>2. 증명발급 대상자</h2>
+				<p>학부생, 대학원생, 학점은행제(졸업생), 교원<br>
+				발급대상에 포함되지 않는 재학생 및 졸업생은 가까운 동사무소의 FAX 민원이나 본교를 방문하여 증명서를 발급 받으시기 바랍니다.</p>
+			</div>
+
+			<div class="txt-cont">
+				<h2>3. 증명수수료</h2>
+			</div>
+			<div class="tbl-list alL">
+				<table cellspacing="0">
+					<thead>
+						<tr>
+							<th colspan="3">구분</th>
+							<th>증명서</th>
+							<th>제증명수수료</th>
+							<th>대행수수료</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td rowspan="4">학부</td>
+							<td rowspan="3">재적생<br>
+							(재학생+휴학생)</td>
+							<td rowspan="2">국문</td>
+							<td>학적증명서<br>
+							성적증명서</td>
+							<td>500원</td>
+							<td rowspan="7">1통당 1,000원<br>
+							<br>
+							추가시<br>
+							1통당 500원</td>
+						</tr>
+						<tr>
+							<td>재학(휴학)증명서<br>
+							수료증명서<br>
+							졸업예정증명서<br>
+							장학금(비)수혜증명서<br>
+							교육비납입증명서</td>
+							<td>300원</td>
+						</tr>
+						<tr>
+							<td>영문</td>
+							<td>모든 증명서</td>
+							<td>500원</td>
+						</tr>
+						<tr>
+							<td>졸업(제적)생</td>
+							<td>국문/영문</td>
+							<td>모든 증명서</td>
+							<td>1,000원</td>
+						</tr>
+						<tr>
+							<td colspan="2">대학원</td>
+							<td>국문/영문</td>
+							<td>모든 증명서</td>
+							<td>500원</td>
+						</tr>
+						<tr>
+							<td colspan="2">학점은행제(졸업생)</td>
+							<td>국문</td>
+							<td>학위증명서, 성적증명서</td>
+							<td>1,000원</td>
+						</tr>
+						<tr>
+							<td colspan="2">교원</td>
+							<td>국문/영문</td>
+							<td>재직증명서, 경력증명서</td>
+							<td>300원</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="txt-cont">
+				<h2>4. 결제방법 </h2>
+				<p>신용카드, 핸드폰 소액결제</p>
+			</div>
+			<div class="txt-cont">
+				<h2>5. 증명서 종류  </h2>
+				<strong>학부</strong>
+				<ul class="indent hypen">
+					<li><span>국/영문 발급가능<br>
+					재학증명서, 재적증명서, 휴학증명서, 졸업증명서, 졸업예정증명서, 성적증명서, 수료증명서, 장학금수혜증명서</span></li>
+					<li><span>국문만 발급가능<br>
+					학적증명서, 장학금비수혜증명서, 교육비납입증명서</span></li>
+				</ul>
+				<br>
+				<strong>대학원</strong>
+				<ul class="indent hypen">
+					<li><span>국/영문 발급가능<br>
+					재학증명서, 재적증명서, 휴학증명서, 졸업증명서, 졸업예정증명서, 성적증명서, 수료증명서, 장학금수혜증명서</span></li>
+					<li><span>국문만 발급가능<br>
+					학적증명서, 교육비납입증명서</span></li>
+				</ul>
+				<br>
+				<strong>학점은행제</strong>
+				<ul class="indent hypen">
+					<li><span>국문만 발급 가능<br>
+					학위증명서, 성적증명서</span></li>
+				</ul>
+				<br>
+				<strong>교원</strong>
+				<ul class="indent hypen">
+					<li><span>국/영문 발급 가능<br>
+					재직증명서, 경력증명서</span></li>
+				</ul>
+			</div>
+			<div class="txt-cont">
+				<strong>문의전화</strong>
+				<p>한국정보인증(주) (1644-2378)<br>
+				용인대학교 학사관리과 (031-8020-2514~5)<br>
+				용인대학교 학점은행제 (031-8020-3423~4)</p>
+			</div>
+		</div>
+		<!-- [E] layer contents -->
+	</div>
+</div>
+<!-- // 온라인발급증명 -->
+
+<footer class="footer">
+	<div class="inner">
+		<div class="colL">
+			<ul>
+				<li><a href="#layStuHumPop" class="js-openLay">학생인권지킴이</a></li>
+				<li><a href="#layolCertPop" class="js-openLay">온라인증명서발급</a></li>
+				<li><a href="http://as82.kr/yongin" target="_blank">원격지원</a></li>				
+				<li><a href="/cmn/sym/mnu/mpm/101080300/htmlMenuView.do">오시는길</a></li>
+				<li><a href="/cmn/sym/mnu/mpm/106060300/htmlMenuView.do">대관문의</a></li>								
+				<li><a href="http://www.academyinfo.go.kr/popup/pubinfo1690/list.do?schlId=0000156" target="_blank">대학정보공시</a></li>
+				<!-- <li><a href="#persInfo" onclick="doPersonDetail();" class="js-openLay persInfo">개인정보처리방침</a></li> -->
+				<li><a href="https://www.yongin.ac.kr/cmn/wvtex/nibr/main/personDetail.do" target="_blank" class="js-openLay persInfo">개인정보처리방침</a></li>
+				<li><a href="#emailCol" class="js-openLay">이메일무단수집거부</a></li>
+				<li><a href="/cmn/sym/mnu/mpm/201010000/htmlMenuView.do">사이트맵</a></li>
+			</ul>
+                  <p>
+                      <span class="num-font">17092</span>
+                      <span>경기도 용인시 처인구 용인대학로 134 용인대학교</span>
+                      <span class="num-font">TEL: 031-8020-3114</span>
+                      <span class="num-font">FAX: 031-332-6479</span>
+                  </p>
+                  <p class="copyright">COPYRIGHT(c) YONG IN UNIVERSITY, ALL RIGHT RESERVED.</p>
+              </div>
+              <div class="colR">
+                  <div class="cs-select">
+                      <select id="internal" class="footer_link_sel" title="교내홈페이지" onchange="window.open(this.value)">
+                          <option value="">교내홈페이지</option>
+                          <option value="http://total.yongin.ac.kr/">공익제보게시판</option>
+                          <option value="http://total.yongin.ac.kr/profinvite/main.do">교원초빙 인력POOL</option>
+	                      <option value="http://language.yongin.ac.kr/">국제교류교육원</option>
+	                      <option value="http://edulife.yongin.ac.kr/">미래인재교육원</option>
+	                      <option value="http://fund.yongin.ac.kr">발전기금</option>
+	                      <!--<option value="http://yies.kr/">방송국 YIBS</option>-->
+	                      <option value="http://CDE.yongin.ac.kr/">온라인캠퍼스CDE</option>
+	                      <option value="https://yonginnews.co.kr/">신문방송국</option>
+	                      <!--<option value="http://y-ssc.co.kr/">사회봉사센터</option> -->
+	                      <!--<option value="http://sports.yongin.ac.kr/">생활체육지도자연수원</option>-->
+	                      <option value="http://www.yonginasiacul.com/">아시아문화연구소</option>
+	                      <option value="http://yes.yongin.ac.kr">엘리트역량개발시스템YES</option>
+	                      <option value="http://safety.yongin.ac.kr/">연구실 안전정보시스템</option>	
+	                      <option value="http://ipsi.yongin.ac.kr/">입학정보사이트</option>
+	                      <option value="http://library.yongin.ac.kr/">중앙도서관</option>
+	                      <option value="http://www.yialumni.com">총동문회</option>
+	                      <!--<option value="https://admedu.yongin.ac.kr/">미래인재교육원관리시스템</option> -->
+	                      <option value="http://cafe.daum.net/YonginUnivROTC">학생군사교육단</option>
+	                  </select>
+                  </div>
+                  <div class="cs-select">
+                      <select id="dephome" class="footer_link_sel" title="학과홈페이지" onchange="window.open(this.value)">
+                      	  <option value="">학과홈페이지</option>
+                          <!--<option value="http://police.yongin.ac.kr">경찰행정학과</option> -->
+	                          <option value="https://blog.naver.com/yiu_slpclinic">대학원-언어치료학과</option>
+	                          <!--<option value="http://cafe.daum.net/YIDOMS">군사학과</option>	                          
+	                          <option value="http://cafe.daum.net/yonginceolove">대학원-최고경영자과정</option>
+	                          <option value="http://cafe.daum.net/112113114">문화관광학과</option> -->
+	                          <!--<option value="http://club.cyworld.com/YIU-lifescience">생명과학과</option> -->
+	                          <!--<option value="http://club.cyworld.com/sports-forall">스포츠레저학과</option> -->
+	                          <!--<option value="http://www.yonginenglish2003.co.kr/">영어과</option> -->
+	                          <!--<option value="http://club.cyworld.com/yonginchina">중국학과</option> -->
+                      </select>
+                  </div>
+                  <div class="sns-list">
+					<ul>
+						<li><a href="https://www.facebook.com/yonginuni/" target="_blank" class="facebook"><span class="sr-only">페이스북 바로가기</span></a></li>
+						<li><a href="https://www.instagram.com/yongin_university/" target="_blank" class="instar"><span class="sr-only">인스타그램 바로가기</span></a></li>
+						<li><a href="https://www.youtube.com/channel/UCGRHAuNYsFOiB2q2xwS3ccw" target="_blank" class="youtube"><span class="sr-only">유튜브 바로가기</span></a></li>
+						<li><a href="https://yonginnews.co.kr/" target="_blank" class="yi_blog"><span class="sr-only">신문방송국 포스트 바로가기</span></a></li>
+						<li><a href="https://blog.naver.com/yonginuni0" target="_blank" class="naver_blog"><span class="sr-only">네이버 블로그 바로가기</span></a></li>
+						<li><a href="https://m.post.naver.com/my.nhn?memberNo=36150804" target="_blank" class="yi_sports"><span class="sr-only">용인 스포츠기자단 바로가기</span></a></li>
+					</ul>
+				  </div>
+              </div>
+	</div><!-- End of class="inner" //-->
+</footer><!-- End of footer class="footer" //-->
+
+<form name="FormPersonList" id="FormPersonList">
+	<input type="hidden" name="nttId" />
+</form>
+
+<!-- 학생인권지킴이 -->
+<div id="layStuHumPop" class="hidden insert">
+<form id="FormInsert" name="FormInsert" method="post">
+	<input type="hidden" name="bbsId" value="SYSTEM_DEFAULT000011">
+	<input type="hidden" name="sortOrdr" value="0">
+	<input type="hidden" name="rdcnt" value="0">
+	<input type="hidden" name="useAt" value="Y">
+	<input type="hidden" name="noticeYn" value="N">
+	<input type="hidden" name="mvpUrl" id="mvpUrl">
+
+	<div class="title">
+		<h1>학생인권지킴이</h1>
+		<a href="#" class="close-x js-closeLay"><span class="sr-only">창닫기</span></a>
+	</div>
+	<div class="lay-cont">
+		<!-- [S] layer contents -->
+		<div class="clearfix">
+			<div class="f_left">
+				<h2>학생인권지킴이</h2>
+				<p>본 사이트는 학생 여러분께서 학교생활을 하며 발생되는 선후배 간의 폭력 및 성(언어)폭력 신고 또는 상담을 위한 비공개 프로그램입니다. 학생 개인의 프라이버시 보호취지에 따라 사이트를 볼 수 있는 권한은 학교 교직원 중에는 총장의 위임을 받은 단 1명 뿐임을 밝히며, 작성 요령은 프로그램에 들어오셔서 이메일과 연락처를 남기시고  내용 란에 고충사항을 작성하시면 됩니다. 상담원이 글을 읽고 학생이 원하는 방법(이메일, 전화, 또는 면담)으로 고충해결을 위해 정책적으로 노력하겠습니다.
+				</p>
+			</div>
+			<div class="f_right">
+				<div class="tel_info">
+					<strong>상담전화</strong>
+					<ul>
+						<li>- 폭행관련<br><span class="num-font">010-9014-3119</span></li>
+						<li>- 성폭력관련<br><span class="num-font">010-5420-5112</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="tbl-list alL">
+			<table cellspacing="0">
+				<tbody>
+					<tr>
+						<th>상담종류</th>
+						<td>
+							<span class="csform csform__radiobox">
+								<input type='radio' name='extraCode1' id='extraCode1-0'  value='CSC001'  checked='checked' /><label for='extraCode1-0'  style='margin-right:3px;'>폭행</label><input type='radio' name='extraCode1' id='extraCode1-1'  value='CSC002' /><label for='extraCode1-1'  style='margin-right:3px;'>성폭행</label></span>
+						</td>
+					</tr>
+					<tr style="display: none;">
+						<th><label for="nttSj">이름</label></th>
+						<td><input type="text" name="nttSj" id="nttSj" placeholder="이름을 입력해주세요."/></td>
+					</tr>
+					<tr>
+						<th><label for="extraColumn1">연락처</label></th>
+						<td><input type="tel" name="extraColumn1" id="extraColumn1" placeholder="01012345678"/></td>
+					</tr>
+					<tr>
+						<th><label for="extraColumn2">이메일</label></th>
+						<td><input type="email" name="extraColumn2" id="extraColumn2" placeholder="abc@yongin.ac.kr"/></td>
+					</tr>
+					<tr>
+						<th><label for="nttCn">내용</label></th>
+						<td>
+							<textarea name="nttCn" id="nttCn" placeholder="내용을 상세히 입력해주세요."></textarea>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<p class="tbl-caution">※ 이메일 또는 연락처를 남기지 않을 경우 답변이 불가함을 참고하시기 바랍니다.</p>
+		
+		<!-- persinfo -->
+		<div class="persinfo">
+			<h2>개인정보 수집 동의</h2>
+			<div class="persinfo-box scroll-box">
+				「개인정보보호 법」은 개인정보의 취급에 대한 일반적인 규범을 제시하고 있으며. 용인대학교(이하 “본교”라 합니다)는 이러한 법령의 규정에 따라 수집 , 보유 및 처리하는 개인정보를 공공업무의 적절한 수행과 본교 구성원의 권익을 보호하기 위해 적법하고 적정하게 취급할 것입니다. 또한, 본교는 관련 법령에서 규정한 바에 따라 본교에서 보유하고 있는 개인정보에 대한 열람청구권 및 정정청구권 등 여러분의 권익을 존중하며, 여러분은 이러한 법령상 권익의 침해 등에 대하여 행정심판법에서 정하는 바에 따라 행정심판을 청구할 수 있습니다. <br>
+				<br>
+				<strong>개인정보 수집 , 이용에 대한 동의</strong><br>
+				본교는 귀하께서 개인정보처리방침 또는 이용약관의 내용에 대해 「동의합니다」버튼 또는 「동의하지 않습니다」버튼을 클릭할 수 있는 절차를 마련하여, 「동의합니다」버튼을 클릭할 시 개인정보 수집에 대해 동의한 것으로 간주합니다. 「동의하지 않습니다」버튼을 클릭할 시 해당 정보를 수집할 수 없기에 관련 정보를 확인할 수 없는 불이익이 있습니다. <br><br>
+				
+				<strong>개인정보 수집 , 이용 목적과 제한</strong><br>
+				본교는 본인식별 및 본인의사 확인 등의 절차와 그 이행을 위하여 귀하의 개인정보를 수집하고 있습니다. 본교는 귀하의 기본적 인권을 현저히 침해할 우려가 있는 개인정보를 수집하지 않습니다. (ex 인종, 민족, 사상, 신조, 출신지, 본적지, 정치적 성향, 범죄기록, 건강상태, 성생활). 수집된 개인정보의 목적 외 사용 및 제3자에 대한 제공 본교는 귀하의 개인정보를 위 ‘개인정보의 수집 , 이용목적과 제한’에서 고지한 용도의 범위 내에서 사용하며, 동 범위를 초과하여 이용하거나 제3자에게 제공하지 않습니다.<br>
+				<br>
+				<strong>개인정보의 보유기간 및 이용기간</strong><br>
+				귀하의 개인정보는 수집목적 또는 제공받은 목적이 달성되면 파기됩니다.<br>
+				<br>
+				<strong>개인정보의 수집 항목</strong><br>
+				전화번호(휴대폰), 이메일 등 본페이지에서 입력 받는 개인정보				
+			</div>
+							
+			<span class="csform csform__checkbox">
+				<input type="checkbox" name="perschk" id="perschk">
+				<label for="perschk">이용약관에 동의합니다.</label>
+			</span>
+		</div>
+		<!-- //persinfo -->
+
+		<!-- [E] layer contents -->
+		<div class="btn-list alC">
+			<a href="#" class="btn js-closeLay">취소</a>
+			<a href="javascript:void(0);" onclick="doInsertStuHum();" class="btn">등록</a>
+		</div>
+	</div>
+</form>
+</div>
+<!-- //학생인권지킴이 --></div>
+
+	<script type="text/javaScript" language="javascript" src="/css/yonginUser/lib/js/default.js?ver=1"></script>
+<iframe name="hiddenframe" id="hiddenframe" title="저장하기" height="0" width="0" style="display:none;"></iframe>
+
+</body>
+</html>

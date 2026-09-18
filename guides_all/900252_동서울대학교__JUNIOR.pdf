@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--
+<script type="text/javascript" src="https://univ2.uway.com/tcontrol/js/tcontrolx.js?v=221031113040"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//TControl.setHref('/index.jsp');
+		//document.location.href = '/index.jsp';
+                document.location.href = '/mainIntro/intro.do';
+	});
+</script>
+</body>
+</html>
+-->
+<script type="text/javascript">
+    function getTimeStamp() {
+        var d = new Date();
+        var s = chkLeadingZeros(d.getFullYear(), 4);
+        s += chkLeadingZeros(d.getMonth() + 1, 2);
+        s += chkLeadingZeros(d.getDate(), 2);
+        s += chkLeadingZeros(d.getHours(), 2);
+        s += chkLeadingZeros(d.getMinutes(), 2);
+        s += chkLeadingZeros(d.getSeconds(), 2);
+
+        return s;
+    }
+
+    function chkLeadingZeros(n, digits) {
+        var zero = '';
+        n = n.toString();
+
+        if (n.length < digits) {
+            for (i = 0; i < digits - n.length; i++)
+                zero += '0';
+        }
+        return zero + n;
+    }
+
+    var today = getTimeStamp();
+
+    document.write ("<SCR" + "IPT LANG" + "UAGE='JAVAS" + "CRIPT' SRC='https://univ2.uway.com/tcontrol/js/tcontrolx.js?v=" + today + "'  charset='utf-8'></SCR" + "IPT>");
+    //document.write("<body onload=\"TControl.setHref('/index.jsp');\"></body>");
+    document.write("<body onload=\"TControl.setHref('/mainIntro/intro.do');\"></body>");
+</script>

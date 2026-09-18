@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="ko">
+<head>
+
+<title>전형일정 > 모집요강 | 백제예술대학교</title>
+
+<link rel="stylesheet" href="https://www.paekche.ac.kr/ict/theme/basic/css/default.css?ver=171222">
+<link rel="stylesheet" href="https://www.paekche.ac.kr/ict/skin/board/iweb2/style.css?ver=171222">
+
+<!--[if lte IE 8]>
+<script src="https://www.paekche.ac.kr/ict/js/html5.js"></script>
+<![endif]-->
+
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "https://www.paekche.ac.kr/ict";
+var g5_bbs_url   = "https://www.paekche.ac.kr/ict/pms";
+var g5_is_member = "";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "ipsi_web02";
+var g5_sca       = "";
+var g5_editor    = "smarteditor2";
+var g5_cookie_domain = "";
+</script>
+
+<script src="https://www.paekche.ac.kr/ict/js/jquery-1.8.3.min.js"></script>
+<script src="https://www.paekche.ac.kr/ict/js/jquery.menu.js?ver=171222"></script>
+<script src="https://www.paekche.ac.kr/ict/js/common.js?ver=171222"></script>
+<script src="https://www.paekche.ac.kr/ict/js/wrest.js?ver=171222"></script>
+<script src="https://www.paekche.ac.kr/ict/js/placeholders.min.js"></script>
+
+
+
+
+<!-- w3-->
+<style>
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body {
+   font-family: "Nanum Gothic", sans-serif;
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- w3--->
+
+
+</head>
+
+<body>
+
+
+<div class=" container-fluid ">
+<div class="row">
+<img src=/cdn/ipsi_bg.png class='img-responsive'>
+</div>
+</div>
+<nav class="navbar navbar-fixed-top navbar-inverse" style="z-index:5;border:0px; background: rgba( 0,0,0, 0.5 );  " id="nav_y">
+
+  <div class="container-fluid ">
+
+<table>
+<tr>
+<td height=10>
+</td>
+</tr>
+</table>
+
+<div id=univ>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+        <table border=0 height=100%>
+        <tr>
+        <td width=10 height=3>
+        </td>
+        <td>
+        </td>
+        </tr>
+        <tr>
+        <td>
+        </td>
+        <td>
+        <a href=/ict/ipsi_new><img src=/nimg/main_logo.png height=40></a>
+        </td>
+        </tr>
+        </table>
+
+<table>
+<tr>
+<td height=10>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+    </div>
+
+    <div class="collapse navbar-collapse" id="menu"  >
+        <div id=wide01 class='container'>
+
+
+                <table width=100% border=0 style='color:#E1DDDE'>
+<tr>
+<td height=18 colspan=8>
+</td>
+</tr>
+                <tr>
+                <td width=50%>
+                <a href=/ict/ipsi_new><img src=/ict/ipsi_new/dms/ipsi_logo.png></a> <span style='font-size:17px;font-weight:900;'>| <a href=/ict/ipsi_new><font color=white>입학안내</font></a></span>
+
+                </td>
+                <td width=2%>
+                &nbsp;
+                </td>
+                <td   align=center  >
+                <a href='/ict/pms/board.php?bo_table=ipsi_notice#stop' onmouseover='menu_control_show("m01a");'  onmouseout='menu_control_hide();' id=m01a  style='text-decoration:none;color:#E1DDDE;font-weight:900;'  >공지사항</a>
+                </td>
+                <td   align=center  >
+                <a href='/ict/pms/board.php?bo_table=ipsi_web02&wr_id=12#stop' onmouseover='menu_control_show("m02a");'  onmouseout='menu_control_hide();' id=m02a  style='text-decoration:none;color:#E1DDDE;font-weight:900;'  >모집요강</a>
+                </td>
+                <td   align=center  >
+                <a href= '/ict/pms/board.php?bo_table=ipsi_qna#stop'  onmouseover='menu_control_show("m03a");'  onmouseout='menu_control_hide();' id=m03a  style='text-decoration:none;color:#E1DDDE;font-weight:900;'  >입학Q&A</a>
+                </td>
+                <td   align=center  >
+                <a href=  '/ict/pms/board.php?bo_table=ipsi_pds#stop'  onmouseover='menu_control_show("m04a");'  onmouseout='menu_control_hide();' id=m04a  style='text-decoration:none;color:#E1DDDE;font-weight:900;'  >자료실</a>
+                </td>
+                <td   align=center  >
+                <a href= '/ict/pms/board.php?bo_table=ipsi_rank_neo#stop'  onmouseover='menu_control_show("m05a");'  onmouseout='menu_control_hide();' id=m05a  style='text-decoration:none;color:#E1DDDE;font-weight:900;'  >경쟁률</a>
+                </td>
+
+                <td   align=center  >
+                <a href= '/ict/pms/board.php?bo_table=ipsi_web&wr_id=1#stop'  onmouseover='menu_control_show("m06a");'  onmouseout='menu_control_hide();' id=m06a  style='text-decoration:none;color:#E1DDDE;font-weight:900;'  >모집학과</a>
+                </td>
+                </tr>
+<tr>
+<td height=18 colspan=8>
+</td>
+</tr>
+
+                </table>
+
+        </div>
+
+
+        <div id=small01 class='container' style='color:white;'>
+<div class=container>
+<p><li><a href='/ict/pms/board.php?bo_table=ipsi_notice#stop'       class="btn" data-toggle="collapse" data-target="#menu" style='padding:0px;color:white;'>공지사항</a></li></p>
+<p><li><a href= '/ict/pms/board.php?bo_table=ipsi_web02&wr_id=12#stop'   class="btn" data-toggle="collapse" data-target="#menu" style='padding:0px;color:white;'>모집요강</a></li></p>
+<p><li><a href= '/ict/pms/board.php?bo_table=ipsi_qna#stop'      class="btn" data-toggle="collapse" data-target="#menu" style='padding:0px;color:white;'>입학Q&A</a></li></p>
+<p><li><a href= '/ict/pms/board.php?bo_table=ipsi_pds#stop'   class="btn" data-toggle="collapse" data-target="#menu" style='padding:0px;color:white;'>자료실</a></li></p>
+<p><li><a href= '/ict/pms/board.php?bo_table=ipsi_rank_neo#stop'   class="btn" data-toggle="collapse" data-target="#menu" style='padding:0px;color:white;'>경쟁률</a></li></p>
+<p><li><a href= '/ict/pms/board.php?bo_table=ipsi_web&wr_id=1#stop'   class="btn" data-toggle="collapse" data-target="#menu" style='padding:0px;color:white;'>모집학과</a></li></p>
+
+</div>
+
+        </div>
+
+
+    </div>
+
+
+  </div>
+
+<div  onmouseover='menu_control_show();'   onmouseout='menu_control_hide();'  >
+
+</div>
+
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+<script src="https://www.paekche.ac.kr/ict/js/viewimageresize.js"></script>
+<!-- 게시물 읽기 시작 { -->
+<article id="bo_v" style="padding:0px;margin:0px;width:100%" >
+<br><br>
+<div class=container>
+<div style="font-size: 22px;" >
+&nbsp;&nbsp;<img src="/ict/ipsi/idms/icon02.png">&nbsp;&nbsp; <b>
+전형일정</b>
+</div>
+
+<br>
+<div style="padding-left:15px;margin:0px;">
+
+
+    <section id="bo_v_atc">
+        <h2 id="bo_v_atc_title">본문</h2>
+
+        <div id="bo_v_img">
+</div>
+
+        <!-- 본문 내용 시작 { -->
+        <div id="bo_v_con">
+<span style="font-size: 18px;">- 수시모집</span>
+
+<table class="table table-bordered">
+  <thead>
+    <tr class="active">
+      <td align="center"><b><span style="font-family: 나눔고딕; font-size: 9pt;">구분</span></th>
+      <td align=center><b><span style="font-family: 나눔고딕; font-size: 9pt;">수시1차 모집</span></th>
+      <td align=center><b><span style="font-family: 나눔고딕; font-size: 9pt;">수시2차 모집</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">원서접수/서류제출</span></td>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">2026.09.07.(월)∼30(수) 17:00</span></td>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">2026.11.11(수)∼25(수) 17:00</span></td>
+    </tr>
+    <tr>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">실기공지</span></td>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;"><b>2026. 10.06(화) 14:00</b></span></td>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;"><b>2026. 12.01(화) 14:00</b></span></td>
+    </tr>
+    <tr>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">실기고사 </span></td>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">2026.10.13(화)~16(금)</span></td>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">2026.12.08(화)~11(금)</span></td>
+    </tr>
+    <tr>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">합격자 발표</span></td>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">2026.10.21(수) 14:00</span></td>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">2026.12.16(수) 14:00</span></td>
+    </tr>
+    <tr>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">예치금 등록</span></td>
+      <td colspan="2"><span style="font-family: 나눔고딕; font-size: 9pt;">2026.12.21(월)~23(수)</span></td>
+    </tr>
+    <tr>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">충원합격 및 등록</span></td>
+      <td colspan="2"><span style="font-family: 나눔고딕; font-size: 9pt;"><b>2026. 12.24(목)~31(목) 16:00</b></span></td>
+    </tr>
+    <tr>
+      <td><span style="font-family: 나눔고딕; font-size: 9pt;">최종등록</span></td>
+      <td colspan="2"><span style="color: blue; font-family: 나눔고딕; font-size: 9pt;"><b>2027.02.10(수)~12(금)</b></span></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<span style="font-size: 18px;">- 정시모집</span>
+<table class="table table-bordered">
+  <thead>
+    <tr class="active">
+      <td align="center"><b><span style="font-size: 9pt;">구분</span></th>
+      <td align="center"><b><span style="font-size: 9pt;">정시모집</span></th>
+      <td align="center"><b><span style="font-size: 9pt;">자율 모집</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span style="font-size: 9pt;">원서접수/서류제출</span></td>
+      <td><span style="font-size: 9pt;">2027.01.04(월) ∼01.20(수) 17:00</span></td>
+      <td><span style="font-size: 9pt;">2027.01.21(목)~2.27(토) 17:00</span></td>
+    </tr>
+    <tr>
+      <td><span style="font-size: 9pt;">실기공지</span></td>
+      <td><b><span style="font-size: 9pt;">2027. 01.22(금) 14:00</span></b></td>
+      <td><span style="font-size: 9pt;">-</span></td>
+    </tr>
+    <tr>
+      <td><span style="font-size: 9pt;">실기고사 </span></td>
+      <td><span style="font-size: 9pt;">2027.01.26(화)~29(금)</span></td>
+      <td><b><span style="font-size: 9pt;">미실시</span></b></td>
+    </tr>
+    <tr>
+      <td><span style="font-size: 9pt;">합격자 발표</span></td>
+      <td><span style="font-size: 9pt;">2027.02.03(수) 14:00</span></td>
+      <td><span style="font-size: 9pt;">수시</span></td>
+    </tr>
+      <tr>
+        <td><span style="font-size: 9pt;">최종등록</span></td>
+        <td><span style="color: blue; font-family: 나눔고딕; font-size: 9pt;"><b>2027.02.10(수)~12(금)</span></td>
+        <td><span style="font-size: 9pt;"><b>대학에서 정한 기간</b> <br>
+        <font color=red>단, 최초합격자는 정시모집 등록기간<br>
+        
+        
+        </span></td>
+      </tr>
+
+    </tbody>
+  </table>
+<!-- ※ <b>자율모집 중 기간 2021.01.19 ~ 02.02는 정시 원서 접수에서 결원이 발생된 학과에 한하여, 2021. 02. 11 ~ 02.28은 최종 등록 후 결원이 발생된 학과에 한하여 모집함
+ --> <p>
+
+</p><p>
+<span style="font-size: 9pt;">1.국가보훈대상자는 『대학수업료등면제대상자증명서』를 보훈처에서 발급받아 대학에 제출하면 등록금 면제를 받을 수 있음. </span><br><strong><span style="font-size: 9pt;">
+&nbsp;&nbsp;(단, 반드시 학생회비를 납부해야 등록자로 인정)</span></strong><br>
+<span style="font-size: 9pt;">2.1개 학과 지원만 가능(중복지원 불가)</span><br>
+<span style="font-size: 9pt;">3.자율모집은 미달 학과만 모집함</span><br>
+<!--<span style="font-size: 9pt;">3.2021.2.29에는 타대학 미등록자에 한해 합격 및 등록처리함.</span><br><span style="font-size: 9pt;">&nbsp;</span></p>
+-->
+<br>
+<br>
+<center>
+<a href="https://paekche.ac.kr/ict/pms/download.php?bo_table=ipsi_pds&wr_id=24&no=0"><img class="img-responsive" src="/dms/mdown.png"></a>
+
+</center>
+</div>
+                <!-- } 본문 내용 끝 -->
+
+        
+
+        <!--  추천 비추천 시작 { -->
+                <!-- }  추천 비추천 끝 -->
+    </section>
+
+
+    
+    
+    
+    <!-- 게시물 상단 버튼 시작 { -->
+    <div id="bo_v_top">
+        
+        <ul class="bo_v_left">
+                                                                    </ul>
+
+
+
+            </div>
+    <!-- } 게시물 상단 버튼 끝 -->
+
+    
+
+</article>
+<!-- } 게시판 읽기 끝 -->
+
+<script>
+
+function board_move(href)
+{
+    window.open(href, "boardmove", "left=50, top=50, width=500, height=550, scrollbars=1");
+}
+</script>
+
+<script>
+$(function() {
+    $("a.view_image").click(function() {
+        window.open(this.href, "large_image", "location=yes,links=no,toolbar=no,top=10,left=10,width=10,height=10,resizable=yes,scrollbars=no,status=no");
+        return false;
+    });
+
+    // 추천, 비추천
+    $("#good_button, #nogood_button").click(function() {
+        var $tx;
+        if(this.id == "good_button")
+            $tx = $("#bo_v_act_good");
+        else
+            $tx = $("#bo_v_act_nogood");
+
+        excute_good(this.href, $(this), $tx);
+        return false;
+    });
+
+    // 이미지 리사이즈
+    $("#bo_v_atc").viewimageresize();
+
+    //sns공유
+    $(".btn_share").click(function(){
+        $("#bo_v_sns").fadeIn();
+   
+    });
+
+    $(document).mouseup(function (e) {
+        var container = $("#bo_v_sns");
+        if (!container.is(e.target) && container.has(e.target).length === 0){
+        container.css("display","none");
+        }	
+    });
+});
+
+function excute_good(href, $el, $tx)
+{
+    $.post(
+        href,
+        { js: "on" },
+        function(data) {
+            if(data.error) {
+                alert(data.error);
+                return false;
+            }
+
+            if(data.count) {
+                $el.find("strong").text(number_format(String(data.count)));
+                if($tx.attr("id").search("nogood") > -1) {
+                    $tx.text("이 글을 비추천하셨습니다.");
+                    $tx.fadeIn(200).delay(2500).fadeOut(200);
+                } else {
+                    $tx.text("이 글을 추천하셨습니다.");
+                    $tx.fadeIn(200).delay(2500).fadeOut(200);
+                }
+            }
+        }, "json"
+    );
+}
+</script>
+<!-- } 게시글 읽기 끝 -->
+</div>
+</div>
+
+
+<div class="container-fluid" style= 'background: url("./dms/sline.png");background-repeat: repeat-x;' >
+<div class="row">
+&nbsp;
+</div>
+</div>
+
+<div class='container'>
+<a href=/ict/pms/board.php?bo_table=main_intro&wr_id=9><font color=black>찾아오시는길</font></a> | 
+<a href=/ict/dormitory><font color=black>기숙사</font></a> | 
+<a href=/ict/pms/board.php?bo_table=main_life_005><font color=black>장학안내</font></a> | 
+<a href=/ict/pms/board.php?bo_table=main_life_006&wr_id=1><font color=black>통학버스안내</font></a> | 
+<a href=/ict/main><font color=black>대학홈페이지</font></a><br><br>
+(55313) 전북특별자치도 완주군 봉동읍 백제대학로 171 입시상담 063-260-9001 | FAX 063-263-6002 <!--| E-Mail: <a href="mailto:"ipsi@paekche.ac.kr">ipsi@paekche.ac.kr</a>--><br>
+&copy; 2016 PAEKCHE INSTITUTE OF THE ARTS.<br>
+All Rights Reserved.
+</div>
+<br>
+
+
+</body>
+</html>
+
+<script>
+menu_control_hide();
+
+ani();
+get_info();
+
+
+$(function() {
+$(window).resize(function(){
+ani();
+});
+});
+
+function ani()
+{
+
+if (document.body.clientWidth > 992)
+{
+                document.all.univ.style.display="none";
+                document.all.wide01.style.display="block";
+                document.all.small01.style.display="none";
+
+
+}
+else
+{
+
+               if (document.body.clientWidth > 768  &&   document.body.clientWidth <=992 )
+                {
+                document.all.univ.style.display="none";
+                document.all.wide01.style.display="block";
+                document.all.small01.style.display="none";
+
+
+                }
+                else
+                {
+                document.all.univ.style.display="block";
+                document.all.wide01.style.display="none";
+                document.all.small01.style.display="block";
+
+
+                }
+
+
+
+
+}
+
+
+get_info();
+}
+
+function get_info()
+{
+
+   if (document.body.clientWidth > 768)
+                {
+                }
+else
+                {
+                }
+
+
+
+
+}
+
+function menu_control_hide()
+{
+document.all.m01a.style.color="#E1DDDE";
+document.all.m02a.style.color="#E1DDDE";
+document.all.m03a.style.color="#E1DDDE";
+document.all.m04a.style.color="#E1DDDE";
+document.all.m05a.style.color="#E1DDDE";
+document.all.m06a.style.color="#E1DDDE";
+
+}
+
+
+function menu_control_show(ii)
+{
+var ii;
+        if (ii=="m01a" || ii=="m02a"  || ii=="m03a"  || ii=="m04a"  || ii=="m05a"  || ii=="m06a"  )
+        {
+        document.getElementById(ii).style.color="#FFAD00";
+        }
+}
+
+
+</script>
+
+
+
+<script>
+        function quickLink1(){
+                // 원서접수 : 접수기간이 아닐 경우 state를 "N"으로 변경, 접수기간일 경우 "Y"로 변경
+                var state = "Y";
+
+                if (state == "Y"){
+                        window.open('/etc/etc01.html','new','resizable=auto width=480 height=300 ,scrollbars=no');
+                } else {
+                         alert("원서접수기간이 아닙니다.");
+                        return;
+                }
+        }
+
+        function quickLink2(){
+                // 수험표 출력 : 출력기간이 아닐 경우 state를 "N"으로 변경, 출력기간일 경우 "Y"로 변경
+                 var state = "N";
+
+                if (state == "Y"){
+                        window.open('https://www.paekche.ac.kr/ict/ipsi_new/pms/ent01.html','new1','resizable=auto width=500 height=655 ,scrollbars=yes');
+                } else {
+			alert("수험표 출력기간이 아닙니다..");
+                        return;
+                }
+        }
+
+        function quickLink3(){
+                // 응시확인서 출력 : 출력기간이 아닐 경우 state를 "N"으로 변경, 출력기간일 경우 "Y"로 변경
+                var state = "N";
+
+                if (state == "Y"){
+                        window.open('https://www.paekche.ac.kr/ict/ipsi_new/pms/ent03.html','new1','resizable=auto width=450 height=560 ,scrollbars=auto');
+                } else {
+			alert("응시확인서 출력기간이 아닙니다.");
+                        return;
+                }
+        }
+
+        function quickLink4(){
+                // 합격자발표
+                var state = "N";
+
+                if (state == "Y"){
+
+                window.open('https://www.paekche.ac.kr/ict/ipsi_new/pms/2026_smart_real_n_n_n.html','new1','resizable=auto width=460 height=560 ,scrollbars=auto');
+                } else {
+			alert("합격자 발표기간이 아닙니다..");
+                        return;
+                }
+        }
+
+        function quickLink5(){
+                // 고지서출력
+                 var state = "N";
+
+
+                if (state == "Y"){
+                        window.open('https://www.paekche.ac.kr/ict/ipsi_new/pms/2026_smart_bill_n_n.html','new','resizable=auto width=450 height=540 ,scrollbars=auto');
+                } else {
+			alert("고지서 출력기간이 아닙니다.");
+                        return;
+                }
+        }
+
+        function quickLink6(){
+                // 납입내역조회
+                 var state = "N";
+
+
+                if (state == "Y"){
+                        window.open('https://www.paekche.ac.kr/ict/ipsi_new/pms/2026_smart_status_n.html','new','resizable=auto width=450 height=540 ,scrollbars=no');
+                } else {
+			alert("납입내역 조회기간이 아닙니다.");
+                        return;
+                }
+        }
+</script>
+
+</body>
+</html>
+
+
+<script>
+$(function() {
+    // 폰트 리사이즈 쿠키있으면 실행
+    font_resize("container", get_cookie("ck_font_resize_rmv_class"), get_cookie("ck_font_resize_add_class"));
+});
+</script>
+
+
+
+<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+<!--[if lte IE 7]>
+<script>
+$(function() {
+    var $sv_use = $(".sv_use");
+    var count = $sv_use.length;
+
+    $sv_use.each(function() {
+        $(this).css("z-index", count);
+        $(this).css("position", "relative");
+        count = count - 1;
+    });
+});
+</script>
+<![endif]-->
+
+</body>
+</html>
+
+<!-- 사용스킨 : iweb2 -->

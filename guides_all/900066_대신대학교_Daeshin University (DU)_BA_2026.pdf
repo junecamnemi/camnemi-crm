@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="title" content="대신대학교" />
+<meta name="author" content="대신대학교" />
+<meta name="keywords" content="대신대학교" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="대신대학교" />
+<!--meta property="og:url" content="http://www.hangsodam.com/" /-->
+<meta name="description" content="대신대학교" />
+<meta property="og:description" content="대신대학교" />
+<!--meta property="og:image" content="http://www.hangsodam.com/hangsodamci.png" /-->
+
+<Script language="javaScript">
+if (document.location.protocol == 'http:') {
+    document.location.href = document.location.href.replace('http:', 'https:');
+}
+</Script>
+<!-- 웹폰트가 로드 되기 전에 다른 페이지 로딩을 막기 -->
+<script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Noto Sans Korean']
+    }
+  });
+</script>
+<!-- 웹폰트가 로드 되기 전에 다른 페이지 로딩을 막기 -->
+<link rel="stylesheet" href="/share/js/assets/owl.carousel.css" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="/share/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/share/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/share/js/jquery-ui.js"></script>
+<script type="text/javascript" src="/share/js/jquery.slides.min.js"></script>
+<script type="text/javascript" src="/share/js/script.js"></script>
+<script type="text/javascript" src="/share/js/leftmenu.js"></script>
+<script type="text/javascript" src="/share/js/tabmenu.js"></script>
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<link href="/share/js/cross-domain/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+	<link href="/share/js/cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+	<script src="/share/js/cross-domain/respond.proxy.js"></script>
+<![endif]-->
+<title>대신대학교 입학사이트</title>
+<link rel="stylesheet" href="/share/css/font.css?ver=20260918102531" type="text/css" />
+<link rel="stylesheet" href="/share/css/layout.css?ver=20260918102531" type="text/css" />
+<link rel="stylesheet" href="/share/css/content.css?ver=20260918102531" type="text/css" />
+<link rel="stylesheet" href="/share/css/board.css?ver=20260918102531" type="text/css" />
+<link rel="stylesheet" href="/share/css/content_ejpark.css?ver=20260918102531" type="text/css" />
+<link rel="stylesheet" href="/share/css/content_ymkim.css?ver=20260918102531" type="text/css" />
+<link rel="stylesheet" href="/share/css/layout_m.css?ver=20260918102531" type="text/css" media="only all and (max-width:767px)" />
+<link rel="stylesheet" href="/share/css/content_m.css?ver=20260918102531" type="text/css" media="only all and (max-width:767px)" />
+<link rel="stylesheet" href="/share/css/content_m_ejpark.css?ver=20260918102531" type="text/css" media="only all and (max-width:767px)" />
+<link rel="stylesheet" href="/share/css/content_m_ymkim.css?ver=20260918102531" type="text/css" media="only all and (max-width:767px)" />
+<link rel="stylesheet" href="/share/css/board_m.css?ver=20260918102531" type="text/css" media="only all and (max-width:767px)" />
+<script type="text/javascript">
+		var viewPortWidth = $(window).width();
+		if (viewPortWidth > 767){//아이패드 사이즈일때
+			//document.getElementsByTagName("meta")[3].content="width=device-width,initial-scale=1,minimum-scale=1; maximum-scale=1";
+			document.getElementsByTagName("meta")[3].content="width=1024px, target-densitydpi=device-dpi ";//user-scalable=no
+		}
+</script>
+
+
+<script type="text/javascript">
+function menu_bg_animate(flag)
+{
+	w_height=$(document).height();
+
+	if(flag)
+	{
+		$("#bg_wrap").css('height', w_height).stop().fadeTo('fast', 0.6);
+	}
+	else
+	{
+		$("#bg_wrap").stop().fadeOut();
+	}
+}
+
+//탭 활성화
+$(document).ready(function(){
+	$('.subtabmenu ul').each(function(){
+		// For each set of tabs, we want to keep track of
+		// which tab is active and its associated content
+		var $active, $content, $links = $(this).find('a');
+
+		// If the location.hash matches one of the links, use that as the active tab.
+		// If no match is found, use the first link as the initial active tab.
+		$active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+		$active.addClass('active');
+
+		$content = $($active[0].hash);
+
+		// Hide the remaining content
+		$links.not($active).each(function () {
+			$(this.hash).hide();
+		});
+
+		// Bind the click event handler
+		$(this).on('click', 'a', function(e){
+			// Make the old tab inactive.
+			$active.removeClass('active');
+			$content.hide();
+
+			// Update the variables with the new link and content
+			$active = $(this);
+			$content = $(this.hash);
+
+			// Make the tab active.
+			$active.addClass('active');
+			$content.show();
+
+			// Prevent the anchor's default click action
+			e.preventDefault();
+		});
+	});
+
+});
+</script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages : 'ko,en,zh-CN,vi',autoDisplay: true}, 'google_translate_element');
+}
+function googleTranslateElementInitEN() {
+	//alert('en');
+	new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages : 'ko,en,zh-CN',autoDisplay: true}, 'google_translate_element');
+	$('.goog-te-combo').val('en').trigger('selected');
+	const gtcombo = document.querySelector('.goog-te-combo');
+	gtcombo.value = 'en';
+	gtcombo.dispatchEvent(new Event('change')); 
+}
+function googleTranslateElementInitCH() {
+	//alert('ch');
+	new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages : 'ko,en,zh-CN',autoDisplay: true}, 'google_translate_element');
+	$('.goog-te-combo').val('zh-CN').trigger('selected');
+	const gtcombo = document.querySelector('.goog-te-combo');
+	gtcombo.value = 'zh-CN';
+	gtcombo.dispatchEvent(new Event('change')); 
+}
+function googleTranslateElementInitVI() {
+	//alert('ch');
+	new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages : 'ko,en,zh-CN,vi',autoDisplay: true}, 'google_translate_element');
+	$('.goog-te-combo').val('vi').trigger('selected');
+	const gtcombo = document.querySelector('.goog-te-combo');
+	gtcombo.value = 'vi';
+	gtcombo.dispatchEvent(new Event('change')); 
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</head>
+<body><div id="google_translate_element" style="display:none;"></div>
+
+<div id="skipnavigation">
+	<h1>메뉴바로가기</h1>
+	<a href="#content_text" class="sknavi">본문 바로가기</a>
+	<a href="#gnbwrap" class="sknavi">주메뉴 바로가기</a>
+	<a href="#footer" class="sknavi">하단영역 바로가기</a>
+</div>
+
+<div id="bg_wrap" style="display:none;background-color:#000;width:100%;position:absolute;z-index:99;"></div>
+
+<!-- container -->
+<div id="container">
+
+<!-- head_wrap -->
+<div id="header">
+		
+<div id="gnbwrap_ent">
+	<h3>주 메뉴</h3>
+	<div id="mlogo">
+		<h1>
+			<a href="/html/02_admission/"><img src="/img/layout/toplogo_ent.png" alt="대신대학교 로고"/></a>
+		</h1>
+	</div>
+	<div id="allmenu">
+		<a href="#" title="전체메뉴보기" id="allmenu_btn_m"><img src="/img/layout/btn_menuopen.png" alt="" id="menu_btn_m" /></a>
+	</div>
+
+	<div id="topmenu_ent">
+		<div class="topmenu_ent">
+			<div class="topleft_ent">
+				<a href="javascript://" onclick="window.external.AddFavorite('https://www.daeshin.ac.kr/','† 이웃과 세계를 향하여 꿈을 펼쳐 나가는 대신대학교 †')">즐겨찾기</a>
+				<!--a href="/" target="_self" title="인트로" class="link_main" style="width:35px; position:absolute; left:65px;background-color:#55ae00;">인트로</a-->
+				<a href="/html/00_main/" target="_self" title="새창으로 열립니다" class="link_main">대신대학교 홈페이지 바로가기</a>
+				<div class="cboth"></div>
+			</div>
+			<div class="topright_ent">
+				<div>
+										<a href='/html/07_etc/05.php' class="loginout">LOGIN</a>
+										<a href='/html/07_etc/01.php'>SITEMAP</a>
+					<!--a href="http://mail.daeshin.ac.kr/">WEBMAIL</a-->
+				</div>
+			</div>
+			<div class="cboth"></div>
+		</div>
+	</div>
+
+	<div id="gnb_ent">
+		<div id="gnball_ent">
+			<h1 id="toplogo_ent">
+				<a href="/html/02_admission/"><img src="/img/layout/toplogo_ent.png" alt="대신대학교 입학안내 로고"/></a>
+			</h1>
+			<ul class="gnball">
+				<li>
+					<a class="mdepth1on" href='/html/02_admission/01_1.php'>대학</a>
+					<ul id="top2m1" class="mdepth2">
+						<li id="top2m1m1"><a href='/html/02_admission/01_1.php' >수시 모집요강</a></li>
+						<li id="top2m1m2"><a href='/html/02_admission/01_2.php' >정시 모집요강</a></li>
+						<li id="top2m1m3"></li>
+						<li id="top2m1m4"><a href='/html/02_admission/01_4.php' >편입 모집요강</a></li>
+						<li id="top2m1m5"><a href='/html/02_admission/01_5.php' >외국인 모집요강</a></li>
+						<li id="top2m1m6"><a href='/html/02_admission/01_8.php' >외국인 편입 모집요강</a></li>
+						<li id="top2m1m7"><a href='/html/02_admission/01_7.php' >추가 모집요강</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="mdepth1on" href='/html/02_admission/02_1.php'>대학원</a>
+					<ul id="top2m2" class="mdepth2">
+						<li id="top2m2m1"><a href='/html/02_admission/02_1.php' >대학원 모집요강</a></li>
+						<li id="top2m2m2"><a href='/html/02_admission/02_2.php' >신학대학원 모집요강</a></li>
+						<li id="top2m2m3"><a href='/html/02_admission/02_6.php' >특수 대학원 모집요강</a></li>
+						<li id="top2m2m4"><a href='/html/02_admission/02_3.php' >대학원 외국인 모집요강</a></li>
+						<li id="top2m2m4"><a href='/html/02_admission/02_4.php' >신학대학원 외국인 모집요강</a></li>
+						<li id="top2m2m4"><a href='/html/02_admission/02_5.php' >특수 대학원 외국인 모집요강</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="mdepth1on" href='/html/02_admission/03.php'>입시 도우미</a>
+					<ul id="top2m3" class="mdepth2">
+						<li id="top2m3m1"><a href='/html/02_admission/03.php' >공지사항</a></li>
+						<li id="top2m3m2"></li>
+						<li id="top2m3m3"><a href='/html/02_admission/03_2.php' >입시Q&A</a></li>
+						<li id="top2m3m4"><a href='/html/02_admission/03_3.php' >입시자료요청</a></li>
+					</ul>
+				</li>
+				<li class="toptworow">
+					<a href='http://home.daeshin.ac.kr/nx/pass.asp' target="_blank">합격자 조회</a>
+					<!--a>합격자 조회</a-->
+				</li>
+				<li>
+					<a class="mdepth1on" href='/html/03_edu/01.php'>학과 / 전공안내</a>
+					<ul id="top2m5" class="mdepth2">
+						<li id="top2m5m1"><a href='/html/03_edu/01.php' >대학</a></li>
+						<li id="top2m5m2"><a href='/html/03_edu/02.php' >대학원</a></li>
+						<li id="top2m5m3"></li>
+						<li id="top2m5m4"></li>
+						<li id="top2m5m5"></li>
+						<li id="top2m5m6"></li>
+					</ul>
+				</li>
+				<li class="last">
+					<a class="mdepth1on" href='/html/04_campus/01.php'>대학생활</a>
+					<ul id="top2m6" class="mdepth2">
+						<li id="top2m6m1"><a href='/html/04_campus/01.php' >신입생 첫걸음</a></li>
+						<li id="top2m6m2"><a href='/html/04_campus/03.php' >장학금안내</a></li>
+						<li id="top2m6m3"><a href='http://www.kosaf.go.kr/'  target='_blank' title='새창'>정부학자금대출</a></li>
+						<li id="top2m6m4"><a href='/html/04_campus/07.php' >생활관</a></li>
+						<li id="top2m6m5"><a href='/html/04_campus/07.php' >스쿨버스</a></li>
+						<li id="top2m6m6"><a href='/html/04_campus/12.php' >병무청</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#gnb_ent, #gnbOver_ent").bind('mouseover focusin', function(){
+		if( $(window).width() > 767 ) {
+			$("#gnb_ent").stop().animate({height:'400px'},{queue:false, duration:400, easing: 'easeInSine' });
+			$("#gnb_ent").css('borderBottom','1px solid #ddd');
+		}
+	});
+
+	$("#gnb_ent, #gnbOver_ent").bind('mouseout focusout', function(){
+		if( $(window).width() > 767 ) {
+			$("#gnb_ent").stop().animate({height:'75px'},{queue:false, duration:300, easing: 'easeInSine' });
+			$("#gnb_ent").css('borderBottom','none');
+		}
+	});
+});
+
+$('#allmenu_btn_m').click(function() {
+	m_height=$(document).height();
+	$("#gnb_ent").animate({width:'toggle'},100);
+
+	//if($("#gnbOver").is(':visible'))
+	if($("#menu_btn_m").attr('src')=='/img/layout/btn_menuclose.png')
+	{
+		$("#menu_btn_m").attr('src', '/img/layout/btn_menuopen.png');
+		$(".topright_ent").css('display','none');
+			menu_bg_animate(0);
+	}
+	else
+	{
+		$("#menu_btn_m").attr('src', '/img/layout/btn_menuclose.png');
+		$("#gnb_ent").css('height',m_height);
+		$(".topright_ent").css('display','block');
+			menu_bg_animate(1);
+	}
+
+	var accordion_tab = $('.mdepth1on'), accordion_content = $('.mdepth2');
+
+
+	// When the tab is clicked function
+	accordion_tab.on('click', function(e)
+	{
+		// Disable tab links
+		e.preventDefault();
+
+		// Remove the active class
+		accordion_tab.removeClass('active');
+
+		accordion_content.slideUp('normal');
+
+//			jQuery("#mobiledepth .mdepth1").css('background-image','url(/img/common/arrow.png)');
+//			jQuery("#mobiledepth .mdepth1").css('background-position','90% center');
+
+		if($(this).next().is(':hidden') == true)
+		{
+			$(this).addClass('active');
+			$(this).next().slideDown('normal');
+			$("#mobiledepth .mdepth1").css('background-image','url(/img/common/arrow_top.png)');
+		}
+		else
+		{
+			$("#mobiledepth .mdepth1").css('background-image','url(/img/common/arrow.png)');
+		}
+	});
+});
+
+////$(window).resize(function(){
+//	if ($(document).width() < 768 )
+//	{
+//		$("#header").css('height','57px');
+//	}
+//	else
+//	{
+//		$("#header").css('height','100px');
+//	}
+//});
+//</script>	<!-- /head_wrap -->
+</div>
+
+<div id="visual">
+	<div class="visual">
+		<h1>대학</h1>
+		<div class="visualcopy">배움을 실천하는 미래지도자 양성!<br />
+		대신대학교가 열어가겠습니다.</div>
+	</div>
+	<div id="tab_ent">
+	<div id="tabmenu">
+				<div class="mobiletabmenu">
+			<a href='/html/02_admission/01_1.php' >수시 모집요강</a>		</div>
+		<ul id="tab3m" class="mobiletabview">
+			<li id="tab3m1"><a href='/html/02_admission/01_1.php' >수시 모집요강</a></li>
+			<li id="tab3m2"><a href='/html/02_admission/01_2.php' >정시 모집요강</a></li>
+			<li id="tab3m3"></li>
+			<li id="tab3m4"><a href='/html/02_admission/01_4.php' >편입 모집요강</a></li>
+			<li id="tab3m5"><a href='/html/02_admission/01_5.php' >외국인 모집요강</a></li>
+			<li id="tab3m6"><a href='/html/02_admission/01_8.php' >외국인 편입 모집요강</a></li>
+			<li id="tab3m7"><a href='/html/02_admission/01_7.php' >추가 모집요강</a></li>
+			<div class="cboth"></div>
+		</ul>
+				<script type="text/javascript">
+		initTab2Menu(5,5,5);
+
+		var accordion_tab = $('.mobiletabmenu'), accordion_content = $('.mobiletabview');
+
+		// When the tab is clicked function
+		accordion_tab.on('click', function(e)
+		{
+			// Disable tab links
+			e.preventDefault();
+
+			// Remove the active class
+			accordion_tab.removeClass('active');
+
+			accordion_content.slideUp('normal');
+
+	//			jQuery("#mobiledepth .mdepth1").css('background-image','url(/img/common/arrow.png)');
+	//			jQuery("#mobiledepth .mdepth1").css('background-position','90% center');
+
+			if($(this).next().is(':hidden') == true)
+			{
+				$(this).addClass('active');
+				$(this).next().slideDown('normal');
+				$("#mobiledepth .mdepth1").css('background-image','url(/img/common/arrow_top.png)');
+			}
+			else
+			{
+				$("#mobiledepth .mdepth1").css('background-image','url(/img/common/arrow.png)');
+			}
+		});
+		</script>
+	</div>
+</div></div>
+
+<!-- body_wrap -->
+<div id="body_section">
+
+
+	<div id="body_wrap_ent">
+		<div id="body_content">
+			<div id="location_ent">
+				<div class="locationwrap">
+					<div class="location">
+						<a href='/html/00_main/index.php' class='home'><img src='/img/02_admission/btn_home_ent.png' alt='홈'></a> <span>&gt;</span> <a href='/html/02_admission/' >입학</a> <span>&gt;</span> <a href='/html/02_admission/01_1.php' >대학</a> <span>&gt;</span> <a href='/html/02_admission/01_5.php' >외국인 모집요강</a>					</div>
+				</div>
+			</div>
+
+			<!-- content_text -->
+			<div id="content_text">
+				<div id="subtitle_ent">외국인 모집요강</div>
+
+<div class="section">
+	<div class="division downloadwrap">
+		<h3>2026년도 후기[9월] 외국인[정원외] 입학 모집요강</h3>
+		<div class="download">
+			<span>|</span> 모집요강다운받기 <a href="/upfile/data/2026/04/2026년 후기 외국인 신입학 모집요강.hwp" target="_blank" class="pdf">HWP</a><a href="/upfile/data/2026/04/2026년 후기 외국인 신입학 모집요강_영어.hwp" target="_blank" class="hwp">영문</a> <!--a href="/upfile/data/2023/11/대신대학교_2024학년도 전기 외국인 신입학 모집요강.hwp" target="_blank" class="hwp">HWP</a-->
+			<span>|</span> 제출양식 다운받기 <!--a href="/upfile/data/2023/11/2024학년도 전기 외국인 신입학 지원서.pdf" target="_blank" class="pdf">PDF</a--> <a href="/upfile/data/2025/03/20250327_2025학년도후기 외국인(정원외)신입학 원서.hwp" target="_blank" class="hwp">HWP</a> <!---a href="/upfile/data/2024/05/2024학년도 후기 학부 외국인(정원외) 신입학 원서(영어).pdf" target="_blank" class="pdf">영문</a-->
+		</div>
+	</div>
+
+	<div class="division">
+		<h3>전형일정</h3>
+		<!--b>가. 3월 전형일정</b--> 
+		<table class="table4">
+			<thead>
+				<tr>
+					<th style="width:300px;" rowspan="2">구 분</th>
+					<th style="width:400px;" colspan="2">전형일정</th>
+					<th class="last" rowspan="2">장 소</th>
+				</tr>
+				<tr>
+					<th style="width:300px;" colspan="1">1차</th>
+					<th style="width:300px;" colspan="1">2차</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>원서 및 서류접수</th>
+					<td>2026. 03. 23(월) ~ 2026. 05. 01(금)</td>
+					<td>2026. 06. 01(월) ~ 2026. 06. 30(화)</td>
+					<td class="last" rowspan="1">현장 또는 우편 접수</td>
+				</tr>
+				<!--tr>
+					<th>원 서 접 수</th>
+					<td>2017. 11. 13(월)</td>
+				</tr-->
+				<tr>
+					<th>전형 일정</th>
+					<td>2026. 05. 04(월) ~ 2026. 05. 15(금)</td>
+					<td>2026. 07. 06(월) ~ 2026. 07. 10(금)</td>
+					<td class="last">면접은 서류 합격자만 개별 통보</td>
+				</tr>
+				<tr>
+					<th>합격자 발표 및 등록</th>
+					<td>2026. 05. 20(수) ~ 2026. 05. 29(금)</td>
+					<td>2026. 07. 15(수) ~ 2026. 07. 24(금)</td>
+					<td class="last">개별 통지함</td>
+				</tr>
+				<!--tr>
+					<th>합격자 등록</th>
+					<td>2025. 11. 13(목) ~ 2025. 11. 21(금)</td>
+					<td>2026. 01. 22(목) ~ 2026. 01. 30(금)</td>
+					<td class="last">본교 지정은행(합격자 통보 시 고지)</td>
+				</tr-->
+			</tbody>
+		</table>
+<!--		※ 위 일정은 사정에 따라 조정될 수 있음.<br />
+		※ 일반 &middot; 추가모집 : 해외 및 국내거주 유학생 전형 -->
+
+		<br /><br /><br />
+
+		<div class="division">
+		<h3>모집인원</h3>
+		<!--p class="mgb10" style="font-size:22px;"><strong>■ 모집 기간 (3월 - 전 교육과정 이수자)</strong></p-->
+		<table class="table4">
+				<tr>
+					<th rowspan="2">계열</th>
+					<th rowspan="2" colspan="2">모집단위</th>
+					<th rowspan="2">한국어<br />트랙</th>
+					<th rowspan="2">영어<br />트랙</th>
+					<th colspan="3">전형요소별 반영비율</th>
+					<th rowspan="2">모집인원</th>
+					<th rowspan="2" class="last">비고</th>
+				</tr>
+				<tr>
+					<th colspan="1">서류전형</th>
+					<th colspan="1">면접</th>
+					<th colspan="1">계</th>
+				</tr>
+				<tr>
+					<td rowspan="5">인문&middot;사회</td>
+					<td rowspan="1" colspan="2">신학과</td>
+					<td rowspan="1" colspan="1">○</td>
+					<td rowspan="1" colspan="1"></td>
+					<td rowspan="10" colspan="1">50%</td>
+					<td rowspan="10" colspan="1">50%</td>
+					<td rowspan="10" colspan="1">100%</td>
+					<td rowspan="10">제한 없음</td>
+					<td rowspan="10" class="last">면접 및 실기고사(선택)<br /> (대면/영상 가능함).</td>
+				</tr>
+				<tr>
+					<td rowspan="4">선교학부</td>
+					<td>• 상담&middot;영어전공</td>
+					<td rowspan="1" colspan="1">○</td>
+					<td rowspan="1" colspan="1">○</td>
+				</tr>
+				<tr>
+					<td>• 사회복지전공</td>
+					<td rowspan="1" colspan="1">○</td>
+					<td rowspan="1" colspan="1"></td>
+				</tr>
+				<tr>
+					<td>• 글로벌비즈니스전공</td>
+					<td rowspan="1" colspan="1">○</td>
+					<td rowspan="1" colspan="1">○</td>
+				</tr>
+				<tr>
+					<td>• 글로벌 한국어 전공</td>
+					<td rowspan="1" colspan="1">○</td>
+					<td rowspan="1" colspan="1"></td>
+				</tr>
+				<tr>
+					<td rowspan="4">예체능</td>
+					<td rowspan="2">문화예술학부</td>
+					<td rowspan="1">• 뷰티케어전공</td>
+					<td rowspan="1" colspan="1">○</td>
+					<td rowspan="1" colspan="1"></td>
+				</tr>
+				<tr>
+					<td rowspan="1">• 스포츠 건강복지 전공</td>
+					<td rowspan="1" colspan="1">○</td>
+					<td rowspan="1" colspan="1"></td>
+				</tr>
+				<tr>
+					<td rowspan="2">교회실용음악학부</td>
+					<td rowspan="1">• 교회음악전공(성악,오르간,피아노, 관현악)</td>
+					<td rowspan="1" colspan="1">○</td>
+					<td rowspan="1" colspan="1"></td>
+				</tr>
+				<tr>
+					<td rowspan="1">• 실용음악전공(워십리더, 보컬, 재즈피아노,<br />기타, 베이스기타, 드럼, 실용작곡)</td>
+					<td rowspan="1" colspan="1">○</td>
+					<td rowspan="1" colspan="1"></td>
+				</tr>
+				<tr>
+					<td colspan="3" rowspan="1">DSU 자율전공학부</td>
+					<td rowspan="1" colspan="1">○</td>
+					<td rowspan="1" colspan="1"></td>
+				</tr>
+		</table>
+
+	</div>
+
+
+</div>
+
+
+			</div>
+			<!-- content_text -->
+		</div>
+	</div>
+	<div class="cboth"></div>
+
+<!-- /body_wrap -->
+</div>
+
+<!-- foot_wrap -->
+<div id="footer">
+	<div id="footmenu">
+		<div class="footmenuwrap">
+			<div class="footmenu">
+				<a href='/html/00_main/index.php' target="_blank" class="footerhome"><strong>대신대홈바로가기</strong></a>
+				<a href='/html/01_about/06_6.php' >기금운용심의회</a>				<a href="#">전화번호 안내</a>
+				<a href='/html/04_campus/07.php'>스쿨버스안내</a>
+				<a href='/html/07_etc/02.php'>개인정보취급방침</a>
+				<a href='/html/07_etc/03.php' >이메일무단수집거부</a>			</div>
+			<div class="footsns">
+				<a href="http://www.facebook.com/" target="_blank" title="새창으로 열립니다."><img src="/img/layout/btn_footfacebook.png" alt="대신대학교 페이스북" /></a>
+				<a href="http://twitter.com/" target="_blank" title="새창으로 열립니다."><img src="/img/layout/btn_foottwitter.png" alt="대신대학교 트위터" /></a>
+			</div>
+		</div>
+	</div>
+<style>
+#bannerA { position:absolute; top:35px; left:680px; }
+@media(max-width:770px)
+{
+	#bannerA { position:relative; top:35px; left:0px; }
+}
+</style>
+	<div class="footer"><!-- 입학 사이트 -->
+		<div id="footlogo"><img src="/img/layout/footlogo.png" alt="대신대학교" /></div>
+		<div id="address"><span class="dpbm">• 38649 경상북도 경산시 경청로 222길 33 (백천동 137번지)</span></div>
+		<div id="foottel"><span class="dpbm">• 전화 053-810-0701~3 • 팩스 053-813-0006</span></div>
+		<div id="copyright"><span class="dpbm">COPYRIGHT 2016 DAESHIN UNIVERSITY ALL RIGHTS RESERVED.</span></div>
+		<div id="bannerA" style="width:480px;"><a href="http://www.adiga.kr" target="_blank"><img src='/img/02_admission/20170620_banner.jpg'; border=0 width='270' height='80' alt="대입정보"></a>
+			<div id="banner" style="position:absolute; top:0px; left:300px;" >
+			<A href='https://apply.jinhakapply.com/Notice/1048026/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/s0_ap_mv4.gif' border='0'></A>
+			<!--A href='https://apply.jinhakapply.com/Notice/1048024/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/j0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://enter.jinhakapply.com/Notice/1048025/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/p_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://enter.jinhakapply.com/Notice/1048023/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/d_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048022/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/s0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048021/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/c_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048019/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/j0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://enter.jinhakapply.com/Notice/1048020/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/p_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://enter.jinhakapply.com/Notice/1048018/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/d_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048017/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/s0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048016/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/j0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048014/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/j0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://enter.jinhakapply.com/Notice/1048015/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/p_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://enter.jinhakapply.com/Notice/1048013/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/d_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048012/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/s0_ap_mv4.gif' border='0'></A-->
+			<!--A href='https://apply.jinhakapply.com/Notice/1048009/A' target='_blank'><IMG src='https://nadmin.jinhakapply.com/Banner/Images/j0_ap_mv4.gif' border='0'></A-->
+			</div>
+		</div>
+		
+<!-- /foot_wrap -->
+</div>
+
+<!-- /container -->
+</div>
+<div id="BTM"><a name="BTM"></a></div>
+</body>
+</html>

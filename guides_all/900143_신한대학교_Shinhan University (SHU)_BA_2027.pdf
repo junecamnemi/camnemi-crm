@@ -1,0 +1,3132 @@
+ 
+
+
+
+   
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <!-- 2022.05.27 : Mixed content 문제 해결  -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	
+	<!-- 가장 최신 버젼 IE의 Standards 모드 -->
+	
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=10, user-scalable=no" />
+	<title>신한대학교 입학안내</title>
+	<link rel="shortcut icon" href="/images/favicon.ico;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2"/>
+	<link rel="apple-touch-icon-precomposed" href="../images/icon57.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114*114" href="../images/icon114.png">
+	<link href="/css/default.css;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2" rel="stylesheet" type="text/css"/>
+	<link href="/css/common.css;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> <!-- CDN -->
+
+	<!-- 2023.03.28 : main_new14.css 적용 & 파일캐시 방지 -->
+	<link href="/css/main_new14.css;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2?version13" rel="stylesheet" type="text/css"/>
+	<link href="/css/swiper.4.5.0.css;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2" rel="stylesheet" type="text/css"/>
+	<link href="/css/sub.css;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2" rel="stylesheet" type="text/css"/>	
+	<link href="/css/respond.css;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2" rel="stylesheet" type="text/css"/>	
+		
+	
+	<link href="/css/vhs.css;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2" rel="stylesheet" type="text/css"/>
+	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script src="/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+	<script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
+	<script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-TGSHBX2"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="/js/common.js"></script>
+	<script src="/js/jquery.bxslider.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+		
+	<script>
+	function openipsi(evt, cityName)
+	{
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("ipsi_list");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("ipsi_con");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" on", "");
+		}
+		document.getElementById(cityName).style.display = "block";
+		evt.currentTarget.className += " on";
+	}
+	
+	
+	
+	
+	function gomenupage(menuNo)
+	{
+		
+		var gourl = "/gomenucontroll.do;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2?menuNO="+menuNo;
+		
+	
+		if(menuNo > 10500000){
+			window.open(gourl)
+		}else{
+			location.href = gourl;
+		}
+		
+		//location.href = gourl;
+		///location.replace(gourl);
+		///"/gomenucontroll.do?menuNO="+menuNo;
+		}
+		
+		
+		
+		
+	
+	$(document).ready(function() {
+		var numClick = 1; // 셀렉트 박스 클릭상태 확인
+		$('.selected_tit').parent().click(function(e) {
+			// 클릭시 링크 이동 방지
+			e.preventDefault();
+			e.returnValue = false;
+	
+			// 선택목록 표시
+			numClick += 1;
+			if (numClick % 2 != '1') { // 홀수, 짝수로 구분
+				document.getElementById('selectbox').style.display = 'block';
+			} else {
+				document.getElementById('selectbox').style.display = 'none';
+			}
+		});
+		$('#selectbox li a').click(function(e) {
+			// 클릭시 링크 이동 방지
+			e.preventDefault();
+			e.returnValue = false;
+	
+			// 목록 선택시 텍스트 전달
+			var selectText = $(this).text();
+			$('.selected_tit').text(selectText);
+		});
+	});
+	
+	</script>
+	
+		<!-- Google Tag Manager -->
+	 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	 })(window,document,'script','dataLayer','GTM-TGSHBX2');</script>
+	 <!-- End Google Tag Manager -->
+
+
+</head>
+
+
+
+<body>
+ <!-- Google Tag Manager (noscript) -->
+ <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGSHBX2"
+ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ <!-- End Google Tag Manager (noscript) -->
+	
+
+	 
+
+
+
+   
+
+	<div id="wrap">
+
+		<!-- S : header -->
+		<div id="header">
+			<div class="inner">
+
+				<h1 class="logo"><a href="/sjmain.do;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2"><img src="/images/logo2.png;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2" alt="신한대학교"/></a></h1>
+				<ul class="tnb">
+					<li><a class="adiga" href="http://www.adiga.kr/PageLinkAll.do?link=/kcue/ast/eip/eis/inf/univinf/eipUinfMainGnrl.do&p_menu_id=PG-EIP-01801&univ_cd=0002712" target="_blank"><img src="/images/adiga_icon.png" alt="대입정보포털 어디가"></a></li>
+					<li><a class="facebk" href="https://www.facebook.com/shuniv/" target="_blank"><img src="/images/facebook_icon.png" alt="신한대 페이스북"></a></li>
+					<li><a class="yutube" href="https://www.youtube.com/channel/UC_ou3rXh08aIEcjdpVHl5_A" target="_blank"><img src="/images/youtube_icon.png" alt="신한대 유투브"></a></li>
+					<li><a class="instar" href="https://www.instagram.com/shinhan_university1972?igsh=MWw1aDRleGc2czJkNg==" target="_blank"><img src="/images/instar_icon.png" alt="신한대 인스타그램"></a></li>
+					<li><a class="ico_sitemap" href="/sitemap.do;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2">사이트맵</a></li>
+					<li><a class="ico_coll"href="http://www.shinhan.ac.kr/" target="_blank">대학홈페이지</a></li>
+				</ul>
+				<ul class="gnb">
+				
+				
+				 <li><a href="#">수시모집</a></li>
+				
+				 <li><a href="#">정시모집</a></li>
+				
+				 <li><a href="#">재외국민 외국인</a></li>
+				
+				 <li><a href="#">편입학</a></li>
+				
+				 <li><a href="#">입시도우미</a></li>
+				
+				 <li><a href="#">디지털 입학처</a></li>
+				
+					
+				</ul>
+					
+				<div class="drop_gnb">
+					<div>
+						
+						<dl>
+							<dt><span></span>
+								<a href="#">수시모집</a>
+							</dt>
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10120200)">모집요강</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10120300)">공지사항</a></dd>
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10120400)">입시자료실</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10120600)">원서접수</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10120700)">고사장조회</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10120800)">합격자발표</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10120900)">최근입시결과</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10121000)">경쟁률</a></dd>
+							
+							
+							
+							
+							
+						</dl>
+						
+						<dl>
+							<dt><span></span>
+								<a href="#">정시모집</a>
+							</dt>
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10220200)">모집요강</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10220300)">공지사항</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10220400)">입시자료실</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10220600)">원서접수</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10220700)">고사장조회</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10220800)">합격자발표</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10220900)">최근입시결과</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10221000)">경쟁률</a></dd>
+							
+							
+							
+							
+							
+							
+							
+						</dl>
+						
+						<dl>
+							<dt><span></span>
+								<a href="#">재외국민 외국인</a>
+							</dt>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10320200)">모집요강1</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10321000)">모집요강2</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10322000)">모집요강3</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10320300)">공지사항</a></dd>
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10320400)">입시자료실</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10320600)">원서접수</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10320800)">합격자발표</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</dl>
+						
+						<dl>
+							<dt><span></span>
+								<a href="#">편입학</a>
+							</dt>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10420200)">모집요강</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10420300)">공지사항</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10420400)">입시자료실</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10420600)">원서접수</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10420700)">고사장조회</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10420800)">합격자발표</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10420900)">최근입시결과</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10421000)">경쟁률</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</dl>
+						
+						<dl>
+							<dt><span></span>
+								<a href="#">입시도우미</a>
+							</dt>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10520200)">공지사항</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10520300)">입시자료실</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10521200)">대학입학전형계획</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10520400)">Q&A</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10521300)">원서정보수정</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10520800)">방문입시설명회</a></dd>
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10520900)">모의면접</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10521000)">성적산출</a></dd>
+							
+							
+							
+						</dl>
+						
+						<dl>
+							<dt><span></span>
+								<a href="#">디지털 입학처</a>
+							</dt>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10620300)">합격예측 프로그램</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10620200)">진로전공 탐색관</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							<dd><a href="javascript:gomenupage(10620400)">입시대비 자료탐색관</a></dd>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</dl>
+						
+					</div>
+				</div>
+			</div>
+				
+				
+			<!-- S : mo_header -->				
+			<div class="mo_header">
+				<h1 class="logo"><a href="/sjmain.do;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2"></a><img src="/images/logo.png;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2" alt="신한대학교"/></a></h1>
+				<div class="header_btn">
+					<a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a>
+				</div>
+				<nav id="cd-lateral-nav">
+					<ul class="cd-navigation">
+						
+					 
+						<li class="item-has-children">
+							<a href="#0">수시모집</a>
+							<ul class="sub-menu">
+							
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/adm/info.do?cateId=1&bbsId=BBSMSTR_000000000051&relateImagePath=svis_1">모집요강</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000000&cateId=1&relateImagePath=svis_1">공지사항</a></li>
+							
+								
+							
+							
+								
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000010&cateId=1&relateImagePath=svis_1">입시자료실</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000050&cateId=1&relateImagePath=svis_1&cateSubId=1">원서접수</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000020&cateId=1&relateImagePath=svis_1">고사장조회</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000040&cateId=1&relateImagePath=svis_1&cateSubId=1">합격자발표</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/adm/info.do?cateId=6&bbsId=BBSMSTR_000000000065&relateImagePath=svis_1">최근입시결과</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="https://addon.jinhakapply.com/RatioV1/RatioH/Ratio11870871.html">경쟁률</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							</ul>
+						</li>
+					
+					 
+						<li class="item-has-children">
+							<a href="#0">정시모집</a>
+							<ul class="sub-menu">
+							
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/adm/info.do?cateId=2&bbsId=BBSMSTR_000000000051&relateImagePath=svis_2">모집요강</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000000&cateId=2&relateImagePath=svis_2">공지사항</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000010&cateId=2&relateImagePath=svis_2">입시자료실</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000050&cateId=2&relateImagePath=svis_2&cateSubId=1">원서접수</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000020&cateId=2&relateImagePath=svis_2">고사장조회</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000040&cateId=2&relateImagePath=svis_2&cateSubId=1">합격자발표</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/adm/info.do?cateId=7&bbsId=BBSMSTR_000000000065&relateImagePath=svis_2">최근입시결과</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="https://addon.jinhakapply.com/RatioV1/RatioH/Ratio11870691.html">경쟁률</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							</ul>
+						</li>
+					
+					 
+						<li class="item-has-children">
+							<a href="#0">재외국민 외국인</a>
+							<ul class="sub-menu">
+							
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/adm/info.do?cateId=3&bbsId=BBSMSTR_000000000054&relateImagePath=svis_3">모집요강1</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/adm/info.do?cateId=10&bbsId=BBSMSTR_000000000053&relateImagePath=svis_3">모집요강2</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/adm/info.do?cateId=12&bbsId=BBSMSTR_000000000055&relateImagePath=svis_3">모집요강3</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000000&cateId=3&relateImagePath=svis_3">공지사항</a></li>
+							
+								
+							
+							
+								
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000010&cateId=3&relateImagePath=svis_3">입시자료실</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000050&cateId=3&relateImagePath=svis_3&cateSubId=1">원서접수</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000040&cateId=3&relateImagePath=svis_3&cateSubId=1">합격자발표</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							</ul>
+						</li>
+					
+					 
+						<li class="item-has-children">
+							<a href="#0">편입학</a>
+							<ul class="sub-menu">
+							
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/adm/info.do?cateId=4&bbsId=BBSMSTR_000000000051&relateImagePath=svis_4">모집요강</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000000&cateId=4&relateImagePath=svis_4">공지사항</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000010&cateId=4&relateImagePath=svis_4">입시자료실</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000050&cateId=4&relateImagePath=svis_4&cateSubId=1">원서접수</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000020&cateId=4&relateImagePath=svis_4">고사장조회</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000040&cateId=4&relateImagePath=svis_4&cateSubId=1">합격자발표</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/adm/info.do?cateId=9&bbsId=BBSMSTR_000000000065&relateImagePath=svis_4">최근입시결과</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="https://addon.jinhakapply.com/RatioV1/RatioH/Ratio11870721.html">경쟁률</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							</ul>
+						</li>
+					
+					 
+						<li class="item-has-children">
+							<a href="#0">입시도우미</a>
+							<ul class="sub-menu">
+							
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000000&cateId=0&relateImagePath=svis_5">공지사항</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000010&cateId=0&relateImagePath=svis_5&cateSubId=0">입시자료실</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000080&relateImagePath=svis_5">대학입학전형계획</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/qna/QnaList.do?bbsId=BBSMSTR_000000000059&cateId=6&relateImagePath=svis_5">Q&A</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/appli/AppliInsertView.do">원서정보수정</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/ihp/vhs/vhs.do">방문입시설명회</a></li>
+							
+								
+							
+							
+								
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/ihp/vhs/mockinterlist.do">모의면접</a></li>
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+							
+								<li><a href="/ihp/sub/grade1_1.do">성적산출</a></li>
+							
+								
+							
+							
+								
+								
+							</ul>
+						</li>
+					
+					 
+						<li class="item-has-children">
+							<a href="#0">디지털 입학처</a>
+							<ul class="sub-menu">
+							
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+								<li><a href="https://consult.mncapro.co.kr/solution/shinhan/"  target="_blank" >합격예측 프로그램</a></li>
+							
+							
+								
+							
+							
+								
+								
+							
+								
+							
+							
+							
+							
+							
+								<li><a href="https://aptitude.mncapro.com/shinhan/career/careerTestStepInfo.do"  target="_blank" >진로전공 탐색관</a></li>
+							
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+							
+							
+							
+							
+								<li><a href="/sub/bbs/testnote.do?bbsId=BBSMSTR_000000000010&cateId=0&relateImagePath=svis_5&cateSubId=0"  target="_blank" >입시대비 자료탐색관</a></li>
+							
+							
+								
+							
+							
+								
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							</ul>
+						</li>
+					
+
+					<li class="item-has-children">
+							<a href="#0">미리 만나보는 신한대</a>
+							<ul class="sub-menu">
+								<li><a href="https://www.shinhan.ac.kr/kr/6036/subview.do" target="_blank">학과안내</a></li>
+								<li><a href="https://www.shinhan.ac.kr/kr/179/subview.do"  target="_blank">장학안내</a></li>
+								<li><a href="http://www.shinhandorm.ac.kr/"                target="_blank">기숙사 안내</a></li>
+								<li><a href="https://www.shinhan.ac.kr/kr/4364/subview.do" target="_blank">캠퍼스맵</a></li>
+								<li><a href="https://www.shinhan.ac.kr/kr/3230/subview.do" target="_blank">찾아오시는 길</a></li>
+							</ul>
+						</li>	
+						
+					</ul>
+
+					<ul class="cd-navigation cd-single-item-wrapper">
+						<li><a class="current" href="https://www.shinhan.ac.kr/"    target="_blank">대학홈페이지</a></li>
+						<li><a href="https://www.shinhan.ac.kr/member/policy.php"   target="_blank">개인정보처리방침</a></li>
+						<li><a href="https://www.shinhan.ac.kr/kr/4364/subview.do"  target="_blank">캠퍼스맵</a></li>
+						<li><a href="https://www.shinhan.ac.kr/kr/3230/subview.do"  target="_blank">찾아오시는길</a></li>
+						<li><a href="http://www.shinhan.ac.kr/about/campus/tel.php" target="_blank">전화번호 안내</a></li>
+						<li><a href="http://www.kosaf.go.kr/"                       target="_blank">한국장학재단</a></li>
+					</ul>
+				
+				    <ul class="icon-wrapper">
+						<li><a class="adiga" href="http://www.adiga.kr/PageLinkAll.do?link=/kcue/ast/eip/eis/inf/univinf/eipUinfMainGnrl.do&amp;p_menu_id=PG-EIP-01801&amp;univ_cd=0002712" target="_blank"><img src="/images/adiga_icon.png" alt="대입정보포털 어디가"></a></li>
+						<li><a class="facebk" href="https://www.facebook.com/shuniv/" target="_blank"><img src="/images/facebook_icon.png" alt="신한대 페이스북"></a></li>
+						<li><a class="yutube" href="https://www.youtube.com/channel/UC_ou3rXh08aIEcjdpVHl5_A" target="_blank"><img src="/images/youtube_icon.png" alt="신한대 유투브"></a></li>
+						<li><a class="instar" href="https://www.instagram.com/shinhan.university/" target="_blank"><img src="/images/instar_icon.png" alt="신한대 인스타그램"></a></li>
+					</ul>
+				
+				</nav>
+			</div>
+			<!-- E : mo_header -->
+			
+	
+			
+			
+			<div id="quick">
+		        <p><span></span>미리 만나보는<br><font>신 한 대</font></p>
+				<ul>
+					<p>미리 만나보는<br><span>신 한 대</span></p>
+					<li><a href="https://www.shinhan.ac.kr/kr/6036/subview.do" target="_blank"  title="학과안내 페이지로 이동합니다"><img src="/images/onoff_1.png" alt="학과안내"><p>학과안내</p></a></li>
+					<li><a href="https://www.shinhan.ac.kr/kr/179/subview.do"  target="_blank"  title="장학안내 페이지로 이동합니다"><img src="/images/onoff_2.png" alt="장학안내"><p>장학안내</p></a></li>
+					<li><a href="http://www.shinhandorm.ac.kr/"                target="_blank"  title="기숙사안내 페이지로 이동합니다"><img src="/images/onoff_3.png" alt="기숙사안내"><p>기숙사안내</p></a></li>
+					<li><a href="https://www.shinhan.ac.kr/kr/4364/subview.do" target="_blank"  title="캠퍼스맵 페이지로 이동합니다"><img src="/images/onoff_4.png" alt="캠퍼스맵"><p>캠퍼스맵</p></a></li>
+					<li><a href="https://www.shinhan.ac.kr/kr/3230/subview.do" target="_blank"  title="찾아오시는 길 페이지로 이동합니다"><img src="/images/onoff_5.png" alt="찾아오시는 길"><p>찾아오시는 길</p></a></li>
+				</ul>
+			</div>
+			
+			
+            <!-- 2023.02 quick 이외 사용 안함			  
+			<div id="floatMenu">
+				<a href="/ihp/sub/calendar.do" title="입시일정 페이지로 이동합니다"><img src="/images/icon_float.png" alt="입시일정 바로가기"></a>
+			</div>
+			 -->
+			
+		</div>
+		<!-- E : header -->
+		
+		<!-- quick 퀵메뉴 : 미리만나보는 신한대  -->
+		<script type="text/javascript">			
+			$("#quick p").click(function() {				
+				$('#quick ul').slideToggle();
+				$(this).parent().toggleClass('active');
+			});
+		</script>
+	
+
+
+
+<script src="/js/pdfobject.js;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2"></script> 
+<script src="/js/pdf.js;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2"></script>
+<script src="/js/pdf.worker.js;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2"></script>
+<script>
+$(function(){
+	$('html, body').stop().animate( { scrollTop : '1' } );
+});
+
+function goAdmissionGuide(seqNo,TypeNo)
+{
+	document.AdmForm.adm_Type.value = TypeNo;
+	document.AdmForm.seq_No.value = seqNo;
+	document.AdmForm.action = "/adm/info.do;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2";
+	document.AdmForm.submit();
+}
+function fnMove(seq){   
+	$("#pdf").html('');
+	$("#pdf").append('<iframe id="object1" style="overflow-y: hidden; z-index:-99;width: 100%; height:100%" src="/cmm/fms/AdmFileRead.do;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2?wmode=transparent&atchFileId=FILE_000000000000081&fileSn=1#page='+seq+'" height="200" width="200" wmode="opaque"  frameborder="0" allowfullscreen></iframe>');
+	
+	//<iframe id="object1" style="overflow-y: hidden; width: 100%; height:100%" src="/;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2cmm/fms/AdmFileRead.do?atchFileId=FILE_000000000000081&fileSn=1" height="200" width="200"></iframe>
+	//$('#object1').attr('src',"/;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2cmm/fms/AdmFileRead.do?#page="+seq+"&atchFileId=FILE_000000000000081&fileSn=1");
+	//$('#object1').attr('src',$('#object1').attr('src'));
+	//document.getElementById('object1').src='/;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2cmm/fms/FileRead.do?atchFileId=FILE_000000000000081&fileSn=1#page='+seq;
+	//document.getElementById('object1').contentDocument.location.reload(); 
+	//document.getElementById("object1").contentWindow.location.reload(true);
+	
+	//$('#object1').attr('src',$('#object1').attr('src'));
+	//document.frames['object1'].location.reload(true);
+	//$('#object1')[0].contentWindow.location.reload(true);
+
+}
+
+
+</script>
+<div id="svis" class="svis_3">
+		
+		
+		
+			<div class="svis_wrap">
+				<h2><p>재외국민 외국인</p>신한대학교 재외국민 외국인 안내 페이지 입니다</h2>
+				<ul id="lnb">
+					
+					
+					
+					<li><a href="javascript:gomenupage(10320200)"class="on">모집요강1</a></li>					
+					
+					
+					<li><a href="javascript:gomenupage(10321000)">모집요강2</a></li>					
+					
+					
+					<li><a href="javascript:gomenupage(10322000)">모집요강3</a></li>					
+					
+					
+					<li><a href="javascript:gomenupage(10320300)">공지사항</a></li>					
+					
+					
+					<li><a href="javascript:gomenupage(10320400)">입시자료실</a></li>					
+					
+					
+					<li><a href="javascript:gomenupage(10320600)">원서접수</a></li>					
+					
+					
+					<li><a href="javascript:gomenupage(10320800)">합격자발표</a></li>					
+					
+					<!-- <li><a href="http://local.mncapro.com:1000/shinhanhtml/sub/sub1_1.html">모집요강</a></li>
+					<li><a href="http://local.mncapro.com:1000/shinhanhtml/sub/sub1_2.html" class="on">공지사항</a></li>
+					<li><a href="http://local.mncapro.com:1000/shinhanhtml/sub/sub1_3.html">입시자료실</a></li>
+					<li><a href="http://local.mncapro.com:1000/shinhanhtml/sub/sub1_4.html">입시상담</a></li>
+					<li><a href="http://local.mncapro.com:1000/shinhanhtml/sub/sub1_5_1.html">원서접수</a></li>
+					<li><a href="http://local.mncapro.com:1000/shinhanhtml/sub/sub1_6.html">고사장조회</a></li>
+					<li><a href="http://local.mncapro.com:1000/shinhanhtml/sub/sub1_7_1.html">합격자발표</a></li>
+					<li><a href="http://local.mncapro.com:1000/shinhanhtml/sub/sub1_8_1.html">최근입시결과</a></li> -->
+				</ul>
+			</div>
+		</div>
+		<!-- E : visual -->
+   
+    
+	<!-- S : main -->
+
+		<div class="content">
+			<div>
+
+				<div class="con_top">
+					<h3>모집요강1</h3>
+					<ol class="breadcrumb">
+						<li class="home"><a href="../index.html">홈</a></li>
+						<li class="path1"><a href="#">재외국민 외국인</a></li>
+						<li class="path2"><a href="#">모집요강1</a></li>
+					</ol>
+				</div>
+
+
+		
+	<form name="AdmForm" action="/;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2adm/info.do" method="post">
+		<input type="hidden" name="cateId" value="3"/>
+		<input type="hidden" name="adm_Type" value=""/>
+		<input type="hidden" name="seq_No" value=""/>
+		<input type="hidden" name="bbsId" value="BBSMSTR_000000000054" />		
+		<input type="hidden" name="relateImagePath" value="svis_3" />		
+	</form>
+				
+	
+	
+				<!-- S : content_wrap -->
+				<div class="con_wrap">
+
+					<div>
+					
+						
+						<div class="pdfList">						
+							<div>
+								<h4 class="list_tit">모집요강 리스트</h4>
+							</div>
+						<ul class="list_view">						
+						
+							
+												
+								
+								
+								
+								<!-- 전형별 세부사항 부분 입니다. 
+								디비에서 #으로 시작되는 부분을 잘라서 다시 for문을 돌려서 출력하는 부분입니다. 
+								즉 입력을 할때에 선두에 #을 넣으면 전형별 세부사항이 만들어지는 것입니다.								
+								 -->
+								
+								
+									
+									
+									
+									<li><a class="" href="javascript:fnMove('3')">전형일정</a></li>
+								
+								
+								
+								
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+						
+							
+												
+								
+							
+												
+								
+								
+								
+								<!-- 전형별 세부사항 부분 입니다. 
+								디비에서 #으로 시작되는 부분을 잘라서 다시 for문을 돌려서 출력하는 부분입니다. 
+								즉 입력을 할때에 선두에 #을 넣으면 전형별 세부사항이 만들어지는 것입니다.								
+								 -->
+								
+								
+									
+									
+									
+									<li><a class="" href="javascript:fnMove('3')">전형방법</a></li>
+								
+								
+								
+								
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+						
+							
+												
+								
+							
+												
+								
+							
+												
+								
+								
+								
+								<!-- 전형별 세부사항 부분 입니다. 
+								디비에서 #으로 시작되는 부분을 잘라서 다시 for문을 돌려서 출력하는 부분입니다. 
+								즉 입력을 할때에 선두에 #을 넣으면 전형별 세부사항이 만들어지는 것입니다.								
+								 -->
+								
+								
+									
+									
+									
+									<li><a class="" href="javascript:fnMove('4')">모집인원</a></li>
+								
+								
+								
+								
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+						
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+								
+								
+								<!-- 전형별 세부사항 부분 입니다. 
+								디비에서 #으로 시작되는 부분을 잘라서 다시 for문을 돌려서 출력하는 부분입니다. 
+								즉 입력을 할때에 선두에 #을 넣으면 전형별 세부사항이 만들어지는 것입니다.								
+								 -->
+								
+								
+									
+									
+									
+									<li><a class="" href="javascript:fnMove('5')">지원자격 및 제출서류</a></li>
+								
+								
+								
+								
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+						
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+								
+								
+								<!-- 전형별 세부사항 부분 입니다. 
+								디비에서 #으로 시작되는 부분을 잘라서 다시 for문을 돌려서 출력하는 부분입니다. 
+								즉 입력을 할때에 선두에 #을 넣으면 전형별 세부사항이 만들어지는 것입니다.								
+								 -->
+								
+								
+									
+									
+									
+									<li><a class="" href="javascript:fnMove('9')">서류제출 유의사항</a></li>
+								
+								
+								
+								
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+						
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+								
+								
+								<!-- 전형별 세부사항 부분 입니다. 
+								디비에서 #으로 시작되는 부분을 잘라서 다시 for문을 돌려서 출력하는 부분입니다. 
+								즉 입력을 할때에 선두에 #을 넣으면 전형별 세부사항이 만들어지는 것입니다.								
+								 -->
+								
+								
+									
+									
+									
+									<li><a class="" href="javascript:fnMove('10')">원서접수 안내</a></li>
+								
+								
+								
+								
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+						
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+								
+								
+								<!-- 전형별 세부사항 부분 입니다. 
+								디비에서 #으로 시작되는 부분을 잘라서 다시 for문을 돌려서 출력하는 부분입니다. 
+								즉 입력을 할때에 선두에 #을 넣으면 전형별 세부사항이 만들어지는 것입니다.								
+								 -->
+								
+								
+									
+									
+									
+									<li><a class="" href="javascript:fnMove('11')">합격자발표 및 등록안내</a></li>
+								
+								
+								
+								
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+						
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+								
+								
+								<!-- 전형별 세부사항 부분 입니다. 
+								디비에서 #으로 시작되는 부분을 잘라서 다시 for문을 돌려서 출력하는 부분입니다. 
+								즉 입력을 할때에 선두에 #을 넣으면 전형별 세부사항이 만들어지는 것입니다.								
+								 -->
+								
+								
+									
+									
+									
+									<li><a class="" href="javascript:fnMove('11')">전형료 및 전형료 반환</a></li>
+								
+								
+								
+								
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+						
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+								
+								
+								<!-- 전형별 세부사항 부분 입니다. 
+								디비에서 #으로 시작되는 부분을 잘라서 다시 for문을 돌려서 출력하는 부분입니다. 
+								즉 입력을 할때에 선두에 #을 넣으면 전형별 세부사항이 만들어지는 것입니다.								
+								 -->
+								
+								
+									
+									
+									
+									<li><a class="" href="javascript:fnMove('11')">등록금환불</a></li>
+								
+								
+								
+								
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+						
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+								
+								
+								<!-- 전형별 세부사항 부분 입니다. 
+								디비에서 #으로 시작되는 부분을 잘라서 다시 for문을 돌려서 출력하는 부분입니다. 
+								즉 입력을 할때에 선두에 #을 넣으면 전형별 세부사항이 만들어지는 것입니다.								
+								 -->
+								
+								
+									
+									
+									
+									<li><a class="" href="javascript:fnMove('11')">부서안내</a></li>
+								
+								
+								
+								
+								
+							
+												
+								
+							
+												
+								
+							
+						
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+								
+								
+								<!-- 전형별 세부사항 부분 입니다. 
+								디비에서 #으로 시작되는 부분을 잘라서 다시 for문을 돌려서 출력하는 부분입니다. 
+								즉 입력을 할때에 선두에 #을 넣으면 전형별 세부사항이 만들어지는 것입니다.								
+								 -->
+								
+								
+									
+									
+									
+									<li><a class="" href="javascript:fnMove('12')">지원자 유의사항</a></li>
+								
+								
+								
+								
+								
+							
+												
+								
+							
+						
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+							
+												
+								
+								
+								
+								<!-- 전형별 세부사항 부분 입니다. 
+								디비에서 #으로 시작되는 부분을 잘라서 다시 for문을 돌려서 출력하는 부분입니다. 
+								즉 입력을 할때에 선두에 #을 넣으면 전형별 세부사항이 만들어지는 것입니다.								
+								 -->
+								
+								
+									
+									
+									
+									<li><a class="" href="javascript:fnMove('12')">서식자료</a></li>
+								
+								
+								
+								
+								
+							
+						
+						</ul>
+						
+						
+						</div>
+						
+						
+						
+						<div class="pdf_box">
+						
+							<div class="btnWrap">
+							<ul class="btn_g02">
+									
+							           	
+							           	 
+							           	
+							       	
+
+
+
+
+
+
+<script type="text/javascript">
+    function fn_egov_downFile(atchFileId, fileSn){
+        window.open("/adm/FileDown.do;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2?atchFileId="+atchFileId+"&fileSn="+fileSn+"");
+    }   
+    
+    function fn_egov_deleteFile(atchFileId, fileSn) {
+        forms = document.getElementsByTagName("form");
+
+        for (var i = 0; i < forms.length; i++) {
+            if (typeof(forms[i].atchFileId) != "undefined" &&
+                    typeof(forms[i].fileSn) != "undefined" &&
+                    typeof(forms[i].fileListCnt) != "undefined") {
+                form = forms[i];
+            }
+        }
+        //form = document.forms[0];
+        form.delatchFileId.value = atchFileId;
+        form.fileSn.value = fileSn;
+        form.action = "/mgr/adm/deleteFileInfs.do;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2";
+        form.submit();
+    }
+    
+    function fn_egov_check_file(flag) {
+        if (flag=="Y") {
+            document.getElementById('file_upload_posbl').style.display = "block";
+            document.getElementById('file_upload_imposbl').style.display = "none";          
+        } else {
+            document.getElementById('file_upload_posbl').style.display = "none";
+            document.getElementById('file_upload_imposbl').style.display = "block";
+        }
+    }
+    
+</script>
+<input type="hidden" name="delatchFileId" value="FILE_000000000000081">
+		
+       
+         
+         	
+  				
+			    
+			    	<li>
+			        	 <a href="#LINK" onclick="javascript:fn_egov_downFile('FILE_000000000000081','1')" title="바로보기" class="down_pack" data-ajax="false">PDF 다운로드<span></span></a>
+			         </li>
+			    
+			          
+   		
+       	 
+       
+         
+       	
+         	<li class="last_li">
+         		<a href="#LINK" onclick="javascript:fn_egov_downFile('FILE_000000000000081','2')" title="바로보기" class="down_pack" data-ajax="false">HWP 다운로드<span></span></a>
+         	</li>
+         
+       
+       <li>
+		<a class="ico_adobe" href="https://get.adobe.com/reader" target="_blank" title="Adobe Reader 다운로드"><span>다운로드</span>Adobe Reader 다운로드</a>
+	   </li>
+	   
+	   
+	   
+	   
+								</ul>
+							
+								<div class="right">
+								
+								</div>
+							</div>
+
+							<div class="pdfViewer">
+								<div class="pdf" id="pdf" style="overflow-y: hidden;z-index:1;">
+	                                <object id="object1" style="overflow-y: hidden; z-index:-99;width: 100%; height:100%" id="pdfviewr" type="application/pdf"   style="position:relative;z-index;overflow-y: hidden;"  data="/cmm/fms/FileRead.do;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2?atchFileId=FILE_000000000000081&fileSn=1#page=1"></object>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+
+				</div>
+				<!-- E : content_wrap -->
+
+
+
+			</div>
+		</div>
+		<!-- E : main -->
+
+
+	
+
+
+
+   
+			
+		<!-- S : footer -->
+
+			<div id="footer">
+				<div class="f_quick">
+					<ul>
+					
+					
+					
+					
+						<li><a class="blue" href="https://www.shinhan.ac.kr/kr/71/subview.do" target="_blank">개인정보처리방침</a></li>
+						
+						<li><a class="mint" href="https://www.shinhan.ac.kr/kr/index.do" target="_blank">대학홈페이지</a></li>
+						
+						<li><a class="" href="https://www.shinhan.ac.kr/kr/230/subview.do" target="_blank">캠퍼스 안내</a></li>
+						
+						<li><a class="blue" href="https://www.shinhan.ac.kr/kr/3230/subview.do" target="_blank">오시는 길</a></li>
+						
+						<li><a class="" href="http://www.kosaf.go.kr/" target="_blank">한국장학재단</a></li>
+						
+						
+					<!-- 	<li><a class="blue" href="https://www.shinhan.ac.kr/member/policy.php" target="_blank">개인정보처리방침</a></li>
+						<li><a class="mint" href="https://www.shinhan.ac.kr/" target="_blank">대학홈페이지</a></li>
+						<li><a href="http://www.shinhan.ac.kr/about/campus/campusMap.php" target="_blank">캠퍼스맵</a></li>
+						<li><a href="http://www.shinhan.ac.kr/about/campus/location.php" target="_blank">찾아오시는길</a></li>
+						<li><a href="http://www.shinhan.ac.kr/about/campus/tel.php" target="_blank">전화번호 안내</a></li>
+						<li><a href="http://www.kosaf.go.kr/" target="_blank">한국장학재단</a></li> -->
+					</ul>
+				</div>
+				<div class="inner">			
+					<dl>
+						<dt><img src="/images/foot_logo.png;jsessionid=1BB34D199EA5B70C985E1357EDD90A44.server2" alt="SHINHAN UNIVERSITY"/></dt>
+						<dd>					
+							<span class="address">신한대학교 에벤에셀관 1층 입학사정팀</span>
+							<span class="tel"><a href="tel:031-870-3211">TEL 031-870-3211~7</a></span>
+							<span class="fax">FAX 031-870-3339</span>
+							<br>11644 경기도 의정부시 호암로 95 Copyright © 2014 SHINHAN UNIVERSITY. All Rights Reserved.
+						</dd>
+					</dl>	
+					<div class="related">
+						<!-- div class="departments">
+							<h4><a href="#" title="클릭하면 학과목록이 열립니다">학과안내</a></h4>
+							<div>
+							</div>
+						</div -->
+						<div class="siteinfo">
+							<h4><a href="#" title="클릭하면 학과안내목록이 열립니다">대학/대학원</a></h4>
+							<div style="display: none;">
+								<ul>
+									<li><a href="https://www.shinhan.ac.kr/kr/132/subview.do" target="_blank">대학</a>
+										<ul>
+											<li><a href="https://www.shinhan.ac.kr/kr/133/subview.do" target="_blank">사회과학대학</a></li>
+											<li><a href="https://www.shinhan.ac.kr/kr/134/subview.do" target="_blank">글로벌비즈니스대학</a></li>
+											<li><a href="https://www.shinhan.ac.kr/kr/135/subview.do" target="_blank">바이오생태보건대학</a></li>
+											<li><a href="https://www.shinhan.ac.kr/kr/141/subview.do" target="_blank">간호대학</a></li>
+											<li><a href="https://www.shinhan.ac.kr/kr/136/subview.do" target="_blank">과학기술융합대학</a></li>
+											<li><a href="https://www.shinhan.ac.kr/kr/137/subview.do" target="_blank">디자인예술대학</a></li>
+											<li><a href="https://www.shinhan.ac.kr/kr/139/subview.do" target="_blank">교양교육대학</a></li>
+										</ul>
+									</li>
+									<li><a href="https://www.shinhan.ac.kr/kr/46/subview.do" target="_blank">대학원</a>
+										
+									</li>
+									<li><a href="https://lifelearning.shinhan.ac.kr/lifeedu/index.do" target="_blank">평생학습중심대학</a>
+										
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="institutions">
+							<h4><a href="#" title="클릭하면 부속기관목록이 열립니다">부속기관안내</a></h4>
+							<div style="display: none;">
+								<ul>
+								<li><a href="http://www.shinhan.ac.kr/" target="_blank" title="새창">대학홈페이지</a></li>
+								<li><a href="https://www.shinhan.ac.kr/kr/193/subview.do" target="_blank" title="새창">Office365</a></li>
+								<li><a href="http://stins.shinhan.ac.kr/irj/portal" target="_blank" title="새창">종합정보시스템</a></li>
+								<li><a href="http://sh.certpia.com/default.asp" target="_blank" title="새창">인터넷증명발급</a></li>
+								<li><a href="http://lib.shinhan.ac.kr/" target="_blank" title="새창">중앙도서관</a></li>
+								<li><a href="https://life.shinhan.ac.kr/main/index.jsp" target="_blank" title="새창">평생교육원[1,2캠퍼스]</a></li>
+								<li><a href="https://www.shinhan.ac.kr/kr/47/subview.do" target="_blank" title="새창">평생학습중심대학</a></li>
+								<li><a href="https://new.shinhan.ac.kr/globle/index.do" target="_blank" title="새창">국제교류처</a></li>
+								<li><a href="#" target="_blank" title="새창">경기도북부여성비전센터</a></li>
+								<li><a href="https://helper.shinhan.ac.kr/sung/" target="_blank" title="새창">성희롱·성폭력상담실</a></li>
+								<li><a href="https://counsel.shinhan.ac.kr/counsel/index.do" target="_blank" title="새창">학생상담센터</a></li>
+								<li><a href="https://support.shinhan.ac.kr/support/" target="_blank" title="새창">장애학생지원센터</a></li>
+								<li><a href="https://job.shinhan.ac.kr/" target="_blank" title="새창">취창업지원처</a></li>
+								<li><a href="https://ctl.shinhan.ac.kr/" target="_blank" title="새창">교수학습센터</a></li>
+								<li><a href="https://www.shinhan.ac.kr/kr/188/subview.do" target="_blank" title="새창">편의·복지시설</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		<!-- E : footer -->
+		</div>
+		<!-- E : container  -->
+	</div>
+
+
+</body>
+
+</html>
+
+

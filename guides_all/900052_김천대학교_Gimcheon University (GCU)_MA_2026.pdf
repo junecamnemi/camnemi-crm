@@ -1,0 +1,299 @@
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8,IE=EmulateIE9"/>
+<title>- 김천대학교 대학원 원서접수 -</title>
+<link rel="stylesheet" type="text/css" href="/ebiz/css/default.css" />
+<script language=javascript src="http://plugin.inicis.com/pay40.js"></script>
+<script language=javascript>
+StartSmartUpdate();
+</script>
+
+<script type="text/javascript">
+	function changeType(obj)
+	{
+		
+		var types      = obj.value;
+		var changeName =  "tblSelType"+types;
+		var typeLength = frm.rdoSelTypeCode.length;
+
+		for(var i=1; i<typeLength+1; i++)
+		{
+			if(i == Number(types))
+				document.getElementById(changeName).style.display='';
+			else
+				document.getElementById("tblSelType"+i).style.display='none';
+		}
+	}
+
+
+   function init()
+   {
+	   frm.rdoSelTypeCode[0].checked = true;
+	   changeType( frm.rdoSelTypeCode[0]);
+   }
+
+   function doNextPage()
+   {
+	   var url = "/ipsi/ipsi00102.do";
+	   frm.action = url;
+	   frm.submit();
+   }
+</script>
+</head>
+<body onLoad=init();>
+<form name=frm method="post">
+<input type="hidden" name="11111" value="">
+<TABLE cellspacing=0 cellpadding=0 border=0 width=850 align=center >
+<TR height=35>
+	<TD>
+		<table cellspacing=0 cellpadding=0 border=0 width=100%>
+			<tr>
+				<td class=mainTitle valign=bottom><img src=/ebiz/images/icon_use_title.gif border=0>&nbsp;김천대학교 대학원 전형일정(2026학년도 후기 2차 신입생)</td>
+			</tr>
+		</table>		
+	</TD>
+</TR>
+<TR>
+<TD>
+<table  width="100%" cellspacing="1" cellpadding="3" border=0  bgcolor=bdbdbd>
+	<tr bgcolor=edf2fa align=center height=24>
+		<td colSpan=2 class=headTitle>구분</td>
+		<td class=headTitle>일정</td>
+		<td class=headTitle>비고</td>
+	</tr>
+	<tr bgcolor=ffffff height=30>
+		<td colSpan=2 bgcolor=f6f8fa class=subTitle>원서접수</td>
+		<td align=center class=9RedB>2026. 7. 27.(월) 10:00 <br>~ 2026. 7. 28.(화) 17:00</td>
+		<td class=9BlueB>
+			<img src=/ebiz/images/icon02.gif border=0>홈페이지에서 원서접수 가능(<a href="http://grad.gimcheon.ac.kr" target="_blank">http://grad.gimcheon.ac.kr</a>)<br>
+			<img src=/ebiz/images/icon02.gif border=0>창구 및 우편접수 가능<br>
+			<img src=/ebiz/images/icon02.gif border=0><a href="http://grad.gimcheon.ac.kr" target="_blank">대학원 홈페이지</a>에서  모집요강 및 원서 출력 가능
+		</td>
+	</tr>
+	<tr bgcolor=ffffff>
+		<td colSpan=2 bgcolor=f6f8fa  class=subTitle>서류제출 마감</td>
+		<td align=center>2026. 7. 31(금) 17:00</td>
+		<td>
+			<img src=/ebiz/images/icon02.gif border=0>서류제출 마감일 17:00 도착분까지 유효
+		</td>
+	</tr>
+	<tr bgcolor=ffffff>
+		<td colSpan=2 bgcolor=f6f8fa  class=subTitle>면접 및 구술고사</td>
+		<td align=center>2026. 8. 3(월) ~ 8.6(목) 중 하루</td>
+		<td>
+			<img src=/ebiz/images/icon02.gif border=0>수험표 및 신분증 지참<br>
+			<img src=/ebiz/images/icon02.gif border=0>장소·시간은 학과별 개별 통지
+		</td>
+	</tr>
+	<tr bgcolor=ffffff height=30>
+		<td colSpan=2 bgcolor=f6f8fa class=subTitle>합격자 발표</td>
+		<td align=center class=9RedB>2026. 8. 10(월) 예정</td>
+		<td class=9BlueB>
+			<img src=/ebiz/images/icon02.gif border=0><a href="http://grad.gimcheon.ac.kr" target="_blank">대학원 홈페이지</a>에 공고
+		</td>
+	</tr>
+	<!-- 
+	<tr bgcolor=ffffff>
+		<td colSpan=2 bgcolor=f6f8fa  class=subTitle>합격증 및 등록금 고지서 교부</td>
+		<td align=center>2025. 01. 20.(월)</td>
+		<td>
+			<img src=/ebiz/images/icon02.gif border=0><a href="http://grad.gimcheon.ac.kr" target="_blank">대학원 홈페이지</a>에서 본인이 직접출력
+		</td>
+	</tr>
+	 -->
+	<tr bgcolor=ffffff>
+		<td colSpan=2 bgcolor=f6f8fa  class=subTitle>등록금 납부</td>
+		<td align=center>2026. 8. 10.(월) ~ 2026. 8. 12.(수) 17시 까지</td>
+		<td>
+			<img src=/ebiz/images/icon02.gif border=0>등륵금 납부기간에 등록금을 납부하지 않으면 불합격 처리됨
+		</td>
+	</tr>
+</table>
+</TD>
+</TR>
+
+<TR><TD HEIGHT=10></TD></TR>
+<TR height=25>
+	<TD class=mainTitle><img src=/ebiz/images/icon_use_title.gif border=0>&nbsp;전형 세부사항</TD>
+</TR>
+<TR>
+<TD>
+<table  width="100%" cellspacing="1" cellpadding="1" border=0  bgcolor=bdbdbd>
+	<tr bgcolor=edf2fa align=center height=24>
+		<td class=headTitle>신입생모집요강</td>
+		
+	</tr>
+	<tr bgcolor=ffffff>
+		<td align=center><a href="https://grad.gimcheon.ac.kr/site/grad/html/sub3/0301.html" target="_blank"><b>요강보기(클릭)</b></a></td>
+		 
+		  
+	</tr>
+</table>
+
+<!-- 전형료 및 접수 수수료 -->
+<TR><TD HEIGHT=10></TD></TR>
+<TR height=25>
+	<TD class=mainTitle><img src=/ebiz/images/icon_use_title.gif border=0>&nbsp;전형료 및 접수 수수료 </TD>
+</TR>
+<TR>
+<TD>
+
+<table  width="100%" cellspacing="1" cellpadding="1" border=0  bgcolor=bdbdbd>
+	<tr bgcolor=edf2fa align=center height=24>
+		<td class=headTitle>전형료</td>
+		<td class=headTitle>결제금액</td>
+	</tr>
+	<tr bgcolor=ffffff>
+		<td align=right>50,000원&nbsp; &nbsp;</td>
+		<td align=right>50,000원&nbsp; &nbsp;</td>
+	</tr>
+</table>
+</TD>
+</TR>
+<!-- 지원자 유의 사항 -->
+<TR><TD HEIGHT=10></TD></TR>
+<TR height=25>
+	<TD class=mainTitle><img src=/ebiz/images/icon_use_title.gif border=0>&nbsp;지원자 유의사항</TD>
+</TR>
+<TR>
+<TD>
+
+		<table cellspacing=0 cellpadding=0 border=0>
+			<tr height=7>
+				<td width=10><img src=/ebiz/images/round_01.gif border=0 width=10 height=7></td>
+				<td background=/ebiz/images/round_02.gif>
+				<td width=10><img src=/ebiz/images/round_03.gif border=0 width=10 height=7></td>
+			</tr>
+			<tr>
+				<td background=/ebiz/images/round_08.gif></td>
+				<td>
+					<table cellspacing=0 cellpadding=10 border=0>
+						<tr>
+							<td>
+							    <ul style="padding-left: 10px;">
+									<li>원서접수는 인터넷접수를 원칙으로 함. (단, 온라인 접수가 부득이한 경우 창구(방문) 및  우편접수는 원서접수 마감일 17:00 도착분까지 유효)</li>
+									<li>
+										제출서류 : 2026년 7월 31일(금) 17:00까지 도착분에 한함.
+										<ul style="list-style: none;padding-left: 5px;">
+											<li>※ 우편접수시 반드시 등기로 우송하여야 하며, 지연도착, 기재착오, 첨부서류 미비 등으로 인하여 발생하는 불이익에 대하여는 본교에서 책임을 지지 않음.</li>
+										</ul>
+									<li>전형료를 납부하지 아니한 원서는 접수하지 아니하며, 제출서류 미제출자는 불합격으로 처리함.</li>
+									<li>접수 된 원서는 취소ㆍ변경을 할 수 없으며, 제출서류 및 전형료는 반환하지 아니함.</li>
+									<li>지원자격 미달자 및 제출서류의 허위기재, 변조, 기타 부정한 행위와 관련된 사실이 확인될 경우에는 불합격 또는 입학을 취소함.</li>
+									<li>합격자는 합격자 발표 후 지정된 등록기간 내에 등록을 마쳐야 하며, 미등록 시에는 불합격 처리되고 후순위 합격자에게 합격을 통지함.</li>
+									<li>개인정보 제공에 따른 유의사항(지원자 개인정보자료의 수집 및 이용목적)
+										<ol style="padding-left: 20px;">
+											<li>수집된 개인정보자료는 입학전형과 최종등록자의 학적이관 및 장학업무 이외의 다른 목적에는 절대 사용되지 않습니다.</li>
+											<li>수집된 개인정보자료는 일정 기간이 지나면 모두 삭제됩니다.</li>
+											<li>원서접수 시 개인정보 제공에 대한 동의여부(동의함, 동의안함)를 반드시 선택해 주어야 합니다.</li>
+										</ol>
+									</li>
+									<li>수험생은 면접고사 당일 수험표와 신분증을 반드시 지참하여야 함.</li>
+								</ul>
+							</td>
+						</tr>
+					</table>			
+				</td>
+				<td background=/ebiz/images/round_04.gif></td>
+			</tr>
+			<tr height=7>
+				<td width=10><img src=/ebiz/images/round_07.gif border=0 width=10 height=7></td>
+				<td background=/ebiz/images/round_06.gif>
+				<td width=10><img src=/ebiz/images/round_05.gif border=0 width=10 height=7></td>
+			</tr>
+		</table>		
+</TD>
+</TR>
+
+
+
+<TR><TD HEIGHT=10></TD></TR>
+<TR height=25>
+	<TD class=mainTitle><img src=/ebiz/images/icon_use_title.gif border=0>&nbsp;유의사항 필독</TD>
+</TR>
+<TR>
+	<TD>
+	
+		<table cellspacing=0 cellpadding=0 border=0 width=100%>
+			<tr height=7>
+				<td width=10><img src=/ebiz/images/round_01.gif border=0 width=10 height=7></td>
+				<td background=/ebiz/images/round_02.gif>
+				<td width=10><img src=/ebiz/images/round_03.gif border=0 width=10 height=7></td>
+			</tr>
+			<tr>
+				<td background=/ebiz/images/round_08.gif></td>
+				<td>
+					<p style="margin-left:10px; margin-top:10px; margin-bottom:10px;">
+					<table cellspacing=0 cellpadding=2 border=0>
+						<tr height=25>
+							<td class=9BlueB><img src=/ebiz/images/icon03.gif border=0>&nbsp;인터넷 원서접수 유의사항</td>
+						</tr>
+						<!-- 
+						<tr>
+							<td class=9Gray2B>&nbsp; <img src=/ebiz/images/icon01.gif border=0>&nbsp;인터넷 접수는 반드시 전형료 결제가 이루어진 후에야 접수완료가 됩니다.</td>
+						</tr>
+						 -->
+						<tr>
+							<td class=9Gray2B>&nbsp; <img src=/ebiz/images/icon01.gif border=0>&nbsp;인터넷으로 지원한 내용의 입력 착오, 누락의 책임은 지원자에게 있으며 대학에서는 책임을 지지 않습니다.</td>
+						</tr>
+						<tr>	
+							<td class=9RedB>&nbsp; <img src=/ebiz/images/icon01.gif border=0>&nbsp;인터넷 접수 후 수정, 취소는 절대 불가능합니다.</td>	
+						</tr>
+					</table>
+					<table cellspacing=0 cellpadding=0 border=0><tr><td height=10></td></tr></table>
+					<table cellspacing=0 cellpadding=2 border=0>
+						<tr height=25>
+							<td class=9BlueB><img src=/ebiz/images/icon03.gif border=0>&nbsp;지원자 개인정보자료의 수집 및 이용목적</td>
+						</tr>
+						<tr>
+							<td>&nbsp; <img src=/ebiz/images/icon01.gif border=0>&nbsp;수집된 개인정보자료는 입학전형 이외에 그 어떤 목적에도 절대 사용되지 않습니다.</td>
+						</tr>
+						<tr>
+							<td>&nbsp; <img src=/ebiz/images/icon01.gif border=0>&nbsp;입학전형 목적으로 집적된 개인정보자료는 일정기간이 지나면 모두 삭제됩니다.</td>
+						</tr>
+						<tr>
+							<td>&nbsp; <img src=/ebiz/images/icon01.gif border=0>&nbsp;모집요강 및 하단의 유의사항을 확인하지 않아 발생하는 불이익은 본인의 책임입니다.</td>
+						</tr>
+					</table>	
+				</td>
+				<td background=/ebiz/images/round_04.gif></td>
+			</tr>
+			<tr height=7>
+				<td width=10><img src=/ebiz/images/round_07.gif border=0 width=10 height=7></td>
+				<td background=/ebiz/images/round_06.gif>
+				<td width=10><img src=/ebiz/images/round_05.gif border=0 width=10 height=7></td>
+			</tr>
+		</table>
+	</TD>
+</TR>
+<TR>
+	<TD height=50 align=center>
+		
+		
+			<font color=red><b>원서 접수 기간이 아닙니다.</b></font>
+			<script>alert('원서 접수 기간이 아닙니다.');</script>
+		
+	</TD>
+</TR>
+</TABLE>
+
+
+</form>
+<!-- ActiveX Viewer -->
+ 
+<object
+   id=cxviewer
+   name=cxviewer
+   width=0%
+   height=0%
+   classid="clsid:04931AA4-5D13-442f-AEE8-0F1184002BDD"
+   codebase="https://rd.gimcheon.ac.kr/DataServer/cab/cxviewer60u.cab#version=6,3,4,258">
+</object>
+ 
+</body>
+</html>

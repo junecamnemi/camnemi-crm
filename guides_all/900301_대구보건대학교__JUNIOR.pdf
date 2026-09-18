@@ -1,0 +1,1205 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>대구보건대학교 국제교류처</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="/js/jquery/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-ui.min.js"></script>
+    <script src="/js/jquery/jquery.bxslider.js" type="text/javascript"></script>
+    <script src="/js/jquery/main_slide.js" type="text/javascript"></script>
+    <script src="/js/cmmn/seCommon.js" type="text/javascript"></script>
+    <link href="/resources/site/global/resource/css/common.css" rel="stylesheet" type="text/css">
+    <link href="/resources/site/global/resource/css/layout.css" rel="stylesheet" type="text/css">
+    <link href="/resources/site/global/resource/css/main.css" rel="stylesheet" type="text/css">
+    <link media="all" type="text/css" rel="stylesheet" href="/css/jquery/jquery.bxslider.css" />
+	<link rel="icon" href="/resources/favicon/favicon.png" type="image/x-icon">
+    <script type="text/javascript">
+    </script>
+	<script type="text/javascript">
+        if(window.location.protocol === 'http:'){
+            var host = window.location.host.split(':')[0];
+            var port =  host === 'localhost' ? 8443 : 443;
+            location.href='https://' + host + ':' + port + window.location.pathname + window.location.search;
+        }
+
+        function setCookie( name, value, expiredays ) {
+            var todayDate = new Date();
+            todayDate.setDate( todayDate.getDate() + expiredays );
+            document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+        }
+        function closePop(popup_seq) {
+            if ( $("#chk"+popup_seq).is(":checked") ){
+                setCookie( "pop"+popup_seq, "done" , 1 );
+            }
+            $(".pop"+popup_seq).css('visibility', 'hidden');
+        }
+    </script>
+</head>
+<body>
+<!-- wrap -->
+<div id="wrap">
+
+    
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        
+
+        $('.t').hover(
+            function(){
+                $('.submenu01').hide();
+                $(this).find('.submenu01').slideDown('fast');
+            },
+            function(){
+                $('.t').mouseleave(
+                    function(){
+                        $(this).find('.submenu01').slideUp('fast');
+                    }
+                );
+            }
+        );
+
+        $('.t').mouseleave(
+            function(){
+                $(this).find('.submenu01').slideUp('fast');
+            }
+        );
+
+        $('.t').focusin(
+            function(){
+                $(this).find('.submenu01').slideDown('fast');
+            }
+        );
+
+
+        $('.t').next().focusout(
+            function(){
+                $(this).find('li:last').focusout(
+                    function(){
+                        $('.t').find('.submenu01').slideUp('fast');
+                    }
+                );
+            }
+        );
+
+        /*모바일 레프트메뉴*/
+        $('#cssmenu > ul > li ul').each(function(index, element){
+            var count = $(element).find('li').length;
+            var content = '<span class="cnt">' + count + '</span>';
+            $(element).closest('li').children('a').append(content);
+        });
+        $('#cssmenu ul ul li:odd').addClass('odd');
+        $('#cssmenu ul ul li:even').addClass('even');
+
+        $('#cssmenu > ul > li > a').click(function() {
+            var checkElement = $(this).next();
+
+            $('#cssmenu li').removeClass('active');
+            $(this).closest('li').addClass('active');
+
+            if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+                $(this).closest('li').removeClass('active');
+                checkElement.slideUp('normal');
+            }
+            if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+                $('#cssmenu ul ul:visible').slideUp('normal');
+                checkElement.slideDown('normal');
+            }
+
+            if($(this).closest('li').find('ul').children().length == 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+        });
+        /*모바일 레프트메뉴*/
+
+        $('.cssmenu_btn').click(function (){
+            //전체메뉴 보기
+            if( $("#wrap").offset().left == '0'){
+                $("#wrap").stop().animate({left:'-220px'},{queue:false,duration:200});
+                $(".cssmenu").stop().animate({width:'220px' },{queue:false,duration:200});
+                $(".cssmenu_btn").stop().css({ backgroundColor:'none' });
+            }else{
+                $("#wrap").stop().animate({left: '0px'}, {queue: false, duration: 100});
+                $(".cssmenu").stop().animate({width: '0px'}, {queue: false, duration: 100});
+                $(".cssmenu_btn").stop().css({backgroundColor: 'none'});
+            }
+        });
+
+        $('.btn_close').click(function (){
+            $("#wrap").stop().animate({left: '0px'}, {queue: false, duration: 100});
+            $(".cssmenu").stop().animate({width: '0px'}, {queue: false, duration: 100});
+            $(".cssmenu_btn").stop().css({backgroundColor: 'none'});
+        });
+
+    });
+
+	// 탭 메뉴 
+	function tab_menu(num) {
+		var f = $('.tab_menu').find('li');
+		for (var i = 0; i < f.length; i++) {
+			if (i == num) {
+				f.eq(i).addClass('active');
+				$('.menu_tab0' + i).show();
+			} else {
+				f.eq(i).removeClass('active');
+				$('.menu_tab0' + i).hide();
+			}
+		}
+	}
+
+</script>
+<!-- header -->
+<div id="header">
+    <div class="header_in">
+        <div class="top_menu">
+            <ul class="menu">
+                <li class="menu_home"><a href="https://global.dhc.ac.kr">HOME</a></li>
+                <li><a href="/"><img src="/images/site/skin02/main/menu_shape.jpg"/></a></li>
+                
+                    <li class="menu_login"><a href="/login">로그인</a></li>
+                
+                
+            </ul>
+        </div>
+    </div>
+
+    <h1 class="logo">
+        <a href="/" class="header_logo">
+            <div class="img"><img src="/images/site/common/header_logo.gif" alt="대구보건대 로고" /></div>
+            <span class="title_small"style="display: none"></span>
+            <span>국제교류처</span>
+        </a>
+    </h1>
+    <!-- gnb -->
+    <div class="gnb">
+        <ul class="depth1">
+            
+            
+                
+                
+                    
+                    <li class="t">
+                        <a href="#">국제교류처 소개</a>
+                            <ul class="submenu01" style="display:none;">
+                
+                
+            
+                
+                
+                
+                        <li class="subfont">
+                            
+                                
+                                
+                                    <a href="/page/1568" target="">
+                                 
+                            
+                                인사말
+                            </a>
+                        </li>
+                
+            
+                
+                
+                
+                        <li class="subfont">
+                            
+                                
+                                
+                                    <a href="/professor/list" target="">
+                                 
+                            
+                                교직원 소개
+                            </a>
+                        </li>
+                
+            
+                
+                
+                
+                        <li class="subfont">
+                            
+                                
+                                
+                                    <a href="/page/1569" target="">
+                                 
+                            
+                                업무 및 연락처
+                            </a>
+                        </li>
+                
+            
+                
+                
+                
+                        <li class="subfont">
+                            
+                                 
+                                    <a href="/article/HISTORY_GALLERY/list" target="">
+                                
+                                
+                            
+                                발자취
+                            </a>
+                        </li>
+                
+            
+                
+                
+                
+                        <li class="subfont">
+                            
+                                
+                                
+                                    <a href="/html/historyInfo" target="">
+                                 
+                            
+                                이전 발자취 보기
+                            </a>
+                        </li>
+                
+            
+                
+                        </ul>
+                    </li>
+                
+                
+                    
+                    <li class="t">
+                        <a href="#">자매결연 대학 현황</a>
+                            <ul class="submenu01" style="display:none;">
+                
+                
+            
+                
+                
+                
+                        <li class="subfont">
+                            
+                                
+                                
+                                    <a href="/html/relationship" target="">
+                                 
+                            
+                                대학 현황
+                            </a>
+                        </li>
+                
+            
+                
+                        </ul>
+                    </li>
+                
+                
+                    
+                    <li class="t">
+                        <a href="#">유용한 사이트</a>
+                            <ul class="submenu01" style="display:none;">
+                
+                
+            
+                
+                
+                
+                        <li class="subfont">
+                            
+                                
+                                
+                                    <a href="/page/1583" target="">
+                                 
+                            
+                                유용한 사이트
+                            </a>
+                        </li>
+                
+            
+                
+                        </ul>
+                    </li>
+                
+                
+                    
+                    <li class="t">
+                        <a href="#">ㅤ게시판ㅤ</a>
+                            <ul class="submenu01" style="display:none;">
+                
+                
+            
+                
+                
+                
+                        <li class="subfont">
+                            
+                                 
+                                    <a href="/article/NOTICE/list" target="">
+                                
+                                
+                            
+                                공지사항
+                            </a>
+                        </li>
+                
+            
+                
+                
+                
+                        <li class="subfont">
+                            
+                                 
+                                    <a href="/article/QNA/list" target="">
+                                
+                                
+                            
+                                묻고 답하기
+                            </a>
+                        </li>
+                
+            
+                
+                        </ul>
+                    </li>
+                
+                
+                    
+                    <li class="t">
+                        <a href="#">한국어교육원</a>
+                            <ul class="submenu01" style="display:none;">
+                
+                
+            
+                
+                
+                
+                        <li class="subfont">
+                            
+                                 
+                                    <a href="/article/DOCUMENT/list" target="">
+                                
+                                
+                            
+                                자료실
+                            </a>
+                        </li>
+                
+            
+                
+                
+                
+                        <li class="subfont">
+                            
+                                
+                                
+                                    <a href="https://global2.dhc.ac.kr" target="_blank">
+                                 
+                            
+                                모집요강
+                            </a>
+                        </li>
+                
+            
+                
+                
+                
+                        <li class="subfont">
+                            
+                                
+                                
+                                    <a href="https://global2.dhc.ac.kr/index_eng.html" target="_blank">
+                                 
+                            
+                                Admission Guide
+                            </a>
+                        </li>
+                
+            
+        </ul>
+    </div>
+    <!--// gnb -->
+
+    <!-- mobile_gnb -->
+    <div class="m_top m_hidden">
+        <a href="#" class="cssmenu_btn"><img alt="" src="/resources/site/global/resource/images/layout/menu.png"></a>
+    </div>
+    <div class="cssmenu m_hidden">
+        <div class="cssmenu_bg"></div>
+        <div id="cssmenu" class="cssmenu">
+            <div class="cssmenu_top">
+                <a href="/" class="header_logo">
+                    <div class="img">
+                        <img src="/images/site/common/header_logo.gif" alt="대구보건대 로고" />
+                    </div>
+                    <p style="display: none"></p>
+                    <p>국제교류처</p>
+                </a>
+                <a href="#none" class="btn_close">
+                    <img src="/resources/site/global/resource/images/layout/btn_close.png" alt="">
+                </a>
+                
+                    <!--로그인전-->
+                    <ul class="m_login">
+                        <li><a href="/login">로그인</a><li>
+                        <li><a href="#">입학안내</a></li>
+                    </ul>
+                    <!--//로그인전-->
+                
+                
+            </div>
+            <ul class="mobile_left_menu">
+                
+                
+                
+            
+            
+            <li>
+                <a href="#"><span>국제교류처 소개</span></a>
+                <ul style="display:none">
+                    
+                    
+                    
+                
+            
+                    
+                        <li>
+                            
+                            
+                                
+                                <a href="/page/1568" target="">
+                                    
+                                    
+                                    <span>인사말</span>
+                                </a>
+                        </li>
+                    
+                    
+                
+            
+                    
+                        <li>
+                            
+                            
+                                
+                                <a href="/professor/list" target="">
+                                    
+                                    
+                                    <span>교직원 소개</span>
+                                </a>
+                        </li>
+                    
+                    
+                
+            
+                    
+                        <li>
+                            
+                            
+                                
+                                <a href="/page/1569" target="">
+                                    
+                                    
+                                    <span>업무 및 연락처</span>
+                                </a>
+                        </li>
+                    
+                    
+                
+            
+                    
+                        <li>
+                            
+                            
+                            <a href="/article/HISTORY_GALLERY/list" target="">
+                                
+                                
+                                    
+                                    <span>발자취</span>
+                                </a>
+                        </li>
+                    
+                    
+                
+            
+                    
+                        <li>
+                            
+                            
+                                
+                                <a href="/html/historyInfo" target="">
+                                    
+                                    
+                                    <span>이전 발자취 보기</span>
+                                </a>
+                        </li>
+                    
+                    
+                
+            </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a href="#"><span>자매결연 대학 현황</span></a>
+                <ul style="display:none">
+                    
+                    
+                    
+                
+            
+                    
+                        <li>
+                            
+                            
+                                
+                                <a href="/html/relationship" target="">
+                                    
+                                    
+                                    <span>대학 현황</span>
+                                </a>
+                        </li>
+                    
+                    
+                
+            </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a href="#"><span>유용한 사이트</span></a>
+                <ul style="display:none">
+                    
+                    
+                    
+                
+            
+                    
+                        <li>
+                            
+                            
+                                
+                                <a href="/page/1583" target="">
+                                    
+                                    
+                                    <span>유용한 사이트</span>
+                                </a>
+                        </li>
+                    
+                    
+                
+            </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a href="#"><span>ㅤ게시판ㅤ</span></a>
+                <ul style="display:none">
+                    
+                    
+                    
+                
+            
+                    
+                        <li>
+                            
+                            
+                            <a href="/article/NOTICE/list" target="">
+                                
+                                
+                                    
+                                    <span>공지사항</span>
+                                </a>
+                        </li>
+                    
+                    
+                
+            
+                    
+                        <li>
+                            
+                            
+                            <a href="/article/QNA/list" target="">
+                                
+                                
+                                    
+                                    <span>묻고 답하기</span>
+                                </a>
+                        </li>
+                    
+                    
+                
+            </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a href="#"><span>한국어교육원</span></a>
+                <ul style="display:none">
+                    
+                    
+                    
+                
+            
+                    
+                        <li>
+                            
+                            
+                            <a href="/article/DOCUMENT/list" target="">
+                                
+                                
+                                    
+                                    <span>자료실</span>
+                                </a>
+                        </li>
+                    
+                    
+                
+            
+                    
+                        <li>
+                            
+                            
+                                
+                                <a href="https://global2.dhc.ac.kr" target="_blank">
+                                    
+                                    
+                                    <span>모집요강</span>
+                                </a>
+                        </li>
+                    
+                    
+                
+            
+                    
+                        <li>
+                            
+                            
+                                
+                                <a href="https://global2.dhc.ac.kr/index_eng.html" target="_blank">
+                                    
+                                    
+                                    <span>Admission Guide</span>
+                                </a>
+                        </li>
+                    
+                    
+                </ul>
+        </div>
+    </div>
+    <!--//mobile_menu -->
+</div>
+<!--//header-->
+
+    <!-- //main_visual-->
+    <div class="main_visual" id="slideshow">
+            <div class="main_w">
+            <div class="title">
+                <h1 class="mv_title">국제교류처</h1>
+                <h3 class="mv_detail">start your KOREAN DREAM</h3>
+            </div>
+        </div>
+        <ul id="pagination" class="bullet">
+            
+                
+                    <li onclick="slideshow.pos(0)" class="on" style="cursor:pointer;"></li>
+                
+                    <li onclick="slideshow.pos(1)" class="off" style="cursor:pointer;"></li>
+                
+            
+                
+            
+        </ul>
+        <ul id="slides" style="overflow: hidden;" class="slide">
+            
+                
+                    <li>
+                        <img src="/cmmn/fileView?path=/global/files/banner/1118/&physical=F1074DCB6C994D7BAEFBC0D31E6A2346.jpg" title="국제교류처" alt="Start your KOREAN DREAM">
+                    </li>
+                
+                    <li>
+                        <img src="/cmmn/fileView?path=/global/files/banner/1119/&physical=15487CAC963C430E8804A29BE17BA0E6.jpg" title="국제교류처" alt="Start your KOREAN DREAM">
+                    </li>
+                
+            
+                
+            
+        </ul>
+       <script type="text/javascript">
+            /*메인비주얼 슬라이드*/
+            var slideshow = new TINY.fader.fade('slideshow', {
+                id: 'slides',
+                auto: 1,
+                resume: true,
+                navid: 'pagination',
+                activeclass: 'on',
+                visible: true,
+                position: 0
+            });
+        </script>
+
+
+
+    </div>
+
+    <!--// main_visual -->
+    <!--container-->
+    <div id="container">
+        <div class="visual_menu">
+            
+            
+                
+            
+                
+            
+                
+            
+                <ul>	<li class="ico1"><a href="https://global.dhc.ac.kr/professor/list" style="cursor:pointer"><img src="/resources/site/fire/resource/images/main/ico1.png" />교직원 소개</a></li>	<li class="ico2"><a href="https://www.isic.co.kr/dhc/dhcIndex.jsp" target="_blank"><img src="/resources/site/fire/resource/images/main/ico2.png" />국제학생증 발급</a></li>	<li class="ico3"><a href="http://dhc.eduhouse.net/main/main.asp" target="_blank"><img src="/resources/site/fire/resource/images/main/ico3.png" />해외유학정보</a></li>	<li class="ico4"><a href="https://global.dhc.ac.kr/article/QNA/list"><img src="/resources/site/global/resource/images/main/ico8.png" />묻고 답하기 Q&A</a></li>	<li class="ico5"><a href="https://global2.dhc.ac.kr/" target="_blank"><img src="/resources/site/fire/resource/images/main/ico5.png" />한국어교육원 모집요강</a></li>	<li class="ico7"><a href="https://global2.dhc.ac.kr/index_eng.html" target="_blank"><img src="/resources/site/global/resource/images/main/ico9.png" />Korean Language<br />	Admission Guide</a></li></ul>
+            
+        </div>
+        <div class="section01">
+            <div class="block1_1">
+                
+
+                <div class="board" >
+                    
+                    <div class="notice">
+                        <h2 class="main_title">공지사항<span class="more"><a href="/article/NOTICE/list"><img src="/images/site/common/icon_more2.png" alt="더보기" /></a></span></h2>
+                        <ul>
+                            
+                                
+                            
+                                
+                            
+                                
+                                    <li>
+                                        <a href="/article/NOTICE/detail/201980">
+                                                국제학생증(ISIC) 발급비 지원행사
+                                            
+                                                ...
+                                            
+                                        </a>
+                                        <span class="date">2025-02-24</span>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/article/NOTICE/detail/201075">
+                                                국제학생증(ISIC) 발급비 지원행사
+                                            
+                                                ...
+                                            
+                                        </a>
+                                        <span class="date">2024-11-27</span>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/article/NOTICE/detail/198170">
+                                                국제학생증(ISIC) 발급비 지원행사
+                                            
+                                                ...
+                                            
+                                        </a>
+                                        <span class="date">2024-05-20</span>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/article/NOTICE/detail/195133">
+                                                국제학생증(ISIC) 발급비 지원행사
+                                            
+                                                ...
+                                            
+                                        </a>
+                                        <span class="date">2023-11-13</span>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/article/NOTICE/detail/194864">
+                                                국제교류원 할로윈 이벤트
+                                            
+                                        </a>
+                                        <span class="date">2023-10-24</span>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/article/NOTICE/detail/194541">
+                                                2023년 소상공인을 위한 무료 영어
+                                            
+                                                ...
+                                            
+                                        </a>
+                                        <span class="date">2023-09-21</span>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/article/NOTICE/detail/192713">
+                                                2023년 다문화가정글로벌역량강화캠프
+                                            
+                                                ...
+                                            
+                                        </a>
+                                        <span class="date">2023-05-07</span>
+                                    </li>
+                                
+                            
+                        </ul>
+                    </div>
+                    
+                    
+            </div>
+
+                <div class="block1_2">
+                    
+                    
+                    
+                    <div class="board">
+                        <div class="notice" >
+                            <h2 class="main_title">한국어교육원 자료실<span class="more"><a href="/article/DOCUMENT/list"><img src="/images/site/common/icon_more2.png" alt="더보기" /></a></span></h2>
+                            <ul>
+                                
+                                    
+                                
+                                    
+                                        <li>
+                                            <a href="/article/DOCUMENT/detail/192427">
+                                                    외국인학생운영규정
+                                                
+                                            </a>
+                                            <span class="date">2023-04-12</span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="/article/DOCUMENT/detail/186635">
+                                                    입학지원서(한국어과정)
+                                                
+                                            </a>
+                                            <span class="date">2021-06-30</span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="/article/DOCUMENT/detail/186634">
+                                                    학과별 해외취업 진로
+                                                
+                                            </a>
+                                            <span class="date">2020-04-23</span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="/article/DOCUMENT/detail/186633">
+                                                    언론보도
+                                                
+                                            </a>
+                                            <span class="date">2020-04-14</span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="/article/DOCUMENT/detail/186632">
+                                                    대구보건대학교 소개 책자 및 리플릿
+                                                
+                                            </a>
+                                            <span class="date">2020-04-14</span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="/article/DOCUMENT/detail/186631">
+                                                    모집요강(학위과정)
+                                                
+                                            </a>
+                                            <span class="date">2020-04-14</span>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="/article/DOCUMENT/detail/186630">
+                                                    모집요강(한국어과정)
+                                                
+                                            </a>
+                                            <span class="date">2020-04-14</span>
+                                        </li>
+                                    
+                                
+                                    
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="block1_3">
+                
+                
+                    <style>
+ul.list li p {font-weight:normal; font-size:16px; color:#fff;}
+
+</style>
+
+<div class="list_wrap">
+	<h1>입학안내</h1>
+	<ul class="list">
+		<li>
+			<a href="https://global2.dhc.ac.kr/" target="_blank">
+				<img src="/resources/site/fire/resource/images/main/list_ico2.png">
+				<p>모집요강</p>
+				<p style="color:#a6bcd0; font-size:13px;">한국어교육원으로 이동합니다</p>
+			</a>
+		</li>
+	</ul>
+	<ul class="list">
+		<li>
+			<a href="https://global2.dhc.ac.kr/index_eng.html" target="_blank">
+				<img src="/resources/site/fire/resource/images/main/list_ico3.png">
+				<p>Admission Guide</p>
+				<p style="color:#a6bcd0; font-size:13px;">Go to Admission Guid</p>
+			</a>
+		</li>
+	</ul>	
+</div>
+                
+                    
+                
+                    
+                
+                    
+                
+            </div>
+        </div>
+        <div class="section02">
+            <div class="intro">
+                <div class="block2_1">
+                    
+                    
+                        
+                            
+                        
+                            <div class="promote"><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="100%" src="https://www.youtube.com/embed/LE510wqKHGk" width="100%"></iframe></div>
+                        
+                            
+                        
+                            
+                        
+                    
+                </div>
+                <div class="block2_2">
+                    
+                    
+                        
+                            
+                        
+                            
+                        
+                            <div class="promote"><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="100%" src="https://www.youtube.com/embed/-TSm9qYnSV8" width="100%"></iframe></div>
+                        
+                            
+                        
+                    
+                </div>
+            </div>
+            <div class="block2_3">
+                
+                
+                    <div class="gallery">
+                        <h2 class="main_title">발자취  <span class="more"><a href="/article/HISTORY_GALLERY/list"><img src="/images/site/common/icon_plus.png" alt="더보기" /></a></span></h2>
+                        <ul class="img">
+                            
+                                
+                                    <li>
+                                        <a href="/article/HISTORY_GALLERY/detail/189652">
+                                            <img alt="" src="/cmmn/fileView?path=/ckeditor//HISTORY_GALLERY&amp;physical=1664500310549.jpg&amp;contentType=image" />
+                                        </a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/article/HISTORY_GALLERY/detail/187905">
+                                            <img alt="" src="/cmmn/fileView?path=/ckeditor//HISTORY_GALLERY&amp;physical=1655794777411.jpg&amp;contentType=image" />
+                                        </a>
+                                    </li>
+                                
+                            
+                                
+                            
+                                
+                            
+                        </ul>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <!--container-->
+
+
+            
+
+
+
+
+<script>
+    $(document).ready(function() {
+        var menu_up_down = 1;
+        $("#foot_quick").click(function () {
+            if (menu_up_down == 1) {
+                $("#lmenu").animate({height: "125px"});
+                menu_up_down = 0;
+            } else {
+                $("#lmenu").animate({height: "0px"});
+                menu_up_down = 1;
+            }
+        });
+
+
+    });
+</script>
+
+<!--footer banner *2개씩 슬라이드됩니다*-->
+<div class="footer_banner">
+    <div class="bannerBox">
+        <div class="banner_wrap">
+            <h2 class="fl_left">배너존</h2>
+            <div class="btn_banner fl_left" >
+                <a href="#none" class="prevBtn"><img src="/resources/site/global/resource/images/layout/icon_prev.png" alt="왼쪽버튼"></a>
+                <a href="#none" class="stopBtn"><img class="stopTo" src="/resources/site/global/resource/images/layout/icon_stop.png" alt="일시정지버튼"></a>
+                <a href="#none" class="startBtn"><img class="startTo" style="display: none;" src="/resources/site/global/resource/images/layout/icon_start.png" alt="재생버튼"></a>
+                <a href="#none" class="nextBtn"><img src="/resources/site/global/resource/images/layout/icon_next.png" alt="오른쪽버튼"></a>
+            </div>
+        </div>
+
+        <div class="fl_left fl_left2">
+
+            <ul id="ul-banner" class="foot_banner">
+            
+                
+            
+                
+                <li>
+                    <a href="https://kedu.dhc.ac.kr/main" target="_blank">
+					
+					
+                          <img src="/cmmn/fileView?path=/global/files/banner/1178/&physical=3A7D1C0DEB5140EFA8B81B3802A910F8.jpg" alt="K-Edu 온라인학습">
+						  </a>
+                </li>
+
+
+                
+                <li>
+                    <a href="https://www.youtube.com/channel/UCHLk4Mvj6X42buv0Imz3C-w" target="_blank">
+					
+					
+                          <img src="/cmmn/fileView?path=/global/files/banner/1179/&physical=4B298A912F8D4BFDA6CA9B57481276F4.jpg" alt="국제교류처 유튜브채널">
+						  </a>
+                </li>
+
+
+                
+                <li>
+                    <a href="https://www.youtube.com/user/DHCCF" target="_blank">
+					
+					
+                          <img src="/cmmn/fileView?path=/global/files/banner/1180/&physical=8657FCDEE854493F811ACB5C910CB544.jpg" alt="대구보건대 유투브채널">
+						  </a>
+                </li>
+
+
+                
+            
+            </ul>
+        </div>
+
+        <script>
+            var banner_Slider = $('.bannerBox .foot_banner').bxSlider({
+                mode:'horizontal', //default : 'horizontal', options: 'horizontal', 'vertical', 'fade'
+                moveSlides: 1,     // 슬라이드 이동시 개수
+                minSlides: 6,      // 최소 노출 개수
+                maxSlides: 6,      // 최대 노출 개수
+                slideWidth: 150,   // 슬라이드 너비
+                speed:1000, //default:500 이미지변환 속도
+                auto: true, //default:false 자동 시작
+                captions: false, // 이미지의 title 속성이 노출된다.
+                autoControls: false, //default:false 정지,시작 콘트롤 노출, css 수정이 필요
+                pager:false,
+                controls: false,    // 이전 다음 버튼 노출 여부
+                slideMargin: 16
+
+            });
+
+            //이전 버튼을 클릭하면 이전 슬라이드로 전환
+            $( '.bannerBox .prevBtn' ).on( 'click', function () {
+                banner_Slider.goToPrevSlide();  //이전 슬라이드 배너로 이동
+                return false;              //<a>에 링크 차단
+            });
+            //다음 버튼을 클릭하면 다음 슬라이드로 전환
+            $( '.bannerBox .nextBtn' ).on( 'click', function () {
+                banner_Slider.goToNextSlide();  //다음 슬라이드 배너로 이동
+                return false;
+            });
+            //정지 버튼을 클릭하면 슬라이드 정지
+            $( '.bannerBox .stopBtn' ).on( 'click', function () {
+                banner_Slider.stopAuto();  //슬라이드 정지
+                $('.bannerBox .startBtn .startTo').show();
+                $('.bannerBox .stopBtn .stopTo').hide();
+                return false;
+            });
+            //시작 버튼을 클릭하면 슬라이드 정지
+            $( '.bannerBox .startBtn' ).on( 'click', function () {
+                banner_Slider.startAuto();  //슬라이드 시작
+                $('.bannerBox .stopBtn .stopTo').show();
+                $('.bannerBox .startBtn .startTo').hide();
+                return false;
+            });
+        </script>
+
+
+    </div>
+</div>
+
+<!--footer-->
+<div id="footer">
+    <div class="footer_in">
+        <div class="rel_site_box">
+            <ul class="rel_site">
+                <li id="foot_quick">관련기관 바로가기<img src="/images/site/common/footer_rel_site.png" />
+                    <dl id="lmenu">
+                        <dd><a href="https://kedu.dhc.ac.kr/main"  target="_blank">K-Edu온라인학습</a></dd>
+                        <dd><a href="http://www.youtube.com/channel/UCHLk4Mvj6X42buv0Imz3C-w"  target="_blank">국제교류처 유튜브채널</a></dd>
+                        <dd><a href="https://www.youtube.com/user/DHCCF" target="_blank">대구보건대학교 유튜브채널</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <ul class="menu">
+                <li><a href="#" class="col_orange" target="_blank">개인정보처리방침</a></li>
+                <li><a href="https://www.dhc.ac.kr" target="_blank">대구보건대학교</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="copy">
+            <div class="copy_logo"><a href="https://global.dhc.ac.kr"><img src="/images/site/common/footer_logo.png" alt="대구보건대 로고">국제교류처</a>
+            </div>
+            <address>41453 대구 북구 영송로 15 연마관 도서관동 1층
+                <strong>TEL</strong> : 053-320-1227&nbsp;&nbsp;<strong>EMAIL</strong> : seochulbae@dhc.ac.kr
+            </address>
+            <p>DAEGU HEALTH COLLEGE&nbsp;&nbsp;15 Youngsong-Ro, Buk-Gu, Daegu 41453 Korea&nbsp;&nbsp;</p>
+			<p>Copyright (c) 2018 DAEGU HEALTH COLLEGE All Right Reserved.<p>
+        </div>
+    </div>
+</div>
+<!--//footer-->
+    </div>
+    <!--//wrap-->
+</body>
+</html>

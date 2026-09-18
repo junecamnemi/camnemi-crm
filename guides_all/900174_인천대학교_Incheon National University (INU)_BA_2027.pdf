@@ -1,0 +1,3277 @@
+
+
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8 ">
+
+	<meta name="subject" content="인천대학교 입시안내" />
+	<meta name="keywords" content="인천대학교 입시안내" />
+	<meta name="description" content="인천대학교 입시안내" />
+	
+	<link rel="stylesheet" type="text/css" href="/resources/temp_2/css/style.css">
+	<script type="text/javascript" src="/resources/temp_2/js/libs/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="/resources/temp_2/js/libs/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/resources/temp_2/js/libs/slick.js"></script>
+	<script type="text/javascript" src="/resources/temp_2/js/libs/iscroll.js"></script>
+	<script type="text/javascript" src="/resources/temp_2/js/base.js"></script>
+	<script type="text/javascript" src="/resources/temp_2/js/module-ui.js"></script>
+	<script type="text/javascript" src="/resources/temp_2/js/layout.js"></script>
+	<script type="text/javascript" src="/resources/temp_2/js/common.js"></script>
+
+ 	<title>인천대학교 입시안내</title>
+
+</head>
+
+ 
+<body>
+	
+
+
+ 
+
+
+
+
+
+
+
+<script>
+
+	function openUrl(link_url, link_type) {
+		if (link_type == "1") {
+			window.open(link_url)
+		} else {
+			document.location.href = link_url;
+		}
+
+	}
+
+	function setParentHref(obj) {
+		if ($("ul.gnb > li." + $(obj).find("ul.gnb_depth2 li").length > 0)) {
+			console.log($(obj).find(">a").attr("href"));
+			$(obj).find(">a").attr("href",$(obj).find("li > a").eq(0).attr("href"));
+			console.log($(obj).find(">a").attr("href"));
+			$(obj).find(">a").attr($(obj).find("li > a").eq(0).attr("href"));
+			$(obj).find(">a").attr("target", $("." + $(obj).find(">a").data("menuno") + "> .gnb_depth2 > li:eq(0) > a").attr("target"));
+		}
+	}
+
+	function leftSearchForm(content_type) {
+		var url = '/search.do?';
+
+		if(content_type != null){
+			if(content_type.indexOf('hash') > -1){
+				var hashtag = $("#" + content_type).html();
+				content_type = null;
+				/*해시태그 클릭 시 전체 검색으로 오픈*/
+				hashtag = hashtag.split("#")[1];
+
+				$("#id_left_searchtext").val(hashtag);
+			}else if(content_type != ''){
+				url += '&content_type=' + content_type;
+			}
+		}
+
+		if($("#id_left_searchtext").val().indexOf('#') > -1){
+			// url += '&searchNo=4'
+			/*해시태그 클릭 시 전체 검색으로 오픈*/
+			url += '&searchNo=1'
+		}else{
+			url += '&searchNo=1'
+		}
+
+		if ($("#id_left_searchtext").val()) {
+			url += '&searchtext=' + encodeURIComponent($("#id_left_searchtext").val());
+		}
+
+		document.location.href = url;
+	}
+
+	$(function () {
+		$(document).on("click", "ul.gnb li", function () {
+			// setParentHref($(this));
+		});
+	});
+</script>
+
+	
+	
+	
+	<!-- popup wrapper -->
+	
+	<!-- popup wrapper -->
+
+<!-- wrapper -->
+
+
+
+
+	
+		
+
+<div class="wrap  " id="wrap">	
+	<!-- HEADER -->
+	<!-- [개발] 페이지별 클래스
+		메인 : <header class="header header__open">
+		일반 : <header class="header"> -->
+	<header class="header">
+		<div class="header_top">
+			<div class="ly_centered">
+				<h1 class="header_logo">
+					<a href="/main.do">
+						<span class="header_logo_img">인천대학교</span>
+					</a>
+				</h1>
+				
+				<ul class="gnb_navLg gnb_navLg__mini">
+					   
+						 
+						<li>
+							<a href="#none" class="gnb_navLg_txt" target="_self">수시모집</a>
+						</li>
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+						<li>
+							<a href="#none" class="gnb_navLg_txt" target="_self">정시모집</a>
+						</li>
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+						<li>
+							<a href="#none" class="gnb_navLg_txt" target="_self">편입학</a>
+						</li>
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+						<li>
+							<a href="#none" class="gnb_navLg_txt" target="_self">재외국민</a>
+						</li>
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+						<li>
+							<a href="#none" class="gnb_navLg_txt" target="_self">입학도우미</a>
+						</li>
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+						<li>
+							<a href="#none" class="gnb_navLg_txt" target="_self">고교-대학연계</a>
+						</li>
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+						<li>
+							<a href="#none" class="gnb_navLg_txt" target="_self">대학안내</a>
+						</li>
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+						<li>
+							<a href="#none" class="gnb_navLg_txt" target="_self">International Students</a>
+						</li>
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					  
+						 
+					   	 
+				</ul>
+
+				<div class="header_util">
+					<a href="https://www.inu.ac.kr" target="_blank" class="header_btn">인천대학교</a>
+					<a href="https://www.inu.ac.kr/inu/619/subview.do" target="_blank" class="header_btn header_btn__yellow">대학원</a>
+				</div>
+
+				<div class="global_wrap">
+					<div class="mnb">
+						<!-- <button type="button" class="mnb_btnMenu"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="20" viewBox="0 0 35 20">
+								<path fill="currentColor" d="M0 0h35v2H0zm0 9h35v2H0zm15 9h20v2H15z" /></svg>
+						</button> -->
+						<button type="button" class="mnb_btnMenu">
+		                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="20" viewBox="0 0 35 20">
+		                        <g id="그룹_2102" data-name="그룹 2102" transform="translate(-1774 -50)">
+		                           <g id="그룹_2060" data-name="그룹 2060" transform="translate(-13 4)">
+		                              <rect id="사각형_1403" data-name="사각형 1403" width="35" height="2" transform="translate(1787 46)" fill="#202020" />
+		                              <rect id="사각형_1404" data-name="사각형 1404" width="35" height="2" transform="translate(1787 55)" fill="#202020" />
+		                              <rect id="사각형_1405" data-name="사각형 1405" width="20" height="2" transform="translate(1802 64)" fill="#202020" />
+		                           </g>
+		                        </g>
+		                     </svg>
+		                  </button>
+						<div class="mnb_dim"></div>
+						<div class="mnb_panel">
+							<div class="mnb_panel_head">
+								<div class="mnb_panel_util">
+									<a href="#none" class="mnb_panel_btnHome"><img src="/resources/temp_2/img/layout/mnb_home.svg" alt=""></a>
+								</div>
+							</div>
+
+							<div class="mnb_panel_scroll">
+								<div class="mnb_panel_nav">
+									<ul class="mnb_navLg">
+										  
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">수시모집</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=7dcKmGI5ZvQB9F1mAEBAGg%3d%3d&" target="_self">모집요강</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=EzpIzuwH1A2n48YETCr2EA%3d%3d&" target="_self">공지사항</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=nzHFJ5hTM2ojX8u0TzwHvA%3d%3d&" target="_self">서식자료</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl(' https://addon.jinhakapply.com/nesin/1123/2027/susi.html','1')">학생부성적산출</a>
+													
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=4428MQNdeF7ekIPFWbVCAg%3d%3d&" target="_self">지난입시결과</a>
+													
+												</li>
+											
+											
+										  
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">정시모집</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=69HsiUDd88Yz%2f6q8AbV4%2bA%3d%3d&" target="_self">모집요강</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=a28u1Dp%2fiMtKhNH8HevAkw%3d%3d&" target="_self">공지사항</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=SBB%2fyMNMYxojUu6FFXSY3w%3d%3d&" target="_self">서식자료</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('https://addon.jinhakapply.com/nesin/1123/2027/jungsi.html','')">수능성적산출</a>
+													
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=7o6CZK4SE%2fZm%2fkm5uoXMkQ%3d%3d&" target="_self">지난입시결과</a>
+													
+												</li>
+											
+											
+										  
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">편입학</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=hB8GYKGYSI7BBlNJFDXa%2bQ%3d%3d&" target="_self">모집요강</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&" target="_self">공지사항</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=st9Ev3%2bxxFZPMegaaaiHLg%3d%3d&" target="_self">서식자료</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=f2R1Rj0JbJJYIEretthBDA%3d%3d&" target="_self">지난입시결과</a>
+													
+												</li>
+											
+											
+										  
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">재외국민</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=ilXFAb%2f%2bFn29NE%2bCUOrhDg%3d%3d&" target="_self">모집요강</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=DgiYv19qOmenudTJ2AKY2A%3d%3d&" target="_self">공지사항</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=B4xLxlvMKTq0z1qBllurfg%3d%3d&" target="_self">서식자료</a>
+													
+												</li>
+											
+											
+										  
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">입학도우미</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=KHw0IM8v%2bcgQ4zs30Ih%2b4w%3d%3d&" target="_self">종합전형안내</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=qbbQ7Q9VDvDLfHUEghb13w%3d%3d&" target="_self">공지사항</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=E5cBQ72SKW7tPdXUykhilA%3d%3d&" target="_self">입시상담 Q&A</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=2LzZbH%2fR%2bB4HzyuYmPyHoA%3d%3d&" target="_self">지난입시결과</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=zbmTuTPixF3VceCRvMj0SQ%3d%3d&" target="_self">서식자료</a>
+													
+												</li>
+											
+											
+										  
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">고교-대학연계</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=wvOt10B5et6zMa%2fM59G%2bxQ%3d%3d&" target="_self">입학설명회</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=2Yx5AdyROxyzbsACUoXUCQ%3d%3d&" target="_self">고교-대학연계</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=jVMGmOh68Pir%2buTpFrHJYA%3d%3d&" target="_self">고교입시결과신청</a>
+													
+												</li>
+											
+											
+										  
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">대학안내</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=xb3PYzpHlMe9%2fKoPQ1rtwA%3d%3d&" target="_self">학과소개</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=wLH72jTDu6wGTkxgCeq24A%3d%3d&" target="_self">대학생활안내</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('https://www.inu.ac.kr/inu/739/subview.do','1')">캠퍼스맵</a>
+													
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('https://www.inu.ac.kr/inu/1473/subview.do','1')">오시는길</a>
+													
+													
+												</li>
+											
+											
+										  
+											
+												</ul></li>
+											
+											 
+											<li>
+													<a href="#none" class="mnb_navLg_txt" target="_self">International Students</a>
+													<ul class="mnb_navMd">
+											
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=W7HPY3igYfc7wBkObUxCqA%3d%3d&" target="_self">모집요강</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=Cf5PbokbyGk5VfLO98MtrA%3d%3d&" target="_self">Admission Guide</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=%2b3JEYt36zn8xvrwKcNVv3w%3d%3d&" target="_self">招生简章</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+														
+														<a href="javascript:openUrl('https://erp.inu.ac.kr/nx/index_external.html?bWVudUlkPU0wMDMwNTcmbG9naW5HYm49ZXgmc2hvd1RpdGxlPWZhbHNlJnBhcmFtcz17ImVudHJHYm4iOiIxIiwibGFuZ0dibiI6IjEifQ','')">Online Application</a>
+													
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=c67N344zBi2eHSeNmnlE0Q%3d%3d&" target="_self">Study at INU</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=hNQ1f0E6I1zHOidlUhMd8A%3d%3d&" target="_self">공지사항 Notice</a>
+													
+												</li>
+											
+											
+										  
+											
+											
+											
+												<li>
+													
+													
+														
+														<a href="/submenu.do?menuurl=SRY1llbnkE3FcVU1m%2bA5mA%3d%3d&" target="_self">서식자료 Forms</a>
+													
+												</li>
+											
+											
+												</ul></li>
+											
+										  
+									</ul> 
+								</div>
+							</div>
+
+							<button type="button" class="mnb_btnClose pop-close">
+								<img src="/resources/temp_2/img/layout/mnb_close.svg" alt="">
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		 <div class="gnb">
+			<div class="ly_centered">
+				<ul class="gnb_navLg"> 
+					 
+						
+						 
+						<li>
+								<a href="#none" class="gnb_navLg_txt" target="_self">수시모집</a>
+								<ul class="gnb_navMd">
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=7dcKmGI5ZvQB9F1mAEBAGg%3d%3d&" target="_self">모집요강</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=EzpIzuwH1A2n48YETCr2EA%3d%3d&" target="_self">공지사항</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=nzHFJ5hTM2ojX8u0TzwHvA%3d%3d&" target="_self">서식자료</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl(' https://addon.jinhakapply.com/nesin/1123/2027/susi.html','1')">학생부성적산출</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=4428MQNdeF7ekIPFWbVCAg%3d%3d&" target="_self">지난입시결과</a>
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+								<a href="#none" class="gnb_navLg_txt" target="_self">정시모집</a>
+								<ul class="gnb_navMd">
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=69HsiUDd88Yz%2f6q8AbV4%2bA%3d%3d&" target="_self">모집요강</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=a28u1Dp%2fiMtKhNH8HevAkw%3d%3d&" target="_self">공지사항</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=SBB%2fyMNMYxojUu6FFXSY3w%3d%3d&" target="_self">서식자료</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('https://addon.jinhakapply.com/nesin/1123/2027/jungsi.html','1')">수능성적산출</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=7o6CZK4SE%2fZm%2fkm5uoXMkQ%3d%3d&" target="_self">지난입시결과</a>
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+								<a href="#none" class="gnb_navLg_txt" target="_self">편입학</a>
+								<ul class="gnb_navMd">
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=hB8GYKGYSI7BBlNJFDXa%2bQ%3d%3d&" target="_self">모집요강</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&" target="_self">공지사항</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=st9Ev3%2bxxFZPMegaaaiHLg%3d%3d&" target="_self">서식자료</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=f2R1Rj0JbJJYIEretthBDA%3d%3d&" target="_self">지난입시결과</a>
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+								<a href="#none" class="gnb_navLg_txt" target="_self">재외국민</a>
+								<ul class="gnb_navMd">
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=ilXFAb%2f%2bFn29NE%2bCUOrhDg%3d%3d&" target="_self">모집요강</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=DgiYv19qOmenudTJ2AKY2A%3d%3d&" target="_self">공지사항</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=B4xLxlvMKTq0z1qBllurfg%3d%3d&" target="_self">서식자료</a>
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+								<a href="#none" class="gnb_navLg_txt" target="_self">입학도우미</a>
+								<ul class="gnb_navMd">
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=KHw0IM8v%2bcgQ4zs30Ih%2b4w%3d%3d&" target="_self">종합전형안내</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=qbbQ7Q9VDvDLfHUEghb13w%3d%3d&" target="_self">공지사항</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=E5cBQ72SKW7tPdXUykhilA%3d%3d&" target="_self">입시상담 Q&A</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=2LzZbH%2fR%2bB4HzyuYmPyHoA%3d%3d&" target="_self">지난입시결과</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=zbmTuTPixF3VceCRvMj0SQ%3d%3d&" target="_self">서식자료</a>
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+								<a href="#none" class="gnb_navLg_txt" target="_self">고교-대학연계</a>
+								<ul class="gnb_navMd">
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=wvOt10B5et6zMa%2fM59G%2bxQ%3d%3d&" target="_self">입학설명회</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=2Yx5AdyROxyzbsACUoXUCQ%3d%3d&" target="_self">고교-대학연계</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=jVMGmOh68Pir%2buTpFrHJYA%3d%3d&" target="_self">고교입시결과신청</a>
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+								<a href="#none" class="gnb_navLg_txt" target="_self">대학안내</a>
+								<ul class="gnb_navMd">
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=xb3PYzpHlMe9%2fKoPQ1rtwA%3d%3d&" target="_self">학과소개</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=wLH72jTDu6wGTkxgCeq24A%3d%3d&" target="_self">대학생활안내</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('https://www.inu.ac.kr/inu/739/subview.do','1')">캠퍼스맵</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('https://www.inu.ac.kr/inu/1473/subview.do','1')">오시는길</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+							</ul></li>
+						
+						 
+						<li>
+								<a href="#none" class="gnb_navLg_txt" target="_self">International Students</a>
+								<ul class="gnb_navMd">
+						
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=W7HPY3igYfc7wBkObUxCqA%3d%3d&" target="_self">모집요강</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=Cf5PbokbyGk5VfLO98MtrA%3d%3d&" target="_self">Admission Guide</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=%2b3JEYt36zn8xvrwKcNVv3w%3d%3d&" target="_self">招生简章</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+									
+									<a href="javascript:openUrl('https://erp.inu.ac.kr/nx/index_external.html?bWVudUlkPU0wMDMwNTcmbG9naW5HYm49ZXgmc2hvd1RpdGxlPWZhbHNlJnBhcmFtcz17ImVudHJHYm4iOiIxIiwibGFuZ0dibiI6IjEifQ','1')">Online Application</a>
+								
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=c67N344zBi2eHSeNmnlE0Q%3d%3d&" target="_self">Study at INU</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=hNQ1f0E6I1zHOidlUhMd8A%3d%3d&" target="_self">공지사항 Notice</a>
+								
+							</li>
+						
+						
+					 
+						
+						
+						
+							<li>
+								
+								
+									
+									<a href="/submenu.do?menuurl=SRY1llbnkE3FcVU1m%2bA5mA%3d%3d&" target="_self">서식자료 Forms</a>
+								
+							</li>
+						
+						
+							</ul></li>
+						
+					 
+				</ul>
+			</div>
+		</div> 
+	</header><!-- //HEADER --> 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date()); 
+				gtag('config', '');
+			</script>
+
+	
+
+
+
+	
+
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+
+
+<script>
+
+	function setSnbHref(obj) {
+		if ($("ul.gnb > li." + $(obj).find("ul.gnb_depth2 li").length > 0)) {
+			$(obj).find(">a").attr("href",$(obj).find("li > a").eq(0).attr("href"));
+			$(obj).find(">a").attr($(obj).find("li > a").eq(0).attr("href"));
+			$(obj).find(">a").attr("target", $("." + $(obj).find(">a").data("menuno") + "> .gnb_depth2 > li:eq(0) > a").attr("target"));
+		}
+	}
+
+	$(function () {
+		$(document).on("click", "ul.lnb1 li", function(){
+			setSnbHref($(this),$(this));
+		});
+	});
+
+	function clip(){
+		var url = '';
+		var textarea = document.createElement("textarea");
+		document.body.appendChild(textarea);
+		url = window.document.location.href;
+		textarea.value = url;
+		textarea.select();
+		document.execCommand("copy");
+		document.body.removeChild(textarea);
+		alert("URL이 복사되었습니다.")
+	}
+
+	// 인쇄
+	$(function(){
+		$(".btn_print").bind("click", function(){
+			window.print();
+		});
+	});
+
+	// 텍스트 크기 조절
+	$(document).ready(function(){
+		function getSize() {
+			size = $( ".bbsList" ).css( "font-size" );
+			size = parseInt(size, 10);
+			$( "#font-size" ).text(  size  );
+		}
+
+		//get inital font size
+		getSize();
+
+		$( "#up" ).on( "click", function() {
+			// parse font size, if less than 50 increase font size
+			if ((size + 2) <= 50) {
+				$( ".bbsList" ).css( "font-size", "+=2" );
+				$( "#font-size" ).text(  size += 2 );
+			}
+		});
+
+		$( "#down" ).on( "click", function() {
+			if ((size - 2) >= 12) {
+				$( ".bbsList" ).css( "font-size", "-=2" );
+				$( "#font-size" ).text(  size -= 2  );
+			}
+		});
+	});
+
+</script>
+
+
+
+
+
+
+
+
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+		
+	
+
+	
+		
+	
+	
+		
+	
+
+	
+	
+		
+	
+
+	
+	
+		
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+
+	
+	
+		
+	
+
+	
+	
+		
+			
+		
+	
+
+	
+	
+		
+			
+		
+	
+
+	
+	
+		
+			
+		
+	
+
+	
+	
+		
+			
+		
+	
+
+	
+	
+		
+			
+		
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+		
+			
+		
+	
+	
+
+	
+		
+	
+	
+
+	
+		
+	
+	
+
+	
+		
+	
+	
+
+	
+		
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+ 
+ 
+
+	<!-- VISUAL : SUB -->
+ 	<div class="bl_subVisual" style="background: url(/resources/temp_2/img/layout/img_subvisual_2025_3.jpg);">
+		<div class="ly_centered">
+			<h2 class="bl_subVisual_tit">공지사항</h2>
+			<p class="bl_subVisual_desc">공지사항</p>
+		</div>
+	</div><!-- //VISUAL : SUB -->
+	<!-- SNB -->
+	<div class="snb">
+		<div class="ly_centered">
+			<button type="button" class="snb_current">공지사항</button>
+			<ul class="nav">
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						 
+							
+							
+								
+							
+						
+						<li class = "">
+							
+							
+								
+								<a href="/submenu.do?menuurl=hB8GYKGYSI7BBlNJFDXa%2bQ%3d%3d&" target="_self">
+							
+							모집요강
+							</a>
+						</li>
+					
+				
+					
+						 
+							 
+								
+							
+							
+						
+						<li class = "is_active">
+							
+							
+								
+								<a href="/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&" target="_self">
+							
+							공지사항
+							</a>
+						</li>
+					
+				
+					
+						 
+							
+							
+								
+							
+						
+						<li class = "">
+							
+							
+								
+								<a href="/submenu.do?menuurl=st9Ev3%2bxxFZPMegaaaiHLg%3d%3d&" target="_self">
+							
+							서식자료
+							</a>
+						</li>
+					
+				
+					
+						 
+							
+							
+								
+							
+						
+						<li class = "">
+							
+							
+								
+								<a href="/submenu.do?menuurl=f2R1Rj0JbJJYIEretthBDA%3d%3d&" target="_self">
+							
+							지난입시결과
+							</a>
+						</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				 
+			</ul>
+		</div>
+	</div>
+	<!-- //SNB -->
+	
+
+<script>
+	var menuId = 63;
+	var gnbDep1 = 3;		//GNB 1depth
+	var gnbDep2 = 2;		//GNB 2depth
+</script>
+
+
+<script>	
+	
+	
+	
+
+	$(document).ready(function () {
+		$("#id_searchtext").keydown(function (key) {
+			if (key.keyCode == 13) {
+				searchForm();
+			}
+		});
+
+		$("#id_chkusercode").keydown(function (key) {
+			if (key.keyCode == 13) {
+				Chk_UserCode();
+			}
+		})
+	})
+
+	function searchCategory(categoryid) {
+		var url = '/submenu.do?menuurl=' + encodeURIComponent($("#id_menuurl").val());
+
+		if (categoryid != "") { 
+			url += '&categoryid=' + categoryid;
+		}
+
+		document.location.href = url;
+	}
+
+	function searchForm() {
+		var url = '/submenu.do?menuurl=' + encodeURIComponent($("#id_menuurl").val());
+
+		if ($("#id_category").val()) {
+			url += '&categoryid=' + $("#id_category").val();
+		}
+		if ($("#id_searchNo").val()) {
+			url += '&searchNo=' + $("#id_searchNo").val();
+		}
+		if ($("#id_searchtext").val()) {
+			url += '&searchtext=' + encodeURIComponent($("#id_searchtext").val());
+		}
+
+		document.location.href = url;
+	}
+
+	function pop_pass_open(board_seq, secretYn) {
+		$("input[name=userpwd]").val('');
+		$("input[name=board_seq]").val(board_seq);
+
+		if (secretYn == "Y") {
+			$("#pop_area").show();
+		} else {
+			$("#frm").submit();
+		}
+	}
+
+	function Chk_UserCode() {
+		if ($("#id_userpwd").val() == "") {
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}
+
+		$("#frm").submit();
+	}
+
+	function openUrl(link_url, link_type, board_seq) {
+		if(board_seq != null && board_seq != ''){
+			$.ajax({
+				url: "/ajax/updateBoardDataHit.do",
+				data: {
+					board_seq: board_seq
+				},
+				type: "post",
+				dataType: "json",
+				success: function (data) {
+					if (data != null) {
+						if(data < 1){
+							alert('hit update error 001: ' + data);
+						}
+					}else{
+						alert('hit update error 002: ' + data);
+					}
+				}
+			});
+		}
+
+		if (link_type == "1") {
+			window.open(link_url)
+		} else {
+			document.location.href = link_url;
+		}
+
+	}
+
+</script> 
+<!-- CONTAINER -->
+	<div class="container">
+
+		<!-- CONTENT -->
+		<div class="content">
+			<div class="bl_sectTit">
+				<div class="ly_centered">
+					<h3 class="el_lv1Heading el_lv1Heading__bul">공지사항</h3>
+				</div>
+			</div> 
+			<div class="bl_sectSub">
+				<div class="ly_centered">
+					<!-- NAV : TAB -->
+					  
+					
+					<div class="bl_navTab">
+						 <a href="#none"  class="bl_navTab_current" target="_self">전체</a>
+						 <ul class="bl_navTab_panel">
+							<li class="is_active">
+								<a  href="javascript:" onclick="searchCategory('0')" >전체</a>
+							</li>
+							
+								<li class="">
+									<a href="javascript:" onclick="searchCategory(43)"  >수시</a>
+								</li>
+							
+								<li class="">
+									<a href="javascript:" onclick="searchCategory(44)"  >정시</a>
+								</li>
+							
+								<li class="">
+									<a href="javascript:" onclick="searchCategory(45)"  >편입학</a>
+								</li>
+							
+								<li class="">
+									<a href="javascript:" onclick="searchCategory(46)"  >재외국민/외국인</a>
+								</li>
+							
+								<li class="">
+									<a href="javascript:" onclick="searchCategory(47)"  >기타</a>
+								</li>
+							 
+						</ul>
+					</div>
+					
+					<!-- //NAV : TAB -->
+					<div class="bl_brd_wrap">
+						<!-- BOARD : CONTROLLER --> 
+						
+						<div class="bl_brd_ctrls">
+							<div class="bl_brd_ctrls_lft">
+								<dl class="bl_brd_ctrls_total">
+									<dt>전체</dt>
+									<dd>
+										<strong>576</strong>
+									</dd>
+								</dl>
+							</div>
+
+							<div class="bl_brd_ctrls_rgt">
+								<div class="bl_filter">
+									<div class="div">
+										<div class="el_select">
+											<input type="hidden" id="id_category" name="category" value="0"/>
+											<select title="구분"  name="searchno" id="id_searchNo">
+												<option value="0">전체</option>
+												<option value="1" >제목</option> 
+												<option value="2" >내용</option>
+											</select>
+										</div>
+
+										<span class="el_inp_txt">
+											<input type="text" placeholder="검색어를 입력해주세요." title="검색어를 입력해 주세요" name="searchtext" id="id_searchtext" value="재외국민">
+										</span>
+										<button type="submit" alt="검색" class="el_btn el_btn__small" onclick="return searchForm();">검색</button>
+									</div>
+								</div>
+							</div>
+						</div><!-- //BOARD : CONTROLLER -->
+
+						<!-- BOARD : LIST -->
+						<div class="bl_board">
+							<div class="bl_board_head">
+								<div class="bl_board_no">No.</div>
+								<div class="bl_board_subject">제목</div>
+								
+									<div class="bl_board_hit">첨부파일</div>
+								
+								<div class="bl_board_autor">작성자</div> 
+								
+									<div class="bl_board_date">등록일</div>
+								
+								
+									<div class="bl_board_hit">조회수</div>
+								 
+							</div>
+							
+							<div class="bl_board_body"> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											576
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('16019','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 신입학 수시모집 원서접수 최종경쟁률 및 제출서류 확인 안내</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-09-11</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">5705</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											575
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15651','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 신입학전형 수시모집 원서접수 안내</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-09-07</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">3522</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											574
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15653','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 수시모집 전형료 환불/반환 신청</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-09-07</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">386</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											573
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15652','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 수시모집 개인정보수정 안내</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-09-07</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">359</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											572
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15629','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 재외국민 특별전형 최초합격자 발표</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+													<img src="/resources/img/sub/download.png" alt="">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-09-04</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">738</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											571
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15638','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 수시모집 원서접수 서류제출(업로드) 방법 안내</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+													<img src="/resources/img/sub/download.png" alt="">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-09-02</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">7719</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											570
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15618','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 정시모집요강 안내</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+													<img src="/resources/img/sub/download.png" alt="">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-09-01</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">250</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											569
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15566','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 수시모집 학생부종합전형 면접고사 학외인사 평가 참관인 공개 모집 안내</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+													<img src="/resources/img/sub/download.png" alt="">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-08-27</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">493</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											568
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15549','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 학교장 추천 대상자 입력 안내(학생부교과<지역균형전형>)</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-08-26</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">408</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											567
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15545','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 학교생활기록부 대입전형자료 온라인 제공 동의 신청 안내</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-08-26</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">283</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											566
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15216','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 수시모집요강 안내</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+													<img src="/resources/img/sub/download.png" alt="">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-05-28</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">1895</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											565
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15208','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 인천대학교 학생부종합전형 오디오북</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+													<img src="/resources/img/sub/download.png" alt="">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-05-19</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">1055</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											564
+											 
+												<i class="el_ico el_ico__noti">공지</i>
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15193','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2028학년도 대학입학전형시행계획 안내</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+													<img src="/resources/img/sub/download.png" alt="">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-04-30</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">12194</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											563
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15764','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">2027학년도 편입학전형 기본계획 안내(면접고사일 등 포함)</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+													<img src="/resources/img/sub/download.png" alt="">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-09-08</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">1946</div>
+										 
+									</div> 
+								
+										 
+									<div class="bl_board_unit"> 
+										 
+										<div class="bl_board_no">
+											562
+											 
+										</div> 
+										
+										
+											
+											
+												
+													
+													
+													<a href="javascript:"  class="bl_board_subject" onclick="pop_pass_open('15716','N');">
+													
+												
+											
+										
+										
+										 
+											
+										
+											<span class="hp_ellipsis"  style="color:">[안내] 입시비리 집중 신고기간</span>  
+										 
+											<!-- <i class="el_ico el_ico__pw">비밀글</i> -->
+										
+										</a>
+										
+										
+											<div class="bl_board_hit">
+												
+													<img src="/resources/img/sub/download.png" alt="">
+												
+												
+											</div>
+										
+										
+										<div class="bl_board_autor">
+											<span class="hp_ellipsis">입시담당자</span>
+										</div>
+										
+										
+											<div class="bl_board_date el_datetime">
+												 
+												<span class="el_datetime_date">2026-09-07</span>
+											</div>
+										 
+										
+										
+											<div class="bl_board_hit">84</div>
+										 
+									</div> 
+								
+							</div>
+						</div><!-- //BOARD : LIST -->
+
+						<!-- PAGINATE -->
+						<div class="bl_paginate">
+							<div class="bl_paginate_scrlX">
+								<div class="bl_pageNums">
+									
+										
+										
+										
+										
+										
+										
+										
+									
+
+
+
+
+
+
+		
+		
+
+		
+			<a><img src="/resources/img/sub/pager_first.png" alt="첫페이지"></a>
+			
+		
+	
+		
+			<a class="btn-preview prev"><img src="/resources/img/sub/pager_prev.png" alt="이전페이지"></a>
+			
+		
+		
+		
+			<a href='/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&searchNo=&searchtext=%ec%9e%ac%ec%99%b8%ea%b5%ad%eb%af%bc&boardid=9&categoryid=0&content_type=&&pageNo=1' class="active" target="_self">1</a>
+		
+			<a href='/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&searchNo=&searchtext=%ec%9e%ac%ec%99%b8%ea%b5%ad%eb%af%bc&boardid=9&categoryid=0&content_type=&&pageNo=2' class="" target="_self">2</a>
+		
+			<a href='/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&searchNo=&searchtext=%ec%9e%ac%ec%99%b8%ea%b5%ad%eb%af%bc&boardid=9&categoryid=0&content_type=&&pageNo=3' class="" target="_self">3</a>
+		
+			<a href='/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&searchNo=&searchtext=%ec%9e%ac%ec%99%b8%ea%b5%ad%eb%af%bc&boardid=9&categoryid=0&content_type=&&pageNo=4' class="" target="_self">4</a>
+		
+			<a href='/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&searchNo=&searchtext=%ec%9e%ac%ec%99%b8%ea%b5%ad%eb%af%bc&boardid=9&categoryid=0&content_type=&&pageNo=5' class="" target="_self">5</a>
+		
+			<a href='/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&searchNo=&searchtext=%ec%9e%ac%ec%99%b8%ea%b5%ad%eb%af%bc&boardid=9&categoryid=0&content_type=&&pageNo=6' class="" target="_self">6</a>
+		
+			<a href='/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&searchNo=&searchtext=%ec%9e%ac%ec%99%b8%ea%b5%ad%eb%af%bc&boardid=9&categoryid=0&content_type=&&pageNo=7' class="" target="_self">7</a>
+		
+			<a href='/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&searchNo=&searchtext=%ec%9e%ac%ec%99%b8%ea%b5%ad%eb%af%bc&boardid=9&categoryid=0&content_type=&&pageNo=8' class="" target="_self">8</a>
+		
+			<a href='/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&searchNo=&searchtext=%ec%9e%ac%ec%99%b8%ea%b5%ad%eb%af%bc&boardid=9&categoryid=0&content_type=&&pageNo=9' class="" target="_self">9</a>
+		
+			<a href='/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&searchNo=&searchtext=%ec%9e%ac%ec%99%b8%ea%b5%ad%eb%af%bc&boardid=9&categoryid=0&content_type=&&pageNo=10' class="" target="_self">10</a>
+		
+
+		
+			
+			
+			
+			
+				
+			<a href='/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&searchNo=&searchtext=%ec%9e%ac%ec%99%b8%ea%b5%ad%eb%af%bc&boardid=9&categoryid=0&content_type=&&pageNo=11' target="_self"><img src="/resources/img/sub/pager_next.png" alt="다음페이지"></a>
+					
+				
+			
+		
+	
+		
+			
+			
+			
+			
+				
+			<a href='/submenu.do?menuurl=OugLlhPCudzQcX0qRXyEuQ%3d%3d&searchNo=&searchtext=%ec%9e%ac%ec%99%b8%ea%b5%ad%eb%af%bc&boardid=9&categoryid=0&content_type=&&pageNo=39' class="end" target="_self"><img src="/resources/img/sub/pager_end.png" alt="마지막페이지"></a>
+					
+				
+			
+		
+
+								</div>
+							</div>
+						</div>
+						<!--//PAGINATE -->
+						<div class="pager">
+							
+						</div> 
+						
+						<div class="pop_wrap" style="display: none;" id="pop_area">
+							<div class="pop_alert search">
+								<h2>비밀번호 입력</h2>
+								<form id="frm" id="frm" action="/detail.do" method="get">
+									<input type="hidden" name="menuurl" id="id_menuurl" value="OugLlhPCudzQcX0qRXyEuQ==">
+									<input type="hidden" name="board_seq">
+									<input type="hidden" name="pageNo" value="1">
+									<input type="hidden" name="categoryid" value="0">
+									<p><input class="txt" type="password" id="id_userpwd" name="userpwd" placeholder="비밀번호를 입력하세요">
+										<a href="javascript:" onclick="Chk_UserCode();" class="btn_board search" id="detail_submit">확인</a>
+									</p>
+									<button type="button" class="pop_close">닫기</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div><!-- //CONTENT -->
+	</div><!-- //CONTAINER --> 
+	
+	<script type="text/javascript">
+	
+	  $(function() {
+		 
+		  let menu_name = $(".bl_navTab_panel > .is_active > a").html();
+		  $(".bl_navTab_current").html(menu_name); 
+		  
+	  }); 
+	  
+	</script>
+
+
+ 
+
+
+
+			</div><!-- //contents-navigation-wrapper -->
+		</div><!-- //#container -->
+	</section>
+	<!-- //container -->
+	
+
+
+ 
+
+
+<!-- FOOTER -->
+
+	<!-- FOOTER -->
+	<footer class="footer">
+		<div class="chatbot" id="chatbot"></div>
+		<div class="footer_topArea">
+			<div class="ly_centered">
+				<ul class="footer_policy">
+					<li>
+						<a href="https://www.inu.ac.kr/inu/13801/subview.do" target="_blank">개인정보 처리방침</a>
+					</li>
+					<li>
+						<a href="http://www.inu.ac.kr/mbshome/mbs/inu/subview.do?id=inu_170000000000" target="_blank">이메일주소무단수집거부</a>
+					</li>
+					<li>
+						<a href="http://www.inu.ac.kr/mbshome/mbs/inu/subview.do?id=inu_011201000000" target="_blank">오시는길</a>
+					</li>
+				</ul>
+
+				<div class="footer_famsites">
+					<div class="footer_select">
+						<span class="footer_select_current">대학 / 대학원 바로가기</span>
+						<select class="footer_select_panel" onchange="window.open(value, '_bank')">
+							<option value="http://www.inu.ac.kr/">인천대학교</option>
+							<option value="http://www.inu.ac.kr/mbshome/mbs/inu/subview.do?id=inu_040900000000">대학원</option>
+						</select>
+					</div>
+
+					<div class="footer_select">
+						<span class="footer_select_current">관련사이트 바로가기</span>
+						<select class="footer_select_panel" onchange="window.open(value, '_bank')">
+							<option value="https://www.inu.ac.kr/user/indexMain.do?siteId=ciui">공자학원</option>
+							<option value="http://icee.inu.ac.kr/OpenWeb/Center/Html/Default.aspx">공학교육인증시스템</option>
+							<option value="http://interui.incheon.ac.kr/">국제교류원</option>
+							<option value="http://www.inu.ac.kr/user/indexMain.do?siteId=lang">글로벌어학원</option>
+							<option value="http://liberaledu.inu.ac.kr/user/indexMain.do?siteId=liberaledu">기초교육원</option>
+							<option value="http://www.inu.ac.kr/user/indexMain.do?siteId=matrix">메트릭스교육제도</option>
+							<option value="http://ssc.inu.ac.kr/user/indexMain.do?siteId=service">사회봉사센터</option>
+							<option value="http://rnd.inu.ac.kr/user/indexMain.do?siteId=rnd">산학협력단</option>
+							<option value="http://www.inu.ac.kr/user/indexMain.do?siteId=dorm">생활원</option>
+							<option value="http://www.inu.ac.kr/mbshome/mbs/inu/subview.do?id=inu_050105020000">예비군연대</option>
+							<option value="https://erp.inu.ac.kr:8443/nx/index_external.html?bG9naW5HYm49ZXgmbWVudUlkPU0wMDI3Njcmc2hvd1RpdGxlPWZhbHNl&requestTimeStr=1666500735537">인천전문대학</option>
+							<option value="http://www.inu.ac.kr/user/indexMain.do?siteId=inukli">인천한국어학당</option>
+							<option value="http://itcenter.inu.ac.kr/user/indexMain.do?siteId=itcenter">정보전산원</option>
+							<option value="http://www.inustartup.or.kr/">창업지원단</option>
+							<option value="http://pedc.inu.ac.kr/user/indexMain.do?siteId=inusports">체육진흥원</option>
+							<option value="https://job.inu.ac.kr/">취업경력개발원</option>
+							<option value="https://citizens.inu.ac.kr/">평생교육원</option>
+							<option value="https://lib.inu.ac.kr/">학산도서관</option>
+							<option value="http://scc.inu.ac.kr/">학생생활상담소</option>
+							<option value="http://www.isepclub.com/">과학영재교육원</option>
+							<option value="http://www.uicoop.ac.kr/">소비자생활협동조합</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer_botArea">
+			<div class="ly_centered">
+				<p class="footer_logo">
+					<span class="footer_logo_img">인천대학교</span>
+				</p>
+
+				<div>
+					<address class="footer_addr">
+						(22012) 인천광역시 연수구 아카데미로 119(송도동) 인천대학교 1호관(대학본부) 101호 입학본부
+					</address>
+					<p>입학상담문의 : 032)835-0000 / 팩스 : 032)835-0712</p>
+
+					<p class="footer_copyright">COPYRIGHT&copy; 2018 INCHEON NATIONAL UNIVERSITY. ALL RIGHTS RESERVED.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+<!-- //FOOTER -->
+
+<!-- //wrapper -->
+<script>
+	var as = document.getElementsByTagName('a');
+	for(var i = 0 ; i < as.length; i++){
+		if(as[i].getAttribute('target') != '_blank'){
+			if( as[i].getAttribute('href') != null
+				&& as[i].getAttribute('href').indexOf('/main.do') < 0
+				&& as[i].getAttribute('href').indexOf('/file/download.do') < 0
+				&& as[i].getAttribute('href').indexOf('javascript') < 0){
+
+				as[i].setAttribute('target', '_self');
+			}
+		}
+	}
+</script>
+
+<!-- Compass AI 상담 위젯 -->
+<script src="https://compass.jinhakapply.com/widget/compass-consult.js"></script>
+<script>
+	CompassConsult.init({
+		serviceId: 'cmoaymzka003bmu014kze348p',
+		apiUrl: 'https://compass.jinhakapply.com',
+		// themeColor: 상담 설정에서 지정한 색상이 자동 적용됩니다
+		position: 'bottom-right',
+		institutionName: '인천대학교 입학관리과',
+	});
+</script>
+
+	<style>
+	</style>
+</body>
+</html>

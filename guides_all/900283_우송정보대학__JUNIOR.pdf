@@ -1,0 +1,709 @@
+
+
+<script type="text/javascript" src="/site/common/jquery-ui.js"></script>
+<script type="text/javascript">
+     $(function() {
+        $("#layerPopup0").draggable({ handle: 'p' });
+        $("#layerPopup1").draggable({ handle: 'p' });
+        $("#layerPopup2").draggable({ handle: 'p' });
+        $("#layerPopup3").draggable({ handle: 'p' });
+		$("#layerPopup4").draggable({ handle: 'p' });
+		$("#layerPopup5").draggable({ handle: 'p' });
+        $("div, p").disableSelection();
+    });
+
+
+
+ function layerClose(id) {
+  document.getElementById("layerPopup" + id).style.visibility = "hidden";
+ }
+
+ function closeByToday(id){
+  if (document.getElementById("chkbox" + id).checked) {
+   setCookie("layerPopup" + id, "done", 1);
+  }
+
+  document.getElementById("layerPopup" + id).style.visibility = "hidden";
+  document.getElementById("chkbox" + id).checked = false;
+ }
+
+ function setCookie(name, value, expiredays) {
+  var todayDate = new Date();
+
+  todayDate.setDate(todayDate.getDate() + expiredays);
+
+  document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";";
+ }
+</script>
+<!--새창크기정의-->
+<script language="javascript">
+function winopen5(page,nam,wid,hit){
+	var windo=eval('window.open("'+page+'","'+nam+'","status=no,toolbar=no,resizable=yes,scrollbars=no, menubar=no,width='+wid+',height='+hit+',top=50,left=50")');
+}
+</script>
+<script language="javascript">
+function openit1118() {
+newWindow = window.open('https://ent.wsu.ac.kr/site/ent/popup/131118/131118_bus.jpg', 'pdf보기', 'width=650,height=650');
+}
+</script>
+<!--새창크기정의-->
+<style>
+.layerPopup_footer {position:relative; padding:5px; background-color:#000;line-height:20px; font-size:12px; color:#CCC; display:flex; align-items:center}
+.layerPopup_footer input[type=checkbox] {margin-right:5px}
+.layerPopup_footer a {position:absolute; right:5px; font-weight:bold; color:#FFF}
+.layerPopup_footer a:hover, .layerPopup_footer a:focus {color:#fff}
+img { display:block}
+</style>
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
+<!--
+<div id="layerPopup6" style="border: 1px solid rgb(0, 0, 0);left: 20px; top:645px; width: 612px; visibility: visible; position: absolute; z-index: 3000; border-image:none">
+	<div style="position: relative"><a href="https://www.ggoomgil.go.kr/front/mypage/schlProgramList.do?search_keyword=%EC%9A%B0%EC%86%A1%EC%A0%95%EB%B3%B4%EB%8C%80%ED%95%99" title="해당페이지가 새창으로 열립니다" target="_blank"><img alt="" src="/site/ent/popup/popup20260420.jpg" border="0" /></a></div>
+	<div class="layerPopup_footer"><input name="chkbox6" id="chkbox6" onclick="closeByToday(6)" type="checkbox" title="하루 동안 이 창을 열지 않습니다." /> 하루 동안 이 창을 열지 않습니다.<a onclick="layerClose(6);" href="#">창닫기</div>
+</div>
+-->
+
+<style>
+#layerPopup3 a:hover {text-decoration:none}
+</style>
+
+
+
+<script type="text/javascript">
+var cookiedata = document.cookie;
+
+for (i = 0; i < 10; i++){
+	var el = document.getElementById("layerPopup" + i);
+	if(el) {
+		if (cookiedata.indexOf("layerPopup" + i + "=done") > -1) {
+			el.style.display = "none";
+		} else el.style.display =" block";
+	}
+}
+</script>
+
+<!doctype html>
+<html lang="ko">
+<head>
+	<title> : 우송정보대학 입학종합서비스</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="Keywords" content="우송정보대학 입학종합서비스, 정보대 입학종합서비스, 우송정보대 입학종합서비스, 정보대 입학">
+	<meta name="title" content="한국대표 명장으로 키우겠습니다, 우송정보대학 입학종합서비스">
+	<meta name="description" content="한국대표 명장으로 키우겠습니다, 우송정보대학 입학종합서비스">
+	<meta name="format-detection" content="telephone=no" />
+	<link href="/site/common/fontawesome-pro-6.4.2-web/css/all.min.css" rel="stylesheet">
+	<link href="/site/common/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+	<script src="/site/common/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/site/common/animated.css">
+	<link rel="stylesheet" href="/site/ent/css/event.css">
+	<link rel="stylesheet" href="/site/common/swiper-8.4.5/swiper-bundle.min.css">
+	<link rel="stylesheet" href="/site/ent/css/common2026_v1.css">	
+	<script src="../js/common.jsp"></script>
+	<script src="../js/validate.jsp"></script>
+	<script src="../js/func.jsp"></script>
+	<script src="/site/common/common.js"></script><!-- 구글 웹 분석 서비스 -->
+	<script>
+		var code="";
+	</script>
+	<!--[if lt IE 9]>
+	<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!-- Facebook Pixel Code -->
+	<script>
+		!function(f,b,e,v,n,t,s)
+		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+		if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+		n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];
+		s.parentNode.insertBefore(t,s)}(window,document,'script',
+		'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '437496839984364'); 
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" src="https://www.facebook.com/tr?id=437496839984364&ev=PageView	&noscript=1" alt="페이스북 픽셀코드">
+	</noscript>
+	<!-- End Facebook Pixel Code -->
+
+	<!-- Facebook Pixel Code 2018-07-27 추가 -->
+	<script>
+	  !function(f,b,e,v,n,t,s)
+	  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	  n.queue=[];t=b.createElement(e);t.async=!0;
+	  t.src=v;s=b.getElementsByTagName(e)[0];
+	  s.parentNode.insertBefore(t,s)}(window, document,'script',
+	  'https://connect.facebook.net/en_US/fbevents.js');
+	  fbq('init', '1679229455721864');
+	  fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1679229455721864&ev=PageView&noscript=1"/></noscript>
+	<!-- End Facebook Pixel Code -->
+	<!-- kakao Pixel Code 2018-07-27 추가 -->
+	<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+	<script type="text/javascript">
+		  kakaoPixel('812302779551271799').pageView('wsi');
+		  kakaoPixel('5663833097442971495').pageView(); /*2018-08-08 추가*/
+		  kakaoPixel('1882762430323311836').pageView(); /*2019-07-09 추가*/
+	</script>
+	<!-- End kakao Pixel Code -->
+
+	<!-- 진학사 유튜브 리타겟팅 광고를 위한 태그 -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-728255344"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'AW-728255344');
+	</script>
+	<!-- //진학사 유튜브 리타겟팅 광고를 위한 태그 -->
+</head>
+<body>
+	<!-- skipToContent -->
+	<div id="skipToContent"> 
+		<a href="#bodyCon">본문 바로가기</a>
+	</div>
+	<!-- //skipToContent -->
+
+	<!-- wrap -->
+	<div id="wrap">
+
+		<!-- topPopup -->
+		<div class="topPopup">
+			<div class="topPopupLeft">
+				대전광역시 RISE 지역혁신중심 대학지원체계, 사업선정 5년간 총 사업비 168억
+			</div>
+			<div class="topPopupRight">
+				<div class="popItem">
+					<a href="/page/index.jsp?code=ent0201" title="해당페이지로 이동합니다"><img src="/site/ent/popup/popup260901_1.png?ver1" class="img-responsive auto" alt="2027학년도 신입생 수시1차 모집안내 / 원서접수 : 2026. 09. 07(월) ~ 30(수) / 면접고사 :2026. 10. 13(화) ~ 14(수) / 실기고사 : 2026. 10. 13(화) / 합격자발표 :2026.10.23(금) 10시 예정"></a>
+				</div>
+				
+				
+				<div class="popItem">
+					<a href="https://youtu.be/R8_tWESu1Fg?si=q6GPMAxxn2xS27lW" target="_blank"><img src="/site/ent/popup/popup260807_ent.jpg" class="img-responsive auto" alt="제과제빵학부 기업연계(성심당)전공 신설"></a>
+				</div>
+				
+				<div class="popItem">
+					<a href="https://expo.uway.com/main.htm" target="_blank" title="자세히 보기 페이지가 새창으로 열립니다"><img src="/site/ent/popup/popup20260820.jpg" class="img-responsive auto" alt="2027학년도 수시 전문대학 입학정보 박람회, 주최·주관 Uway 어플라이, 일시: 2026. 09. 18.(금) - 09. 19.(토) 10:00 - 17:00, 장소: COEX 2F THE Platz, # 현장 무료 원서접수 (일부 대학 제외) # iPhone, iPad, Apple Watch 역대급 경품!, 사전예약 바로가기"></a>
+				</div>
+				
+				<!-- 일시적 내림
+				<div class="popItem">
+					<a href="/page/index.jsp?code=ent0514" title="자세히 보기 페이지가 새창으로 열립니다"><img src="/site/ent/popup/popup01.jpg" class="img-responsive auto" alt="2027학년도 온라인 입학 상담 / 자세히보기"></a>
+				</div>
+				-->
+				
+				<!-- 일시적 내림
+				<div class="popItem">
+					<img src="/site/ent/popup/popup03.jpg" class="img-responsive auto" alt="2026학년도 지역대학 연계 / 진로체험 프로그램 안내" usemap="#Map260803">
+					<map name="Map260803">
+					  <area shape="rect" coords="30,200,186,239" href="/board/read.jsp?id=224542&code=ent0501">
+					  <area shape="rect" coords="194,200,350,238" href="https://www.ggoomgil.go.kr/front/mypage/schlProgramList.do?search_keyword=%EC%9A%B0%EC%86%A1%EC%A0%95%EB%B3%B4%EB%8C%80%ED%95%99" target="_blank">
+					</map>
+				</div>
+				-->
+			</div>
+		</div>
+		<!-- //topPopup -->
+		
+		<!-- headerTop -->
+		<div class="headerTop">
+			<div class="inner">
+				<div class="headerTopLeft">
+					<a href="/main/index.jsp" title="우송정보대학 입학종합서비스 메인페이지로 이동합니다">입학 홈페이지</a>
+					<a href="https://www.wsi.ac.kr/main/index.jsp" target="_blank" title="우송정보대학 메인페이지가 새창으로 열립니다">대학 홈페이지</a>
+					<a href="https://wsinfo.wsi.ac.kr" target="_blank" title="대학정보시스템이 새창으로 열립니다" class="hide-768">대학정보시스템</a>
+				</div>
+				<div class="headerTopRight">
+					<a href="javascript:void(0)" title="팝업 보기" class="topPopupShow"><i class="fa-solid fa-bell"></i>팝업 보기</a>
+					<a href="http://www.wsi.ac.kr/page/index.jsp?code=intro1101" target="_blank" title="오시는 길 페이지가 새창으로 열립니다">오시는 길</a>
+				</div>
+			</div>
+		</div>
+		<!-- //headerTop -->
+
+		<!-- header -->
+		<header>
+			<div class="inner">
+				<h1 class="headerLogo"><a href="/main/index.jsp" title="우송정보대학 입학종합서비스 메인페이지로 이동합니다"><img src="/site/ent/image/entHeaderLogo.svg" class="img-responsive" alt="우송정보대학 입학종합서비스"></a></h1>
+				<ul class="gnb">
+					<li><a href="/page/index.jsp?code=ent0201" title="수시모집 페이지로 이동합니다">수시모집</a></li>
+					<li><a href="/page/index.jsp?code=ent0301" title="정시모집 페이지로 이동합니다">정시모집</a></li>
+					<li style="display:none"><a href="/page/index.jsp?code=ent0101" title="편입학 페이지로 이동합니다">편입학</a></li>
+					<li><a href="/page/index.jsp?code=ent0401" title="조회 및 등록 페이지로 이동합니다">조회 및 등록</a></li>
+					<li><a href="/board/index.jsp?code=ent0501" title="입시도우미 페이지로 이동합니다">입시도우미</a></li>
+					<li><a href="/page/index.jsp?code=ent0601g" title="학과안내 페이지로 이동합니다">학과안내</a></li>
+				</ul>				
+				<a href="javascript:void(0)" class="hamburgerMenu">
+					<span class="bar1"></span>
+					<span class="bar2"></span>
+					<span class="bar3"></span>
+				</a>
+				<div class="hamburgerGnbWrap">
+					<ul class="hamburgerGnb">
+						<li><a href="javascript:void(0)" title="수시모집 하위메뉴 보기">수시모집<i class="fa-regular fa-angle-down hgArr"></i></a>
+							<ul>
+								<li><a href="/page/index.jsp?code=ent0201" title="모집일정 및 접수방법 페이지로 이동합니다"><span class="mNavTit">모집일정 및 접수방법</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0202a" title="모집인원 페이지로 이동합니다"><span class="mNavTit">모집인원</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0203a" title="전형별 지원자격 및 제출서류 페이지로 이동합니다"><span class="mNavTit">지원자격 및 제출서류</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0204" title="지원자 유의사항 페이지로 이동합니다"><span class="mNavTit">지원자 유의사항</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0205" title="전형방법 페이지로 이동합니다"><span class="mNavTit">전형방법</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0206" title="수시모집 지원현황 페이지로 이동합니다"><span class="mNavTit">수시모집 지원현황</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0207" title="합격안내 및 등록 페이지로 이동합니다"><span class="mNavTit">합격안내 및 등록</span></a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)" title="정시모집 하위메뉴 보기">정시모집<i class="fa-regular fa-angle-down hgArr"></i></a>
+							<ul>
+								<li><a href="/page/index.jsp?code=ent0301" title="모집일정 및 접수방법 페이지로 이동합니다"><span class="mNavTit">모집일정 및 접수방법</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0302" title="모집인원 페이지로 이동합니다"><span class="mNavTit">모집인원</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0303a" title="전형별 지원자격 및 제출서류 페이지로 이동합니다"><span class="mNavTit">지원자격 및 제출서류</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0304" title="지원자 유의사항 페이지로 이동합니다"><span class="mNavTit">지원자 유의사항</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0305" title="전형방법 페이지로 이동합니다"><span class="mNavTit">전형방법</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0306" title="정시모집 지원현황 페이지로 이동합니다"><span class="mNavTit">정시모집 지원현황</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0307" title="합격안내 및 등록 페이지로 이동합니다"><span class="mNavTit">합격안내 및 등록</span></a></li>
+								<li style="display:none"><a href="/page/index.jsp?code=ent0308" title="자율모집 일정 안내 페이지로 이동합니다"><span class="mNavTit">자율모집 일정 안내</span></a></li>
+							</ul>
+						</li>
+						<li style="display:none"><a href="javascript:void(0)" title="편입학 하위메뉴 보기">편입학<i class="fa-regular fa-angle-down hgArr"></i></a>
+							<ul>
+								<li><a href="/page/index.jsp?code=ent0101" title="모집일정 및 접수방법 페이지로 이동합니다"><span class="mNavTit">모집일정 및 접수방법</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0102" title="모집인원 페이지로 이동합니다"><span class="mNavTit">모집인원</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0103" title="지원자격 및 제출서류 페이지로 이동합니다"><span class="mNavTit">지원자격 및 제출서류</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0104" title="전형방법 페이지로 이동합니다"><span class="mNavTit">전형방법</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0105" title="지원자 유의사항 페이지로 이동합니다"><span class="mNavTit">지원자 유의사항</span></a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)" title="조회 및 등록 하위메뉴 보기">조회 및 등록<i class="fa-regular fa-angle-down hgArr"></i></a>
+							<ul>
+								<li><a href="/page/index.jsp?code=ent0401" title="접수 및 서류도착확인 페이지로 이동합니다"><span class="mNavTit">접수 및 서류도착확인</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0402" title="합격자 조회 및 고지서 출력 페이지로 이동합니다"><span class="mNavTit">합격자 조회 및 고지서 출력</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0403" title="합격자 안내 페이지로 이동합니다"><span class="mNavTit">합격자 안내</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0404" title="등록금 납부확인 페이지로 이동합니다"><span class="mNavTit">등록금 납부확인</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0405" title="등록포기 및 등록금 환불안내 페이지로 이동합니다"><span class="mNavTit">등록포기 및 등록금 환불안내</span></a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)" title="입시도우미 하위메뉴 보기">입시도우미<i class="fa-regular fa-angle-down hgArr"></i></a>
+							<ul>
+								<li><a href="/board/index.jsp?code=ent0501" title="입학뉴스 페이지로 이동합니다"><span class="mNavTit">입학뉴스</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0502" title="자주묻는질문 페이지로 이동합니다"><span class="mNavTit">자주묻는질문</span></a></li>
+								<li><a href="/qna/index.jsp?code=ent0503" title="입학상담 페이지로 이동합니다"><span class="mNavTit">입학상담</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0504" title="입학상담 안내전화 페이지로 이동합니다"><span class="mNavTit">입학상담 안내전화</span></a></li>
+								<li><a href="/ent/adm_material.jsp" title="입학자료신청 페이지로 이동합니다"><span class="mNavTit">입학자료신청</span></a></li>
+								<li><a href="/board/index.jsp?code=ent0506" title="입학자료실 페이지로 이동합니다"><span class="mNavTit">입학자료실</span></a></li>
+								<li><a href="/page/grade_01.jsp" title="내신성적산출 페이지로 이동합니다"><span class="mNavTit">내신성적산출</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0508_2026aa" title="전년도입시결과 페이지로 이동합니다"><span class="mNavTit">전년도입시결과</span></a></li>
+								<li style="display:none"><a href="/page/index.jsp?code=ent0509" title="지원현황 페이지로 이동합니다"><span class="mNavTit">지원현황</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0510b" title="장학제도 페이지로 이동합니다"><span class="mNavTit">장학제도</span></a></li>
+								<li><a href="/board/index.jsp?code=ent0511" title="기숙사관련문의 페이지로 이동합니다"><span class="mNavTit">기숙사관련문의</span></a></li>
+								<li style="display:none"><a href="javascript:alert('전공체험 페이지 준비중입니다.')" title="전공체험 페이지로 이동합니다"><span class="mNavTit">전공체험</span></a></li>
+								<li style="display:none"><a href="/page/index.jsp?code=ent0513a" title="전국고교 제과·조리 콘테스트 페이지로 이동합니다"><span class="mNavTit">전국고교 제과·조리 콘테스트</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0514" title="온라인 입학상담 페이지로 이동합니다"><span class="mNavTit">온라인 입학상담</span></a></li>
+								<li style="display:none"><a href="/page/index.jsp?code=ent0513a" title="2019학년도 수시지원 이벤트 페이지로 이동합니다"><span class="mNavTit">2019학년도 수시지원 이벤트</span></a></li>
+								<li style="display:none"><a href="/page/index.jsp?code=ent0515" title="홍보동영상 댓글 참여 이벤트 페이지로 이동합니다"><span class="mNavTit">홍보동영상 댓글 참여 이벤트</span></a></li>
+								<li style="display:none"><a href="/page/index.jsp?code=ent0517" title="우리 학과 영상 페이지로 이동합니다"><span class="mNavTit">우리 학과 영상</span></a></li>
+								<li style="display:none"><a href="/board/index.jsp?code=ent0518" title="우bs 영상보기 페이지로 이동합니다"><span class="mNavTit">우bs 영상보기</span></a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)" title="학과안내 하위메뉴 보기">학과안내<i class="fa-regular fa-angle-down hgArr"></i></a>
+							<ul>
+								<li><a href="/page/index.jsp?code=ent0601g" title="외식조리계열 페이지로 이동합니다"><span class="mNavTit">외식조리계열</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0601b" title="K-아트계열 페이지로 이동합니다"><span class="mNavTit">K-아트계열</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0602a" title="미래기술계열 페이지로 이동합니다"><span class="mNavTit">미래기술계열</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0603a" title="보건복지계열 페이지로 이동합니다"><span class="mNavTit">보건복지계열</span></a></li>
+								<li><a href="/page/index.jsp?code=ent0605b" title="자율전공학부 페이지로 이동합니다"><span class="mNavTit">자율전공학부</span></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="gnbMenu">
+				<div class="inner">
+					<ul>
+						<li><a href="/page/index.jsp?code=ent0201" title="수시모집 페이지로 이동합니다">수시모집</a>
+							<ul>
+								<li><a href="/page/index.jsp?code=ent0201" title="모집일정 및 접수방법 페이지로 이동합니다">모집일정 및 접수방법</a></li>
+								<li><a href="/page/index.jsp?code=ent0202a" title="모집인원 페이지로 이동합니다">모집인원</a></li>
+								<li><a href="/page/index.jsp?code=ent0203a" title="전형별 지원자격 및 제출서류 페이지로 이동합니다">지원자격 및 제출서류</a></li>
+								<li><a href="/page/index.jsp?code=ent0204" title="지원자 유의사항 페이지로 이동합니다">지원자 유의사항</a></li>
+								<li><a href="/page/index.jsp?code=ent0205" title="전형방법 페이지로 이동합니다">전형방법</a></li>
+								<li><a href="/page/index.jsp?code=ent0206" title="수시모집 지원현황 페이지로 이동합니다">수시모집 지원현황</a></li>
+								<li><a href="/page/index.jsp?code=ent0207" title="합격안내 및 등록 페이지로 이동합니다">합격안내 및 등록</a></li>
+							</ul>
+						</li>
+						<li><a href="/page/index.jsp?code=ent0301" title="정시모집 페이지로 이동합니다">정시모집</a>
+							<ul>
+								<li><a href="/page/index.jsp?code=ent0301" title="모집일정 및 접수방법 페이지로 이동합니다">모집일정 및 접수방법</a></li>
+								<li><a href="/page/index.jsp?code=ent0302" title="모집인원 페이지로 이동합니다">모집인원</a></li>
+								<li><a href="/page/index.jsp?code=ent0303a" title="전형별 지원자격 및 제출서류 페이지로 이동합니다">지원자격 및 제출서류</a></li>
+								<li><a href="/page/index.jsp?code=ent0304" title="지원자 유의사항 페이지로 이동합니다">지원자 유의사항</a></li>
+								<li><a href="/page/index.jsp?code=ent0305" title="전형방법 페이지로 이동합니다">전형방법</a></li>
+								<li><a href="/page/index.jsp?code=ent0306" title="정시모집 지원현황 페이지로 이동합니다">정시모집 지원현황</a></li>
+								<li><a href="/page/index.jsp?code=ent0307" title="합격안내 및 등록 페이지로 이동합니다">합격안내 및 등록</a></li>
+								<li style="display:none"><a href="/page/index.jsp?code=ent0308" title="자율모집 일정 안내 페이지로 이동합니다">자율모집 일정 안내</a></li>
+							</ul>
+						</li>
+						<li style="display:none"><a href="/page/index.jsp?code=ent0101" title="편입학 페이지로 이동합니다">편입학</a>
+							<ul>
+								<li><a href="/page/index.jsp?code=ent0101" title="모집일정 및 접수방법 페이지로 이동합니다">모집일정 및 접수방법</a></li>
+								<li><a href="/page/index.jsp?code=ent0102" title="모집인원 페이지로 이동합니다">모집인원</a></li>
+								<li><a href="/page/index.jsp?code=ent0103" title="지원자격 및 제출서류 페이지로 이동합니다">지원자격 및 제출서류</a></li>
+								<li><a href="/page/index.jsp?code=ent0104" title="전형방법 페이지로 이동합니다">전형방법</a></li>
+								<li><a href="/page/index.jsp?code=ent0105" title="지원자 유의사항 페이지로 이동합니다">지원자 유의사항</a></li>
+							</ul>
+						</li>
+						<li><a href="/page/index.jsp?code=ent0401" title="조회 및 등록 페이지로 이동합니다">조회 및 등록</a>
+							<ul>
+								<li><a href="/page/index.jsp?code=ent0401" title="접수 및 서류도착확인 페이지로 이동합니다">접수 및 서류도착확인</a></li>
+								<li><a href="/page/index.jsp?code=ent0402" title="합격자 조회 및 고지서 출력 페이지로 이동합니다">합격자 조회 및 고지서 출력</a></li>
+								<li><a href="/page/index.jsp?code=ent0403" title="합격자 안내 페이지로 이동합니다">합격자 안내</a></li>
+								<li><a href="/page/index.jsp?code=ent0404" title="등록금 납부확인 페이지로 이동합니다">등록금 납부확인</a></li>
+								<li><a href="/page/index.jsp?code=ent0405" title="등록포기 및 등록금 환불안내 페이지로 이동합니다">등록포기 및 등록금 환불안내</a></li>
+							</ul>
+						</li>
+						<li><a href="/board/index.jsp?code=ent0501" title="입시도우미 페이지로 이동합니다">입시도우미</a>
+							<ul>
+								<li><a href="/board/index.jsp?code=ent0501" title="입학뉴스 페이지로 이동합니다">입학뉴스</a></li>
+								<li><a href="/page/index.jsp?code=ent0502" title="자주묻는질문 페이지로 이동합니다">자주묻는질문</a></li>
+								<li><a href="/qna/index.jsp?code=ent0503" title="입학상담 페이지로 이동합니다">입학상담</a></li>
+								<li><a href="/page/index.jsp?code=ent0504" title="입학상담 안내전화 페이지로 이동합니다">입학상담 안내전화</a></li>
+								<li><a href="/ent/adm_material.jsp" title="입학자료신청 페이지로 이동합니다">입학자료신청</a></li>
+								<li><a href="/board/index.jsp?code=ent0506" title="입학자료실 페이지로 이동합니다">입학자료실</a></li>
+								<li><a href="/page/grade_01.jsp" title="내신성적산출 페이지로 이동합니다">내신성적산출</a></li>
+								<li><a href="/page/index.jsp?code=ent0508_2026aa" title="전년도입시결과 페이지로 이동합니다">전년도입시결과</a></li>
+								<li style="display:none"><a href="/page/index.jsp?code=ent0509" title="지원현황 페이지로 이동합니다">지원현황</a></li>
+								<li><a href="/page/index.jsp?code=ent0510b" title="장학제도 페이지로 이동합니다">장학제도</a></li>
+								<li><a href="/board/index.jsp?code=ent0511" title="기숙사관련문의 페이지로 이동합니다">기숙사관련문의</a></li>
+								<li style="display:none"><a href="javascript:alert('전공체험 페이지 준비중입니다.')" title="전공체험 페이지로 이동합니다">전공체험</a></li>
+								<li style="display:none"><a href="/page/index.jsp?code=ent0513a" title="전국고교 제과·조리 콘테스트 페이지로 이동합니다">전국고교 제과·조리 콘테스트</a></li>
+								<li><a href="/page/index.jsp?code=ent0514" title="온라인 입학상담 페이지로 이동합니다">온라인 입학상담</a></li>
+								<li style="display:none"><a href="/page/index.jsp?code=ent0513a" title="2019학년도 수시지원 이벤트 페이지로 이동합니다">2019학년도 수시지원 이벤트</a></li>
+								<li style="display:none"><a href="/page/index.jsp?code=ent0515" title="홍보동영상 댓글 참여 이벤트 페이지로 이동합니다">홍보동영상 댓글 참여 이벤트</a></li>
+								<li style="display:none"><a href="/page/index.jsp?code=ent0517" title="우리 학과 영상 페이지로 이동합니다">우리 학과 영상</a></li>
+								<li style="display:none"><a href="/board/index.jsp?code=ent0518" title="우bs 영상보기 페이지로 이동합니다">우bs 영상보기</a></li>
+							</ul>
+						</li>
+						<li><a href="/page/index.jsp?code=ent0601g" title="학과안내 페이지로 이동합니다">학과안내</a>
+							<ul>
+								<li><a href="/page/index.jsp?code=ent0601g" title="외식조리계열 페이지로 이동합니다">외식조리계열</a></li>
+								<li><a href="/page/index.jsp?code=ent0601b" title="K-아트계열 페이지로 이동합니다">K-아트계열</a></li>
+								<li><a href="/page/index.jsp?code=ent0602a" title="미래기술계열 페이지로 이동합니다">미래기술계열</a></li>
+								<li><a href="/page/index.jsp?code=ent0603a" title="보건복지계열 페이지로 이동합니다">보건복지계열</a></li>
+								<li><a href="/page/index.jsp?code=ent0605b" title="자율전공학부 페이지로 이동합니다">자율전공학부</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<!-- //header -->
+
+		<!-- mainVisual -->
+		<div class="mainVisual">
+			<div class="inner">
+				<div class="mainVisual-left"><img src="/site/ent/image/mainVisualStu.png" class="img-responsive" alt=""></div>
+				<div class="mainVisual-right">
+					<h3>NO.1 PROFESSIONAL COLLEGE</h3>
+					<h2><span>취업</span>으로 가는<br>모든 길이 <span>꽃길</span></h2>
+					<div class="mainBan">
+						<img src="/site/ent/image/mainBan2027.jpg" class="img-responsive" alt="">
+						<div>
+							<h4>2027학년도 우송정보대학</h4>
+							<h5>신입생 모집요강</h5>
+							<a href="https://ent.wsi.ac.kr/ipsi/index.jsp" target="_blank" title="원서접수 바로가기 페이지로 이동합니다" class="mt15">원서접수 바로가기<i class="fa-regular fa-chevron-right"></i></a>
+							<a href="/site/ent/image/wsi2027.pdf" target="_blank" title="모집요강 페이지가 새창으로 열립니다" class="mt7">모집요강 보기<i class="fa-regular fa-chevron-right"></i></a>
+							<a href="/page/index.jsp?code=ent0510b" title="장학제도 페이지로 이동합니다" class="mt7">장학제도 보기<i class="fa-regular fa-chevron-right"></i></a>
+							<!--							
+							<a href="https://wsinfo.wsi.ac.kr/initcontroler?link=HWfPD" title="지원현황 페이지가 새창으로 열립니다" target="_blank" class="mt7">지원현황 보기<i class="fa-regular fa-chevron-right"></i></a>
+							-->
+							<!--
+							<a href="https://r4-pass.mncapro.com/wsi/pass/pass.php?CODE=U0R0VkZvOFJmUHkvNExpZWNHZHdQVHdXLzUxSE41eEYzU0M2UnlTeFk2ST0=" title="해당페이지가 새창으로 열립니다" target="_blank" class="mt7">신입생 합격자 조회<i class="fa-regular fa-chevron-right"></i></a>
+							-->
+							<!--
+							<a href="https://r4.wsi.ac.kr/refund/refundrequest.php?CODE=S3FHUHIwNUF3OERTOUZ6ZHQ0UXhGRWUxRFJ2T2syTG9SaVFPZERHODNhUT0=" title="해당페이지가 새창으로 열립니다" target="_blank" class="mt7">수시 문서등록 취소<i class="fa-regular fa-chevron-right"></i></a>
+							-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //mainVisual -->
+
+		<!-- mainCon -->
+		<div id="bodyCon" style="overflow:visible">
+			<div class="mainCon">
+				<div class="inner">				
+					<div class="conLeft">
+						<h3 class="conTit">2027학년도 수시모집 일정안내 <a href="/page/index.jsp?code=ent0201" class="fa-light fa-circle-plus linkMore"></a></h3>
+						<div class="scheduleBox">
+							<div>
+								<div class="scheduleBox-in">
+									<h4>수시1차 원서접수</h4>
+									<p>2026. 09. 07(월)<br class="hide-768">~ 09. 30(수)</p>
+									<!--<span>원서접수 중</span>-->
+								</div>
+							</div>
+							<div>
+								<div class="scheduleBox-in">
+									<h4>수시1차 면접고사</h4>
+									<p>2026. 10. 13(화)<br class="hide-768">~ 10. 14(수)</p>
+								</div>
+							</div>
+							<div>
+								<div class="scheduleBox-in">
+									<h4>수시1차 실기고사</h4>
+									<p>2026. 10. 13(화)</p>
+									<!--<a href="https://r4-pass.mncapro.com/wsi/pass/pass.php?CODE=U0R0VkZvOFJmUHkvNExpZWNHZHdQV3FubU5ObmZ2RVBqWkdNWFRQWVNwRT0=" title="해당페이지가 새창으로 열립니다" target="_blank" class="mt10 scheduleBox-btn">합격자조회</a>-->
+								</div>
+							</div>
+							<div>
+								<div class="scheduleBox-in">
+									<h4>수시1차 합격자 발표</h4>
+									<p>2026. 10. 23(금)</p>
+									<!--<a href="https://r4-pass.mncapro.com/wsi/pass/pass.php?CODE=U0R0VkZvOFJmUHkvNExpZWNHZHdQV3FubU5ObmZ2RVBqWkdNWFRQWVNwRT0=" title="해당페이지가 새창으로 열립니다" target="_blank" class="mt10 scheduleBox-btn">합격자조회</a>-->
+								</div>
+							</div>
+						</div>
+
+						<h3 class="conTit mt60">입학뉴스 <a href="/board/index.jsp?code=ent0501" class="fa-light fa-circle-plus linkMore"></a></h3>
+						<div class="mainNewsWrap">
+								
+	<a href="../board/read.jsp?id=224687&code=ent0501" title="2027학년도 입학전형 소개 홍보영상 게시글로 이동합니다" class="newsItem">
+		<h4>2027학년도 입학전형 소개 홍보영상</h4>
+		<hr>
+		<span>2026.07.20</span>
+	</a>
+	
+	<a href="../board/read.jsp?id=224582&code=ent0501" title="2027학년도 입학전형 시행계획 변경안내 게시글로 이동합니다" class="newsItem">
+		<h4>2027학년도 입학전형 시행계획 변경안내</h4>
+		<hr>
+		<span>2026.06.04</span>
+	</a>
+	
+	<a href="../board/read.jsp?id=224545&code=ent0501" title="2027학년도 고등학교 졸업학력 검정고시 합격증명서(대입전형용) 온라인(정부24) 발급 방법 안내 게시글로 이동합니다" class="newsItem">
+		<h4>2027학년도 고등학교 졸업학력 검정고시 합격증명서(대입전형용) 온라인(정부24) 발급 방법 안내</h4>
+		<hr>
+		<span>2026.05.26</span>
+	</a>
+	
+						</div>
+					</div>
+					<div class="conRight">
+						<div class="swiper mainConSwiper">
+							<div class="swiper-wrapper">
+								
+								<!--<div class="swiper-slide"><a href="/board/read.jsp?id=222941&code=ent0501" title="자세히 보기 페이지로 이동합니다"><img src="/site/ent/popup/pop20250526_n.png" class="img-responsive auto" alt="2025학년도 지역대학 연계 진로체험 프로그램 안내, 신청대상:대전지역 중·고등학교, 신청방법:진로체험망'꿈길'시스템 신청, 문의처:우송정보대학 입학처 042-629-6487, 6489"></a></div>-->
+								
+								<div class="swiper-slide">
+									<img src="/site/ent/popup/popup260901.png?ver2" class="img-responsive auto" alt="2027학년도 신입생 수시1차 모집안내 / 원서접수 : 2026. 09. 07(월) ~ 30(수) / 면접고사 :2026. 10. 13(화) ~ 14(수) / 실기고사 : 2026. 10. 13(화) / 합격자발표 :2026.10.23(금) 10시 예정 / 대학자체 원서접수 / 유웨이 원서접수 / 진학사 원서접수 / 모집일정 안내" usemap="#Map260901">
+									<map name="Map260901">
+									  <area shape="rect" coords="19,333,189,377" href="/page/index.jsp?code=ent0201" title="해당페이지로 이동합니다" target="_self">
+									  <area shape="rect" coords="196,332,365,377" href="https://ent.wsi.ac.kr/ipsi/index.jsp" title="해당페이지가 새창으로 열립니다" target="_blank">
+									  <area shape="rect" coords="19,381,189,426" href="https://apply.jinhakapply.com/Notice/4118238/A" title="해당페이지가 새창으로 열립니다" target="_blank">
+									  <area shape="rect" coords="196,382,364,426" href="https://ipsi2.uwayapply.com/2027/coll2/wsi/?CHA=1" title="해당페이지가 새창으로 열립니다" target="_blank">
+									</map>
+								</div>
+								
+								<div class="swiper-slide"><a href="https://www.youtube.com/watch?v=dmpuYUTolwE" target="_blank" title="자세히 보기 페이지가 새창으로 열립니다"><img src="/site/ent/popup/popup260825.jpg" class="img-responsive auto" alt="대전을 뒤흔드는 화제의 ★대전 BIG 3★ / 그 중심의 우송정보대학! / 대전 BIG 3 상륙! / 동영상 자세히보기"></a></div>
+								<div class="swiper-slide"><a href="https://expo.uway.com/main.htm" target="_blank" title="자세히 보기 페이지가 새창으로 열립니다"><img src="/site/ent/popup/banner20260820.jpg" class="img-responsive auto" alt="2027학년도 수시 전문대학 입학정보 박람회, 주최·주관 Uway 어플라이, 일시: 2026. 09. 18.(금) - 09. 19.(토) 10:00 - 17:00, 장소: COEX 2F THE Platz, # 현장 무료 원서접수 (일부 대학 제외) # iPhone, iPad, Apple Watch 역대급 경품!, 사전예약 바로가기"></a></div>
+								<div class="swiper-slide"><a href="/page/index.jsp?code=ent0514" title="자세히 보기 페이지로 이동합니다"><img src="/site/ent/popup/popup20260430.jpg" class="img-responsive auto" alt="2027학년도 온라인 입학상담, 상담기간:2026. 6. 1(월) ~ 2027. 1. 20(수) 17:00~20:00(*휴일,공휴일 제외), 상담대상:고3 예비수험생,학부모, 자세히보기"></a></div>
+								<div class="swiper-slide">
+									<img src="/site/ent/popup/popup260608.jpg" class="img-responsive auto" alt="2026학년도 지역대학 연계 / 진로체험 프로그램 안내" usemap="#Map260803">
+									<map name="Map260803">
+									  <area shape="rect" coords="33,248,189,299" href="/board/read.jsp?id=224542&code=ent0501">
+									  <area shape="rect" coords="194,248,350,299" href="https://www.ggoomgil.go.kr/front/mypage/schlProgramList.do?search_keyword=%EC%9A%B0%EC%86%A1%EC%A0%95%EB%B3%B4%EB%8C%80%ED%95%99" target="_blank">
+									</map>
+								</div>
+							</div>
+							<div class="mainConSwiper-pagination"></div>
+						</div>
+						<!-- skyQuickWrap -->
+						<span class="skyQuickWrap">
+							<a href="https://www.youtube.com/watch?v=sHUV_f9f-7w" target="_blank" title="대학홍보영상 페이지가 새창으로 열립니다">대학<br>홍보영상</a>
+							<a href="https://www.wsi.ac.kr/site/main/promotion/" target="_blank" title="학과홍보영상 페이지가 새창으로 열립니다">학과<br>홍보영상</a>
+							<a href="https://ent.wsi.ac.kr/site/ent/vr/" target="_blank" title="우송정보대학 실습실 VR 보기 페이지가 새창으로 열립니다">실습실<br>VR보기</a>
+						</span>
+						<!-- skyQuickWrap -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //mainCon -->
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+	  let triggered = false;
+	  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	  let allowTrigger = false;
+
+	  const topPopupEl = document.querySelector('.topPopup');
+
+	  // 사용자가 스크롤을 시작한 이후에만 이벤트를 활성화
+	  window.addEventListener('scroll', function initUserScroll() {
+		allowTrigger = true;
+		window.removeEventListener('scroll', initUserScroll);
+	  });
+
+	  function handleScroll() {
+		if (!allowTrigger || triggered) return;
+
+		const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+		// 팝업 실제 높이를 기준값으로 사용 (팝업을 다 지나친 뒤에 사라짐)
+		const popupHeight = topPopupEl ? topPopupEl.offsetHeight : 100;
+		const threshold = Math.max(popupHeight - 40, 60); // 살짝 여유를 둠
+
+		// 아래로 스크롤한 경우만 동작
+		if (currentScroll > lastScrollTop && currentScroll >= threshold) {
+		  document.querySelector('.topPopup')?.classList.add('hidden');
+		  document.querySelector('.headerTop')?.classList.add('active');
+		  
+		  const layerPopup = document.getElementById('layerPopup6');
+		  if (layerPopup) {
+			layerPopup.style.top = '133px';
+		  }
+		  
+		  triggered = true;
+		}
+
+		lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+	  }
+
+	  window.addEventListener('scroll', handleScroll);
+
+	  // 팝업 보기 버튼 클릭 시 다시 보이기
+	  const popupToggleBtn = document.querySelector('.topPopupShow');
+	  if (popupToggleBtn) {
+		popupToggleBtn.addEventListener('click', function () {
+		  document.querySelector('.topPopup')?.classList.remove('hidden');
+		  document.querySelector('.headerTop')?.classList.remove('active');
+		  
+		  const layerPopup = document.getElementById('layerPopup6');
+		  if (layerPopup) {
+			layerPopup.style.top = '645px';
+		  }
+		  
+		  triggered = false;
+		  lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+		});
+	  }
+	});
+</script>
+<div id="popupPre">
+	<div>									
+		<div class="popupPreFocus" tabindex="1">
+			<img src="/site/ent/popup/popup_pre_open.jpg" alt="2027학년도 서비스 준비중입니다. 문의사항이 있으시면 입학처로 연락하시기 바랍니다.(042-629-6486~7)" class="img-responsive auto">
+			<!--<img src="/site/ent/popup/popup_pre_close.jpg" alt="2027학년도 신입생 입학전형 업무가 마감되었습니다. 자세한 사항은 입학처로 문의해주시기 바랍니다(042-629-6486, 6487)" class="img-responsive auto">-->
+		</div>
+		<a href="#self" class="pre_close" role="button" title="팝업 닫기" tabindex="2"><img src="/site/ent/popup/popup_pre_close.png" alt="팝업 닫기"></a>
+	</div>
+</div>
+		<!-- footer -->
+		<footer id="footer">
+			<section class="inner">
+				<!--
+				<div class="footerTop">
+					<ul class="footerTopLeft">
+						<li><a href="http://www.wsi.ac.kr/page/index.jsp?code=etc0201" target="_blank" title="개인정보처리방침 페이지가 새창으로 열립니다" class="info">개인정보처리방침 <i class="fa-regular fa-window-restore blank"></i></a></li>
+						<li><a href="https://wsinfo.wsi.ac.kr" target="_blank" title="대학정보시스템 페이지가 새창으로 열립니다">대학정보시스템 <i class="fa-regular fa-window-restore blank"></i></a></li>
+						<li><a href="http://library.wsu.ac.kr" target="_blank" title="우송도서관 페이지가 새창으로 열립니다">우송도서관 <i class="fa-regular fa-window-restore blank"></i></a></li>
+						<li><a href="https://career.wsi.ac.kr/wsi/user/main/?cookieUse=Y" target="_blank" title="취업정보 페이지가 새창으로 열립니다">취업정보 <i class="fa-regular fa-window-restore blank"></i></a></li>
+					</ul>
+				</div>
+				-->
+				<div class="footerBottom">
+					<div class="footerBottomLeft">
+						<address>(34518) 대전광역시 동구 백룡로 59(자양동 101-17) 우송정보대학<span>/</span>대표전화 : 042)629-6114<span>/</span>입학안내 : 042)629-6486, 6487<span>/</span>장학금안내 : 042)629-6213</address>
+						<p>Copyright (C) 2025 Woosong College. All rights reserved. <a href="http://www.wsi.ac.kr/page/index.jsp?code=etc0201" target="_blank" title="개인정보처리방침 페이지가 새창으로 열립니다" class="infoColor ml10">개인정보처리방침 <i class="fa-regular fa-window-restore blank"></i></a></p>
+					</div>
+					<div class="footerBottomRight">
+						<div class="gositeWrap">
+							<div class="go_site1">
+								<h3><a href="#self" title="우송학원관련사이트 메뉴의 하위메뉴가 축소됨">우송학원 관련사이트</a></h3>
+								<ul class="go_site1_view goSite">
+									
+<style>
+	.page_bar {height:auto !important}
+	#pagingWrap {width:100%; color:#000; font-style:normal; margin:30px 0 10px 0; font-weight:bold; text-align:center}
+	#pagingWrap img {vertical-align:middle}
+	#pagingWrap a {display:inline-block; width:31px; height:31px; line-height:31px; vertical-align:middle; border:none; margin:0 3px 0 2px; font-size:14px; color:#000; border-radius:1px; border-color:#fff; text-decoration:none}
+	#pagingWrap a:hover,#pagingWrap a:focus {background-color:#fafafa; color:#000; text-decoration:none}
+	#pagingWrap a span {position:absolute; z-index:-1; visibility:hidden}
+	#pagingWrap .first {position:relative; background:url("https://www.wsi.ac.kr/site/common/image/btn_first.svg") center no-repeat; border-color:#dee2e6}
+	#pagingWrap .prev {position:relative; background:url("https://www.wsi.ac.kr/site/common/image/btn_prev.svg") center no-repeat; border-color:#dee2e6; margin-right:30px}
+	#pagingWrap .next {position:relative; background:url("https://www.wsi.ac.kr/site/common/image/btn_next.svg") center no-repeat; border-color:#dee2e6; margin-left:30px}
+	#pagingWrap .last {position:relative; background:url("https://www.wsi.ac.kr/site/common/image/btn_last.svg") center no-repeat; border-color:#dee2e6}
+	#pagingWrap .current {display:inline-block; background:#343a40; border:none; color:#fff; width:31px; height:31px; line-height:31px; vertical-align:middle; border-radius:1px; border-radius:2px}
+</style>
+	
+	<li><a href="http://www.wsu.ac.kr" target="_blank" title="새창으로">우송대학교</a></li>
+	
+	<li><a href="http://www.solbridge.ac.kr" target="_blank" title="새창으로">솔브릿지국제경영대학</a></li>
+	
+	<li><a href="http://history.wsu.ac.kr" target="_blank" title="새창으로">우송학원 60주년 역사관</a></li>
+	
+	<li><a href="http://ctl.wsi.ac.kr" target="_blank" title="새창으로">교수학습지원센터</a></li>
+	
+	<li><a href="http://wsjanghak.wsu.ac.kr" target="_blank" title="새창으로">우송장학회</a></li>
+	
+	<li><a href="http://inbp.wsi.ac.kr" target="_blank" title="새창으로">Master Class INBP</a></li>
+	
+	<li><a href="http://library.wsu.ac.kr" target="_blank" title="새창으로">우송도서관</a></li>
+	
+	<li><a href="http://whc.wsi.ac.kr" target="_blank" title="새창으로">인권센터</a></li>
+	
+	<li><a href="https://career.wsi.ac.kr" target="_blank" title="새창으로">취업넷</a></li>
+	
+	<li><a href="http://cec.wsi.ac.kr/main/index.jsp" target="_blank" title="새창으로">공용장비지원센터</a></li>
+	
+	<li><a href="http://itedu.wsu.ac.kr/" target="_blank" title="새창으로">우송IT교육센터</a></li>
+	
+	<li><a href="http://blue.wsi.ac.kr" target="_blank" title="새창으로">평생교육원</a></li>
+	
+	<li><a href="https://woosongart.wsu.ac.kr/main/index.jsp" target="_blank" title="새창으로">우송예술회관</a></li>
+	
+	<li><a href="https://wscamp.wsu.ac.kr/" target="_blank" title="새창으로">우송수련원</a></li>
+	
+	<li><a href="http://wsckli.wsi.ac.kr/main/index.jsp" target="_blank" title="새창으로">한국어교육센터</a></li>
+	
+	<li><a href="http://www.fsporex.co.kr/" target="_blank" title="새창으로">F스포렉스</a></li>
+	
+	<li><a href="http://solpine.wsu.ac.kr" target="_blank" title="새창으로">솔파인 레스토랑</a></li>
+	
+	<li><a href="http://www.mma.go.kr" target="_blank" title="새창으로">병무청</a></li>
+	
+	<li><a href="http://dual.wsi.ac.kr" target="_blank" title="새창으로">일학습병행 공동훈련센터</a></li>
+	
+	<li><a href="http://gongja.wsu.ac.kr" target="_blank" title="새창으로">공자아카데미</a></li>
+	
+								</ul>
+							</div>
+						</div>					
+						<!--<a href="http://www.webwatch.or.kr/Situation/WA_Situation.html?MenuCD=110" target="_blank" title="국가 공인 인증기관 : 웹와치 홈페이지가 새창으로 열립니다" class="webwatch"><img src="/site/main/img/waLogo_2022.png" border="0" alt="과학기술정보통신부 WEB ACCESSIBILITY 마크(웹 접근성 품질인증 마크)"></a>-->
+					</div>
+				</div>
+			</section>
+		</footer>
+		<!-- //footer -->
+	</div>
+	<!-- //wrap -->
+
+	<script src="/site/common/jquery-3.7.1.min.js"></script>
+	<script src="/site/common/jquery-migrate-3.5.0.min.js"></script>
+	<script src="/site/common/plugin.js"></script>
+	<script src="/site/common/swiper-8.4.5/swiper-bundle.min.js"></script>	
+	<script src="/site/common/jquery.rwdImageMaps.min.js"></script>
+	<script src="/site/ent/js/common2025.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('img[usemap]').rwdImageMaps();
+		});
+	</script>
+</body>
+</html>  

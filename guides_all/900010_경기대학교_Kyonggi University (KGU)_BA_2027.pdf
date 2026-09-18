@@ -1,0 +1,3240 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=high-dpi" />
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/type/common/img/common/ico_favicon.ico" />
+<link rel="icon" type="image/png" href="/type/common/img/common/ico_favicon.png" sizes="192x192" />
+
+<title>경기대학교 입학처 자료실  |  모집요강</title>
+
+<link rel="stylesheet" type="text/css" href="/type/common/css/common.css" /><!-- reset -->
+<link rel="stylesheet" type="text/css" href="/type/common/css/board.css" /><!-- board -->
+<link rel="stylesheet" type="text/css" href="/type/IPSI_A/css/layout.css" /><!-- layout -->
+<link rel="stylesheet" type="text/css" href="/type/common/css/ipsi.css" /><!--contents -->
+
+<!--[if lt IE 9]>
+<script src="../js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="/type/common/css/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="/type/common/css/jquery-ui.theme.css" />
+
+<script type="text/javascript" src="/type/common/js/jquery-2.2.1.min.js"></script>
+<script type="text/javascript" src="/type/common/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/type/common/js/jquery.font-accessibility.dev_bvs.js"></script><!-- 폰트줌(제한) -->
+
+<link rel="stylesheet" type="text/css" href="/type/common/js/slick/slick.css"/><!-- 슬라이더 -->
+<script type="text/javascript" src="/type/common/js/slick/slick.min.js"></script><!-- 슬라이더 -->
+<script type="text/javascript" src="/type/common/js/slick/slick.acc.js"></script><!-- 슬라이더 -->
+
+<link rel="stylesheet" type="text/css" href="/type/common/js/mCustomScrollbar/jquery.mCustomScrollbar.css" /><!-- 커스텀스크롤 -->
+<script type="text/javascript" src="/type/common/js/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script><!-- 커스텀스크롤 -->
+
+<script type="text/javascript" src="/type/common/js/board.js"></script><!-- board -->
+<script type="text/javascript" src="/type/IPSI_A/js/layout.js"></script><!-- layout -->
+
+
+
+<script type="text/javascript" src="/type/common/js/jquery.form.js"></script> 
+<script type="text/javascript" src="/type/common/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/type/common/js/comm_fr.js"></script>
+<script type="text/javascript" src="/type/common/js/util.js"></script>
+<script type="text/javascript" src="/type/common/js/jquery.tmpl.js"></script>
+<script type="text/javascript" src="/type/common/js/clipboard.min.js"></script>
+
+<script>
+$().ready(function() {
+	var clipboard = new ClipboardJS('.sns_urlCopy', {
+	    text: function() {
+		  	return fn_getUrl();
+	    }
+	});
+	clipboard.on('success', function(e) {
+		alert("URL이 복사되었습니다.");
+	});
+	clipboard.on('error', function(e) {
+		alert("URL복사에 실패했습니다.");
+	}); 
+});
+
+function fn_getUrl(){
+	var rtnUrl = ""; 
+	var url = decodeURIComponent(location.href);
+	 	if($("input:hidden[name=MapInfo]").val() != "" && typeof $("input:hidden[name=MapInfo]").val() != 'undefined' ){
+		if(url.indexOf("MapInfo") != -1) {
+			url =url.substring(0, url.indexOf("&MapInfo"))+"&MapInfo="+$("input:hidden[name=MapInfo]").val();
+		}else{
+			url = url+"&MapInfo="+$("input:hidden[name=MapInfo]").val();	
+		}
+	}
+ 	url = decodeURIComponent(url).replace("#","");
+ 	url = decodeURIComponent(url).replace(";","");
+	rtnUrl = url.replace("#;","");
+
+	return rtnUrl;
+}
+  
+  
+</script>
+
+
+</head>
+
+<script>
+function tabFunc(obj){
+	
+	var url = $(obj).find("option:selected").data("url");
+	var target = $(obj).find("option:selected").data("target");
+	
+	if(target=="_blank"){
+		window.open(url,target);
+	}else{
+		location.href=url;
+	}
+}
+
+/* $(function(){
+    $(".sVisual").css("background-image","url(/type/IPSI_A/img/layout/sVisual0" + gnbDep1 +".jpg)");
+    $(".sVisual>div").css("background-image","url(/type/IPSI_A/img/layout/m/sVisual0" + gnbDep1 +".jpg)");
+});*/
+</script>
+
+<body class="typeSub">
+    
+
+
+<div class="popZone" style="display: none;">
+    <div class="popZone_wrap">
+        <div class="list">
+        	
+            	<a href="https://enter.kyonggi.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=210&CONTENTS_NO=3&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=4378" target="_blank"><img data-imghref="" target="_blank" src="/ajaxfile/CMN_SVC/FileView.do?GBN=X14&POPUP_SEQ=47&SITE_NO=2" alt="2027학년도 수시모집 원서접수 안내" /></a>
+            
+            	<a href="https://enter.kyonggi.ac.kr/cms/FR_BBS_CON/BoardView.do?MENU_ID=210&CONTENTS_NO=3&SITE_NO=2&BOARD_SEQ=1&BBS_SEQ=4377" target="_blank"><img data-imghref="" target="_blank" src="/ajaxfile/CMN_SVC/FileView.do?GBN=X14&POPUP_SEQ=45&SITE_NO=2" alt="2027학년도 수시모집 대학별고사(실기) 유의사항 안내" /></a>
+            
+            	<a href="https://ajouchat.shop/sign-in" target="_blank"><img data-imghref="" target="_blank" src="/ajaxfile/CMN_SVC/FileView.do?GBN=X14&POPUP_SEQ=46&SITE_NO=2" alt="AI 챗봇 AI대학어디가 상담 바로가기" /></a>
+            
+        </div>
+		<div class="btn">
+			<button class="btn_popZone_close mainPop">닫기</button>
+		</div>
+    </div>
+</div>
+<!-- //popzone-->
+
+
+<div id="skip_menu">
+	<a href="#contents">컨텐츠 바로가기</a>
+	<a href="#header">메뉴 바로가기</a>
+	<a href="#footer">푸터 바로가기</a>
+</div>
+
+<div id="dim"></div>
+
+<!-- headTop_bnr -->
+
+<!-- //headTop_bnr -->
+
+	
+
+<script>
+var gnbDep1 = 0;
+var gnbDep2 = 0;
+var gnbDep3 = 0;
+var gnbDep4 = 0;
+
+function setHref(obj, org){
+	var v_menuno = ($(obj).find(">a").data("menuno"));
+	var v_sub = ($(obj).find(">a").data("sub"));
+
+	if($("ul#gnb li."+v_menuno+" > ul > li").length > 0){
+		if(v_sub=="Y"){
+			$(org).find(">a").attr("href",$("ul#gnb li."+v_menuno+" > ul > li:eq(0) > a").attr("href"));
+			$(org).find(">a").attr("target",$("ul#gnb li."+v_menuno+" > ul > li:eq(0) > a").attr("target"));
+		}else{
+			$(org).find(">a").attr("href",$(org).find(">a").attr("href"));
+		}
+		setHref($("ul#gnb li."+v_menuno+" > ul > li:eq(0)"),org);
+	}
+	
+	/* if($(obj).find("> div").length > 0){
+		if($(obj).find("> div> ul > li").length > 0){
+			if($(obj).find(">a").data("sub")=="Y"){
+				$(org).find(">a").attr("href",$(obj).find("> div> ul > li:eq(0) > a").attr("href"));
+				$(org).find(">a").attr("target",$(obj).find("> div> ul > li:eq(0) > a").attr("target"));
+			}else{
+				$(org).find(">a").attr("href",$(org).find(">a").attr("href"));
+			}
+			setHref($(obj).find("> div> ul > li:eq(0)"),org);
+		}
+	}else{
+		if($(obj).find("> ul > li").length > 0){
+			if($(obj).find(">a").data("sub")=="Y"){
+				$(org).find(">a").attr("href",$(obj).find("> ul > li:eq(0) > a").attr("href"));
+				$(org).find(">a").attr("target",$(obj).find("> ul > li:eq(0) > a").attr("target"));
+			}else{
+				$(org).find(">a").attr("href",$(org).find(">a").attr("href"));
+			}
+			setHref($(obj).find("> ul > li:eq(0)"),org);
+		}
+	} */
+}
+
+function setSnbHref(obj, org){
+	var v_menuno = ($(obj).data("menuno"));
+	var v_sub = ($(obj).data("sub"));
+	
+	if($("ul#gnb li."+v_menuno+" > div").length > 0){
+		if($("ul#gnb li."+v_menuno+" > div > ul > li").length > 0){
+			if(v_sub=="Y"){
+				$(org).find(">a").attr("href",$("ul#gnb li."+v_menuno+" > div > ul > li:eq(0) > a").attr("href"));
+				$(org).find(">a").attr("target",$("ul#gnb li."+v_menuno+" > div > ul > li:eq(0) > a").attr("target"));
+			}else{
+				$(org).find(">a").attr("href",$(org).find(">a").attr("href"));
+			}
+			setHref($("ul#gnb li."+v_menuno+" > div > ul > li:eq(0)"),org);
+		}
+	}else{
+		if($("ul#gnb li."+v_menuno+" > ul > li").length > 0){
+			if(v_sub=="Y"){
+				$(org).find(">a").attr("href",$("ul#gnb li."+v_menuno+" > ul > li:eq(0) > a").attr("href"));
+				$(org).find(">a").attr("target",$("ul#gnb li."+v_menuno+" > ul > li:eq(0) > a").attr("target"));
+			}else{
+				$(org).find(">a").attr("href",$(org).find(">a").attr("href"));
+			}
+			setHref($("ul#gnb li."+v_menuno+" > ul > li:eq(0)"),org);
+		}
+	}
+}
+
+$(function(){
+	/* $("ul#gnb_parent li").each(function(){
+		setHref($(this),$(this));
+	}); */
+	
+	$("nav#snb_nav li").each(function(){
+		setSnbHref($(this),$(this));
+	});
+	
+	$(document).on("click", "ul#gnb li,  ul#rnb li:not(ul#rnb>li.child), .mSnb_menu li", function(){
+		setHref($(this),$(this));
+	});
+	
+	$(document).on("click", "nav#snb_nav li", function(){
+		setSnbHref($(this),$(this));
+	});
+	
+	$(document).on("click", ".btn_topSitemap, ul.mSiteCateg a.map", function(){
+	    location.href="/cms/CMN_CON/MainLink.do?GBN=SITEMAP&SITE_NO=2";
+	}); 
+	
+	$(document).on("click", "#gnb li ", function(){
+		var subYn = $(this).find("a").eq(0).data("sub");
+		if(subYn == "N"){
+			$(this).find("a").eq(0).removeClass("on");
+		}
+	});
+	
+	
+	/* 
+	if(getCookie("a_pop_zone") == "done"){
+		$(".popZone input:checkbox").prop("checked",true);
+	 }
+	
+	$(".popZone").hide(); */
+	
+});
+
+function closeTopBanner(obj){
+	if($(obj).data('seq')=='top_bnr'){
+		if($(obj).prop("checked")){
+	        setCookie("a_headTop_bnr","done",1);
+			$("#headTop_bnr .btn>.btn_close").click();
+	    }else{
+	    	fn_util_removeCookie("a_headTop_bnr");
+	    } 
+	}else if($(obj).data('seq') == 'pop_zone'){
+		if($(obj).prop("checked")){
+	        setCookie("a_pop_zone","done",1);
+	        $(".popZone .btn .btn_popZone_close").click();
+	    }else{
+	    	fn_util_removeCookie("a_pop_zone");
+	    }
+	}
+}
+
+</script>
+
+<ul class="siteCateg">
+	<li><a href="http://www.kyonggi.ac.kr/KyonggiUp.kgu">경기대학교</a></li>
+</ul>
+
+<div id="header">
+	<h1 class="logo">
+		<a href="/">
+            <img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X16&SITE_NO=2" alt="경기대학교 입학안내" />
+            <span><img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X16&MOBILE=Y&SITE_NO=2" alt="경기대학교 입학안내" /></span>
+        </a>
+	</h1>
+	<header>
+		<button class="mBtn_topMenu">MENU</button>
+		<ul class="mSiteCateg">
+			<li><a href="http://www.kyonggi.ac.kr/KyonggiUp.kgu" class="home">경기대학교</a></li>
+			<li><a href="#none" class="map">사이트맵</a></li>
+		</ul>
+		
+		<div id="gnb_dim"></div>
+		<nav>
+			<ul id="gnb_parent">
+	            
+	            	
+			           	<li class="child  30" >
+			           		
+			           			
+			           				
+			           					
+				           					
+				           					
+				           						<a href="/cms/FR_CON/index.do?MENU_ID=120" target="_self" title=""  data-sub="Y" >수시</a>
+				           					
+			           					
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+			           	<li class="child  40" >
+			           		
+			           			
+			           				
+			           					
+				           					
+				           					
+				           						<a href="/cms/FR_CON/index.do?MENU_ID=140" target="_self" title=""  data-sub="Y" >정시</a>
+				           					
+			           					
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+			           	<li class="child  50" >
+			           		
+			           			
+			           				
+			           					
+				           					
+				           					
+				           						<a href="/cms/FR_CON/index.do?MENU_ID=160" target="_self" title=""  data-sub="Y" >편입학</a>
+				           					
+			           					
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+			           	<li class="child  60" >
+			           		
+			           			
+			           				
+			           					
+				           					
+				           					
+				           						<a href="/cms/FR_CON/index.do?MENU_ID=180" target="_self" title=""  data-sub="Y" >재외국민</a>
+				           					
+			           					
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+			           	<li class="child  80" >
+			           		
+			           			
+			           				
+			           					
+				           					
+				           					
+				           						<a href="/cms/FR_CON/index.do?MENU_ID=210" target="_self" title=""  data-sub="Y" >정보센터</a>
+				           					
+			           					
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+			           	<li class="child on 90" >
+			           		
+			           			
+			           				
+			           					
+				           					
+				           					
+				           						<a href="/cms/FR_CON/index.do?MENU_ID=280" target="_self" title=""  data-sub="Y" class="on">자료실</a>
+				           					
+			           					
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+           	 	
+	            	
+			           	<li class="child  110" >
+			           		
+			           			
+			           				
+			           					
+				           					
+				           					
+				           						<a href="/cms/FR_CON/index.do?MENU_ID=590" target="_self" title=""  data-sub="Y" >KGU소개</a>
+				           					
+			           					
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+           	 	
+			</ul>
+			<ul id="gnb">
+	            
+	            
+		           	<li class="child  30" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=30" title="" data-menuno="30" data-sub="Y" target="_self" ><span>수시</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  120" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=120" title="" data-menuno="120" data-sub="Y" target="_self" >모집요강</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  130" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=130" title="" data-menuno="130" data-sub="Y" target="_self" >전년도 입학통계(2026~2024)</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  240" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=240" title="" data-menuno="240" data-sub="Y" target="_self" >내신성적산출</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						
+		           	</li>
+		           	
+           	 	
+	            
+		           	<li class="child  40" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=40" title="" data-menuno="40" data-sub="Y" target="_self" ><span>정시</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  140" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=140" title="" data-menuno="140" data-sub="Y" target="_self" >모집요강</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  150" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=150" title="" data-menuno="150" data-sub="Y" target="_self" >전년도 입학통계(2026~2024)</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						
+		           	</li>
+		           	
+           	 	
+	            
+		           	<li class="child  50" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=50" title="" data-menuno="50" data-sub="Y" target="_self" ><span>편입학</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  160" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=160" title="" data-menuno="160" data-sub="Y" target="_self" >모집요강</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  170" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=170" title="" data-menuno="170" data-sub="Y" target="_self" >전년도 입학통계</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						
+		           	</li>
+		           	
+           	 	
+	            
+		           	<li class="child  60" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=60" title="" data-menuno="60" data-sub="Y" target="_self" ><span>재외국민</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  180" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=180" title="" data-menuno="180" data-sub="Y" target="_self" >모집요강</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  500" >
+				           			<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=kgoia" title="새창열림" data-menuno="500" data-sub="N" target="_blank" >외국인 모집 안내</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						
+		           	</li>
+		           	
+           	 	
+	            
+		           	<li class="child  80" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=80" title="" data-menuno="80" data-sub="Y" target="_self" ><span>정보센터</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  210" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=210" title="" data-menuno="210" data-sub="Y" target="_self" >공지사항</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="child  220" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=220" title="" data-menuno="220" data-sub="Y" target="_self" >상담 및 요청</a>
+				           			
+				           			<ul class="menuS" style="display:none;">
+
+				           			
+				           			<li class="" >
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=470" title="" data-menuno="470" data-sub="Y"  target="_self" >개인정보변경요청</a>
+				           				
+				           			</li>
+				           			
+				           			<li class="" >
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=460" title="" data-menuno="460" data-sub="Y"  target="_self" >대입상담</a>
+				           				
+				           			</li>
+				           			
+				           			<li class="" style="display:none;">
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=550" title="" data-menuno="550" data-sub="Y"  target="_self" >온라인화상상담</a>
+				           				
+				           			</li>
+				           			
+				           			<li class="" >
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=230" title="" data-menuno="230" data-sub="Y"  target="_self" >FAQ</a>
+				           				
+				           			</li>
+				           			
+				           			<li class="" >
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=480" title="" data-menuno="480" data-sub="Y"  target="_self" >이의신청</a>
+				           				
+				           			</li>
+				           			
+				           			
+				           			</ul>
+				           			
+				           		</li>
+			           		
+				           		<li class="  260" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=260" title="" data-menuno="260" data-sub="Y" target="_self" >실기고사/서류제출</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  270" style="display:none;">
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=270" title="" data-menuno="270" data-sub="Y" target="_self" >입시캘린더</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  250" >
+				           			<a href="https://consult.mncapro.co.kr/solution/kyonggi/" title="" data-menuno="250" data-sub="N" target="_self" >합격예측프로그램</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  530" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=530" title="" data-menuno="530" data-sub="Y" target="_self" >입학설명회 신청</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  560" style="display:none;">
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=560" title="" data-menuno="560" data-sub="Y" target="_self" >고교연계프로그램</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  600" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=600" title="" data-menuno="600" data-sub="Y" target="_self" >교직원 회피 자진신고</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  620" style="display:none;">
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=620" title="" data-menuno="620" data-sub="Y" target="_self" >KGU 온라인 진로진학 Navi</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  630" style="display:none;">
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=630" title="" data-menuno="630" data-sub="Y" target="_self" >고교별 합격자 조회 신청</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  640" style="display:none;">
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=640" title="" data-menuno="640" data-sub="Y" target="_self" >[고교학점제] 교육과정 지원</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  660" style="display:none;">
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=660" title="" data-menuno="660" data-sub="Y" target="_self" >체육계열 모의실기</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  670" style="display:none;">
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=670" title="" data-menuno="670" data-sub="Y" target="_self" >찾아가는 모의전형(고교 방문형)</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  680" style="display:none;">
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=680" title="" data-menuno="680" data-sub="Y" target="_self" >KGU 학생부종합 모의전형</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  700" style="display:none;">
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=700" title="" data-menuno="700" data-sub="Y" target="_self" >찾아가는 전공탐색 지원 – BARUN 멘토단</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						
+		           	</li>
+		           	
+           	 	
+	            
+		           	<li class="child on 90" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=90" title="" data-menuno="90" data-sub="Y" target="_self" class="on"><span>자료실</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class=" on 280" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=280" title="" data-menuno="280" data-sub="Y" target="_self" >모집요강</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  290" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=290" title="" data-menuno="290" data-sub="Y" target="_self" >기출문제</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="child  300" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=300" title="" data-menuno="300" data-sub="Y" target="_self" >입학통계</a>
+				           			
+				           			<ul class="menuS" style="display:none;">
+
+				           			
+				           			<li class="" >
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=570" title="" data-menuno="570" data-sub="Y"  target="_self" >지원현황</a>
+				           				
+				           			</li>
+				           			
+				           			<li class="" >
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=580" title="" data-menuno="580" data-sub="Y"  target="_self" >성적현황</a>
+				           				
+				           			</li>
+				           			
+				           			
+				           			</ul>
+				           			
+				           		</li>
+			           		
+				           		<li class="  650" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=650" title="" data-menuno="650" data-sub="Y" target="_self" >가이드북</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  340" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=340" title="" data-menuno="340" data-sub="Y" target="_self" >서식자료실</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  330" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=330" title="" data-menuno="330" data-sub="N" target="_self" >선행학습영향평가</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						
+		           	</li>
+		           	
+           	 	
+	            
+		           	</li>
+		           	
+		           		<li class="child  100" style="display:none;">
+							<a href="/cms/FR_CON/index.do?MENU_ID=100" title="" data-menuno="100" data-sub="Y" target="_self" ><span>고교연계</span></a>
+						</li>
+		           	
+           	 	
+	            
+		           	<li class="child  110" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=110" title="" data-menuno="110" data-sub="Y" target="_self" ><span>KGU소개</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  590" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=590" title="" data-menuno="590" data-sub="Y" target="_self" >전형안내 및 홍보</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  420" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=420" title="새창열림" data-menuno="420" data-sub="Y" target="_blank" >학과 소개</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  410" >
+				           			<a href="http://elitekorea2133.cafe24.com/kyonggi " title="새창열림" data-menuno="410" data-sub="N" target="_blank" >진로취업가이드북</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  430" >
+				           			<a href="https://www.kyonggi.ac.kr/www/contents.do?key=5815" title="새창열림" data-menuno="430" data-sub="N" target="_blank" >학생 생활안내</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  440" >
+				           			<a href="https://www.kyonggi.ac.kr/www/contents.do?key=5151" title="새창열림" data-menuno="440" data-sub="N" target="_blank" >캠퍼스 안내(VR 캠퍼스)</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  720" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=720" title="" data-menuno="720" data-sub="Y" target="_self" >BARUN 멘토단</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						
+		           	</li>
+		           	
+           	 	
+	            
+		           	</li>
+		           	
+		           		<li class="child  490" style="display:none;">
+							<a href="/cms/FR_CON/index.do?MENU_ID=490" title="" data-menuno="490" data-sub="Y" target="_self" ><span>사이트맵</span></a>
+						</li>
+		           	
+           	 	
+            </ul>
+		</nav>		
+		
+		<div class="util">
+			<a href="http://www.kyonggi.ac.kr/KyonggiUp.kgu" class="topHome">경기대학교</a>
+			<button type="button" class="btn_topSitemap">사이트맵</button>
+			
+				<button type="button" class="btn_topPopzone">KGU NOTICE</button>
+			
+	    </div>
+		
+		<a href="#none" class="mBtn_home">메인페이지</a>
+		<button class="mBtn_close">메뉴 닫기</button> 
+
+	</header>
+</div>			
+
+
+	<!-- container -->
+	<div id="container">
+
+		<!-- 서브 비주얼 -->
+		<!-- 사이트맵 비주얼 처리 추가 -->
+		
+		
+		<div class="sVisual" style="background-image:url(/ajaxfile/CMN_SVC/FileView.do?GBN=X03&SITE_NO=2&MENU_NO=90);"><!-- pc 서브비주얼 -->
+		    <div style="background-image:url(/ajaxfile/CMN_SVC/FileView.do?GBN=X03&SITE_NO=2&MENU_NO=90&MOBILE=Y)"></div><!-- mobile 서브비주얼 -->
+		    <strong>자료실<br/><span></span></strong>
+		</div>
+		<!-- //서브 비주얼 -->
+		
+		<script>
+		var gnbDep1 = 0;
+		var gnbDep2 = 0;
+		var gnbDep3 = 0;
+		
+			gnbDep1 = 6;
+		
+		
+			gnbDep2 = 1;
+		
+		</script>
+	
+		
+
+<script>
+$(function(){
+	$(document).on("click", ".btn_print", function(){
+		window.print();
+	});
+	
+	
+	$(".snb_area").find("button").not(".bzs").eq(2).hide();
+	
+});
+</script>
+<nav id="snb_nav">
+    <div class="snb_area">
+        <a class="btn_home" href="/index.do" title="홈">HOME</a>
+        
+        
+        <ul id="snb">
+        	
+            
+	           	<li class="child" data-menuno="30" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=30" target="_self">수시</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="120" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=120" target="_self">모집요강</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="130" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=130" target="_self">전년도 입학통계(2026~2024)</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="240" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=240" target="_self">내신성적산출</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="40" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=40" target="_self">정시</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="140" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=140" target="_self">모집요강</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="150" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=150" target="_self">전년도 입학통계(2026~2024)</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="50" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=50" target="_self">편입학</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="160" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=160" target="_self">모집요강</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="170" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=170" target="_self">전년도 입학통계</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="60" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=60" target="_self">재외국민</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="180" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=180" target="_self">모집요강</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="500" data-sub="N" >
+		           			<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=kgoia" target="_blank">외국인 모집 안내</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="80" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=80" target="_self">정보센터</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="210" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=210" target="_self">공지사항</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="220" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=220" target="_self">상담 및 요청</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="260" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=260" target="_self">실기고사/서류제출</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="270" data-sub="Y" style="display:none;">
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=270" target="_self">입시캘린더</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="250" data-sub="N" >
+		           			<a href="https://consult.mncapro.co.kr/solution/kyonggi/" target="_self">합격예측프로그램</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="530" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=530" target="_self">입학설명회 신청</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="560" data-sub="Y" style="display:none;">
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=560" target="_self">고교연계프로그램</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="600" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=600" target="_self">교직원 회피 자진신고</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="620" data-sub="Y" style="display:none;">
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=620" target="_self">KGU 온라인 진로진학 Navi</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="630" data-sub="Y" style="display:none;">
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=630" target="_self">고교별 합격자 조회 신청</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="640" data-sub="Y" style="display:none;">
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=640" target="_self">[고교학점제] 교육과정 지원</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="660" data-sub="Y" style="display:none;">
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=660" target="_self">체육계열 모의실기</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="670" data-sub="Y" style="display:none;">
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=670" target="_self">찾아가는 모의전형(고교 방문형)</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="680" data-sub="Y" style="display:none;">
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=680" target="_self">KGU 학생부종합 모의전형</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="700" data-sub="Y" style="display:none;">
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=700" target="_self">찾아가는 전공탐색 지원 – BARUN 멘토단</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="90" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=90" target="_self">자료실</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="280" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=280" target="_self">모집요강</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="290" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=290" target="_self">기출문제</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="300" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=300" target="_self">입학통계</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="650" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=650" target="_self">가이드북</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="340" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=340" target="_self">서식자료실</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="330" data-sub="N" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=330" target="_self">선행학습영향평가</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="100" data-sub="Y" style="display:none;">
+					<a href="/cms/FR_CON/index.do?MENU_ID=100" target="_self">고교연계</a>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="110" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=110" target="_self">KGU소개</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="590" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=590" target="_self">전형안내 및 홍보</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="420" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=420" target="_blank">학과 소개</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="410" data-sub="N" >
+		           			<a href="http://elitekorea2133.cafe24.com/kyonggi " target="_blank">진로취업가이드북</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="430" data-sub="N" >
+		           			<a href="https://www.kyonggi.ac.kr/www/contents.do?key=5815" target="_blank">학생 생활안내</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="440" data-sub="N" >
+		           			<a href="https://www.kyonggi.ac.kr/www/contents.do?key=5151" target="_blank">캠퍼스 안내(VR 캠퍼스)</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="720" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=720" target="_self">BARUN 멘토단</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="490" data-sub="Y" style="display:none;">
+					<a href="/cms/FR_CON/index.do?MENU_ID=490" target="_self">사이트맵</a>
+					
+	           	</li>
+          	 
+          	 
+        </ul>
+        
+        
+        <span class="btn_snbView"><a href="#none">메뉴 전체</a></span>
+
+        <div class="snb_util">
+            <fieldset class="zoom">
+				<legend>글자 확대축소 영역</legend>
+                <button type="button" class="bzs btn_zoomOut">축소</button>
+				<button type="button" class="bzs btn_zoomIn">확대</button>
+			</fieldset>
+            <button type="button" class="btn_print">인쇄</button>
+<!--             <button type="button" class="btn_share">공유</button> -->
+            <!-- 공유박스 -->
+            <div class="shareBox">
+				<ul>
+<!-- 					<li><a href="#" class="sns_facebook" title="새창">페이스북</a></li> -->
+<!-- 					<li><a href="#" class="sns_nBlog" title="새창">블로그</a></li> -->
+<!--                     <li><a href="#" class="sns_twitter" title="새창">트위터</a></li> -->
+					<li><a href="#" class="sns_urlCopy" title="새창">URL 복사</a></li> 
+				</ul>
+			</div>
+            <!-- //공유박스 -->
+            <button type="button" class="btn_top">위로</button>
+        </div>
+	</div>
+	
+	<iframe title="빈공간" class="iframefaker" src="about:blank" style="height:100%;"></iframe>
+</nav>
+
+		<div id="contents">
+			<h2 class="pageTit">모집요강</h2>
+			
+							
+								
+					        		
+        						
+					        		
+        						
+					        		
+        		        		
+        					
+								
+					        		
+        						
+					        		
+        		        		
+        					
+								
+					        		
+        						
+					        		
+        		        		
+        					
+								
+					        		
+        						
+					        		
+        		        		
+        					
+								
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        		        		
+        					
+								
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        		        		
+        					
+				        		
+        					
+								
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        						
+					        		
+        		        		
+        					
+				        		
+        	
+        		
+			<article>
+				
+
+				
+					<div id="contTab">
+				        <div class="tabList">
+				        	
+				        		<div class="unit">
+									
+		                  			
+		                      			<a href="/cms/FR_CON/index.do?MENU_ID=280&CONTENTS_NO=3" class="on">전체</a>
+		                  			
+								</div>
+				        	
+				        		<div class="unit">
+									
+		                  			
+		                      			<a href="/cms/FR_CON/index.do?MENU_ID=280&CONTENTS_NO=4" >공통</a>
+		                  			
+								</div>
+				        	
+				        		<div class="unit">
+									
+		                  			
+		                      			<a href="/cms/FR_CON/index.do?MENU_ID=280&CONTENTS_NO=5" >수시</a>
+		                  			
+								</div>
+				        	
+				        		<div class="unit">
+									
+		                  			
+		                      			<a href="/cms/FR_CON/index.do?MENU_ID=280&CONTENTS_NO=6" >정시</a>
+		                  			
+								</div>
+				        	
+				        		<div class="unit">
+									
+		                  			
+		                      			<a href="/cms/FR_CON/index.do?MENU_ID=280&CONTENTS_NO=1" >편입학</a>
+		                  			
+								</div>
+				        	
+				        		<div class="unit">
+									
+		                  			
+		                      			<a href="/cms/FR_CON/index.do?MENU_ID=280&CONTENTS_NO=2" >재외국민</a>
+		                  			
+								</div>
+				        	
+				        </div>
+				    </div>
+				
+				
+				<!--컨텐츠 위치-->
+	            
+
+<script>
+var gbn = '';
+
+$().ready(function() {
+	
+	fn_detail();
+	
+
+	$(".btn_reply").click(function(){
+		$("#sendForm").attr("action", "BoardReplyWrite.do");
+	    $("#sendForm").submit();
+	});
+	
+	$(".shareArea .btnC_share").click(function(){
+		$(this).toggleClass('on');
+		$(".shareArea .shareBox").toggle();
+		shareBox_act();
+	});
+
+	$(".shareArea .shareBox li>a").click(function(){
+		$(".shareArea .shareBox").toggle();
+		shareBox_act();
+	});
+
+	$("div#dim").click(function(){
+		$(this).removeClass("on");
+		$(".shareArea .shareBox").toggle();
+	});
+
+	$(window).resize(function(){
+		if($(".shareArea .shareBox").css('display') == 'block'){
+			$(".shareArea .shareBox").toggle();
+			shareBox_act();
+		}
+	});
+	
+	$(document).on("click","button.modify", function(){
+		
+        $("#sendForm").attr("action", "BoardWrite.do");
+	    $("#sendForm").submit();
+	});
+	$(document).on("click","button.delete",function(){
+		
+        boardItemDel();
+    });
+	
+	$(document).on("click",".btnArea_v .list",function(){
+// 		$("#sendForm").attr("action", "/cms/FR_CON/index.do");
+// 	    $("#sendForm").submit();     
+		location.href = "/cms/FR_CON/index.do?"+$("#sendForm").serialize();
+	});
+	
+	$(document).on("click","button.reply",function(){
+    	
+	    $("#sendForm input:hidden[name=P_BBS_SEQ]").val($("#sendForm input:hidden[name=BBS_SEQ]").val());
+	    $("#sendForm input:hidden[name=BBS_SEQ]").val("");
+	        
+		$("#sendForm").attr("action", "BoardReply.do");
+	    $("#sendForm").submit();
+    });
+	
+	$(document).on("click",".btn_preview",function(){
+		fn_comm_ajax({
+	        url : "/ajaxf/CMN_SVC/PreviewFile.do",
+	        data : $("#prvForm").serialize()+'&GBN=Y02&SITE_NO='+$(this).data("siteno")+'&BOARD_SEQ='+$(this).data("boardseq")+'&BBS_SEQ='+$(this).data("bbsseq")+'&FILE_SEQ='+$(this).data("fileseq"),
+	        dataType : "json",
+	        success : function(data) {
+	        	if(data.result == '1'){
+	        		window.open(data.previewUrl);
+	        	}else{
+	        		alert('미리보기에 실패했습니다. 관리자에게 문의하세요.');
+	        	}
+	        }
+	    });
+    });
+	
+	
+	//*************** 댓글 Function **************//
+	$(document).on("click",".btn .btn_upt", function(){
+		
+		if($(this).data("anno")=="Y"){
+			if("false"){
+				ifrSiteMapPop('PwdPop','/cms/FR_BBS_CON/PwdChkPop.do?GBN=COMMENT_MODI&SITE_NO='+$("#sendForm [name=SITE_NO]").val()+'&BOARD_SEQ='+$("#sendForm [name=BOARD_SEQ]").val()+'&BBS_SEQ='+$("#sendForm [name=BBS_SEQ]").val()+'&COMMENT_SEQ='+$(this).data("seq")+'&MENU_ID='+$("#sendForm [name=MENU_ID]").val());
+				return;
+			} else {
+				alert('권한이 없습니다');
+			}
+		}
+		
+		$(".replyArea #tbody fieldset").remove();
+		$(".replyArea #tbody p").show();
+		$(this).parents("li").find("p").hide();
+		$(".replyArea #tbody .btn").show();
+		$(this).parents("li").find(".btn").hide();
+		var modiTag = '<fieldset>';
+		modiTag += '<legend>댓글 수정</legend>';
+		modiTag += '<textarea class="inp_area" name="COMMENT_CONT" title="댓글 내용 수정창"></textarea>';
+		modiTag += '<div class="btn"><button class="btn_txtCancel btn_cancel" type="button">취소</button><button class="btn_txtWrite btn_save" type="button">등록</button></div>';
+		modiTag += '</fieldset>';
+		
+		$(modiTag).appendTo($(this).parents("li"));
+		$(this).parents("li").find("textarea[name=COMMENT_CONT]").val($(this).parents("li").find("p").data("conts"));
+	});
+	
+	$(document).on("click",".btn .btn_del", function(){
+		
+		
+		
+		if($(this).data("anno")=="Y"){
+			ifrSiteMapPop('PwdPop','/cms/FR_BBS_CON/PwdChkPop.do?'+$("#commentForm").serialize()+'&GBN=COMMENT_DEL&SITE_NO='+$("#sendForm [name=SITE_NO]").val()+'&BOARD_SEQ='+$("#sendForm [name=BOARD_SEQ]").val()+'&BBS_SEQ='+$("#sendForm [name=BBS_SEQ]").val()+'&COMMENT_SEQ='+$(this).data("seq"));
+	        return;
+		}
+		
+		var idno = $(this).parents("li").data("idno");
+	    
+	    fn_comm_ajax({
+	        url : "/ajaxf/FR_BBS_SVC/BoardCommentDel.do",
+	        data : $("#commentForm").serialize()+"&COMMENT_SEQ="+idno,
+	        dataType : "json",
+	        success : function(data) {
+	        	if(data == 1){
+	        		$("#commentForm [name=pageNo]").val("1");
+                    fn_comment_list();
+                }else if(data == 2){
+                    alert("세션이 만료되었습니다.");
+                }else{
+                    alert("삭제에 실패했습니다. 관리자에 문의하세요.");
+                }
+	        }
+	    });
+	});
+	
+	$(document).on("click",".btn .btn_save", function(){
+		
+	    if($(this).parent().parent().find("textarea").val().trim() == ""){
+	        alert('댓글을 입력하세요.');
+	        return;
+	    }
+	    var idno = $(this).parents("li").data("idno");
+	    
+	    fn_comm_ajax({
+	        url : "/ajaxf/FR_BBS_SVC/BoardCommentModi.do",
+	        data : $("#commentForm").serialize()+"&COMMENT_SEQ="+idno,
+	        dataType : "json",
+	        success : function(data) {
+	            if(data == 1){
+	                fn_comment_list();
+	            }else if(data == 2){
+	                alert("세션이 만료되었습니다.");
+	            }else{
+	                alert("저장에 실패했습니다. 관리자에 문의하세요.");
+	            }
+	        }
+	    });
+	});
+	
+	$(document).on("click",".btn .btn_cancel", function(){
+		$(".replyArea #tbody fieldset").remove();
+		$(".replyArea #tbody p").show();
+		$(".replyArea #tbody .btn").show();
+	});
+	//*************** 댓글 Function **************//
+});
+
+function fn_view(pwd){
+	$("#sendForm [name=PWD]").val(pwd);
+	if(gbn == 'MODI'){
+		if($("#sendForm input:hidden[name=P_BBS_SEQ]").val() == ""){
+        	$("#sendForm").attr("action", "BoardWrite.do");
+    	    $("#sendForm").submit();
+        }else{
+        	var pBbsSeq = $("#sendForm input:hidden[name=P_BBS_SEQ]").val();
+        	$("#sendForm").attr("action", "BoardReply.do");
+    	    $("#sendForm").submit();
+        }
+	}else{
+		boardItemDel();
+	}
+}
+
+function fn_comm_act(type, seq){
+	if(type=="COMMENT_MODI"){
+		ifrPopClose('PwdPop');
+		$(".replyArea #tbody fieldset").remove();
+		$(".replyArea #tbody p").show();
+		$("#tbody").find("[data-idno="+seq+"]").find("p").hide();
+		$(".replyArea #tbody .btn").show();
+		$("#tbody").find("[data-idno="+seq+"]").find(".btn").hide();
+		var modiTag = '<fieldset>';
+		modiTag += '<legend>댓글 수정</legend>';
+		modiTag += '<textarea class="inp_area" name="COMMENT_CONT" title="댓글 내용 수정창"></textarea>';
+		modiTag += '<div class="btn"><button class="btn_txtCancel btn_cancel" type="button">취소</button><button class="btn_txtWrite btn_save" type="button">등록</button></div>';
+		modiTag += '</fieldset>';
+		
+		$(modiTag).appendTo($("#tbody").find("[data-idno="+seq+"]")); //$(this).parents("li")
+		$("#tbody").find("[data-idno="+seq+"]").find("textarea[name=COMMENT_CONT]").val($("#tbody").find("[data-idno="+seq+"]").find("p").data("conts"));
+	}else if(type=="COMMENT_DEL"){
+		ifrPopClose('PwdPop');
+		var idno = seq;
+	    fn_comm_ajax({
+	        url : "/ajaxf/FR_BBS_SVC/BoardCommentDel.do",
+	        data : $("#commentForm").serialize()+"&COMMENT_SEQ="+idno,
+	        dataType : "json",
+	        success : function(data) {
+	        	if(data == 1){
+	        		$("#commentForm [name=pageNo]").val("1");
+                    fn_comment_list();
+                }else if(data == 2){
+                    alert("세션이 만료되었습니다.");
+                }else{
+                    alert("삭제에 실패했습니다. 관리자에 문의하세요.");
+                }
+	        }
+	    });
+	}
+}
+
+function fn_detail(){
+    if($("#sendForm input:hidden[name=BBS_SEQ]").val() == ''){
+        return;
+    }
+    
+    fn_comm_ajax({
+        url : "/ajaxf/FR_BBS_SVC/BoardViewData.do",
+        data : $("#sendForm").serialize()+"&CONTENTS_NO=3",
+        dataType : "json",
+        success : function(data) {
+            
+            $("#sendForm").fn_comm_setValue(data);
+            
+            var headerTag = '';
+            if(data.CATE_NM != null && data.CATE_NM != ''){
+            	headerTag = '['+data.CATE_NM+'] &nbsp;';
+            }
+            headerTag += data.SUBJECT;
+            
+            $("div.lineList_v dt .txtL p").html(headerTag);    
+
+            headerTag = '';
+			if("N" == "Y" || "Y" == "Y" || "Y" == "Y"){
+	            if("N" == "Y"){
+	            	headerTag += '<span class="writer">'+data.WRITER_NM+'</span>';
+	            }
+	            if("Y" == "Y"){
+	            	headerTag += '<span class="date">'+data.WRITE_DT+'</span>';
+	            }
+	            if("Y" == "Y"){
+	            	headerTag += '<span class="view">조회&nbsp;'+data.HITS+'</span>';
+	            }
+			}
+			
+			$(".lineList_v .txtInfo").html(headerTag);
+            
+            $("head meta[name=title]").attr("content",data.SUBJECT);
+            
+            
+            var conts = '';
+            if(data.CONTENTS != null && data.CONTENTS.indexOf("<") == 0){
+            	
+                conts = $(data.CONTENTS).text();
+            }else{
+                conts = data.CONTENTS;
+            }
+
+            $("head meta[name=description]").attr("content",conts);
+            
+            if(/<[a-z][\s\S]*>/i.test(data.CONTENTS)) //에디터 작성글(html)인지 체크
+            {
+                $(".lineList_v .view_txt").html(data.CONTENTS);
+				// '유형 선택 : HTML' 선택 시 스타일 속성 background:url 태그 에러 HTML엔터티 변환으로 조치 240520 start
+				/*
+				var contents = data.CONTENTS;
+				var result = "";
+				var backgroundStyleMatches = contents.match(/background*[^;]+:*[^;]+url\([^)]*\);?/gi);
+				if (backgroundStyleMatches) {
+					$.each(backgroundStyleMatches, function(k, v) {
+						result = v.replace(/"/g, '&apos;');
+						result = contents.replace(v, result);
+						contents = result;
+					});
+				} else {
+					result = contents;
+				}
+				$(".lineList_v .view_txt").html(result);
+				 */
+				// '유형 선택 : HTML' 선택 시 스타일 속성 background:url 태그 에러 HTML엔터티 변환으로 조치 240520 end
+            }
+            else
+           	{
+                $(".lineList_v .view_txt").html(data.CONTENTS.replace(/\n/g,"<br/>"));
+           	}
+        }
+    });
+}
+
+function boardItemDel(){
+	if(!confirm("삭제하시겠습니까?")) {
+        return;
+    }
+    
+    fn_comm_ajax({
+        url : "/ajaxf/FR_BBS_SVC/BoardItemDel.do",
+        data : $("#sendForm").serialize(),
+        dataType : "json",
+        success : function(data) {
+            if(data == 1){
+            	alert("삭제되었습니다.");
+                $("#sendForm").attr("action", "/cms/FR_CON/index.do");
+        	    $("#sendForm").submit();
+            }else if(data == 9){
+            	alert("삭제권한이 없습니다.");
+            }else{
+                alert("삭제에 실패했습니다. 관리자에 문의하세요.");
+            }
+        }
+    });
+}
+
+function textareaBytes(obj){
+	var text = $(obj).val();
+	$(obj).parents("fieldset").find("span").text(getTextBytes(text));
+}
+
+function getTextBytes(str){
+	var len = 0;
+	for(var i =0; i< str.length; i++){
+		if(escape(str.charAt(i)).length == 6){
+			len++;
+		}
+		len++;
+	}
+	return len;
+}
+
+function fn_comment_list(){
+    
+    fn_comm_ajax({
+        url : "/ajaxf/FR_BBS_SVC/BoardCommentListData.do",
+        data : $("#commentForm").serialize(),
+        dataType : "json",
+        success : function(data) {
+        	
+            fn_comm_setList("#tbody", data, "#listTemplate", "#noListTemplate", ".replyArea .num", ".pagination");       	
+            
+            if($("#commentForm .list li").length > 0){    
+            	$("#tbody").show(); 
+            	$(".pagination").show();
+            	$(".replyArea .tit").show();
+            }else{
+            	$("#tbody").hide();
+            	$(".pagination").hide();
+            	$(".replyArea .tit").hide();
+            }
+            
+            $("#commentForm .list li").each(function(){
+            	var org = $(this).find("p").text();
+            	$(this).find("p").html(org.replace(/\n/g,"<br/>"));
+        	});
+        }
+    });
+}
+
+function fn_comment_save(){
+    //validation check
+    
+	if($("#commentForm input[name=WRITER_NM]").val().trim() == ""){
+        alert('댓글 작성자명을 입력하세요.');
+        return false;
+    }
+	if($("#commentForm input[name=PASSWD]").val().trim() == ""){
+        alert('댓글 확인번호를 입력하세요.');
+        return false;
+    }
+    
+    if(document.commentForm.CONTENTS.value == ""){
+        alert('댓글을 입력하세요.');
+        return;
+    }
+    
+    if(!confirm("저장하시겠습니까?")) {
+        return;
+    }
+
+    fn_comm_ajax({
+        url : "/ajaxf/FR_BBS_SVC/BoardCommentSave.do",
+        data : $("#commentForm").serialize(),
+        dataType : "json",
+        success : function(data) {
+            if(data == 1){
+            	document.commentForm.CONTENTS.value = "";
+            	document.commentForm.WRITER_NM.value = "";
+            	document.commentForm.PASSWD.value = "";
+                fn_comment_list();
+            }else{
+                alert("저장에 실패했습니다. 관리자에 문의하세요.");
+            }
+        }
+    });
+}
+
+function linkPage(pageNo){
+    $("#commentForm [name='pageNo']").val(pageNo);
+    fn_comment_list();
+}
+
+function fileDown(obj){
+    location.href="/ajaxfile/FR_SVC/FileDown.do?GBN=X01&BOARD_SEQ="+$(obj).data("boardseq")+"&SITE_NO="+$(obj).data("siteno")+"&BBS_SEQ="+$(obj).data("bbsseq")+"&FILE_SEQ="+$(obj).data("fileseq");
+}
+
+function prev(){
+	$("#sendForm input:hidden[name=BBS_SEQ]").val($("#sendForm input:hidden[name=PREV_IDX]").val());
+	$("#sendForm").attr("action", "BoardView.do");
+    $("#sendForm").submit();
+}
+
+function next(){
+	$("#sendForm input:hidden[name=BBS_SEQ]").val($("#sendForm input:hidden[name=NEXT_IDX]").val());
+	$("#sendForm").attr("action", "BoardView.do");
+    $("#sendForm").submit();
+}
+
+function shareBox_act(){
+	if($("#dim").attr("class") == "on"){
+		$("#dim").removeClass("on");
+	}else{
+		$("#dim").addClass("on");
+	}
+}
+</script>
+<!-- board -->
+<div class="board_area">
+	<form id="sendForm" method="post">
+	    <input type="hidden" name="MENU_ID" id="MENU_ID" value="280"/>
+	    <input type="hidden" name="CONTENTS_NO" value="3"/>
+	    <input type="hidden" name="SITE_NO" value="2"/>
+	    <input type="hidden" name="BOARD_SEQ" value="3"/>
+	    <input type="hidden" name="BBS_SEQ" value="4056"/>
+	    <input type="hidden" name="P_BBS_SEQ" />
+	    <input type="hidden" name="CATE_SEQ"/>
+		<input type="hidden" name="PWD" />
+	    <input type="hidden" name="pageNo" id="pageNo" value=""/>
+	    <input type="hidden" name="SEARCH_SEQ" value=""/>
+	    <input type="hidden" name="SEARCH_FLD" value=""/>
+	    <input type="hidden" name="SEARCH" value=""/>
+	    <input type="hidden" name="PREV_IDX" value="4057"/>
+	    <input type="hidden" name="NEXT_IDX" value="4055"/>
+	</form>
+	
+	<div class="lineList_v">
+		<dl>
+			<dt>
+				<div class="txtL">
+					<p></p>
+				</div>
+				<div class="txtInfo">
+				</div>
+			</dt>
+			<dd>
+				<p class="view_txt">
+				</p>
+				<div class="fileArea">
+					
+						<p> 
+							<a href="#;" title="다운로드" data-boardseq="3" data-siteno="2" data-bbsseq="4056" data-fileseq="7" onclick="fileDown(this);">2027학년도 재외국민 모집요강(배포용).hwp</a>
+
+		                </p>
+					
+						<p> 
+							<a href="#;" title="다운로드" data-boardseq="3" data-siteno="2" data-bbsseq="4056" data-fileseq="8" onclick="fileDown(this);">2027학년도 재외국민 모집요강(배포용).pdf</a>
+
+		                </p>
+					 
+					<!-- <p>
+						<a href="#none">Plan for admission to the 2018 school year.hwp [517.6KB]</a>
+					</p> -->
+				</div>
+			</dd>
+		</dl>
+	</div>
+
+		<div class="btnArea_v " >
+			<div class="txtC">
+				 
+				<button type="button" class="btnC_arrR Gray list"><span>목록</span></button>
+			</div>
+		</div>
+	
+	
+
+	
+    
+    <!-- 이전글/다음글 -->
+    <div class="prevNnext">
+	    <ul>
+	        <li class="prev">
+	            <strong>이전글</strong>
+	        
+	            
+	            
+	            
+	                <p class="article">
+						<a href="#;" onclick="prev();" title="이전글">
+							
+								[정시]
+		            		
+							2027학년도 정시모집 모집요강
+						</a>
+					</p>
+	            
+	        
+	        </li>
+	        <li class="next">
+	            <strong>다음글</strong>  
+	        
+	            
+	            
+	            
+	            	<p class="article">
+						<a href="#;" onclick="next();" title="다음글">
+							
+								[수시]
+		            		
+							2027학년도 수시모집 모집요강
+						</a>
+					</p>
+	            
+	        
+	        </li>
+	    </ul>
+    </div>
+    <!-- //이전글/다음글 -->
+    
+    
+
+</div>
+<!-- //board -->
+<form id="prvForm" target="_blank"></form>
+
+	            <!--/컨텐츠 위치-->
+				
+				
+				
+			</article>
+		</div>
+		
+
+
+<div id="footer">
+	
+	
+	<div id="quick_menu">
+		<div class="q_top">
+			<button type="button" class="btn_menu">관련사이트</button>
+			<button type="button" class="btn_menu">학과홈페이지</button>
+		</div>
+	</div>
+	
+	<div class="pop_wrap" id="familySite1"> 
+		<!-- popup layer(레이어) -->
+		<section class="popLayout2 popLayer">
+			<h1 class="popTit">관련사이트</h1>
+
+			<div class="popConts">
+			<!-- 팝업 내용 입력-->
+				<div class="popInner limit">
+					<div class="pop_familySite list_dot">
+						<ul>
+							
+								<li>
+									<a href="http://www.kyonggi.ac.kr/struts/siteLinkHit.kgu?srvCode=12" target="_blank" title="새창">
+										인터넷 증명발급
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://job.kyonggi.ac.kr/" target="_blank" title="새창">
+										취업지원센터
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.cnsu.ac.kr/" target="_blank" title="새창">
+										창업지원단
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://library.kyonggi.ac.kr/" target="_blank" title="새창">
+										중앙도서관
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://keumhwa.kyonggi.ac.kr/" target="_blank" title="새창">
+										금화도서관
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://museum.kyonggi.ac.kr/" target="_blank" title="새창">
+										소성박물관
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=kgumedia" target="_blank" title="새창">
+										신문방송사
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=comcenter" target="_blank" title="새창">
+										전산정보원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://dorm.kyonggi.ac.kr/" target="_blank" title="새창">
+										생활관
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=HealthSeoul" target="_blank" title="새창">
+										건강증진센터(수원)
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=HealthSeoul" target="_blank" title="새창">
+										건강증진센터분소(서울)
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=reservist" target="_blank" title="새창">
+										직장예비군연대(수원)
+									</a>
+								</li>
+							
+						</ul>
+					</div>
+
+				</div>
+			<!-- //팝업 내용 입력 -->
+			</div>
+
+			<button type="button" class="btn_popClose">창닫기</button>
+		</section>
+		<!-- //popup layer(레이어) -->
+	</div>
+
+	<div class="pop_wrap" id="familySite2">
+		<!-- popup layer(레이어) -->
+		<section class="popLayout2 popLayer">
+			<h1 class="popTit">학과홈페이지</h1>
+
+			<div class="popConts">
+			<!-- 팝업 내용 입력-->
+				<div class="popInner limit">
+					<div class="pop_familySite list_noTit">
+						<ul>
+						
+							<li>
+								<strong>융합교양대학</strong>
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=ktep" target="_blank" title="새창">
+											교직학부
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=writing" target="_blank" title="새창">
+											교양학부
+										</a>
+									
+								
+									
+										<a href="https://commu.kyonggi.ac.kr/" target="_blank" title="새창">
+											의사소통센터
+										</a>
+									
+								
+									
+										<a href="https://commu.kyonggi.ac.kr/" target="_blank" title="새창">
+											감성SW교육센터
+										</a>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							</li>
+						
+							<li>
+								<strong>인문대학</strong>
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=childed" target="_blank" title="새창">
+											유아교육과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=kkll" target="_blank" title="새창">
+											국어국문학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=english" target="_blank" title="새창">
+											영어영문학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=kcll" target="_blank" title="새창">
+											중어중문학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=history" target="_blank" title="새창">
+											사학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=klis" target="_blank" title="새창">
+											문헌정보학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=kucw" target="_blank" title="새창">
+											문예창작학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=deutsch" target="_blank" title="새창">
+											[글로벌어문학부] 독어독문전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=francais" target="_blank" title="새창">
+											[글로벌어문학부] 프랑스어문전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=kjll" target="_blank" title="새창">
+											[글로벌어문학부] 일어일문전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=Russia" target="_blank" title="새창">
+											[글로벌어문학부] 러시아어문전공
+										</a>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							</li>
+						
+							<li>
+								<strong>예술체육대학</strong>
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=westernArt" target="_blank" title="새창">
+											서양화 · 미술경영학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=solidMoulding" target="_blank" title="새창">
+											입체조형학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=koreanCalligraphy" target="_blank" title="새창">
+											한국화 · 서예학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=physicaleducation" target="_blank" title="새창">
+											체육학과
+										</a>
+									
+								
+									
+										<a href="http://kguid.com/" target="_blank" title="새창">
+											[디자인비즈학부] 산업디자인전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=visual" target="_blank" title="새창">
+											[디자인비즈학부] 시각정보디자인전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=jewelrymetal" target="_blank" title="새창">
+											[디자인비즈학부] 장신구금속디자인전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=ksmm" target="_blank" title="새창">
+											[스포츠과학부] 스포츠레저산업전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=kgsls" target="_blank" title="새창">
+											[스포츠과학부] 스포츠건강과학전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=security" target="_blank" title="새창">
+											시큐리티매니지먼트학과
+										</a>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							</li>
+						
+							<li>
+								<strong>지식정보서비스대학</strong>
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=lawcollege1" target="_blank" title="새창">
+											법학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=publicadmin" target="_blank" title="새창">
+											행정학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=police" target="_blank" title="새창">
+											경찰행정학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=welfare" target="_blank" title="새창">
+											[휴먼서비스학부] 사회복지전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=corrections" target="_blank" title="새창">
+											[휴먼서비스학부] 교정보호전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=youth" target="_blank" title="새창">
+											[휴먼서비스학부] 청소년전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=inter2_college" target="_blank" title="새창">
+											국제산업정보학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=economy" target="_blank" title="새창">
+											[경제학부] 경제전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=stat" target="_blank" title="새창">
+											[경제학부] 응용통계전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=intellectual" target="_blank" title="새창">
+											지식재산학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=kgbiz" target="_blank" title="새창">
+											경영학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=trade" target="_blank" title="새창">
+											무역학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=Accounting" target="_blank" title="새창">
+											[회계세무 · 경영정보학부] 회계세무전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=kmis" target="_blank" title="새창">
+											[회계세무 · 경영정보학부] 경영정보전공
+										</a>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							</li>
+						
+							<li>
+								<strong>관광문화대학</strong>
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=tourismmanagementss" target="_blank" title="새창">
+											관광경영학과 
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=tourec" target="_blank" title="새창">
+											관광개발학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=hotelmanagement" target="_blank" title="새창">
+											호텔경영학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=restaurantmgr" target="_blank" title="새창">
+											외식·조리학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=kuem" target="_blank" title="새창">
+											관광이벤트학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=acting" target="_blank" title="새창">
+											연기학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=animation" target="_blank" title="새창">
+											애니메이션영상학과
+										</a>
+									
+								
+									
+										<a href="http://kgumedia.kgu.ac.kr/html/" target="_blank" title="새창">
+											미디어영상학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=restaurantscience" target="_blank" title="새창">
+											외식조리과학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=edmusic" target="_blank" title="새창">
+											실용음악학과
+										</a>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							</li>
+						
+							<li>
+								<strong>창의공과대학</strong>
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=civil" target="_blank" title="새창">
+											토목공학과
+										</a>
+									
+								
+									
+										<a href="#" target="_blank" title="새창">
+											건축학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=arengr" target="_blank" title="새창">
+											건축공학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=industrial" target="_blank" title="새창">
+											산업경영공학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=material" target="_blank" title="새창">
+											신소재공학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=EnvironmentalEngineering" target="_blank" title="새창">
+											환경에너지공학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=kuee" target="_blank" title="새창">
+											전자공학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=traffic" target="_blank" title="새창">
+											도시교통공학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=msde" target="_blank" title="새창">
+											기계시스템공학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=chemeng" target="_blank" title="새창">
+											화학공학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=mathematics" target="_blank" title="새창">
+											건축안전공학과(계약학과)
+										</a>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							</li>
+						
+							<li>
+								<strong>융합과학대학</strong>
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=mathematics" target="_blank" title="새창">
+											수학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=physics" target="_blank" title="새창">
+											전자물리학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=chemistry" target="_blank" title="새창">
+											화학과
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=lifesciencek" target="_blank" title="새창">
+											[바이오융합학부] 생명과학전공
+										</a>
+									
+								
+									
+										<a href="http://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=fsbt" target="_blank" title="새창">
+											[바이오융합학부] 식품생물공학전공 
+										</a>
+									
+								
+									
+										<a href="https://www.kyonggi.ac.kr/KyonggiTpSrv.kgu?cxt=computer" target="_blank" title="새창">
+											컴퓨터공학부
+										</a>
+									
+								
+									
+										<a href="#" target="_blank" title="새창">
+											융합보안학과
+										</a>
+									
+								
+									
+										<a href="http://nano.kgu.ac.kr/" target="_blank" title="새창">
+											나노공학과
+										</a>
+									
+								
+							</li>
+						
+						</ul>
+					</div>
+
+				</div>
+			<!-- //팝업 내용 입력 -->
+			</div>
+
+			<button type="button" class="btn_popClose">창닫기</button>
+		</section>
+		<!-- //popup layer(레이어) -->
+	</div>
+	
+	<footer>
+		<ul class="f_menu">
+			
+				<li class="point"><a href="http://www.kyonggi.ac.kr/webService.kgu?menuCode=K00M0502" target="_blank" title="개인정보처리방침 바로가기 :새창열림">개인정보처리방침</a></li>
+			
+				<li ><a href="http://www.kyonggi.ac.kr/univInfoSrv.kgu?mzcode=K00M0101&orgCd=K0102" target="_blank" title="찾아오시는 길 바로가기 :새창열림">찾아오시는 길</a></li>
+			
+				<li ><a href="http://www.kyonggi.ac.kr/univInfoSrv.kgu?mzcode=K00M0101&orgCd=K0102" target="_blank" title="학과소개 바로가기 :새창열림">학과소개</a></li>
+			
+		</ul> 
+		<ul class="f_sns">
+			
+				<li>
+					<a href="https://www.youtube.com/channel/UCcYnnxV8-7XUeHVXDZngzxg" style="background-image:url(/ajaxfile/CMN_SVC/FileView.do?GBN=X08&BASIC_SEQ=2&INFO_SEQ=1&FOOTER_GBN=C0904)" target="_blank" title="새창">
+						유튜브
+					</a>
+				</li>
+			
+				<li>
+					<a href="https://ko-kr.facebook.com/kyonggiuniv1/" style="background-image:url(/ajaxfile/CMN_SVC/FileView.do?GBN=X08&BASIC_SEQ=2&INFO_SEQ=2&FOOTER_GBN=C0904)" target="_blank" title="새창">
+						페이스북
+					</a>
+				</li>
+			
+				<li>
+					<a href="https://www.instagram.com/kyonggi_univ/" style="background-image:url(/ajaxfile/CMN_SVC/FileView.do?GBN=X08&BASIC_SEQ=2&INFO_SEQ=3&FOOTER_GBN=C0904)" target="_blank" title="새창">
+						인스타그램
+					</a>
+				</li>
+			
+		</ul>
+
+		<address>
+			 			 <p>
+				 <span>수원캠퍼스 (16227) 경기도 수원시 영통구 광교산로 154-42</span>
+				 <span>서울캠퍼스 (03746) 서울특별시 서대문구 경기대로 9길 24</span>
+			 </p>
+			 <span>대표 031-249-9997 ~9999</span>
+			 <span>학생부종합 031-249-1670~1680</span> 
+		</address>
+		<p class="copyright">© 2020 BY KYONGGI UNIVERSITY. <br />ALL RIGHTS RESERVED.</p>
+	</footer>
+	
+</div>
+
+
+	</div>
+    
+</body>
+</html>

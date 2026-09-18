@@ -1,0 +1,1293 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>수원대학교  > 입학/교육 > 대학원 > 교육대학원 > 입학안내 > 모집요강</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+<script src="/cms/gen/js/20181122_763883354787491.js"></script>
+<link rel="stylesheet" href="/cms/gen/css/20190130_6724385905465519.css" type="text/css" />
+<link rel="stylesheet" href="/cms/gen/css/20190130_6724400145904483.css" type="text/css" />
+<link rel="stylesheet" href="/cms/gen/css/20190321_84226411763450.css" type="text/css" />
+<link rel="stylesheet" href="/cms/gen/css/20190325_263812853254161.css" type="text/css" />
+<link rel="stylesheet" href="/cms/gen/css/20190325_263888001588051.css" type="text/css" />
+<script type="text/javascript" src="/cms/gen/js/20181122_763883354787491.js"></script>
+<script type="text/javascript" src="/cms/gen/js/20181122_763767764903914.js"></script>
+<script type="text/javascript" src="/cms/gen/js/20190130_6724465609900588.js"></script>
+<script type="text/javascript" src="/cms/gen/js/20190130_6724481664125653.js"></script>
+<script type="text/javascript" src="/cms/gen/js/20190321_84178383999836.js"></script>
+<script type="text/javascript" src="/cms/gen/js/20190130_6724493903017129.js"></script>
+</head>
+<body>
+
+<div id="skipnavigation">
+	<a href="#gnb">주메뉴 바로가기</a>
+    <a href="#maintext">본문 바로가기</a>
+    <a href="#footer">하단 바로가기</a>
+</div>
+<div id="wrap">
+		<div id="topnotice" class="hide"></div>
+		<!-- header start -->
+		<div id="header">
+
+		
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	//suwonIntro();
+
+	var url = "/mainHp/popup/listForAjax.html";
+	$.ajax({
+		url : url,
+		type : "post",
+		success : function(data){
+			if(data.result=="success"){
+				var html = "";
+				var now = new Date();
+				var year= now.getFullYear();
+				var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+				var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+
+				var todayDt = new Date(year, mon, day);
+
+				
+				/* for(var i = 0; i < data.list.length; i++){
+					//2019 가을학기 S+LP 환급형 외국어 집중 과정 개강 경우..
+					html += "<div class=\"popup_item\">";
+					html += " <div class=\"icon_box\">";
+					html += "	<span class=\"icon_01\"></span>";
+					html += " </div>";
+					html += "	<div class=\"popup_txt\">";
+					html += "		<strong class=\"tit text-overflow ellipsis\">"+data.list[i].bbstitle+"</strong>";
+					if(data.list[i].bbsno == "83074"){
+						html += "		<a href=\"https://www.eslscat.com/class/suwon/intro.asp\" class=\"popup_more\">자세히보기</a>";
+					}else{
+						html += "		<a href=\"/index.html?menuno=674&bbsno="+data.list[i].bbsno+"&boardno="+data.list[i].boardno+"&ztag=rO0ABXQARTxjYWxsIHR5cGU9ImJvYXJkIiBubz0iNjY3IiBza2luPSJzdXdvbl9tYWluaHBfY29tbW9uX25vdGljZSI%2BPC9jYWxsPg%3D%3D&siteno="+data.list[i].siteno+"&act=view\" class=\"popup_more\">자세히보기</a>";
+					}
+					html += "	</div>";
+					html += "</div>";
+				} */
+
+				for(var i=0; i < data.popuplist.length; i++){
+					
+					// 시작날짜 지정시
+					if(data.popuplist[i].SDATE != null){
+					
+						var startYear = data.popuplist[i].SDATE.substring(0,4);
+						var startMonth = data.popuplist[i].SDATE.substring(5,7);
+						var startDay = data.popuplist[i].SDATE.substring(8,10);
+						
+						var startDt = new Date(startYear, startMonth, startDay);
+						
+						if( startDt <= todayDt){
+							//종료날짜 지정시
+							if(data.popuplist[i].EDATE != null){
+								
+								var endYear = data.popuplist[i].EDATE.substring(0,4);
+								var endMonth = data.popuplist[i].EDATE.substring(5,7);
+								var endDay = data.popuplist[i].EDATE.substring(8,10);
+								
+								var endDt = new Date(endYear, endMonth, endDay);
+								if( todayDt <= endDt){
+									html += "<div class=\"popup_item\">";
+									html += " <div class=\"icon_box\">";
+									html += "	<span class=\"icon_01\"></span>";
+									html += " </div>";
+									html += "	<div class=\"popup_txt\">";
+									html += "		<strong class=\"tit text-overflow ellipsis\">"+data.popuplist[i].TITLE+"</strong>";
+									html += "		<a href=\""+data.popuplist[i].POPUPLINK+"\" class=\"popup_more\" target=\"_blank\">자세히보기</a>";
+									html += "	</div>";
+									html += "</div>";
+								}
+								
+							//종료날짜 지정 안할시	(* 무제한)
+							}else{
+									html += "<div class=\"popup_item\">";
+									html += " <div class=\"icon_box\">";
+									html += "	<span class=\"icon_01\"></span>";
+									html += " </div>";
+									html += "	<div class=\"popup_txt\">";
+									html += "		<strong class=\"tit text-overflow ellipsis\">"+data.popuplist[i].TITLE+"</strong>";
+									html += "		<a href=\""+data.popuplist[i].POPUPLINK+"\" class=\"popup_more\" target=\"_blank\">자세히보기</a>";
+									html += "	</div>";
+									html += "</div>";
+							}
+						}
+					//시작날짜 지정 안할시	
+					}else{
+						
+						//종료날짜 지정시
+						if(data.popuplist[i].EDATE != null){
+							
+							var endYear = data.popuplist[i].EDATE.substring(0,4);
+							var endMonth = data.popuplist[i].EDATE.substring(5,7);
+							var endDay = data.popuplist[i].EDATE.substring(8,10);
+							
+							var endDt = new Date(endYear, endMonth, endDay);
+							if( todayDt <= endDt){
+								html += "<div class=\"popup_item\">";
+								html += " <div class=\"icon_box\">";
+								html += "	<span class=\"icon_01\"></span>";
+								html += " </div>";
+								html += "	<div class=\"popup_txt\">";
+								html += "		<strong class=\"tit text-overflow ellipsis\">"+data.popuplist[i].TITLE+"</strong>";
+								html += "		<a href=\""+data.popuplist[i].POPUPLINK+"\" class=\"popup_more\" target=\"_blank\">자세히보기</a>";
+								html += "	</div>";
+								html += "</div>";
+							}
+							
+						//종료날짜 지정 안할시	(* 무제한)
+						}else{
+								html += "<div class=\"popup_item\">";
+								html += " <div class=\"icon_box\">";
+								html += "	<span class=\"icon_01\"></span>";
+								html += " </div>";
+								html += "	<div class=\"popup_txt\">";
+								html += "		<strong class=\"tit text-overflow ellipsis\">"+data.popuplist[i].TITLE+"</strong>";
+								html += "		<a href=\""+data.popuplist[i].POPUPLINK+"\" class=\"popup_more\" target=\"_blank\">자세히보기</a>";
+								html += "	</div>";
+								html += "</div>";
+						}
+						
+					}
+					
+				}
+				
+				$("#popup_list").empty();
+				$("#popup_list").html(html);
+				
+				goS();
+				
+			}else if(data.result=="fail"){
+				
+			}			
+		},
+		error : function(data){
+			//alert("실행중 오류가 발생하였습니다. \n다시 시도해 주세요.");
+			return false;
+		}
+	});		
+	
+	var popupStatus = sessionStorage.getItem("popupStatus");
+	
+	if(popupStatus=="close"){
+		/* $(".popup_wrap").hide();		
+		$(this).removeClass("on"); */
+		$(".popup_open").addClass("on");
+		$(".popup_wrap").css("display","none");
+	}else{
+		$(".popup_wrap").slideDown(200);		
+		$(".popup_close").addClass("on");
+		$(this).removeClass("on");
+	}
+
+	//팝업닫기
+	$(".popup_close").click(function() {
+		$(".popup_wrap").slideUp(200);
+		$(".popup_open").addClass("on");
+		$(this).removeClass("on");
+		sessionStorage.setItem("popupStatus", "close");
+	});
+	
+	//팝업열기
+	$(".popup_open").click(function() {
+		$(".popup_wrap").slideDown(200);		
+		$(".popup_close").addClass("on");
+		$(this).removeClass("on");
+		sessionStorage.setItem("popupStatus", "open");
+	});
+	
+});
+
+function goS(){
+	//popup
+	$('.popup_list').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+	  	autoplay: true,
+		autoplaySpeed: 2000,
+		responsive: [
+					{
+					  breakpoint: 1200,
+					  settings: {
+						slidesToShow: 2,
+						slidesToScroll: 1
+					  }
+					},
+					{
+					  breakpoint: 768,
+					  settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1
+					  }
+					}
+				  ]
+	});		
+}
+
+
+</script>
+
+	<div class="popup_wrap">
+		<div class="popup_inner">
+			<div class="popup_list" id="popup_list">
+			</div><!--//popup_list-->
+		</div><!--//popup_inner-->
+		<a href="javascript:void(0);" class="popup_close on">팝업닫기</a>
+	</div><!--//popup_wrap -->
+	<a href="javascript:void(0);" class="popup_open">팝업열기</a><!-- 메인화면 "English中文日本語사이트맵" 양쪽옆 바탕색 -->
+		<div id="header_top" style="background-color: #fbfcfe;">
+			<div class="tnb_wrap">
+				<!--
+				<div class="tnb">
+					<a href="/index.html?menuno=1965" class="btn_sitemap">사이트맵</a>
+				</div>
+				-->
+				<div class="language">
+					<!--<div class="title">LANGUAGE</div>-->
+					<ul class="list">
+
+						<li><a href="http://admit-en.suwon.ac.kr" target="_blank">International Students Admission</a></li>
+						<!--<li><a href="http://en.suwon.ac.kr" target="_blank">English</a></li>-->
+						<li><a href="http://cn.suwon.ac.kr" target="_blank">中文</a></li>
+						<li><a href="http://jp.suwon.ac.kr" target="_blank">日本語</a></li>
+						<li><a href="/index.html?menuno=1965" class="btn_sitemap">사이트맵</a></li>
+<!--
+						<li><a href="/eng/index.html?menuno=593" target="_blank">English</a></li>
+						<li><a href="/chn/index.html?menuno=593" target="_blank">中文</a></li>
+						<li><a href="/jpn/index.html?menuno=593" target="_blank">日本語</a></li>
+						<li><a href="/index.html?menuno=1965" class="btn_sitemap">사이트맵</a></li>
+-->
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+	<div class="header_wrap">
+		<div class="header_inner">
+			<h1>
+				<a href="/index.html?menuno=593"><img src="/usr/images/suwon/logo.png" alt="수원대학교 로고" title="수원대학교 로고" /></a>
+				<button class="btn_sitemap">전체메뉴</button>
+			</h1>
+
+			
+			<div class="gnb_wrap">
+			<a href="#" class="gnb_close">닫기</a>
+				<ul class="gnb" id="gnb">
+					<li class="depth1_li"><a href="#">학교소개</a>
+						<div class="gnbmenu_wrap">
+							<div class="title">
+								<p class="en">THE UNIVERSITY OF SUWON</p>
+								<p>학교소개</p>
+							</div>
+							<ul class="depth2">
+								<li class="depth2_li"><a href="/index.html?menuno=595">수원대소개</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=596">건학이념</a></li>
+										<li><a href="/index.html?menuno=800">연혁</a></li>
+										<li><a href="/index.html?menuno=803">교육목적체계/인재상</a></li>
+										<li><a href="/index.html?menuno=805">중장기 발전계획</a></li>
+										<li><a href="/index.html?menuno=610">홍보영상</a></li>
+										<li><a href="/index.html?menuno=611">수원갤러리</a></li>
+										<li><a href="/index.html?menuno=614">브로셔</a></li>
+										<li><a href="/index.html?menuno=615">자매결연대학</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=616">대학상징</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=617">상징동물</a></li>
+										<!--<li><a href="/index.html?menuno=2255">교훈</a></li>-->
+										<li><a href="/index.html?menuno=618">교가</a></li>
+										<li><a href="/index.html?menuno=619">UI</a></li>
+										<li><a href="/index.html?menuno=620">슬로건</a></li>
+										<li><a href="/index.html?menuno=2183">PPT 양식 다운로드</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=621">대학현황</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=622">대학기구</a></li>
+										<li><a href="/index.html?menuno=632">규정</a></li>
+										<li><a href="/index.html?menuno=3046">요람</a></li>
+										<li><a href="/index.html?menuno=633">예/결산공고</a></li>
+										<li><a href="/index.html?menuno=634">등록금심의위원회</a></li>
+										<li><a href="/index.html?menuno=635">대학평의원회</a></li>
+										<!--<li><a href="/index.html?menuno=637">통계</a></li>-->
+										<li><a href="/index.html?menuno=639">대학자체평가</a></li>
+										<li><a href="/index.html?menuno=640">교육만족도조사</a></li>
+										<li><a href="/index.html?menuno=642">정보공개</a></li>
+										<li><a href="/index.html?menuno=3189">적립금 운용현황</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=646">열린총장실</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=647">총장인사말</a></li>
+										<li><a href="/index.html?menuno=648">총장프로필</a></li>
+										<li><a href="/index.html?menuno=649">역대총장</a></li>
+										<li><a href="/index.html?menuno=650">총장과의 대화</a></li>
+										<li><a href="/index.html?menuno=651">총장동정</a></li>
+									</ul>
+								</li>
+							</ul>
+							<ul class="depth2">
+								<li class="depth2_li"><a href="/index.html?menuno=652">캠퍼스</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=653">전화번호</a></li>
+										<li><a href="/index.html?menuno=654">찾아오시는길</a></li>
+<!--										<li><a href="/index.html?menuno=655">셔틀버스 시간표</a></li>-->
+										<li><a href="/index.html?menuno=656">대중교통(버스)안내</a></li>
+										<li><a href="/index.html?menuno=657">캠퍼스안내도</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=658">학교법인</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=659">임원현황</a></li>
+										<li><a href="/index.html?menuno=660">이사회 회의록</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=661">대학발전기금</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=662">수원대학교 발전기금</a></li>
+										<li><a href="/index.html?menuno=663">고운학원 기부금</a></li>
+										<li><a href="/index.html?menuno=3164">발전기금 캠페인 안내</a></li>
+                                 <li><a href="/index.html?menuno=3193">기부자 예우</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="depth1_li"><a href="#">입학/교육</a>
+						<div class="gnbmenu_wrap">
+							<div class="title">
+								<p class="en">THE UNIVERSITY OF SUWON</p>
+								<p>입학/교육</p>
+							</div>
+							<ul class="depth2">
+								<li class="depth2_li"><a href="/index.html?menuno=665">입학</a>
+									<ul class="depth3">
+										<li><a href="http://ipsi.suwon.ac.kr/" target="_blank" class="new">대학</a></li>
+										<li><a href="/index.html?menuno=782">대학원</a></li>
+<!--										<li><a href="https://usw2564.blog.me/" target="_blank" class="new">외국인유학생입학</a></li> -->
+										<li><a href="http://admit-en.suwon.ac.kr/" target="_blank" class="new">외국인유학생입학</a></li>
+										<li><a href="http://koredu.suwon.ac.kr/" target="_blank" class="new">한국어 교육과정</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=670">대학</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=671">인성교양대학</a></li>
+										<li><a href="/index.html?menuno=773">인문사회융합대학</a></li>
+										<li><a href="/index.html?menuno=774">경영공학대학</a></li>
+										<li><a href="/index.html?menuno=775">혁신공과대학</a></li>
+										<li><a href="/index.html?menuno=776">지능형SW융합대학</a></li>
+										<li><a href="/index.html?menuno=777">라이프케어사이언스대학</a></li>
+										<li><a href="/index.html?menuno=778">디자인앤아트대학</a></li>
+										<li><a href="/index.html?menuno=779">음악테크놀로지대학</a></li>
+										<li><a href="/index.html?menuno=780">문화예술융합대학</a></li>
+										<li><a href="/index.html?menuno=781">글로벌인재대학</a></li>
+										<li><a href="/index.html?menuno=3171">자유전공학부</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=782">대학원</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=783">일반대학원</a></li>
+										<li><a href="/index.html?menuno=784">공공정책대학원</a></li>
+										<li><a href="/index.html?menuno=785">교육대학원</a></li>
+										<li><a href="/index.html?menuno=786">경영대학원</a></li>
+										<li><a href="/index.html?menuno=787">공학대학원</a></li>
+										<li><a href="/index.html?menuno=788">사회복지대학원</a></li>
+										<li><a href="/index.html?menuno=789">호텔관광대학원</a></li>
+										<li><a href="/index.html?menuno=790">미술대학원</a></li>
+										<li><a href="/index.html?menuno=791">음악대학원</a></li>
+										<li><a href="/index.html?menuno=792">고용서비스대학원</a></li>
+										<li><a href="/index.html?menuno=793">스포츠과학대학원</a></li>
+										<li><a href="/index.html?menuno=794">문화예술대학원</a></li>
+										<!--<li><a href="/index.html?menuno=795">뷰티사이언스대학원</a></li>-->
+										<!--<li><a href="/index.html?menuno=799">인공지능대학원</a></li>-->
+										<li><a href="/index.html?menuno=2975">글로벌창업대학원</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="https://cced.suwon.ac.kr/" target="_blank">미래융합교육원</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="depth1_li"><a href="#">산학/연구</a>
+						<div class="gnbmenu_wrap">
+							<div class="title">
+								<p class="en">THE UNIVERSITY OF SUWON</p>
+								<p>산학/연구</p>
+							</div>
+							<ul class="depth2">
+								<li class="depth2_li"><a href="/index.html?menuno=697">산학협력단</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=1989">산학협력단</a></li>
+										<li><a href="/index.html?menuno=1968">그린카에너지활용부품센터</a></li>
+										<li><a href="/index.html?menuno=1969" style="letter-spacing: -2px;">3차원대형부품융합계측지원센터</a></li>
+										<!--<li><a href="/index.html?menuno=1970">환경청정기술연구센터</a></li>-->
+										<li><a href="/index.html?menuno=1971">반도체기술혁신센터</a></li>
+										<li><a href="/index.html?menuno=1972">중소기업산학협력센터</a></li>
+										<li><a href="/index.html?menuno=1973" style="letter-spacing: -1px;">U-City 보안감시기술협력센터</a></li>
+										<li><a href="/index.html?menuno=1974">신소재융합기기분석센터</a></li>
+										<!--<li><a href="/index.html?menuno=1975">신뢰성혁신센터</a></li>-->
+										<li><a href="/index.html?menuno=1977">기능성바이오센터</a></li>
+										<li><a href="/index.html?menuno=1979">WISE 센터</a></li>
+										<li><a href="/index.html?menuno=1981">오산시오산숲어린이집</a></li>
+										<li><a href="/index.html?menuno=1980">화성시시립숲속어린이집</a></li>
+<!--										<li><a href="/index.html?menuno=1982">화성시 다문화가족지원센터</a></li>-->
+										<li><a href="/index.html?menuno=1983" style="letter-spacing: -1.5px;">화성시 어린이급식관리지원센터</a></li>
+										<li><a href="/index.html?menuno=1984">화성시 육아종합지원센터</a></li>
+									</ul>
+								</li>
+
+								<li class="depth2_li"><a href="/index.html?menuno=716">창업지원단</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=627">창업지원단</a></li>
+										<li><a href="/index.html?menuno=2025">기업가정신센터</a></li>
+										<li><a href="/index.html?menuno=2026">DS&ML센터</a></li>
+										<li><a href="/index.html?menuno=2027">창업보육센터</a></li>
+										<li><a href="/index.html?menuno=2028">고운창업지원센터</a></li>
+										<li><a href="https://maker.suwon.ac.kr/?menuno=195">크리에이티브 메이커스센터</a></li>
+										<li><a href="http://wowmakers.suwon.ac.kr/">WoW! Makers</a></li>
+									</ul>
+								</li>
+
+								<li class="depth2_li"><a href="/index.html?menuno=722">연구처</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=722">연구과</a></li>
+									</ul>
+								</li>
+
+
+								<li class="depth2_li"><a href="/index.html?menuno=2173">산학협력부속기관</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=915">DFC센터</a></li>
+										<li><a href="/index.html?menuno=906">VR AR MR 센터</a></li>
+										<li><a href="/index.html?menuno=917">뷰티사이언스연구센터</a></li>
+										<li><a href="/index.html?menuno=3021">클라우드혁신센터</a></li>
+									</ul>
+								</li>
+<!--
+								<li class="depth2_li"><a href="/index.html?menuno=697">산학협력단</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=698">산학협력단</a></li>
+										<li><a href="/index.html?menuno=699">그린카에너지활용부품센터</a></li>
+										<li><a href="/index.html?menuno=700" style="letter-spacing: -2px;">3차원대형부품융합계측지원센터</a></li>
+										<li><a href="/index.html?menuno=709">전자부품소재기술혁신센터</a></li>
+										<li><a href="/index.html?menuno=703">중소기업산학협력센터</a></li>
+										<li><a href="/index.html?menuno=704" style="letter-spacing: -1px;">U-City 보안감시기술협력센터</a></li>
+										<li><a href="/index.html?menuno=705">신소재융합기기분석센터</a></li>
+										<li><a href="/index.html?menuno=707">Creative센터</a></li>
+										<li><a href="/index.html?menuno=708">기능성바이오센터</a></li>
+										<li><a href="/index.html?menuno=710">WISE 센터</a></li>
+										<li><a href="/index.html?menuno=711">화성시시립숲속어린이집</a></li>
+										<li><a href="/index.html?menuno=712">오산시오산숲어린이집</a></li>
+										<li><a href="/index.html?menuno=713">화성시 다문화가족지원센터</a></li>
+										<li><a href="/index.html?menuno=714" style="letter-spacing: -1.5px;">화성시 어린이급식관리지원센터</a></li>
+										<li><a href="/index.html?menuno=715">화성시 육아종합지원센터</a></li>
+									</ul>
+								</li>
+
+								<li class="depth2_li"><a href="/index.html?menuno=716">창업지원단</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=2178">창업지원단</a></li>
+										<li><a href="/index.html?menuno=717">기업가정신센터</a></li>
+										<li><a href="/index.html?menuno=718">DS&ML센터</a></li>
+										<li><a href="/index.html?menuno=719">창업보육센터</a></li>
+										<li><a href="/index.html?menuno=720">고운창업지원센터</a></li>
+										<li><a href="/index.html?menuno=2781">화성시창업지원센터</a></li>
+									</ul>
+								</li>
+
+								<li class="depth2_li"><a href="/index.html?menuno=722">연구처</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=722">연구과</a></li>
+									</ul>
+								</li>
+
+
+								<li class="depth2_li"><a href="/index.html?menuno=2173">산학협력부속기관</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=2174">DFC센터</a></li>
+										<li><a href="/index.html?menuno=2175">VR AR MR 센터</a></li>
+										<li><a href="/index.html?menuno=2176">뷰티사이언스연구센터</a></li>
+									</ul>
+								</li>
+-->
+							</ul>
+						</div>
+					</li>
+					<li class="depth1_li"><a href="#">학사/행정</a>
+						<div class="gnbmenu_wrap">
+							<div class="title">
+								<p class="en">THE UNIVERSITY OF SUWON</p>
+								<p>학사/행정</p>
+							</div>
+							<ul class="depth2">
+								<li class="depth2_li"><a href="/index.html?menuno=726">대학</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=727">학사일정</a></li>
+										<li><a href="/index.html?menuno=835">교과과정</a></li>
+										<li><a href="/index.html?menuno=729">비교과과정</a></li>
+										<li><a href="/index.html?menuno=730">교직이수과정</a></li>
+										<li><a href="/index.html?menuno=853">학적</a></li>
+										<li><a href="/index.html?menuno=732">등록</a></li>
+										<li><a href="/index.html?menuno=865">수업</a></li>
+										<li><a href="/index.html?menuno=879">졸업</a></li>
+										<li><a href="/index.html?menuno=883">장학/학자금대출</a></li>
+										<li><a href="/index.html?menuno=736">학사자료실</a></li>
+										<li><a href="/index.html?menuno=737">외국인 유학생 학사 안내</a></li>
+										<li><a href="/index.html?menuno=738">증명서 신청 안내</a></li>
+										<!--<li><a href="/index.html?menuno=739">학생증 발급 안내</a></li>-->
+										<li><a href="/index.html?menuno=841">병무/예비군</a></li>
+										<li><a href="https://sugang.suwon.ac.kr/"target="_blank"><b>수강신청</b></a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=741">대학원</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=741">대학원</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="#" class="only">교직원행정</a>
+									<ul class="depth3">
+										<li><a href="http://portal.suwon.ac.kr/enview/index.html" target="_blank"  class="new">교직원행정</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="depth1_li"><a href="#">대학생활</a>
+						<div class="gnbmenu_wrap">
+							<div class="title">
+								<p class="en">THE UNIVERSITY OF SUWON</p>
+								<p>대학생활</p>
+							</div>
+							<ul class="depth2">
+								<li class="depth2_li"><a href="/index.html?menuno=744">학생지원</a>
+									<ul class="depth3">
+										<li><a href="http://career.suwon.ac.kr/" target="_blank"  class="new">진로 및 취업</a></li>
+										<li><a href="http://service.suwon.ac.kr/" target="_blank" class="new">봉사활동</a></li>
+										<li><a href="/index.html?menuno=747">학생증발급</a></li>
+										<li><a href="http://coun.suwon.ac.kr/" target="_blank"  class="new">학생생활상담</a></li>
+										<li><a href="/index.html?menuno=749">인권센터</a></li>
+										<li><a href="/index.html?menuno=2949">장애학생지원센터</a></li>
+										<li><a href="/index.html?menuno=750">시설대관</a></li>
+										<li><a href="/index.html?menuno=751">주차등록(정기권)</a></li>
+										<li><a href="/index.html?menuno=752">학생보험</a></li>
+										<li><a href="/index.html?menuno=753">보건실</a></li>
+										<li><a href="https://swudorm.suwon.ac.kr/" target="_blank"  class="new">기숙사</a></li>
+										<li><a href="/index.html?menuno=694">분실물습득</a></li>
+										<li><a href="/index.html?menuno=3120">통학버스</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=756">학생활동</a>
+									<ul class="depth3">
+										<li><a href="http://www.swua.co.kr" target="_blank"  class="new">동문</a></li>
+										<li><a href="/index.html?menuno=758">학생회</a></li>
+										<li><a href="https://linktr.ee/CheongCheon?fbclid=PAb21jcAN5KhBleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAafYEw-NneIgmNsolme1FMDdCVK4gyL-fQbk3mGZh5f70h2oeooSy7BEbTctMA_aem_GQ3qx9nRGOs2geiDZNrbqw" target="_blank"  class="new">동아리</a></li>
+										<li><a href="/index.html?menuno=760">언론활동</a></li>
+										<li><a href="/index.html?menuno=2770">학군단</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=761">복지/문화</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=762">금주의 식단</a></li>
+										<li><a href="/index.html?menuno=763">복지·편의 시설</a></li>
+										<li><a href="/index.html?menuno=764">주차안내</a></li>
+										<li><a href="https://www.suwon.ac.kr/index.html?menuno=674&bbsno=83712&boardno=667&siteno=37&act=view">할인몰</a></li>
+										<li><a href="https://www.suwon.ac.kr/index.html?menuno=674&bbsno=84793&boardno=667&siteno=37&act=view">복지몰</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=766">IT서비스</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=767">웹메일</a></li>
+										<li><a href="/index.html?menuno=768">홈페이지 제작</a></li>
+										<li><a href="/index.html?menuno=769">알약 백신</a></li>
+										<li><a href="/index.html?menuno=770">사이버보안 진단의날</a></li>
+										<li><a href="/index.html?menuno=771">무선인터넷 가능지역</a></li>
+										<li><a href="/index.html?menuno=829">소프트웨어 사용</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="depth1_li"><a href="#">수원광장</a>
+						<div class="gnbmenu_wrap">
+							<div class="title">
+								<p class="en">THE UNIVERSITY OF SUWON</p>
+								<p>수원광장</p>
+							</div>
+							<ul class="depth2">
+								<li class="depth2_li"><a href="/index.html?menuno=674">공지사항</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=674">통합공지</a></li>
+										<li><a href="/index.html?menuno=675">대학원공지</a></li>
+										<li><a href="/index.html?menuno=676">학과공지</a></li>
+										<li><a href="/index.html?menuno=677">취업공지</a></li>
+										<li><a href="/index.html?menuno=2258">창업공지</a></li>
+										<li><a href="/index.html?menuno=678">입찰공지</a></li>
+										<li><a href="/index.html?menuno=679">국제협력처공지</a></li>
+										<li><a href="/index.html?menuno=680">어학원공지</a></li>
+										<li><a href="/index.html?menuno=2039">교직과공지</a></li>
+										<li><a href="/index.html?menuno=2041">장학/대출</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=1923&cateno=838">온라인 민원창구</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=1923&cateno=838">묻고답하기(Q&A)</a></li>
+										<li><a href="/index.html?menuno=1926&cateno=870">FAQ</a></li>
+										<li><a href="/index.html?menuno=684">의견나눔터</a></li>
+<!--
+										<li><a href="/index.html?menuno=685">칭찬합시다</a></li>
+										<li><a href="/index.html?menuno=686">홈페이지 개선사항</a></li>
+-->
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=688">채용</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=688">교원초빙</a></li>
+										<li><a href="/index.html?menuno=689">직원채용</a></li>
+										<li><a href="/index.html?menuno=690">조교/기타채용</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=692">생활게시판</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=692">벼룩시장</a></li>
+										<li><a href="/index.html?menuno=693">취업·아르바이트</a></li>
+										<li><a href="/index.html?menuno=694">분실물센터</a></li>
+										<li><a href="/index.html?menuno=762">식단표</a></li>
+									</ul>
+								</li>
+								<li class="depth2_li"><a href="/index.html?menuno=2253">자료실</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=2253">학사자료실</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="depth1_li"><a href="#">USW WEBZINE</a>
+						<div class="gnbmenu_wrap">
+							<div class="title">
+								<p class="en">THE UNIVERSITY OF SUWON</p>
+								<p style="line-height: 1.2;">USW WEBZINE</p>
+							</div>
+							<ul class="depth2">
+								<li class="depth2_li"><a href="/index.html?menuno=2016" class="only">USW NEWS</a></li>
+								<li class="depth2_li"><a href="/index.html?menuno=2017" class="only">언론속의 수원대</a></li>
+								<li class="depth2_li"><a href="/index.html?menuno=2018" class="only">USW PEOPLE</a></li>
+								<li class="depth2_li"><a href="/index.html?menuno=2862" class="only">USW VIDEO</a></li>
+								<li class="depth2_li"><a href="/index.html?menuno=3013" class="only">수원대학교 학보</a></li>
+								<li class="depth2_li"><a href="/index.html?menuno=3014" class="only">교수동정</a></li>
+<!---->
+								<li class="depth2_li"><a href="/index.html?menuno=3048" class="only">교육뉴스</a>
+									<ul class="depth3">
+										<li><a href="/index.html?menuno=3048">교육부 소식</a></li>
+										<li><a href="/index.html?menuno=3049">국내외 대학 소식</a></li>
+									</ul>
+								</li>
+<!---->
+								<!--<li class="depth2_li"><a href="/index.html?menuno=2019">뉴스레터</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li class="none_bg">
+						<div class="mobile_view">
+							<ul class="service_tab_menu02">
+								<li><a href="/index.html?menuno=2162" title="사용자별 주요서비스 바로가기">사용자별 주요서비스 바로가기</a></li>
+								<!--<li><a href="/index.html?menuno=2163" title="교직원">교직원</a></li>
+								<li><a href="/index.html?menuno=2164" title="예비수원인">예비수원인</a></li>
+								<li><a href="/index.html?menuno=2165" title="동문&방문객">동문&방문객</a></li>
+								<li><a href="/index.html?menuno=2166" title="주요서비스">주요서비스</a></li>-->
+								<li><a href="http://portal.suwon.ac.kr/enview/" title="포털 바로가기" target="_blank">포털 바로가기</a></li>
+								<li><a href="https://info.suwon.ac.kr/views/ihCor.jsp" title="코로나 자가진단" target="_blank">코로나 자가진단 바로가기</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<!--<div class="gnb_bg"></div>-->
+
+			<script>
+				function chk_submit(frmname){
+					var frm = $("form[name='"+frmname+"']");
+					var total_keyword = $("#search_krwd", frm).val();
+
+					if($.trim(total_keyword) == ""){
+						alert("검색어를 입력바랍니다.");
+						$("#search_krwd", frm).focus();
+						return false;
+					}
+				}
+			</script>
+
+			<div class="sch_wrap">
+				<button class="btn_sch">검색창 열기</button>
+				<div class="sch_form">
+					<form name="searchFrm" id="searchFrm" action="/index.html?menuno=2250" method="post" onsubmit="return chk_submit('searchFrm');">
+						<fieldset>
+							<legend>검색</legend>
+						
+							<span>
+								<label for="search_krwd" class="hide">검색</label>
+								<input type="search" name="keyword" id="search_krwd">
+							</span>
+
+							<input type="submit" class="submit" value="검색" title="검색"/>
+
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //header end -->
+
+
+<!-- 사용자별 주요서비스(퀵메뉴 숨김) start -->
+				<div class="section section_campus">
+					<div class="service_wrap">
+						<div class="service_menu_wrap">
+							<div id="menuBtn">
+								<ul class="service_tab_menu">
+									<!--
+                                    <li class="icon_quick2">
+										<label onClick="location.href='https://info.suwon.ac.kr/views/ihCor.jsp';">코로나<br>자가진단</label>
+									</li>
+                                    -->
+									<li class="icon_quick">
+										<label for="toggle">QUICK MENU</label><!--퀵메뉴 숨김-->
+										<input type="checkbox" id="toggle"/><!--퀵메뉴 숨김-->
+										<ul id="nav">
+
+											<li class="icon00"><a href="https://sugang.suwon.ac.kr/" title="수강신청" target="_blank">수강신청</a></li>
+											<!--<li class="icon00 long_t"><a href="https://info.suwon.ac.kr/views/ihPreUnivAppl.jsp" title="2023 예비대학 신청" target="_blank">2023<br>예비대학 신청</a></li>-->
+											<li class="icon01"><a href="/index.html?menuno=2162" title="재학생">재학생</a></li>
+											<li class="icon02"><a href="/index.html?menuno=2163" title="교직원">교직원</a></li>
+											<li class="icon03"><a href="/index.html?menuno=2164" title="예비수원인">예비수원인</a></li>
+											<li class="icon04"><a href="/index.html?menuno=2165" title="동문&방문객">동문&방문객</a></li>
+											<li class="icon05"><a href="/index.html?menuno=2166" title="주요서비스">주요서비스</a></li>
+											<li class="icon06"><a href="http://portal.suwon.ac.kr/enview/" title="포털 바로가기" target="_blank">포털</a></li>
+											<!--<li class="icon07"><a href="/index.html?menuno=2877" title="주요서비스">온라인강의</a></li>-->
+											<li><a href="#" id="mainconttop" class="container_top">TOP</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- 사용자별 주요서비스(퀵메뉴 숨김) end -->
+
+<!-- 구 사용자별 주요서비스(퀵메뉴 펼침) start -->
+<!--
+				<div class="section section_campus">
+					<div class="service_wrap">
+						<div class="service_menu_wrap">
+							<div id="menuBtn">
+								<ul class="service_tab_menu">
+									<li class="icon00">
+										<a href="https://sugang.suwon.ac.kr/" title="수강신청" target="_blank">수강신청</a>
+										<ul id="menuList" class="service_tab_menu">
+											<li class="icon01"><a href="/index.html?menuno=2162" title="재학생">재학생</a></li>
+											<li class="icon02"><a href="/index.html?menuno=2163" title="교직원">교직원</a></li>
+											<li class="icon03"><a href="/index.html?menuno=2164" title="예비수원인">예비수원인</a></li>
+											<li class="icon04"><a href="/index.html?menuno=2165" title="동문&방문객">동문&방문객</a></li>
+											<li class="icon05"><a href="/index.html?menuno=2166" title="주요서비스">주요서비스</a></li>
+											<li class="icon06"><a href="http://portal.suwon.ac.kr/enview/" title="포털 바로가기" target="_blank">포털 바로가기</a></li>
+											<li class="icon07"><a href="/index.html?menuno=2877" title="주요서비스">온라인강의</a></li>
+											<li><a href="#" id="mainconttop" class="container_top">TOP</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+-->
+<!-- 구 사용자별 주요서비스(퀵메뉴 펼침) start -->
+
+<!--<div id="maintext" style="display:inline-block"></div>-->
+<div class="btn_graduate">
+	<a href="/index.html?menuno=782" class="btn basic yellow">전체 대학원 보기</a>
+</div>
+
+<div id="container">
+	<div id="content" class="">
+		<div class="submain_wrap">
+			<!-- 대학원메뉴영억 start -->
+			<div class="submain_snb_wrap">
+				<h2><a href="/index.html?menuno=785">교육대학원</a></h2>
+				<script>
+$( document ).ready(function() {
+	var pno = '1360';
+	$('#'+pno).css("display","block");
+	$('#'+pno+'_a').addClass('on');
+	
+	/* 
+	console.log("data2.menuno==========>"+1357);	
+	console.log("pno==========>"+1360);	
+		if(false) {
+			//$(".submain_snb_depth2").css("display","block");
+				console.log("a==========>"+1);		
+			//$('#1387').css("display","block");
+			$('#1357').css("display","block");
+		}
+	
+	console.log("data2.menuno==========>"+1358);	
+	console.log("pno==========>"+1360);	
+		if(false) {
+			//$(".submain_snb_depth2").css("display","block");
+				console.log("a==========>"+2);		
+			//$('#1387').css("display","block");
+			$('#1358').css("display","block");
+		}
+	
+	console.log("data2.menuno==========>"+1359);	
+	console.log("pno==========>"+1360);	
+		if(false) {
+			//$(".submain_snb_depth2").css("display","block");
+				console.log("a==========>"+3);		
+			//$('#1387').css("display","block");
+			$('#1359').css("display","block");
+		}
+	
+	console.log("data2.menuno==========>"+1360);	
+	console.log("pno==========>"+1360);	
+		if(true) {
+			//$(".submain_snb_depth2").css("display","block");
+				console.log("a==========>"+4);		
+			//$('#1387').css("display","block");
+			$('#1360').css("display","block");
+		}
+	
+	console.log("data2.menuno==========>"+1361);	
+	console.log("pno==========>"+1360);	
+		if(false) {
+			//$(".submain_snb_depth2").css("display","block");
+				console.log("a==========>"+5);		
+			//$('#1387').css("display","block");
+			$('#1361').css("display","block");
+		}
+	
+	console.log("data2.menuno==========>"+1362);	
+	console.log("pno==========>"+1360);	
+		if(false) {
+			//$(".submain_snb_depth2").css("display","block");
+				console.log("a==========>"+6);		
+			//$('#1387').css("display","block");
+			$('#1362').css("display","block");
+		}
+	 */
+});
+</script>
+<div class="submain_snb">
+	<ul class="submain_snb_depth1">
+	<li class="off" id="1357_a"><a href="#">대학원소개</a>
+					<div class="submain_snb_depth2" id="1357">
+						<ul>
+							<li ><a href="/?menuno=3203">대학원소개</a></li>
+										<li ><a href="/?menuno=1363">원장인사말</a></li>
+										<li ><a href="/?menuno=1364">연혁</a></li>
+										<li ><a href="/?menuno=1365">교육목표 및 발전계획</a></li>
+										<li ><a href="/?menuno=1366">조직도</a></li>
+										<li ><a href="/?menuno=1367">찾아오시는 길</a></li>
+										</ul>
+					</div>
+				</li>
+				
+			<li class="off" id="1358_a"><a href="#">교원자격</a>
+					<div class="submain_snb_depth2" id="1358">
+						<ul>
+							<li ><a href="/?menuno=1368">교직안내</a></li>
+										<li ><a href="/?menuno=1369">교육실습</a></li>
+										<li ><a href="/?menuno=1370">교육봉사</a></li>
+										<li ><a href="/?menuno=1371">교직적성 인성검사</a></li>
+										<li ><a href="/?menuno=1372">응급처치 및 심폐소생술</a></li>
+										<li ><a href="/?menuno=1373">교원자격증</a></li>
+										<li ><a href="/?menuno=1374">무시험검정 절차</a></li>
+										<li ><a href="/?menuno=3083">성인지교육</a></li>
+										</ul>
+					</div>
+				</li>
+				
+			<li class="off" id="1359_a"><a href="#">전공안내</a>
+					<div class="submain_snb_depth2" id="1359">
+						<ul>
+							<li ><a href="/?menuno=1375">국어교육</a></li>
+										<li ><a href="/?menuno=1377">상담교육</a></li>
+										<li ><a href="/?menuno=1379">영양교육</a></li>
+										<li ><a href="/?menuno=1380">영어교육</a></li>
+										<li ><a href="/?menuno=1381">유아교육</a></li>
+										<li ><a href="/?menuno=1383">체육교육</a></li>
+										<li ><a href="/?menuno=1384">컴퓨터교육</a></li>
+										</ul>
+					</div>
+				</li>
+				
+			<li class="off" id="1360_a"><a href="#">입학안내</a>
+					<div class="submain_snb_depth2" id="1360">
+						<ul>
+							<li ><a href="/?menuno=1385">입학절차</a></li>
+										<li ><a href="/?menuno=1386">전형일정</a></li>
+										<li class="active"><a href="/?menuno=1387">모집요강</a></li>
+										<li ><a href="/?menuno=1388">원서접수</a></li>
+										<li ><a href="/?menuno=1389">외국인전형</a></li>
+										</ul>
+					</div>
+				</li>
+				
+			<li class="off" id="1361_a"><a href="#">학사안내</a>
+					<div class="submain_snb_depth2" id="1361">
+						<ul>
+							<li ><a href="/?menuno=1390">학사일정</a></li>
+										<li ><a href="/?menuno=1391">등록</a></li>
+										<li ><a href="/?menuno=1922">수강신청</a></li>
+										<li ><a href="/?menuno=1393">성적</a></li>
+										<li ><a href="/?menuno=1394">휴학/복학/재입학/편입학</a></li>
+										<li ><a href="/?menuno=1395">어학시험</a></li>
+										<li ><a href="/?menuno=1396">종합시험</a></li>
+										<li ><a href="/?menuno=1397">논문/연구보고서</a></li>
+										<li ><a href="/?menuno=1400">졸업</a></li>
+										<li ><a href="/?menuno=1401">증명발급</a></li>
+										<li ><a href="/?menuno=1402">장학안내</a></li>
+										</ul>
+					</div>
+				</li>
+				
+			<li class="off" id="1362_a"><a href="#">정보광장</a>
+					<div class="submain_snb_depth2" id="1362">
+						<ul>
+							<li ><a href="/?menuno=1403">공지사항</a></li>
+										<li ><a href="/?menuno=1404">자료실</a></li>
+										<li ><a href="/?menuno=1405">FAQ</a></li>
+										<li ><a href="/?menuno=1406">대학원서식</a></li>
+										</ul>
+					</div>
+				</li>
+				
+			<!-- <li class="off"><a href="#">대학원 소개</a>
+			<div class="submain_snb_depth2">
+				<ul>
+					<li><a href="/?menuno=1324">대학원소개</a></li>
+					<li><a href="/?menuno=1325">원장인사말</a></li>
+					<li><a href="/?menuno=1326">연혁</a></li>
+					<li><a href="/?menuno=1327">교육목표 및 발전계획</a></li>
+					<li><a href="/?menuno=1328">조직도</a></li>
+					<li><a href="/?menuno=1329">찾아오시는길</a></li>
+				</ul>
+			</div></li>
+		<li class="off"><a href="#">학과/전공안내</a>
+			<div class="submain_snb_depth2">
+				<ul>
+					<li><a href="/?menuno=1331">학과소개</a></li>
+					<li><a href="/?menuno=1332">교과과정</a></li>
+				</ul>
+			</div></li>
+		<li class="off"><a href="#">입학안내</a>
+			<div class="submain_snb_depth2">
+				<ul>
+					<li><a href="/?menuno=1334">입학절차</a></li>
+					<li><a href="/?menuno=1335">전형일정</a></li>
+					<li><a href="/?menuno=1336">모집요강</a></li>
+					<li><a
+						href="https://info.suwon.ac.kr/websquare/websquare.jsp?w2xPath=/views/main.xml"
+						target="_blank">원서접수</a></li>
+					<li><a href="/?menuno=1338">외국인전형</a></li>
+				</ul>
+			</div></li>
+		<li class="off"><a href="#">학사안내</a>
+			<div class="submain_snb_depth2">
+				<ul>
+					<li><a href="/?menuno=1340">학사일정</a></li>
+					<li><a href="/?menuno=1341">등록/수강신청</a></li>
+					<li><a href="/?menuno=1342">성적</a></li>
+					<li><a href="/?menuno=1343">휴학/복학/재입학/편입학</a></li>
+					<li><a href="/?menuno=1344">자격시험</a></li>
+					<li><a href="/?menuno=1346">논문</a></li>
+					<li><a href="/?menuno=1348">졸업</a></li>
+					<li><a href="/?menuno=1350">증명발급</a></li>
+					<li><a href="/?menuno=1351">장학안내</a></li>
+				</ul>
+			</div></li>
+		<li class="off"><a href="#">정보광장</a>
+			<div class="submain_snb_depth2">
+				<ul>
+					<li><a href="/?menuno=1353">공지사항</a></li>
+					<li><a href="/?menuno=1354">자료실</a></li>
+					<li><a href="/?menuno=1355">FAQ</a></li>
+					<li><a href="/?menuno=1356">대학원서식</a></li>
+				</ul>
+			</div></li> -->
+	</ul>
+</div>
+</div>
+			<!-- //대학원메뉴영억 end -->
+			<!-- 대학원콘텐츠영억 start -->
+			<div class="submain_cont_wrap sub">
+				<!-- 서브타이틀 start -->
+				<div class="subtitle_wrap">
+					<h2>모집요강</h2>
+					<div class="utill">
+						<a class="share" href="#">공유하기</a>
+					<div class="share_list">
+						<p class="hide">공유하기 목록</p>
+						<ul>
+							<li><a href="javascript:void(0);" class="naver_share" onclick="share();" title="네이버">네이버</a></li>
+								<script type="text/javascript">
+								function share() {
+							    	var url = encodeURI(encodeURIComponent(document.location.href));
+							    	var title = encodeURI("수원대학교");
+							    	var shareURL = "https://share.naver.com/web/shareView.nhn?url=" + url + "&title=" + title;
+							    	document.location = shareURL;
+							  	}
+								
+								function hwpDownload(fileName,filePath){
+									console.log("fileName === :: " + fileName);
+									console.log("filePath === :: " + filePath);
+									window.open("/hwp/FileDown.do?fileName="+fileName+"&filePath="+filePath);
+								}
+								
+								</script>
+							<li><a href="javascript:void(0);" class="link_share" onclick="copyLink();" title="URL공유">URL공유</a></li>
+								<script type="text/javascript">
+								function is_ie(){
+									if(navigator.userAgent.toLowerCase().indexOf("chrome") != -1) return false;
+									if(navigator.userAgent.toLowerCase().indexOf("msie") != -1) return true;
+									if(navigator.userAgent.toLowerCase().indexOf("windows nt") != -1) return true;
+									return false;
+								}
+
+								function copyLink(){
+									var str = document.location.href;
+									if(is_ie()){
+										window.clipboardData.setData("Text", str);
+										alert("복사되었습니다.");
+										return;
+									}
+									prompt("Ctrl+C를 눌러 복사하세요.", str);
+								}
+								</script>
+						</ul>
+						<span class="close" onclick="shareClose();">닫기</span>
+					</div><a class="print" href="javascript:void(0);" onclick="content_print();" title="출력">인쇄하기</a>
+					</div>
+				</div>
+				<!-- 콘텐츠영역 start -->
+<script type="text/javascript">
+function fn_search(val){
+	//var html = "<iframe src='/mainHp/viewer.html?flag=9'></iframe>";
+	var html = "<iframe src='/usr/file/egs.pdf' title='교육대학원 모집요강'></iframe>";
+
+	if(val == '1'){
+		//var html = "<iframe src='/mainHp/viewer.html?flag=9'></iframe>";
+		var html = "<iframe src='/usr/file/egs.pdf' title='교육대학원 모집요강'></iframe>";
+        }	
+        $("#pdf_viewer").empty();
+	$("#pdf_viewer").html(html);
+}
+</script>
+				<div class="subcont_wrap">
+				   <div class="subcont">
+					<div class="subcont-top" id="subcont-top">
+						<h4>모집요강</h4>
+						<p>수원대학교 교육대학원 모집요강입니다.</p>
+					</div>						
+					<div class="subcont_inner downloadwrap">	
+						<div class="download">
+							<button type="button" onclick="fn_search(1)"><img src="/usr/images/ipsi/buttonpdf.png" alt="">모집요강 PDF</button>
+						</div>
+                                       </div>
+					<div class="section">
+						<div class="subcont_inner">
+							<div class="title3">전형방법</div>
+									<ul class="dotlist">
+										<li>서류전형 및 면접(교직 및 전공 구술 면접)
+											<p>(현직교원, 교육전문직 및 교육관련 공무원, 장애인은 전형에서 우대함)</p>
+										</li>
+									</ul>
+							&nbsp;
+							<div class="title3">원서접수 전 유의사항</div>
+									<ul class="dotlist">
+										<li>교원자격증(정교사,유치원교사,전문상담교사2급,영양교사) 취득을 위해 입학을 하는 경우 관련 학과 학사 졸업 및 관련 학과 전공 38학점 이상 취득한 자에 한해서 교원자격증 취득이 가능합니다.</li>
+										<li>성적표를 이메일(suwon2252@naver.com)로 보내주시면 검정 후 자격증 취득이 가능한지 연락드리겠습니다.<br>
+									</ul>
+						</div>
+					</div>
+					 	<div id="pdf_embedscreen" style="background-color: rgb(255, 255, 255); width: 100%; height:1000px;">
+							<div class="pdf_viewer" id="pdf_viewer">
+								<!-- <iframe src="/mainHp/viewer.html?flag=9" title="교육대학원 모집요강"></iframe> -->
+								<iframe src="/usr/file/egs.pdf" title="교육대학원 모집요강"></iframe>
+							</div>
+						</div>
+					</div>
+				   </div>	
+					<!-- //콘텐츠 본문 end -->
+				</div>
+				<!-- 콘텐츠영역 end -->
+			   </div>
+					<!-- //대학원콘텐츠영억 end -->
+			</div>
+		   </div>
+			<a href="#" id="conttop" class="container_top">본문 상단으로</a>
+		</div>
+
+
+<!-- footer start -->
+		<div id="footer">
+			<!-- 관련 사이트 바로가기 start -->
+			<div class="f_link_wrap">
+				<dl class="f_link">
+					<dt>대학</dt>
+					<dd>
+						<ul>
+							<li class="w150">       <a href="https://cl.suwon.ac.kr" target="_blank">인성교양대학</a></li>
+							<li class="w180">       <a href="https://hss.suwon.ac.kr" target="_blank">인문사회융합대학</a></li>
+							<li class="w140">       <a href="https://eba.suwon.ac.kr" target="_blank">경영공학대학</a></li>
+							<li class="w120">       <a href="https://engineering.suwon.ac.kr" target="_blank">혁신공과대학</a></li>
+							<li class="w160">       <a href="https://ict.suwon.ac.kr" target="_blank">지능형SW융합대학</a></li>
+							<li class="w140">       <a href="https://health.suwon.ac.kr" target="_blank">라이프케어사이언스대학</a></li>
+							<li class="w150">       <a href="https://art.suwon.ac.kr" target="_blank">디자인앤아트대학</a></li>
+<!-------------------------------------->
+							<li class="w150 clear"><a href="https://music.suwon.ac.kr" target="_blank">음악테크놀로지대학</a></li>
+							<li class="w180">       <a href="https://cac.suwon.ac.kr" target="_blank">문화예술융합대학</a></li>
+							<li class="w140">       <a href="https://ic.suwon.ac.kr" target="_blank">글로벌인재대학</a></li>
+						</ul>
+					
+					</dd>
+				</dl>
+				<dl class="f_link">
+					<dt>대학원</dt>
+					<dd>
+						<ul>
+							<li class="w150">       <a href="https://graduate.suwon.ac.kr" target="_blank">일반대학원</a></li>
+							<li class="w180">       <a href="https://pubg.suwon.ac.kr" target="_blank">공공정책대학원</a></li>
+							<li class="w140">       <a href="https://edug.suwon.ac.kr" target="_blank">교육대학원</a></li>
+							<li class="w120">       <a href="https://busg.suwon.ac.kr" target="_blank">경영대학원</a></li>
+							<li class="w160">       <a href="https://indg.suwon.ac.kr" target="_blank">공학대학원</a></li>
+							<li class="w140">       <a href="https://socg.suwon.ac.kr" target="_blank">사회복지대학원</a></li>
+							<li class="w150">       <a href="https://hotg.suwon.ac.kr" target="_blank">호텔관광대학원</a></li>
+<!-------------------------------------->
+							<li class="w150 clear"><a href="https://desg.suwon.ac.kr" target="_blank">미술대학원</a></li>
+							<li class="w180">       <a href="https://musg.suwon.ac.kr" target="_blank">음악대학원</a></li>
+							<li class="w140">       <a href="https://empg.suwon.ac.kr" target="_blank">고용서비스대학원</a></li>
+							<li class="w120">       <a href="https://spog.suwon.ac.kr" target="_blank">스포츠과학대학원</a></li>
+							<li class="w160">       <a href="https://culg.suwon.ac.kr" target="_blank">문화예술대학원</a></li>
+							<li class="w140">       <a href="/index.html?menuno=2975" target="_blank">글로벌창업대학원</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl class="f_link">
+					<dt>교내기관</dt>
+					<dd>
+						<ul>
+							<li class="w150">       <a href="https://ctl.suwon.ac.kr/" target="_blank">교수학습개발센터</a></li>
+							<li class="w180">       <a href="https://blog.naver.com/uswlanglab" target="_blank">국제어학원</a></li>
+							<li class="w140">       <a href="https://oia.suwon.ac.kr/" target="_blank">국제협력처</a></li>
+							<li class="w120">       <a href="https://swudorm.suwon.ac.kr/" target="_blank">기숙사</a></li>
+							<li class="w160">       <a href="https://museum.suwon.ac.kr/" target="_blank">박물관</a></li>
+							<li class="w140">       <a href="https://nkeri.suwon.ac.kr/" target="_blank">북한경제연구소</a></li>
+							<li class="w150">       <a href="https://service.suwon.ac.kr" target="_blank">사회봉사센터</a></li>
+<!-------------------------------------->
+							<li class="w150 clear"><a href="https://counseling.suwon.ac.kr/" target="_blank">아동가족상담연구센터</a></li>
+							<li class="w180">       <a href="https://isc.suwon.ac.kr/" target="_blank">외국인유학생지원센터</a></li>
+							<li class="w140">       <a href="https://blog.naver.com/swu2298180/" target="_blank">음악영재아카데미</a></li>
+							<li class="w120">       <a href="https://ipsi.suwon.ac.kr/" target="_blank">입학처</a></li>
+							<li class="w160">       <a href="https://ici.suwon.ac.kr" target="_blank">정보전산원</a></li>
+							<li class="w140">       <a href="https://lib.suwon.ac.kr/portal-sso" target="_blank">중앙도서관</a></li>
+							<li class="w150">       <a href="https://wow.suwon.ac.kr/" target="_blank">창업지원단</a></li>
+<!-------------------------------------->					
+							<li class="w150 clear"><a href="https://maker.suwon.ac.kr" target="_blank">크리에이티브 메이커스센터</a></li>
+							<li class="w180">       <a href="/index.html?menuno=3021">클라우드혁신센터</a></li>
+							<li class="w140">       <a href="https://cced.suwon.ac.kr/" target="_blank">미래융합교육원</a></li>
+							<li class="w120">       <a href="https://www.facebook.com/158Rotc/" target="_blank">학군단</a></li>
+							<li class="w160">       <a href="https://coun.suwon.ac.kr/" target="_blank">학생생활상담연구소</a></li>
+							<li class="w140">       <a href="https://koredu.suwon.ac.kr/" target="_blank">글로벌언어교육원</a></li>
+							<li class="w150">       <a href="https://uswsafety.suwon.ac.kr/" target="_blank">환경안전원</a></li>
+<!-------------------------------------->
+							<li class="w150 clear">       <a href="https://dsml.suwon.ac.kr/" target="_blank">DS&ML센터</a></li> 
+							<li class="w180">       <a href="https://wowmakers.suwon.ac.kr/" target="_blank">WoW! Makers</a></li>
+							<li class="w140">       <a href="https://career.suwon.ac.kr/" target="_blank">취업지원처</a></li>
+							<li class="w120">       <a href="https://www.suwon.ac.kr/index.html?menuno=749" target="_blank">인권센터</a></li>
+							<li class="w160"><a href="https://isedu.suwon.ac.kr/ " target="_blank">현장실습지원센터</a></li>
+							<li class="w160"><a href="https://www.suwon.ac.kr/index.html?menuno=3121" target="_blank">재해구호전문인력양성센터</a></li>
+<!-------------------------------------->
+                       <li class="w150 clear"><a href="https://edison.suwon.ac.kr/" target="_blank">전공설계지원센터</a></li>
+							<li class="w180">       <a href="https://inno.suwon.ac.kr/" target="_blank">대학혁신지원사업단</a></li>
+							<li class="w140">       <a href="https://anchor.suwon.ac.kr/" target="_blank">앵커사업단</a></li>
+						</ul>
+					</dd>
+				</dl>
+
+				<dl class="f_link">
+					<dt>산학협력단</dt>
+					<dd>
+						<ul>
+							<li class="w150 clear"><a href="https://iuc.suwon.ac.kr/" target="_blank">산학협력단</a></li>
+							<li class="w180">       <a href="https://3dcenter.suwon.ac.kr" target="_blank">3차원대형부품융합계측지원센터</a></li>
+							<li class="w140">       <a href="https://greencar.suwon.ac.kr" target="_blank">그린카시험연구원</a></li>
+							<li class="w120">       <a href="https://bio.suwon.ac.kr/" target="_blank">기능성바이오센터</a></li>
+							<li class="w160">       <a href="https://bs.suwon.ac.kr/" target="_blank">뷰티사이언스연구센터</a></li>
+							<li class="w140">       <a href="https://cama.suwon.ac.kr/" target="_blank">신소재융합기기분석센터</a></li>
+							<li class="w150">       <a href="https://www.ticem.re.kr/" target="_blank">반도체기술혁신센터(SeTIC)</a></li>
+<!--------------------------------->
+							<li class="w150 clear"><a href="https://sanhak.suwon.ac.kr/" target="_blank">중소기업산학협력센터</a></li>
+							<li class="w180">       <a href="https://www.hwaseongkids.co.kr/" target="_blank">화성시 어린이·사회복지급식관리지원센터</a></li>
+							<li class="w140">       <a href="https://www.hsicare.or.kr/" target="_blank">화성시육아종합지원센터</a></li>
+							<li class="w120">       <a href="https://dfc.suwon.ac.kr" target="_blank">DFC센터</a></li>
+							<li class="w160">       <a href="https://grrc.suwon.ac.kr/" target="_blank">U-City 보안감시기술혁신센터</a></li>
+							<li class="w140">       <a href="https://vrarmrcenter.suwon.ac.kr/" target="_blank">VR/AR/MR센터</a></li>
+							<li class="w150">       <a href="https://wise.suwon.ac.kr/" target="_blank">Wise센터</a></li>
+						</ul>
+					</dd>
+				</dl>
+
+
+
+
+			</div>
+			<!-- //관련 사이트 바로가기 end -->
+			
+			<!-- 하단메뉴 start -->
+			<div class="f_menu_wrap">
+				<ul class="f_menu">
+					<li><a href="/index.html?menuno=1954" target="_blank">대학정보공시</a></li>
+					<li><a href="/index.html?menuno=1955" target="_blank">개인정보처리방침</a></li>
+					<li><a href="/index.html?menuno=1928" target="_blank">개인정보제공공시</a></li>
+					<li><a href="/index.html?menuno=1963" onclick="window.open(this.href, 'email','width=496,height=291');return false;" target="_blank" >이메일무단수집거부</a></li>
+					<li><a href="/index.html?menuno=1964" target="_blank">정보보호</a></li>
+					<!-- <li><a href="/index.html?menuno=1965" target="_blank">사이트맵</a></li> -->
+					<!-- <li class="mobile"><a href="#">PC버전</a></li> -->
+				</ul>
+			</div>
+			<!-- //하단메뉴 end -->
+
+			<!-- copyright start -->
+			<div class="copy">
+				<div class="logo"><img src="/usr/images/suwon/f_logo.png" alt="수원대학교 로고" title="수원대학교 로고"/></div>
+				<div class="txt">
+					<p>18323 경기도 화성시 효행구 봉담읍 와우안길 17 ㅣ 대표전화 031-220-2114</p>
+					<p>Copyright (C) THE UNIVERSITY OF SUWON. All rights reserved.</p>
+				</div>
+				<div class="sns">
+					<ul>
+						<li class="n_blog"><a title="수원대학교 블로그" href="https://blog.naver.com/usw1982" target="_blank">수원대학교 블로그</a></li>
+						<li class="facebook"><a title="수원대학교 페이스북" href="https://www.facebook.com/SuwonUniv/" target="_blank">수원대학교 페이스북</a></li>
+						<li class="instagram"><a title="수원대학교 인스타그램" href="https://www.instagram.com/usw1982/" target="_blank">수원대학교 인스타그램</a></li>
+						<li class="youtube"><a title="수원대학교 유튜브" href="https://www.youtube.com/channel/UC4JfyRGKu5AfBjvaFMCj3cg" target="_blank">수원대학교 유튜브</a></li>
+					</ul>
+				</div><!--//sns-->
+				<div class="wa">
+					<a title="웹 접근성 우수사이트 인증마크" href="http://wa.or.kr/board/list.asp?search=title&SearchString=%BC%F6%BF%F8&BoardID=0006" target="_blank"><img src="/usr/file/wa_ver2.png" alt="(사)한국장애인단체총연합회 한국웹접근성인증평가원 웹 접근성 우수사이트 인증마크(WA인증마크)"  width="70" /></a>
+				</div>
+			</div>
+			<!-- //copyright end -->
+		</div>
+		<!-- //footer end -->
+		<div class="dim"></div>
+	</div>
+
+</body>
+</html>
+

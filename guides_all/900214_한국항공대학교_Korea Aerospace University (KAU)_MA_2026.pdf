@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- [s]include:Head -->
+    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>한국항공대학교 일반대학원</title>
+<link rel="shortcut icon" href="../favicon.ico">
+<link rel="stylesheet" href="../css/swiper.min.css">
+<link rel="stylesheet" href="../css/style.css?ver=1.2">
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/swiper.min.js"></script>
+<script src="../js/common.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+
+});
+
+
+function formInputComm(obj) {
+	var errorMsg="";
+	var noField="#|url||"; //제외
+
+	$('#formWrite input').each( function() {
+		if (noField.indexOf("|"+$(this).attr("name")+"|") <= -1 && $(this).attr("type")!="hidden" && $(this).attr("type")!="file") { //제외에 없는것만
+			if($.trim($(this).val())=="") { errorMsg = errorMsg + $(this).attr("title")+"을 입력하십시오.\n"; $(this).focus(); }
+		}
+	});
+
+	$('#formWrite textarea').each( function() {
+		if($.trim($(this).val())=="") { errorMsg = errorMsg + $(this).attr("title")+"을 입력하십시오.\n"; $(this).focus(); }
+	});
+
+
+	if(errorMsg!="") {
+		alert(errorMsg);
+		return;
+	}
+
+	document.formWrite.submit();
+}
+
+function deleteConfirm(href) {
+	if(confirm("정말 삭제하시겠습니까?")) {
+		location.href=href;
+	}
+}
+</script>    <!-- [e]include:Head -->
+</head>
+<body>
+    <div class="body_wrap">
+        <!-- [s]include:Top -->
+        <div class="top">
+    <h1><a href="https://kau.ac.kr/index/main.php" target="_blank" class="logo"></a></h1>
+    <div class="top_conts">
+        <ul class="gum">
+            <li><a href="https://kau.ac.kr/index/main.php" target="_blank">KAU HOME</a></li>
+            <li><a href="../index/main.php">HOME</a></li>
+            <li><a href="http://eng-grad.kau.ac.kr">ENGLISH</a></li>
+        </ul>
+        
+        <!-- gnb -->
+        <ul class="gnb">
+            <li>
+                <a href="../about/greeting.php" >대학원 소개</a>
+                <ul class="gnb_sub gnb_sub_01">
+                    <!-- <li><a href="../about/intro.php">대학원 소개</a></li> -->
+                    <li><a href="../about/greeting.php">원장 인사말</a></li>
+                    <li><a href="../about/vision.php">대학원 비전</a></li>
+                    <li><a href="../about/history.php">연혁</a></li>
+                    <li><a href="../about/admin.php">행정부서 안내</a></li>
+                    <li><a href="../about/rules.php">학칙 및 제규정</a></li>
+                    <li><a href="../about/contact.php">찾아오는 길</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../admission/guide.php" class='selected'>입학 안내</a>
+                <ul class="gnb_sub gnb_sub_02">
+                    <li><a href="../admission/guide.php">입학전형 안내</a></li>
+                    <li><a href="../admission/guide_f.php">입학전형(외국인) 안내</a></li>
+                    <!-- <li><a href="../admission/guide_cnt.php"><span>입학전형<br>(채용조건형 계약학과) 안내</span></a></li> -->
+                    <li><a href="../admission/guide_as.php"><span>입학전형<br>(서비스경영학과) 안내</span></a></li>
+                    <!-- <li><a href="../admission/guide_fusion.php"><span>입학전형<br>(융합기계공학과) 안내</span></a></li> -->
+                    <li><a href="../admission/guide_avi.php"><span>입학전형<br>(항공경영학과) 안내</span></a></li>
+                    <li><a href="../admission/guide_gs.php"><span>입학전형<br>(글로벌서비스경영학과)</span></a></li>
+                    <li><a href="../admission/confirm.php">합격자 확인</a></li>
+                    <li><a href="../admission/studentnum.php">학번 조회</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../contract/iiac.php" >계약학과</a>
+                <ul class="gnb_sub gnb_sub_02">
+                    <li><a href="../contract/iiac_intro.php"><span>항공관리학과(I-ACE) 소개</span></a></li>
+                    <li><a href="../contract/iiac_admi.php"><span>항공관리학과(I-ACE)<br>입학전형 안내</span></a></li>
+                    <li><a href="../contract/confirm_cnt.php">합격자 확인</a></li>
+                    <li><a href="../contract/studentnum_cnt.php">학번 조회</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../subject/subject_01.php" >학과 소개</a>
+                <ul class="gnb_sub gnb_sub_03">
+                    <li><a href="../subject/subject_01.php">항공우주및기계공학과</a></li>
+                    <li><a href="../subject/subject_02.php">항공전자정보공학과</a></li>
+                    <li><a href="../subject/subject_03.php">컴퓨터공학과</a></li>
+                    <li><a href="../subject/subject_04.php">신소재공학과</a></li>
+                    <li><a href="../subject/subject_05.php">스마트항공모빌리티학과</a></li>
+                    <li><a href="../subject/subject_11.php">인공지능학과</a></li>
+                    <li><a href="../subject/subject_12.php">반도체학과</a></li>
+                    <li><a href="../subject/subject_06.php">항공운항관리학과</a></li>
+                    <li><a href="../subject/subject_07.php">항공교통물류학과</a></li>
+                    <li><a href="../subject/subject_15.php">미래항공교통학과</a></li>
+                    <li><a href="../subject/subject_08.php">경영학과</a></li>
+                    <li><a href="../subject/subject_10.php">항공우주법학과</a></li>
+                    <li><a href="../subject/subject_13.php"><span>서비스경영학과<br>(服务管理学系)</span></a></li>
+                    <li><a href="../subject/subject_17.php"><span>항공경영학과<br>(Aviation Management)</span></a></li>
+                    <li><a href="../subject/subject_18.php"><span>글로벌서비스경영학과<br>(全球服务管理学)</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../academic/schedule.php" >학사 안내</a>
+                <ul class="gnb_sub gnb_sub_04">
+                    <li><a href="../academic/schedule.php">학사 일정</a></li>
+                    <li><a href="../academic/enroll.php">등록/학적변동</a></li>
+                    <li><a href="../academic/grades.php">수강신청/이수학점</a></li>
+                    <li><a href="../academic/qualifi.php">자격 시험</a></li>
+                    <li><a href="../academic/advisor.php"><span>지도교수/<br>공동지도교수</span></a></li>
+                    <li><a href="../academic/paper.php">학위청구논문</a></li>
+                    <li><a href="../academic/linked.php">학석사 연계과정</a></li>
+                    <li><a href="../academic/scholarship.php">장학제도</a></li>
+                    <li><a href="../academic/convergence.php">융합전공</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../campus/life.php" >대학원 생활</a>
+                <ul class="gnb_sub gnb_sub_05">
+                    <li><a href="../campus/support.php">연구지원 안내</a></li>
+                    <li><a href="../campus/labs.php">연구실 소개</a></li>
+                    <li><a href="../campus/tech.php">전문연구요원 제도</a></li>
+                    <li><a href="../campus/military.php">예비군 안내</a></li>
+                    <li><a href="../campus/certi.php">각종 증명서 발급</a></li>
+                    <li><a href="../campus/stid.php">학생증 신청</a></li>
+                    <li><a href="../campus/life.php">교내시설 안내</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../community/notice_01.php" >커뮤니티</a>
+                <ul class="gnb_sub gnb_sub_06">
+                    <li><a href="../community/notice_02.php">학사공지</a></li>
+                    <li><a href="../community/notice_01.php">기타 일반공지</a></li>
+                    
+                    <li><a href="../community/format.php">일반 서식</a></li>
+                    <li><a href="../community/faq.php">FAQ</a></li>
+                    <li><a href="../community/qna.php">Q&A</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- //gnb -->
+        <!-- mobile menu -->
+        <button type="button" class="open_menu"></button>
+        <div class="bg_side">
+            <button type="button" class="close_menu"><img src="../images/btn_close.png"></button>
+            <div class="side_menu">
+                <div class="side_header">
+                    <ul class="gum_m">
+                        <li><a href="https://kau.ac.kr/index/main.php" target="_blank">KAU HOME</a></li>
+                        <li><a href="../index/main.php">HOME</a></li>
+                        <li><a href="http://kaug.dsso.kr/index.php">ENGLISH</a></li>
+                    </ul>
+                    <div class="side_img">
+                        <img src="../images/bg_gnb_m.jpg">
+                    </div>
+                </div>
+                <div class="side_conts">
+                    <ul class="gnb_m">
+                        <li>
+                            <a href="#" >대학원 소개</a>
+                            <ul class="gnb_sub_m">
+                                <!-- <li><a href="../about/intro.php">대학원 소개</a></li> -->
+                                <li><a href="../about/greeting.php">원장 인사말</a></li>
+                                <li><a href="../about/vision.php">대학원 비전</a></li>
+                                <li><a href="../about/history.php">연혁</a></li>
+                                <li><a href="../about/admin.php">행정부서 안내</a></li>
+                                <li><a href="../about/rules.php">학칙 및 제규정</a></li>
+                                <li><a href="../about/contact.php">찾아오는 길</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class='selected'>입학 안내</a>
+                            <ul class="gnb_sub_m">
+                                <li><a href="../admission/guide.php">입학전형 안내</a></li>
+                                <li><a href="../admission/guide_f.php">입학전형(외국인) 안내</a></li>
+                                <!-- <li><a href="../admission/guide_cnt.php">입학전형 (채용조건형 계약학과) 안내</a></li> -->
+                                <li><a href="../admission/guide_as.php">입학전형(서비스경영학과) 안내</a></li>
+                                <!-- <li><a href="../admission/guide_fusion.php">입학전형 (융합기계공학과) 안내</a></li> -->
+                                <li><a href="../admission/guide_avi.php">입학전형(항공경영학과) 안내</a></li>
+                                <li><a href="../admission/guide_gs.php">입학전형(글로벌서비스경영학과) 안내</a></li>
+                                <li><a href="../admission/confirm.php">합격자 확인</a></li>
+                                <li><a href="../admission/studentnum.php">학번 조회</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" >계약학과</a>
+                            <ul class="gnb_sub_m">
+                                <li><a href="../contract/iiac_intro.php"><span>항공관리학과(I-ACE) 소개</span></a></li>
+                                <li><a href="../contract/iiac_admi.php"><span>항공관리학과(I-ACE) 입학전형 안내</span></a></li>
+                                <li><a href="../contract/confirm_cnt.php">합격자 확인</a></li>
+                                <li><a href="../contract/studentnum_cnt.php">학번 조회</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" >학과 소개</a>
+                            <ul class="gnb_sub_m">
+                                <li><a href="../subject/subject_01.php">항공우주및기계공학과</a></li>
+                                <li><a href="../subject/subject_02.php">항공전자정보공학과</a></li>
+                                <li><a href="../subject/subject_03.php">컴퓨터공학과</a></li>
+                                <li><a href="../subject/subject_04.php">신소재공학과</a></li>
+                                <li><a href="../subject/subject_05.php">스마트항공모빌리티학과</a></li>
+                                <li><a href="../subject/subject_11.php">인공지능학과</a></li>
+                                <li><a href="../subject/subject_12.php">반도체학과</a></li>
+                                <li><a href="../subject/subject_06.php">항공운항관리학과</a></li>
+                                <li><a href="../subject/subject_07.php">항공교통물류학과</a></li>
+                                <li><a href="../subject/subject_15.php">미래항공교통학과</a></li>
+                                <li><a href="../subject/subject_08.php">경영학과</a></li>
+                                <li><a href="../subject/subject_10.php">항공우주법학과</a></li>
+                                <li><a href="../subject/subject_13.php"><span>서비스경영학과(服务管理学系)</span></a></li>
+                                <li><a href="../subject/subject_17.php"><span>항공경영학과 (Aviation Management)</span></a></li>
+                                <li><a href="../subject/subject_18.php"><span>글로벌서비스경영학과<br>(全球服务管理学)</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" >학사 안내</a>
+                            <ul class="gnb_sub_m">
+                                <li><a href="../academic/schedule.php">학사 일정</a></li>
+                                <li><a href="../academic/grades.php">학점</a></li>
+                                <li><a href="../academic/enroll.php">등록/휴(복)학/재입학</a></li>
+                                <li><a href="../academic/qualifi.php">자격 시험</a></li>
+                                <li><a href="../academic/advisor.php">지도교수/공동지도교수</a></li>
+                                <li><a href="../academic/paper.php">학위 논문</a></li>
+                                <li><a href="../academic/linked.php">학석사 연계과정</a></li>
+                                <li><a href="../academic/scholarship.php">장학제도</a></li>
+                                <li><a href="../academic/convergence.php">융합전공</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" >대학원 생활</a>
+                            <ul class="gnb_sub_m">
+                                <li><a href="../campus/support.php">연구지원 안내</a></li>
+                                <li><a href="../campus/labs.php">연구실 소개</a></li>
+                                <li><a href="../campus/tech.php">전문연구요원 제도</a></li>
+                                <li><a href="../campus/military.php">예비군 안내</a></li>
+                                <li><a href="../campus/certi.php">각종 증명서 발급</a></li>
+                                <li><a href="../campus/stid.php">학생증 신청</a></li>
+                                <li><a href="../campus/life.php">교내시설 안내</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" >커뮤니티</a>
+                            <ul class="gnb_sub_m">
+                                <li><a href="../community/notice_02.php">학사공지</a></li>
+                                <li><a href="../community/notice_01.php">기타 일반공지</a></li>
+                                <li><a href="../community/format.php">일반 서식</a></li>
+                                <li><a href="../community/faq.php">FAQ</a></li>
+                                <li><a href="../community/qna.php">Q&A</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- //mobile menu -->
+        <div class="gnb_sub_bg"></div>
+    </div>
+</div>        <!-- [e]include:Top -->
+
+        <!-- [s]include:subBanner -->
+        
+    <div class="sub_banner sub_banner_02">
+        <h2>입학 안내</h2>
+        <p>항공우주과학기술의 심도 있는 강의와 연구로 항공우주과학의 미래를 이끌 창의 인재를 양성</p>
+    </div>
+
+
+
+
+
+        <!-- [e]include:subBanner -->
+        
+        <!-- container -->
+        <div class="container">
+            <div class="sub_wrap">
+
+                <!-- [s]include:subNav -->
+                <!-- aside -->
+<div class="aside">
+    <div class="aside_conts">
+
+
+    <div class="aside_tit">
+        <h2><span>Admissions</span>입학 안내</h2>
+    </div>
+    <ul class="aside_menu">
+        <li><a href="../admission/guide.php" >입학전형 안내</a></li>
+        <li><a href="../admission/guide_f.php" class='selected'>입학전형(외국인) 안내</a></li>
+        <!-- <li><a href="../admission/guide_cnt.php" id="cnhg" ><span>입학전형(채용조건형 계약학과) 안내</span></a></li> -->
+        <li><a href="../admission/guide_as.php" id="cnhg" ><span>입학전형(서비스경영학과) 안내<br>入学报名(服务管理学系) 说明</span></a></li>
+        
+        <li><a href="../admission/guide_avi.php" ><span>입학전형 (항공경영학과) 안내<br>Admission Guide(Dept. of Aviation Management)</span></a></li>
+        <li><a href="../admission/guide_gs.php" ><span>입학전형 (글로벌서비스경영학과) 안내<br>入学报名 (全球服务管理学系) 说明</span></a></li>
+        <li><a href="../admission/confirm.php" >합격자 확인 (合格查询)</a></li>
+        <li><a href="../admission/studentnum.php" >학번 조회</a></li>
+    </ul>
+
+
+
+
+
+    </div>
+</div>
+<!-- //aside -->                <!-- [e]include:subNav -->
+
+                <div class="sub_conts">
+                    <div class="sub_tit">
+                        <h3>입학전형(외국인) 안내</h3>
+                        <ul class="location">
+                            <li><img src="../images/icon_home.png"></li>
+                            <li>입학 안내</li>
+                            <li>입학전형(외국인) 안내</li>
+                        </ul>
+                    </div> 
+                    <div class="article">
+                        <h4>2026 Fall Admission Schedule</h4>
+                        <a href="../download/2026 후기 일반대학원 외국인 신입생 모집요강.pdf" target="_blank" class="rcr_guide">모집요강 다운로드</a>
+
+                        <a href="../download/2026 Fall KAU Graduate School Admission Guide.pdf" target="_blank" class="rcr_guide_en">Download Guide</a>
+
+                        <table class="table_nrm center">
+                            <tr>
+                                <th>Schedule</th>
+                                <th>1st</th>
+                                <th>2nd</th>
+                                <th>3rd</th>
+                                <th>4th</th>
+                                <th>Remarks</th>
+                            </tr>
+                            <tr>
+                                <td>Application</td>
+                                <td>Apr 6 (Mon) ~<br>Apr 10 (Fri), 2026</td>
+                                <td>May 11 (Mon) ~<br>May 15 (Fri), 2026</td>
+                                <td>Jun 22 (Mon) ~<br>Jun 26 (Fri), 2026</td>
+                                <td>Jul 15 (Wed) ~<br>Jul 17 (Fri), 2026</td>
+                                <td>online Application<br>www.jinhakapply.com</td>
+                            </tr>
+                            <tr>
+                                <td>Documents<br>Submission</td>
+                                <td>Apr 13 (Mon), 2026</td>
+                                <td>May 18 (Mon), 2026</td>
+                                <td>Jun 29 (Mon), 2026</td>
+                                <td>Jul 20 (Mon), 2026</td>
+                                <td>
+                                    <!-- mail /email<br>
+                                    <a href="mailto:grad@kau.ac.kr">(grad@kau.ac.kr)</a> -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Interview</td>
+                                <td>Apr 20 (Mon) ~<br>Apr 21 (Tue), 2026</td>
+                                <td>May 26 (Tue) ~<br>May 27 (Wed), 2026</td>
+                                <td>Jul 6 (Mon) ~<br>Jul 7 (Tue), 2026</td>
+                                <td>Jul 22 (Wed) ~<br>Jul 23 (Thu), 2026</td>
+                                <td>pro re nata</td>
+                            </tr>
+                            <tr>
+                                <td>Result</td>
+                                <td>May 8 (Fri), 2026</td>
+                                <td>Jun 12 (Fri), 2026</td>
+                                <td>Jul 24 (Fri), 2026</td>
+                                <td>Aug 5 (Wed), 2026</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Registration</td>
+                                <td>May 18 (Mon) ~<br>May 22 (Fri), 2026</td>
+                                <td>Jun 22 (Mon) ~<br>Jun 26 (Fri), 2026</td>
+                                <td>Jul 27 (Mon) ~<br>Jul 31 (Fri), 2026</td>
+                                <td>Aug 5 (Wed) ~<br>Aug 7 (Fri), 2026</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <p class="noti">
+                            3rd Round is conducted only for international departments<br>
+                            (Service Management, Aviation Management, and Global Service Management).<br>
+                            4th Round is open only to the Service Management and Global Service Management departments.
+                        </p>
+                    </div>
+                    <div class="article">
+                        <h4>입학원서 접수안내</h4>
+                        <p class="noti">국내 체류중인 외국인의 경우 외국인등록증, 계좌, 결제카드를 보유한 경우 진학사 인터넷 접수 가능</p>
+                        <p class="noti">국외 체류중인 외국인은 지원양식 작성 후 우편 발송, 국외 접수외국인 모집안내 영문홈페이지 참고</p>
+                        <ul class="admission_step">
+                            <li>
+                                1.<br>
+                                <a href="http://bank1.jinhakapply.com/ApplyV8/Wonseo/Yui/Yui121108.aspx?UnivServiceID=121108" target="_blank">http://www.jinhakapply.com</a> 접속
+                            </li>
+                            <li class="sep"></li>
+                            <li>
+                                2.<br>
+                                회원가입<br>※ 반드시 지원자 명의로 가입
+                            </li>
+                            <li class="sep"></li>
+                            <li>
+                                3.<br>
+                                원서접수중인 대학원에서 [한국항공대학교 일반대학원] 선택
+                            </li>
+                            <li class="sep"></li>
+                            <li>
+                                4.<br>
+                                모집요강 및 원서접수 유의사항 숙지
+                            </li>
+                            <li class="sep for_m"></li>
+                            <li>
+                                5.<br>
+                                입학원서 작성<br>(사진 스캔하여 업로드)
+                            </li>
+                            <li class="sep"></li>
+                            <li>
+                                6.<br>
+                                전형료 결제 전<br>최종 입력내용 확인
+                            </li>
+                            <li class="sep"></li>
+                            <li>
+                                7.<br>
+                                전형료 결제
+                            </li>
+                            <li class="sep"></li>
+                            <li>
+                                8.<br>
+                                접수확인 및 수험표 출력
+                            </li>
+                            <li class="sep for_m"></li>
+                            <li>
+                                9.<br>
+                                제출서류 확인한 후 제출<br>(우편 및 방문)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="article">
+                        <div class="adms_btn">
+                            <!-- <a href="https://enter.jinhakapply.com/Notice/1211004/A" target="_blank"><span>일반대학원 원서접수<br>Application</span></a> -->
+                            <a href="../download/Application_Form_graduate.doc" target="_blank"><span>입학지원 양식(외국인 전용)<br>Application Form(Foreigners only)</span></a>
+                        </div>
+                    </div>
+                    
+                    <ul class="contact_box">
+                        <li>문의 : 대학원행정실</li>
+                        <li><span>전화번호</span>02-300-0304</li>
+                        <li><span>E-mail</span>2024079@kau.ac.kr</li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+        </div>
+        <!-- //container -->
+
+        <!-- [s]include:Footer -->
+        <div class="footer">
+    <div class="footer_conts">
+        <span class="logo"></span>
+        <div class="footer_menu">
+            <a href="https://kau.ac.kr/privacy/policy.php" target="_blank">개인정보처리방침</a>
+        </div>
+        <ul class="family_site">
+            <li><a href="http://kau.ac.kr" target="_blank">한국항공대학교</a></li>
+            <li><a href="https://lms.kau.ac.kr/login.php" target="_blank">LMS</a></li>
+            <li><a href="http://lib.kau.ac.kr" target="_blank">중앙도서관</a></li>
+            <li><a href="http://research.kau.ac.kr/index/main.php" target="_blank">산학협력단</a></li>
+            <li><a href="http://ctl.kau.ac.kr/intro/main.php" target="_blank">교수학습센터</a></li>
+        </ul>
+        <p>10540) 경기도 고양시 덕양구 항공대학로 76 한국항공대학교 대학본관 Tel (02) 300-0114  /  Fax (02) 3158-5769  /  E.mail webmaster@kau.ac.kr</p>
+        <p class="copy">Copyright 2021 Korea Aerospace University. All Rights reserved.</p>
+    </div>
+    <button type="button" id="go_top"><img src="../images/go_top.png" alt="go_top"></button>
+</div>        <!-- [e]include:Footer -->
+    </div>
+    
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3cef7f2a826834c',t:'MTc4OTcyMDAxNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

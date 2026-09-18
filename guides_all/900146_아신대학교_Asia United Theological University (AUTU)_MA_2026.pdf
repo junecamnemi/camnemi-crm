@@ -1,0 +1,1156 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="X-UA-Compatible" content="text/html; charset=euc-kr" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=3.0,user-scalable=yes" />
+<meta http-equiv="Expires" content="Mon, 06 Jan 1990 00:00:01 GM">
+<meta name="title" content="아신대학교" />
+<meta name="author" content="아신대학교" />
+<meta name="keywords" content="아신대학교" />
+<meta name="description" content="아신대학교" />
+
+<meta property="og:title" content="아신대학교 대학원">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.acts.ac.kr/grad/design/images/GraduateSchoolUISigniture800x400.png">
+<meta property="og:description" content="아신대학교 대학원">
+
+<title>아신대학교 대학원</title>
+<link rel="shortcut icon" href="design/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="design/images/favicon.ico" type="image/x-icon">
+<!-- <script type="text/javascript" src="/js/template.js"></script> -->
+<!-- 헤더파일에 정의함
+<script type="text/javascript" src="/js/jquery-1.4.4.input.js" ></script>
+<script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="/js/listTab.js" ></script>
+<script type="text/javascript" src="/js/lib.js"></script>
+<script type="text/javascript" src="/js/grad/common.js"></script>
+<script type="text/javascript" src="/js/grad/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/grad/mainpage.js"></script>
+<script type="text/javascript" src="/js/grad/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/js/grad/jquery.mCustomScrollbar.js"></script>-->
+<link rel="stylesheet" type="text/css" href="/css/font/font.css" />
+<link rel="stylesheet" type="text/css" href="/css/basic.css" />
+<link rel="stylesheet" type="text/css" href="/css/modules.css" />
+<link rel="stylesheet" type="text/css" href="/css/board.css" />
+<link rel="stylesheet" type="text/css" href="/css/grad/listTab.css" />
+<link rel="stylesheet" type="text/css" href="/css/grad/layout.css" />
+<link rel="stylesheet" type="text/css" href="/css/grad/index.css" />
+<link rel="stylesheet" type="text/css" href="/css/grad/header.css" />
+<link rel="stylesheet" type="text/css" href="/css/grad/footer.css" />
+<!-- <link rel="stylesheet" type="text/css" href="/css/style.css" /> -->
+<link rel="stylesheet" type="text/css" href="/css/grad/media.css" />
+<link rel="stylesheet" type="text/css" href="/css/modules-media.css" />
+<link rel="stylesheet" type="text/css" href="/js/grad/jquery.mCustomScrollbar.css" />
+
+<script language="javascript">
+function getCookie( name )
+{
+	var nameOfCookie = name + "=";
+	var x = 0;
+	while ( x <= document.cookie.length )
+	{
+		var y = (x+nameOfCookie.length);
+		if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+			if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+				endOfCookie = document.cookie.length;
+			return unescape( document.cookie.substring( y, endOfCookie ) );
+		}
+		x = document.cookie.indexOf( " ", x ) + 1;
+		if ( x == 0 )
+			break;
+	}
+	return "";
+}
+</script>
+
+<!--[if IE 6]>
+<script type="text/javascript" src="/js/DD_belatedPNG.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('.png');
+</script>
+<![endif]-->
+
+<script>
+	function cal_prev() {
+		var thisDate = '2026-09';
+		var thisYear = thisDate.substring(0,4);
+		var thisMonth = thisDate.substring(5,7);
+		var thisDay = "1";
+		var d = new Date(thisYear,thisMonth-1,thisDay);
+		d.setMonth( d.getMonth() - 1 );
+		var yy = d.getFullYear();
+		var mm = d.getMonth()+1; mm = (mm < 10) ? '0' + mm : mm;
+		var yymm = yy+"-"+mm;
+
+		location.href = "/grad/design/index.asp?thisDate=" + yymm;
+
+	}
+
+	function cal_next() {
+		var thisDate = '2026-09';
+		var thisYear = thisDate.substring(0,4);
+		var thisMonth = thisDate.substring(5,7);
+		var thisDay = "1";
+		var d = new Date(thisYear,thisMonth-1,thisDay);
+		d.setMonth( d.getMonth() + 1 );
+		var yy = d.getFullYear();
+		var mm = d.getMonth()+1; mm = (mm < 10) ? '0' + mm : mm;
+		var yymm = yy+"-"+mm;
+
+		location.href = "/grad/design/index.asp?thisDate=" + yymm;
+	}
+
+	function cal_academic() {
+		var thisDate = '2026-09';
+		var thisYear = thisDate.substring(0,4);
+		var thisMonth = thisDate.substring(5,7);
+		var thisDay = "1";
+		var d = new Date(thisYear,thisMonth-1,thisDay);
+		var yy = d.getFullYear();
+		var mm = d.getMonth()+1; mm = (mm < 10) ? '0' + mm : mm;
+		var yymm = yy+"-"+mm;
+
+		location.href = "/grad/design/academic_calendar.asp?oa=4&left=degree1_1&thisDate=" + yymm;
+	}
+</script>
+
+
+</head>
+
+<body>
+	<div id="skipNavi">
+		<a href="#nav">주메뉴 바로가기</a>
+		<a href="#contents">본문 바로가기</a>
+	</div>
+	<div id="siteWrap" class="main">
+		<!--header -->
+			<script type="text/javascript" src="/js/jquery-1.4.4.input.js" ></script>
+<script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="/js/grad/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/listTab.js" ></script>
+<script type="text/javascript" src="/js/lib.js"></script>
+<script type="text/javascript" src="/js/grad/common.js"></script>
+<script type="text/javascript" src="/js/grad/mainpage.js"></script>
+<script type="text/javascript" src="/js/grad/template.js"></script>
+<script type="text/javascript" src="/js/grad/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/js/grad/jquery.mCustomScrollbar.js"></script>
+
+
+
+
+<div id="hdPopup" class="none">
+	<div class="wrapper">
+		<div class="row">
+			<ul class="hd_popup">
+
+            
+      				
+      			<li class="pop01" >
+					
+      				<p class="txt-center"><a href="https://www.acts.ac.kr/modules/board/bd_view.asp?no=3708&id=grad_notice&left=board1_1&sleft="  target='_blank' ><img src="/upload/popup/5y348z0qtz146z26o.png" alt="네팔 대홍수 성금모금"/></a></p>
+					
+      			</li>
+      					
+        		
+
+
+
+			</ul>
+		</div>
+		<div class="closebox">
+			<div class="row">
+				<form name="popup_form">
+				   <label for="today_check">오늘 하루 이 창 열지 않기</label>
+				   <input type="checkbox" name="checkbox" value="checkbox" id="today_check" onclick="javascript:todaycloseWin();">
+				   <img src="/grad/design/images/mainpage/i_close.png" alt="" class="btn_close">
+			   </form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="header" class="header">
+	<div class="header__top clearfix">
+		<div class="wrapper">
+			<ul class="topMenu clearfix">
+				<li class=""><a href="/design/index.asp"><img src="/grad/design/images/mainpage/i_home.png" alt="actsHome" /></a></li>
+				
+				<li>
+					<form name="login_form" method="post" id="login_form" action="/modules/member/me_login.asp" style="display: none;">
+						<input type="hidden" name="referer" value="https://www.acts.ac.kr/grad/design/index.asp" />
+					</form>
+					<a href="/modules/member/me_login.asp?grad=1" id="login_form_submit" style="cursor: pointer;">LOGIN</a>
+				</li>
+				
+				<li><a href="http://english.acts.ac.kr" title="English" target="_blank">ENGLISH</a></li>
+				<li class="allview">
+					<a href="/grad/design/allmenu.asp" >SITEMAP</a>
+				</li>
+				<!--원본<li class="popup"><a href="#">POPUP ZONE <span class="pop_cnt">1</span></a></li>-->
+				<li class="popup"><a href="#">POPUP ZONE <span class="pop_cnt">1</span></a></li>
+			</ul>
+			<ul class="topSearch clearfix">
+				<li>
+					<div class="member">
+						<a href="#"><img src="/grad/design/images/mainpage/i_member.png" alt="member search" /></a>
+						<div class="member_cate">
+							<dl class="clearfix">
+								<dt class="col-xs-4"><img src="/grad/design/images/mainpage/icon_member1.png" alt=""><span>ACTS인</span></dt>
+								<dd class="col-xs-8">
+									<ul class="clearfix">
+										<li class="bull col-xs-6"><a href="/grad/design/contents10.asp?code=2311&left=3">수강신청</a></li>
+										<li class="bull col-xs-6"><a href="/grad/design/contents10.asp?code=2314&left=6">장학금</a></li>
+										<li class="bull col-xs-6"><a href="/grad/design/contents10.asp?code=241010&left=1">논문</a></li>
+										<li class="bull col-xs-6"><a href="/design/contents10.asp?code=10111210&left=12&sleft=16" target="_blank">셔틀버스</a></li>
+										<li class="bull col-xs-6"><a href="/grad/design/contents10.asp?code=2312&left=4">학사제도 (휴/복학)</a></li>
+									</ul>
+								</dd>
+							</dl>
+							<dl class="clearfix">
+								<dt class="col-xs-4"><img src="/grad/design/images/mainpage/icon_member2.png" alt=""><span>예비ACTS인</span></dt>
+								<dd class="col-xs-8">
+									<ul class="clearfix">
+										<li class="bull col-xs-6"><a href="/grad/design/contents10.asp?code=221010&left=1&sleft=2">전공소개</a></li>
+										<li class="bull col-xs-6"><a href="/grad/design/contents10.asp?code=201210&left=3&sleft=4">교수소개</a></li>
+										<li class="bull col-xs-6"><a href="/modules/board/bd_list.asp?id=grad_adm_notice&left=1">입학정보</a></li>
+										<li class="bull col-xs-6"><a href="/design/contents10.asp?code=10111110&left=12&sleft=15" target="_blank">찾아오시는길</a></li>
+										<li class="bull col-xs-6"><a href="/design/contents10.asp?code=101110&left=12&sleft=13" target="_blank">캠퍼스맵</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+					<div>
+				</li>
+				<li>
+					<form name="frm_search" id="search" onsubmit="search(); accept-charset="utf-8">
+						<!-- 구글맞춤검색을 위한 파라미터-->
+						<input type="hidden" name="newwindow" value="1"/>
+						<input type="hidden" name="ie" value="UTF-8" />
+						<input type="hidden" name="q"  value=""/><!-- 구글맞춤검색 검색어 -->
+						<fieldset>
+							<legend>통합검색</legend>
+							<p>
+								<label for="sv" class="username-label" style="position:absolute; top:5px; left:7px;">검색어를 입력하세요.</label>
+								<input type="text" id="sv" name="sv" value="" class="search_input username"  onkeypress="JavaScript:Enter_Check();"  title="검색어"/><input type="image" src="/grad/design/images/mainpage/i_search.png" alt="검색" title="검색버튼" onclick="search();"  />
+							</p>
+						</fieldset>
+					</form>
+					<!--구글맞춤검색 끝-->
+					<script type="text/javascript">
+						//<![CDATA[
+						$(document).ready(function() {
+
+							$('.username-label').animate({ opacity: "0.5" })
+								.click(function() {
+									var thisFor	= $(this).attr('for');
+									$('.'+thisFor).focus();
+							});
+
+							$('.username').focus(function() {
+
+								$('.username-label').animate({ opacity: "0" }, "fast");
+
+									if($(this).val() == "username")
+										$(this).val() == "";
+
+								}).blur(function() {
+
+									if($(this).val() == "") {
+										$(this).val() == "username";
+										$('.username-label').animate({ opacity: "0.5" }, "fast");
+									}
+								});
+							});
+						//]]>
+					</script>
+
+					<!--구글맞춤검색 시작-->
+					<script>
+						function search(){
+							document.charset = "utf-8";
+							var obj = document.getElementById("search");
+							obj.q.value = obj.sv.value;
+							obj.action="/design/total_search_2014.asp";
+							obj.method="get";
+							//obj.target="_blank";
+
+							obj.submit();
+							return false;
+						}
+
+						function Enter_Check(){
+							// 엔터키의 코드는 13입니다.
+							if(event.keyCode == 13){
+								search();
+								return ;
+							}
+						}
+					</script>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="header__cont">
+		<div class="wrapper clearfix">
+			<div class="action">
+				<button type="button" id="btnGnb" class="btn--gnb">
+					<span class="bar"></span>
+					<span class="hidden">모바일 메뉴</span>
+				</button>
+			</div>
+			<h1 class="logo">
+				<!-- <a href="/grad/design/index.asp"><img src="/grad/design/images/mainpage/logo.png" alt="아세아연합신학대학교 대학원" /></a> -->
+				<a href="/grad/design/index.asp"><img src="/images/grad/logo_2023a.png" alt="아신대학교 대학원" /></a>
+			</h1>	
+			<!--ul class="sns_icon">
+				<li><a href="#none" onclick="sns_fb('www.acts.ac.kr/grad/design/index.asp?','아세아연합신학대학교')"><img src="/design/images/sns_icon01.png" alt="페이스북" /></a></li>
+				<li><a href="#none" onclick="sns_tw('www.acts.ac.kr/grad/design/index.asp?')"><img src="/design/images/sns_icon02.png" alt="트위터" /></a></li>
+				<li><a href="#none" onclick="sns_m2('www.acts.ac.kr/grad/design/index.asp?')"><img src="/design/images/sns_icon03.png" alt="미투데이" /></a></li>
+			</ul-->
+	
+			<div id="gnb" class="gnb">
+				<h2 class="hidden">주메뉴</h2>
+				<ul class="depth1 clearfix">
+					<li class="depth1__menu">
+						<a href="/grad/design/contents10.asp?code=2010&left=intro1_1">대학원소개</a>
+						<div class="gnb__inner">
+							<div class="wrapper">
+								<div class="depth1__tit" data="대학원소개">대학원소개</div>
+								<ul class="depth2 clearfix">
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=2010&left=intro1_1" class="depth2__tit" data="교육이념과 비전">교육이념과 비전</a></li>
+									<!-- <li class="depth2__menu"><a href="/grad/design/intro01.asp?left=1">원장인사말</a></li> -->
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=2011&left=intro2_1"  class="depth2__tit" data="연혁">연혁</a></li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=201210&left=intro3_1" class="depth2__tit" data="교수소개">교수소개</a>
+										<ul class="depth3 clearfix">
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=201210&left=intro3_1" class="depth3__tit" data="일반대학원">일반대학원</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=201211&left=intro3_2" class="depth3__tit" data="신학대학원">신학대학원</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=201212&left=intro3_3" class="depth3__tit" data="선교대학원">선교대학원</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=201213&left=intro3_4" class="depth3__tit" data="교육대학원">교육대학원</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=201214&left=intro3_5" class="depth3__tit" data="상담대학원">상담대학원</a></li>
+											<!--li class="depth3__menu"><a href="/grad/design/contents10.asp?code=201215&left=intro3_6" class="depth3__tit" data="복지대학원">복지대학원</a></li-->
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=201216&left=intro3_6" class="depth3__tit" data="다문화교육복지대학원">다문화교육복지대학원</a></li>
+										</ul>
+									</li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=2014&left=intro4_1" class="depth2__tit" data="행정부서 안내">행정부서 안내</a></li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=201510&left=intro5_1" class="depth2__tit" data="찾아오시는길">찾아오시는길</a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="depth1__menu">
+						<a href="/modules/board/bd_list.asp?id=grad_adm_notice&left=admission1_1">입학</a>
+						<div class="gnb__inner">
+							<div class="wrapper">
+								<div class="depth1__tit" data="입학">입학</div>
+								<ul class="depth2 clearfix">
+									<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=grad_adm_notice&left=admission1_1" class="depth2__tit" data="공지사항">공지사항</a></li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=211010&left=admission2_1" class="depth2__tit" data="모집요강">모집요강</a>
+										<ul class="depth3 clearfix">
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=211010&left=admission2_1" class="depth3__tit" data="일반대학원">일반대학원</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=211011&left=admission2_2" class="depth3__tit" data="신학대학원">신학대학원</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=211012&left=admission2_3" class="depth3__tit" data="선교대학원">선교대학원</a></li>
+											<!-- <li class="depth3__menu"><a href="/grad/design/adm_main.asp?code=211013&left=2&amp;sleft=6" class="depth3__tit" data="교육대학원">교육대학원</a></li> -->
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=211013&left=admission2_4" class="depth3__tit" data="교육대학원">교육대학원</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=211014&left=admission2_5" class="depth3__tit" data="상담대학원">상담대학원</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=211015&left=admission2_6" class="depth3__tit" data="다문화교육복지대학원">다문화교육복지대학원</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=211016&left=admission2_7" class="depth3__tit" data="편입학">편입학</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=211017&left=admission2_8" class="depth3__tit" data="전체모집요강">전체모집요강</a></li>
+										</ul>
+									</li>
+									<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=grad_faq&left=admission3_1" class="depth2__tit" data="자주하는 질문">자주하는 질문</a></li>
+									<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=grad_qna&left=admission4_1" class="depth2__tit" data="묻고답하기">묻고답하기</a></li>
+									<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=grad_form&left=admission5_1" class="depth2__tit" data="입학관련자료실">입학관련자료실</a>
+										<ul class="depth3 clearfix">
+											<li class="depth3__menu"><a href="/modules/board/bd_list.asp?id=grad_form&left=admission5_1" class="depth3__tit" data="입학관련서식">입학관련서식</a></li>
+											<li class="depth3__menu"><a href="/modules/board/bd_list.asp?id=grad_data&left=admission5_2" class="depth3__tit" data="입시자료">입시자료</a></li>
+										</ul>
+									</li>
+									<li class="depth2__menu"><a href="https://in.acts.ac.kr/EnterLogin.aspx" target="_blank" class="depth2__tit" data="합격자조회/고지서출력">합격자조회/고지서출력</a></li>
+									
+											<li class="depth2__menu"><a href="javascript:alert('지금은 원서접수기간이 아닙니다.');" class="depth2__tit" data="입학원서접수">입학원서접수</a></li>
+									
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="depth1__menu">
+						<a href="/grad/design/contents10.asp?code=221010&left=course1_1">과정</a>
+						<div class="gnb__inner">
+							<div class="wrapper">
+								<div class="depth1__tit" data="과정">과정</div>
+								<ul class="depth2 clearfix">
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=221010&left=course1_1" class="depth2__tit" data="일반대학원">일반대학원</a>
+										<ul class="depth3 clearfix">
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221010&left=course1_1" class="depth3__tit" data="철학박사(Ph.D.)">철학박사(Ph.D.)</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221011&left=course1_2" class="depth3__tit" data="신학박사(Th.D.)">신학박사(Th.D.)</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221012&left=course1_3" class="depth3__tit" data="석박사통합과정">석박사통합과정</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221013&left=course1_4" class="depth3__tit" data="석사과정">석사과정</a></li>
+										</ul>
+									</li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=221110&left=course2_1" class="depth2__tit" data="신학대학원">신학대학원</a>
+										<ul class="depth3 clearfix">
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221110&left=course2_1" class="depth3__tit" data="성경강해학(Th.M.)">성경강해학(Th.M.)</a></li>
+											<!--<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221111&left=course2_2" class="depth3__tit" data="목회학석사(2022년이전)">목회학석사(2022년이전)</a></li>-->
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221112&left=course2_2" class="depth3__tit" data="목회학석사">목회학석사</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221113&left=course2_3" class="depth3__tit" data="문학석사">문학석사</a></li>
+										</ul>
+									</li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=2212&left=course3_1" class="depth2__tit" data="선교대학원">선교대학원</a></li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=221310&left=course4_1" class="depth2__tit" data="교육대학원">교육대학원</a>
+										<ul class="depth3 clearfix">
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221310&left=course4_1" class="depth3__tit" data="교육학석사">교육학석사</a></li>
+										</ul>
+									</li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=221410&left=course5_1" class="depth2__tit" data="상담대학원">상담대학원</a>
+										<ul class="depth3 clearfix">
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221410&left=course5_1" class="depth3__tit" data="상담학석사">상담학석사</a></li>
+										</ul>
+									</li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=221510&left=course6_1" class="depth2__tit" data="복지대학원">복지대학원</a>
+										<ul class="depth3 clearfix">
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221510&left=course6_1" class="depth3__tit" data="사회복지학석사">사회복지학석사</a></li>
+										</ul>
+									</li>
+									<li class="depth2__menu" style="float:right;"><a href="/grad/design/contents10.asp?code=221610&left=course7_1" class="depth2__tit" data="다문화교육복지대학원">다문화교육복지대학원</a>
+										<ul class="depth3 clearfix">
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221610&left=course7_1" class="depth3__tit" data="사회복지">사회복지</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221610&left=course7_2" class="depth3__tit" data="다문화교육">다문화교육</a></li>
+											<li class="depth3__menu"><a href="/grad/design/contents10.asp?code=221610&left=course7_3" class="depth3__tit" data="다문화사회복지융합">다문화사회복지융합</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="depth1__menu">
+						<a href="/grad/design/academic_calendar.asp?oa=4&left=degree1_1">학사</a>
+						<div class="gnb__inner">
+							<div class="wrapper">
+								<div class="depth1__tit" data="학사">학사</div>
+								<ul class="depth2 clearfix">
+									<li class="depth2__menu"><a href="/grad/design/academic_calendar.asp?oa=4&left=degree1_1" class="depth2__tit" data="학사일정">학사일정</a></li>
+									<!-- <li class="depth2__menu"><a href="/grad/design/academic_calendar.asp?oa=4&left=degree7_1" class="depth2__tit" data="학사일정안내">학사일정안내</a></li> -->
+									<li class="depth2__menu"><a href="/grad/design/contents10_new.asp?code=2310&left=degree2_1" class="depth2__tit" data="학칙 및 규정">학칙 및 규정</a></li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=2311&left=degree3_1" class="depth2__tit" data="등록 및 수강신청">등록 및 수강신청</a></li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=2312&left=degree4_1" class="depth2__tit" data="휴·복학 안내">휴·복학 안내</a></li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=2313&left=degree5_1" class="depth2__tit" data="시험 및 성적안내">시험 및 성적안내</a></li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=2314&left=degree6_1" class="depth2__tit" data="장학안내">장학안내</a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="depth1__menu">
+						<a href="/grad/design/contents10.asp?code=241010&left=treatise1_1">논문</a>
+						<div class="gnb__inner">
+							<div class="wrapper">
+								<div class="depth1__tit" data="논문">논문</div>
+								<ul class="depth2 clearfix">
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=241010&left=treatise1_1" class="depth2__tit" data="논문작성안내">논문작성안내</a></li>
+									<li class="depth2__menu"><a href="/grad/design/contents10.asp?code=241111&left=treatise2_1" class="depth2__tit" data="논문심사일정">논문심사일정</a></li>
+									<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=grad_treatise&left=treatise3_1" class="depth2__tit" data="논문서식자료실">논문서식자료실</a></li>
+									<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=grad_treatise02&left=treatise4_1" class="depth2__tit" data="연구윤리자료실">연구윤리자료실</a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="depth1__menu">
+						<a href="/modules/board/bd_list.asp?id=grad_notice&left=board1_1">커뮤니티</a>
+						<div class="gnb__inner">
+							<div class="wrapper">
+								<div class="depth1__tit" data="커뮤니티">커뮤니티</div>
+								<ul class="depth2 clearfix">
+									<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=grad_notice&left=board1_1" class="depth2__tit" data="공지사항">공지사항</a>
+										<ul class="depth3 clearfix">
+											<li class="depth3__menu"><a href="/modules/board/bd_list.asp?id=grad_notice&left=board1_1" class="depth3__tit" data="전체공지">전체공지</a></li>
+											<li class="depth3__menu"><a href="/modules/board/bd_list.asp?id=grad_notice02&left=board1_2" class="depth3__tit" data="일반대학원">일반대학원</a></li>
+											<li class="depth3__menu"><a href="/modules/board/bd_list.asp?id=grad_notice03&left=board1_3" class="depth3__tit" data="신학대학원">신학대학원</a></li>
+											<li class="depth3__menu"><a href="/modules/board/bd_list.asp?id=grad_notice04&left=board1_4" class="depth3__tit" data="선교대학원">선교대학원</a></li>
+											<li class="depth3__menu"><a href="/modules/board/bd_list.asp?id=grad_notice05&left=board1_5" class="depth3__tit" data="교육대학원">교육대학원</a></li>
+											<li class="depth3__menu"><a href="/modules/board/bd_list.asp?id=grad_notice06&left=board1_6" class="depth3__tit" data="상담대학원">상담대학원</a></li>
+											<!--li class="depth3__menu"><a href="/modules/board/bd_list.asp?id=grad_notice07&left=board1_7" class="depth3__tit" data="복지대학원">복지대학원</a></li-->
+											<li class="depth3__menu"><a href="/modules/board/bd_list.asp?id=grad_notice08&left=board1_7" class="depth3__tit" data="다문화교육복지대학원">다문화교육복지대학원</a></li>
+										</ul>
+									</li>
+									<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=grad_bqna&left=board2_1" class="depth2__tit" data="묻고답하기">묻고답하기</a></li>
+									<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=grad_form02&left=board3_1" class="depth2__tit" data="자료실">자료실</a>
+										<ul class="depth3 clearfix">
+											<li class="depth3__menu"><a href="/modules/board/bd_list.asp?id=grad_form02&left=board3_1" class="depth3__tit" data="행정서식">행정서식</a></li>
+											<li class="depth3__menu"><a href="/modules/board/bd_list.asp?id=grad_data02&left=board3_2" class="depth3__tit" data="수업자료실">수업자료실</a></li>
+										</ul>
+									</li>
+									<li class="depth2__menu"><a href="/modules/board/bd_list.asp?id=acts_csrd_guide&left=unilife3_12&ca_no=1" target="_blank" class="depth2__tit" data="청빙게시판">청빙게시판</a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+				</ul><!-- //topmenu -->
+			</div><!--//gnb -->
+		</div>
+	</div>
+	<!-- <script type="text/javascript">initNavigation(0);</script> -->
+</div><!--//header -->
+		<!--//header -->
+		<div id="container">
+			<div class="banner">
+				<div id="mainVisual" class="mainVisual">	
+					<ul class="mainVisual__list">
+						<!-- <img src="images/grad_main.jpg" alt="아세아 복음화와 세계선교는 ACTS로 부터! 글로벌 리더양성 ACTS" /> -->
+						 
+					  	<li id="mainVisualImg1" class="mainVisual__item" ><a href="#"><img src="/upload/mainimg/d5yal5q235tbg6821.jpg"/></a></li>
+						
+					  	<li id="mainVisualImg2" class="mainVisual__item" ><a href="#"><img src="/upload/mainimg/8h67dhjy0h4t9359w.jpg"/></a></li>
+						
+					  	<li id="mainVisualImg3" class="mainVisual__item" ><a href="#"><img src="/upload/mainimg/04893551h5691nue1.jpg"/></a></li>
+						
+  					    <!-- <li id="mainVisualImg4" class="mainVisual__item"><a href="#"><img src="/grad/design/images/mainpage/mainvisual4.jpg"></a></li> -->
+					</ul>
+                </div>
+
+			    <script type="text/javascript">
+				$(function() {
+					$('.menu li').toggleOn();
+				 });
+			    </script>
+				<div class="calendar_wrap">
+					<div class="calendar">
+						<p class="cal_tit">학사일정</p>
+						<p class="cal_mon">
+							<button type="button" id="cal_prev" onclick="cal_prev();"><img src="/grad/design/images/mainpage/i_prev.png" alt="이전달"></button>
+							<span class="cur_mon">2026. 09</span>
+							<button type="button" id="cal_next" onclick="cal_next();"><img src="/grad/design/images/mainpage/i_next.png" alt="다음달"></button>
+						</p>
+						<ul class="cal_list clearfix">
+									
+							<li>
+							<a href="#" style="color:#fff" onclick="cal_academic();">
+								<dl class="col-sm-6 col-md-12">
+									
+									<dt>23</dt>
+									
+									<dd>
+										<p class="cal_term">2026.06.23.(화) ~ 2026.09.03.(목)</p>
+										<p class="cal_con">2026-2학기 휴·복학 신청기간</p>
+									</dd>
+								</dl>
+							</a>
+
+
+
+							<li>
+							<a href="#" style="color:#fff" onclick="cal_academic();">
+								<dl class="col-sm-6 col-md-12">
+									
+									<dt>21</dt>
+									
+									<dd>
+										<p class="cal_term">2026.08.21.(금) ~ 2026.09.04.(금)</p>
+										<p class="cal_con">장학금 추가신청기간</p>
+									</dd>
+								</dl>
+							</a>
+
+
+
+							<li>
+							<a href="#" style="color:#fff" onclick="cal_academic();">
+								<dl class="col-sm-6 col-md-12">
+									
+									<dt>31</dt>
+									
+									<dd>
+										<p class="cal_term">2026.08.31.(월) ~ 2026.09.07.(월)</p>
+										<p class="cal_con"> 예비시험(P.E.) 및 외국어시험 신청기간</p>
+									</dd>
+								</dl>
+							</a>
+
+
+
+							<li>
+							<a href="#" style="color:#fff" onclick="cal_academic();">
+								<dl class="col-sm-6 col-md-12">
+									
+									<dt>31</dt>
+									
+									<dd>
+										<p class="cal_term">2026.08.31.(월) ~ 2026.09.03.(목)</p>
+										<p class="cal_con">2026-2학기 수강신청 변경</p>
+									</dd>
+								</dl>
+							</a>
+
+
+
+							<li>
+							<a href="#" style="color:#fff" onclick="cal_academic();">
+								<dl class="col-sm-6 col-md-12">
+									
+									<dt>03</dt>
+									
+									<dd>
+										<p class="cal_term">2026.09.03.(목) ~ 2026.09.03.(목)</p>
+										<p class="cal_con">신학대학원(M.Div.) 개강예배</p>
+									</dd>
+								</dl>
+							</a>
+
+
+
+							<li>
+							<a href="#" style="color:#fff" onclick="cal_academic();">
+								<dl class="col-sm-6 col-md-12">
+									
+									<dt>10</dt>
+									
+									<dd>
+										<p class="cal_term">2026.09.10.(목) ~ 2026.09.10.(목)</p>
+										<p class="cal_con">2026-2학기 신앙수련회(M.Div.)</p>
+									</dd>
+								</dl>
+							</a>
+
+
+
+							<li>
+							<a href="#" style="color:#fff" onclick="cal_academic();">
+								<dl class="col-sm-6 col-md-12">
+									
+									<dt>15</dt>
+									
+									<dd>
+										<p class="cal_term">2026.09.15.(화) ~ 2026.09.16.(수)</p>
+										<p class="cal_con">2026-2학기 추가등록</p>
+									</dd>
+								</dl>
+							</a>
+
+
+
+
+
+
+							</li>
+						</ul>
+						<div class="home_banner">
+						<a href="https://www.acts.ac.kr/modules/board/bd_list.asp?id=grad_notice0304&left=board1_3"><img src="/grad/design/images/MdivNoticeBanner2.png"></a>
+						</div>
+					</div>
+				</div><!--//calendar_wrap -->
+			</div><!--//banner -->
+
+			<div class="quick_banner clearfix">
+				<div class="wrapper">
+					<ul>
+						<li><a href="https://in.acts.ac.kr" target="_blank"><img src="/grad/design/images/mainpage/main_quick_img01.png" alt="ACTS IN (종합정보시스템)"><span class="line2">ACTS IN<br>(종합정보시스템)</span></a></li>
+						<li><a href="https://lib.acts.ac.kr/K" target="_blank"><img src="/grad/design/images/mainpage/main_quick_img02.png" alt="도서관"><span>도서관</span></a></li>
+						<li><a href="https://acts.certpia.com/" target="_blank"><img src="/grad/design/images/mainpage/main_quick_img03.png" alt="인터넷증명발급"><span>인터넷증명발급</span></a></li>
+						<li><a href="https://www.kosaf.go.kr/" target="_blank"><img src="/grad/design/images/mainpage/main_quick_img04.png" alt="학자금대출"><span>학자금대출</span></a></li>
+						<li><a href="/modules/board/bd_list.asp?id=grad_form02&left=board3_1"><img src="/grad/design/images/mainpage/main_quick_img05.png" alt="행정서식"><span>행정서식</span></a></li>
+						<li><a href="https://actsgrad.copykiller.com/?&l=ko" target="_blank"><img src="/grad/design/images/mainpage/main_quick_img06.png" alt="카피킬러"><span>카피킬러</span></a></li>
+						<li><a href="https://lms.acts.ac.kr" target="_blank"><img src="/grad/design/images/mainpage/main_quick_img08.png" alt="e-강의실"><span>e-강의실</span></a></li>
+						<li><a href="https://www.office.com" target="_blank"><img src="/grad/design/images/mainpage/main_quick_img07.png" alt="MS 오피스 365"><span>MS 오피스 365</span></a></li>
+					</ul>
+				</div>
+			</div><!--//quick_banner -->
+
+			<div class="main_board ">
+				<div class="wrapper clearfix">
+					<h3><small>Notice</small>공지사항</h3>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="notice1">
+								<ul class="board_tab">
+									<li class="tab on"><a href="#bd1">학사공지<span class="m_ver">(공통)</span></a>
+										<ul id="bd1">
+											
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=3714&amp;id=grad_notice&amp;left=board1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 잠실(강변) 스쿨버스 기사님 변경 안내</a><span class="time">2026-09-17</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=3713&amp;id=grad_notice&amp;left=board1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 2026-2학기 학점 변동에 따른 등록금 반환 및 장학금 지급 안내</a><span class="time">2026-09-16</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=3712&amp;id=grad_notice&amp;left=board1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; [도서관] 2026 대학 도서관 이용자 만족도 조사(9/15-10/6)</a><span class="time">2026-09-16</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=3711&amp;id=grad_notice&amp;left=board1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; [도서관] 2026 추석 연휴간 도서관 휴관 안내</a><span class="time">2026-09-15</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=3710&amp;id=grad_notice&amp;left=board1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; [도서관] 종교문화콘텐츠학과 도서관 이용 교육 안내 (10/2(금) 9:50, 13:20(2회))</a><span class="time">2026-09-10</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=3709&amp;id=grad_notice&amp;left=board1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; [교육혁신센터]English Box 신청 안내</a><span class="time">2026-09-10</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=3708&amp;id=grad_notice&amp;left=board1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 네팔 홍수 피해 이웃 돕기 성금 모금 안내</a><span class="time">2026-09-08</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=3707&amp;id=grad_notice&amp;left=board1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; [교육혁신센터]학습 파트너 신청 안내(~9월 14일까지)</a><span class="time">2026-09-04</span></li>
+
+										</ul>
+										<p class="more"><a href="/modules/board/bd_list.asp?id=grad_notice&left=board1_1"><img src="/grad/design/images/mainpage/i_more3.png" alt="더보기" /></a></p>
+									</li>
+									<li class="tab"><a href="#bd2">일반</a>
+										<ul id="bd2">
+											
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=643&amp;id=grad_notice02&amp;left=board1_2&sleft=3" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>대학원 외국어시험 대체 공인영어성적 인정 안내</b></a><span class="time" style="color:#505050;">2026-08-20</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=620&amp;id=grad_notice02&amp;left=board1_2&sleft=3" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★ 일반대학원 문학석사(M.A.) 졸업 관리 안내</b></a><span class="time" style="color:#505050;">2025-10-30</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=619&amp;id=grad_notice02&amp;left=board1_2&sleft=3" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★ 일반대학원 신학석사(Th.M.) 졸업 관리 안내</b></a><span class="time" style="color:#505050;">2025-10-30</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=618&amp;id=grad_notice02&amp;left=board1_2&sleft=3" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★ 일반대학원 석·박사통합과정(Th.M.&Ph.D.) 졸업 관리 안내</b></a><span class="time" style="color:#505050;">2025-10-30</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=617&amp;id=grad_notice02&amp;left=board1_2&sleft=3" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★ 일반대학원 신학박사(Th.D.) 졸업 관리 안내</b></a><span class="time" style="color:#505050;">2025-10-29</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=616&amp;id=grad_notice02&amp;left=board1_2&sleft=3" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★ 일반대학원 철학박사(Ph.D.) 졸업 관리 안내</b></a><span class="time" style="color:#505050;">2025-10-29</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=585&amp;id=grad_notice02&amp;left=board1_2&sleft=3" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>일반대학원 박사과정 및 석·박사통합과정 기독교상담, 목회상담 전공자 졸업자격 안...</b></a><span class="time" style="color:#505050;">2023-05-23</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=644&amp;id=grad_notice02&amp;left=board1_2&sleft=3" >&nbsp;&#183;&nbsp;&nbsp; 2026-2학기 일반대학원 시간표(강의실 배정) 안내</a><span class="time">2026-08-21</span></li>
+
+										</ul>
+										<p class="more"><a href="/modules/board/bd_list.asp?id=grad_notice02&left=board1_2"><img src="/grad/design/images/mainpage/i_more3.png" alt="더보기" /></a></p>
+									</li>
+									<li class="tab"><a href="#bd3">신학</a>
+										<ul id="bd3">
+											
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=1330&amp;id=grad_notice03&amp;left=board1_3&sleft=4" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>목회학석사 과정 중 교육트랙 : ACSI 취득 자격 안내</b></a><span class="time" style="color:#505050;">2025-12-16</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=1326&amp;id=grad_notice03&amp;left=board1_3&sleft=4" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★채플 유고결석 신청 방법 안내</b></a><span class="time" style="color:#505050;">2025-10-20</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=1311&amp;id=grad_notice03&amp;left=board1_3&sleft=4" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★ 신학대학원 목회학석사(M.Div.) 졸업 관리 안내</b></a><span class="time" style="color:#505050;">2025-07-11</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=1158&amp;id=grad_notice03&amp;left=board1_3&sleft=4" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★ 목회학석사 과정 학점 등록제도 안내</b></a><span class="time" style="color:#505050;">2022-02-08</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=1357&amp;id=grad_notice03&amp;left=board1_3&sleft=4" >&nbsp;&#183;&nbsp;&nbsp; 2026-2학기 신앙수련회 일정표 및 버스운행 시간 안내</a><span class="time">2026-08-31</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=1356&amp;id=grad_notice03&amp;left=board1_3&sleft=4" >&nbsp;&#183;&nbsp;&nbsp; 2026-2학기 성경고사 일정 및 학년별 응시 장소 안내</a><span class="time">2026-08-27</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=1355&amp;id=grad_notice03&amp;left=board1_3&sleft=4" >&nbsp;&#183;&nbsp;&nbsp; 2026-2학기 신학대학원 목회학석사 시간표(강의실 배정) 안내</a><span class="time">2026-08-24</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=1354&amp;id=grad_notice03&amp;left=board1_3&sleft=4" >&nbsp;&#183;&nbsp;&nbsp; 2026-2 신대원 예배일정 및 경건생활점수 안내</a><span class="time">2026-08-18</span></li>
+
+										</ul>
+										<p class="more"><a href="/modules/board/bd_list.asp?id=grad_notice03&left=board1_3"><img src="/grad/design/images/mainpage/i_more3.png" alt="더보기" /></a></p>
+									</li>
+									<li class="tab"><a href="#bd4">선교</a>
+										<ul id="bd4">
+											
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=208&amp;id=grad_notice04&amp;left=board1_4&sleft=5" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★선교대학원 예비시험 온라인 시행 안내</b></a><span class="time" style="color:#505050;">2026-08-13</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=206&amp;id=grad_notice04&amp;left=board1_4&sleft=5" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★ 선교대학원 졸업 관리 안내</b></a><span class="time" style="color:#505050;">2025-10-30</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=189&amp;id=grad_notice04&amp;left=board1_4&sleft=5" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>미디어선교학 프로젝트 안내 </b></a><span class="time" style="color:#505050;">2023-05-23</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=210&amp;id=grad_notice04&amp;left=board1_4&sleft=5" >&nbsp;&#183;&nbsp;&nbsp; 2026-2학기 미디어선교학 프로젝트 일정 안내</a><span class="time">2026-09-02</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=209&amp;id=grad_notice04&amp;left=board1_4&sleft=5" >&nbsp;&#183;&nbsp;&nbsp; 2026-2학기 선교대학원 시간표 안내</a><span class="time">2026-08-21</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=207&amp;id=grad_notice04&amp;left=board1_4&sleft=5" >&nbsp;&#183;&nbsp;&nbsp; 2026-1학기 선교대학원 시간표(강의실 배정) 안내</a><span class="time">2026-02-24</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=205&amp;id=grad_notice04&amp;left=board1_4&sleft=5" >&nbsp;&#183;&nbsp;&nbsp; 2025-2학기 선교대학원 시간표(강의실 배정) 안내</a><span class="time">2025-08-28</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=204&amp;id=grad_notice04&amp;left=board1_4&sleft=5" >&nbsp;&#183;&nbsp;&nbsp; 2025-1학기 미디어선교학 프로젝트 일정 안내</a><span class="time">2025-03-27</span></li>
+
+										</ul>
+										<p class="more"><a href="/modules/board/bd_list.asp?id=grad_notice04&left=board1_4"><img src="/grad/design/images/mainpage/i_more3.png" alt="더보기" /></a></p>
+									</li>
+									<li class="tab"><a href="#bd5">교육</a>
+										<ul id="bd5">
+											
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=784&amp;id=grad_notice05&amp;left=board1_5&sleft=6" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★ 교육대학원 졸업 관리 안내</b></a><span class="time" style="color:#505050;">2025-10-30</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=749&amp;id=grad_notice05&amp;left=board1_5&sleft=6" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>교육대학원 ACSI 교사 자격증 취득 안내(2024학년도 8월 졸업자부터 적용)</b></a><span class="time" style="color:#505050;">2024-02-20</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=728&amp;id=grad_notice05&amp;left=board1_5&sleft=6" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>교육대학원 폐강기준에 관한 건 </b></a><span class="time" style="color:#505050;">2023-05-23</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=805&amp;id=grad_notice05&amp;left=board1_5&sleft=6" >&nbsp;&#183;&nbsp;&nbsp; 2026-2학기 교육대학원 시간표 안내</a><span class="time">2026-08-21</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=804&amp;id=grad_notice05&amp;left=board1_5&sleft=6" >&nbsp;&#183;&nbsp;&nbsp; 2026-1학기 상담사례발표 심사 일정 안내</a><span class="time">2026-07-29</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=803&amp;id=grad_notice05&amp;left=board1_5&sleft=6" >&nbsp;&#183;&nbsp;&nbsp; 2026-1학기 교육대학원 개강예배</a><span class="time">2026-07-14</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=802&amp;id=grad_notice05&amp;left=board1_5&sleft=6" >&nbsp;&#183;&nbsp;&nbsp; [전문상담교사 1급 취득대상자] 2026 응급처치 및 심폐소생술 실습 시행 취소 안내</a><span class="time">2026-06-15</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=801&amp;id=grad_notice05&amp;left=board1_5&sleft=6" >&nbsp;&#183;&nbsp;&nbsp; 2026-1학기 교육대학원 생활관(여) 숙소 변경 안내</a><span class="time">2026-06-11</span></li>
+
+										</ul>
+										<p class="more"><a href="/modules/board/bd_list.asp?id=grad_notice05&left=board1_5"><img src="/grad/design/images/mainpage/i_more3.png" alt="더보기" /></a></p>
+									</li>
+									<li class="tab"><a href="#bd6">상담</a>
+										<ul id="bd6">
+											
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=499&amp;id=grad_notice06&amp;left=board1_6&sleft=7" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★ 상담대학원 졸업 관리 안내</b></a><span class="time" style="color:#505050;">2025-07-11</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=447&amp;id=grad_notice06&amp;left=board1_6&sleft=7" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★ 승인된 외부 인턴 실습 기관 안내</b></a><span class="time" style="color:#505050;">2023-05-23</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=520&amp;id=grad_notice06&amp;left=board1_6&sleft=7" >&nbsp;&#183;&nbsp;&nbsp; [한국상담전공대학원협회 주관] 제21회 2026년 하반기 심리상담사 자격이론시험 안내</a><span class="time">2026-09-16</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=519&amp;id=grad_notice06&amp;left=board1_6&sleft=7" >&nbsp;&#183;&nbsp;&nbsp; 2026-2학기 상담대학원  시간표(강의실 배정) 안내</a><span class="time">2026-08-24</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=518&amp;id=grad_notice06&amp;left=board1_6&sleft=7" >&nbsp;&#183;&nbsp;&nbsp; 2026-1학기 상담사례발표 최종 결과 안내</a><span class="time">2026-06-25</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=517&amp;id=grad_notice06&amp;left=board1_6&sleft=7" >&nbsp;&#183;&nbsp;&nbsp; 2026-1학기 상담사례발표 1차 심사 결과 및 2차 심사 일정 안내</a><span class="time">2026-06-17</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=516&amp;id=grad_notice06&amp;left=board1_6&sleft=7" >&nbsp;&#183;&nbsp;&nbsp; 2026-2학기 아신대 학생상담소 인턴상담사 모집 공고</a><span class="time">2026-06-08</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=515&amp;id=grad_notice06&amp;left=board1_6&sleft=7" >&nbsp;&#183;&nbsp;&nbsp; 2026-1학기 상담사례발표 주요 사항 안내</a><span class="time">2026-04-24</span></li>
+
+										</ul>
+										<p class="more"><a href="/modules/board/bd_list.asp?id=grad_notice06&left=board1_6"><img src="/grad/design/images/mainpage/i_more3.png" alt="더보기" /></a></p>
+									</li>
+									<li class="tab"><a href="#bd6">다문화복지</a>
+										<ul id="bd7">
+											
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=33&amp;id=grad_notice08&amp;left=board1_8&sleft=8" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>★ 다문화교육복지대학원 졸업 관리 안내</b></a><span class="time" style="color:#505050;">2025-07-11</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=32&amp;id=grad_notice08&amp;left=board1_8&sleft=8" style="color:#1c6aa0;"><img src="/grad/design/images/mainpage/i_notice1.png" alt=""> &nbsp;<b>사회복지현장실습 신청 안내</b></a><span class="time" style="color:#505050;">2025-07-02</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=46&amp;id=grad_notice08&amp;left=board1_8&sleft=8" >&nbsp;&#183;&nbsp;&nbsp; 2026년도 하반기 다문화사회 전문가 인정 요건을 위한 "법무부장관이 정하는 교육" ...</a><span class="time">2026-09-01</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=45&amp;id=grad_notice08&amp;left=board1_8&sleft=8" >&nbsp;&#183;&nbsp;&nbsp; 2026-2학기 다문화교육복지대학원 시간표(강의실 배정) 안내</a><span class="time">2026-08-24</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=44&amp;id=grad_notice08&amp;left=board1_8&sleft=8" >&nbsp;&#183;&nbsp;&nbsp; 2026-1학기 졸업고사 시행 결과 조회 안내 [ 2026. 7. 20(월) ~ 7. 24(금) ]</a><span class="time">2026-07-15</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=43&amp;id=grad_notice08&amp;left=board1_8&sleft=8" >&nbsp;&#183;&nbsp;&nbsp; 사회복지현장실습 신청 안내</a><span class="time">2026-07-08</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=42&amp;id=grad_notice08&amp;left=board1_8&sleft=8" >&nbsp;&#183;&nbsp;&nbsp; 2026-1학기 졸업고사 시행 일정 안내</a><span class="time">2026-05-29</span></li>
+
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=41&amp;id=grad_notice08&amp;left=board1_8&sleft=8" >&nbsp;&#183;&nbsp;&nbsp; 2026-1학기 다문화교육복지대학원 졸업고사 신청 안내</a><span class="time">2026-04-07</span></li>
+
+										</ul>
+										<p class="more"><a href="/modules/board/bd_list.asp?id=grad_notice08&left=board1_8"><img src="/grad/design/images/mainpage/i_more3.png" alt="더보기" /></a></p>
+									</li>
+								</ul>
+								<span class="tab__bar"></span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="notice2">
+								<ul class="board_tab">
+									<li class="tab on"><a href="#bd8">입학공지</a>
+										<ul id="bd8">
+											
+		<!-- 일반글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=822&amp;id=grad_adm_notice&amp;left=admission1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 2026학년도 후기(추가) 신입학 합격자 발표 안내</a><span class="time">2026-08-18</span></li>
+
+		<!-- 일반글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=821&amp;id=grad_adm_notice&amp;left=admission1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 2026학년도 후기(추가) 신입학 서류심사 결과 및 입학전형 안내</a><span class="time">2026-08-10</span></li>
+
+		<!-- 일반글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=820&amp;id=grad_adm_notice&amp;left=admission1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 2026학년도 후기(추가) 대학원 신입학 모집 안내</a><span class="time">2026-07-07</span></li>
+
+		<!-- 일반글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=819&amp;id=grad_adm_notice&amp;left=admission1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 2026학년도 후기(정시) 대학원 신입학 합격자 발표 안내</a><span class="time">2026-07-07</span></li>
+
+		<!-- 일반글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=818&amp;id=grad_adm_notice&amp;left=admission1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 2026학년도 후기(정시) 대학원 신입학 입학전형 안내</a><span class="time">2026-06-24</span></li>
+
+		<!-- 일반글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=816&amp;id=grad_adm_notice&amp;left=admission1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 2026학년도 후기(정시) 신·편입학 입학전형 서류심사 결과 안내</a><span class="time">2026-06-19</span></li>
+
+		<!-- 일반글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=815&amp;id=grad_adm_notice&amp;left=admission1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 2026학년도 2학기 대학원 재입학 모집 안내</a><span class="time">2026-05-13</span></li>
+
+		<!-- 일반글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=814&amp;id=grad_adm_notice&amp;left=admission1_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 2026학년도 후기 대학원 편입학 모집 안내</a><span class="time">2026-05-13</span></li>
+
+										</ul>
+										<p class="more"><a href="/modules/board/bd_list.asp?id=grad_adm_notice&left=admission1_1"><img src="/grad/design/images/mainpage/i_more3.png" alt="더보기" /></a></p>
+									</li>
+									<li class="tab"><a href="#bd9">Q&A</a>
+										<ul id="bd9">
+											
+		<!-- 일반글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=4706&amp;id=grad_qna&amp;left=admission4_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 신학대학원 하남캠퍼스</a><span class="time">2026-09-17</span></li>
+
+		<!-- 댓글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=4707&amp;id=grad_qna&amp;left=admission4_1&sleft=" >&nbsp;&#183; <img src="/images/icon/reply_skyblue.png" alt="답글"> 신학대학원 하남캠퍼스</a><span class="time">2026-09-17</span></li>
+
+		<!-- 일반글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=4703&amp;id=grad_qna&amp;left=admission4_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 성경강해학에 대해 문의드려요.</a><span class="time">2026-09-15</span></li>
+
+		<!-- 댓글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=4705&amp;id=grad_qna&amp;left=admission4_1&sleft=" >&nbsp;&#183; <img src="/images/icon/reply_skyblue.png" alt="답글"> 성경강해학에 대해 문의드려요.</a><span class="time">2026-09-15</span></li>
+
+		<!-- 일반글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=4702&amp;id=grad_qna&amp;left=admission4_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 안녕하세요! 장학금관련 문의드립니다!</a><span class="time">2026-09-14</span></li>
+
+		<!-- 댓글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=4704&amp;id=grad_qna&amp;left=admission4_1&sleft=" >&nbsp;&#183; <img src="/images/icon/reply_skyblue.png" alt="답글"> 안녕하세요! 장학금관련 문의드립니다!</a><span class="time">2026-09-15</span></li>
+
+		<!-- 일반글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=4700&amp;id=grad_qna&amp;left=admission4_1&sleft=" >&nbsp;&#183;&nbsp;&nbsp; 신학석사(Th. M. ) / 문학석사(M.A. ) 입학문의드려요</a><span class="time">2026-09-04</span></li>
+
+		<!-- 댓글 -->
+		<li><a class="admission" href="/modules/board/bd_view.asp?no=4701&amp;id=grad_qna&amp;left=admission4_1&sleft=" >&nbsp;&#183; <img src="/images/icon/reply_skyblue.png" alt="답글"> 신학석사(Th. M. ) / 문학석사(M.A. ) 입학문의드려요</a><span class="time">2026-09-07</span></li>
+
+										</ul>
+										<p class="more"><a href="/modules/board/bd_list.asp?id=grad_qna&left=admission4_1"><img src="/grad/design/images/mainpage/i_more3.png" alt="더보기" /></a></p>
+									</li>
+								</ul>
+								<span class="tab__bar"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="main_link">
+				<div class="wrapper clearfix">
+					<div class="col-md-2">
+						<h3><small>Admissions</small>대학원 입학 <strong>바로가기</strong></h3>
+					</div>
+					<div class="col-md-10">
+						
+						<ul>
+							<li class="col-6 col-xs-4 col-md-2"><a href="/grad/design/contents10.asp?code=211017&left=admission2_8" id="idTest"><span class="link_img"><img src="/grad/design/images/mainpage/main_link_img01_off.png" alt="모집요강"></span><span>모집요강</span></a></li>
+							<li class="col-6 col-xs-4 col-md-2"><a href="/modules/board/bd_list.asp?id=grad_form&left=admission5_1"><span class="link_img"><img src="/grad/design/images/mainpage/main_link_img02_off.png" alt="입학관련자료"></span><span>입학관련자료</span></a></li>
+							<li class="col-6 col-xs-4 col-md-2"><a href="/modules/board/bd_list.asp?id=grad_qna&left=admission4_1"><span class="link_img"><img src="/grad/design/images/mainpage/main_link_img03_off.png" alt="Q&A"></span><span>Q&A</span></a></li>
+							
+									<li class="col-6 col-xs-4 col-md-2"><a href="javascript: alert('원서접수 기간이 아닙니다.')"><span class="link_img"><img src="/grad/design/images/mainpage/main_link_img04_off.png" alt="원서접수" /></span><span>원서접수</span></a></li>
+							
+							<li class="col-6 col-xs-4 col-md-2"><a href="https://in.acts.ac.kr/enterLogin.aspx" target="_blank"><span class="link_img"><img src="/grad/design/images/mainpage/main_link_img05_off.png" alt="합격자 발표"></span><span>합격자 발표</span></a></li>
+							
+							<li class="col-6 col-xs-4 col-md-2"><a href="/grad/design/contents10.asp?code=2314&left=degree6_1"><span class="link_img"><img src="/grad/design/images/mainpage/main_link_img06_off.png" alt="장학제도"></span><span>장학제도</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="main_major" id="mainMajor">
+				<div class="bg_wrap">
+					<div class="wrapper clearfix">
+						<div class="col-md-2">
+							<h3><small>Major</small>대학원 전공소개</h3>
+							<ul class="clearfix">
+								<li class="col-6 col-xs-4 col-sm-2 col-md-6"><a href="/grad/design/contents10.asp?code=221010&left=course1_1">일반대학원</a></li>
+								<li class="col-6 col-xs-4 col-sm-2 col-md-6"><a href="/grad/design/contents10.asp?code=221310&left=course4_1">교육대학원</a></li>
+								<li class="col-6 col-xs-4 col-sm-2 col-md-6"><a href="/grad/design/contents10.asp?code=221110&left=course2_1">신학대학원</a></li>
+								<li class="col-6 col-xs-4 col-sm-2 col-md-6"><a href="/grad/design/contents10.asp?code=221410&left=course5_1">상담대학원</a></li>
+								<li class="col-6 col-xs-4 col-sm-2 col-md-6"><a href="/grad/design/contents10.asp?code=2212&left=course3_1">선교대학원</a></li>
+								<li class="col-6 col-xs-4 col-sm-2 col-md-6"><a href="/grad/design/contents10.asp?code=221610&left=course7_1">다문화교육<br/>&nbsp;&nbsp;&nbsp;&nbsp;복지대학원</a></li>
+							</ul>
+						</div>
+						<div class="col-md-10">
+							<ul class="major_list">
+								<li>
+									<a href="/grad/design/contents10.asp?code=221010&left=course1_1">
+										<p class="m_img"><img src="/grad/design/images/mainpage/main_major_img01.jpg" alt="일반대학원"></p>
+										<p class="m_tit"><span>일반</span>대학원</p>
+										<p class="m_tit_small">Graduate School</p>
+										<p class="m_desc">구약신학 / 신약신학 / 조직신학 /<br>역사신학 / 선교학 / 목회상담학 / <br>예배설교학 / 기독교교육학 /<br>기독교상담학 / 다문화교육복지학</p>
+									</a>
+								</li>
+								<li>
+									<a href="/grad/design/contents10.asp?code=221110&left=course2_1">
+										<p class="m_img"><img src="/grad/design/images/mainpage/main_major_img03.jpg" alt="신학대학원"></p>
+										<p class="m_tit"><span>신학</span>대학원</p>
+										<p class="m_tit_small">Graduate School of Theology</p>
+										<p class="m_desc">목회학(M.Div.)<br/>
+										성경강해학(Th.M.)<br/>
+										신학(M.A.)</p>
+									</a>
+								</li>
+								<li>
+									<a href="/grad/design/contents10.asp?code=2212&left=course3_1">
+										<p class="m_img"><img src="/grad/design/images/mainpage/main_major_img05.jpg" alt="선교대학원"></p>
+										<p class="m_tit"><span>선교</span>대학원</p>
+										<p class="m_tit_small">Graduate School of Intercultural Studies</p>
+										<p class="m_desc">일반선교학<br>
+										아랍지역학<br>비즈니스선교학</p>
+									</a>
+								</li>
+								<li>
+									<a href="/grad/design/contents10.asp?code=221310&left=course4_1">
+										<p class="m_img"><img src="/grad/design/images/mainpage/main_major_img02.jpg" alt="교육대학원"></p>
+										<p class="m_tit"><span>교육</span>대학원</p>
+										<p class="m_tit_small">Graduate School of Education</p>
+										<p class="m_desc">교육과정 / 상담</p>
+									</a>
+								</li>
+								<li>
+									<a href="/grad/design/contents10.asp?code=221410&left=course5_1">
+										<p class="m_img"><img src="/grad/design/images/mainpage/main_major_img04.jpg" alt="상담대학원"></p>
+										<p class="m_tit"><span>상담</span>대학원</p>
+										<p class="m_tit_small">Graduate School of Counseling</p>
+										<p class="m_desc">기독교상담학 / 가족상담학</p>
+									</a>
+								</li>
+								<li>
+									<a href="/grad/design/contents10.asp?code=221610&left=course7_1">
+										<p class="m_img"><img src="/grad/design/images/mainpage/main_major_img06.jpg" alt="다문화교육복지대학원"></p>
+										<p class="m_tit"><span>다문화교육복지</span>대학원</p>
+										<p class="m_tit_small">Graduate School of Integreted Studies</p>
+										<p class="m_desc">다문화교육복지융합</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+				<!-- 팝업존 -->
+				<!--div class="popup">
+
+					<p class="title"><img src="images/popupzone.gif" alt="popupzone" /></p>
+					<div class="banner_play">
+						<ul class="btn" id="popup_no">
+							<li>
+							 <div id="popzone_startz" style="display:none;">
+							<a href="#stoppopup" onclick="popupZoneStop2('s');" onkeypress="popupZoneStop2('s');" ><img alt="팝업존 재생" src="/design/images/popup_play01.png" onmouseover="this.src='/design/images/popup_play01_ov.png'" onmouseout="this.src='/design/images/popup_play01.png'" /></a>
+							</div> 
+							<div id="popzone_stopz" style="display:block;">
+							<a href="#startpopup"  onclick="popupZoneStop2('p');" onkeypress="popupZoneStop2('p');" ><img alt="팝업존 정지" src="/design/images/popup_stop01.gif" onmouseover="this.src='/design/images/popup_stop01_ov.gif'" onmouseout="this.src='/design/images/popup_stop01.gif'" /></a>
+							</div>
+							</li>
+						</ul>
+					</div>
+
+						<div class="banner_num">
+						
+								
+								<h4 class="popup01" style="position:absolute; top:3px; right:16px;"><a onclick="popupZoneMove('1');"><img alt="1번 팝업" src="/design/images/popup_icon.gif" id="popnum1" /></a></h4>
+									<div id="popBanner_1"  class="popupimage" style="display:block;"><a href="https://www.acts.ac.kr/modules/board/bd_view.asp?no=3708&id=grad_notice&left=board1_1&sleft="  target='_blank'  name="popup_zone1"><img class="pop_img img"  src="/upload/popup/thumb/th_5y348z0qtz146z26o.png" alt="네팔 대홍수 성금모금"width="239" height="147" style="padding:0"/></a></div>
+
+									
+								
+						</div>
+			
+					</div--><!--//popup -->
+					<script type="text/javascript">
+					/*
+					var popupItemCount = 1;
+					var popupZoneVal = 0;
+					var popupZoneTmpVal = 0;
+					var autocontrolvar;
+					*/
+					</script>
+					<!-- <script type="text/javascript">popupZone();</script> -->
+					<!-- //팝업존 -->
+		</div><!--//container-->
+	</div><!--//siteWrap -->
+
+	<!--footer -->
+			<div id="footer" class="footer">
+	<div class="wrapper">
+		<button type="button" id="btnTop" class="btn bg--point">TOP</button>
+		<div id="footer">
+			<div class="footer__top">
+				<ul id="fnb" class="fnb clearfix">
+					<li><a href="https://docs.google.com/document/d/12krlu4SmmKKlPka-80gI2FQOsYFQ1knq8tzjsx9aGvM/pub" onclick="window.open(this.href, '_blank', 'width=860, height=800, toolbars=no, scrollbars=yes'); return false;">개인정보보호정책</a></li>
+					<li><a href="/design/popup_email.asp" onclick="window.open(this.href, '_blank', 'width=860, height=500, toolbars=no, scrollbars=yes'); return false;">이메일무단수집거부</a></li>
+					<li><a href="/grad/design/contents10.asp?code=201510&left=intro5_1">찾아오시는 길</a></li>
+					<li><a href="/design/contents10.asp?code=151811&left=acts9_2" target="_blank">전화번호안내</a></li>
+					<li><a href="http://help.acts.ac.kr">원격지원요청</a></li>
+					<!--li><a href="http://www.academyinfo.go.kr/schoolAction.do?process=schoolDisclose00&schoolCd=53077000&orgcode=1&sry_yy=2011&selectYear=2011&estb=3&univ_gubun=U&detail_kind=E" target="_blank">대학정보공시</a></li>
+					<li><a href="/modules/board/bd_list.asp?id=acts31&left=14&sleft=20">예결산공고</a></li-->
+				</ul>
+				<ul class="sns">
+					<li><a href="https://www.youtube.com/channel/UCA25An5Hg7M1hBjlstaX5dA" target="_blank"><img src="/grad/design/images/mainpage/i_ft_youtube.png" alt="ACTS 유튜브"></a></li>
+					<li><a href="http://www.facebook.com/acts.ac.kr" target="_blank"><img src="/grad/design/images/mainpage/i_ft_facebook.png" alt="ACTS 페이스북"></a></li>
+				</ul>
+			</div>
+			<div class="footer__cont">
+				<div class="footer__info">
+					<ul class="address">
+						<li>12508 경기도 양평군 옥천면 경강로 1276 <span class="br"></span>아신대학교 대학원</li>
+						<li>Tel. 031-770-7793~6</li>
+						<li>Fax. 031-770-7774</li>
+					</ul>
+					<p class="copyright">ⓒ 2026 ACTS University. All rights reserved.</small></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+		<!--ul class="copyright">
+			<li><img src="/grad/design/images/address.gif" alt="476-751 경기도양평군 옥천면 아신리 산 151-1 아세아연합신학대학교   Tel  031 770 7700   Fax  031 772 5479" /></li>
+			<li><img src="/design/images/copyright.gif" alt="COPYRIGHTⓒ 2010 ACTC All right reserved " /></li>
+		</ul>
+		<div class="right">
+			<form method="post" action="/design/gotolink.asp" target="_blank">
+				<fieldset>
+					<p class="select_box01">
+						<select title="유관기관 사이트" name="select1" id="select1">
+							<option selected="selected" value="/design/index.asp">LINK SERVICE</option>
+							<option value="http://in.acts.ac.kr">종합정보시스템</option>
+							<option value="/design/contents10.asp?code=10101510&amp;left=1&amp;sleft=7">발전기금</option>
+							<option value="/design/contents10.asp?code=14101011&amp;left=1&amp;sleft=2">학생지원</option>
+							<option value="/csrd/design/index.asp">취업정보실</option>
+							<option value="/design/contents10.asp?code=14151010&left=32&sleft=33">학생상담소</option>
+							<option value="/design/contents10.asp?code=14111010&amp;left=12&amp;sleft=13">교수·학습개발센터</option>
+							<option value="/design/contents10.asp?code=141210&amp;left=18&amp;sleft=19">장애학생지원센터</option>
+							<option value="/design/contents10.asp?code=10121211&amp;left=14&amp;sleft=17">교목실(경건생활)</option>
+							<option value="/design/contents10.asp?code=10131010&amp;left=21&amp;sleft=22">교수정보</option>
+							<option value="http://mail.acts.ac.kr">교직원 웹메일</option>
+							<option value="/modules/board/bd_list.asp?id=classmate02&amp;left=1&amp;sleft=8">동문회</option>
+							<option value="/design/contents10.asp?code=10121218&amp;left=14&amp;sleft=17">예비군중대</option>
+							<option value="/design/contents10.asp?code=14101310&left=1&sleft=5">총학생회</option>
+							<option value="http://actsmdiv.com">신학대학원동문회</option>
+						</select>
+						<input type="image" src="/design/images/linksite_btn.gif" alt="GO" title="새창으로 이동" />
+						<a href="http://www.facebook.com/acts.ac.kr" target="_blank" title="ACTS페이스북 바로가기"><img src="/design/images/facebook_acts.png" alt="ACTS페이스북 바로가기"></a>
+					</p>
+				</fieldset>
+			</form>
+			<form method="post" action="/design/gotolink.asp" target="_blank">
+				<fieldset>
+					<p class="select_box02">
+						<select title="유관기관 사이트" name="select2" id="select2">
+							<option selected="selected" value="/design/index.asp">교내기관</option>
+							<option value="/aigs/design/index.asp">국제교육원</option>
+							<option value="/life/design/index.asp">평생교육원</option>
+							<option value="http://lib.acts.ac.kr/">도서관</option>
+							<option value="/design/contents10.asp?code=14141010&amp;left=26&amp;sleft=28">생활관</option>
+							<option value="/design/contents10.asp?code=10121212&amp;left=14&amp;sleft=17">선교실</option>
+							<option value="/modules/board/bd_list.asp?id=evangelize24&amp;left=14&amp;sleft=18">세계선교연구소</option>
+							<option value="/modules/board/bd_list.asp?id=evangelize08&amp;left=14&amp;sleft=18">북한선교연구소</option>
+							<option value="/design/contents10.asp?code=10121412&left=14&sleft=19">항공선교훈련원</option>
+							<option value="/design/contents10.asp?code=10121413&left=14&sleft=19">교육연구원</option>
+							<option value="http://iacf.acts.ac.kr/">산학협력단</option>
+							<option value="/design/contents10.asp?code=1012121610&amp;left=14&amp;sleft=17">출판부</option>
+						</select>
+						<input type="image" src="/design/images/linksite_btn.gif" alt="GO" title="새창으로 이동" />
+					</p>
+				</fieldset>
+			</form>
+		</div-->
+
+	<!--//footer -->
+
+<script type="text/javascript">
+    var roosevelt_params = {
+        retargeting_id:'RgM9.QAr1ZSAH-DKRIOHIA00',
+        tag_label:'CgIHcRxcTu-M1QFyxTJxjA'
+    };
+</script>
+<script type="text/javascript" src="//adimg.daumcdn.net/rt/roosevelt.js" async></script>
+		
+ </body>
+<script type="text/javascript">
+$(window).load(function() {
+	
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26042522-1']);
+  _gaq.push(['_setDomainName', 'acts.ac.kr']);
+  _gaq.push(['_trackPageview']);
+
+	(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+
+	var thisFocus = 'N';
+	if( thisFocus == 'Y' ){
+		$("#focus").focus();
+	}
+
+  })();
+  });
+</script>
+
+</html>
+
+

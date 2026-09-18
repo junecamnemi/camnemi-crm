@@ -1,0 +1,1853 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- contextPath -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- contextPath -->
+
+
+
+
+
+<!-- contextPath -->
+
+<!-- site resources -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">
+    <meta http-equiv="Expires" content="-1" />
+	<meta http-equiv="Progma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+    <meta property="og:type" content="website">
+    
+	<meta property="og:title" content="">
+	
+	<meta property="og:description" content="">
+	
+	<meta property="og:url" content=""/>
+	
+	<meta property="og:image" content=""/>
+	
+	<meta name="description" content="남부대학교 입학안내 홈페이지" />
+	
+	<meta name="keyword" content="남부대학교 입학안내 홈페이지" />
+	
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: 'unsafe-inline' 'unsafe-eval' http: https:; worker-src blob:">
+	
+    <title>
+        
+            
+                모집요강
+                
+                    
+                        &gt;
+                    
+                
+            
+        
+            
+                입시도우미
+                
+                    
+                        &gt;
+                    
+                
+            
+        
+            
+                입시홈페이지
+                
+                    
+                
+            
+        
+    </title>
+
+<link rel="stylesheet" type="text/css"  href="/site/nambu/ipsi/css/reset.css"/>
+<link rel="stylesheet" type="text/css"  href="/site/nambu/ipsi/css/board.css?ver=20260709"/>
+
+<link rel="stylesheet" href="/site/nambu/ipsi/css/mobile.css" media="all and (max-width:1023px)" />
+<link rel="stylesheet" href="/site/nambu/ipsi/css/pc.css" media="all and (min-width:1024px)" />
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="/site/nambu/ipsi/js/custom.js"></script>
+<script src="/site/nambu/ipsi/js/jquery.bxslider.min.js"></script>
+<script src="/site/nambu/ipsi/js/slideScrollControl.js"></script>
+
+<!-- Bootstrap -->
+<script src="/nambu/gentelella-master/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/site/nambu/ipsi/js/common-util.js?cpath=&v=1"></script>
+<script type="text/javascript" src="/site/nambu/ipsi/js/common.js"></script>
+ 
+
+
+<!-- Bootstrap -->
+<link type="image/x-icon" rel="shortcut icon" href="/site/nambu/ipsi/images/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="/site/nambu/ipsi/images/favicon_app.png">
+<link rel="shortcut icon" href="/site/nambu/ipsi/images/favicon_app.ico">
+
+
+</head>
+<body>
+<script>
+	window.LOGIN_USER = null
+			;
+</script>
+<script src="/common/js/classum.js"></script>
+<div id="wrap">
+	<script>
+
+		$(document).on("click",'ul.tab li', function(){ // on 이벤트로 변경
+			var activeTab = $(this).attr('data-tab');
+			$('ul.tab li').removeClass('current');
+			$('.tabcontent').removeClass('current');
+			$(this).addClass('current');
+			$('#' + activeTab).addClass('current');
+		});
+		$(document).ready(function(){
+			$("#nav ul.sub").hide();
+			$("#nav ul.menu li").click(function(){
+				$("ul",this).slideToggle("fast");
+			});
+			
+		});
+		
+		$(document).ready(function(){
+			 
+		    $('.berger_btn>a').on('click', function(){
+		        $('.berger_bg').show(); 
+		        $('.sidebar_berger').show().animate({
+		            right:0
+		        });  
+		    });
+		    $('.berger_close_btn>a').on('click', function(){
+		        $('.berger_bg').hide(); 
+		        $('.sidebar_berger').animate({
+		            right: '-' + 100 + '%'
+		                    },function(){
+		                        $('.sidebar_berger').hide();          
+		                    });  
+		    });
+
+		});		
+		
+		function readyAlert() {
+	          alert('현재 준비중에 있습니다.');
+	          return;            
+		}
+		
+		/* $(document).ready(function() {
+			$(".menu01").mouseover(function() {
+				$(".subMenu").show();
+			});
+			$(".subMenu").mouseout(function() {
+				$(".subMenu").hide();
+			});
+		}); */
+		
+		$(document).ready(function() {
+		    $(".menu01").on("mouseenter", function() {
+		        $(".menu01 .subMenu").show(); // menu01 내부 모든 subMenu 보이기
+		        $(".sub_menu_bg").show(); // 바깥 subMenu도 보이기
+		    });
+
+		    $(".menu01, .sub_menu_bg").on("mouseleave", function(event) {
+		        if (!$(event.relatedTarget).closest(".menu01, .sub_menu_bg").length) {
+		            $(".menu01 .subMenu, .sub_menu_bg").hide(); // 전체 숨기기
+		        }
+		    });
+		});
+
+	</script>
+	<div id="mcontainer">
+		<div class="header_top_form">
+			<div class="header_top">
+				<ul class="header_top_left">
+					<li><a href="https://www.nambu.ac.kr" target="_blank">남부대학교</a></li>
+					<li><a href="https://graduate.nambu.ac.kr/" target="_blank">남부대학교 대학원</a></li>
+					<!-- <li><a href="https://trs04.uwayapply.com/0389K73F55GS000000KC54/login">합격자 조회</a></li> -->
+				</ul>
+				<ul class="header_top_right">
+					<li><a href="https://blog.naver.com/nambuuni" target="_blank"><img src="/site/nambu/ipsi/img/blog_w.png" alt="남부대학교 블로그 바로가기"></a></li>
+					<li><a href="https://www.facebook.com/nambuuni" target="_blank"><img src="/site/nambu/ipsi/img/face_w.png" alt="남부대학교 페이스북 바로가기"></a></li>
+					<li><a href="https://www.youtube.com/channel/UCGerOEUTGmS5CEoHypwYhBA" target="_blank"><img src="/site/nambu/ipsi/img/you_w.png" alt="남부대학교 유튜브 바로가기"></a></li>
+				</ul>
+			</div>
+		</div>	
+		
+		
+		<h1 class="logo">
+			<a href="/ipsi/index.do"><img src="/site/nambu/ipsi/img/logo2.png" alt="입시홈페이지 바로가기"></a>
+		</h1>
+		
+		<div class="berger_form">
+	        <div class="berger_btn">
+		        <a href="#">       
+		        	<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgNmgtMjR2LTRoMjR2NHptMCA0aC0yNHY0aDI0di00em0wIDhoLTI0djRoMjR2LTR6Ii8+PC9zdmc+" alt="전체메뉴 바로가기">
+		        </a>
+	        </div>
+		</div>
+		<div class="berger_bg"></div>
+		<div class="sidebar_berger">
+			<h1 class="logo2">
+				<a href="https://www.nambu.ac.kr"><img src="/site/nambu/ipsi/img/logo2.png" alt="입시홈페이지 바로가기"></a>
+			</h1>
+			
+			
+			
+		     <div class="berger_close_btn"><a href="#">       
+		         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjMuOTU0IDIxLjAzbC05LjE4NC05LjA5NSA5LjA5Mi05LjE3NC0yLjgzMi0yLjgwNy05LjA5IDkuMTc5LTkuMTc2LTkuMDg4LTIuODEgMi44MSA5LjE4NiA5LjEwNS05LjA5NSA5LjE4NCAyLjgxIDIuODEgOS4xMTItOS4xOTIgOS4xOCA5LjF6Ii8+PC9zdmc+"  alt="전체메뉴닫기">
+		         </a>
+		     </div>
+		     <div class="berger_wrap">
+		          
+		          
+		          <div class="mobile_menu_top">
+						<ul>
+							
+								
+								
+								<li><a href="javascript:void(0)" onclick="javascript:login();">로그인</a></li>
+								
+							
+							<li><a href="https://www.nambu.ac.kr/"> 남부대학교</a></li>
+							
+						</ul>
+					</div>
+					
+				
+					<!-- 모바일 메뉴 그리기 -->
+				
+<ul class="tab">
+	<li class="current" data-tab="tab1"><a href="#">수시모집</a></li>
+	<li data-tab="tab2"><a href="#">정시모집</a></li>
+	<li data-tab="tab3"><a href="#">편입학</a></li>
+	<li data-tab="tab4"><a href="#">입학상담</a></li>
+	<li data-tab="tab5"><a href="#">입시도우미</a></li>
+</ul>
+<div id="tab1" class="tabcontent current">
+	<div id="nav">
+		<ul class="menu">
+			<li><a href="javascript:goLink('html', 'view.do?menuCd=ipsi001003', 'ipsi001003', '_self')">모집요강</a></li>
+			<li><a href="javascript:goLink('html', '', 'ipsi001006', '_self')">전년도 입시결과</a></li>
+			<li><a href="javascript:goLink('board', 'IPSI_BOARD_001', 'ipsi001004', '_self')">자주하는질문</a></li>
+			<li><a href="javascript:goLink('board', 'IPSI_BOARD_002', 'ipsi001005', '_self')">입학상담</a></li>
+		</ul>
+	</div>
+</div>
+<div id="tab2" class="tabcontent">
+	<div id="nav">
+		<ul class="menu">
+			<li><a href="javascript:goLink('html', 'view.do?menuCd=ipsi002003', 'ipsi002003', '_self')">모집요강</a></li>
+			<li><a href="javascript:goLink('html', '', 'ipsi002006', '_self')">전년도 입시결과</a></li>
+			<li><a href="javascript:goLink('board', 'IPSI_BOARD_003', 'ipsi002004', '_self')">자주하는질문</a></li>
+			<li><a href="javascript:goLink('board', 'IPSI_BOARD_002', 'ipsi002005', '_self')">입학상담</a></li>
+		</ul>
+	</div>
+</div>
+<div id="tab3" class="tabcontent">
+	<div id="nav">
+		<ul class="menu">
+			<li><a href="javascript:goLink('html', 'view.do?menuCd=ipsi003003', 'ipsi003003', '_self')">모집요강</a></li>
+			<li><a href="javascript:goLink('html', 'view.do?menuCd=ipsi003004', 'ipsi003004', '_self')">편입학 학과안내</a></li>
+			<li><a href="javascript:goLink('html', 'view.do?menuCd=ipsi003005', 'ipsi003005', '_self')">전년도편입학모집결과</a></li>
+			<li><a href="javascript:goLink('link', 'https://www.nambu.ac.kr/content/view.do?menuCd=KR005007002', 'ipsi003007', '_blank')">장학안내</a></li>
+			<li><a href="javascript:goLink('board', 'IPSI_BOARD_004', 'ipsi003008', '_self')">편입상담 QnA</a></li>
+		</ul>
+	</div>
+</div>
+<div id="tab4" class="tabcontent">
+	<div id="nav">
+		<ul class="menu">
+			<li><a href="javascript:goLink('board', 'IPSI_BOARD_001', 'ipsi004001', '_self')">수시모집 FAQ</a></li>
+			<li><a href="javascript:goLink('board', 'IPSI_BOARD_003', 'ipsi004002', '_self')">정시모집 FAQ</a></li>
+			<li><a href="javascript:goLink('board', 'IPSI_BOARD_002', 'ipsi004003', '_self')">입학상담 QnA</a></li>
+			<li><a href="javascript:goLink('board', 'IPSI_BOARD_004', 'ipsi004004', '_self')">편입상담 QnA</a></li>
+		</ul>
+	</div>
+</div>
+<div id="tab5" class="tabcontent">
+	<div id="nav">
+		<ul class="menu">
+			<li><a href="javascript:goLink('board', 'IPSI_BOARD_007', 'ipsi005001', '_self')">입학공지사항</a></li>
+			<li><a href="javascript:goLink('board', 'IPSI_BOARD_008', 'ipsi005002', '_self')">모집요강</a></li>
+			<li><a href="javascript:goLink('html', 'view.do?menuCd=ipsi005004', 'ipsi005004', '_self')">학과홈페이지</a></li>
+			<li><a href="javascript:goLink('link', 'https://www.nambu.ac.kr/content/view.do?menuCd=KR005007001', 'ipsi005005', '_blank')">장학금안내</a></li>
+			<li><a href="javascript:goLink('board', 'IPSI_BOARD_009', 'ipsi005006', '_self')">각종서식</a></li>
+			<li><a href="javascript:goLink('html', 'view.do?menuCd=ipsi005007', 'ipsi005007', '_self')">성적산출</a></li>
+			<li><a href="javascript:goLink('html', 'view.do?menuCd=ipsi005008', 'ipsi005008', '_self')">기숙사안내</a></li>
+			<li><a href="javascript:goLink('html', 'view.do?menuCd=ipsi005009', 'ipsi005009', '_self')">찾아오시는길</a></li>
+		</ul>
+	</div>
+</div>
+ 
+						
+				
+						
+		          
+		          
+		     </div>
+		</div>
+				
+	</div>
+	<div class="header_top_form m ">
+		<div class="header_top">
+			<ul class="header_top_left">
+				<li><a href="https://www.nambu.ac.kr" target="_blank">남부대학교</a></li>
+				<li><a href="https://graduate.nambu.ac.kr/" target="_blank">남부대학교 대학원</a></li>
+				<!-- <li><a href="https://trs04.uwayapply.com/0389K73F55GS000000KC54/login">합격자 조회</a></li> -->
+			</ul>
+			<ul class="header_top_right">
+				<li><a href="https://blog.naver.com/nambuuni" target="_blank"><img src="/site/nambu/ipsi/img/blog_w.png" alt="남부대학교 블로그 바로가기"></a></li>
+				<li><a href="https://www.facebook.com/nambuuni" target="_blank"><img src="/site/nambu/ipsi/img/face_w.png" alt="남부대학교 페이스북 바로가기"></a></li>
+				<li><a href="https://www.youtube.com/channel/UCGerOEUTGmS5CEoHypwYhBA" target="_blank"><img src="/site/nambu/ipsi/img/you_w.png" alt="남부대학교 유튜브 바로가기"></a></li>
+			</ul>
+			
+			<ul class="header_top_right2">
+				
+					
+					
+					<li><a href="javascript:void(0)" onclick="javascript:login();">로그인</a></li>
+					
+				
+			</ul>
+		</div>
+	</div>			
+	<div id="header3">
+		<div class="header_form">
+		<h1 class="logo">
+			<a href="/ipsi/index.do"><img src="/site/nambu/ipsi/img/logo2.png" alt="남부대학교 입시홈페이지 바로가기"></a>
+		</h1>
+		<div id="menu2">
+			
+<div class="topMenu">
+    <ul class="menu01">
+        <li>
+            <a href="javascript:goLink('link', '/content/view.do?menuCd=ipsi001003', 'ipsi001', '_self')">수시모집</a>
+            <ul class="subMenu">
+                <li>
+                    <a href="javascript:goLink('html', 'view.do?menuCd=ipsi001003', 'ipsi001003', '_self')">모집요강</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('html', '', 'ipsi001006', '_self')">전년도 입시결과</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('board', 'IPSI_BOARD_001', 'ipsi001004', '_self')">자주하는질문</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('board', 'IPSI_BOARD_002', 'ipsi001005', '_self')">입학상담</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:goLink('link', '/content/view.do?menuCd=ipsi002003', 'ipsi002', '_self')">정시모집</a>
+            <ul class="subMenu">
+                <li>
+                    <a href="javascript:goLink('html', 'view.do?menuCd=ipsi002003', 'ipsi002003', '_self')">모집요강</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('html', '', 'ipsi002006', '_self')">전년도 입시결과</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('board', 'IPSI_BOARD_003', 'ipsi002004', '_self')">자주하는질문</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('board', 'IPSI_BOARD_002', 'ipsi002005', '_self')">입학상담</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:goLink('link', '/content/view.do?menuCd=ipsi003003', 'ipsi003', '_self')">편입학</a>
+            <ul class="subMenu">
+                <li>
+                    <a href="javascript:goLink('html', 'view.do?menuCd=ipsi003003', 'ipsi003003', '_self')">모집요강</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('html', 'view.do?menuCd=ipsi003004', 'ipsi003004', '_self')">편입학 학과안내</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('html', 'view.do?menuCd=ipsi003005', 'ipsi003005', '_self')">전년도편입학모집결과</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('link', 'https://www.nambu.ac.kr/content/view.do?menuCd=KR005007002', 'ipsi003007', '_blank')">장학안내</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('board', 'IPSI_BOARD_004', 'ipsi003008', '_self')">편입상담 QnA</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:goLink('link', '/board/IPSI_BOARD_005/boardList.do?menuCd=ipsi004001', 'ipsi004', '_self')">입학상담</a>
+            <ul class="subMenu">
+                <li>
+                    <a href="javascript:goLink('board', 'IPSI_BOARD_001', 'ipsi004001', '_self')">수시모집 FAQ</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('board', 'IPSI_BOARD_003', 'ipsi004002', '_self')">정시모집 FAQ</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('board', 'IPSI_BOARD_002', 'ipsi004003', '_self')">입학상담 QnA</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('board', 'IPSI_BOARD_004', 'ipsi004004', '_self')">편입상담 QnA</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:goLink('link', '/board/IPSI_BOARD_007/boardList.do?menuCd=ipsi005001', 'ipsi005', '_self')">입시도우미</a>
+            <ul class="subMenu">
+                <li>
+                    <a href="javascript:goLink('board', 'IPSI_BOARD_007', 'ipsi005001', '_self')">입학공지사항</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('board', 'IPSI_BOARD_008', 'ipsi005002', '_self')">모집요강</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('html', 'view.do?menuCd=ipsi005004', 'ipsi005004', '_self')">학과홈페이지</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('link', 'https://www.nambu.ac.kr/content/view.do?menuCd=KR005007001', 'ipsi005005', '_blank')">장학금안내</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('board', 'IPSI_BOARD_009', 'ipsi005006', '_self')">각종서식</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('html', 'view.do?menuCd=ipsi005007', 'ipsi005007', '_self')">성적산출</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('html', 'view.do?menuCd=ipsi005008', 'ipsi005008', '_self')">기숙사안내</a>
+                </li>
+                <li>
+                    <a href="javascript:goLink('html', 'view.do?menuCd=ipsi005009', 'ipsi005009', '_self')">찾아오시는길</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="subMenu sub_menu_bg">
+        <div class="menu_title">
+            <p>삼애정신을 건학이념으로<br>작지만 강한 대학 남부대학교 </p>
+            <h3>입학안내</h3>
+        </div>
+    </div>
+</div>
+
+		</div>
+		<!-- <div class="hd_bg"></div> -->
+		<ul class="top_side2">
+			
+			<!-- S_남부대_홈페이지_202509_005 에  의한 수정 : 종합검색 "점검중입니다." 정상처리 되게 -->
+			<li><a href="/custom/searchList.do?menuCd=ipsi006001"><img src="/site/nambu/ipsi/img/h_icon2.png" alt="남부대학교 통합검색바로가기"></a></li>
+			
+			<li><a href="/info/siteMap.do?menuCd=ipsi006002"><img src="/site/nambu/ipsi/img/h_icon3.png" alt="남부대학교 사이트맵 바로가기"></a></li>
+		</ul>
+		</div>	
+	</div>
+	 <script>
+	 	function login(){
+			document.domain="nambu.ac.kr";
+			var url = 'https://login.nambu.ac.kr?returnurl=' + encodeURI(encodeURIComponent(document.location.href));
+			//var url = 'https://login.nambu.ac.kr?returnurl=' + document.location.href;
+			location.href = url;
+			//window.open(url,"login","scrollbars=no,toolbar=no,width=740,height=450,resize=no,menubar=no,status=no");
+		}
+	 	
+		function logout() {
+			if(confirm('로그아웃 하시겠습니까?') == false)
+				return;
+			
+			$.ajax({
+				type : 'post',
+				url : "/login/logoutProc.do",
+				success : function(data) {
+					if (data.result == 'success') {
+						/* alert(data.msg);
+
+						if (data.resultMap.rtUrl == null || data.resultMap.rtUrl == '') { //rtUrl 존재시 rtUrl로 이동
+							location.href = "/ipsi/index.do";
+						} else {
+							location.href = data.resultMap.rtUrl;
+						} */
+						location.reload();
+
+					} else if (data.result == 'fail') {
+						alert(data.msg);
+					} else if (data.result == 'error') {
+						alert(data.msg);
+					}
+				}
+			});
+		}
+	</script>
+
+	<div class="content2">
+
+       <div class="nav2_form">
+           <div class="nav2">
+	           	<ul>
+	           		<li><img src="/site/nambu/ipsi/img/sub/home.png" alt="홉"></li>
+	           		<li><span>></span></li>
+	           		<li><span>
+	           		입시도우미
+	           		</span></li>
+	           		<li><span>></span></li>
+	           		<li><strong>
+	           		모집요강
+	           		</strong></li>
+	           	</ul>
+           </div>
+       
+       </div>
+    
+       
+		<section class="sub_form2">
+		    <div class="left_menu">
+		    	<h2>입시도우미</h2>
+
+ 		    	<ul id='subTwoDepthMenu'>
+					
+		    	</ul>
+
+		    </div>
+		    
+			<div class="sub_content2">
+		 		<div class="sub_content_title2">
+		 			<h3>
+		 				
+						
+							
+							
+						
+						모집요강
+		 			</h3>		 		
+		 			<span>취업맞춤형 특성화 선도대학, 남부대학교입니다.</span>
+		 		</div>		    
+		    
+		    
+		<script>
+		 	$.ajax({
+				url:'/menu/ajaxListSubNavi.do',
+				method:'post',
+				data:{
+					pMenuId : 'MENU_000000000000145'
+				},
+				success:function(data){
+					var result = data.resultMap;
+					var menuCd = 'ipsi005002';
+					var menuNm = '입시도우미';
+					if(result.count == 1){
+						var idx =0;
+						result.menu1.forEach(function(e){
+							if(e.menuExp == 'Y') {
+								var active = '';
+								if(menuNm == e.menuNm) {
+									active = ' class="current"';
+								}
+								$("#subOneDepthMenu").append(
+									'<li><a href="javascript:goLink(\'' + e.menuType + '\', \'' + e.menuUrl+ '\', \'' + e.menuCd + '\', \'' + e.menuLink + '\')">' + e.menuNm + '</a></li>'
+								);
+							}
+						});
+					}else if(result.count == 2){													
+						var idx =0;
+						result.menu2.forEach(function(e){
+							if(e.menuExp == 'Y') {
+								var active = '';
+								if(menuNm == e.menuNm) {
+									active = ' class="current"';
+								}
+								$("#subOneDepthMenu").append(
+									'<li'+active+'><a href="javascript:goLink(\'' + e.menuType + '\', \'' + e.menuUrl+ '\', \'' + e.menuCd + '\', \'' + e.menuLink + '\')">' + e.menuNm + '</a></li>'
+								);
+							}
+						});
+						result.menu1.forEach(function(e){
+							if(e.menuExp == 'Y') {
+								var active = '';
+								if(menuCd == e.menuCd) {
+									active = ' class="active"';
+								}
+								$("#subTwoDepthMenu").append(									
+									'<li'+active+'><a href="javascript:goLink(\'' + e.menuType + '\', \'' + e.menuUrl+ '\', \'' + e.menuCd + '\', \'' + e.menuLink + '\')">' + e.menuNm + '</a></li>'
+								);
+							}
+						});
+					}
+				}
+			});
+		</script>
+<script src="/common/js/jquery.form.js"></script>
+
+
+
+<div class="contentBodyInfo">
+    
+</div>
+<div class="contentBody">
+    <div class="activityViewBox directrequestBox">
+        <div class="ViewBoxHead">[신입] 2027학년도 수시모집요강</div>
+        <div class="ViewBoxList">
+            <span class="rdlabel">작성일 : </span>
+            <span class="regdate">
+            	2026-06-01
+            	
+            		
+            		09:00
+            	 
+            </span>
+            <span class="qclabel">작성자 : </span><span class="register">입학홍보부</span>
+            <span class="qclabel">조회수 : </span><span class="qryCnt">2022</span>
+        </div>
+        
+        
+            <div class="ViewBoxList">
+                <span class="rdlabel">첨부파일 : </span>
+                
+                	<a role="button"
+                       onclick="fileBdDown('BFILE_00000000055951','01101648654hUN0','0');"><span class="attachfile" style="cursor: pointer;">2027학년도 수시모집요강.pdf</span></a>
+               
+                
+                	<a role="button"
+                       onclick="fileBdDown('BFILE_00000000055952','01101648658TrmZ','0');"><span class="attachfile" style="cursor: pointer;">2027학년도 수시모집요강.hwp</span></a>
+               
+                
+            </div>
+        
+        <div class="ViewBoxList ViewBoxContent">
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+            <div id="boardcontentDs">
+                <div style="background-color: white; border: none;"><p class="0"><span lang="EN-US" style="mso-fareast-font-family:굴림체;font-family:굴림체;mso-ascii-font-family:굴림체;mso-font-width:100%;letter-spacing:0pt;mso-text-raise:0pt;font-weight:bold;font-size:12.0pt;">2027</span><span style="font-family:굴림체;mso-fareast-font-family:굴림체;font-weight:bold;font-size:12.0pt;">학년도 수시모집요강입니다</span><span lang="EN-US" style="mso-fareast-font-family:굴림체;font-family:굴림체;mso-ascii-font-family:굴림체;mso-font-width:100%;letter-spacing:0pt;mso-text-raise:0pt;font-weight:bold;font-size:12.0pt;">.</span></p><p class="0" style="mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;font-weight:bold;font-size:12.0pt;">  <!--[if !supportEmptyParas]-->&nbsp;<!--[endif]-->  <o:p></o:p></p><p class="0"><span lang="EN-US" style="mso-fareast-font-family:굴림체;font-weight:bold;font-size:12.0pt;">  </span><span lang="EN-US" style="mso-fareast-font-family:굴림체;font-family:굴림체;mso-ascii-font-family:굴림체;mso-font-width:100%;letter-spacing:0pt;mso-text-raise:0pt;font-weight:bold;font-size:12.0pt;">- </span><span style="font-family:굴림체;mso-fareast-font-family:굴림체;font-weight:bold;font-size:12.0pt;">원서접수</span><span lang="EN-US" style="mso-fareast-font-family:굴림체;font-family:굴림체;mso-ascii-font-family:굴림체;mso-font-width:100%;letter-spacing:0pt;mso-text-raise:0pt;font-weight:bold;font-size:12.0pt;">: 2026. 9. 7.(</span><span style="font-family:굴림체;mso-fareast-font-family:굴림체;font-weight:bold;font-size:12.0pt;">월</span><span lang="EN-US" style="mso-fareast-font-family:굴림체;font-family:굴림체;mso-ascii-font-family:굴림체;mso-font-width:100%;letter-spacing:0pt;mso-text-raise:0pt;font-weight:bold;font-size:12.0pt;">) ~ 11.(</span><span style="font-family:굴림체;mso-fareast-font-family:굴림체;font-weight:bold;font-size:12.0pt;">금</span><span lang="EN-US" style="mso-fareast-font-family:굴림체;font-family:굴림체;mso-ascii-font-family:굴림체;mso-font-width:100%;letter-spacing:0pt;mso-text-raise:0pt;font-weight:bold;font-size:12.0pt;">)</span></p><div id="hwpEditorBoardContent" class="hwp_editor_board_content" data-hjsonver="1.0" data-jsonlen="6933"><!--[data-hwpjson]{
+"documentPr": {
+"di": "",
+"dp": {
+"dn": "test.hwp",
+"ta": 1,
+"d1": 5,
+"d2": 1,
+"dv": 0,
+"dr": 1,
+"do": 1,
+"vj": "1.1",
+"an": "Hancom Office Hangul",
+"av": "13, 0, 0, 2353",
+"ao": "WIN",
+"ab": "32",
+"ar": "LE"
+},
+"dis": false,
+"ds": {
+"ti": "",
+"la": "ko",
+"cr": "",
+"su": "",
+"de": "",
+"cd": "2026-06-01T01:16:29.621Z",
+"ke": ""
+}
+},
+"dh": {
+"do": {
+"pa": 1,
+"fo": 1,
+"en": 1,
+"pi": 1,
+"tb": 1,
+"eq": 1
+},
+"fo": [ ],
+"cd": {
+"tp": 0,
+"lc": {
+"af": false,
+"ui": false,
+"fu": false,
+"dn": false,
+"ul": false,
+"el": false,
+"at": false,
+"tq": false,
+"da": false,
+"dw": false,
+"dj": false,
+"bc": false,
+"bu": false,
+"al": false,
+"ab": false,
+"ap": false,
+"an": false,
+"aa": false,
+"ds": false,
+"de": false,
+"as": false,
+"cp": false,
+"ao": false,
+"et": false,
+"ay": false,
+"am": false,
+"a1": false,
+"bt": false,
+"av": false,
+"dh": false,
+"dp": false,
+"d1": false,
+"mf": false,
+"bl": false,
+"ag": false,
+"dg": false,
+"ae": false,
+"df": false,
+"do": false,
+"dl": false,
+"di": false,
+"d2": false,
+"d3": false,
+"ob": false,
+"d4": false,
+"ev": false,
+"d5": false,
+"d6": false,
+"a2": false,
+"dc": false
+}
+},
+"ld": {
+"pa": "",
+"pi": true,
+"fo": false
+}
+},
+"bf": {
+"01DCF1644718BF2000000006": {
+"id": 1,
+"td": false,
+"sh": false,
+"st": 0,
+"sc": 0,
+"si": false,
+"bt": 0,
+"bi": false,
+"cl": 0,
+"bc": false,
+"lt": 0,
+"lw": 0,
+"lc": 0,
+"rt": 0,
+"rw": 0,
+"rc": 0,
+"tt": 0,
+"tw": 0,
+"tc": 0,
+"bbt": 0,
+"bbw": 0,
+"bbc": 0,
+"dt": 1,
+"dw": 0,
+"dc": 0,
+"fi": { }
+},
+"01DCF1644718BF2000000007": {
+"id": 2,
+"td": false,
+"sh": false,
+"st": 0,
+"sc": 0,
+"si": false,
+"bt": 0,
+"bi": false,
+"cl": 0,
+"bc": false,
+"lt": 0,
+"lw": 0,
+"lc": 0,
+"rt": 0,
+"rw": 0,
+"rc": 0,
+"tt": 0,
+"tw": 0,
+"tc": 0,
+"bbt": 0,
+"bbw": 0,
+"bbc": 0,
+"dt": 1,
+"dw": 0,
+"dc": 0,
+"fi": {
+"wb": {
+"fc": 4294967295,
+"hc": 10066329,
+"al": 0,
+"hs": -1
+}
+}
+}
+},
+"cp": {
+"01DCF1644718BF2000000008": {
+"id": 0,
+"he": 1200,
+"tc": 0,
+"sc": 4294967295,
+"uf": false,
+"uk": false,
+"sm": 0,
+"bf": "01DCF1644718BF2000000007",
+"f1": "굴림체",
+"t1": 1,
+"f2": "굴림체",
+"t2": 1,
+"f3": "굴림체",
+"t3": 1,
+"f4": "굴림체",
+"t4": 1,
+"f5": "굴림체",
+"t5": 1,
+"f6": "굴림체",
+"t6": 1,
+"f7": "굴림체",
+"t7": 1,
+"r1": 100,
+"r2": 100,
+"r3": 100,
+"r4": 100,
+"r5": 100,
+"r6": 100,
+"r7": 100,
+"s1": 0,
+"s2": 0,
+"s3": 0,
+"s4": 0,
+"s5": 0,
+"s6": 0,
+"s7": 0,
+"e1": 100,
+"e2": 100,
+"e3": 100,
+"e4": 100,
+"e5": 100,
+"e6": 100,
+"e7": 100,
+"o1": 0,
+"o2": 0,
+"o3": 0,
+"o4": 0,
+"o5": 0,
+"o6": 0,
+"o7": 0,
+"it": false,
+"bo": true,
+"ut": 0,
+"us": 1,
+"uc": 0,
+"st": false,
+"ss": 1,
+"so": 0,
+"ot": 0,
+"ht": 0,
+"hc": 0,
+"hx": 0,
+"hy": 0,
+"em": false,
+"en": false,
+"su": false,
+"sb": false
+},
+"01DCF1644718BF2000000009": {
+"id": 1,
+"he": 1000,
+"tc": 0,
+"sc": 4294967295,
+"uf": false,
+"uk": false,
+"sm": 0,
+"bf": "01DCF1644718BF2000000007",
+"f1": "함초롬바탕",
+"t1": 1,
+"f2": "함초롬바탕",
+"t2": 1,
+"f3": "함초롬바탕",
+"t3": 1,
+"f4": "함초롬바탕",
+"t4": 1,
+"f5": "함초롬바탕",
+"t5": 1,
+"f6": "함초롬바탕",
+"t6": 1,
+"f7": "함초롬바탕",
+"t7": 1,
+"r1": 100,
+"r2": 100,
+"r3": 100,
+"r4": 100,
+"r5": 100,
+"r6": 100,
+"r7": 100,
+"s1": 0,
+"s2": 0,
+"s3": 0,
+"s4": 0,
+"s5": 0,
+"s6": 0,
+"s7": 0,
+"e1": 100,
+"e2": 100,
+"e3": 100,
+"e4": 100,
+"e5": 100,
+"e6": 100,
+"e7": 100,
+"o1": 0,
+"o2": 0,
+"o3": 0,
+"o4": 0,
+"o5": 0,
+"o6": 0,
+"o7": 0,
+"it": false,
+"bo": false,
+"ut": 0,
+"us": 1,
+"uc": 0,
+"st": false,
+"ss": 1,
+"so": 0,
+"ot": 0,
+"ht": 0,
+"hc": 0,
+"hx": 0,
+"hy": 0,
+"em": false,
+"en": false,
+"su": false,
+"sb": false
+}
+},
+"tp": {
+"01DCF1644718BF200000000A": {
+"id": 0,
+"al": false,
+"ar": false,
+"tp": [ ]
+}
+},
+"nu": { },
+"bu": { },
+"pp": {
+"01DCF1644718BF200000000B": {
+"id": 0,
+"ah": 0,
+"av": 0,
+"ht": 0,
+"hi": "",
+"hl": 0,
+"tp": "01DCF1644718BF200000000A",
+"kb": 0,
+"kn": true,
+"ko": false,
+"kk": false,
+"kl": false,
+"kp": false,
+"kw": 0,
+"co": 0,
+"fl": false,
+"st": true,
+"sl": false,
+"ae": false,
+"aa": false,
+"mi": 0,
+"ml": 0,
+"mr": 0,
+"mp": 0,
+"mn": 0,
+"lt": 0,
+"lv": 160,
+"bf": "01DCF1644718BF2000000007",
+"bl": 0,
+"br": 0,
+"bt": 0,
+"bb": 0,
+"bc": false,
+"bi": false
+}
+},
+"st": {
+"01DCF1644718BF200000000C": {
+"id": 0,
+"ty": 0,
+"na": "바탕글",
+"en": "Normal",
+"pp": "01DCF1644718BF200000000B",
+"cp": "01DCF1644718BF2000000009",
+"ns": "01DCF1644718BF200000000C",
+"li": 1042,
+"lf": false
+}
+},
+"mp": { },
+"ro": {
+"hp": "01DCF1644718BF2000000002",
+"01DCF1644718BF2000000002": {
+"np": "01DCF1644718BF2000000003",
+"id": 0,
+"pp": "01DCF1644718BF200000000B",
+"si": "01DCF1644718BF200000000C",
+"bf": 3,
+"ru": [
+{
+"cp": "01DCF1644718BF2000000008",
+"ch": [
+{
+"cc": 2,
+"ci": 1936024420,
+"co": "01DCF1644718BF2000000000"
+}
+,
+{
+"cc": 2,
+"ci": 1668246628,
+"co": "01DCF1644718BF2000000001"
+}
+,
+{
+"t": "2027학년도 수시모집요강입니다."
+}
+]
+}
+]
+},
+"01DCF1644718BF2000000003": {
+"np": "01DCF1644718BF2000000004",
+"id": -2147483648,
+"pp": "01DCF1644718BF200000000B",
+"si": "01DCF1644718BF200000000C",
+"bf": 0,
+"ru": [
+{
+"cp": "01DCF1644718BF2000000008",
+"ch": [
+{
+"t": ""
+}
+]
+}
+]
+},
+"01DCF1644718BF2000000004": {
+"np": "01DCF1644718BF2000000005",
+"id": -2147483648,
+"pp": "01DCF1644718BF200000000B",
+"si": "01DCF1644718BF200000000C",
+"bf": 0,
+"ru": [
+{
+"cp": "01DCF1644718BF2000000008",
+"ch": [
+{
+"t": "  - 원서접수: 2026. 9. 7.(월) ~ 11.(금)"
+}
+]
+}
+]
+},
+"01DCF1644718BF2000000005": {
+"np": "",
+"id": -2147483648,
+"pp": "01DCF1644718BF200000000B",
+"si": "01DCF1644718BF200000000C",
+"bf": 0,
+"ru": [
+{
+"cp": "01DCF1644718BF2000000008",
+"ch": [
+{
+"t": "  - 문의전화: 062-970-0115"
+}
+]
+}
+]
+}
+},
+"sl": { },
+"cs": {
+"01DCF1644718BF2000000000": {
+"cc": 2,
+"ci": 1936024420,
+"td": 0,
+"tv": false,
+"sc": 1134,
+"ts": 8000,
+"ms": "",
+"os": "",
+"gl": 0,
+"gc": 0,
+"gw": false,
+"ns": 0,
+"np": 0,
+"ni": 0,
+"nt": 0,
+"ne": 0,
+"hh": false,
+"hf": false,
+"hm": false,
+"fb": false,
+"hb": false,
+"fi": false,
+"hi": false,
+"hp": false,
+"he": false,
+"sl": false,
+"lr": 0,
+"lc": 0,
+"ld": 0,
+"ls": 0,
+"pp": {
+"ls": false,
+"wi": 59528,
+"he": 84188,
+"gt": 0,
+"ml": 8504,
+"mr": 8504,
+"mt": 5668,
+"mb": 4252,
+"mh": 4252,
+"mf": 4252,
+"mg": 0
+},
+"fn": {
+"at": 0,
+"au": "",
+"ap": "",
+"ac": ")",
+"as": false,
+"ll": -1,
+"lt": 1,
+"lw": 1,
+"lc": 0,
+"sa": 850,
+"sb": 567,
+"st": 283
+,
+"nt": 0,
+"nn": 1,
+"pp": 0,
+"pb": false
+},
+"en": {
+"at": 0,
+"au": "",
+"ap": "",
+"ac": ")",
+"as": false,
+"ll": -4,
+"lt": 1,
+"lw": 1,
+"lc": 0,
+"sa": 850,
+"sb": 567,
+"st": 0
+,
+"nt": 0,
+"nn": 1,
+"pp": 0,
+"pb": false
+},
+"pb": [
+{
+"ty": 0,
+"bf": "01DCF1644718BF2000000006",
+"tb": true,
+"hi": false,
+"fi": false,
+"fa": 0,
+"ol": 1417,
+"or": 1417,
+"ot": 1417,
+"ob": 1417
+},
+{
+"ty": 1,
+"bf": "01DCF1644718BF2000000006",
+"tb": true,
+"hi": false,
+"fi": false,
+"fa": 0,
+"ol": 1417,
+"or": 1417,
+"ot": 1417,
+"ob": 1417
+},
+{
+"ty": 2,
+"bf": "01DCF1644718BF2000000006",
+"tb": true,
+"hi": false,
+"fi": false,
+"fa": 0,
+"ol": 1417,
+"or": 1417,
+"ot": 1417,
+"ob": 1417
+}
+],
+"mp": [ ]
+}
+,
+"01DCF1644718BF2000000001": {
+"cc": 2,
+"ci": 1668246628,
+"ty": 0,
+"la": 0,
+"co": 1,
+"ss": true,
+"sg": 0,
+"lt": 0,
+"lw": 0,
+"lc": 0,
+"cs": [ ]
+}
+},
+"bi": [ ],
+"bidt": { }
+}--></div><p class="0" style="mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;"><span lang="EN-US" style="mso-fareast-font-family:굴림체;font-weight:bold;font-size:12.0pt;">  </span><span lang="EN-US" style="mso-fareast-font-family:굴림체;font-family:굴림체;mso-ascii-font-family:굴림체;mso-font-width:100%;letter-spacing:0pt;mso-text-raise:0pt;font-weight:bold;font-size:12.0pt;">- </span><span style="font-family:굴림체;mso-fareast-font-family:굴림체;font-weight:bold;font-size:12.0pt;">문의전화</span><span lang="EN-US" style="mso-fareast-font-family:굴림체;font-family:굴림체;mso-ascii-font-family:굴림체;mso-font-width:100%;letter-spacing:0pt;mso-text-raise:0pt;font-weight:bold;font-size:12.0pt;">: 062-970-0115</span></p></div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="listlink">
+        <div class="buttonlayer">
+            <button class="btn btn-md btn-cancel" onclick="goBdList();">목록</button>
+            
+            
+	            
+	             <!-- 특정관리자 사용할때 -->
+	            	<!-- 버튼 보여줌 유무 -->
+	            	
+		             <!-- 특정관리자와 로그인유저가 같을때 -->
+		           		
+		             <!-- 특정관리자와 로그인유저가 같을때 -->
+		           		
+		             <!-- 특정관리자와 로그인유저가 같을때 -->
+		           		
+		            
+		            
+	            	
+					
+	            
+            
+        </div>
+        
+            
+            
+            
+                
+            
+            
+        
+        
+            
+            
+                
+                
+                    <div class="beforetext">
+                        <span class="prelist">다음 글 : </span> 글이 없습니다.
+                        <span class="lcdate num pull-right"><!--  --></span>
+                    </div>
+                    <div class="beforetext">
+                        <span class="prelist">이전 글 : </span>
+                        <a href="#null" title="[신입] 2026학년도 추가(5차)모집요강(2026.2.27.기준)"
+                           onclick="goBdView('BD_00000000000108985','0','','');">[신입] 2026학년도 추가(5차)모집요강(2026.2.27.기준)</a>
+                        <span class="lcdate num pull-right"><!-- 2026-02-27 --></span>
+                    </div>
+                
+            
+            
+        
+    </div>
+</div>
+<script type="text/javascript">
+    commentCount = $("#comment-div").find(".list").length;
+
+    /* $('#add_new_comment').on('click', function () {
+        if (('true' === 'true') && ('false' === 'true')) {
+            alert('로그인후 사용 가능한 서비스 입니다.');
+            fn_openPopup('/job/member/loginPopup.do', 'loginPopup', 500, 451);
+        } else {
+            if (('false' === 'true') && !JSON.parse("")) {
+                alert("댓글 권한이 없습니다.");
+                $("#new-comment-contents").val("");
+                return false;
+            }
+            
+            var cont = $('#new-comment-contents').val();
+            if (cont == '') {
+                alert('내용을 입력 해 주세요.');
+                return;
+            }
+            fn_commentAction(cont, 0, 0);
+        }
+    }); */
+    
+    $('#add_new_comment').on('click', function () {
+    if ('true' === 'true') {
+        var cont = $('#new-comment-contents').val(),
+            wNm = $("#wNm").val(),
+            passwd = $("#passwd").val();
+
+        if (wNm == '') {
+            alert('작성자을 입력 해 주세요.');
+            return;
+        }
+        if (passwd == '') {
+            alert('비밀번호를 입력 해 주세요.');
+            return;
+        }
+        if (cont == '') {
+            alert('내용을 입력 해 주세요.');
+            return;
+        }
+        fn_commentAction2(cont, 0, 0);
+
+    } else if (('true' === 'true') && ('false' === 'true')) {
+        alert('로그인후 사용 가능한 서비스 입니다.');
+        fn_openPopup('/job/member/loginPopup.do', 'loginPopup', 500, 451);
+    } else {
+        if (('false' === 'true') && !JSON.parse("")) {
+            alert("댓글 권한이 없습니다.");
+            $("#new-comment-contents").val("");
+            return false;
+        }
+
+        var cont = $('#new-comment-contents').val();
+        if (cont == '') {
+            alert('내용을 입력 해 주세요.');
+            return;
+        }
+        fn_commentAction(cont, 0, 0);
+    }
+});
+
+    $(".comment-modify").on("click", function () {
+        var cmmtNo = $(this).attr('comment-number');
+        if ('true' === 'true') {
+            fn_checkCommentPassword(cmmtNo, 'updateComment');
+        } else {
+            fn_showCommentEdit(cmmtNo);
+        }
+        return false;
+    });
+
+    $('.modify-comment-btn').on('click', function () {
+        var commentNumber = $(this).attr('comment-number');
+        var cont = $('#comment-' + commentNumber + ' .modify-comment-contents').val();
+        fn_modifyComment(cont, commentNumber);
+    });
+    
+    /* $('.comment-delete').on('click', function () {
+        var commentNumber = $(this).attr('comment-number');
+        fn_deleteComment(commentNumber);
+    }); */
+    
+    $('.comment-delete').on('click', function () {
+        var commentNumber = $(this).attr('comment-number');
+        if ('true' === 'true') {
+            var role = "";
+            var managerId = $(".managerUserId").val();
+            var managerYn = 'Y';
+            if (managerYn == 'Y') {
+                if ('' === managerId) {  /*특정관리자 사용  */
+                    fn_deleteComment2(commentNumber);
+                } else if (('' !== managerId) && (role !== '99')) {
+                    fn_deleteComment(commentNumber);
+                }
+            } else if ((managerYn == 'N') && (role !== '99') && (role >= '5')) {
+                fn_deleteComment2(commentNumber);
+            }
+            if (role == '99') {      /*슈퍼관리자  */
+                fn_deleteComment2(commentNumber);
+            } else if ((role < '5') && (role > '0')) { /*일반 사용자 */
+                fn_deleteComment2(commentNumber);
+            } else if(role <= '0') {
+            	fn_deleteComment(commentNumber);
+            }
+        } else {
+            fn_deleteComment2(commentNumber);
+        }
+    });
+
+    function fn_commentAction(cont, cmmtNo) {
+        if ("" == null || "" == "") {
+            if (confirm('로그인 회원만 이용 가능합니다.\n로그인 하시겠습니까?')) {
+                location.href = "/login/openLogin.do?menuCd=t1005001&rtUrl=" + encodeURIComponent(location.href);
+                return false;
+            } else {
+                return false;
+            }
+        }
+
+        var url;
+        if (cmmtNo == '' || cmmtNo == null || cmmtNo == 0) {
+            url = '/board/boardCommentInsert.do'
+        } else {
+            url = '/board/boardCommentUpdate.do'
+        }
+        $.ajax({
+            url: url,
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                menuCd: getCurrentMenuCd(),
+                boardId: 'IPSI_BOARD_008',
+                bdId: 'BD_00000000000109757',
+                contentDs: encodeHtmlTags(cont),
+                commentNo: cmmtNo,
+                boardType: ''
+            }
+        }).fail(function () {
+            if (cmmtNo == '' || cmmtNo == null || cmmtNo == 0) {
+                alert('오류가 발생하여 댓글 등록을 실패 하였습니다.');
+            }
+            else {
+                alert('오류가 발생하여 댓글 수정을 실패 하였습니다.');
+            }
+        }).done(function (ret) {
+            if (ret.result !== "success") {
+                alert(ret.msg || "댓글 권한이 없습니다.");
+                return false;
+            }
+
+            var data = ret.resultMap.data;
+
+            if (cmmtNo == '' || cmmtNo == null || cmmtNo == 0) {
+                var newComment;
+
+                newComment = $('#comment-template').clone();
+                $('#comment-div').append(newComment);
+                $('.comment-input', newComment).attr('id', 're-' + data.commentNo);
+                $('.modify-comment-btn', newComment).attr('comment-number', data.commentNo);
+                $('.modify-comment-btn', newComment).on('click', function () {
+                    var cont = $('#comment-' + data.commentNo + ' .modify-comment-contents').val();
+                    fn_modifyComment(cont, data.commentNo);
+                });
+
+                newComment.attr('id', 'comment-' + data.commentNo);
+                $('.comment-user-id', newComment).html(data.wId);
+                $('.comment-rgst-ymd', newComment).html(data.dateYmd);
+                $('.comment-rgst-hm', newComment).html(data.dateHms);
+                $('.comment-contents', newComment).html(data.contentDs);
+                $('.modify-comment-contents', newComment).html(decodeHtmlTags(data.contentDs));
+                $('.comment-delete', newComment).on('click', function () {
+                    fn_deleteComment(data.commentNo);
+                });
+
+                $('.text-modify', newComment).attr('id', 'edit-' + data.commentNo);
+                $('.text-modify', newComment).removeClass('template-comment-modify');
+                $('.comment-modify', newComment).attr('comment-number', data.commentNo);
+                $('.comment-modify', newComment).on('click', function () {
+                    fn_showCommentEdit(data.commentNo);
+                    return false;
+                });
+
+                $('.current-num').text('' + (++commentCount) + '');
+                $('#new-comment-contents').val('');
+                $('#comment-div').removeClass('hidden');
+                newComment.removeClass('hidden');
+            } else {
+                $('#comment-' + cmmtNo + ' .comment-contents').html(encodeHtmlTags(cont));
+                $('#comment-' + cmmtNo + ' .comment-contents').removeClass('hidden');
+                $('#edit-' + cmmtNo).addClass('hidden');
+            }
+        });
+    }
+    
+    function fn_commentAction2(cont, cmmtNo) {
+        var url,
+            wNm = $("#wNm").val(),
+            passwd = $("#passwd").val();
+
+        if (cmmtNo == '' || cmmtNo == null || cmmtNo == 0) {
+            url = '/board/boardCommentInsert.do'
+        } else {
+            url = '/board/boardCommentUpdate.do'
+        }
+        $.ajax({
+            url: url,
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                menuCd: getCurrentMenuCd(),
+                boardId: 'IPSI_BOARD_008',
+                bdId: 'BD_00000000000109757',
+                contentDs: encodeHtmlTags(cont),
+                commentNo: cmmtNo,
+                boardType: 'Nomal',
+                wNm: wNm,
+                passwd: passwd
+            }
+        }).fail(function () {
+            if (cmmtNo == '' || cmmtNo == null || cmmtNo == 0) {
+                alert('오류가 발생하여 댓글 등록을 실패 하였습니다.');
+            }
+            else {
+                alert('오류가 발생하여 댓글 수정을 실패 하였습니다.');
+            }
+        }).done(function (ret) {
+            if (ret.result !== "success") {
+                alert(ret.msg || "댓글 권한이 없습니다.");
+                return false;
+            }
+
+            var data = ret.resultMap.data;
+
+            if (cmmtNo == '' || cmmtNo == null || cmmtNo == 0) {
+                var newComment;
+
+                newComment = $('#comment-template').clone();
+                $('#comment-div').append(newComment);
+                $('.comment-input', newComment).attr('id', 're-' + data.commentNo);
+                $('.modify-comment-btn', newComment).attr('comment-number', data.commentNo);
+                $('.modify-comment-btn', newComment).on('click', function () {
+                    var cont = $('#comment-' + data.commentNo + ' .modify-comment-contents').val();
+                    fn_modifyComment(cont, data.commentNo);
+                });
+
+                newComment.attr('id', 'comment-' + data.commentNo);
+                $('.comment-user-id', newComment).html(data.wNm);
+                $('.comment-rgst-ymd', newComment).html(data.dateYmd);
+                $('.comment-rgst-hm', newComment).html(data.dateHms);
+                $('.comment-contents', newComment).html(data.contentDs);
+                $('.modify-comment-contents', newComment).html(decodeHtmlTags(data.contentDs));
+                $('.comment-delete', newComment).on('click', function () {
+                    fn_deleteComment(data.commentNo);
+                });
+
+                $('.text-modify', newComment).attr('id', 'edit-' + data.commentNo);
+                $('.text-modify', newComment).removeClass('template-comment-modify');
+                $('.comment-modify', newComment).attr('comment-number', data.commentNo);
+                $('.comment-modify', newComment).on('click', function () {
+                    fn_checkCommentPassword(data.commentNo, 'updateComment');
+                    return false;
+                });
+
+                $('.current-num').text('' + (++commentCount) + '');
+                $('#new-comment-contents').val('');
+
+                var role = "";
+                var managerId = $(".managerUserId").val();
+                var managerYn = 'Y';
+                if (managerYn == 'Y') {
+                    if ('' === managerId) {  /*특정관리자 사용  */
+                        $('#wNm').val();
+                    } else if (('' !== managerId) && (role !== '99')) {
+                        $('#wNm').val('');
+                    }
+                } else if ((managerYn == 'N') && (role !== '99') && (role >= '5')) {
+                    $('#wNm').val();
+                }
+                if (role == '99') {      /*슈퍼관리자  */
+                    $('#wNm').val();
+                } else if (role < '5') { /*일반 사용자 */
+                    $('#wNm').val('');
+                }
+                $('#passwd').val('');
+                $('#comment-div').removeClass('hidden');
+                newComment.removeClass('hidden');
+            } else {
+                $('#comment-' + cmmtNo + ' .comment-contents').html(encodeHtmlTags(cont));
+                $('#comment-' + cmmtNo + ' .comment-contents').removeClass('hidden');
+                $('#edit-' + cmmtNo).addClass('hidden');
+            }
+           	 location.reload();
+        });
+    }
+
+    function fn_modifyComment(cont, cmmtNo) {
+        if (cont == '') {
+            alert('내용을 입력 해 주세요.');
+            return;
+        }
+        if ('true' === 'true') {
+            fn_commentAction2(cont, cmmtNo);
+        } else {
+            fn_commentAction(cont, cmmtNo);
+        }
+    }
+
+    /* function fn_deleteComment(cmmtNo) {
+        if (!confirm('정말 삭제하시겠습니까?')) {
+            return;
+        }
+        $.ajax({
+            url: '/board/boardCommentDelete.do',
+            method: 'POST',
+            data: {
+                boardId: 'IPSI_BOARD_008',
+                bdId: 'BD_00000000000109757',
+                commentNo: cmmtNo
+            }
+        }).error(function () {
+            alert('오류가 발생하여 댓글 삭제를 실패 하였습니다.');
+        }).success(function (data) {
+            var clientCnt = $('#commnet-' + cmmtNo + ' .panel-list .list').length;
+            $('#comment-' + cmmtNo).remove();
+            $('.current-num').text('' + (--commentCount - clientCnt) + '');
+        });
+    } */
+    
+    /* 댓글 삭제시 비밀번호 체크  */
+    function fn_deleteComment(cmmtNo) {
+        fn_checkCommentPassword(cmmtNo, 'deleteComment');
+    }
+
+    function fn_checkCommentPassword(cmmtNo, submitType) {
+        window.open("/board/IPSI_BOARD_008/boardPwCk.do?"
+                + "menuCd=" + encodeURIComponent(getCurrentMenuCd())
+                + "&bdId=BD_00000000000109757&boardId=IPSI_BOARD_008&boardType=Nomal&cmmtNo=" + encodeURIComponent(cmmtNo)
+                + "&submitType=" + encodeURIComponent(submitType)
+                , 'boardPwCk', 'width=400, height=240, resizable=no, scrollbars=no, top=50, left=50');
+    }
+
+    function fn_showCommentEdit(cmmtNo) {
+        $(".list .comment-contents").removeClass('hidden'); //이미 수정하고 있을경우 내용이 hidden 처리 되기때문에 hidden 삭제해서 내용은 open
+        var contents = $('#comment-' + cmmtNo + ' .comment-contents').html().trim();
+        $('#comment-' + cmmtNo + ' .modify-comment-contents').val(decodeHtmlTags(contents));
+        $('#comment-' + cmmtNo + ' .comment-contents').addClass('hidden');
+        $('.text-modify').addClass('hidden');
+        $('.list').removeClass('active');
+        $('#edit-' + cmmtNo).removeClass('hidden');
+     }
+    
+    function fn_deleteComment2(cmmtNo) {
+         $.ajax({
+             url: '/board/boardCommentDelete.do',
+             method: 'POST',
+             data: {
+                 menuCd: getCurrentMenuCd(),
+                 boardId: 'IPSI_BOARD_008',
+                 bdId: 'BD_00000000000109757',
+                 boardType: 'Nomal',
+                 commentNo: cmmtNo
+             }
+         }).error(function () {
+             alert('오류가 발생하여 댓글 삭제를 실패 하였습니다.');
+         }).success(function (data) {
+             var clientCnt = $('#commnet-' + cmmtNo + ' .panel-list .list').length;
+             $('#comment-' + cmmtNo).remove();
+             $('.current-num').text('' + (--commentCount - clientCnt) + '');
+         });
+     }
+
+    function getCurrentMenuCd() {
+        return $('#menuCd').val() || 'ipsi005002';
+    }
+
+    function goBdDelete() {
+        var check = confirm("삭제하시겠습니까?");
+        if (check) {
+            $.ajax({
+                url: "/board/IPSI_BOARD_008/boardDelete.do",
+                type: "POST",
+                dataType: "json",
+                data: $("#searchForm").serialize(),
+                success: function (data) {
+                    if (data.result === 'success') {
+                        alert("삭제되었습니다.");
+                        goBdList();
+                    } else {
+                        alert(data.msg || "삭제 권한이 없습니다.");
+                    }
+                },
+                error: function () {
+                    alert("오류가 발생했습니다. \n관리자에 문의해 주세요.");
+                }
+            });
+        }
+    }
+
+
+   /*  function goBdReply(){
+        $('#searchForm').attr({
+            action: '/boardReply/IPSI_BOARD_008/boardReplyInsert.do',
+            method: 'get',
+            target: '_self'
+        }).submit();
+    } */
+    
+    function goBdReply(authR) {
+        if ('true' === 'true' && "false" === 'true') {
+            alert('로그인후 사용 가능한 서비스 입니다.');
+            $("#layerPop").show();
+            
+        } else if(""*1 < authR && "false" === 'true'){
+        	alert("작성 권한이 없습니다.");
+        	return false;
+        	
+        } else if(""*1 < authR && "true" === 'true'){
+        	alert("작성 권한이 없습니다.");
+        	return false;
+        	
+        } else{
+        	$('#searchForm').attr({
+                action: '/boardReply/IPSI_BOARD_008/boardReplyInsert.do',
+                method: 'get',
+                target: '_self'
+            }).submit();
+        }
+    }
+    
+    /* 비로그인 수정  */
+    function nonLoginEdit() {
+    	var $form = $('#searchForm');
+    	/* $('#searchForm input[name=bdId]').val(); */
+    	
+			var option = {
+				url		: '/board/IPSI_BOARD_008/ajaxBoardPwCk.do',
+				type	: 'POST',
+				data	: $("#searchForm").serialize(),
+				success	: function(data){
+					if(data.result == "error"){
+						alert("오류가 발생했습니다.");
+					}else {
+						window.open("/board/IPSI_BOARD_008/boardPwCk.do?menuCd=ipsi005002&bdId=BD_00000000000109757&boardId=IPSI_BOARD_008&submitType=update",'boardPwCk','width=750, height=175, resizable=no, scrollbars=no, top=50, left=50');
+					}
+				}
+			};
+			$form.ajaxSubmit(option);
+		
+    }
+    
+    /* 비로그인 삭제  */
+    function nonLoginDelete() {
+    	var $form = $('#searchForm');
+    	/* $('#searchForm input[name=bdId]').val(); */
+    	
+			var option = {
+				url		: '/board/IPSI_BOARD_008/ajaxBoardPwCk.do',
+				type	: 'POST',
+				data	: $("#searchForm").serialize(),
+				success	: function(data){
+					if(data.result == "error"){
+						alert("오류가 발생했습니다.");
+					}else {
+						window.open("/board/IPSI_BOARD_008/boardPwCk.do?menuCd=ipsi005002&bdId=BD_00000000000109757&boardId=IPSI_BOARD_008&submitType=delete",'boardPwCk','width=750, height=175, resizable=no, scrollbars=no, top=50, left=50');
+					}
+				}
+			};
+			$form.ajaxSubmit(option);
+		
+    }
+    
+    function goList(){
+    	location.href='/board//boardList.do?menuCd=ipsi005002';
+    }
+
+</script>
+
+<form id="searchForm" name="searchForm" method="get">
+    <input type="hidden" name="menuCd" id="menuCd" value="ipsi005002"/>
+    <input type="hidden" name="currentPageNo" id="currentPageNo" value=""/>
+    <input type="hidden" name="boardId" id="boardId" value="IPSI_BOARD_008"/>
+    <input type="hidden" name="bdId" id="bdId" value="BD_00000000000109757"/>
+    <input type="hidden" name="searchSelect" id="searchSelect" value=""/>
+    <input type="hidden" name="nPageSize" id="nPageSize" value=""/>
+    <input type="hidden" name="keyWord" id="keyWord" value=""/>
+    <input type="hidden" name="loginInfo" id="loginInfo" value=""/>
+    <input type="hidden" name="loginYn" id="loginYn" value="N"/>
+    
+		
+		
+    <input type="hidden" id="masterSecretYn" value="N"/>
+		
+    
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- contextPath -->
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+</div>
+
+<footer>
+
+	<!-- 바로가기 셀렉트 -->
+	<div class="foot_top">
+		<ul>
+			<li><a href="javascript:goLink('html', '', 'ipsi005009', '_self')">찾아오시는 길</a></li>
+			<li><a href="javascript:goLink('html', '', 'KR008016', '_blank')">개인정보처리방침</a></li>
+			<li><a href="javascript:goLink('html', '', 'KR008017', '_blank')">이메일무단수집거부</a></li>
+			<li><a href="javascript:goLink('html', '', 'KR002003002', '_blank')">대학정보공시</a></li>
+		</ul>
+	</div>
+
+	<ul class="foot_info">
+		<li><img src="/site/nambu/ipsi/img/logo_b.png" alt="입시홈페이지 바로가기"></li>
+		<li>
+			<span>(우)62271 전남광주통합특별시 광산구 남부대길 1 (월계동) <!-- / 편입학 : 062-970-0049 / FAX: 062-972-0377 --></span>
+			<span>Copyright(c) 2023 NAMBU UNIVERSITY. ALL RIGHT RESERVED</span>
+		</li>
+	</ul>
+
+</footer>
+
+</div>
+
+</body>
+</html>

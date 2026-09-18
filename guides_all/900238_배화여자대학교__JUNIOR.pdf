@@ -1,0 +1,175 @@
+
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배화의 130년 역사, 새로운 50년의 도약!</title>
+    <link href="/intro/main.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 가을 오색 단풍잎 흩날림 물리엔진 Canvas -->
+    <canvas id="animation-canvas"></canvas>
+
+    <div class="intro-container">
+        
+        <!-- 상단: 50주년 기념 로고와 메인 입학 타이틀 동일선상 수평 정렬 헤더 -->
+        <header class="portal-header-row">
+            <div class="headline-group">
+                <h1 class="main-headline">서울의 중심에서 펼쳐지는 즐거운 미래</h1>
+                <p class="sub-headline">CELEBRATING 130 YEARS OF BAEWHA</p>
+            </div>
+            <div class="logo-link" target="_blank">
+                <img src="/intro/logo-50.png" alt="배화여대 50년, 미래를 잇다" class="logo-image">
+                <span class="logo-subtext">1978 - 2028</span>
+            </div>
+        </header>
+
+        <!-- 중단 1: 상단 수시모집 및 유튜브 영상 배치 영역 -->
+        <div class="portal-upper-row">
+            
+            <!-- 좌측 단일 액션 컬럼: 수시 카드 + 바로가기 버튼군 -->
+            <div class="left-action-column">
+                
+                <!-- 1. 수시모집 카드 (수시 2차 제거, 폰트 크기 증대, 콤팩트 규격 적용) -->
+                <div class="card-admissions">
+                    <div class="card-content">
+                        <span class="admission-tag">수시1차 모집안내</span>
+                        <h2 class="admission-period-title">인터넷 원서접수 : 2026.09.07.(월) ~ 09.30.(수) 21:00 마감</h2>
+                        
+                        <p class="admission-guide-desc">
+                            • 서류제출 : 2026.10.08.(목) 17:00 마감<br>
+                            • 실기고사(실용음악과) : 2026.10.23.(금) ~ 10.24.(토) 예정<br>
+                            • 합격자발표 : 2026.11.06.(금) 14:00 예정
+                        </p>
+                        
+                        <!-- 대행사 전용 버튼 (데스크톱 나란히 Row 배치) -->
+                        <div class="apply-btn-wrapper">
+                            <a href="https://ipsi3.uwayapply.com/2027/coll2/baewha/?CHA=1" class="inner-apply-btn inner-uway" target="_blank">
+                                유웨이 원서접수 바로가기
+                            </a>
+                            <a href="https://apply.jinhakapply.com/Notice/4068067/A" class="inner-apply-btn inner-jinhak" target="_blank">
+                                진학사 원서접수 바로가기
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 수시 카드 바로 하단으로 완벽히 밀착 승격된 대학/입시 바로가기 버튼그룹 (Row 배치) -->
+                <div class="homepage-btn-group">
+                    <a href="https://www.baewha.ac.kr/main.do" class="home-btn btn-univ" target="_blank">대학 홈페이지 바로가기</a>
+                    <a href="https://ipsi.baewha.ac.kr/main.do" class="home-btn btn-ipsi" target="_blank">입학 홈페이지 바로가기</a>
+                </div>
+
+            </div>
+
+            <!-- 우측: 수시모집 공식 안내 영상 임베드 카드 (오류 153 현상 완벽 대비) -->
+            <div class="card-video">
+                <div class="card-content">
+                    <!--<h2 class="video-title">🎥 2027학년도 수시모집 안내 영상</h2>-->
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/GF4-xbow5aM" 
+                            title="배화여자대학교 수시모집 안내 영상" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 중단 2: 하단 콤팩트 격자형 3대 신설학과 소개 영역 (SVG 엠블럼 대신 프리미엄 타이포 디자인 요소 배치) -->
+		<div class="portal-lower-row">
+			<!-- 게이트웨이 4: 실용음악과 -->
+            <a href="https://www.baewha.ac.kr/submain.do?menuId=3387" class="card-dept-small" target="_blank">
+				<div class="card-index-design">NEW</div>
+				<p class="card-english">2027학년도 신설학과(실용음악과)</p>
+				<div class="card-content">
+					<div class="video-wrapper">
+						<iframe src="https://www.youtube.com/embed/TjFrUmzzOo0?si=3tiigTOQwldrsFy0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+				</div>
+            </a>
+            
+            <!-- 게이트웨이 3: 반려동물보건과 -->
+            <a href="https://www.baewha.ac.kr/submain.do?menuId=3389" class="card-dept-small" target="_blank">
+				<div class="card-index-design">NEW</div>
+				<p class="card-english">2027학년도 신설학과(반려동물보건과)</p>
+				<div class="card-content">
+					<div class="video-wrapper">
+						<iframe src="https://www.youtube.com/embed/xuFttbvUwIE?si=1fo5t98cq3lf33a1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+				</div>
+            </a>
+
+			<!-- 게이트웨이 2: 인공지능응용학과 -->
+            <a href="https://www.baewha.ac.kr/submain.do?menuId=3390" class="card-dept-small" target="_blank">
+				<div class="card-index-design">NEW</div>
+				<p class="card-english">2027학년도 신설학과(인공지능응용학과)</p>
+				<div class="card-content">
+					<div class="video-wrapper">
+						<iframe src="https://www.youtube.com/embed/1UT6R5z5kM8?si=ip8iqec-vS3fRo86" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</div>
+				</div>
+            </a>
+
+        </div>
+
+        <!--<div class="portal-lower-row">
+            <a href="https://www.baewha.ac.kr/submain.do?menuId=3387" class="card-dept-small" target="_blank">
+                <div class="card-index-design">NEW</div>
+                <div class="card-content">
+                    <p class="card-english">2027학년도 신설학과(2년제)</p>
+                    <h2 class="card-title">실용음악과</h2>
+                    <div class="card-divider"></div>
+                    <p class="card-desc">
+							• 현장 경험과 전문성을 갖춘 대한민국 최고의 강사진<br>
+							• 전공별 전공실기 역량 강화 프로그램 운영<br>
+							• MIDI · 믹싱 · AI 음악 제작까지 미래형 음악 교육 환경 구축
+                    </p>
+                    <div class="card-link-label">상세 내용 바로가기</div>
+                </div>
+            </a>
+
+            <a href="https://www.baewha.ac.kr/submain.do?menuId=3389" class="card-dept-small" target="_blank">
+                <div class="card-index-design">NEW</div>
+                <div class="card-content">
+                    <p class="card-english">2027학년도 신설학과(3년제)</p>
+                    <h2 class="card-title">반려동물보건과</h2>
+                    <div class="card-divider"></div>
+                    <p class="card-desc">
+							• 동물병원 임상 실무 중심 교육 및 현장학습<br>
+							• 미러형 실습센터를 통한 현장 맞춤형 교육<br>
+							• 수의사 면허 교수의 밀착형 실습위주 수업
+                    </p>
+                    <div class="card-link-label">상세 내용 바로가기</div>
+                </div>
+            </a>
+
+            <a href="https://www.baewha.ac.kr/submain.do?menuId=3390" class="card-dept-small" target="_blank">
+                <div class="card-index-design">NEW</div>
+                <div class="card-content">
+                    <p class="card-english">2027학년도 신설학과(3년제)</p>
+                    <h2 class="card-title">인공지능응용학과</h2>
+                    <div class="card-divider"></div>
+                    <p class="card-desc">
+							• 최신 AI전용 실습실 및 AI서비스 지원<br>
+							• 핵심기술역량과 융합·소프트스킬 역량 강화 통합 교육<br>
+							• 풀스택 AI 서비스 기획·개발 교육
+                    </p>
+                    <div class="card-link-label">상세 내용 바로가기</div>
+                </div>
+            </a>
+
+        </div>-->
+
+    </div>
+</body>
+</html>
+
+<script src="/intro/main.js" defer></script>

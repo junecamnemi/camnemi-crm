@@ -1,0 +1,2144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- don touch!!  -->
+<meta name="naver-site-verification" content="2bc974588f05a79a10159fc1dc6b3b09aff3c129" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no,target-densitydpi=medium-dpi" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="expries" content="0" />
+<meta name="format-detection" content="telephone=no" />
+
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://cdnjs.cloudflare.com https://ssl.daumcdn.net https://t1.daumcdn.net">
+<meta name="referrer" content="no-referrer" />
+
+<!-- all base : CSS -->
+<link rel="stylesheet" type="text/css" href="/resources/_Css/core/jquery-ui-1.13.3.min.css" />
+<link rel="stylesheet" type="text/css" href="/resources/_Css/jquery-ui-timepicker-addon-1.6.3.min.css" />
+<link rel="stylesheet" type="text/css" href="/resources/_Css/common/popup.css" /> <!-- 레이어팝업 & 윈도우 팝업 공통 스타일 -->
+
+<!-- all base : JS -->
+<script charset="utf-8" src="/resources/_Js/core/jquery-3.7.1.min.js"></script>
+<script charset="utf-8" src="/resources/_Js/core/jquery-migrate-3.5.2.min.js"></script>
+<script charset="utf-8" src="/resources/_Js/core/jquery-ui-1.13.3.min.js"></script>
+<script charset="utf-8" src="/resources/_Js/jquery-ui-timepicker-addon-1.6.3.min.js"></script>
+
+<script charset="utf-8" src='/resources/_Js/core/common_base_util.js'></script>
+<script charset="utf-8" src="/resources/_Js/browser.detect.js"></script><!-- 방문자통계에서 필요한 스크립트파일 -->
+
+<script charset="utf-8" src="/resources/_Plugin/jquery.TabMenu/jquery.TabMenu.js"></script><!-- 텝메뉴 플러그인 -->
+<script charset="utf-8" src="/resources/_Js/comm.LayerPopup.js"></script><!-- 레이어 팝업 플러그인 -->
+
+<script>
+		var currentAddress = location.href;
+
+		//www아닌 서브도메인인 경우 www로 이동
+		if(currentAddress){
+			//if( currentAddress.indexOf( "Board/Board.do" ) > -1 ){
+				var host = window.location.hostname;
+				if(host.split('.').length > 3 && host.indexOf("www") < 0){
+					var subdomain = host.split('.')[0];
+					//currentAddress = currentAddress.replace(subdomain, "www");
+					//console.log(currentAddress);
+					document.location = currentAddress.replace(subdomain, "www");
+				}
+			//}
+		}
+
+		var isDevelopMode = ""
+		if( isDevelopMode != "Y"  ){
+			if( currentAddress.indexOf( "http://" ) > -1 ){
+				currentAddress = currentAddress.replace("http://","https://");
+				location.href = currentAddress;
+			}
+		}
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const buttons = document.querySelectorAll('button.bdp-btn');
+
+  buttons.forEach(button => {
+    const span = button.querySelector('span');
+    if (span && span.textContent.trim() === 'E-mail 보내기') {
+      button.style.display = 'none';
+    }
+  });
+});
+</script>
+<!-- configuration -->
+<link rel="stylesheet" type="text/css" href="/resources/_Css/common/common.css?">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/common/webfont_info.css">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/common/board.css?">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/common/board.rspnsv.css?">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/common/prg.style.css?">
+
+<script type="text/javascript" src="/resources/_Js/jquery/jquery.mCustomScrollbar.js"></script>
+<link rel="stylesheet" type="text/css" href="/resources/_Css/plugin/jquery.mCustomScrollbar.css" />
+
+
+<link rel="stylesheet" type="text/css" href="/resources/_Css/core/core.common.css">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/core/core.style.css">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/core/core.program.default.style.css">
+<link rel="stylesheet" type="text/css" href="/resources/_Templet/infoLayout.css?styleCss=bGF5b3V0X2luZm8sZ25hdmlfaW5mbyxsb2dvX2luZm8saGVhZGVyX2luZm8sc3VibWVudV9pbmZvLGZvb3Rlcl9pbmZv">
+<script type="text/javascript" src="/resources/homepage/info/_Js/common.js"></script>
+
+<!-- owlCarousel 2.3.4 -->
+<link rel="stylesheet" type="text/css" href="/resources/_Css/plugin/owl.carousel.v2.3.4.css" />
+<script type="text/javascript" src="/resources/_Js/jquery/owl.carousel.v2.3.4.js"></script>
+
+<!-- slick 1.8.1 -->
+<link rel="stylesheet" type="text/css" href="/resources/_Css/plugin/slick_v1.8.1.css" />
+<script type="text/javascript" src="/resources/_Js/jquery/slick_v1.8.1.js"></script>
+
+<script src="/resources/_Templet/Layout/layout_info/Js/common.js"></script>
+
+<!-- masan.ac.kr -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-188341464-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-188341464-1');
+</script>
+
+
+
+<!-- //don touch!!  -->
+
+
+
+	<!-- Favicon 설정 -->
+	 	<link rel="shortcut icon" href="/resources/_Img/Common/favicon.ico">
+		<link rel="icon"  href="/resources/_Img/Common/favicon.ico">
+		<link rel="apple-touch-icon"  href="/resources/_Img/Common/favicon.ico">
+
+	<!-- Title 설정 -->
+		<title>입학정보  </title>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141946972-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-141946972-1');
+	</script>
+
+
+
+		<!--  메인 페이지 인경우 -->
+		<link rel="stylesheet" type="text/css" href="/resources/_Templet/Main/main_info/main_info.css">
+	<script src="/resources/_Js/common.simple.js"></script>
+	<script>
+		var currentAddress = location.href;
+
+		//www아닌 서브도메인인 경우 www로 이동
+		if(currentAddress){
+			if( currentAddress.indexOf( "Board/Board.do" ) > -1 ){
+				var host = window.location.hostname;
+				if(host.split('.').length > 2 && host.indexOf("www") < 0){
+					var subdomain = host.split('.')[0];
+					//currentAddress = currentAddress.replace(subdomain, "www");
+					//console.log(currentAddress);
+					document.location = currentAddress.replace(subdomain, "www");
+				}
+			}
+		}
+
+		var isDevelopMode = ""
+		if( isDevelopMode != "Y" && false ){
+			if( currentAddress.indexOf( "http://" ) > -1 ){
+				currentAddress = currentAddress.replace("http://","https://");
+				location.href = currentAddress;
+			}
+		}
+	</script>
+</head>
+<body class="isMain loggedOut sCode-info sGubun-M"><!-- 메인 -->
+	<!-- 첨부파일용 -->
+		<form id="fileForm" name="fileForm" method="post"  >
+<input type='hidden' name='tokenKey' id='tokenKey' value='1E470F4C-3375-4ABC-B86C-2EAB89CD2EE5'/>		</form>
+	<!-- 첨부파일용 // -->
+	<!-- 윈도우 팝업 -->
+	<!-- 윈도우 팝업// -->
+	<!-- skipNavi -->
+		<div id="skipNavi">
+			<h1 class="blind">스킵네비게이션</h1>
+			<ul>
+					<li><a href="#mcontainer" class="skipLink">본문바로가기</a></li>
+				<li><a href="#mainNavi" class="skipLink">주메뉴바로가기</a></li>
+			</ul>
+		</div>
+	<!-- skipNavi //-->
+	<!-- 상단팝업 -->
+
+	<!-- 상단팝업 // -->
+	<!-- doc-wrap -->
+	<!-- QUICK LINK -->
+		<div id="quickLink">
+			<h3 class="role-head">
+				<span class="inwr">
+					<span class="t1">Quick</span>
+					<span class="t2">Link</span>
+				</span>
+			</h3>
+			<div class="role-body">
+				<ul>
+					<li>
+						<a href="https://apply.masan.ac.kr/entr/aply/intro" target="_blank" title="새창열림">
+							<div class="ico icon1"></div>
+							<div class="txt"><span>원서접수</span></div>
+						</a>
+					</li>
+					<!-- <li>
+						<a href="javascript:alert('서비스 기간이 아닙니다');">
+							<div class="ico icon2"></div>
+							<div class="txt"><span>합격자확인</span></div>
+						</a>
+					</li> -->
+					<li>
+						<a href="https://apply.masan.ac.kr/entr/aply/login?mc=003" target="_blank" title="새창열림">
+							<div class="ico icon2"></div>
+							<div class="txt"><span>합격자확인</span></div>
+						</a>
+					</li>
+					<li>
+						<!-- <a href="javascript:alert('서비스 기간이 아닙니다');"> -->
+						<a href="https://apply.masan.ac.kr/entr/aply/login?mc=004" target="_blank" title="새창열림">
+							<div class="ico icon3"></div>
+							<div class="txt"><span>예치금납부확인</span></div>
+						</a>
+					</li>
+					<li>
+						<a href="/info/CMS/Contents/Contents.do?mCode=MN061">
+							<div class="ico icon4"></div>
+							<div class="txt"><span>전년도커트라인</span></div>
+						</a>
+					</li>
+					<li>
+						<a href="/info/CMS/GradeCal/list.do?mCode=MN063">
+							<div class="ico icon5"></div>
+							<div class="txt"><span>학생부성적산출</span></div>
+						</a>
+					</li>
+					<!--li>
+						<!--<a href="javascript:alert('서비스 기간이 아닙니다');">->
+						<a href="https://apply.masan.ac.kr/entr/aply/login?mc=005" target="_blank" title="새창열림">
+							<div class="ico icon6"></div>
+							<div class="txt"><span>입학포기및환불신청</span></div>
+						</a>
+					</li-->
+					<li>
+						<a href="/info/CMS/Board/Board.do?mCode=MN060">
+							<div class="ico icon7"></div>
+							<div class="txt"><span>Q & A</span></div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="role-foot">
+				<button type="button" class="toggler"><span class="blind">열기</span></button>
+				<a href="#top" class="top"><span>TOP</span></a>
+			</div>
+		</div>
+		<script>
+			$(function() {
+				quickLinkPkg.init();
+			});
+			var quickLinkPkg = {
+				init : function() {
+					$quickLinkWr = $("#quickLink");
+					$quickLinkHead = $(".role-head", $quickLinkWr );
+					$quickLinkBody = $(".role-body", $quickLinkWr );
+					$quickLinkFoot = $(".role-foot", $quickLinkWr );
+					$quickLinkMflag = $(".toggler", $quickLinkFoot );
+					$stdEle = $("#container-wrap");
+					this.posDetect();
+					this.mCSB_reset();
+					this.mCSB_brResizing();
+					this.naviResizing();
+					this.naviM_evt();
+				},
+				posDetect : function() {
+					$(window).on("scroll", function() {
+						if ( $quickLinkHead.css("position") == "relative" ) {		// ** pc 구간.
+							$scrollTop = $(this).scrollTop();
+							$stdEleTop = $stdEle.offset().top + 30 ;
+							if ( $stdEleTop < $scrollTop ) {
+								$quickLinkWr.addClass("fixed");
+							} else {
+								$quickLinkWr.removeClass("fixed");
+							}
+							quickLinkPkg.naviResizing();
+						}
+					});
+					$(window).on("resize", function() {
+						quickLinkPkg.naviResizing();
+					});
+					$(window).on("load", function() {
+						$stdEleTop = $stdEle.offset().top + 30 ;
+						$winLoadScrollPos = $(this).scrollTop();
+						// ** console.log( "$winLoadScrollPos : " + $winLoadScrollPos + " / $stdEleTop : " + $stdEleTop );
+						if ( $winLoadScrollPos >= $stdEleTop ) {
+							$quickLinkWr.addClass("fixed");
+						} else {
+							$quickLinkWr.removeClass("fixed");
+						}
+					});
+				},
+				mCSBset : function() {
+					if ( util.isPC() && $quickLinkMflag.css("display") == "none" && $quickLinkHead.css("position") == "relative" ) {
+						$quickLinkBody.mCustomScrollbar({
+							theme : "dark-thick"
+							,scrollInertia : 300
+							,scrollbarPosition : "outside"
+							,scrollButtons : {
+								enable : false
+							}
+						});
+					}
+				},
+				mCSB_brResizing : function() {
+					$brResizeFnc = null;
+					$(window).on("resize", function() {
+						clearTimeout( $brResizeFnc );
+						$brResizeFnc = setTimeout( quickLinkPkg.mCSB_reset , 200 );
+					});
+				},
+				mCSB_reset : function() {
+					if ( $(window).width() > 999 ) {
+						// ** console.log( "pc" );
+						$quickLinkWr.removeClass("mSet");
+						quickLinkPkg.mCSBset();
+						$quickLinkBody.show();
+					} else {
+						// ** console.log( "mobile" );
+						$quickLinkWr.addClass("mSet");
+						if ( $quickLinkBody.hasClass("mCustomScrollbar") ) {
+							$quickLinkBody.mCustomScrollbar('destroy').removeAttr("style").removeClass("mCS_destroyed").css({ "height":"" }).addClass("#7").hide();
+						} else {
+						}
+					}
+				},
+				naviResizing : function() {
+					if ( $quickLinkHead.css("position") == "relative" && !$quickLinkWr.hasClass("mSet") ) {			// ** pc 구간에서 실행
+						$windH = $(window).height();
+
+						// ** 어떤 상황이건간에 max-height 셋팅
+						$qlMaxH = Number( util.getNumberOnly( $quickLinkBody.css("max-height") ) );
+						$qlMaxHGuess = $windH - 150;
+						if ( $qlMaxHGuess <= $qlMaxH ) {
+							$quickLinkBody.css({ "max-height":$qlMaxHGuess+"px" });
+						}
+
+
+						// ** fixed 발생여부에 따라 퀵링크 Navi 높이 변경
+						if ( $windH <= 850 ) {
+							// ** console.log( "리사이즈 실행" );
+							if ( $quickLinkWr.hasClass("fixed") ) {
+								$quickLinkBody.css({ "height":$windH - 150 + "px" }).addClass("#1");
+							} else {
+								$quickLinkBody.css({ "height":$windH - $quickLinkWr.offset().top - 150 + "px" }).addClass("#2");
+							}
+						} else {
+							// ** console.log( "리사이즈 원복" );
+							$quickLinkBody.css({ "height":"" }).addClass("#3");
+						}
+
+						// ** Footer 출현여부에 따라 퀵링크 Navi 높이 변경
+						$scTop = $(window).scrollTop();
+						$contH = $("#container-wrap").outerHeight();
+						$contT = $("#container-wrap").offset().top;
+						$contB_pos = $contT - $windH + $contH;
+						$contB_gap = $scTop - $contB_pos;
+						if ( $scTop >= $contB_pos ) {
+							// ** console.log( "Footer 출현" );
+							$quickLinkBody.css({ "height":$windH - (Number( util.getNumberOnly($quickLinkWr.css("top")) ) + $contB_gap + 116) + "px" }).addClass("#4");
+						} else {
+							// ** console.log( "Footer 사라짐" );
+							$quickLinkBody.css({ "height":"" }).addClass("#5");
+						}
+					} else {	// ** mobile 구간 진입시 높이값 초기화
+						$quickLinkBody.css({ "height":"" }).addClass("#6");
+					}
+				},
+				naviM_evt : function() {
+					$quickLinkMflag.on("click", function() {
+						if ( $(this).hasClass("over") ) {
+							$(this).removeClass("over");
+							$quickLinkBody.slideUp();
+						} else {
+							$(this).addClass("over");
+							$quickLinkBody.slideDown();
+						}
+					});
+				}
+			}
+		</script>
+	<!-- QUICK LINK // -->
+	<div id="doc-wrap">
+		<!-- header-wrap -->
+		<header id="header-wrap">
+			<!-- global-wrap -->
+<div id="global">
+	<div class="global-wrap">
+					<div class="glnk-R">
+				<div class="srvcLink">
+					<div id="toppop-ctrl" class="toppop-ctrl">
+						<button type="button" onclick="widePopPkg.tpToggler();" class="btn-wctrl">
+							<span class="">상단팝업</span>
+							<i>0</i>건
+						</button>
+					</div>
+																																																							<!-- 로그인 -->
+								<a href="https://info.masan.ac.kr/info/CMS/MemberMgr/login.do?mCode=MN002"   class="login"><span>로그인</span></a>
+																																																																																																																																																																																																																																																																																																																							<!-- 사이트맵 -->
+							<a href="https://info.masan.ac.kr/info/CMS/SiteMap/SiteMap.do?mCode=MN013"   class="amenu"><span>사이트맵</span></a>
+				</div>
+			</div>
+	</div>
+</div>			<!-- global-wrap //-->
+			<div id="header">
+ <h1 class="logo">
+	<div class="logoPkg">
+		<div class="slogo">
+							<a href="/kor/Main.do" target="_blank" title="새창열기" class="linkLogoImg">
+					<img src="/attach/IMAGE/TopDesignMgr/LogoImgUpload/2024/9/0KEZFIdy0Nn9wv0g.PNG" alt="입학정보">
+				</a>
+			<a href="/info/Main.do" class="linkLogoTxt">
+				<em class="logo-txt">입학정보</em>
+			</a>
+		</div>
+	</div>
+</h1>				<div id="mainNavi-wrap">
+					<div id="mn-ctrs-btns">
+						<button type="button" class="mn-ctrs-btn" id="mn-ctr-toggle" title="클릭하면 메뉴가 열립니다"><span class="blind">전체메뉴열기</span></button>
+					</div>
+					<!-- menu -->
+					<div id="menu-wrap" class="menu-cont">
+						<div class="mGnavi">
+							<button type="button" class="btn-close" id="hideAllmenu"><span class="blind">전체메뉴닫기</span></button>
+							<!-- <a href="#n" class="viewSummary"><span>학과 한눈에 보기</span></a> -->
+
+							<a href="/kor/" target="_blank" title="새창열기" class="korLnk"><span>마산대학교</span></a>
+							<a href="/info/"><span>홈</span></a>
+								<a href="/info/CMS/MemberMgr/login.do?mCode=MN002"><span>로그인</span></a>
+						</div>
+
+<nav id="mainNavi">
+	
+				<div class="depth1-wrap" >
+					<ul class="depth1-ul">
+
+
+								<li class='mn_li1 first nw'>
+										<a class='mn_a1 '  href="https://apply.masan.ac.kr/entr/aply/login?mc=003" target="_blank" title="새창열림"    >
+											<span>합격자조회</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li1 nw'>
+										<a class='mn_a1 '  href="/departments/" target="_blank" title="새창열림"    >
+											<span>학과소개</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li1'>
+										<a class='mn_a1 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN105"    >
+											<span>모집요강</span>
+										</a>
+
+				<div class="depth2-wrap" >
+					<ul class="depth2-ul">
+
+
+								<li class='mn_li2 first'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN105"    >
+											<span>2027학년도 모집요강</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN093"    >
+											<span>2027학년도 전형일정</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN092"    >
+											<span>수시모집</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN092"    >
+											<span>2027학년도 모집요강</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN034"    >
+											<span>정시모집</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN034"    >
+											<span>2027학년도 모집요강</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN036"    >
+											<span>학사학위전공심화과정</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN036"    >
+											<span>2026학년도 모집요강</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN102"    >
+											<span>편입학</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN102"    >
+											<span>2026학년도 전기일반편입학 모집요강</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN040"    >
+											<span>외국인모집</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN040"    >
+											<span>2026학년도 모집요강</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN109"    >
+											<span>9월 입학</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN109"    >
+											<span>2026학년도 9월 입학 모집요강</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li1 nw'>
+										<a class='mn_a1 '  href="https://apply.masan.ac.kr/entr/aply/intro" target="_blank" title="새창열림"    >
+											<span>원서접수</span>
+										</a>
+
+				<div class="depth2-wrap" >
+					<ul class="depth2-ul">
+
+
+								<li class='mn_li2 first'>
+										<a class='mn_a2 '  href="https://apply.masan.ac.kr/entr/aply/intro?entexamfg=001&collshcd=1" target="_blank" title="새창열림"    >
+											<span>수시 1차모집</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/intro?entexamfg=001&collshcd=1" target="_blank" title="새창열림"    >
+											<span>원서접수</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=001&collshcd=1&mc=001" target="_blank" title="새창열림"    >
+											<span>원서접수조회</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login/hsth?entexamfg=001" target="_blank" title="새창열림"    >
+											<span>원서접수조회(고교단체 통합조회)</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=001&collshcd=1&mc=003" target="_blank" title="새창열림"    >
+											<span>합격자조회</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://apply.masan.ac.kr/entr/aply/intro?entexamfg=001&collshcd=2" target="_blank" title="새창열림"    >
+											<span>수시 2차모집</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/intro?entexamfg=001&collshcd=2" target="_blank" title="새창열림"    >
+											<span>원서접수</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=001&collshcd=2&mc=001" target="_blank" title="새창열림"    >
+											<span>원서접수조회</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login/hsth?entexamfg=001" target="_blank" title="새창열림"    >
+											<span>원서접수조회(고교단체 통합조회)</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=001&collshcd=2&mc=003" target="_blank" title="새창열림"    >
+											<span>합격자조회</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://apply.masan.ac.kr/entr/aply/intro?entexamfg=001&collshcd=3" target="_blank" title="새창열림"    >
+											<span>정시모집</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/intro?entexamfg=001&collshcd=3" target="_blank" title="새창열림"    >
+											<span>원서접수</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=001&collshcd=3&mc=001" target="_blank" title="새창열림"    >
+											<span>원서접수조회</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=001&collshcd=3&mc=003" target="_blank" title="새창열림"    >
+											<span>합격자조회</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://apply.masan.ac.kr/entr/aply/intro?entexamfg=030" target="_blank" title="새창열림"    >
+											<span>학사학위전공심화과정</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/intro?entexamfg=030" target="_blank" title="새창열림"    >
+											<span>원서접수</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=030&mc=001" target="_blank" title="새창열림"    >
+											<span>원서접수 조회</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=030&mc=003" target="_blank" title="새창열림"    >
+											<span>합격자조회</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=002&collshcd=80" target="_blank" title="새창열림"    >
+											<span>편입학</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=002&collshcd=80" target="_blank" title="새창열림"    >
+											<span>원서접수조회</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=002&mc=003" target="_blank" title="새창열림"    >
+											<span>합격자조회</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://apply.masan.ac.kr/entr/aply/intro?entexamfg=001&collshcd=9" target="_blank" title="새창열림"    >
+											<span>9월 입학</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/intro?entexamfg=001&collshcd=9" target="_blank" title="새창열림"    >
+											<span>원서접수</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=001&collshcd=9&mc=001" target="_blank" title="새창열림"    >
+											<span>원서접수조회</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login?entexamfg=001&collshcd=9&mc=003" target="_blank" title="새창열림"    >
+											<span>합격자조회</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li1'>
+										<a class='mn_a1 '  href="https://www.masan.ac.kr/info/CMS/Board/Board.do?mCode=MN058"    >
+											<span>입학도우미</span>
+										</a>
+
+				<div class="depth2-wrap" >
+					<ul class="depth2-ul">
+
+
+								<li class='mn_li2 first'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Board/Board.do?mCode=MN058"    >
+											<span>공지사항</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Board/Board.do?mCode=MN059"    >
+											<span>입시FAQ</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Board/Board.do?mCode=MN060"    >
+											<span>입시Q&A</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN061"    >
+											<span>전년도 커트라인</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/GradeCal/list.do?mCode=MN063"    >
+											<span>학생부 성적산출 및 예측 서비스</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Board/Board.do?mCode=MN064"    >
+											<span>입시자료실</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://apply.masan.ac.kr/entr/aply/login/hsth?entexamfg=001" target="_blank" title="새창열림"    >
+											<span>고교교사를 위한 서비스</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login/hsth?entexamfg=001" target="_blank" title="새창열림"    >
+											<span>조회 및 신청</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apply.masan.ac.kr/entr/aply/login/hsth?entexamfg=001" target="_blank" title="새창열림"    >
+											<span>고교조회</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN066"    >
+											<span>상담연락처</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/FormBuilderMgr/write.do?seq=1&mCode=MN067"    >
+											<span>고교방문 입시설명회 신청</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/FormBuilderMgr/write.do?seq=2&mCode=MN068"    >
+											<span>학과탐방 및 체험 신청</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN090"    >
+											<span>입시자료 신청</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/IpsiEvent/apply.do?mCode=MN088"    >
+											<span>입학상담(이벤트) 신청</span>
+										</a>
+
+				<div class="depth3-wrap" >
+					<ul class="depth3-ul">
+
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="https://www.masan.ac.kr/info/CMS/IpsiEvent/apply.do?mCode=MN088"    >
+											<span>신청하기</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="https://www.masan.ac.kr/info/CMS/IpsiEvent/search.do?mCode=MN089"    >
+											<span>조회하기</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+					</ul>
+				</div>
+								</li>
+
+
+								<li class='mn_li1'>
+										<a class='mn_a1 '  href="/info/CMS/Board/Board.do?mCode=MN074"    >
+											<span>대학정보</span>
+										</a>
+
+				<div class="depth2-wrap" >
+					<ul class="depth2-ul">
+
+
+								<li class='mn_li2 first nw'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/kor/CMS/Board/Board.do?mCode=MN124" target="_blank" title="새창열림"    >
+											<span>언론보도</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/SnsCfgMgr/SnsCfgList.do?seq=1040&mCode=MN074"    >
+											<span>홍보영상</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="/kor/CMS/Contents/Contents.do?mCode=MN135" target="_blank" title="새창열림"    >
+											<span>전과제도</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="/kor/CMS/Contents/Contents.do?mCode=MN084" target="_blank" title="새창열림"    >
+											<span>장학제도</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="/kor/CMS/Contents/Contents.do?mCode=MN086" target="_blank" title="새창열림"    >
+											<span>학자금대출</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Board/Board.do?mCode=MN078"    >
+											<span>우수취업자인터뷰</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="/kor/CMS/Contents/Contents.do?mCode=MN107" target="_blank" title="새창열림"    >
+											<span>학생편의시설</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="/kor/CMS/Contents/Contents.do?mCode=MN105" target="_blank" title="새창열림"    >
+											<span>청우학사(기숙사) 안내</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/kor/CMS/Contents/Contents.do?mCode=MN104" target="_blank" title="새창열림"    >
+											<span>해외교류프로그램</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="/kor/CMS/Contents/Contents.do?mCode=MN095" target="_blank" title="새창열림"    >
+											<span>스쿨버스 노선도</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="/kor/CMS/CampusMgr/list.do?mCode=MN063" target="_blank" title="새창열림"    >
+											<span>캠퍼스안내</span>
+										</a>
+								</li>
+
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN084"    >
+											<span>오시는길</span>
+										</a>
+								</li>
+					</ul>
+				</div>
+								</li>
+					</ul>
+				</div>
+</nav>
+<a href="/info/CMS/SiteMap/SiteMap.do?mCode=MN277" class="allmn-btn"><span class="txt"><span class="blind">전체메뉴보기</span></span></a>
+
+					</div>
+					<!-- menu //-->
+				</div>
+			</div>
+			<div class="body-slider-ovclick"></div>
+		</header>
+		<!-- header-wrap //-->
+			<!-- container-wrap -->
+			<article id="container-wrap">
+
+	 <!-- 메인팝업존 사이즈 크기 -->
+
+<link rel="stylesheet" type="text/css" href="/resources/Main/infomainModule.css?styleCss=bWFpbnZpc3VhbC1UTVBMMDUsbWxpbmtzLVRNUEwwNSxtaWNiYW4tVE1QTDA1LG1pY2JhbjItVE1QTDA1LG1wb3B6b25lLVRNUEwwNSxtdGFiYm9hcmQtVE1QTDA1LG1pY2JhbjMtVE1QTDA1LG10YWJnYWxsZXJ5LVRNUEwwNSxtbGlua3MyLVRNUEwwNSxtaWNiYW40LVRNUEwwNSw=">
+<main id="mcontainer-wrap">
+	<div id="mcontainer">
+		<div class="mVisual-wr">
+			<div id="mVisual">
+				<div class="datanavi"></div>
+				<div class="ctrlnums-wrap">
+					<div class="ctrl-nums">
+						<div class="ctrl-auto">
+							<button class="btn-stop" type="button"><span class="blind">정지</span></button>
+							<button class="btn-play" type="button"><span class="blind">재생</span></button>
+						</div>
+						<div class="ctrl-dots"></div>
+					</div>
+				</div>
+				<div class="datalist">
+									<div class="item">
+										<div class="txtBox">
+											<div class="txtCore">
+												<p class="p1">스무살의 스포트라이트<br>
+나의 브랜드는 마산대학교입니다.</p>
+												<p class="p2">MASAN UNIVERSITY</p>
+											</div>
+										</div>
+										<div class="imgBox">
+											<img src="/attach/IMAGE/PopupMgr/PopupZoneUpload/2021/2/SyLmPgdFLtDdQBVq.JPG" alt="" class="pimg"/>
+										</div>
+									</div>
+									<div class="item">
+										<div class="txtBox">
+											<div class="txtCore">
+												<p class="p1">스무살의 스포트라이트<br>
+나의 브랜드는 마산대학교입니다.</p>
+												<p class="p2">MASAN UNIVERSITY</p>
+											</div>
+										</div>
+										<div class="imgBox">
+											<img src="/attach/IMAGE/PopupMgr/PopupZoneUpload/2021/3/iDmRD8ph3p6UQaP1.JPG" alt="" class="pimg"/>
+										</div>
+									</div>
+				</div>
+			</div>
+			<script>
+				$(function(){
+					mVisual.init();
+				});
+				var mVisual = {
+					init : function(){
+						this.mVisSlide();
+					},
+					mVisSlide : function() {
+						var mVisSld = $("#mVisual .datalist");
+						var mVisLen = $(".item", mVisSld ).length;
+						var mVisCtrl = mVisSld.prev();
+						var mVisAuto = $(".ctrl-auto", mVisCtrl );
+						var mVisDot = $(".ctrl-dots", mVisCtrl );
+						var mVisDelay = 5000;
+						var mVisSpeed = 750;
+						if ( mVisLen == 1 && $(".item", mVisSld ).hasClass("no-data") ) {
+							// no-data
+						} else {
+							// not-no-data
+						}
+						mVisCtrl.addClass("has"+mVisLen);
+						mVisSld.slick({
+							infinite : true
+							, slidesToShow : 1
+							, slidesToScroll : 1
+							, speed : mVisSpeed
+							, fade : true
+							, cssEase : 'linear'
+							, autoplay : true
+							, appendArrows : mVisSld.prev().prev()
+							, dots : true
+							, appendDots : mVisDot
+							, prevArrow : "<button type='button' class='slick-prev'>이전</button>"
+							, nextArrow : "<button type='button' class='slick-next'>다음</button>"
+						});
+						$(".btn-stop", mVisAuto ).on("click",function(){
+							$(this).hide();
+							$(this).next().show().focus();
+							mVisSld.slick("slickPause");
+						});
+						$(".btn-play", mVisAuto ).on("click",function(){
+							$(this).hide();
+							$(this).prev().show().focus();
+							mVisSld.slick("slickPlay");
+						});
+					}
+				}
+			</script>
+		</div>
+		<div class="mPkg-wr1">
+			<div class="sidePkg">
+				<div class="side-R">
+					<div id="mPopup">
+						<h3 class="blind">POPUP Zone</h3>
+						<div class="dataCtrl">
+							<div class="dataDots"></div>
+							<div class="dataPkgs">
+								<div class="dataNums">
+									<span class="pres">1</span>/<span class="total"></span>
+								</div>
+								<div class="dataAuto">
+									<button type="button" class="btn-stop"><span>자동롤링 정지</span></button>
+									<button type="button" class="btn-play"><span>자동롤링 시작</span></button>
+								</div>
+							</div>
+						</div>
+						<div class="datalist owl-carousel">
+									<div class="item" data-idx="1">
+												<a href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN105" target="_blank" title="새창열림" class="inwr">
+													<span><img src="/attach/IMAGE/PopupMgr/PopupZoneUpload/2026/6/Hg6shBRaj1sovYpj.JPG" alt="2027학년도
+마산대학교
+취업은 쉽다
+
+"></span>
+												</a>
+									</div>
+									<div class="item" data-idx="2">
+												<a href="https://youtu.be/QJSHhSJeMBs" target="_self" class="inwr">
+													<span><img src="/attach/IMAGE/PopupMgr/PopupZoneUpload/2026/8/lHTubSdTwusblThs.JPG" alt=""></span>
+												</a>
+									</div>
+						</div>
+						<script>
+							$(function(){
+								mPopup.init();
+							});
+							var mPopup = {
+								init : function(){
+									this.mPopupSlide();
+								},
+								mPopupSlide : function() {
+									var mPopup = $("#mPopup");
+									var mPopupSld = $(".datalist", mPopup );
+									var mPopupCtrl = $(".dataCtrl", mPopup );
+									var mPopupNums = $(".dataNums", mPopupCtrl );
+									var mPopupNumPres = $(".pres", mPopupNums );
+									var mPopupNumTotal = $(".total", mPopupNums );
+									var mPopupAutos = $(".dataAuto", mPopupCtrl );
+									var mPopupDots = $(".dataDots", mPopupCtrl );
+									var mPopupLen = $(".item", mPopupSld ).length;
+									var mPopupDelay = 5000;
+									var mPopupSpeed = 750;
+									mPopupNumTotal.text( mPopupLen );
+									if ( mPopupLen == 1 && $(".item", mPopupSld ).hasClass("no-data") ) {
+										// no-data
+									} else {
+										// not-no-data
+									}
+									mPopupSld.owlCarousel({
+										items : 1
+										, loop : true
+										, autoplay : true
+										, nav : true
+										, navText : ["이전", "다음"]
+										, autoplayTimeout : mPopupDelay
+										, autoplayHoverPause : false
+										, dots : true
+										, dotsContainer : mPopupDots
+										, smartSpeed : mPopupSpeed
+										, onTranslated : onTransed
+									});
+									function onTransed( event ) {
+										var element = $(event.target);
+										var mPopupThisPresNum = $(".owl-item.active .item", element ).data("idx");
+										mPopupNumPres.text( mPopupThisPresNum );
+									}
+									$(".btn-stop", mPopupAutos ).on("click",function(){
+										$(this).hide();
+										$(this).next().show().focus();
+										mPopupSld.trigger("stop.owl.autoplay");
+									});
+									$(".btn-play", mPopupAutos ).on("click",function(){
+										$(this).hide();
+										$(this).prev().show().focus();
+										mPopupSld.trigger("play.owl.autoplay", [mPopupDelay]);
+									});
+								}
+							}
+						</script>
+					</div>
+				</div>
+				<div class="side-L">
+					<div class="tbl-Pkg">
+						<div class="f1">
+							<div class="inwr">
+<div id="mLinks1"><!--  -->
+	<a href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN105" target="_blank" title='2027학년도(새창)'  class="btnRole">
+		<p class="tPkg">
+			<span class="t1">2027학년도</span>
+			<span class="t2">마산대학교 모집요강</span>
+		</p>
+		<div class="tBtn">
+			<span>바로가기</span>
+			<div class="line line1"></div>
+			<div class="line line2"></div>
+			<div class="line line3"></div>
+			<div class="line line4"></div>
+		</div>
+	</a>
+</div>
+								<!-- <div id="mLinks1">
+									<a href="#n">
+										<p class="tPkg">
+											<span class="t1">2021학년도</span>
+											<span class="t2">마산대학교 정시모집요강</span>
+										</p>
+										<div class="tBtn">
+											<span>보러가기</span>
+											<div class="line line1"></div>
+											<div class="line line2"></div>
+											<div class="line line3"></div>
+											<div class="line line4"></div>
+										</div>
+									</a>
+								</div> -->
+								<!-- <div id="mIcban1">
+	<ul>
+		<li class="">
+			<a href="https://apply.masan.ac.kr/entr/aply/intro?entexamfg=001&collshcd=3" target="_blank" title='원서접수(새창)' onClick="menuPopup(this.href,'1400','1000');; return false;" class="btnRole">
+				<div class="ico icon1"></div>
+				<div class="txt"><span>원서접수</span></div>
+			</a>
+		</li>
+		<li class="">
+			<a href="https://apply.masan.ac.kr/entr/aply/login?mc=001" target="_blank" title='지원자 조회(새창)' onClick="menuPopup(this.href,'1400','1000');; return false;" class="btnRole">
+				<div class="ico icon2"></div>
+				<div class="txt"><span>지원자 조회</span></div>
+			</a>
+		</li>
+		<li class="">
+			<a href="https://apply.masan.ac.kr/entr/aply/login" target="_blank" title='합격자 조회(새창)' onClick="menuPopup(this.href,'1400','1000');; return false;" class="btnRole">
+				<div class="ico icon3"></div>
+				<div class="txt"><span>합격자 조회</span></div>
+			</a>
+		</li>
+	</ul>
+</div>
+ -->
+								<div id="mIcban1">
+									<ul>
+										<li>
+											<a href="https://apply.masan.ac.kr/entr/aply/intro" target="_blank" title="새창열림" class="btnRole">
+												<div class="ico icon1"></div>
+												<div class="txt"><span>원서접수</span></div>
+											</a>
+										</li>
+										<li>
+											<a href="https://apply.masan.ac.kr/entr/aply/login?mc=001" target="_blank" title="새창열림" class="btnRole">
+												<div class="ico icon2"></div>
+												<div class="txt"><span>지원자 조회</span></div>
+											</a>
+										</li>
+										<!-- <li>
+											<a href="javascript:alert('서비스 기간이 아닙니다');" class="btnRole">
+												<div class="ico icon3"></div>
+												<div class="txt"><span>합격자 확인</span></div>
+											</a>
+										</li> -->
+										<li>
+											<a href="https://apply.masan.ac.kr/entr/aply/login?mc=003"  target="_blank" title="새창열림" class="btnRole">
+												<div class="ico icon3"></div>
+												<div class="txt"><span>합격자 조회</span></div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="f2">
+							<div class="inwr">
+<div id="mIcban2">
+	<ul>
+		<li class="icon2">
+			<a href="https://www.youtube.com/@%EB%A7%88%EB%8C%80%EC%98%A8" target="_blank" title='마대온(새창)'  class="btnRole">
+				<div class="ico"></div>
+				<div class="txt"><span>마대온</span></div>
+			</a>
+		</li>
+		<li class="icon1">
+			<a href="https://pf.kakao.com/_TxjxaxdK" target="_blank" title='카카오채널입시상담(새창)'  class="btnRole">
+				<div class="ico"></div>
+				<div class="txt"><span>카카오채널입시상담</span></div>
+			</a>
+		</li>
+		<li class="icon3">
+			<a href="/info/CMS/IpsiEvent/apply.do?mCode=MN088" target="_self"   class="btnRole">
+				<div class="ico"></div>
+				<div class="txt"><span>입학 및 진로진학 상담요청</span></div>
+			</a>
+		</li>
+		<li class="icon4">
+			<a href="/info/CMS/FormBuilderMgr/write.do?seq=3&mCode=MN090" target="_self"   class="btnRole">
+				<div class="ico"></div>
+				<div class="txt"><span>입시자료 신청</span></div>
+			</a>
+		</li>
+	</ul>
+</div>
+								<!-- <div id="mIcban2">
+									<ul>
+										<li class="icon1">
+											<a href="#n2-01" class="btnRole">
+												<div class="ico"></div>
+												<div class="txt"><span>카카오채널 입시상담</span></div>
+											</a>
+										</li>
+										<li class="icon2">
+											<a href="#n2-02" class="btnRole">
+												<div class="ico"></div>
+												<div class="txt"><span>유튜브 mu</span></div>
+											</a>
+										</li>
+										<li class="icon3">
+											<a href="#n2-03" class="btnRole">
+												<div class="ico"></div>
+												<div class="txt"><span>입학 및 진로진학 상담요청</span></div>
+											</a>
+										</li>
+										<li class="icon4">
+											<a href="#n2-04" class="btnRole">
+												<div class="ico"></div>
+												<div class="txt"><span>입시자료 신청</span></div>
+											</a>
+										</li>
+									</ul>
+								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mPkg-wr2">
+			<div class="sidePkg">
+				<div class="side-L">
+					<div id="mBbs">
+<div class="mtab" id="mboardTab">
+	<h3 class="bbsTit">Notice</h3>
+					<dl class="first vnum1 isOn " id="mNoti1">
+					<dt><a href="#mNoti1" onclick="setBoardTab('mboardTab',1,'');return false;" onfocus="setBoardTab('mboardTab',1,'');return false;" onblur="setBoardTab('mboardTab',1,'');return false;">공지사항</a></dt>
+					<dd>
+						<ul id="mBoard1"></ul>
+						<a href="/info/CMS/Board/Board.do?mCode=MN058" target="_self"  class="btn-more"><span class="blind">더보기</span></a>
+					</dd>
+				</dl>
+				<dl class=" vnum2 " id="mNoti2">
+					<dt><a href="#mNoti2" onclick="setBoardTab('mboardTab',2,'');return false;" onfocus="setBoardTab('mboardTab',2,'');return false;" onblur="setBoardTab('mboardTab',2,'');return false;">입학FAQ</a></dt>
+					<dd>
+						<ul id="mBoard2"></ul>
+						<a href="/info/CMS/Board/Board.do?mCode=MN059" target="_self"  class="btn-more"><span class="blind">더보기</span></a>
+					</dd>
+				</dl>
+				<dl class=" vnum3 " id="mNoti3">
+					<dt><a href="#mNoti3" onclick="setBoardTab('mboardTab',3,'');return false;" onfocus="setBoardTab('mboardTab',3,'');return false;" onblur="setBoardTab('mboardTab',3,'');return false;">입학자료실</a></dt>
+					<dd>
+						<ul id="mBoard3"></ul>
+						<a href="/info/CMS/Board/Board.do?mCode=MN064" target="_self"  class="btn-more"><span class="blind">더보기</span></a>
+					</dd>
+				</dl>
+	<div id="LoadingImage" style="display:none">
+		<img src="/resources/_Img/Common/ajax_loding.gif" alt="로딩이미지" />
+	</div>
+</div>
+<script>
+				$.ajax({
+					cache : false,
+					url : '/info/ajx_json/MainBoard.do?site_code=info&pageSize=3&mCode=MN058&skin=defaultInfo1&mgr_seq=351&category=',
+					type : 'post',
+					datatype : 'script',
+					resetForm : false,
+					beforeSubmit : function(formData, jqForm, options) {
+						var obj = jqForm[0];
+						return true;
+					},
+					success : function(responseText, statusText) {
+						$("#mBoard1").html(responseText);
+					}
+				});
+				$('#mNoti1').on("click focusin",function() {
+					if($("#mBoard1 li").length == 0){
+						$("#LoadingImage").show();
+						$.ajax({
+							cache : false,
+							url : '/info/ajx_json/MainBoard.do?site_code=info&pageSize=3&mCode=MN058&skin=defaultInfo1&mgr_seq=351&category=',
+							type : 'post',
+							datatype : 'script',
+							resetForm : false,
+							beforeSubmit : function(formData, jqForm, options) {
+								var obj = jqForm[0];
+								return true;
+							},
+							success : function(responseText, statusText) {
+								$("#LoadingImage").hide();
+								$("#mBoard1").html(responseText);
+							}
+						})
+					}
+				});
+			 	$('#mNoti2').on("click focusin",function() {
+			 		if ( $("#mBoard2 li").length == 0 ) {
+				 		$("#LoadingImage").show();
+				 		$.ajax({
+							cache : false,
+							url : '/info/ajx_json/MainBoard.do?site_code=info&pageSize=3&mCode=MN059&skin=defaultInfo1&mgr_seq=41&category=',
+							type : 'post',
+							datatype : 'script',
+							resetForm : false,
+							beforeSubmit : function(formData, jqForm, options) {
+								var obj = jqForm[0];
+								return true;
+							},
+							success : function(responseText, statusText) {
+						 		$("#LoadingImage").hide();
+								$("#mBoard2").html(responseText);
+							}
+						})
+			 		}
+
+				});
+			 	$('#mNoti3').on("click focusin",function() {
+			 		if ( $("#mBoard3 li").length == 0 ) {
+				 		$("#LoadingImage").show();
+				 		$.ajax({
+							cache : false,
+							url : '/info/ajx_json/MainBoard.do?site_code=info&pageSize=3&mCode=MN064&skin=defaultInfo1&mgr_seq=353&category=',
+							type : 'post',
+							datatype : 'script',
+							resetForm : false,
+							beforeSubmit : function(formData, jqForm, options) {
+								var obj = jqForm[0];
+								return true;
+							},
+							success : function(responseText, statusText) {
+						 		$("#LoadingImage").hide();
+								$("#mBoard3").html(responseText);
+							}
+						})
+			 		}
+
+				});
+
+</script>						<!--
+						<div class="mtab" id="mboardTab">
+							<h3 class="bbsTit">Notice</h3>
+							<dl class="first vnum1 isOn" id="mNoti1">
+								<dt>
+									<a href="#mNoti1" onblur="setBoardTab('mboardTab',1,'');return false;" onclick="setBoardTab('mboardTab',1,'');return false;" onfocus="setBoardTab('mboardTab',1,'');return false;"><span>공지사항</span></a>
+								</dt>
+								<dd>
+									<ul id="mBoard1">
+										<li class=" first">
+											<a href="#n3-1-1" class="btnRole">
+												<p class="subj">
+													<span class="tit">수시1차 면접대상자 유의사항 안내</span>
+												</p>
+												<p class="cont">코로나바이러스감염증-19」 예방을 위해 응시자를 제외한 외부인의 출입을 엄격히 통제하며, 보호자의 캠퍼스 출입은 허용 하되, 건물출입은 불가하오니 지역 내 감염확산을 방지하기 위해 협조부탁드리며, 「감염병의 예방 및 관리에 관한 법률」 제41조제3항에 의거 격리대상자 등은 고사장에서의 면접응시가 불가함을 알려드립니다.</p>
+												<span class="date">2020-12-09</span>
+											</a>
+										</li>
+										<li class="">
+											<a href="#n3-1-2" class="btnRole">
+												<p class="subj">
+													<span class="tit">유튜브 인기BJ 창현거리노래방 행사 취소 및 연기 안내</span>
+												</p>
+												<p class="cont">기존 12/13(일) 개최되기로 예정되었던, 유튜브 인기BJ 창현 거리노래방은 코로나 바이러스 감염증-19 감염확산방지 및 예방을 위한, 교육부 지침에 의거하여 부득이하게 연기되었음을 알려드립니다.</p>
+												<span class="date">2020-12-09</span>
+											</a>
+										</li>
+										<li class="">
+											<a href="#n3-1-3" class="btnRole">
+												<p class="subj">
+													<span class="tit">2021학년도 수시1차 신입생모집 관련 면접시행 및 이벤트 개최안내</span>
+												</p>
+												<p class="cont">안녕하십니까? 입학팀입니다. 2021학년도 수시1차 신입생 모집과 관련하여, 면접관련 안내드립니다.</p>
+												<span class="date">2020-12-09</span>
+											</a>
+										</li>
+									</ul>
+									<a class="btn-more" href="#n3-more1"><span class="blind">더보기</span></a>
+								</dd>
+							</dl>
+							<dl class="vnum2" id="mNoti2">
+								<dt>
+									<a href="#mNoti2" onblur="setBoardTab('mboardTab',2,'');return false;" onclick="setBoardTab('mboardTab',2,'');return false;" onfocus="setBoardTab('mboardTab',2,'');return false;"><span>입학FAQ</span></a>
+								</dt>
+								<dd>
+									<ul id="mBoard2">
+										<li class=" first">
+											<a href="#n3-1-1" class="btnRole">
+												<p class="subj">
+													<span class="tit">수시2차 면접대상자 유의사항 안내</span>
+												</p>
+												<p class="cont">코로나바이러스감염증-19」 예방을 위해 응시자를 제외한 외부인의 출입을 엄격히 통제하며, 보호자의 캠퍼스 출입은 허용하되, 건물출입은 불가하오니 지역 내 감염확산을 방지하기 위해 협조부탁드리며, 「감염병의 예방 및 관리에 관한 법률」 제41조제3항에 의거 격리대상자 등은 고사장에서의 면접응시가 불가함을 알려드립니다.</p>
+												<span class="date">2020-12-09</span>
+											</a>
+										</li>
+										<li class="">
+											<a href="#n3-1-2" class="btnRole">
+												<p class="subj">
+													<span class="tit">유튜브 인기BJ 창현거리노래방 행사 취소 및 연기 안내</span>
+												</p>
+												<p class="cont">기존 12/13(일) 개최되기로 예정되었던, 유튜브 인기BJ창현거리노래방은 「코로나바이러스감염증-19」 감염확산방지 및 예방을 위한, 교육부 지침에 의거하여 부득이하게 연기되었음을 알려드립니다.</p>
+												<span class="date">2020-12-09</span>
+											</a>
+										</li>
+										<li class="">
+											<a href="#n3-1-3" class="btnRole">
+												<p class="subj">
+													<span class="tit">2021학년도 수시1차 신입생모집 관련 면접시행 및 이벤트 개최안내</span>
+												</p>
+												<p class="cont">안녕하십니까? 입학팀입니다. 2021학년도 수시1차 신입생 모집과 관련하여, 면접관련 안내드립니다.</p>
+												<span class="date">2020-12-09</span>
+											</a>
+										</li>
+									</ul>
+									<a class="btn-more" href="#n3-more2"><span class="blind">더보기</span></a>
+								</dd>
+							</dl>
+							<dl class="vnum3" id="mNoti3">
+								<dt>
+									<a href="#mNoti3" onblur="setBoardTab('mboardTab',3,'');return false;" onclick="setBoardTab('mboardTab',3,'');return false;" onfocus="setBoardTab('mboardTab',3,'');return false;"><span>입학자료실</span></a>
+								</dt>
+								<dd>
+									<ul id="mBoard3">
+										<li class=" first">
+											<a href="#n3-1-1" class="btnRole">
+												<p class="subj">
+													<span class="tit">수시3차 면접대상자 유의사항 안내</span>
+												</p>
+												<p class="cont">코로나바이러스감염증-19」 예방을 위해 응시자를 제외한 외부인의 출입을 엄격히 통제하며, 보호자의 캠퍼스 출입은 허용하되, 건물출입은 불가하오니 지역 내 감염확산을 방지하기 위해 협조부탁드리며, 「감염병의 예방 및 관리에 관한 법률」 제41조제3항에 의거 격리대상자 등은 고사장에서의 면접응시가 불가함을 알려드립니다.</p>
+												<span class="date">2020-12-09</span>
+											</a>
+										</li>
+										<li class="">
+											<a href="#n3-1-2" class="btnRole">
+												<p class="subj">
+													<span class="tit">유튜브 인기BJ 창현거리노래방 행사 취소 및 연기 안내</span>
+												</p>
+												<p class="cont">기존 12/13(일) 개최되기로 예정되었던, 유튜브 인기BJ창현거리노래방은 「코로나바이러스감염증-19」 감염확산방지 및 예방을 위한, 교육부 지침에 의거하여 부득이하게 연기되었음을 알려드립니다.</p>
+												<span class="date">2020-12-09</span>
+											</a>
+										</li>
+										<li class="">
+											<a href="#n3-1-3" class="btnRole">
+												<p class="subj">
+													<span class="tit">2021학년도 수시1차 신입생모집 관련 면접시행 및 이벤트 개최안내</span>
+												</p>
+												<p class="cont">안녕하십니까? 입학팀입니다. 2021학년도 수시1차 신입생 모집과 관련하여, 면접관련 안내드립니다.</p>
+												<span class="date">2020-12-09</span>
+											</a>
+										</li>
+									</ul>
+									<a class="btn-more" href="#n3-more3"><span class="blind">더보기</span></a>
+								</dd>
+							</dl>
+							<div id="LoadingImage" style="display: none;"><img alt="로딩이미지" src="/resources/_Img/Common/ajax_loding.gif"></div>
+						</div>
+						-->
+					</div>
+				</div>
+				<div class="side-R">
+<div id="mIcban3">
+	<h3 class="mIcbanTit">MU Service</h3>
+	<ul>
+		<li>
+			<a href="https://www.masan.ac.kr/info/CMS/SnsCfgMgr/SnsCfgList.do?seq=1040&mCode=MN074" target="_self"   class="btnRole">
+				<div class="ico icon1"></div>
+				<div class="txt"><span>입시홍보영상</span></div>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.masan.ac.kr/info/CMS/IpsiEvent/apply.do?mCode=MN088" target="_self"   class="btnRole">
+				<div class="ico icon2"></div>
+				<div class="txt"><span>입학상담 신청</span></div>
+			</a>
+		</li>
+		<li>
+			<a href="/info/CMS/FormBuilderMgr/write.do?seq=2&mCode=MN068" target="_self"   class="btnRole">
+				<div class="ico icon3"></div>
+				<div class="txt"><span>학과탐방</span></div>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.masan.ac.kr/info/CMS/Board/Board.do?mCode=MN078" target="_self"   class="btnRole">
+				<div class="ico icon8"></div>
+				<div class="txt"><span>우수취업자인터뷰</span></div>
+			</a>
+		</li>
+	</ul>
+</div>
+					<!--
+					<div id="mIcban3">
+						<h3 class="mIcbanTit">MU Service</h3>
+						<ul>
+							<li>
+								<a href="#n2-01" class="btnRole">
+									<div class="ico icon1"></div>
+									<div class="txt"><span>입시홍보영상</span></div>
+								</a>
+							</li>
+							<li>
+								<a href="#n2-02" class="btnRole">
+									<div class="ico icon2"></div>
+									<div class="txt"><span>고교방문 입시설명회 신청</span></div>
+								</a>
+							</li>
+							<li>
+								<a href="#n2-03" class="btnRole">
+									<div class="ico icon3"></div>
+									<div class="txt"><span>학과탐방</span></div>
+								</a>
+							</li>
+							<li>
+								<a href="#n2-04" class="btnRole">
+									<div class="ico icon4"></div>
+									<div class="txt"><span>이벤트</span></div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					-->
+				</div>
+			</div>
+		</div>
+		<div class="mPkg-wr3">
+			<div class="sidePkg">
+				<div class="side-L">
+			<div id="mGallery">
+				<div class="role-head">
+					<span class="t1">Masan University Interview</span>
+					<span class="t2">우수취업자 인터뷰</span>
+				</div>
+				<div class="role-body">
+					<div class="datalist owl-carousel">
+					</div>
+					<div class="dataCtrl">
+						<div class="dataNums">
+							<span class="pres">1</span>/<span class="total"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+<script>
+					$.ajax({
+						cache : false,
+						url : '/info/ajx_json/MainBoard.do?site_code=info&pageSize=6&mCode=MN078&skin=galleryInfo1&mgr_seq=942&category=',
+						type : 'post',
+						datatype : 'script',
+						resetForm : false,
+						beforeSubmit : function(formData, jqForm, options) {
+							var obj = jqForm[0];
+							return true;
+						},
+						success : function(responseText, statusText) {
+							$("#mGallery .datalist").html(responseText);
+						},
+						complete : function() {
+							mGallery.init();
+						}
+					});
+					var mGallery = {
+						init : function(){
+							this.mGallerySlide();
+						},
+						mGallerySlide : function() {
+							var mGallery = $("#mGallery");
+							var mGallerySld = $(".datalist", mGallery );
+							var mGalleryCtrl = $(".dataCtrl", mGallery );
+							var mGalleryNums = $(".dataNums", mGalleryCtrl );
+							var mGalleryNumPres = $(".pres", mGalleryNums );
+							var mGalleryNumTotal = $(".total", mGalleryNums );
+							var mGalleryLen = $(".item", mGallerySld ).length;
+							var mGalleryDelay = 5000;
+							var mGallerySpeed = 750;
+							mGalleryNumTotal.text( mGalleryLen );
+							if ( mGalleryLen == 1 && $(".item", mGallerySld ).hasClass("no-data") ) {
+								// no-data
+								mGalleryCtrl.hide();
+							} else {
+								// not-no-data
+							}
+							mGallerySld.owlCarousel({
+								items : 1
+								, loop : true
+								, autoplay : false
+								, nav : true
+								, navText : ["이전", "다음"]
+								, navContainer : mGalleryCtrl
+								, autoplayTimeout : mGalleryDelay
+								, autoplayHoverPause : false
+								, dots : false
+								, smartSpeed : mGallerySpeed
+								, onTranslated : onTransed
+							});
+							function onTransed( event ) {
+								var element = $(event.target);
+								var mGalleryThisPresNum = $(".owl-item.active .item", element ).data("idx");
+								mGalleryNumPres.text( mGalleryThisPresNum );
+							}
+						}
+					}
+</script>					<!--
+					<div id="mGallery">
+						<div class="role-head">
+							<span class="t1">Masan University Interview</span>
+							<span class="t2">우수취업자 인터뷰</span>
+						</div>
+						<div class="role-body">
+							<div class="datalist owl-carousel">
+								<div class="item" data-idx="1">
+									<a href="#n01" class="btnRole">
+										<div class="txtBox">
+											#장○웅(2019-1년졸업)<br>
+											#소방공무원 #내서119안전센터 근무<br>
+											#취업심폐소생술 #응급구조과
+										</div>
+										<div class="imgBox">
+											<span><img src="/resources/_Templet/Main/main_info/Img/mInterview_pic1.jpg" alt=""></span>
+										</div>
+									</a>
+								</div>
+								<div class="item" data-idx="2">
+									<a href="#n02" class="btnRole">
+										<div class="txtBox">
+											#김○홍(2020-2년졸업)<br>
+											#소방공무원 #내서119안전센터 근무<br>
+											#취업심폐소생술 #응급구조과 #취업심폐소생술 #응급구조과 #취업심폐소생술 #응급구조과 #취업심폐소생술 #응급구조과 #취업심폐소생술 #응급구조과
+										</div>
+										<div class="imgBox">
+											<span><img src="/resources/_Templet/Main/main_info/Img/mInterview_pic2.jpg" alt=""></span>
+										</div>
+									</a>
+								</div>
+								<div class="item" data-idx="3">
+									<a href="#n03" class="btnRole">
+										<div class="txtBox">
+											#장○웅(2019-1년졸업)<br>
+											#소방공무원 #내서119안전센터 근무<br>
+											#취업심폐소생술 #응급구조과
+										</div>
+										<div class="imgBox">
+											<span><img src="/resources/_Templet/Main/main_info/Img/mInterview_pic1.jpg" alt=""></span>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="dataCtrl">
+								<div class="dataNums">
+									<span class="pres">1</span>/<span class="total"></span>
+								</div>
+							</div>
+						</div>
+						<script>
+							$(function(){
+								mGallery.init();
+							});
+							var mGallery = {
+								init : function(){
+									this.mGallerySlide();
+								},
+								mGallerySlide : function() {
+									var mGallery = $("#mGallery");
+									var mGallerySld = $(".datalist", mGallery );
+									var mGalleryCtrl = $(".dataCtrl", mGallery );
+									var mGalleryNums = $(".dataNums", mGalleryCtrl );
+									var mGalleryNumPres = $(".pres", mGalleryNums );
+									var mGalleryNumTotal = $(".total", mGalleryNums );
+									var mGalleryLen = $(".item", mGallerySld ).length;
+									var mGalleryDelay = 5000;
+									var mGallerySpeed = 750;
+									mGalleryNumTotal.text( mGalleryLen );
+									if ( mGalleryLen == 1 && $(".item", mGallerySld ).hasClass("no-data") ) {
+										// no-data
+									} else {
+										// not-no-data
+									}
+									mGallerySld.owlCarousel({
+										items : 1
+										, loop : true
+										, autoplay : true
+										, nav : true
+										, navText : ["이전", "다음"]
+										, navContainer : mGalleryCtrl
+										, autoplayTimeout : mGalleryDelay
+										, autoplayHoverPause : false
+										, dots : false
+										, smartSpeed : mGallerySpeed
+										, onTranslated : onTransed
+									});
+									function onTransed( event ) {
+										var element = $(event.target);
+										var mGalleryThisPresNum = $(".owl-item.active .item", element ).data("idx");
+										mGalleryNumPres.text( mGalleryThisPresNum );
+									}
+								}
+							}
+						</script>
+					</div>
+					-->
+				</div>
+				<div class="side-R">
+<div id="mLinks2">
+	<div class="role-head">
+				<span class='t1'>학과안내</span><span class='t2'>마산대학교 학과(부)를 소개합니다.</span>
+	</div>
+	<div class="role-body">
+		<div class="scrWr">
+			<ul>
+				<li class=""><a href="/departments/Main.do?school=1" target="_blank" title='간호계열(새창)'  class="btnRole"><span>간호계열</span></a></li>
+				<li class=""><a href="/departments/Main.do?school=2" target="_blank" title='보건계열(새창)'  class="btnRole"><span>보건계열</span></a></li>
+				<li class=""><a href="/departments/Main.do?school=3" target="_blank" title='보건과학계열(새창)'  class="btnRole"><span>보건과학계열</span></a></li>
+				<li class=""><a href="/departments/Main.do?school=4" target="_blank" title='인문사회계열(새창)'  class="btnRole"><span>인문사회계열</span></a></li>
+				<li class=""><a href="/departments/Main.do?school=5" target="_blank" title='공학계열(새창)'  class="btnRole"><span>공학계열</span></a></li>
+				<li class=""><a href="/departments/Main.do?school=6" target="_blank" title='예체능계열(새창)'  class="btnRole"><span>예체능계열</span></a></li>
+				<li class=""><a href="/departments/Main.do?school=7" target="_blank" title='군사계열(새창)'  class="btnRole"><span>군사계열</span></a></li>
+				<li class=""><a href="/departments/Main.do?school=8" target="_blank" title='농학계열(새창)'  class="btnRole"><span>농학계열</span></a></li>
+				<li class="hidden"><a  class="btnRole"><span></span></a></li>
+				<li class="hidden"><a  class="btnRole"><span></span></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+					<!--
+					<div id="mLinks2">
+						<div class="role-head">
+							<span class="t1">학과안내</span>
+							<span class="t2">마산대학교 학과(부)를 소개합니다.</span>
+						</div>
+						<div class="role-body">
+							<ul>
+								<li><a href="#n01" class="btnRole"><span>간호계열</span></a></li>
+								<li><a href="#n02" class="btnRole"><span>보건계열</span></a></li>
+								<li><a href="#n03" class="btnRole"><span>보건과학계열</span></a></li>
+								<li><a href="#n04" class="btnRole"><span>인문사회계열</span></a></li>
+								<li><a href="#n05" class="btnRole"><span>공학계열</span></a></li>
+								<li><a href="#n06" class="btnRole"><span>예체능계열</span></a></li>
+								<li><a href="#n07" class="btnRole"><span>군사계열</span></a></li>
+							</ul>
+						</div>
+					</div>
+					-->
+				</div>
+			</div>
+		</div>
+		<div class="mIcban-wr">
+<div id="mIcban4">
+	<div class="role-head">
+		<p>
+						<span class='t1'>mu</span><span class='t2'>입시도우미</span>
+		</p>
+	</div>
+	<div class="role-body">
+		<ul>
+			<li class="">
+				<a href="https://www.masan.ac.kr/info/CMS/GradeCal/list.do?mCode=MN063" target="_self"   class="btnRole">
+					<div class="ico icon1"></div>
+					<div class="txt"><span>학생부 성적산출 </span></div>
+				</a>
+			</li>
+			<li class="">
+				<a href="https://www.masan.ac.kr/info/CMS/Contents/Contents.do?mCode=MN061" target="_self"   class="btnRole">
+					<div class="ico icon2"></div>
+					<div class="txt"><span>전년도 커트라인</span></div>
+				</a>
+			</li>
+			<li class="">
+				<a href="https://apply.masan.ac.kr/entr/aply/login/hsth?entexamfg=001" target="_blank" title='교사서비스(새창)' onClick="menuPopup(this.href,'1400','1000');; return false;" class="btnRole">
+					<div class="ico icon3"></div>
+					<div class="txt"><span>교사서비스</span></div>
+				</a>
+			</li>
+			<li class="">
+				<a href="https://www.masan.ac.kr/kor/CMS/Contents/Contents.do?mCode=MN105" target="_blank" title='기숙사 안내(새창)'  class="btnRole">
+					<div class="ico icon4"></div>
+					<div class="txt"><span>기숙사 안내</span></div>
+				</a>
+			</li>
+			<li class="">
+				<a href="https://www.masan.ac.kr/kor/CMS/Contents/Contents.do?mCode=MN084" target="_blank" title='장학 안내(새창)'  class="btnRole">
+					<div class="ico icon5"></div>
+					<div class="txt"><span>장학 안내</span></div>
+				</a>
+			</li>
+			<li class="">
+				<a href="https://www.masan.ac.kr/info/CMS/FormBuilderMgr/write.do?seq=3&mCode=MN090" target="_self"   class="btnRole">
+					<div class="ico icon6"></div>
+					<div class="txt"><span>입시자료 신청</span></div>
+				</a>
+			</li>
+			<li class="">
+				<a href="https://www.masan.ac.kr/info/CMS/Board/Board.do?mCode=MN060" target="_self"   class="btnRole">
+					<div class="ico icon7"></div>
+					<div class="txt"><span>입시 Q&A</span></div>
+				</a>
+			</li>
+			<li class="">
+				<a href="https://apply.masan.ac.kr/entr/aply/login?mc=005" target="_blank" title='입학 포기 및 환불신청(새창)' onClick="menuPopup(this.href,'1400','1000');; return false;" class="btnRole">
+					<div class="ico icon8"></div>
+					<div class="txt"><span>입학 포기 및 환불신청</span></div>
+				</a>
+			</li>
+			<li class="hidden">
+				<a href="" target="_self"   class="btnRole">
+					<div class="ico icon1"></div>
+					<div class="txt"><span>배너</span></div>
+				</a>
+			</li>
+			<li class="hidden">
+				<a href="" target="_self"   class="btnRole">
+					<div class="ico icon1"></div>
+					<div class="txt"><span>배너</span></div>
+				</a>
+			</li>
+			<li class="hidden">
+				<a href="" target="_self"   class="btnRole">
+					<div class="ico icon1"></div>
+					<div class="txt"><span>배너</span></div>
+				</a>
+			</li>
+			<li class="hidden">
+				<a href="" target="_self"   class="btnRole">
+					<div class="ico icon1"></div>
+					<div class="txt"><span>배너</span></div>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+			<!--
+			<div id="mIcban4">
+				<div class="role-head">
+					<p>
+						<span class="t1">mu</span>
+						<span class="t2">입시도우미</span>
+					</p>
+				</div>
+				<div class="role-body">
+					<ul>
+						<li>
+							<a href="#n5-01" class="btnRole">
+								<div class="ico icon1"></div>
+								<div class="txt"><span>학생부 성적산출</span></div>
+							</a>
+						</li>
+						<li>
+							<a href="#n5-02" class="btnRole">
+								<div class="ico icon2"></div>
+								<div class="txt"><span>전년도 커트라인</span></div>
+							</a>
+						</li>
+						<li>
+							<a href="#n5-03" class="btnRole">
+								<div class="ico icon3"></div>
+								<div class="txt"><span>교사서비스</span></div>
+							</a>
+						</li>
+						<li>
+							<a href="#n5-04" class="btnRole">
+								<div class="ico icon4"></div>
+								<div class="txt"><span>기숙사안내</span></div>
+							</a>
+						</li>
+						<li>
+							<a href="#n5-05" class="btnRole">
+								<div class="ico icon5"></div>
+								<div class="txt"><span>장학안내</span></div>
+							</a>
+						</li>
+						<li>
+							<a href="#n5-06" class="btnRole">
+								<div class="ico icon6"></div>
+								<div class="txt"><span>서류도착확인</span></div>
+							</a>
+						</li>
+						<li>
+							<a href="#n5-07" class="btnRole">
+								<div class="ico icon7"></div>
+								<div class="txt"><span>등록금 납부안내</span></div>
+							</a>
+						</li>
+						<li>
+							<a href="#n5-08" class="btnRole">
+								<div class="ico icon8"></div>
+								<div class="txt"><span>입학포기 및 환불신청</span></div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			-->
+		</div>
+	</div>
+</main>
+			</article>
+			<!-- container-wrap //-->
+
+		<!-- footer-wrap -->
+<footer id="footer-wrap">
+	<div class="footer-wr">
+		<div class="service-wrap">
+			<a href="#doc-wrap" class="topBt"><span>TOP</span></a>
+			<div class="service-cont">
+				<h3 class="blind">입학정보 서비스메뉴</h3>
+				<ul class="service-list">
+							<!-- 개인정보처리방침 -->
+								<li><a href="https://masan.ac.kr/kor/CMS/Contents/Contents.do?mCode=MN010"  target="_blank" title="새창열림"  class="privacy"><span>개인정보처리방침</span></a></li>
+																																																								
+							<!-- S : 마산대 사용않함 -->
+																												<!-- E : 마산대 사용않함 -->
+				</ul>
+			</div>
+		</div>
+		<div class="info-wrap">
+			<div class="footer">
+				<p class="flogo">
+					<a href="/info/Main.do">
+						<img src="/resources/_Img/Common/flogo.png" alt="입학정보" />
+					</a>
+				</p>
+	<address>
+		<span class="zip">(51217)</span>
+		<span class="addr1">경남 창원시 마산 회원구 내서읍 함마대로 2640</span>
+		<span class="addr2">마산대학교 대학본관 1층 입학처</span>
+		<em class="siteName">입학정보</em>
+	</address>
+	<ul class="cs-info">
+		<li class="tel"><span>TEL. </span> <span class="tel-Str1">055-230-1400</span><a href="tel:0552301400" class="tel-Lnk1">055-230-1400</a></li>
+		<li class="fax"><span>FAX. </span> 070-4275-1218</li>
+		
+	</ul>
+	<div class="copyright"><span>Copyright 2021 Masan University.</span> <span>All right reserved.</span></div>
+				<div class="familySitePkg">
+						<div class="family-site-wr n01">
+							<div class="family-site">
+								<div class="selbox">
+									<dl>
+										<dt><button type="button" class="tgl-fbtn">학과바로가기</button></dt>
+										<dd class="isSelSub">
+											<ul id="fquick1_list">
+
+		<li><a href="https://nurse.masan.ac.kr/nurse/Main.do" target="_blank" title="새창열림"><span>간호학과</span></a></li>
+		<li><a href="https://cell.masan.ac.kr/cell/Main.do" target="_blank" title="새창열림"><span>임상병리과</span></a></li>
+		<li><a href="https://radiology.masan.ac.kr/radiology/Main.do" target="_blank" title="새창열림"><span>방사선과</span></a></li>
+		<li><a href="https://dh.masan.ac.kr/dh/Main.do" target="_blank" title="새창열림"><span>치위생과</span></a></li>
+		<li><a href="https://ms.masan.ac.kr/ms/Main.do" target="_blank" title="새창열림"><span>물리치료과</span></a></li>
+		<li><a href="https://health.masan.ac.kr/health/Main.do" target="_blank" title="새창열림"><span>보건행정과</span></a></li>
+		<li><a href="https://eye.masan.ac.kr/eye/Main.do" target="_blank" title="새창열림"><span>안경광학과</span></a></li>
+		<li><a href="https://emt.masan.ac.kr/emt/Main.do" target="_blank" title="새창열림"><span>응급구조과</span></a></li>
+		<li><a href="https://dlt.masan.ac.kr/dlt/Main.do" target="_blank" title="새창열림"><span>치기공과</span></a></li>
+		<li><a href="https://ot.masan.ac.kr/ot/Main.do" target="_blank" title="새창열림"><span>작업치료과</span></a></li>
+		<li><a href="https://slp.masan.ac.kr/slp/Main.do" target="_blank" title="새창열림"><span>언어치료과</span></a></li>
+		<li><a href="https://cpbp.masan.ac.kr/cpbp/Main.do" target="_blank" title="새창열림"><span>미디어콘텐츠과</span></a></li>
+		<li><a href="https://mtc.masan.ac.kr/mtc/Main.do" target="_blank" title="새창열림"><span>의료관광중국어과</span></a></li>
+		<li><a href="https://re.masan.ac.kr/re/Main.do" target="_blank" title="새창열림"><span>재활과</span></a></li>
+		<li><a href="https://fs.masan.ac.kr/fs/Main.do" target="_blank" title="새창열림"><span>외식조리제빵과</span></a></li>
+		<li><a href="https://fm.masan.ac.kr/fm/Main.do" target="_blank" title="새창열림"><span>프랜차이즈경영과</span></a></li>
+		<li><a href="https://jc.masan.ac.kr/jc/Main.do" target="_blank" title="새창열림"><span>일본어커뮤니케이션과</span></a></li>
+		<li><a href="https://sw.masan.ac.kr/sw/Main.do" target="_blank" title="새창열림"><span>사회복지과</span></a></li>
+		<li><a href="https://cce.masan.ac.kr/cce/Main.do" target="_blank" title="새창열림"><span>유아특수보육과</span></a></li>
+		<li><a href="https://htb.masan.ac.kr/htb/Main.do" target="_blank" title="새창열림"><span>호텔관광바리스타과</span></a></li>
+		<li><a href="https://auto.masan.ac.kr/auto/Main.do" target="_blank" title="새창열림"><span>기계자동차과</span></a></li>
+		<li><a href="https://electric.masan.ac.kr/electric/Main.do" target="_blank" title="새창열림"><span>스마트전기과</span></a></li>
+		<li><a href="https://smartdrone.masan.ac.kr/smartdrone/Main.do" target="_blank" title="새창열림"><span>스마트무인항공과</span></a></li>
+		<li><a href="https://beauty.masan.ac.kr/beauty/Main.do" target="_blank" title="새창열림"><span>뷰티케어학부</span></a></li>
+		<li><a href="https://ls.masan.ac.kr/ls/Main.do" target="_blank" title="새창열림"><span>레저스포츠과</span></a></li>
+		<li><a href="https://seaman.masan.ac.kr/seaman/Main.do" target="_blank" title="새창열림"><span>해군부사관학부</span></a></li>
+		<li><a href="https://nco.masan.ac.kr/nco/Main.do" target="_blank" title="새창열림"><span>부사관과</span></a></li>
+		<li><a href="https://www.masan.ac.kr/gkc/Main.do" target="_blank" title="새창열림"><span>글로벌한국어문화과</span></a></li>
+											</ul>
+											<button type="button" class="btn-fclose"><span class="blind">관련사이트 닫기</span></button>
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>		<!-- footer-wrap //-->
+	</div>
+	<!-- doc-wrap //-->
+	<script src="/resources/_Js/common.base.js"></script>
+	<script src="/resources/_Templet/Header/header_info/Js/topmenu.js"></script>
+	<script src="/resources/_Templet/Main/main_info/Js/layout_main.js"></script>
+</body>
+</html>

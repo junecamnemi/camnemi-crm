@@ -1,0 +1,1011 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+<title>연성대학교 국제교류원</title>
+<link rel="stylesheet" href="/css/dept/default.css" />
+<link rel="stylesheet" href="/type/typeH/css/layout.css" />
+<link rel="stylesheet" media="all and (min-width: 0) and (max-width: 1041px)" href="/css/dept/tablet.css">
+<link rel="stylesheet" media="all and (min-width: 0) and (max-width: 760px)" href="/css/dept/mobile.css">
+<link rel="stylesheet" href="/css/kor/common.css" /><!-- 게시판 -->
+<link rel="stylesheet" href="/css/pop_zone.css" />
+<link rel="stylesheet" href="/css/kor/board.css" /><!-- 게시판 -->
+<link rel="stylesheet" href="/css/affi/affi_conts.css" /><!-- 기관 개별 -->
+
+<link rel="stylesheet" href="/css/jquery-ui.css" />
+<link rel="stylesheet" href="/css/jquery-ui.theme.css" />
+<link rel="stylesheet" href="/js/slick/slick.css"/>
+<!--[if lt IE 9]>
+<script src="http://ulm.bvs.co.kr/yeonsung/dept/js/html5shiv.js"></script>
+<![endif]-->
+<script src="/js/dept/jquery-2.2.1.min.js"></script>
+<script src="/js/dept/jquery.font-accessibility.dev.js"></script>
+<script src="/js/dept/design.js"></script>
+<script src="/js/jquery.form.js"></script>
+<script src="/js/jquery-ui.min.js"></script>
+<script src="/js/slick/slick.min.js"></script>
+
+<!-- Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-57XLJNCPYF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-57XLJNCPYF');
+</script>
+<!-- End Google Tag Manager -->
+<script>
+$(function(){
+	function lnb_nav_change(){
+        if($(window).width() < 761){
+            $("#lnb_nav>div>button").hide();
+            if(gnbDep2 == 0){
+                $("#lnb_nav>div>button:nth-child(2)").show();
+            } else if(gnbDep2 != 0 && gnbDep3 == 0) {
+                $("#lnb_nav>div>button:nth-child(3)").show();
+            } else {
+                $("#lnb_nav>div>button:nth-child(4)").show();
+            }
+        }else{
+            $("#lnb_nav>div>button").removeAttr('style');
+            if (gnbDep2 == 0) {
+                $("#lnb_nav>div>button:gt(0)").hide();
+            } else if (gnbDep2 != 0 && gnbDep3 == 0) {
+                $("#lnb_nav>div>button:gt(1)").hide();
+            } else {
+            }
+        }
+    }
+
+    $(window).load(function(){ lnb_nav_change(); });
+    $(window).resize(function(){ lnb_nav_change(); });
+});
+</script>
+</head>
+<body class="web typeD_affi" style="background-image:url(/type/typeH/img/bg_body.jpg);">
+    
+<div id="skip_menu">
+    <a href="#header">헤더 바로가기</a>
+    <a href="#contents">컨텐츠 바로가기</a>
+    <a href="#footer">푸터 바로가기</a>
+</div>
+<div id="dim"></div>
+
+
+    <section id="container">
+        
+
+<script>
+var gnbDep1 = 0;
+var gnbDep2 = 0;
+var gnbDep3 = 0;
+
+var menuShowYn = "";
+
+function portalSearch(){
+	location.href = "http://search.yeonsung.ac.kr/RSA/front/Search.jsp?qt="+$("#ifrSearch").contents().find("#searchTxt").val();
+}
+
+function goLayerPop(id){
+    $("body").css("overflow-y","hidden");
+    $('<iframe id="ifr'+id+'" src="/interedu/layer/'+id+'.do" frameborder="0"  style="left: 0;border: 0px currentColor; border-image: none; top: 0px; width: 100%; height: 100%; position: fixed; z-index: 999999;"/>').appendTo($("#container"));
+    return false;
+}
+
+function ifrClose(id){
+    $("body").css("overflow-y","auto");
+    $("#"+id).remove();
+}
+
+$().ready(function() {
+	
+	$(".btn_gnbSearch").click(function(){
+        $(".conts_searchOn").show();
+    });
+    
+    $(".searchOn .btn_close").click(function(){
+        $(".conts_searchOn").hide();
+    });
+	
+	$("nav #gnb li>ul>li>ul").each(function(){
+        if($(this).find("li").length == 0) $(this).remove();
+    });
+    
+	var $obj = $("ul#gnb a.on");
+    var $pObj = null;
+    if($obj.parent().data("lvl") == 2){
+        $pObj = $obj.parent().parent().parent();
+        gnbDep1 = $("#gnb > li").index($pObj)+1;
+        $pObj = $obj.closest("ul");
+        gnbDep2 = $pObj.find(">li").index($obj.parent())+1;
+    }else if($obj.parent().data("lvl") == 3){
+        $pObj = $obj.parent().parent().parent().parent().parent();
+        gnbDep1 = $("#gnb > li").index($pObj)+1;
+        $pObj = $obj.parent().parent().parent().parent();
+        gnbDep2 = $pObj.find(">li").index($obj.parent().parent().parent())+1;
+        $pObj = $obj.parent().parent();
+        gnbDep3 = $pObj.find(">li").index($obj.parent())+1;
+    }
+    
+    $("h2.conts_tit").text($obj.text());
+    $("div#sub_visual > strong").text($obj.parent().parent().prev().text());
+    
+    $("nav#lnb_nav > div > ul > li").each(function(){
+        $(this).find("> a").attr("href",$(this).find("ul > li > a:eq(0)").attr("href"));
+    });
+    
+    $("ul.langList li a").on("click",function(){
+        if($(this).data("win") == "_blank"){
+            window.open($(this).data("url"), "" ,"");
+        }else{
+            location.href = $(this).data("url");
+        }
+    });
+});
+
+function loginResult(){
+    location.reload();
+}
+function logout(){
+    
+    if(!confirm("로그아웃 하시겠습니까?")) {
+        return;
+    }
+    var doc = document.logForm;
+    doc.target="_self";
+    doc.action="/cms/Login_CON/Logout.do";
+    doc.submit();
+}
+</script>
+<form name="logForm"><input type="hidden" name="ptSignature" value="/YlzCAdkfK3Sb03QcFXaJoeg92CalIsMzNEEujz7llhhMkznJO0TYDSpTvZbI8/e1776HZZdDCSTm76Nzyxjusx2LD5LgF/jEBA75GocOsSIp0ucAQhg5HYkp7vKceiS" />
+<input type="hidden" name="csSignature" value="Cn+lSkVRXjMNXXtvZatN5Q==" />
+
+    <input type="hidden" name="GBN" value="F"/>
+    <input type="hidden" name="SITE_NO" value="47"/>
+</form>
+<script src="/type/typeH/js/layout.js"></script>
+<section id="header">
+    <header>
+        <h1 style="z-index: 1;"><a href="/interedu/index.do"><img src="/ajax/CMN_SVC/FileView.do?GBN=X01&SITE_GROUP_NO=4&SITE_NO=47" alt="연성대 생활관" /><span><img src="/ajax/CMN_SVC/FileView.do?GBN=X01&SITE_GROUP_NO=4&SITE_NO=47&MOBILE=TRUE" alt="연성대 생활관" /></span></a></h1>
+        <button id="btn_menu">모바일 메뉴열기</button>
+        <!--<button id="btn_quick">모바일 퀵메뉴열기</button>-->
+        <div id="gnb_dim"></div>
+        <nav>
+            <ul id="gnb_parent" class="[{SETVAL=null, LINK_YN=N, USE_YN=Y, SHOW_YN=Y, MENU_NM=홍보영상, MENU_LVL=1, ORDER_NO=0, SITE_NO=47, MENU_NO2=220, P_MENU_NO=9999, LINK_URL=null, MENU_URL=interedu/cms/FR_CON/index.do, LINK_SUB_YN=Y, MENU_NO=210}, {SETVAL=null, LINK_YN=N, USE_YN=Y, SHOW_YN=Y, MENU_NM=국제교류원 안내, MENU_LVL=1, ORDER_NO=1, SITE_NO=47, MENU_NO2=60, P_MENU_NO=9999, LINK_URL=null, MENU_URL=interedu/cms/FR_CON/index.do, LINK_SUB_YN=Y, MENU_NO=10}, {SETVAL=null, LINK_YN=N, USE_YN=Y, SHOW_YN=Y, MENU_NM=해외대학자매결연현황, MENU_LVL=1, ORDER_NO=3, SITE_NO=47, MENU_NO2=120, P_MENU_NO=9999, LINK_URL=null, MENU_URL=interedu/cms/FR_CON/index.do, LINK_SUB_YN=Y, MENU_NO=30}, {SETVAL=null, LINK_YN=N, USE_YN=Y, SHOW_YN=Y, MENU_NM=글로벌교육프로그램, MENU_LVL=1, ORDER_NO=4, SITE_NO=47, MENU_NO2=150, P_MENU_NO=9999, LINK_URL=null, MENU_URL=interedu/cms/FR_CON/index.do, LINK_SUB_YN=Y, MENU_NO=40}, {SETVAL=null, LINK_YN=N, USE_YN=Y, SHOW_YN=Y, MENU_NM=커뮤니티, MENU_LVL=1, ORDER_NO=5, SITE_NO=47, MENU_NO2=190, P_MENU_NO=9999, LINK_URL=null, MENU_URL=interedu/cms/FR_CON/index.do, LINK_SUB_YN=Y, MENU_NO=50}, {SETVAL=null, LINK_YN=N, USE_YN=Y, SHOW_YN=Y, MENU_NM=입학안내, MENU_LVL=1, ORDER_NO=6, SITE_NO=47, MENU_NO2=290, P_MENU_NO=9999, LINK_URL=null, MENU_URL=interedu/cms/FR_CON/index.do, LINK_SUB_YN=Y, MENU_NO=230}]">
+            
+                <li><a href="#;">홍보영상</a></li>
+            
+                <li><a href="#;">국제교류원 안내</a></li>
+            
+                <li><a href="#;">해외대학자매결연현황</a></li>
+            
+                <li><a href="#;">글로벌교육프로그램</a></li>
+            
+                <li><a href="#;">커뮤니티</a></li>
+            
+                <li><a href="#;">입학안내</a></li>
+            
+            </ul>
+            <div id="gnb_wrap">
+            <ul id="gnb">
+            
+                <li data-lvl="1" class="child">
+                
+                
+                <a href="#;">홍보영상</a>
+                
+                    <ul>
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li data-lvl="2">
+                        
+                        
+                        <a href="/interedu/cms/FR_CON/index.do?MENU_ID=220" >연성대학교 홍보 동영상</a>
+                        
+                            <ul>
+                            
+                            </ul>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                    </ul>
+                </li>
+            
+                <li data-lvl="1" class="child">
+                
+                
+                <a href="#;">국제교류원 안내</a>
+                
+                    <ul>
+                    
+                        
+                    
+                        
+                        <li data-lvl="2">
+                        
+                        
+                        <a href="/interedu/cms/FR_CON/index.do?MENU_ID=60" >인사말</a>
+                        
+                            <ul>
+                            
+                            </ul>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li data-lvl="2">
+                        
+                        
+                        <a href="/interedu/cms/FR_CON/index.do?MENU_ID=70" >국제교류원 안내</a>
+                        
+                            <ul>
+                            
+                            </ul>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li data-lvl="2">
+                        
+                        
+                        <a href="/interedu/cms/FR_CON/index.do?MENU_ID=80" >교직원 소개</a>
+                        
+                            <ul>
+                            
+                            </ul>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                        <li data-lvl="2">
+                        
+                        
+                        <a href="/interedu/cms/FR_CON/index.do?MENU_ID=160" >교수진 소개</a>
+                        
+                            <ul>
+                            
+                            </ul>
+                        </li>
+                        
+                    
+                        
+                        <li data-lvl="2">
+                        
+                        
+                        <a href="/interedu/cms/FR_CON/index.do?MENU_ID=90" >찾아오시는 길</a>
+                        
+                            <ul>
+                            
+                            </ul>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                    </ul>
+                </li>
+            
+                <li data-lvl="1" class="child">
+                
+                
+                <a href="#;">해외대학자매결연현황</a>
+                
+                    <ul>
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li data-lvl="2">
+                        
+                        
+                        <a href="/interedu/cms/FR_CON/index.do?MENU_ID=120" >해외대학자매결연현황</a>
+                        
+                            <ul>
+                            
+                            </ul>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                    </ul>
+                </li>
+            
+                <li data-lvl="1" class="child">
+                
+                
+                <a href="#;">글로벌교육프로그램</a>
+                
+                    <ul>
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li data-lvl="2">
+                        
+                        
+                        <a href="/interedu/cms/FR_CON/index.do?MENU_ID=150" >프로그램 수업내용</a>
+                        
+                            <ul>
+                            
+                            </ul>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                    </ul>
+                </li>
+            
+                <li data-lvl="1" class="child">
+                
+                
+                <a href="#;">커뮤니티</a>
+                
+                    <ul>
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li data-lvl="2">
+                        
+                        
+                        <a href="/interedu/cms/FR_CON/index.do?MENU_ID=190" >공지사항</a>
+                        
+                            <ul>
+                            
+                            </ul>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li data-lvl="2">
+                        
+                        
+                        <a href="/interedu/cms/FR_CON/index.do?MENU_ID=200" >갤러리</a>
+                        
+                            <ul>
+                            
+                            </ul>
+                        </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                    </ul>
+                </li>
+            
+                <li data-lvl="1" class="child">
+                
+                
+                <a href="#;">입학안내</a>
+                
+                    <ul>
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li data-lvl="2">
+                        
+                        
+                        <a href="/interedu/cms/FR_CON/index.do?MENU_ID=290" >한국어교육센터 입학안내</a>
+                        
+                            <ul>
+                            
+                            </ul>
+                        </li>
+                        
+                    
+                        
+                        <li data-lvl="2">
+                        
+                        
+                        <a href="/interedu/cms/FR_CON/index.do?MENU_ID=300" >외국인 전형 입학안내</a>
+                        
+                            <ul>
+                            
+                            </ul>
+                        </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            </ul>
+            </div>
+            <div class="util">
+                <div class="login_box">
+                    
+                    
+                    <a class="login" href="/interedu/FR_CON/login.do" target="_blank" onclick="window.open(this.href, 'loginPop', 'width=450, height=410'); return false;">로그인<span>로그인해주세요.</span></a>
+                    
+                </div>
+                <div class="top_ysu">
+                
+				</div>
+                <a class="sitemap" href="" onclick="goLayerPop('Sitemap');">사이트맵</a>
+            </div>
+            <button id="btn_close">모바일 메뉴닫기</button>
+        </nav>
+        <a href="#;" onclick="goLayerPop('Search');"  class="btn_gnbSearch">검색</a>
+    </header>
+</section>
+
+        <section id="contents_wrap">
+            <!-- 서브비주얼 타이틀 -->
+            
+            <div id="sub_visual" class="conts_visual" style="background-image:url(/img/affi/interedu/subVisual01.png);">
+                <strong></strong>
+                <p class="txt"></p>
+            </div>
+            
+            
+            <!-- //서브비주얼 타이틀 -->
+
+            <nav id="lnb_nav">
+                <div>
+                    <a href="/interedu/index.do">HOME</a>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                    <p id="font-setting-buttons">
+                        <button title="크게보기" class="btn_txt_big">크게</button>
+                        <button title="작게보기" class="btn_txt_small">작게</button>
+                    </p>
+                    <ul id="lnb">
+                    
+                        <li class="child">
+                        
+                        
+                        <a href="#;">홍보영상</a>
+                        
+                            <ul>
+                            
+                                
+                            
+                                
+                            
+                                
+                                <li>
+                                
+                                
+                                <a href="/interedu/cms/FR_CON/index.do?MENU_ID=220" >연성대학교 홍보 동영상</a>
+                                
+                                    <ul>
+                                    
+                                    </ul>
+                                </li>
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                            </ul>
+                        </li>
+                    
+                        <li class="child">
+                        
+                        
+                        <a href="#;">국제교류원 안내</a>
+                        
+                            <ul>
+                            
+                                
+                            
+                                
+                                <li>
+                                
+                                
+                                <a href="/interedu/cms/FR_CON/index.do?MENU_ID=60" >인사말</a>
+                                
+                                    <ul>
+                                    
+                                    </ul>
+                                </li>
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                                <li>
+                                
+                                
+                                <a href="/interedu/cms/FR_CON/index.do?MENU_ID=70" >국제교류원 안내</a>
+                                
+                                    <ul>
+                                    
+                                    </ul>
+                                </li>
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                                <li>
+                                
+                                
+                                <a href="/interedu/cms/FR_CON/index.do?MENU_ID=80" >교직원 소개</a>
+                                
+                                    <ul>
+                                    
+                                    </ul>
+                                </li>
+                                
+                            
+                                
+                            
+                                
+                                <li>
+                                
+                                
+                                <a href="/interedu/cms/FR_CON/index.do?MENU_ID=160" >교수진 소개</a>
+                                
+                                    <ul>
+                                    
+                                    </ul>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                
+                                
+                                <a href="/interedu/cms/FR_CON/index.do?MENU_ID=90" >찾아오시는 길</a>
+                                
+                                    <ul>
+                                    
+                                    </ul>
+                                </li>
+                                
+                            
+                                
+                            
+                                
+                            
+                            </ul>
+                        </li>
+                    
+                        <li class="child">
+                        
+                        
+                        <a href="#;">해외대학자매결연현황</a>
+                        
+                            <ul>
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                                <li>
+                                
+                                
+                                <a href="/interedu/cms/FR_CON/index.do?MENU_ID=120" >해외대학자매결연현황</a>
+                                
+                                    <ul>
+                                    
+                                    </ul>
+                                </li>
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                            </ul>
+                        </li>
+                    
+                        <li class="child">
+                        
+                        
+                        <a href="#;">글로벌교육프로그램</a>
+                        
+                            <ul>
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                                <li>
+                                
+                                
+                                <a href="/interedu/cms/FR_CON/index.do?MENU_ID=150" >프로그램 수업내용</a>
+                                
+                                    <ul>
+                                    
+                                    </ul>
+                                </li>
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                            </ul>
+                        </li>
+                    
+                        <li class="child">
+                        
+                        
+                        <a href="#;">커뮤니티</a>
+                        
+                            <ul>
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                                <li>
+                                
+                                
+                                <a href="/interedu/cms/FR_CON/index.do?MENU_ID=190" >공지사항</a>
+                                
+                                    <ul>
+                                    
+                                    </ul>
+                                </li>
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                                <li>
+                                
+                                
+                                <a href="/interedu/cms/FR_CON/index.do?MENU_ID=200" >갤러리</a>
+                                
+                                    <ul>
+                                    
+                                    </ul>
+                                </li>
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                            </ul>
+                        </li>
+                    
+                        <li class="child">
+                        
+                        
+                        <a href="#;">입학안내</a>
+                        
+                            <ul>
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                                <li>
+                                
+                                
+                                <a href="/interedu/cms/FR_CON/index.do?MENU_ID=290" >한국어교육센터 입학안내</a>
+                                
+                                    <ul>
+                                    
+                                    </ul>
+                                </li>
+                                
+                            
+                                
+                                <li>
+                                
+                                
+                                <a href="/interedu/cms/FR_CON/index.do?MENU_ID=300" >외국인 전형 입학안내</a>
+                                
+                                    <ul>
+                                    
+                                    </ul>
+                                </li>
+                                
+                            
+                            </ul>
+                        </li>
+                    
+                    </ul>
+                </div>
+            </nav>
+		    <section id="contents">
+		        <h2 class="conts_tit"></h2>
+		        
+		        <div class="mB30 txtC"></div>
+		        
+		        
+
+		        <article>
+		            <!--컨텐츠 위치-->
+		            
+
+		            <!--/컨텐츠 위치-->
+		        </article>
+		        
+		        <div class="mT30 txtC"></div>
+		        
+		    </section>
+        </section>
+    </section>
+    
+
+
+<script>
+$(function(){
+    $(".ysu_sitemap>dl.single").next('dl').css("margin-top","60px")
+});
+</script>
+<section id="footer">
+    <footer>
+        <ul class="addInfo">
+        
+            <li><a href="/pop/ko/cms/FR_CON/index.do?MENU_ID=1600" title="개인정보처리방침"  onclick="window.open(this.href, '', 'width=792, height=600, scrollbars=yes'); return false;" >개인정보처리방침</a></li>
+        
+            <li><a href="/pop/ko/cms/FR_CON/index.do?MENU_ID=1630" title="이메일주소무단수집거부"  onclick="window.open(this.href, '', 'width=792, height=600, scrollbars=yes'); return false;" >이메일주소무단수집거부</a></li>
+        
+            <li><a href="mailto:webmaster@yeonsung.ac.kr" title="문의메일" >문의메일</a></li>
+        
+            <li><a href="/ko/cms/FR_CON/index.do?MENU_ID=1490" title="예결산공고"  onclick="window.open(this.href, '', 'width=792, height=600, scrollbars=yes'); return false;" >예결산공고</a></li>
+        
+            <li><a href="/ko/cms/FR_CON/index.do?MENU_ID=1620" title="입찰공고"  onclick="window.open(this.href, '', 'width=792, height=600, scrollbars=yes'); return false;" >입찰공고</a></li>
+        
+            <li><a href="/ko/cms/FR_CON/index.do?MENU_ID=1610" title="정보보호"  onclick="window.open(this.href, '', 'width=792, height=600, scrollbars=yes'); return false;" >정보보호</a></li>
+        
+<!--             <li class="sitemap"><a href="">사이트맵</a></li> -->
+        </ul>
+        
+        <p class="btn_familySite"><a href="" onclick="goLayerPop('Familysite');">관련사이트</a></p>
+        
+        <address>
+            <span>14011 경기도 안양시 만안구 양화로 37번길 34 연성대학교</span>
+            <span><span>Tel 031-441-1100</span><span>Fax 031-442-4400 }</span></span>
+            <em>Copyright 2018 Yeonsung University. All rights Reserved.</em>
+        </address>
+        <p class="sns">
+            
+            <a href="https://www.facebook.com/Yeonsunguniversity" target="_blank" title="새창열림" class="sns_facebook"></a>
+            
+            <a href="https://www.instagram.com/yeonsung.university/" target="_blank" title="새창열림" class="sns_instagram"></a>
+            
+            <a href="https://www.youtube.com/channel/UCQ2YfM-XrdxA02ye1i679lA/videos?sort=dd&amp;view=0&amp;shelf_id=0" target="_blank" title="새창열림" class="sns_youtube"></a>
+            
+            <a href="https://blog.naver.com/ysueroomy" target="_blank" title="새창열림" class="sns_blog"></a>
+            
+        </p>
+    </footer>
+</section>
+<!-- //typeD(E) -->
+
+</body>
+</html>

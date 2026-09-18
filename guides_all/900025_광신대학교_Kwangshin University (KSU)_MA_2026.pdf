@@ -1,0 +1,151 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>광신대학교</title>
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+	<style>
+		body{overflow-x:auto;}
+		#con_wrap{width:100%; height:100%;}
+		#con_wrap .bg{background:url("/bg.jpg") center center no-repeat; background-size:cover; display:table; width:100%;}
+		#con_wrap .con{text-align:center; width:794px; display:table-cell; vertical-align:middle;}
+
+
+/* Login */
+#pop{padding:43px 55px 55px 63px;width:502px; height:308px; top:344px; border:5px solid #399ec0; color:#444; z-index:99999; background:url(/img/login_bg.jpg) no-repeat;}
+#pop .login_title{background:url(/img/login.png) no-repeat; height:54px; padding-left:62px; font-size:36px; font-weight:bold; line-height:54px; color:#191919;}
+#pop .login_title span{font-size:14px; color:#666; font-weight:normal; margin-left:5px;}
+#pop .table{margin-top:25px; padding-bottom:51px; border-bottom:1px solid #e2e1e7; margin-bottom:30px; height:100px;}
+#pop .table:after{display:table; content:''; line-height:0; clear:both;}
+#pop .table table.login{width:395px; float:left;}
+#pop .table table.login tr td{font-size:16px; color:#444;}
+#pop .table table.login tr td input{width:290px; height:30px; border:1px solid #ddd; line-height:30px; padding-left:8px; tabindex="0"}
+#pop .table .login_enter{width:100px; height:90px; line-height:90px; background:#399ec0; float:left; margin-left:7px;}
+#pop .table .login_enter a{display:block; color:#fff; font-size:16px; font-weight:bold; text-align:center; tabindex="1"}
+#pop #pop_close{position:absolute; top:53px; right:53px; cursor:pointer;}
+
+	</style>
+	<script>
+		$(document).ready(function(){
+			$("#con_wrap .bg").css({'height':$(document).height()});
+			$(window).resize(function(){
+				$("#con_wrap .bg").css({'height':$(document).height()});
+			});
+		});
+	</script>
+	<script type="text/javascript">
+			function loginChk() {
+				var loginId = $("#loginId").val();
+				var loginPass = $("#loginPass").val();
+				$.ajax({
+					type : "POST",
+					url : "/front/loginChk.do",
+					data : {loginid:loginId, loginpass:loginPass},
+					async : false,
+					dataType : "JSON",
+					success : function(data) {
+						var message = data.message;
+						if (message != "1") {
+							alert(JSON.stringify(message).replace(/\"/gi, ""));
+							$("#loginPass").val("");
+							$("#loginPass").focus();
+						} else {
+							hkPopupWindow = window.open("/public/sugang/sugang_apply2.jsp", "applyPop", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes, resizable=no,copyhistory=no , top=10, left=10, width=1280, height=800");
+							$("#loginId").val("");
+							$("#loginPass").val("");
+							$('#pop').hide();
+						}
+					},
+					error : function(xhr, status, error) {
+						alert("에러발생");
+						flag = false;
+						$("#loginId").val("");
+						$("#loginPass").val("");
+					}
+				});
+			}
+		</script>
+</head>
+<body>	
+	<div id="con_wrap">
+
+		<div class="bg">
+
+			<div class="con">
+<center>
+<form name="loginFrm" method="post" action="">
+
+							<div id="pop" style="display:none;position:absolute;height:260px;left:50%; transform:translateX(-50%);"> 
+							<div class="login_title">로그인<span>광신대학교에 오신 것을 환영합니다.</span></div>
+						
+
+	<div class="table" style="padding-bottom:25px;">
+								<table class="tb login">
+									
+
+<colgroup>
+										<col style="width:85px;" />
+										<col 
+
+style="width:320px;" />									
+									</colgroup>
+						
+
+			<tr>
+										<td class="text">아이디</td>
+										
+
+<td><input type="text" id="loginId" name="loginId" tabindex="1" maxlength="20" title="로그인 아이디 입력"/></td>	
+										<td 
+
+rowspan="2"><div class="login_enter"><a href="#" onclick="loginChk();" >로그인</a></div></td>																
+
+								
+									</tr>
+									
+
+<tr>
+										<td class="text">비밀번호</td>
+										<td><input 
+
+type="password" id="loginPass" name="loginPass" tabindex="1" maxlength="20" title="로그인 비밀번호 입력"/></td>														
+
+					
+									</tr>								
+					
+
+			</table>
+								
+							</div> 	
+							
+
+<p style="color:#ee3333;">아이디에는 학번을 입력하시고, 초기 비밀번호는 생년월일 6자리 입니다.<br />
+							( 예 : 950101 )<br />로그인 후 반드시 비밀번호 변경을 하고 이용하여 주십시오. </p>
+						
+
+	<!-- 
+							<div class="button blue fl mr8"><a href="#">회원가입</a></div>	 			    		
+						
+
+	<div class="button grey fl"><a href="#">비밀번호찾기</a></div>
+							 -->
+     		 				<div id="pop_close"><a 
+
+href="#" onclick="$('#pop').hide();"><img src="/img/login_close.gif" alt="닫기"/></a></div>    		 
+ 			 				</div>
+ 			 				</form>
+</center>
+				<img src="/enrolment.png?v=3" alt="" usemap="#enrolment" />
+				<map id="enrolment" name="enrolment">
+					<area shape="rect" alt="" title="" coords="0,172,378,276" href="#" onclick="$('#pop').show();" target="" />
+					<area shape="rect" alt="" title="" coords="415,170,792,274" href="/home/index.do" target="" />
+				</map>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

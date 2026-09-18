@@ -1,0 +1,2502 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=high-dpi" />
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/type/common/img/common/ico_favicon.ico" />
+<link rel="icon" type="image/png" href="/type/common/img/common/ico_favicon.png" sizes="192x192" />
+
+<title>서울과학기술대학교 입학처 대학원  |  모집요강</title>
+
+<link rel="stylesheet" type="text/css" href="/type/common/css/common.css" /><!-- reset -->
+<link rel="stylesheet" type="text/css" href="/type/common/css/board.css" /><!-- board -->
+<link rel="stylesheet" type="text/css" href="/type/IPSI_A/css/layout.css" /><!-- layout -->
+<link rel="stylesheet" type="text/css" href="/type/common/css/ipsi.css" /><!--contents -->
+
+<!--[if lt IE 9]>
+<script src="../js/html5shiv.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="/type/common/js/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" src="/type/common/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/type/common/js/jquery.font-accessibility.dev_bvs.js"></script><!-- 폰트줌(제한) -->
+
+<link rel="stylesheet" type="text/css" href="/type/common/js/slick/slick.css"/><!-- 슬라이더 -->
+<script type="text/javascript" src="/type/common/js/slick/slick.min.js"></script><!-- 슬라이더 -->
+<script type="text/javascript" src="/type/common/js/slick/slick.acc.js"></script><!-- 슬라이더 -->
+
+<link rel="stylesheet" type="text/css" href="/type/common/js/mCustomScrollbar/jquery.mCustomScrollbar.css" /><!-- 커스텀스크롤 -->
+<script type="text/javascript" src="/type/common/js/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script><!-- 커스텀스크롤 -->
+
+<script type="text/javascript" src="/type/common/js/board.js"></script><!-- board -->
+<script type="text/javascript" src="/type/IPSI_A/js/layout.js"></script><!-- layout -->
+
+<script src="/js/jquery.form.js"></script> 
+<script src="/js/jquery-ui.min.js"></script>
+<script src="/js/comm_fr.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/jquery.tmpl.js"></script>
+<script type="text/javascript" src="/js/clipboard.min.js"></script>
+
+<script>
+$().ready(function() {
+	var clipboard = new ClipboardJS('.sns_urlCopy', {
+	    text: function() {
+		  	return fn_getUrl();
+	    }
+	});
+	clipboard.on('success', function(e) {
+		alert("URL이 복사되었습니다.");
+	});
+	clipboard.on('error', function(e) {
+		alert("URL복사에 실패했습니다.");
+	}); 
+});
+
+function fn_getUrl(){
+	var rtnUrl = ""; 
+	var url = decodeURIComponent(location.href);
+	 	if($("input:hidden[name=MapInfo]").val() != "" && typeof $("input:hidden[name=MapInfo]").val() != 'undefined' ){
+		if(url.indexOf("MapInfo") != -1) {
+			url =url.substring(0, url.indexOf("&MapInfo"))+"&MapInfo="+$("input:hidden[name=MapInfo]").val();
+		}else{
+			url = url+"&MapInfo="+$("input:hidden[name=MapInfo]").val();	
+		}
+	}
+ 	url = decodeURIComponent(url).replace("#","");
+ 	url = decodeURIComponent(url).replace(";","");
+	rtnUrl = url.replace("#;","");
+
+	return rtnUrl;
+}
+  
+  
+</script>
+
+
+</head>
+
+<script>
+function tabFunc(obj){
+	
+	var url = $(obj).find("option:selected").data("url");
+	var target = $(obj).find("option:selected").data("target");
+	
+	if(target=="_blank"){
+		window.open(url,target);
+	}else{
+		location.href=url;
+	}
+}
+
+/* $(function(){
+    $(".sVisual").css("background-image","url(/seoultech/type/IPSI_A/img/layout/sVisual0" + gnbDep1 +".jpg)");
+    $(".sVisual>div").css("background-image","url(/seoultech/type/IPSI_A/img/layout/m/sVisual0" + gnbDep1 +".jpg)");
+});*/
+</script>
+
+<body class="typeSub">
+    
+
+
+<div class="popZone" style="display: none;">
+    <div class="popZone_wrap">
+        <div class="list">
+        	
+            	<a href="http://ratio.uwayapply.com/Sl5KMDpXJkpmJSY6Jko3ZlRm" target="_blank"><img data-imghref="" target="_blank" src="/ajaxfile/CMN_SVC/FileView.do?GBN=X14&POPUP_SEQ=5&SITE_NO=2" alt="수시모집<br>경쟁률 확인 바로가기" /></a>
+            
+            	<a href="https://admission.seoultech.ac.kr/cms/FR_BBS_CON/BoardView.do?pageNo=1&pagePerCnt=15&MENU_ID=380&CONTENTS_NO=4&SITE_NO=2&BOARD_SEQ=3&BBS_SEQ=537&P_BBS_SEQ=&SEARCH_SEQ=4&PWD=&SEARCH_FLD=&SEARCH=" target="_blank"><img data-imghref="" target="_blank" src="/ajaxfile/CMN_SVC/FileView.do?GBN=X14&POPUP_SEQ=6&SITE_NO=2" alt="수시모집<br>학교장 추천 방법 안내" /></a>
+            
+            	<a href="https://admission.seoultech.ac.kr/cms/FR_BBS_CON/BoardView.do?SITE_NO=2&MENU_ID=970&BOARD_SEQ=25&CONTENTS_NO=1&BBS_SEQ=36" target="_blank"><img data-imghref="" target="_blank" src="/ajaxfile/CMN_SVC/FileView.do?GBN=X14&POPUP_SEQ=3&SITE_NO=2" alt="논술전형 모의고사 문제,<br>출제배경 및 해설 공개" /></a>
+            
+        </div>
+		<div class="btn">
+			<button class="btn_popZone_close mainPop">닫기</button>
+		</div>
+    </div>
+</div>
+<!-- //popzone-->
+
+
+<div id="skip_menu">
+	<a href="#contents">컨텐츠 바로가기</a>
+	<a href="#header">메뉴 바로가기</a>
+	<a href="#footer">푸터 바로가기</a>
+</div>
+
+<div id="dim"></div>
+
+<!-- headTop_bnr -->
+
+<!-- //headTop_bnr -->
+
+	
+
+<script>
+var gnbDep1 = 0;
+var gnbDep2 = 0;
+var gnbDep3 = 0;
+var gnbDep4 = 0;
+
+function setHref(obj, org){
+	var v_menuno = ($(obj).find(">a").data("menuno"));
+	var v_sub = ($(obj).find(">a").data("sub"));
+
+	if($("ul#gnb li."+v_menuno+" > ul > li").length > 0){
+		if(v_sub=="Y"){
+			$(org).find(">a").attr("href",$("ul#gnb li."+v_menuno+" > ul > li:eq(0) > a").attr("href"));
+			$(org).find(">a").attr("target",$("ul#gnb li."+v_menuno+" > ul > li:eq(0) > a").attr("target"));
+		}else{
+			$(org).find(">a").attr("href",$(org).find(">a").attr("href"));
+		}
+		setHref($("ul#gnb li."+v_menuno+" > ul > li:eq(0)"),org);
+	}
+	
+	/* if($(obj).find("> div").length > 0){
+		if($(obj).find("> div> ul > li").length > 0){
+			if($(obj).find(">a").data("sub")=="Y"){
+				$(org).find(">a").attr("href",$(obj).find("> div> ul > li:eq(0) > a").attr("href"));
+				$(org).find(">a").attr("target",$(obj).find("> div> ul > li:eq(0) > a").attr("target"));
+			}else{
+				$(org).find(">a").attr("href",$(org).find(">a").attr("href"));
+			}
+			setHref($(obj).find("> div> ul > li:eq(0)"),org);
+		}
+	}else{
+		if($(obj).find("> ul > li").length > 0){
+			if($(obj).find(">a").data("sub")=="Y"){
+				$(org).find(">a").attr("href",$(obj).find("> ul > li:eq(0) > a").attr("href"));
+				$(org).find(">a").attr("target",$(obj).find("> ul > li:eq(0) > a").attr("target"));
+			}else{
+				$(org).find(">a").attr("href",$(org).find(">a").attr("href"));
+			}
+			setHref($(obj).find("> ul > li:eq(0)"),org);
+		}
+	} */
+}
+
+function setSnbHref(obj, org){
+	var v_menuno = ($(obj).data("menuno"));
+	var v_sub = ($(obj).data("sub"));
+	
+	if($("ul#gnb li."+v_menuno+" > div").length > 0){
+		if($("ul#gnb li."+v_menuno+" > div > ul > li").length > 0){
+			if(v_sub=="Y"){
+				$(org).find(">a").attr("href",$("ul#gnb li."+v_menuno+" > div > ul > li:eq(0) > a").attr("href"));
+				$(org).find(">a").attr("target",$("ul#gnb li."+v_menuno+" > div > ul > li:eq(0) > a").attr("target"));
+			}else{
+				$(org).find(">a").attr("href",$(org).find(">a").attr("href"));
+			}
+			setHref($("ul#gnb li."+v_menuno+" > div > ul > li:eq(0)"),org);
+		}
+	}else{
+		if($("ul#gnb li."+v_menuno+" > ul > li").length > 0){
+			if(v_sub=="Y"){
+				$(org).find(">a").attr("href",$("ul#gnb li."+v_menuno+" > ul > li:eq(0) > a").attr("href"));
+				$(org).find(">a").attr("target",$("ul#gnb li."+v_menuno+" > ul > li:eq(0) > a").attr("target"));
+			}else{
+				$(org).find(">a").attr("href",$(org).find(">a").attr("href"));
+			}
+			setHref($("ul#gnb li."+v_menuno+" > ul > li:eq(0)"),org);
+		}
+	}
+}
+
+$(function(){
+	/* $("ul#gnb_parent li").each(function(){
+		setHref($(this),$(this));
+	}); */
+	
+	$("nav#snb_nav li").each(function(){
+		setSnbHref($(this),$(this));
+	});
+	
+	$(document).on("click", "ul#gnb li,  ul#rnb li:not(ul#rnb>li.child), .mSnb_menu li", function(){
+		setHref($(this),$(this));
+	});
+	
+	$(document).on("click", "nav#snb_nav li", function(){
+		setSnbHref($(this),$(this));
+	});
+	
+	$(document).on("click", ".btn_topSitemap", function(){
+	    location.href="/cms/CMN_CON/MainLink.do?GBN=SITEMAP&SITE_NO=2";
+	}); 
+	
+	$(document).on("click", "#gnb li ", function(){
+		var subYn = $(this).find("a").eq(0).data("sub");
+		if(subYn == "N"){
+			$(this).find("a").eq(0).removeClass("on");
+		}
+	});
+	
+	
+	/* 
+	if(getCookie("a_pop_zone") == "done"){
+		$(".popZone input:checkbox").prop("checked",true);
+	 }
+	
+	$(".popZone").hide(); */
+	
+});
+
+function closeTopBanner(obj){
+	if($(obj).data('seq')=='top_bnr'){
+		if($(obj).prop("checked")){
+	        setCookie("a_headTop_bnr","done",1);
+			$("#headTop_bnr .btn>.btn_close").click();
+	    }else{
+	    	fn_util_removeCookie("a_headTop_bnr");
+	    } 
+	}else if($(obj).data('seq') == 'pop_zone'){
+		if($(obj).prop("checked")){
+	        setCookie("a_pop_zone","done",1);
+	        $(".popZone .btn .btn_popZone_close").click();
+	    }else{
+	    	fn_util_removeCookie("a_pop_zone");
+	    }
+	}
+}
+
+</script>
+<div id="header">
+	<h1 class="logo">
+		<a href="/">
+            <img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X16&SITE_NO=2" alt="서울과학기술대학교 입학안내" />
+            <span><img src="/ajaxfile/CMN_SVC/FileView.do?GBN=X16&MOBILE=Y&SITE_NO=2" alt="서울과학기술대학교 입학안내" /></span>
+        </a>
+	</h1>
+	<header>
+		<button class="mBtn_topMenu">MENU</button>
+		
+		<div id="gnb_dim"></div>
+		<nav>
+			<ul id="gnb_parent">
+	            
+	            	
+			           	<li class="child  30" >
+			           		
+			           			
+			           				
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=130" target="_self" title=""  data-sub="Y" >수시모집</a>
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+			           	<li class="child  40" >
+			           		
+			           			
+			           				
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=210" target="_self" title=""  data-sub="Y" >정시모집</a>
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+			           	<li class="child  50" >
+			           		
+			           			
+			           				
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=820" target="_self" title=""  data-sub="Y" >편입학</a>
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+			           	<li class="child on 90" >
+			           		
+			           			
+			           				
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=890" target="_self" title=""  data-sub="Y" class="on">대학원</a>
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+			           	<li class="child  60" >
+			           		
+			           			
+			           				
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=340" target="_self" title=""  data-sub="Y" >재외국민</a>
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+			           	<li class="child  70" >
+			           		
+			           			
+			           				
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=380" target="_self" title=""  data-sub="Y" >입시도우미</a>
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+			           	<li class="child  80" >
+			           		
+			           			
+			           				
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=220" target="_self" title=""  data-sub="Y" >대학안내</a>
+				           			
+			           			
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+			           	<li class="child  100" >
+			           		
+			           			
+			           			
+				           			<a href="https://global.seoultech.ac.kr/index.jsp" target="_blank" title="새창열림"  data-sub="N"  >International<br/>Student</a>
+			           			
+			           		
+			           	</li>
+		           	
+           	 	
+	            	
+           	 	
+	            	
+           	 	
+			</ul>
+			<ul id="gnb">
+	            
+	            
+		           	<li class="child  30" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=30" title="" data-menuno="30" data-sub="Y" target="_self" ><span>수시모집</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  130" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=130" title="" data-menuno="130" data-sub="Y" target="_self" >모집요강</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  120" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=120" title="" data-menuno="120" data-sub="Y" target="_self" >시행계획</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="child  910" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=910" title="" data-menuno="910" data-sub="Y" target="_self" >전형 가이드북</a>
+				           			
+				           			<ul class="menuS">
+				           			
+				           			
+				           			
+				           			<li class="" >
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=920" title="" data-menuno="920" data-sub="Y"  target="_self" >학생부종합전형 가이드북</a>
+				           				
+				           			</li>
+				           			
+				           			<li class="" >
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=930" title="" data-menuno="930" data-sub="Y"  target="_self" >논술 가이드북</a>
+				           				
+				           			</li>
+				           			
+				           			
+				           			</ul>
+				           			
+				           		</li>
+			           		
+				           		<li class="  170" >
+				           			<a href="https://admission.seoultech.ac.kr/cms/FR_CON/index.do?MENU_ID=380&CONTENTS_NO=4" title="" data-menuno="170" data-sub="N" target="_self" >공지사항</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  900" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=900" title="" data-menuno="900" data-sub="Y" target="_self" >서식파일</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  190" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=190" title="" data-menuno="190" data-sub="Y" target="_self" >Q&A</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						</li>
+					
+           	 	
+	            
+		           	<li class="child  40" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=40" title="" data-menuno="40" data-sub="Y" target="_self" ><span>정시모집</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  210" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=210" title="" data-menuno="210" data-sub="Y" target="_self" >모집요강</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  200" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=200" title="" data-menuno="200" data-sub="Y" target="_self" >시행계획</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  250" >
+				           			<a href="https://admission.seoultech.ac.kr/cms/FR_CON/index.do?MENU_ID=380&CONTENTS_NO=5" title="" data-menuno="250" data-sub="N" target="_self" >공지사항</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  940" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=940" title="" data-menuno="940" data-sub="Y" target="_self" >서식파일</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  270" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=270" title="" data-menuno="270" data-sub="Y" target="_self" >Q&A</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						</li>
+					
+           	 	
+	            
+		           	<li class="child  50" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=50" title="" data-menuno="50" data-sub="Y" target="_self" ><span>편입학</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  820" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=820" title="" data-menuno="820" data-sub="Y" target="_self" >기본계획</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  290" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=290" title="" data-menuno="290" data-sub="Y" target="_self" >모집요강</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  300" >
+				           			<a href="https://admission.seoultech.ac.kr/cms/FR_CON/index.do?MENU_ID=380&CONTENTS_NO=2" title="" data-menuno="300" data-sub="N" target="_self" >공지사항</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  950" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=950" title="" data-menuno="950" data-sub="Y" target="_self" >서식파일</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  320" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=320" title="" data-menuno="320" data-sub="Y" target="_self" >Q&A</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						</li>
+					
+           	 	
+	            
+		           	<li class="child on 90" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=90" title="" data-menuno="90" data-sub="Y" target="_self" class="on"><span>대학원</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class=" on 890" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=890" title="" data-menuno="890" data-sub="Y" target="_self" >모집요강</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  850" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=850" title="" data-menuno="850" data-sub="Y" target="_self" >공지사항</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  550" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=550" title="" data-menuno="550" data-sub="Y" target="_self" >대학원소개</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  980" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=980" title="" data-menuno="980" data-sub="Y" target="_self" >서식파일</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  570" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=570" title="" data-menuno="570" data-sub="Y" target="_self" >Q&A</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						</li>
+					
+           	 	
+	            
+		           	<li class="child  60" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=60" title="" data-menuno="60" data-sub="Y" target="_self" ><span>재외국민</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  340" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=340" title="" data-menuno="340" data-sub="Y" target="_self" >모집요강</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  830" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=830" title="" data-menuno="830" data-sub="Y" target="_self" >시행계획</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  350" >
+				           			<a href="https://admission.seoultech.ac.kr/cms/FR_CON/index.do?MENU_ID=380&CONTENTS_NO=3" title="" data-menuno="350" data-sub="N" target="_self" >공지사항</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  360" style="display:none;">
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=360" title="" data-menuno="360" data-sub="Y" target="_self" >자료실</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  990" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=990" title="" data-menuno="990" data-sub="Y" target="_self" >서식파일</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  370" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=370" title="" data-menuno="370" data-sub="Y" target="_self" >Q&A</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						</li>
+					
+           	 	
+	            
+		           	<li class="child  70" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=70" title="" data-menuno="70" data-sub="Y" target="_self" ><span>입시도우미</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  380" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=380" title="" data-menuno="380" data-sub="Y" target="_self" >공지사항</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  400" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=400" title="" data-menuno="400" data-sub="Y" target="_self" >Q&A</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="child  410" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=410" title="" data-menuno="410" data-sub="Y" target="_self" >자료실</a>
+				           			
+				           			<ul class="menuS">
+				           			
+				           			
+				           			
+				           			<li class="" >
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=960" title="" data-menuno="960" data-sub="Y"  target="_self" >모집요강</a>
+				           				
+				           			</li>
+				           			
+				           			<li class="" >
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=970" title="" data-menuno="970" data-sub="Y"  target="_self" >논술 기출문제</a>
+				           				
+				           			</li>
+				           			
+				           			
+				           			</ul>
+				           			
+				           		</li>
+			           		
+				           		<li class="  800" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=800" title="" data-menuno="800" data-sub="Y" target="_self" >입시경쟁률</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  810" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=810" title="" data-menuno="810" data-sub="Y" target="_self" >입시결과</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="child  430" style="display:none;">
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=430" title="" data-menuno="430" data-sub="Y" target="_self" >고교방문 입학설명회</a>
+				           			
+				           			<ul class="menuS">
+				           			
+				           			
+				           			
+				           			<li class="" style="display:none;">
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=450" title="" data-menuno="450" data-sub="Y"  target="_self" >고교방문 입학설명회</a>
+				           				
+				           			</li>
+				           			
+				           			<li class="" style="display:none;">
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=460" title="" data-menuno="460" data-sub="Y"  target="_self" >고교방문 입학설명회 신청확인</a>
+				           				
+				           			</li>
+				           			
+				           			
+				           			</ul>
+				           			
+				           		</li>
+			           		
+				           		<li class="child  440" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=440" title="" data-menuno="440" data-sub="Y" target="_self" >고교대학연계프로그램</a>
+				           			
+				           			<ul class="menuS">
+				           			
+				           			
+				           			
+				           			<li class="" >
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=470" title="" data-menuno="470" data-sub="Y"  target="_self" >프로그램 신청</a>
+				           				
+				           			</li>
+				           			
+				           			<li class="" >
+				           				<a href="/cms/FR_CON/index.do?MENU_ID=480" title="" data-menuno="480" data-sub="Y"  target="_self" >프로그램 신청확인</a>
+				           				
+				           			</li>
+				           			
+				           			
+				           			</ul>
+				           			
+				           		</li>
+			           		
+				           		<li class="  1000" >
+				           			<a href="https://cs.u-is.co.kr/seoultech" title="새창열림" data-menuno="1000" data-sub="N" target="_blank" >입학상담프로그램</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						</li>
+					
+           	 	
+	            
+		           	<li class="child  80" >
+						<a href="/cms/FR_CON/index.do?MENU_ID=80" title="" data-menuno="80" data-sub="Y" target="_self" ><span>대학안내</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  220" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=220" title="" data-menuno="220" data-sub="Y" target="_self" >전공소개</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  490" >
+				           			<a href="http://www.seoultech.ac.kr/univ/univ/intro/" title="새창열림" data-menuno="490" data-sub="N" target="_blank" >학과소개</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  510" >
+				           			<a href="https://www.seoultech.ac.kr/life/scholarship/janghag" title="새창열림" data-menuno="510" data-sub="N" target="_blank" >장학제도</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  520" >
+				           			<a href="http://www.seoultech.ac.kr/life/jobinfo/jobinfo/" title="새창열림" data-menuno="520" data-sub="N" target="_blank" >취업정보</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  530" >
+				           			<a href="http://domi.seoultech.ac.kr/" title="새창열림" data-menuno="530" data-sub="N" target="_blank" >생활관안내</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  540" >
+				           			<a href="http://www.seoultech.ac.kr/intro/campinfo/location/" title="새창열림" data-menuno="540" data-sub="N" target="_blank" >찾아오시는길</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						</li>
+					
+           	 	
+	            
+           	 	
+	            
+		           	<li class="child  580" style="display:none;">
+						<a href="/cms/FR_CON/index.do?MENU_ID=580" title="" data-menuno="580" data-sub="Y" target="_self" ><span>게시판테스트</span></a>
+			           		<ul class="menuM">
+			           		
+				           		<li class="  590" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=590" title="" data-menuno="590" data-sub="Y" target="_self" >일반형</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  600" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=600" title="" data-menuno="600" data-sub="Y" target="_self" >갤러리형-썸네일</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  610" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=610" title="" data-menuno="610" data-sub="Y" target="_self" >동영상형</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  620" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=620" title="" data-menuno="620" data-sub="Y" target="_self" >링크형</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  630" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=630" title="" data-menuno="630" data-sub="Y" target="_self" >FAQ형</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  650" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=650" title="" data-menuno="650" data-sub="Y" target="_self" >PDF형</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  640" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=640" title="" data-menuno="640" data-sub="Y" target="_self" >Q&A</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  700" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=700" title="" data-menuno="700" data-sub="Y" target="_self" >일반게시판2</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  710" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=710" title="" data-menuno="710" data-sub="Y" target="_self" >게시판 테스트2</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  720" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=720" title="" data-menuno="720" data-sub="Y" target="_self" >댓글테스트용</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  730" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=730" title="" data-menuno="730" data-sub="Y" target="_self" >링크-리스트형</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  740" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=740" title="" data-menuno="740" data-sub="Y" target="_self" >갤러리-상세</a>
+				           			
+				           		</li>
+			           		
+				           		<li class="  750" >
+				           			<a href="/cms/FR_CON/index.do?MENU_ID=750" title="" data-menuno="750" data-sub="Y" target="_self" >동영상-상세</a>
+				           			
+				           		</li>
+			           		
+							</ul>
+						</li>
+					
+           	 	
+	            
+           	 	
+            </ul>
+		</nav>		
+		
+		<div class="util">
+			<button type="button" class="btn_topSitemap">사이트맵</button>
+	    </div>
+		
+		<a href="#none" class="mBtn_home">메인페이지</a>
+		<button class="mBtn_close">메뉴 닫기</button> 
+
+	</header>
+</div>			
+
+
+	<!-- container -->
+	<div id="container">
+
+		<!-- 서브 비주얼 -->
+		<!-- 사이트맵 비주얼 처리 추가 -->
+		
+		
+		<div class="sVisual" style="background-image:url(/ajaxfile/CMN_SVC/FileView.do?GBN=X03&SITE_NO=2&MENU_NO=90);"><!-- pc 서브비주얼 -->
+		    <div style="background-image:url(/ajaxfile/CMN_SVC/FileView.do?GBN=X03&SITE_NO=2&MENU_NO=90&MOBILE=Y)"></div><!-- mobile 서브비주얼 -->
+		    <strong>대학원<br/><span></span></strong>
+		</div>
+		<!-- //서브 비주얼 -->
+		
+		<script>
+		var gnbDep1 = 0;
+		var gnbDep2 = 0;
+		var gnbDep3 = 0;
+		
+			gnbDep1 = 4;
+		
+		
+			gnbDep2 = 1;
+		
+		
+		</script>
+	
+		
+
+<script>
+$(function(){
+	$(document).on("click", ".btn_print", function(){
+		window.print();
+	});
+	
+	
+	
+});
+</script>
+<nav id="snb_nav">
+    <div class="snb_area">
+        <a class="btn_home" href="/index.do" title="홈">HOME</a>
+        
+        
+        <ul id="snb">
+        	
+            
+	           	<li class="child" data-menuno="30" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=30" target="_self">수시모집</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="130" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=130" target="_self">모집요강</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="120" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=120" target="_self">시행계획</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="910" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=910" target="_self">전형 가이드북</a>
+		           			
+		           			<ul class="menuS">
+			           			
+		           			</ul>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="170" data-sub="N" >
+		           			<a href="https://admission.seoultech.ac.kr/cms/FR_CON/index.do?MENU_ID=380&CONTENTS_NO=4" target="_self">공지사항</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="900" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=900" target="_self">서식파일</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="190" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=190" target="_self">Q&A</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="40" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=40" target="_self">정시모집</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="210" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=210" target="_self">모집요강</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="200" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=200" target="_self">시행계획</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="250" data-sub="N" >
+		           			<a href="https://admission.seoultech.ac.kr/cms/FR_CON/index.do?MENU_ID=380&CONTENTS_NO=5" target="_self">공지사항</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="940" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=940" target="_self">서식파일</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="270" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=270" target="_self">Q&A</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="50" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=50" target="_self">편입학</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="820" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=820" target="_self">기본계획</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="290" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=290" target="_self">모집요강</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="300" data-sub="N" >
+		           			<a href="https://admission.seoultech.ac.kr/cms/FR_CON/index.do?MENU_ID=380&CONTENTS_NO=2" target="_self">공지사항</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="950" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=950" target="_self">서식파일</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="320" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=320" target="_self">Q&A</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="90" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=90" target="_self">대학원</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="890" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=890" target="_self">모집요강</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="850" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=850" target="_self">공지사항</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="550" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=550" target="_self">대학원소개</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="980" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=980" target="_self">서식파일</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="570" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=570" target="_self">Q&A</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="60" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=60" target="_self">재외국민</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="340" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=340" target="_self">모집요강</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="830" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=830" target="_self">시행계획</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="350" data-sub="N" >
+		           			<a href="https://admission.seoultech.ac.kr/cms/FR_CON/index.do?MENU_ID=380&CONTENTS_NO=3" target="_self">공지사항</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="360" data-sub="Y" style="display:none;">
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=360" target="_self">자료실</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="990" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=990" target="_self">서식파일</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="370" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=370" target="_self">Q&A</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="70" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=70" target="_self">입시도우미</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="380" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=380" target="_self">공지사항</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="400" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=400" target="_self">Q&A</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="410" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=410" target="_self">자료실</a>
+		           			
+		           			<ul class="menuS">
+			           			
+		           			</ul>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="800" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=800" target="_self">입시경쟁률</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="810" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=810" target="_self">입시결과</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="430" data-sub="Y" style="display:none;">
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=430" target="_self">고교방문 입학설명회</a>
+		           			
+		           			<ul class="menuS">
+			           			
+		           			</ul>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="440" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=440" target="_self">고교대학연계프로그램</a>
+		           			
+		           			<ul class="menuS">
+			           			
+		           			</ul>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="1000" data-sub="N" >
+		           			<a href="https://cs.u-is.co.kr/seoultech" target="_blank">입학상담프로그램</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="80" data-sub="Y" >
+					<a href="/cms/FR_CON/index.do?MENU_ID=80" target="_self">대학안내</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="220" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=220" target="_self">전공소개</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="490" data-sub="N" >
+		           			<a href="http://www.seoultech.ac.kr/univ/univ/intro/" target="_blank">학과소개</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="510" data-sub="N" >
+		           			<a href="https://www.seoultech.ac.kr/life/scholarship/janghag" target="_blank">장학제도</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="520" data-sub="N" >
+		           			<a href="http://www.seoultech.ac.kr/life/jobinfo/jobinfo/" target="_blank">취업정보</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="530" data-sub="N" >
+		           			<a href="http://domi.seoultech.ac.kr/" target="_blank">생활관안내</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="540" data-sub="N" >
+		           			<a href="http://www.seoultech.ac.kr/intro/campinfo/location/" target="_blank">찾아오시는길</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="100" data-sub="N" >
+					<a href="https://global.seoultech.ac.kr/index.jsp" target="_blank">International<br/>Student</a>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="580" data-sub="Y" style="display:none;">
+					<a href="/cms/FR_CON/index.do?MENU_ID=580" target="_self">게시판테스트</a>
+					
+	           		<ul class="menuM">
+		           		
+		           		
+		           		<li data-menuno="590" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=590" target="_self">일반형</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="600" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=600" target="_self">갤러리형-썸네일</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="610" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=610" target="_self">동영상형</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="620" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=620" target="_self">링크형</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="630" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=630" target="_self">FAQ형</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="650" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=650" target="_self">PDF형</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="640" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=640" target="_self">Q&A</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="700" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=700" target="_self">일반게시판2</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="710" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=710" target="_self">게시판 테스트2</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="720" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=720" target="_self">댓글테스트용</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="730" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=730" target="_self">링크-리스트형</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="740" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=740" target="_self">갤러리-상세</a>
+		           			
+		           		</li>
+		           		
+		           		<li data-menuno="750" data-sub="Y" >
+		           			<a href="/cms/FR_CON/index.do?MENU_ID=750" target="_self">동영상-상세</a>
+		           			
+		           		</li>
+		           		
+		           		
+					</ul>
+					
+	           	</li>
+          	 
+	           	<li class="child" data-menuno="110" data-sub="Y" style="display:none;">
+					<a href="/cms/FR_CON/index.do?MENU_ID=110" target="_self">사이트맵</a>
+					
+	           	</li>
+          	 
+          	 
+        </ul>
+        
+        
+        <span class="btn_snbView"><a href="#none">메뉴 전체</a></span>
+
+        <div class="snb_util">
+            <fieldset class="zoom">
+				<legend>글자 확대축소 영역</legend>
+                <button type="button" class="btn_zoomOut">축소</button>
+				<button type="button" class="btn_zoomIn">확대</button>
+			</fieldset>
+            <button type="button" class="btn_print">인쇄</button>
+<!--             <button type="button" class="btn_share">공유</button> -->
+            <!-- 공유박스 -->
+            <div class="shareBox">
+				<ul>
+<!-- 					<li><a href="#" class="sns_facebook" title="새창">페이스북</a></li> -->
+<!-- 					<li><a href="#" class="sns_nBlog" title="새창">블로그</a></li> -->
+<!--                     <li><a href="#" class="sns_twitter" title="새창">트위터</a></li> -->
+					<li><a href="#" class="sns_urlCopy" title="새창">URL 복사</a></li> 
+				</ul>
+			</div>
+            <!-- //공유박스 -->
+            <button type="button" class="btn_top">위로</button>
+        </div>
+	</div>
+	
+	<iframe title="빈공간" class="iframefaker" src="about:blank" style="height:100%;"></iframe>
+</nav>
+
+		<div id="contents">
+			<strong class="contTit">모집요강</strong>
+			<article>
+				
+				
+				
+				
+				<!--컨텐츠 위치-->
+	            
+
+<script src="/js/pdfobject.min.js"></script>
+<style>
+#divPdf {min-height: 1125px !important;}
+</style>
+<script>
+
+var myPDF;
+
+var options = {
+    pdfOpenParams: { 
+        navpanes: 0,
+        toolbar: 0,
+        statusbar: 0, 
+        view: "FitV",
+        pagemode: "none",
+        page: 1 
+    },
+    forcePDFJS: true,
+    PDFJS_URL: "/pdfJS/web/viewer.html"
+};
+
+
+$(function(){
+  
+	myPDF = PDFObject.embed("//admission.seoultech.ac.kr/ajaxfile/CMN_SVC/FileView.do?GBN=X12&SITE_NO=2&MENU_NO=890&CONTENTS_NO=1&TYPE_CODE=C0601", '#pdf', options);
+	//myPDF = PDFObject.embed("/pdfJS/001_1.pdf", '#pdf', options);
+	
+
+	
+	//$("#divPdf").attr("src","/pdfJS/web/viewer.html?file="+encodeURIComponent("//admission.seoultech.ac.kr/ajaxfile/CMN_SVC/FileView.do?GBN=X12&SITE_NO=2&MENU_NO=890&CONTENTS_NO=1&TYPE_CODE=C0601"));
+	
+	fn_comm_ajax({
+        url : "/ajaxf/FR_SVC/getContentsFileIndexList.do",
+        data : $("#sendForm").serialize(),
+        dataType : "json",
+        success : function(data) {
+        	if (data.length > 0) {
+                for(var i=0 ; i<data.length ; i++){
+                	var innerHTML = '';
+					innerHTML += '<a href="#" class="btnD Arrow step_menu" onclick="javascript:return false;" data-page="'+data[i].PAGE_NO+'" ><span>'+data[i].INDEX_NM+'</span></a>';
+					$("#indexNav").append(innerHTML);
+                }
+        	}
+        }
+    });
+	
+	$(document).on('click', '.step_menu', function(){	
+		
+		var pageNo = $(this).data('page');
+		$('#divPdf').contents().find("#thumbnailView a").eq(pageNo-1).trigger('click'); 
+		if($(this).next().children().length == 0){  
+			$(this).next().remove();
+		}
+	    $(this).parent().addClass('selected').siblings().removeClass('selected');
+	    
+	    return false;
+	});
+
+	$(document).on('click', '.pdf_page_btn', function(){
+		var pageNo = jQuery(this).data('page');
+		$('#divPdf').contents().find("#thumbnailView a").eq(pageNo-1).trigger('click'); 
+		return false;
+	});
+	
+	$(document).on("click","a#pdfBtn",function(){
+    	location.href="//admission.seoultech.ac.kr/ajaxfile/FR_SVC/FileDownload.do?FILE_ORG_NM="+encodeURI(encodeURIComponent('2026학년도 후기(추가) 대학원 신·편입생 모집요강.pdf'))+"&FILE_NM=202607/1784109874933_0.pdf";
+    });
+    $(document).on("click","a#pdfFullBtn",function(){
+    	window.open("//admission.seoultech.ac.kr/ajaxfile/CMN_SVC/FileView.do?GBN=X12&SITE_NO=2&MENU_NO=890&CONTENTS_NO=1&TYPE_CODE=C0601","_pdf","");
+    });
+    $(document).on("click","a#hwpBtn",function(){
+    	location.href="//admission.seoultech.ac.kr/ajaxfile/FR_SVC/FileDownload.do?FILE_ORG_NM="+encodeURI(encodeURIComponent(''))+"&FILE_NM=";
+    });
+	
+});
+</script>
+
+<div class="prom_PDF">  
+    <form id="sendForm" method="post">
+           <input type="hidden" name="MENU_ID" id="MENU_ID" value="890"/>
+           <input type="hidden" name="CONTENTS_NO" value=""/>
+           <input type="hidden" name="SITE_NO" value="2"/>
+           <input type="hidden" name="CSV_FILE_SEQ" value=""/>
+	</form>
+	
+	<div class="LeftBtn">
+		<div class="group1">
+			<a href="#none" id="pdfFullBtn" class="btnD fullView"><span>전체화면으로 보기</span></a>
+			<a href="#none" id="pdfBtn" class="btnD fileDown"><span>PDF 다운로드</span></a>
+			
+			<a href="https://get.adobe.com/kr/reader/" target="_blank" class="btnD PDFView"><span>PDF뷰어 다운로드</span></a>
+		</div>
+		<div class="group2" id="indexNav">
+		</div>
+	</div>
+	<div class="PDF_View" id="pdf">
+	</div>
+	
+	
+</div>
+
+
+	            <!--/컨텐츠 위치-->
+				
+				
+				
+			</article>
+		</div>
+		
+
+
+<div id="footer">
+	
+	
+	<div id="quick_menu">
+		<div class="q_top">
+			<button type="button" class="btn_menu">대학/대학원</button>
+			<button type="button" class="btn_menu">관련사이트</button>
+		</div>
+	</div>
+	
+	<div class="pop_wrap" id="familySite1"> 
+		<!-- popup layer(레이어) -->
+		<section class="popLayout2 popLayer">
+			<h1 class="popTit">학과 바로가기</h1>
+
+			<div class="popConts">
+			<!-- 팝업 내용 입력-->
+				<div class="popInner limit">
+					<div class="pop_familySite list_tit">
+						<ul>
+							
+								<li>
+									<strong>공과대학</strong>
+									
+										
+											<a href="http://engineer.seoultech.ac.kr/" target="_blank" title="새창">
+												공과대학
+											</a>
+										
+									
+										
+											<a href="http://msd.seoultech.ac.kr/" target="_blank" title="새창">
+												기계시스템디자인공학과
+											</a>
+										
+									
+										
+											<a href="http://mae.seoultech.ac.kr/" target="_blank" title="새창">
+												기계·자동차공학과
+											</a>
+										
+									
+										
+											<a href="http://mech.seoultech.ac.kr/" target="_blank" title="새창">
+												기계공학 프로그램
+											</a>
+										
+									
+										
+											<a href="http://car.seoultech.ac.kr/" target="_blank" title="새창">
+												자동차공학 프로그램
+											</a>
+										
+									
+										
+											<a href="http://safety.seoultech.ac.kr/" target="_blank" title="새창">
+												안전공학과
+											</a>
+										
+									
+										
+											<a href="http://mse.seoultech.ac.kr/" target="_blank" title="새창">
+												신소재공학과
+											</a>
+										
+									
+										
+											<a href="http://civil.seoultech.ac.kr/" target="_blank" title="새창">
+												건설시스템디자인공학과
+											</a>
+										
+									
+										
+											<a href="http://architecture.seoultech.ac.kr/" target="_blank" title="새창">
+												건축학부-건축공학전공
+											</a>
+										
+									
+										
+											<a href="http://archidesign.seoultech.ac.kr/" target="_blank" title="새창">
+												건축학부-건축학전공
+											</a>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</li>
+							
+								<li>
+									<strong>정보통신대학</strong>
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											<a href="http://ice.seoultech.ac.kr/" target="_blank" title="새창">
+												정보통신대학
+											</a>
+										
+									
+										
+											<a href="http://eeit.seoultech.ac.kr/" target="_blank" title="새창">
+												전기정보시스템공학과
+											</a>
+										
+									
+										
+											<a href="http://eeme.seoultech.ac.kr/" target="_blank" title="새창">
+												전자IT미디어공학과
+											</a>
+										
+									
+										
+											<a href="http://ee.seoultech.ac.kr/" target="_blank" title="새창">
+												전자공학 프로그램
+											</a>
+										
+									
+										
+											<a href="http://me.seoultech.ac.kr/" target="_blank" title="새창">
+												미디어IT공학 프로그램
+											</a>
+										
+									
+										
+											<a href="http://computer.seoultech.ac.kr/" target="_blank" title="새창">
+												컴퓨터공학과
+											</a>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</li>
+							
+								<li>
+									<strong>에너지바이오대학</strong>
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											<a href="http://nature.seoultech.ac.kr/" target="_blank" title="새창">
+												에너지바이오대학
+											</a>
+										
+									
+										
+											<a href="http://che.seoultech.ac.kr/" target="_blank" title="새창">
+												화공생명공학과
+											</a>
+										
+									
+										
+											<a href="http://enviro.seoultech.ac.kr/" target="_blank" title="새창">
+												환경공학과
+											</a>
+										
+									
+										
+											<a href="http://food.seoultech.ac.kr/" target="_blank" title="새창">
+												식품공학과
+											</a>
+										
+									
+										
+											<a href="http://fchem.seoultech.ac.kr/" target="_blank" title="새창">
+												정밀화학과
+											</a>
+										
+									
+										
+											<a href="http://sports.seoultech.ac.kr/" target="_blank" title="새창">
+												스포츠과학과
+											</a>
+										
+									
+										
+											<a href="http://optometry.seoultech.ac.kr/" target="_blank" title="새창">
+												안경광학과
+											</a>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</li>
+							
+								<li>
+									<strong>조형대학</strong>
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											<a href="http://and.seoultech.ac.kr/" target="_blank" title="새창">
+												조형대학
+											</a>
+										
+									
+										
+											<a href="http://design.seoultech.ac.kr/" target="_blank" title="새창">
+												디자인학과
+											</a>
+										
+									
+										
+											<a href="http://id.seoultech.ac.kr/" target="_blank" title="새창">
+												공업디자인 프로그램
+											</a>
+										
+									
+										
+											<a href="http://vd.seoultech.ac.kr/" target="_blank" title="새창">
+												시각디자인 프로그램
+											</a>
+										
+									
+										
+											<a href="https://ceramic.seoultech.ac.kr/" target="_blank" title="새창">
+												도자문화학과
+											</a>
+										
+									
+										
+											<a href="http://metalartdesign.seoultech.ac.kr/" target="_blank" title="새창">
+												금속공예학과
+											</a>
+										
+									
+										
+											<a href="http://plaza.seoultech.ac.kr/~snutart" target="_blank" title="새창">
+												조형예술학과
+											</a>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</li>
+							
+								<li>
+									<strong>인문사회대학</strong>
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											<a href="http://human.seoultech.ac.kr/" target="_blank" title="새창">
+												인문사회대학
+											</a>
+										
+									
+										
+											<a href="http://pa.seoultech.ac.kr/" target="_blank" title="새창">
+												행정학과
+											</a>
+										
+									
+										
+											<a href="http://eng.seoultech.ac.kr/" target="_blank" title="새창">
+												영어과
+											</a>
+										
+									
+										
+											<a href="http://writing-creative.seoultech.ac.kr/" target="_blank" title="새창">
+												문예창작학과
+											</a>
+										
+									
+										
+											<a href="http://liberal.seoultech.ac.kr/" target="_blank" title="새창">
+												기초교육학부
+											</a>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</li>
+							
+								<li>
+									<strong>기술경영융합대학</strong>
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											<a href="http://sgc.seoultech.ac.kr/" target="_blank" title="새창">
+												기술경영융합대학
+											</a>
+										
+									
+										
+											<a href="http://gise.seoultech.ac.kr/" target="_blank" title="새창">
+												글로벌융합산업공학과
+											</a>
+										
+									
+										
+											<a href="http://iise.seoultech.ac.kriise/" target="_blank" title="새창">
+												프로그램
+											</a>
+										
+									
+										
+											<a href="http://msde.seoultech.ac.krmsde/" target="_blank" title="새창">
+												프로그램
+											</a>
+										
+									
+										
+											<a href="http://itm.seoultech.ac.kritm/" target="_blank" title="새창">
+												프로그램
+											</a>
+										
+									
+										
+											<a href="http://gbiz.seoultech.ac.kr/" target="_blank" title="새창">
+												글로벌경영학과
+											</a>
+										
+									
+										
+											<a href="http://biz.seoultech.ac.kr/" target="_blank" title="새창">
+												경영학 프로그램
+											</a>
+										
+									
+										
+											<a href="http://gtm.seoultech.ac.kr/" target="_blank" title="새창">
+												글로벌테크노경영 프로그램
+											</a>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</li>
+							
+								<li>
+									<strong>대학원</strong>
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											<a href="http://gsp.seoultech.ac.kr/" target="_blank" title="새창">
+												일반대학원
+											</a>
+										
+									
+										
+											<a href="http://gsi.seoultech.ac.kr/" target="_blank" title="새창">
+												산업대학원
+											</a>
+										
+									
+										
+											<a href="http://gsrst.seoultech.ac.kr/" target="_blank" title="새창">
+												철도전문대학원
+											</a>
+										
+									
+										
+											<a href="http://gsh.seoultech.ac.kr/" target="_blank" title="새창">
+												주택대학원
+											</a>
+										
+									
+										
+											<a href="http://itpolicy.seoultech.ac.krit/" target="_blank" title="새창">
+												정책전문대학원
+											</a>
+										
+									
+										
+											<a href="http://energy.seoultech.ac.kr/" target="_blank" title="새창">
+												에너지환경대학원
+											</a>
+										
+									
+										
+											<a href="http://nid.seoultech.ac.krnid/" target="_blank" title="새창">
+												융합기술대학원
+											</a>
+										
+									
+								</li>
+							
+						</ul>
+					</div>
+
+				</div>
+			<!-- //팝업 내용 입력 -->
+			</div>
+
+			<button type="button" class="btn_popClose">창닫기</button>
+		</section>
+		<!-- //popup layer(레이어) -->
+	</div>
+
+	<div class="pop_wrap" id="familySite2">
+		<!-- popup layer(레이어) -->
+		<section class="popLayout2 popLayer">
+			<h1 class="popTit">관련사이트</h1>
+
+			<div class="popConts">
+			<!-- 팝업 내용 입력-->
+				<div class="popInner limit">
+					<div class="pop_familySite list_noTit">
+						<ul>
+						
+							<li><a href="https://kess.kedi.re.kr/index" target="_blank">교육통계서비스</a></li>
+						
+							<li><a href="https://icee.seoultech.ac.kr/" target="_blank">공학교육혁신센터</a></li>
+						
+							<li><a href="http://www.seoultech.ac.kr/life/info/special/nitu/" target="_blank">NITU</a></li>
+						
+							<li><a href="http://club.cyworld.com/snutpr" target="_blank">홍보대사(어우미)</a></li>
+						
+							<li><a href="http://www.seoultech.ac.kr/life/info/special/rotc/" target="_blank">학군단</a></li>
+						
+							<li><a href="http://counsel.seoultech.ac.kr/" target="_blank">학생생활상담실</a></li>
+						
+							<li><a href="http://job.seoultech.ac.kr/" target="_blank">취업정보</a></li>
+						
+							<li><a href="http://gwack2.seoultech.ac.kr/" target="_blank">총학생회</a></li>
+						
+							<li><a href="https://library.seoultech.ac.kr/#/" target="_blank">도서관</a></li>
+						
+							<li><a href="http://sssf.seoultech.ac.kr/" target="_blank">창업지원단</a></li>
+						
+							<li><a href="http://www.seoultech.or.kr/bbs/" target="_blank">총동문회</a></li>
+						
+							<li><a href="http://www.etec.or.kr/" target="_blank">에너지기술인력양성센터</a></li>
+						
+							<li><a href="http://yebigun.seoultech.ac.kr/" target="_blank">예비군연대</a></li>
+						
+							<li><a href="http://itc.seoultech.ac.kr/" target="_blank">정보전산원</a></li>
+						
+							<li><a href="https://ko-kr.facebook.com/snut.i.7" target="_blank">인터넷방송(이즈넛)</a></li>
+						
+							<li><a href="http://language.seoultech.ac.kr/" target="_blank">어학원</a></li>
+						
+							<li><a href="https://times.seoultech.ac.kr/" target="_blank">신문사</a></li>
+						
+							<li><a href="http://www.seoultp.or.kr/home/homeIndex.do" target="_blank">서울테크노파크</a></li>
+						
+							<li><a href="http://lifelong.seoultech.ac.kr/main/" target="_blank">평생교육원</a></li>
+						
+							<li><a href="https://dormitory.seoultech.ac.kr/" target="_blank">생활관</a></li>
+						
+							<li><a href="http://iac.seoultech.ac.kr/" target="_blank">산학협력단</a></li>
+						
+							<li><a href="http://health.seoultech.ac.kr/" target="_blank">보건진료소</a></li>
+						
+							<li><a href="http://stbs.seoultech.ac.kr/" target="_blank">방송국</a></li>
+						
+							<li><a href="http://fund.snut.ac.kr/" target="_blank">발전기금</a></li>
+						
+							<li><a href="http://ds2qez.cafe24.com/" target="_blank">대학노조 서울과기대</a></li>
+						
+							<li><a href="https://gifted.seoultech.ac.kr/web/" target="_blank">노원영재교육원</a></li>
+						
+							<li><a href="http://prof-council.seoultech.ac.kr/" target="_blank">교수평의회</a></li>
+						
+							<li><a href="http://global.seoultech.ac.kr/index.jsp" target="_blank">국제교육본부</a></li>
+						
+							<li><a href="https://www.moe.go.kr/main.do?s=moe" target="_blank">교육과학기술부</a></li>
+						
+							<li><a href="http://www.riss.kr/index.do" target="_blank">한국교육학술정보원</a></li>
+						
+							<li><a href="http://www.kosaf.go.kr/" target="_blank">한국장학재단</a></li>
+						
+							<li><a href="http://lab.seoultech.ac.kr/" target="_blank">공동실험실습관</a></li>
+						
+							<li><a href="http://ctl.seoultech.ac.kr/web/index.php" target="_blank">교수학습개발센터</a></li>
+						
+						</ul>
+					</div>
+
+				</div>
+			<!-- //팝업 내용 입력 -->
+			</div>
+
+			<button type="button" class="btn_popClose">창닫기</button>
+		</section>
+		<!-- //popup layer(레이어) -->
+	</div>
+	
+	<footer>
+		<ul class="f_menu">
+			
+				<li class="point"><a href="http://www.seoultech.ac.kr/sinfo/persnal/" target="_blank" title="개인정보처리방침 바로가기 :새창열림">개인정보처리방침</a></li>
+			
+				<li ><a href="https://www.seoultech.ac.kr/intro/campinfo/location/" target="_blank" title="오시는길 바로가기 :새창열림">오시는길</a></li>
+			
+				<li ><a href="https://forms.gle/DXZTtd3HWMASZkEe7" target="_blank" title="회피·배제 타인 신고 게시판 바로가기 :새창열림">회피·배제 타인 신고 게시판</a></li>
+			
+		</ul> 
+
+		<div class="f_telNum">
+			<dl>
+				<dt>입학상담</dt>
+				<dd>
+					<!-- <span>평일 09:00~21:00, 주말 09:00~16:00</span>
+					<strong>1644-0982</strong> -->
+					<dd>
+<span><font size=4>평일 09:00~18:00, (점심시간 12:00~13:00)</font></span><br />
+<span><font size=3>학생부위주전형(교과,종합,기회균형 등) : 02-970-6843, 6845</font></span><br />
+<span><font size=3>실기, 논술전형 : 02-970-6018, 6019</font></span><br />
+<span><font size=3>대표 이메일 : stechao@seoultech.ac.kr</font></span>
+</dd>
+				</dd>
+			</dl>
+			<a href="https://www.adiga.kr/man/inf/mainView.do?menuId=PCMANINF1000" target="_blank" class="btn_adiga"><img src="/img/common/adiga.png" alt="어디가 바로가기"></a>
+		</div>
+
+		<address>
+			 <p>01811 서울시 노원구 공릉로 232 서울과학기술대학교 </p>
+<span>Tel. 02-970-6018~9, 6843</span>
+<span>Fax. 02-975-8111</span> 
+		</address>
+		<p class="copyright">ⓒ2019 SEOUL NATIONAL UNIVERSITY OF SCIENCE AND TECHNOLOGY. <br />ALL RIGHTS RESERVED.</p>
+	</footer>
+	
+</div>
+
+
+	</div>
+    
+</body>
+</html>

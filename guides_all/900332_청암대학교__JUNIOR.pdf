@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+	<meta name="application-name" content="입시">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta property="og:type" content="website"><meta property="og:site_name" content="입시"><meta property="og:url" content="http://www.ca.ac.kr/exam/main.do"><meta property="og:title" content="입시"><meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<title>입시</title>
+	<link rel="shortcut icon" href="/home/exam/images/1779778865341.png"><link type="text/css" rel="stylesheet" href="/home/siiru/css/jquery-ui.min.css">
+	<link type="text/css" rel="stylesheet" href="/home/siiru/css/jquery.modal.min.css">
+	<link rel="stylesheet" href="/home/siiru/ckeditor5/ckeditor5.css">
+	<link rel="stylesheet" href="/home/siiru/ckeditor5/ckeditor5-content.css">
+	<link type="text/css" rel="stylesheet" href="/home/siiru/css/siiru.min.css">
+	<link type="text/css" rel="stylesheet" href="/home/siiru/css/all.min.css">
+	<link type="text/css" rel="stylesheet" href="/home/exam/css/all.css">
+		<link type="text/css" rel="stylesheet" href="/home/exam/css/basic.css">
+		<link type="text/css" rel="stylesheet" href="/home/exam/css/main.css">
+		<link type="text/css" rel="stylesheet" href="/home/exam/css/layout.css">
+		<link type="text/css" rel="stylesheet" href="/home/exam/css/board.css">
+		<link type="text/css" rel="stylesheet" href="/home/exam/css/content.css">
+		</head>
+<body><script>
+		// 페이지 로드가 완료되면
+		if (window.addEventListener) window.addEventListener('load', siiruPopupzone, false);
+		else if (window.attachEvent) window.attachEvent('onload', siiruPopupzone);
+		else window.onload = siiruPopupzone;
+		function siiruPopupzone() {
+			const footSize = 50;
+			
+					if ($.trim(getCookie('exam|P|W|12')) == '') {
+						setTimeout("popupView('exam|P|W|12',0,0,691,450,'no',"+ footSize +")",300);
+					}
+				
+		}
+		</script>
+	<div id="skip"><a href="#content_wrap">본문 바로가기</a></div>
+<!-- header -->
+<header id="header_area">
+	
+	<div class="tnb_wrap">
+		<div class="container">
+			<ul class="link_list">
+				<li><a href="/" target="_blank" title="새창">청암대학교</a></li>
+				<li><a href="#">학과홈페이지<i class="fas fa-caret-down ml10"></i></a>
+						<ul>
+							<li><a href="/nurse/" target="_blank" title="새창으로 열기">간호학과</a></li>
+							<li><a href="/opt/" target="_blank" title="새창으로 열기">안경광학과</a></li>
+							<li><a href="/pt/" target="_blank" title="새창으로 열기">물리치료과</a></li>
+							<li><a href="/emt/" target="_blank" title="새창으로 열기">응급구조과</a></li>
+							<li><a href="/dental/" target="_blank" title="새창으로 열기">치위생과</a></li>
+							<li><a href="/hmi/" target="_blank" title="새창으로 열기">보건의료행정과</a></li>
+							<li><a href="/cosme/" target="_blank" title="새창으로 열기">K-뷰티미용과</a></li>
+							<li><a href="/sports/" target="_blank" title="새창으로 열기">재활스포츠과</a></li>
+							<li><a href="/cooking/" target="_blank" title="새창으로 열기">호텔외식조리과</a></li>
+							<li><a href="/pet/" target="_blank" title="새창으로 열기">반려동물보건과</a></li>
+							<li><a href="/pets/" target="_blank" title="새창으로 열기">반려동물산업과</a></li>
+							<li><a href="/green/" target="_blank" title="새창으로 열기">그린바이오산업과</a></li>
+							<li><a href="/free/" target="_blank" title="새창으로 열기">자율전공계열</a></li>
+							
+							<li><a href="/digibiz/" target="_blank" title="새창으로 열기">디지털비즈니스과</a></li>
+							<li><a href="/welfare/" target="_blank" title="새창으로 열기">사회복지과</a></li>
+							<li><a href="/senior/" target="_blank" title="새창으로 열기">시니어건강관리과</a></li>
+							<li><a href="/smartsec/" target="_blank" title="새창으로 열기">스마트라이프융합과</a></li>
+							<li><a href="/khotel/" target="_blank" title="새창으로 열기">K-호텔관광경영과</a></li>
+							<li><a href="/silverwlfare/" target="_blank" title="새창으로 열기">실버사회복지과</a></li>
+							<li><a href="/re/" target="_blank" title="새창으로 열기">부동산자산관리과</a></li>
+							<li><a href="/tour/" target="_blank" title="새창으로 열기">웰니스문화관광과</a></li>
+
+							<li><a href="/computer/" target="_blank" title="새창으로 열기">AI융합과</a></li>
+							<li><a href="/fsm/" target="_blank" title="새창으로 열기">소방산업안전관리과</a></li>
+
+							<li><a href=" /webtoon/" target="_blank" title="새창으로 열기">웹툰콘텐츠학과</a></li>
+							<li><a href=" /art/" target="_blank" title="새창으로 열기">문화예술융합과</a></li>
+						</ul>
+					</li>
+				<li><a href="#">교내홈페이지<i class="fas fa-caret-down ml10"></i></a>
+					<ul>
+							<li><a href="https://lms.ca.ac.kr/" target="_blank" title="새창으로 열기">LMS</a></li>
+							<li><a href="/pfc/" target="_blank" title="새창으로 열기">교수학습지원센터</a></li>
+							<li><a href="/wedu/" target="_blank" title="새창으로 열기">국제교류원</a></li>
+							<li><a href="http://lib.ca.ac.kr/" target="_blank" title="새창으로 열기">도서관</a></li>
+							<li><a href="/mdc/" target="_blank" title="새창으로 열기">신문방송국</a></li>
+							<li><a href="/dperson/" target="_blank" title="새창으로 열기">장애학생지원센터</a></li>
+							<li><a href="/edu/" target="_blank" title="새창으로 열기">평생교육원</a></li>
+							<li><a href="/slife/" target="_blank" title="새창으로 열기">학생상담센터</a></li>
+							<li><a href="/haksuk/" target="_blank" title="새창으로 열기">학숙관(기숙사)</a></li>
+							<li><a href="/kinjri/" target="_blank" title="새창으로 열기">재일코리안연구소</a></li>
+						</ul>
+				</li>
+			</ul>
+			<ul class="tnb_list">
+				<li><a href="https://www.ca.ac.kr/login.do?pageId=www162&redirect=/exam"><i class="fal fa-user-lock mr5"></i>로그인</a></li>
+					<li><a href="/en/" target="_blank" title="새창으로 열림"><i class="fal fa-globe-americas mr5"></i>English</a></li>
+				<li><a href="#"><i class="fas fa-language mr5"></i>Translate</a></li>
+				<li><a href="/exam/contentsView.do?pageId=exam60"><i class="fal fa-sitemap mr5"></i>Sitemap</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="m_gnb_wrap">
+	<a href="#" class="m_menu" title="모바일메뉴열기"><i class="fal fa-bars"></i></a>
+	<nav class="m_gnb">
+		<a href="#" class="m_close" title="모바일메뉴닫기"><i class="far fa-times"></i></a>
+		<div class="m_top_menu">
+			<ul class="site_links">
+				<li><a href="/"><i class="fal fa-university mr5"></i>청암대학교</a></li>
+			</ul>
+			<ul>
+				<li><a href="#"><i class="fal fa-user-lock mr5"></i>Login</a></li>
+				<li><a href="/en/" target="_blank" title="새창으로 열림"><i class="fal fa-globe-americas mr5"></i>English</a></li>
+				<li><a href="/exam/contentsView.do?pageId=exam60"><i class="fal fa-sitemap mr5"></i>Sitemap</a></li>
+			</ul>
+		</div>
+		<ul>
+			<li class="has_sub">
+					<a href="/exam/boardList.do?boardId=CA_375&amp;pageId=exam43" >공지사항</a>
+					<ul>
+							<li >
+									<a href="/exam/boardList.do?boardId=CA_375&amp;pageId=exam43" >공지사항</a>
+									</li>
+							<li >
+									<a href="/exam/boardList.do?boardId=CA_906&amp;pageId=exam44" >입학서식자료실</a>
+									</li>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam47" >내신성적산출</a>
+									</li>
+							<li >
+									<a href="/exam/boardList.do?boardId=CA_373&amp;pageId=exam48" >입학상담 Q&amp;A</a>
+									</li>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam61" >신입생 장학제도</a>
+									</li>
+							</ul>
+					</li>
+			<li class="has_sub">
+					<a href="/exam/contentsView.do?pageId=exam22" >수시모집</a>
+					<ul>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam22" >신입생 모집요강</a>
+									</li>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam28" >합격자 사정원칙</a>
+									</li>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam29" >신입생 유의사항</a>
+									</li>
+							</ul>
+					</li>
+			<li class="has_sub">
+					<a href="/exam/contentsView.do?pageId=exam30" >정시모집</a>
+					<ul>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam30" >신입생 모집요강</a>
+									</li>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam36" >신입생 유의사항</a>
+									</li>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam62" >외국인 전형</a>
+									</li>
+							</ul>
+					</li>
+			<li class="has_sub">
+					<a href="/exam/contentsView.do?pageId=exam63" >학과소개</a>
+					<ul>
+							<li class="has_sub">
+									<a href="/exam/contentsView.do?pageId=exam63" >자연과학계열</a>
+									<ul>
+											<li><a href="/exam/contentsView.do?pageId=exam63" >간호학과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam64" >안경광학과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam65" >물리치료과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam66" >응급구조과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam67" >치위생과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam68" >보건의료행정과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam69" >K-뷰티미용과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam71" >호텔외식조리과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam70" >재활스포츠과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam85" >반려동물보건과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam94" >반려동물산업과(야간)</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam86" >자율전공계열</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam90" >그린바이오산업과</a></li>
+											</ul>
+									</li>
+							<li class="has_sub">
+									<a href="/exam/contentsView.do?pageId=exam76" >인문사회계열</a>
+									<ul>
+											<li><a href="/exam/contentsView.do?pageId=exam76" >사회복지과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam95" >실버사회복지과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam75" >부동산자산관리과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam73" >웰니스문화관광과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam87" >시니어건강관리과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam89" >디지털비즈니스과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam92" >K-호텔관광경영과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam91" >스마트라이프융합과</a></li>
+											</ul>
+									</li>
+							<li class="has_sub">
+									<a href="/exam/contentsView.do?pageId=exam80" >공학계열</a>
+									<ul>
+											<li><a href="/exam/contentsView.do?pageId=exam80" >AI융합과</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam82" >소방산업안전관리과</a></li>
+											</ul>
+									</li>
+							<li class="has_sub">
+									<a href="/exam/contentsView.do?pageId=exam84" >예체능계열</a>
+									<ul>
+											<li><a href="/exam/contentsView.do?pageId=exam84" >웹툰콘텐츠학과(2년제+전공심화)</a></li>
+											<li><a href="/exam/contentsView.do?pageId=exam93" >문화예술융합과</a></li>
+											</ul>
+									</li>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam88" >학과 홍보책자</a>
+									</li>
+							</ul>
+					</li>
+			<li class="has_sub">
+					<a href="/exam/contentsView.do?pageId=exam50" >학사학위전공심화</a>
+					<ul>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam50" >전공심화 모집요강</a>
+									</li>
+							<li >
+									<a href="/exam/boardList.do?boardId=CA_902&amp;pageId=exam52" >공지사항</a>
+									</li>
+							<li >
+									<a href="/exam/boardList.do?boardId=CA_903&amp;pageId=exam53" >Q&amp;A</a>
+									</li>
+							</ul>
+					</li>
+			<li class="has_sub">
+					<a href="/exam/contentsView.do?pageId=exam54" >편입학</a>
+					<ul>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam54" >일반편입학</a>
+									</li>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam55" >학사편입학</a>
+									</li>
+							<li >
+									<a href="/exam/boardList.do?boardId=CA_904&amp;pageId=exam56" >공지사항</a>
+									</li>
+							<li >
+									<a href="/exam/boardList.do?boardId=CA_905&amp;pageId=exam57" >Q&amp;A</a>
+									</li>
+							</ul>
+					</li>
+			<li class="has_sub">
+					<a href="/exam/contentsView.do?pageId=exam37" >나의입학정보</a>
+					<ul>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam37" >원서접수 및 서류제출 확인</a>
+									</li>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam38" >합격자 조회 및 고지서 출력</a>
+									</li>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam40" >등록금(예치금) 납부확인</a>
+									</li>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam42" >개인정보 변경 신청</a>
+									</li>
+							</ul>
+					</li>
+			<li class="has_sub">
+					<a href="/exam/contentsView.do?pageId=exam60" >이용안내</a>
+					<ul>
+							<li >
+									<a href="/exam/contentsView.do?pageId=exam60" >SITEMAP</a>
+									</li>
+							</ul>
+					</li>
+			</ul>
+	</nav>
+	<div class="drawer"></div>
+</div><div class="gnb_wrap">
+	<div class="container">
+		<h1 class="logo"><a href="/exam"><img src="/home/exam/images/common/logo_exam.png" alt="청암대학교"></a></h1>
+		<nav class="gnb">
+			<ul>
+					<li>
+							<a href="/exam/boardList.do?boardId=CA_375&amp;pageId=exam43" >공지사항</a>
+							<ul>
+									<li>
+											<a href="/exam/boardList.do?boardId=CA_375&amp;pageId=exam43" >공지사항</a>
+										</li>
+									<li>
+											<a href="/exam/boardList.do?boardId=CA_906&amp;pageId=exam44" >입학서식자료실</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam47" >내신성적산출</a>
+										</li>
+									<li>
+											<a href="/exam/boardList.do?boardId=CA_373&amp;pageId=exam48" >입학상담 Q&amp;A</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam61" >신입생 장학제도</a>
+										</li>
+									</ul>
+							</li>
+						<li>
+							<a href="/exam/contentsView.do?pageId=exam22" >수시모집</a>
+							<ul>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam22" >신입생 모집요강</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam28" >합격자 사정원칙</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam29" >신입생 유의사항</a>
+										</li>
+									</ul>
+							</li>
+						<li>
+							<a href="/exam/contentsView.do?pageId=exam30" >정시모집</a>
+							<ul>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam30" >신입생 모집요강</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam36" >신입생 유의사항</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam62" >외국인 전형</a>
+										</li>
+									</ul>
+							</li>
+						<li>
+							<a href="/exam/contentsView.do?pageId=exam63" >학과소개</a>
+							<ul>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam63" >자연과학계열</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam76" >인문사회계열</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam80" >공학계열</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam84" >예체능계열</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam88" >학과 홍보책자</a>
+										</li>
+									</ul>
+							</li>
+						<li>
+							<a href="/exam/contentsView.do?pageId=exam50" >학사학위전공심화</a>
+							<ul>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam50" >전공심화 모집요강</a>
+										</li>
+									<li>
+											<a href="/exam/boardList.do?boardId=CA_902&amp;pageId=exam52" >공지사항</a>
+										</li>
+									<li>
+											<a href="/exam/boardList.do?boardId=CA_903&amp;pageId=exam53" >Q&amp;A</a>
+										</li>
+									</ul>
+							</li>
+						<li>
+							<a href="/exam/contentsView.do?pageId=exam54" >편입학</a>
+							<ul>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam54" >일반편입학</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam55" >학사편입학</a>
+										</li>
+									<li>
+											<a href="/exam/boardList.do?boardId=CA_904&amp;pageId=exam56" >공지사항</a>
+										</li>
+									<li>
+											<a href="/exam/boardList.do?boardId=CA_905&amp;pageId=exam57" >Q&amp;A</a>
+										</li>
+									</ul>
+							</li>
+						<li>
+							<a href="/exam/contentsView.do?pageId=exam37" >나의입학정보</a>
+							<ul>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam37" >원서접수 및 서류제출 확인</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam38" >합격자 조회 및 고지서 출력</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam40" >등록금(예치금) 납부확인</a>
+										</li>
+									<li>
+											<a href="/exam/contentsView.do?pageId=exam42" >개인정보 변경 신청</a>
+										</li>
+									</ul>
+							</li>
+						</ul>
+			</nav>
+	</div>
+	<div class="gnb_drawer"></div>
+</div><div class="sch_box">
+	<a href="#" title="검색" class="sch_open"><i class="fas fa-search"></i></a>
+	<div class="sch_block">
+		<div class="container">
+			<form id="topSearchForm" name="topSearchForm" method="post" action="/contentsView.do?pageId=www169" target="_blank">
+				<input type="hidden" name="siteId" value="exam" >
+				<fieldset>
+					<legend>통합검색</legend>
+					<label for="sch_txt" class="blind">검색어</label>
+					<input type="text" class="sch_text" id="searchTopQuery" name="searchTopQuery" placeholder="검색어를 입력하세요.">
+					<button class="sch_btn" id="topsearchBtn" title="검색하기"><i class="fas fa-search"></i></button>
+				</fieldset>
+			</form>
+			<a href="#" class="sch_close" title="닫기"><i class="fal fa-times mr5"></i></a>
+		</div>
+	</div>
+</div></header>
+<!-- header end-->
+
+<section id="main_visual_area">
+	<div class="visual_slide_wrap">
+		<div class="vis_paging_wrap">
+			<div class="container">
+				<p id="vis_paging"></p>
+				<a href="#" class="pause" title="멈춤" id="vis_pause"><i class="fal fa-pause-circle"></i></a>
+			</div>
+		</div>
+		<ul class="visual_slide">
+			<li>
+					<div class="text">
+						<div class="container">							
+							<p class="sub_title">100년을 향한 끊임없는 도전,</p>
+							<p class="title">
+								 글로벌시대를 선도하는 대학, 청암대학교!<br>
+								</p>						
+						</div>
+					</div>
+					<div class="slide_img" style="background-image:url(/imageView/C7nrESUZuI0X+lBQgyRh4KOftYifzvkL4wOItrh/WZc=)"></div>
+						</li>
+			<li>
+					<div class="text">
+						<div class="container">							
+							<p class="sub_title">지역과 함께하는 대학! 미래가 선택한 청암!</p>
+							<p class="title">
+								Better CHOICE, 행복 캠퍼스 청암<br>
+								</p>						
+						</div>
+					</div>
+					<div class="slide_img" style="background-image:url(/imageView/+xQf9theSNUBzwJ2ru1rvqOftYifzvkL4wOItrh/WZc=)"></div>
+						</li>
+			</ul>
+		<div class="vis_con">
+			<div class="container">
+				<a href="#" class="prev" title="이전슬라이드" id="prev01"><i class="fal fa-chevron-left"></i></a>
+				<a href="#" class="next" title="다음슬라이드" id="next01"><i class="fal fa-chevron-right"></i></a>
+			</div>
+		</div>
+		<div class="notice_links">
+			<div class="notice_main">
+				<h3>Notice</h3>
+				<ul>
+							<li>
+									<a href="/exam/boardView.do?pageId=exam43&amp;boardId=CA_375&amp;seq=2424990">2027학년도 수시1차 모집 안내</a> 
+								</li>
+							<li>
+									<a href="/exam/boardView.do?pageId=exam43&amp;boardId=CA_375&amp;seq=327889">2027학년도 청암대학교 신입생 모집일정 안내</a> 
+								</li>
+							<li>
+									<a href="/exam/boardView.do?pageId=exam43&amp;boardId=CA_375&amp;seq=2425058">2027학년도 청암대학교 입학전형 시행계획_최종</a> 
+								</li>
+							<li>
+									<a href="/exam/boardView.do?pageId=exam43&amp;boardId=CA_375&amp;seq=6553838">2028학년도 청암대학교 입학전형 시행 계획 안내</a> 
+								</li>
+							<li>
+									<a href="/exam/boardView.do?pageId=exam43&amp;boardId=CA_375&amp;seq=1900735">[학교통학버스] 2026학년도 2학기 청암대학교 통학버스 등·하교 노선 안내</a> 
+								</li>
+							</ul>
+					<a href="/exam/boardList.do?boardId=CA_375&pageId=exam43" class="view_more">MORE</a>
+			</div>
+			<div class="links_main">
+				<ul>
+					<li><a href="/exam/contentsView.do?pageId=exam37"><i class="fad fa-clipboard-user"></i><span>원서접수확인</span></a></li>
+					<li><a href="/exam/contentsView.do?pageId=exam38"><i class="fad fa-graduation-cap"></i><span>합격자발표조회</span></a></li>
+					<li><a href="/exam/contentsView.do?pageId=exam38"><i class="fad fa-print"></i><span>등록금고지서출력</span></a></li>
+					<li><a href="/exam/contentsView.do?pageId=exam47"><i class="fad fa-chalkboard"></i><span>내신성적산출</span></a></li>
+					<li><a href="/exam/ing.do?pageId=exam44"><i class="fad fa-books"></i><span>입학자료실</span></a></li>
+					<li><a href="/haksuk/contentsView.do?pageId=haksuk12" target="_blank" title="새창으로 열림"><i class="fad fa-school"></i><span>기숙사둘러보기</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div></section>
+<!-- 메인section 시작-->
+<section id="main_area">
+	<div class="latest_area" id="content_wrap" tabindex="-1">
+		<div class="container">
+			<div class="latest_notice ani timing02">
+				<h3>새로운소식</h3>
+				<div class="latest_box">
+					<a href="#" class="active">편입학</a>
+					<ul>
+						<li>
+										<a href="/exam/boardView.do?pageId=exam56&amp;boardId=CA_904&amp;seq=2818151">2026학년도 후기 특별편입학 합격자 발표 안내</a>
+										<span class="date">2026-08-20</span>
+									</li>
+								<li>
+										<a href="/exam/boardView.do?pageId=exam56&amp;boardId=CA_904&amp;seq=3145814">2026학년도 후기 특별편입학(광양보건대) 면접고사 안내</a>
+										<span class="date">2026-08-07</span>
+									</li>
+								<li>
+										<a href="/exam/boardView.do?pageId=exam56&amp;boardId=CA_904&amp;seq=262160">2026학년도 청암대학교 후기 일반편입학 합격자 발표 안내</a>
+										<span class="date">2026-08-06</span>
+									</li>
+								<li>
+										<a href="/exam/boardView.do?pageId=exam56&amp;boardId=CA_904&amp;seq=5046330">2026학년도 후기 특별편입학 모집 안내</a>
+										<span class="date">2026-07-27</span>
+									</li>
+								<li>
+										<a href="/exam/boardView.do?pageId=exam56&amp;boardId=CA_904&amp;seq=2097178">2026학년도 후기 일반편입학 면접고사 안내</a>
+										<span class="date">2026-07-20</span>
+									</li>
+								</ul>
+				</div>
+				<div class="latest_box">
+					<a href="#">전공심화</a>
+					<ul>
+						<li>
+										<a href="/exam/boardView.do?pageId=exam52&amp;boardId=CA_902&amp;seq=7995455">2026학년도 학사학위 전공심화과정 모집 안내</a>
+										<span class="date">2025-11-10</span>
+									</li>
+								</ul>
+				</div>
+			</div>
+			<!-- quick_banner
+			<div class="quick_banner ani timing04">
+				<a href="#"><img src="/home/exam/images/main/banner_mid.jpg" alt=""></a>
+			</div>
+			-->
+			<div class="mid_bnr_wrap ani timing04">
+				<ul class="mid_bnr">
+					<li><a href="#"><img src="/home/exam/images/main/banner_mid.jpg" alt=""></a></li>
+				</ul>
+				<div class="mid_bnr_pager"></div>
+				<div class="mid_bnr_ctrl">
+					<span class="mid_paging"></span>
+					<a href="#" class="prev" title="이전슬라이드" id="prev04"><i class="fal fa-arrow-left"></i></a>
+					<a href="#" class="pause" title="멈춤" id="pause01"><i class="fal fa-pause-circle"></i></a>
+					<a href="#" class="next" title="다음슬라이드" id="next04"><i class="fal fa-arrow-right"></i></a>
+				</div>
+			</div>
+			<div class="mid_quick_link ani timing06">
+				<h3>인터넷 원서접수</h3>
+				<ul>
+					<li><a href="http://apply.jinhakapply.com/Common/SiteSearch" target="_blank" title="새창으로 열기">진학사</a></li>
+					<li><a href="/exam/contentsView.do?pageId=exam37">원서접수확인</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="promotion">
+		<header class="ani">
+			<h2>더 나은 내일! <br> <span>청암대학교</span>와 함께 성장해요.</h2>
+			<p>청암대학교 홍보영상을 소개합니다!</p>
+		</header>
+		<ul class="promotion_list ani">
+			<li>
+				<div class="thumb" style="background-image:url(/home/exam/images/main/thumb_movie01.jpg)"></div>
+				<div class="text_box">
+					<span>청암대학교 메인 홍보영상</span>
+					<p>더 나은 내일을 위해 오늘을 준비하는 청암대학교에서의 대학생활! 영상으로 확인해보세요.</p>
+					<a href="https://www.youtube.com/watch?v=bGk3dl0_WHU" target="_blank" title="청암대학교 메인 홍보영상 새창으로 열기">보러가기</a>
+				</div>
+			</li>
+			<li>
+				<div class="thumb" style="background-image:url(/home/exam/images/main/thumb_movie02.jpg)"></div>
+				<div class="text_box">
+					<span>청암대학교 학과 소개영상</span>
+					<p>청암대학교에서 배울 수 있는 학과는 어떤게 있을까요? 수업분위기와 전문적인 수업내용을 미리 확인해보세요.</p>
+					<a href="https://www.youtube.com/watch?v=oqKg7S-nCoI&list=PLgMzcTDFgpdsxXWWqJyZxwy-R_SxrBm8o" target="_blank" title="청암대학교 학과 소개영상 새창으로 열기">보러가기</a>
+				</div>
+			</li>
+			<li>
+				<div class="thumb" style="background-image:url(/home/exam/images/main/thumb_movie03.jpg)"></div>
+				<div class="text_box">
+					<span>Accept the Challenge!</span>
+					<a href="https://www.youtube.com/watch?v=L-47yvUwuuo" target="_blank" title="Accept the Challenge! 새창으로 열기">보러가기</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="consult ani">
+		<div class="container">
+			<p class="text01"><span>[청암대 입학상담]</span>카카오채널 추가하고</p>
+			<p class="text02">이제 실시간으로 쉽고 빠르게 <br> 입시상담을 받아보세요!</p>
+			<p class="text03">평일 09:00 ~ 18:00 / TEL : 061-740-7400 ~ 2</p>
+			<div class="speech">
+				<p>     청암대 입학 상담    </p>
+				<img src="/home/exam/images/main/icon_user.png" alt="유저아이콘">
+			</div>
+		</div>
+	</div>
+	<div class="quick_btn">
+		<div class="container">
+			<a href="https://www.procollege.kr/web/main/index.do" target="_blank" title="새창으로 열기">전문대학 진로·진학 정보<i class="far fa-arrow-right"></i></a>
+			<a href="https://www.kosaf.go.kr/ko/main.do" target="_blank" title="새창으로 열기">국가장학금 신청<i class="far fa-arrow-right"></i></a>
+		</div>
+	</div>
+</section>		
+<!-- 메인section 끝 --><!--푸터영역 -->
+<footer id="footer_area">
+	<div class="bottom_menu">
+		<div class="container">
+			<ul class="menu_list">
+				<li><a href="/contentsView.do?pageId=www138" target="_blank" title="새창으로 열림">개인정보처리방침</a></li>
+				<li><a href="/contentsView.do?pageId=www149" target="_blank" title="새창으로 열림">이메일무단수집거부</a></li>
+			</ul>
+			<div class="site_link_wrap">
+				<a href="#">교내홈페이지</a>
+				<ul class="site_link">
+					<li><a href="https://lms.ca.ac.kr/" target="_blank" title="새창으로 열기">LMS</a></li>
+					<li><a href="/pfc/" target="_blank" title="새창으로 열기">교수학습지원센터</a></li>
+					<li><a href="/wedu/" target="_blank" title="새창으로 열기">국제교류원</a></li>
+					<li><a href="http://lib.ca.ac.kr/" target="_blank" title="새창으로 열기">도서관</a></li>
+					<li><a href="/mdc/" target="_blank" title="새창으로 열기">신문방송국</a></li>
+					<li><a href="/dperson/" target="_blank" title="새창으로 열기">장애학생지원센터</a></li>
+					<li><a href="/edu/" target="_blank" title="새창으로 열기">평생교육원</a></li>
+					<li><a href="/slife/" target="_blank" title="새창으로 열기">학생상담센터</a></li>
+					<li><a href="/haksuk/" target="_blank" title="새창으로 열기">학숙관(기숙사)</a></li>
+					<li><a href="/kinjri/" target="_blank" title="새창으로 열기">재일코리안연구소</a></li>
+				</ul>
+			</div>
+			<div class="site_link_wrap">
+				<a href="#">학과홈페이지</a>
+				<ul class="site_link">
+
+					<li><a href="/nurse/" target="_blank" title="새창으로 열기">간호학과</a></li>
+					<li><a href="/opt/" target="_blank" title="새창으로 열기">안경광학과</a></li>
+					<li><a href="/pt/" target="_blank" title="새창으로 열기">물리치료과</a></li>
+					<li><a href="/emt/" target="_blank" title="새창으로 열기">응급구조과</a></li>
+					<li><a href="/dental/" target="_blank" title="새창으로 열기">치위생과</a></li>
+					<li><a href="/hmi/" target="_blank" title="새창으로 열기">보건의료행정과</a></li>
+					<li><a href="/cosme/" target="_blank" title="새창으로 열기">K-뷰티미용과</a></li>
+					<li><a href="/sports/" target="_blank" title="새창으로 열기">재활스포츠과</a></li>
+					<li><a href="/cooking/" target="_blank" title="새창으로 열기">호텔외식조리과</a></li>
+					<li><a href="/pet/" target="_blank" title="새창으로 열기">반려동물보건과</a></li>
+					<li><a href="/pets/" target="_blank" title="새창으로 열기">반려동물산업과</a></li>
+					<li><a href="/green/" target="_blank" title="새창으로 열기">그린바이오산업과</a></li>
+					<li><a href="/free/" target="_blank" title="새창으로 열기">자율전공계열</a></li>
+
+					<li><a href="/digibiz/" target="_blank" title="새창으로 열기">디지털비즈니스과</a></li>
+					<li><a href="/welfare/" target="_blank" title="새창으로 열기">사회복지과</a></li>
+					<li><a href="/senior/" target="_blank" title="새창으로 열기">시니어건강관리과</a></li>
+					<li><a href="/smartsec/" target="_blank" title="새창으로 열기">스마트라이프융합과</a></li>
+					<li><a href="/khotel/" target="_blank" title="새창으로 열기">K-호텔관광경영과</a></li>
+					<li><a href="/silverwlfare/" target="_blank" title="새창으로 열기">실버사회복지과</a></li>
+					<li><a href="/re/" target="_blank" title="새창으로 열기">부동산자산관리과</a></li>
+					<li><a href="/tour/" target="_blank" title="새창으로 열기">웰니스문화관광과</a></li>
+
+					<li><a href="/computer/" target="_blank" title="새창으로 열기">AI융합과</a></li>
+					<li><a href="/fsm/" target="_blank" title="새창으로 열기">소방산업안전관리과</a></li>
+
+					<li><a href=" /webtoon/" target="_blank" title="새창으로 열기">웹툰콘텐츠학과</a></li>
+					<li><a href=" /art/" target="_blank" title="새창으로 열기">문화예술융합과</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		<div class="container">
+			<h1><img src="/home/exam/images/common/logo_bottom.png" alt=""></h1>
+			<p>전남 순천시 녹색로 1641 청암대학교 우편번호 57997  <br>대표전화 061-740-7100 팩스 061-743-6414  <br> cheongam@ca.ac.kr</p>
+			<p>Copyright © 2020 CHEONGAM UNIVERSITY.  <br>All right Reserved.</p>
+		</div>
+	</div>
+</footer><script src="/home/siiru/js/jquery.min.js"></script>
+	<script src="/home/siiru/js/jquery-ui.min.js"></script>
+	<script src="/home/siiru/js/jquery.bindWithDelay.min.js"></script>
+	<script src="/home/siiru/js/jquery.filtertable.min.js"></script>
+	<script src="/home/siiru/js/jquery.slimscroll.min.js"></script>
+	<script src="/home/siiru/js/jquery.mask.min.js"></script>
+	<script src="/home/siiru/js/jquery.modal.min.js"></script>
+	<script src="/home/siiru/js/moment.min.js"></script>
+	<script src="/home/siiru/js/moment.ko-KR.js"></script>
+	<script src="/home/siiru/ckeditor5/ckeditor5.umd.js"></script>
+	<script src="/home/siiru/ckeditor5/translations/ko.umd.js"></script>
+	<script src="/home/siiru/ckeditor5/ckeditor.js"></script>
+	<script src="/home/siiru/js/siiru.min.js"></script>
+	<script src="/home/siiru/js/jquery.carouFredSel-6.2.1.js"></script>
+	<script src="/home/siiru/js/jquery.scroltable.min.js"></script>
+	<script src="/home/siiru/js/jquery.touchSwipe.min.js"></script>
+	<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<script src="/home/exam/js/jquery.carouFredSel-6.2.1.js"></script>
+		<script src="/home/exam/js/jquery.scroltable.min.js"></script>
+		<script src="/home/exam/js/common.js"></script>
+		<script src="/home/exam/js/main.js"></script>
+		<script src="/home/exam/js/Kakao.min.js"></script>
+		<script>$(document).ready(function(){menuLately('',10);$.post('/setStats.do');});</script></body>
+</html>

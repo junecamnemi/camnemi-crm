@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="euc-kr" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" /> 
+	<!--<meta name="description" content="서울장신대학교에 오신것을 환영합니다." />
+	<meta name="keywords" content="서울장신대학교,서울장신대,incheon univercity" /> -->
+	<meta name="author" content="Global IT " />
+	<meta name="viewport" content="width=device-width">
+	<link rel="shortcut icon" href="../renew_img/main/sjs_logo.png">
+	<!--파비콘이미지-->
+
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="서울장신대학교">
+	<meta property="og:description" content="서울장신대학교에 오신것을 환영합니다.">
+	<meta property="og:image" content="../renew_img/common/meta_logo.png">
+
+	<!--<link rel="stylesheet" type="text/css" href="../css2/editor.css"> -->
+	<!--[if lt IE 8]><link rel="stylesheet" href="../css/ie7.css" type="text/css" /><![endif]-->
+	<!--[if lt IE 9]><script type="text/javascript" src="../js2/css3-mediaqueries.js"></script><![endif]-->
+	<!--[if lt IE 9]><script type="text/javascript" src="../js2/html5shiv.js"></script><![endif]-->
+   	<!-- <script type="text/javascript" src="../js/modernizr.custom.js"></script> -->
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="../renew_css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../renew_css/main.css" />
+	<link rel="stylesheet" type="text/css" href="../renew_css/subpage.css" />
+	<link rel="stylesheet" type="text/css" href="../renew_css/media.css" />
+	<link rel="stylesheet" type="text/css" href="../renew_css/media_sub.css" />
+    
+    
+	<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../js/jq.carousel.min.js"></script> 
+	<script type="text/javascript" src="../js/jquery.globalIT.rolling.js"></script> 
+	<script type="text/javascript" src="../js/jquery-ui.js"></script>
+	<script type="text/javascript" src="../js/jQuery.slide.js"></script>
+
+	<script type="text/javascript" src="../js/jquery.rollover.js"></script> 
+ 
+	<script type="text/javascript" src="../js/main.js" ></script>
+	<script type="text/javascript" src="../js/jquery.sliderkit.1.9.2.js" ></script>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script type="text/javascript" src="../renew_js/script.js" ></script>
+ 
+	<!--<script type="text/javascript" src="../js2/tab.js"></script> 
+	<script type="text/javascript" src="../js2/jcarousellite_1.0.1.js"></script>
+	<script type="text/javascript" src="../js2/banner_5156.js"></script> -->
+	
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			//slider
+			$(".gnb_main .depth2, .gnb_main .depth3").hide();
+			$('.has-submenu > a').on('click', function (e) {
+			    //e.preventDefault();
+			    if ($(this).closest('.nav-open').length === 0){
+			        $('.gnb > .nav-open').removeClass('nav-open').find('> ul').slideUp();
+			        $(".gnb .depth2").removeClass('subon').slideUp();
+			    }
+			    $(this).parent().toggleClass('nav-open').find('> ul').slideToggle();
+			});
+			$(".gnb_main .depth2 > li").on("mouseenter focusin",function() {
+				$(this).children('.gnb_main .depth3').show();
+			});
+			$(".gnb_main .depth2 li").on("mouseleave",function() {
+				$(this).children('.gnb_main .depth3').hide();
+			});
+			$(".gnb_main .depth3").on("mouseenter",function() {
+				$(this).parent().addClass('on');
+			});
+			$(".gnb_main .depth3").on("mouseleave",function() {
+				$(this).parent().removeClass('on');
+			});
+			$(".gnb_main .depth3 li:last-child").on("focusout",function() {
+				$(this).parent('.gnb_main .depth3').hide();
+			});
+
+			// 메인 : top side 배너메뉴
+			var sideImgBoxAll = $(".sideImgBox");
+			sideImgBoxAll.eq(0).addClass("on");
+			$(".sideMenu>.depth1 > li > a").click(function(){
+				sideImgBoxAll.addClass("off").removeClass("on");;
+				$(this).next(".sideImgBox").addClass("on").removeClass("off");
+			});
+ 
+ 
+		});
+ 
+ 
+	</script>
+</head>
+<body>
+<!--<nav id="skipNav">
+	<a href="#main_poster">본문영역 바로가기</a>
+</nav> -->
+<div class="shortCut">
+	<ul class="cf">
+		<li><a href="#selectMenuId">주메뉴 바로가기</a></li>
+        <li><a href="#container">본문영역 바로가기</a></li>
+		<li><a href="#sub_active">하단콘텐츠 바로가기</a></li>
+	</ul>
+</div><script>
+    //쿠키설정
+    function setCookie( name, value, expiredays ) {
+        var todayDate = new Date();
+        todayDate.setDate( todayDate.getDate() + expiredays );
+        document.cookie = name + '=' + escape( value ) + '; path=/; expires=' + todayDate.toGMTString() + ';'
+    }
+
+    //쿠키 불러오기
+    function getCookie(name)
+    {
+        var obj = name + "=";
+        var x = 0;
+        while ( x <= document.cookie.length )
+        {
+            var y = (x+obj.length);
+            if ( document.cookie.substring( x, y ) == obj )
+            {
+                if ((endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+                    endOfCookie = document.cookie.length;
+                return unescape( document.cookie.substring( y, endOfCookie ) );
+            }
+            x = document.cookie.indexOf( " ", x ) + 1;
+
+            if ( x == 0 ) break;
+        }
+        return "";
+    }
+
+    //닫기 버튼 클릭시
+    function closeWin2(key)
+    {
+        if($("#notToday").prop("checked"))
+        {
+            setCookie('divpop'+key, 'Y' , 1 );
+        }
+        $("#divpop"+key+"").hide();
+    }
+
+
+    $(function(){
+
+
+
+
+        if(getCookie("divpop1") !="Y"){
+		$(".popupSld").slick({
+		infinite: true,
+		slidesToShow: 4,
+		slidesToScroll: 4,
+		autoplay: true,
+		autoplaySpeed: 5000,
+		dots: true,
+		responsive: [
+			{
+				breakpoint: 1201,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3,
+				}
+			},
+			{
+				breakpoint: 769,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2
+				}
+			},
+			{
+				breakpoint: 481,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			}
+		]
+	});
+        } else {
+		
+	$("#popupZone").hide();
+
+
+        }
+    });
+</script>
+<!--siteWrap-->
+	<div id="siteWrap" class="site-wrap">
+		<!--팝업존-->
+		<div id="popupZone" >
+			<div class="wrapper clearfix">
+				<div class="popupSld">
+				<!-- 
+					★★★★ 팝업이 4개 미만인 경우, <div class="popupSldItem popupSldItemBlank"><div><span></span></div></div> 를 부족한만큼 추가해 4개를 채울 것 ★★★
+				-->
+				   <!--
+				   <div class="popupSldItem"><a href="https://www.sjs.ac.kr/ht_ml/w_03ed/3010.php?bbsid=main3010&bbs_idx=43725&pagekind=c&gopage=../w_03ed/3010.php" title="서울장신대학교E-Room(LMS) 사용법 안내 열기"><img src="../renew_img/common/popupzone_01.jpg" alt="서울장신대학교 E-Room(LMS) 사용법 안내"></a></div>
+				
+				<div class="popupSldItem"><a href="https://box.donus.org/box/bskorea/Bibles_for_Somalia" target="_blank" title="서울장신대학교 소말리아 성경지원"><img src="../renew_img/common/popupzone_05.jpg" alt="서울장신대학교 소말리아 성경지원"></a></div>
+				-->
+				<div class="popupSldItem"><a href="../w_05ed/5000.php" target="_blank" title="학교사랑참여 열기"><img src="../renew_img/common/popupzone_02_1.jpg" alt="학교사랑참여 ARS060.700.1954"></a></div>
+				<div class="popupSldItem"><a href="#" title="청탁방지법알기 새창" onclick="window.open('../bupum/sjs2.php','person_guard','width=788 height=500  tollbar=noscrollbarS=yes')"><img src="../renew_img/common/popupzone_03.jpg" alt="청탁 금지법 알기"></a></div>
+				<div class="popupSldItem"><a href="../../copykiller/login.php" target="_blank" title="논문표절검사"><img id='test' src="../renew_img/common/popupzone_04.jpg" alt="논표절검사 Copy Killer"></a></div>
+
+				</div>
+
+				<button class="btn_init popupSldButton popupSldPlay">팝업존 슬라이드 재생</button>
+				<button class="btn_init popupSldButton popupSldPause">팝업존 슬라이드 정지</button>
+
+				<div class="popupZoneClose">
+                    <label for="notToday">오늘하루 열지 않기</label>
+                    <input type="checkbox" name="notToday" id="notToday">
+                    <button class="btn_init" onclick="closeWin2(1);">닫기</button>
+
+                    <!--<form name="notice_form">
+                        <div id="divpop1" class="divpop">
+                            <div class="button_area">
+                                <input type='checkbox' name='chkbox' id='todaycloseyn' value='Y' />
+                                <label for="notToday">오늘하루 열지 않기</label>
+                                <button class="btn_init" onclick="javascript:closeWin(1);"><B>[닫기]</B></button>
+                            </div>
+                        </div>
+                    </form>-->
+					<!--<label for="notToday">오늘하루 열지 않기</label>
+                    <input type="checkbox" name="notToday" id="notToday">
+					<button class="btn_init">닫기</button>-->
+				</div>
+			</div>
+		</div>
+		<!--//팝업존 끝-->
+		
+		<!--헤더-->
+		<div id="header">
+			<!--유틸영역-->
+			<div class="headerTop">
+				<div class="wrapper clearfix">
+					<button class="btn_init popupZoneOpen">POPUP ZONE <i><img src="../renew_img/common/popupzone_open.png" alt=""></i></button>
+
+					<div class="utilMenu">
+												<a href="../../ht_ml/w_08ed/8100.php">LOGIN</a>
+												<a href="../../ht_ml_eng/main/index.php">ENGLISH</a>
+
+
+
+
+
+
+						<div class="familySite">
+							<button>교내기관바로가기</button>
+							<ul>
+								<li><a href="https://lib.sjs.ac.kr/SlimaDL/SlimaDL.csp" target="_blank">학술정보관</a></li>
+								<li><a href="../w_01ed/1321_i.php" target="_blank">국제교육원</a></li>
+								<li><a href="https://sce.sjs.ac.kr/" target="_blank">평생교육원</a></li>
+								<li><a href="../w_01ed/1321.php">생활관</a></li>
+								<li><a href="../w_01ed/1321_e.php">학생상담센터</a></li>
+								<li><a href="../w_01ed/1321_f.php">취·창업지원센터</a></li>
+								<li><a href="../w_01ed/1321_g.php">장애학생지원센터</a></li>
+								<li><a href="../w_01ed/1321_h.php">사회봉사센터</a></li>
+								<li><a href="../w_04ed/5100.php">교수학습개발센터</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--//유틸영역 끝-->
+
+			<!--로고&GNB영역-->
+			<div class="headerBtm">
+				<div class="wrapper clearfix">
+					<h1 id="logo"><a href="../main/index.php"><img src="../renew_img/common/logo_220812.png" alt="로고"></a></h1>
+					<!--GNB-->
+					<div id="GNB">
+						<ul class="depth1_ul clearfix">
+							<li>
+								<a href="../w_01ed/1000.php">대학안내</a>
+								<div class="depth2_box">
+									<div class="wrapper clearfix">
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_01ed/1000.php">학교법인</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_01ed/1000.php">임원현황</a></li>
+													<li><a href="../w_01ed/1010.php">이사회회의록,정관</a></li>
+													<li><a href="../w_01ed/1020.php">예결산공고,적립금운용현황</a></li>
+													<li><a href="../w_01ed/1021.php">업무추진비</a></li>
+													<li><a href="../w_01ed/1030.php">등록금심의 위원회</a></li>
+													<li><a href="../w_01ed/1040.php">대학자체평가</a></li>	
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_01ed/1100.php">총장실</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_01ed/1100.php">인사말</a></li>
+													<li><a href="../w_01ed/1110.php">프로필</a></li>
+													<li><a href="../w_01ed/1120.php">역대총장</a></li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_01ed/1200.php">역사 및 상징</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_01ed/1200.php">연혁</a></li>
+													<li><a href="../w_01ed/1210.php">대학상징</a></li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_01ed/1250.php">서울장신 비전5.0</a>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_01ed/1300.php">대학현황</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_01ed/1300.php">기구표</a></li>
+													<li><a href="../w_01ed/1310.php">교직원현황</a></li>
+													<li><a href="../w_01ed/1330.php">규정집</a></li>
+												    <!--<li><a href="https://rule.sjs.ac.kr/" target="_blank">규정집</a></li>-->
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_01ed/1320.php">대학기관</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_01ed/1320.php">대학본부</a></li>
+													<li><a href="../w_01ed/1321_01.php">부속기관</a></li>
+													<li><a href="../w_01ed/1322.php">부설기관</a></li>
+													<li><a href="../w_01ed/1323.php">교학협력기관</a></li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_01ed/1400.php">대학홍보</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_01ed/1400.php">홍보영상</a></li>
+													<li><a href="	http://imsmarter.net/ebook/ecatalog.php?Dir=98&catimage=&callmode=admin" target="_blank">밀알소식</a></li>	
+												    <li><a href="https://www.sjs.ac.kr/ht_ml/w_01ed/2024_11_13.pdf" target="_blank">요람 e-북</a></li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_01ed/1500.php">캠퍼스안내</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_01ed/1500.php">캠퍼스 맵</a></li>
+													<li><a href="../w_01ed/1510.php">찾아오시는 길 & 버스운행</a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="../../admission/main/index.php" target="_blank">입학홈페이지</a>
+								<div class="depth2_box">
+									<div class="wrapper clearfix">
+										<ul class="depth2_ul">
+											<li class="title"><a href="../../admission/w_01ed/1000.php" target="_blank">대학 입학안내</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="../../admission/w_04ed/4000.php" target="_blank">신학대학원 입학안내</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="../../admission/w_05ed/5000.php" target="_blank">대학원 입학안내</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="https://sce.sjs.ac.kr/major/major3.php" target="_blank">평생교육원 입학안내</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="../w_02ed/2000.php">대학·대학원</a>
+								<div class="depth2_box">
+									<div class="wrapper clearfix">
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_02ed/2000.php">대학</a>
+												<ul class="depth3_ul">
+									                <li><a href="../w_02ed/2010.php" target="_blank">복지상담학부(사회복지학과)</a></li>
+									                <li><a href="../w_02ed/2060.php" target="_blank">복지상담학부(상담심리학과)</a></li>
+									                <li><a href="../w_02ed/2050.php" target="_blank">예술학부(실용음악과)</a></li>
+								                    <li><a href="../w_02ed/2020.php" target="_blank">예술학부(교회음악과)</a></li>
+									                <li><a href="../w_02ed/2000.php" target="_blank">신학부(신학과)</a></li>
+									                <li><a href="../w_02ed/2070.php" target="_blank">자율전공학부</a></li>
+									                <li><a href="../w_02ed/2033.php" target="_blank">교양</a></li>
+								<!--				<li><a href="../w_02ed/2040.php" target="_blank">신학부(목회사역학과)</a></li>
+													<li><a href="../w_02ed/2090.php" target="_blank">유학생 전담학과</a></li> -->
+												</ul>
+											</li>
+										</ul>
+
+										<ul class="depth2_ul">
+												<li class="title"><a href="../w_02ed/2100.php">신학대학원</a></li>
+												<li class="title"><a href="../w_02ed/2400.php">문화예술대학원</a></li>
+												<li class="title"><a href="../w_02ed/2800.php">예배리터지대학원</a></li>
+										</ul>
+										<ul class="depth2_ul">
+												<li class="title"><a href="../w_02ed/2200.php">일반대학원</a></li>
+												<li class="title"><a href="../w_02ed/2500.php">자연치유선교대학원</a></li>
+												<li class="title"><a href="../w_02ed/2900.php">영성치유대학원</a></li>
+												<li class="title"><a href="../w_02ed/2950.php">글로벌에큐메니칼대학원</a></li>
+										</ul>
+										<ul class="depth2_ul">
+												<li class="title"><a href="../w_02ed/2300.php">사회복지상담대학원</a></li>
+												<li class="title"><a href="../w_02ed/2600.php">예배찬양사역대학원</a></li>
+												<li class="title"><a href="../w_02ed/2700.php">상담심리대학원</a></li>
+												<li class="title"><a href="../w_02ed/2280.php">계약학과(일반대학원)</a></li>
+										</ul>
+	
+										</div>
+								</div>
+							</li>
+							<li>
+								<a href="../w_03ed/3200_y2025.php">학사안내</a>
+								<div class="depth2_box">
+									<div class="wrapper clearfix">
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_03ed/3200_y2025.php">학사일정</a>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_03ed/3700.php">대학</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_03ed/3700.php">수업 (수강신청, 재수강)</a></li>
+													<li><a href="../w_03ed/3710.php">복수전공</a></li>
+													<li><a href="../w_03ed/3720.php">성적</a></li>
+													<li><a href="../w_03ed/3730.php">학적</a></li>
+													<li><a href="../w_03ed/3740.php">졸업조건</a></li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_03ed/3800.php">대학원</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_03ed/3800.php">수업 (수강신청, 재수강)</a></li>
+													<li><a href="../w_03ed/3810.php">복수전공</a></li>
+													<li><a href="../w_03ed/3820.php">성적</a></li>
+													<li><a href="../w_03ed/3830.php">학적</a></li>
+													<li><a href="../w_03ed/3840.php">졸업조건</a></li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_03ed/3230.php">학사서비스</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_03ed/3230.php">행정업무양식</a></li>
+													<li><a href="../w_03ed/3240.php">증명서발급</a></li>
+													<li><a href="../w_03ed/3250.php">장학정보</a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="../w_03ed/3000.php">대학생활</a>
+								<div class="depth2_box">
+									<div class="wrapper clearfix">
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_03ed/3000.php">학교뉴스</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_03ed/3000.php">학교소식</a></li>
+													<li><a href="../w_03ed/3010.php">공지사항</a></li>
+													<li><a href="../w_03ed/3020.php">학사정보</a></li>
+													<li><a href="../w_03ed/3030.php">개인정보, 정보보호</a></li>
+													<li><a href="../w_03ed/3040.php">입찰공고</a></li>
+													<li><a href="../w_03ed/3050.php">비교과</a></li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_03ed/3310.php">경건생활</a>
+												<ul class="depth3_ul">
+											<!--    <li><a href="../w_03ed/3300.php">채플동영상</a></li> -->
+													<li><a href="../w_03ed/3310.php">예배</a></li>
+												    <li><a href="../w_03ed/3320.php">수련회</a></li>
+													<li><a href="../w_03ed/3330.php">실천생활</a></li> 
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_03ed/3100.php">학보사</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_03ed/3100.php">학보사소개</a></li>
+													<li><a href="../w_03ed/3120.php">지난호보기</a></li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_10ed/10000.php">관련홈페이지</a>
+												<ul class="depth3_ul">
+												    <li><a href="https://pckworld.com/" target="_blank">한국기독공보</a></li>
+													<li><a href="http://seouljd.kr/" target="_blank">동문홈페이지</a></li>
+													<li><a href="../w_10ed/10000.php">동문선교사모임방</a></li>
+													
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="../w_04ed/4900.php">커뮤니티</a>
+								<div class="depth2_box">
+									<div class="wrapper clearfix">
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_04ed/4900.php">통합 게시판</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_04ed/4900.php">분실물</a></li>
+													<li><a href="../w_04ed/4100.php">자료실</a></li>
+													<li><a href="../w_04ed/4400.php">총학게시판</a></li>
+													<li><a href="../w_04ed/4500.php">원우회게시판</a></li>
+													<li><a href="../w_04ed/5300.php">동아리게시판</a></li>
+													<li><a href="../w_04ed/4300.php">건의사항</a></li>
+													<li><a href="../w_04ed/4700.php">학생의견수렴</a></li>
+													<li><a href="../w_04ed/5000.php">장애학생전용게시판</a></li>
+													<li><a href="../w_04ed/5200.php">사이버성희롱, 성폭력신고센터</a></li>
+													<li><a href="../w_04ed/4000.php">서울장신논단</a></li>
+													<li><a href="../w_04ed/5400.php">공익신고센터</a></li>
+											   <!-- <li><a href="../w_04ed/4750.php">대학생복지모음</a></li> -->
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_04ed/4600.php">구인/구직</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_04ed/4600.php">사역구인정보</a></li>
+													<li><a href="../w_04ed/4610.php">취업정보</a></li>
+													<li><a href="http://www.w4c.go.kr/fcltNotice/jobSearchList.do" target="_blank">사회복지취업정보</a></li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_04ed/4800.php">대관신청</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="../w_05ed/5000.php">발전기금</a>
+								<div class="depth2_box">
+									<div class="wrapper clearfix">
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_05ed/5000.php">총장인사</a>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_05ed/5100.php">후원기금안내</a>
+												<ul class="depth3_ul">
+													<li><a href="../w_05ed/5100.php">담당자소개</a></li>
+													<li><a href="../w_05ed/5110.php">후원(기금)소개</a></li>
+													<li><a href="../w_05ed/5120.php">기도후원 안내</a></li>
+													<li><a href="../w_05ed/5130.php">참여방법 및 약정</a></li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_05ed/5200.php">참여현황</a>
+											</li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title">
+												<a href="../w_05ed/5300.php">후원소식</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#">교내기관</a>
+								<div class="depth2_box">
+									<div class="wrapper clearfix">
+										<ul class="depth2_ul">
+											<li class="title"><a href="https://lib.sjs.ac.kr/SlimaDL/SlimaDL.csp" target="_blank">학술정보관</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="../w_01ed/1321_i.php" target="_blank">국제교육원</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="https://sce.sjs.ac.kr/" target="_blank">평생교육원</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="../w_01ed/1321.php">생활관</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="../w_01ed/1321_e.php">학생상담센터</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="../w_01ed/1321_f.php">취·창업지원센터</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="../w_01ed/1321_g.php">장애학생지원센터</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="../w_01ed/1321_h.php">사회봉사센터</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="../w_04ed/5100.php">교수학습개발센터</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="../w_01ed/1321_a.php">출판부</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="../w_01ed/1321_d1.php">학생식당</a></li>
+										</ul>
+										<ul class="depth2_ul">
+											<li class="title"><a href="../w_01ed/1321_b.php">보건소</a></li>
+										</ul>										
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!--//GNB 끝-->
+					<div id="GNB_Mobile"><a href="#">메뉴 열기</a></div>
+				</div>
+			</div>
+			<!--//로고&GNB영역 끝-->
+		</div>
+		<!--//헤더 끝-->
+
+		<!--이용자별 퀵메뉴-->
+		<div id="userQuick">
+			<button id="opener">Quick Menu<i></i></button>
+			<ul class="quickUser clearfix">
+				<li><button id="userStudent" class="on">재학생</button></li>
+				<li><button id="userFaculty">교원</button></li>
+				<li><button id="userStaff">직원</button></li>
+				<li><button id="userVisitor">방문객</button></li>
+			</ul>
+			<div class="quickList">
+				<ul class="userStudent on">
+					<li><a href="../w_03ed/3200.php"><p><img src="../renew_img/common/userquick_ico_01.png" alt=""></p><span>학사일정</span></a></li>
+					<li><a href="../w_03ed/3250.php"><p><img src="../renew_img/common/userquick_ico_02.png" alt=""></p><span>장학정보</span></a></li>
+					<li><a href="../w_03ed/3020.php"><p><img src="../renew_img/common/userquick_ico_03.png" alt=""></p><span>학사정보</span></a></li>
+					<li><a href="../w_03ed/3240.php"><p><img src="../renew_img/common/userquick_ico_04.png" alt=""></p><span>증명발급</span></a></li>
+					<li><a href="../w_03ed/3300.php"><p><img src="../renew_img/common/userquick_ico_05.png" alt=""></p><span>경건생활</span></a></li>
+					<li><a href="../w_03ed/3100.php"><p><img src="../renew_img/common/userquick_ico_06.png" alt=""></p><span>학보사</span></a></li>
+					<li><a href="../w_04ed/5300.php"><p><img src="../renew_img/common/userquick_ico_07.png" alt=""></p><span>동아리</span></a></li>
+					<li><a href="../w_03ed/3230.php"><p><img src="../renew_img/common/userquick_ico_08.png" alt=""></p><span>행정업무양식</span></a></li>
+				</ul>
+				<ul class="userFaculty">
+					<li><a href="../w_07ed/7000.php"><p><img src="../renew_img/common/userquick_ico_09.png" alt=""></p><span>공지사항</span></a></li>
+					<li><a href="../w_03ed/3200.php"><p><img src="../renew_img/common/userquick_ico_01.png" alt=""></p><span>학사일정</span></a></li>
+					<li><a href="../w_07ed/7020.php"><p><img src="../renew_img/common/userquick_ico_08.png" alt=""></p><span>행정업무양식</span></a></li>
+					<li><a href="../w_02ed/2004.php"><p><img src="../renew_img/common/userquick_ico_10.png" alt=""></p><span>수업계획서</span></a></li>
+					<li><a href="http://old.sjs.ac.kr/v2/pro/notice.htm" target="_blank"><p><img src="../renew_img/common/userquick_ico_11.png" alt=""></p><span>전산자료</span></a></li>
+					<li><a href="http://int.sjs.ac.kr:8080/" target="_blank"><p><img src="../renew_img/common/userquick_ico_12.png" alt=""></p><span>학부인트라넷</span></a></li>
+					<li><a href="http://int.sjs.ac.kr:8080/jangsin/" target="_blank"><p><img src="../renew_img/common/userquick_ico_13.png" alt=""></p><span>대학원인트라넷</span></a></li>
+				</ul>
+				<ul class="userStaff">
+					<li><a href="../w_07ed/7100.php"><p><img src="../renew_img/common/userquick_ico_09.png" alt=""></p><span>공지사항</span></a></li>
+					<li><a href="../w_07ed/7110.php"><p><img src="../renew_img/common/userquick_ico_14.png" alt=""></p><span>정보공시자료</span></a></li>
+					<li><a href="../w_07ed/7120.php"><p><img src="../renew_img/common/userquick_ico_08.png" alt=""></p><span>행정업무양식</span></a></li>
+					<li><a href="../w_07ed/7130.php"><p><img src="../renew_img/common/userquick_ico_15.png" alt=""></p><span>자료실</span></a></li>
+					<li><a href="../w_07ed/7140.php"><p><img src="../renew_img/common/userquick_ico_10.png" alt=""></p><span>위원회보고</span></a></li>
+				</ul>
+				<ul class="userVisitor">
+					<li><a href="../w_05ed/5000.php"><p><img src="../renew_img/common/userquick_ico_16.png" alt=""></p><span>발전기금</span></a></li>
+					<li><a href="../w_04ed/4610.php"><p><img src="../renew_img/common/userquick_ico_17.png" alt=""></p><span>취업정보</span></a></li>
+					<!--<li><a href="../w_04ed/4200.php"><p><img src="../renew_img/common/userquick_ico_18.png" alt=""></p><span>자유게시판</span></a></li>-->
+					<li><a href="http://imsmarter.net/ebook/ecatalog.php?Dir=98&amp;catimage=&amp;callmode=admin" target="_blank"><p><img src="../renew_img/common/userquick_ico_19.png" alt=""></p><span>밀알소식</span></a></li>
+					<li><a href="../w_01ed/1510.php"><p><img src="../renew_img/common/userquick_ico_20.png" alt=""></p><span>오시는길</span></a></li>
+					<li><a href="../w_04ed/4800.php"><p><img src="../renew_img/common/userquick_ico_21.png" alt=""></p><span>대관신청</span></a></li>
+					<li><a href="../w_01ed/1321.php"><p><img src="../renew_img/common/userquick_ico_22.png" alt=""></p><span>생활관</span></a></li>
+				</ul>
+			</div>
+		</div>
+
+	<!--	<style>
+.floating-button {
+		position: fixed;
+		bottom: 20px; /* 원하는 위치로 조정 */
+		right: 10px; /* 원하는 위치로 조정 */
+		color: #fff; /* 글자색 설정 */
+		padding: 10px 10px;
+		border-radius: 5px;
+		box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+		z-index: 9999; /* 다른 요소 위에 나타나게 함 */
+	}
+	.floating-button a {
+	text-decoration: none;
+	color: inherit;
+	}
+		
+		</style>
+
+		<div class="floating-button">
+		<a href="https://ipsi2.uwayapply.com/2026/gradu1/sjs/?CHA=4" title="대학원 원서접수 페이지 링크" target="_blank"><img src="../img/bupum/uway 바로가기.png"/> </a>
+		</div>  --><div id="wrapper">
+<div class="inner cf">
+	<!-- header : start -->
+	
+<div id="subVisu" class="subVisu_01">
+	<p>대학안내</p>
+</div>
+
+<div id="LNB">
+	<ul class="lnb_ul clearfix">
+		<li class="home"><a href="../main/index.php">HOME</a></li>
+		<li class="lnb_1depth">
+			<a href="javacsript:void(0);">1depth</a>
+			<ul class="lnb_1depth_ul">
+				<li class="on"><a href="../w_01ed/1000.php">대학안내</a></li>
+				<li><a href="../../admission/w_01ed/1000.php" target="_blank">입학안내</a></li>
+				<li><a href="../w_02ed/2000.php">대학/대학원</a></li>
+				<li><a href="../w_03ed/3200.php">학사안내</a></li>
+				<li><a href="../w_03ed/3000.php">대학생활</a></li>
+				<li><a href="../w_04ed/4900.php">커뮤니티</a></li>
+				<li><a href="../w_05ed/5000.php">발전기금</a></li>
+				<li><a href="../w_06ed/6000.php">정보공개</a></li>
+			</ul>
+		</li>
+		<li class="lnb_2depth">
+			<a href="javacsript:void(0);">2depth</a>
+			<ul class="lnb_2depth_ul">
+				<li><a href="../w_01ed/1000.php">학교법인</a></li>
+				<li><a href="../w_01ed/1100.php">총장실</a></li>
+				<li><a href="../w_01ed/1200.php">역사 및 상징</a></li>
+				<li><a href="../w_01ed/1250.php">비전 5.0</a></li>
+				<li><a href="../w_01ed/1300.php">대학현황</a></li>
+				<li class="on"><a href="../w_01ed/1320.php">대학기관</a></li>
+				<li><a href="../w_01ed/1400.php">대학홍보</a></li>
+				<li><a href="../w_01ed/1500.php">캠퍼스안내</a></li>
+			</ul>
+		</li>
+		<li class="lnb_3depth">
+			<a href="javacsript:void(0);" class="lnb_3depth_cur" id="lnb_3depth_21">3depth</a>
+			<ul class="lnb_3depth_ul">
+				<li class=""><a href="1320.php">대학본부</a></li>
+				<li class="on"><a href="1321_01.php">부속기관</a></li>
+				<li class=""><a href="1322.php">부설기관</a></li>
+				<li class=""><a href="1323.php">교학협력기관</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<!--
+<div id="submenu">
+	<p><img src="../img/w_01ed/leftmenu_title_07.png" alt="대학기관" /></p>
+	<ul>
+		<li><a href="1320.php"><img src="../img/w_01ed/off_23.png" onMouseOver="this.src='../img/w_01ed/on_23.png'" onMouseOut="this.src='../img/w_01ed/off_23.png'" alt="대학본부" /></a></li>
+		<li><a href="1321_01.php"><img src="../img/w_01ed/on_20.png" onMouseOver="this.src='../img/w_01ed/on_20.png'" onMouseOut="this.src='../img/w_01ed/off_20.png'" alt="부속기관" /></a></li>	
+		<li><a href="1322.php"><img src="../img/w_01ed/off_21.png" onMouseOver="this.src='../img/w_01ed/on_21.png'" onMouseOut="this.src='../img/w_01ed/off_21.png'" alt="부설기관" /></a></li>
+        <li><a href="1323.php"><img src="../img/w_01ed/off_22.png" onMouseOver="this.src='../img/w_01ed/on_22.png'" onMouseOut="this.src='../img/w_01ed/off_22.png'" alt="교학협력기관" /></a></li>
+	</ul>		
+</div>
+
+<div id="simg">
+< ? include("subimg.php") ? >
+</div>--> <!--각 페이지별 메뉴 그대로 적용 (ex: smenu1000.php, smenu1020.php ... -->
+	<!-- header : end -->
+</div>
+
+<!-- 내용 시작-->
+<div id="subContainer">
+<div id="sub">
+    <div id="container">
+        
+		<!-- content -->		
+	 	<div id="content">
+			<div class="list_header">
+            	<div class="title"><h3>부속기관</h3></div>                
+		    </div><!-- //list_header -->
+			<div class="lnb_4depth">
+				<ul>
+					<li><a href="https://lib.sjs.ac.kr/SlimaDL/SlimaDL.csp" target="_blank">도서관</a></li>
+					<li class="on"><a href="1321_i.php">국제교육원</a></li>
+					<li><a href="1321_01.php">생활관</a></li> 
+					<li><a href="1321_e.php">학생상담센터</a></li>
+					<li><a href="1321_f.php">취·창업지원센터</a></li>
+					<li><a href="1321_g.php">장애학생지원센터</a></li>
+					<li><a href="1321_h.php">사회봉사센터</a></li>
+					<li><a href="../w_04ed/5100.php">교수학습개발센터</a></li>
+					<li><a href="1321_a.php">출판부</a></li>
+					<li><a href="1321_b.php">보건소</a></li>
+					<li><a href="1321_c.php">시청각교육실</a></li>
+					<li><a href="1321_d.php">학생식당</a></li>
+				</ul>
+			</div>
+			
+			<div class="page_navi">
+				<div class="tabs_5depth">
+					<ul>
+						<li><a href="1321_i.php">소개</a></li>
+						<li class="on"><a href="1321_i1.php">공지사항</a></li>
+						<li><a href="1321_i2.php">Q&A</a></li>
+						<li><a href="1321_i3.php">자료실</a></li> 
+						<li><a href="1321_i4.php">갤러리</a></li>
+					</ul>
+				</div>
+           
+             <!-- 내용 시작 -->
+            <div class="su1">
+<!--
+<link href="/lms_bbs/css/board.css" rel="stylesheet" type="text/css" />
+-->
+
+<script language="Javascript1.2">
+<!-- 
+_editor_url = "/js/htmlarea/";
+document.write('<scr' + 'ipt src="' +_editor_url+ 'editor_kor.js" language="Javascript1.2"></scr' + 'ipt>');  
+// -->
+</script>
+
+<script src='/js/func.js'></script>
+<script>
+function CA(){
+	var frm = document.search;
+	var trk=0;
+	for (var i=0;i<frm.elements.length;i++){
+		var e = frm.elements[i];
+		if ((e.name != 'allbox') && (e.type=='checkbox')){
+			trk++;
+			e.checked = frm.allbox.checked;
+		}
+	}
+}
+
+function PrintList(form){
+	// submit 버튼 Click 시... 체크박스 갯수 확인...
+	var check_len = 0;   //체크박스 갯수
+	var onchecknum = 0; //onChecked 된 체크박스 갯수
+	var i, insu ; //i:looping 변수, insu:배열화된 체크박스의 index 번호
+	var check_value = "";
+
+	for(i=0; i< form.elements.length; i++){  
+		 //form(form name)에 존재하는 모든 element들을 확인하면서 
+		 //원하는name을 갖은(taxId)의 체크박스의 모든 갯수를 찾는다... 
+		chkbox = form.elements[i];               
+		if (chkbox.name == "bbs_idx[]")              
+			check_len++;                                                                        
+	}
+	if (check_len>1) {//체크박스가 2개이상 존재시...
+		for (insu=0; insu < check_len; insu++) {
+			if (form.elements["bbs_idx[]"][insu].checked){  //체크박스만 돌면서 checked된것만 갯수 +
+				onchecknum++;
+				check_value+="var_bbs_idx[]="+form.elements["bbs_idx[]"][insu].value+"&";
+			}
+		}
+	}
+	else if (check_len == 1) {//체크박스가 딱 한개 존재시
+		if (form.elements["bbs_idx[]"].checked){ 
+			onchecknum++;
+			check_value+="var_bbs_idx[]="+form.elements["bbs_idx[]"].value+"&";
+		}
+	} else { // 하나도 존재 하지 않을때
+  
+	} 
+ // 체크박스가 딱 한개 존재하면.. 배열화가 안되므로 2개 이상일때의 
+ // form.taxId[insu].checked 처럼 [insu]로 쓸수가 없습니다.
+	if (onchecknum < 1) { // checked된 체크박스가 하나도 없을때... Error!!
+				alert("하나도 선택하지 않으셨습니다. 확인하세요");
+				return;
+  }
+	else { // 하나 이상 체크된것이 있으면.... 정상 처리...
+		//alert(check_value);
+		var url = "/lms_bbs/board.print.php?bbsid=main1321_i1&"+check_value;
+		var wname = "_print";
+		window.open(url,wname,"width=800,height=700,left=1,top=1,scrollbars=yes");
+	}
+}
+</script>
+
+<div id="board_w">
+	
+<div id="board_list">
+<form name="search" method="get" action="/ht_ml/w_01ed/1321_i1.php" style="margin:0px">
+<input type=hidden name=pagetype value="">
+<input type=hidden name=pageno value="1">
+<input type=hidden name=bbsid value="main1321_i1">
+<input type=hidden name=cafeid value="">
+<input type=hidden name=ref_code value="">
+<input type=hidden name=category value="">
+<input type=hidden name=qstr value="">
+
+
+<table class="board_table">
+
+		<thead>
+		  <tr>
+            <th width="10%" class="index">번호</th>
+            <th class="th_right">제목</th>                                    <th width="13%" class="th_right date">등록일</th>            <th width="9%" class="th_right hit">조회수</th>            </tr>
+		</thead>
+		          <tr >
+            <td class="index">8</td>
+            <td class="left board_tit">
+													<a href="/ht_ml/w_01ed/1321_i1.php?pagetype=&bbs_idx=50441&pageno=1&pagekind=c&bbsid=main1321_i1&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_01ed/1321_i1.php?" hidefocus="true">
+						
+			
+			2026 가을학기 한국어학당 모집요강</a>
+
+												
+							
+			</td>
+			            			            <td class="date">2026-09-17</td>            <td class="hit">4</td>          </tr>
+		          <tr >
+            <td class="index">7</td>
+            <td class="left board_tit">
+													<a href="/ht_ml/w_01ed/1321_i1.php?pagetype=&bbs_idx=49746&pageno=1&pagekind=c&bbsid=main1321_i1&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_01ed/1321_i1.php?" hidefocus="true">
+						
+			
+			2026년 순수외국인 신/편입생 가을학기 모집요강</a>
+
+												
+							
+			</td>
+			            			            <td class="date">2026-07-06</td>            <td class="hit">139</td>          </tr>
+		          <tr >
+            <td class="index">6</td>
+            <td class="left board_tit">
+													<a href="/ht_ml/w_01ed/1321_i1.php?pagetype=&bbs_idx=47970&pageno=1&pagekind=c&bbsid=main1321_i1&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_01ed/1321_i1.php?" hidefocus="true">
+						
+			
+			2026 봄학기 한국어학당 모집요강</a>
+
+												
+							
+			</td>
+			            			            <td class="date">2025-12-31</td>            <td class="hit">260</td>          </tr>
+		          <tr >
+            <td class="index">5</td>
+            <td class="left board_tit">
+													<a href="/ht_ml/w_01ed/1321_i1.php?pagetype=&bbs_idx=47497&pageno=1&pagekind=c&bbsid=main1321_i1&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_01ed/1321_i1.php?" hidefocus="true">
+						
+			
+			2025 겨울학기 한국어학당 모집요강</a>
+
+												
+							
+			</td>
+			            			            <td class="date">2025-11-13</td>            <td class="hit">148</td>          </tr>
+		          <tr >
+            <td class="index">4</td>
+            <td class="left board_tit">
+													<a href="/ht_ml/w_01ed/1321_i1.php?pagetype=&bbs_idx=47496&pageno=1&pagekind=c&bbsid=main1321_i1&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_01ed/1321_i1.php?" hidefocus="true">
+						
+			
+			2025 가을학기 한국어학당 모집요강</a>
+
+												
+							
+			</td>
+			            			            <td class="date">2025-11-13</td>            <td class="hit">109</td>          </tr>
+		          <tr >
+            <td class="index">3</td>
+            <td class="left board_tit">
+													<a href="/ht_ml/w_01ed/1321_i1.php?pagetype=&bbs_idx=47495&pageno=1&pagekind=c&bbsid=main1321_i1&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_01ed/1321_i1.php?" hidefocus="true">
+						
+			
+			2024 겨울학기 한국어 학당 모집요강</a>
+
+												
+							
+			</td>
+			            			            <td class="date">2025-11-13</td>            <td class="hit">111</td>          </tr>
+		          <tr >
+            <td class="index">2</td>
+            <td class="left board_tit">
+													<a href="/ht_ml/w_01ed/1321_i1.php?pagetype=&bbs_idx=46335&pageno=1&pagekind=c&bbsid=main1321_i1&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_01ed/1321_i1.php?" hidefocus="true">
+						
+			
+			가을학기 한국어학당</a>
+
+												
+							
+			</td>
+			            			            <td class="date">2025-07-14</td>            <td class="hit">266</td>          </tr>
+		          <tr >
+            <td class="index">1</td>
+            <td class="left board_tit">
+													<a href="/ht_ml/w_01ed/1321_i1.php?pagetype=&bbs_idx=43649&pageno=1&pagekind=c&bbsid=main1321_i1&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_01ed/1321_i1.php?" hidefocus="true">
+						
+			
+			국제교육원 운영시간 공지</a>
+
+												
+							
+			</td>
+			            			            <td class="date">2024-09-12</td>            <td class="hit">688</td>          </tr>
+				  <!-- <tr>
+		              <td>&nbsp;</td>
+		              <td>&nbsp;</td>		              		              		              <td>&nbsp;</td>		              <td>&nbsp;		        </tr> -->
+				  <!-- <tr>
+		              <td>&nbsp;</td>
+		              <td>&nbsp;</td>		              		              		              <td>&nbsp;</td>		              <td>&nbsp;		        </tr> -->
+				  <!-- <tr>
+		              <td>&nbsp;</td>
+		              <td>&nbsp;</td>		              		              		              <td>&nbsp;</td>		              <td>&nbsp;		        </tr> -->
+				  <!-- <tr>
+		              <td>&nbsp;</td>
+		              <td>&nbsp;</td>		              		              		              <td>&nbsp;</td>		              <td>&nbsp;		        </tr> -->
+				  <!-- <tr>
+		              <td>&nbsp;</td>
+		              <td>&nbsp;</td>		              		              		              <td>&nbsp;</td>		              <td>&nbsp;		        </tr> -->
+				  <!-- <tr>
+		              <td>&nbsp;</td>
+		              <td>&nbsp;</td>		              		              		              <td>&nbsp;</td>		              <td>&nbsp;		        </tr> -->
+				  <!-- <tr>
+		              <td>&nbsp;</td>
+		              <td>&nbsp;</td>		              		              		              <td>&nbsp;</td>		              <td>&nbsp;		        </tr> -->
+		
+        </table>
+</div>
+
+<div class="board_bottom">     
+    <div class="pagination">
+		
+                    
+                      <span class="page_arr first">
+						  								<!-- <img src="../img/board_skin/bot_3.gif" /> -->
+								<img src="../img/board_skin/left_arrows.png" alt="첫 페이지에 이동"/>
+						  					  </span>
+
+                      <span class="page_arr prev">
+															<img src="../img/board_skin/left_arrows.png" alt="앞페이지에 이동" />
+												  
+					  </span>
+
+                      <span class="page_num">
+												
+														<span class="black"><b class="color--main">1</b></span>
+																							  
+					  </span>
+					
+                      <span class="page_arr next">
+					  										<!-- <img src="../img/board_skin/bot_2.gif" alt="한칸뒤페이지로이동" /> -->
+								<img src="../img/board_skin/right_arrows.png" alt="한칸뒤페이지로이동" />
+												  </span>
+
+                      <span class="page_arr last">
+					  										<!-- <img src="../img/board_skin/bot_4.gif" alt="맨뒤페이지로이동"/> -->
+								<img src="../img/board_skin/right_arrows.png" alt="맨뒤페이지로이동"/>
+												  </span>
+
+
+    </div>
+	
+	<div class="board_search_wrap clearfix">
+	    <div class="board_search">
+		  <!-- <img src="../img/board_skin/search.png" alt="검색"> -->
+		  
+		  <select name="keyfield">
+			  			  <!-- <option value="">검색대상</option> // 20250401 이동희 검색창 기본값 제목으로 수정--> 
+			  			  <option value="title" selected>제목</option>
+			  <option value="writer" >글쓴이</option>
+			  <option value="content" >내용</option>
+			  </select>
+
+		  
+			<input type="text" name="keyword" id="textfield" value="">
+		
+			<span class="bg--sky search_btn">
+			  <input type="image" src="../img/board_skin/search_i.png" alt="검색">
+			</span>
+
+		  <!-- <a href="/ht_ml/w_01ed/1321_i1.php"><img src="../img/board_skin/search_2.png" alt="전체목록"></a> -->
+	    </div>
+
+	    <div class="board_btn_wrap">	
+							<a href="javascript:alert('글쓰기 권한이 없습니다.')">
+							<!-- <img src="../img/board_skin/btn1.gif" alt="글쓰기" /> -->
+				<span class="btn bg--navy color--white">글쓰기</span>
+				</a>
+		</div>
+	</div>
+            
+    
+          
+</div>
+
+
+
+</div>
+</form>
+
+<script language=javascript>
+function bbsWrite(){
+// 110710 문정석 글쓴이 없을 경우 오류나서 변경
+	var url = "/ht_ml/w_08ed/8100.php?targetpage=/ht_ml/w_01ed/1321_i1.php?pagetype=|*pagekind=w|*pageno=1|*bbsid=main1321_i1|*cafeid=|*ref_code=|*keyword=|*keyfield=|*category=|*qstr=|*bbsid=main1321_i1|*cafeid=|*ref_code=&gopage=/ht_ml/w_01ed/1321_i1.php?";
+	//window.open(url,"_login","width=400,height=400,scrollbars=no");
+	location.href = url;
+	//testAuth();
+//// 110710 문정석 글쓴이 없을 경우 오류나서 변경
+}
+
+	function testAuth() {
+	    wWidth = 360;
+	    wHight = 120;
+	    
+	    wX = (window.screen.width - wWidth) / 2;
+	    wY = (window.screen.height - wHight) / 2;
+	    
+	    // Request Page Call
+	    var w = window.open("/G-PIN/Sample-AuthRequest.php?RedirectPage=", "gPinLoginWin", "directories=no,toolbar=no,left="+wX+",top="+wY+",width="+wWidth+",height="+wHight);
+	}
+
+function bbsScrap(form){
+	// submit 버튼 Click 시... 체크박스 갯수 확인...
+	var check_len = 0;   //체크박스 갯수
+	var onchecknum = 0; //onChecked 된 체크박스 갯수
+	var i, insu ; //i:looping 변수, insu:배열화된 체크박스의 index 번호
+	var check_value = "";
+
+	for(i=0; i< form.elements.length; i++){  
+		 //form(form name)에 존재하는 모든 element들을 확인하면서 
+		 //원하는name을 갖은(taxId)의 체크박스의 모든 갯수를 찾는다... 
+		chkbox = form.elements[i];               
+		if (chkbox.name == "bbs_idx[]")              
+			check_len++;                                                                        
+	}
+	if (check_len>1) {//체크박스가 2개이상 존재시...
+		for (insu=0; insu < check_len; insu++) {
+			if (form.elements["bbs_idx[]"][insu].checked){  //체크박스만 돌면서 checked된것만 갯수 +
+				onchecknum++;
+				check_value+="var_bbs_idx[]="+form.elements["bbs_idx[]"][insu].value+"&";
+			}
+		}
+	}
+	else if (check_len == 1) {//체크박스가 딱 한개 존재시
+		if (form.elements["bbs_idx[]"].checked){ 
+			onchecknum++;
+			check_value+="var_bbs_idx[]="+form.elements["bbs_idx[]"].value+"&";
+		}
+	} else { // 하나도 존재 하지 않을때
+  
+	} 
+ // 체크박스가 딱 한개 존재하면.. 배열화가 안되므로 2개 이상일때의 
+ // form.taxId[insu].checked 처럼 [insu]로 쓸수가 없습니다.
+	if (onchecknum < 1) { // checked된 체크박스가 하나도 없을때... Error!!
+				alert("하나도 선택하지 않으셨습니다. 확인하세요");
+				return;
+  }
+	else { // 하나 이상 체크된것이 있으면.... 정상 처리...
+		//alert(check_value);
+		var url = "/lms_bbs/board.scrap.php?bbsid=main1321_i1&"+check_value;
+		var wname = "_scrap";
+		window.open(url,wname,"width=400,height=400,left=1,top=1,scrollbars=no");
+	}
+}
+</script>
+</form>
+
+			</div>
+            
+
+            
+            
+              <!-- 내용 끝 -->
+			</div>
+      </div>		
+		<!-- //content -->
+</div>
+</div>
+<!-- 내용 끝-->
+</div>
+</div>
+
+<!--푸터-->
+		<div id="footer">
+			<div class="footerTop">
+				<div class="wrapper">
+					<a href="#" title="맨 위로" id="toTop">TOP<i><img src="../renew_img/common/renew_arrow_totop.png" alt=""></i></a>
+					<ul>
+						<li><a href="../w_03ed/3040.php" title="입찰공고" target="_blank">입찰공고</a></li>
+						<li><a href="#" title="개인정보처리방침 새창" onclick="window.open('../bupum/sjs.php','person_guard','width=728 height=500  tollbar=no scrollbarS=yes')" style="color:#8536d4;">개인정보처리방침</a></li>
+						<li><a href="https://mail.sjs.ac.kr/login.php?back_url=%2F" title="웹메일 바로가기" target="_blank">웹메일 바로가기</a></li>
+						<!-- <li><a href="javascript:void(0);" style="cursor:default;">이메일수집거부</a></li> -->
+						<li><a href="../w_01ed/1020.php" title="예결산공고/적립금운영현황" target="_blank">예결산공고/적립금운용현황</a></li>
+						<li><a href="../w_01ed/1021.php" title="업무추진비" target="_blank">업무추진비</a></li>
+						<li><a href="http://www.academyinfo.go.kr/popup/pubinfo1690/list.do?schlId=0000127" title="대학정보공시" target="_blank">대학정보공시</a></li>
+						<li><a href="https://www.sjs.ac.kr/ht_ml/w_01ed/1040.php" title="대학자체평가" target="_blank">대학자체평가</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="footerBtm">
+				<div class="wrapper clearfix">
+					<div class="fl">
+						<address>
+							<span>(12749) 경기도 광주시 경안로 145 서울장신대학교</span>
+							<span><strong>TEL</strong> <a href="tel:031-799-9000">031-799-9000</a></span>
+							<span><strong>FAX</strong> 031-765-1232</span>
+						</address>
+						<p id="copyright">COPYRIGHT(c) 2014 SEOUL JANGSIN UNIVERSITY. <br />ALL RIGHTS RESERVED</p>
+					</div>
+					<div class="familySite fr">
+						<button>교내기관바로가기</button>
+						<ul>
+							<li><a href="https://lib.sjs.ac.kr/SlimaDL/SlimaDL.csp" target="_blank">학술정보관</a></li>				
+							<li><a href="https://sce.sjs.ac.kr/" target="_blank">평생교육원</a></li>
+							<li><a href="../w_01ed/1321.php">생활관</a></li>
+							<li><a href="../w_04ed/5100.php">교수학습개발센터</a></li>
+							<li><a href="../w_01ed/1321_e.php">학생상담센터</a></li>
+							<li><a href="../w_01ed/1321_f.php">취업지원센터</a></li>
+							<li><a href="../w_01ed/1321_g.php">장애학생지원센터</a></li>
+							<li><a href="../w_01ed/1321_h.php">사회봉사센터</a></li>
+							<li><a href="../w_01ed/1321_b.php">보건소</a></li>
+							<li><a href="../w_01ed/1321_i.php">국제교육원</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--//푸터-->
+	</div>
+	<!--//siteWrap-->

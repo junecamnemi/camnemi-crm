@@ -1,0 +1,4120 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>대학별 모집요강 | 재외교육기관포털</title>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="title" content="재외교육기관포털">
+	<meta name="description" content="재외국민을 위한 행복한 교육정보서비스">
+	<meta name="keyword" content="재외교육기관포털">
+	<meta property="og:title" content="재외국민을 위한 행복한 교육정보서비스 - 재외교육기관포털">
+	<meta property="og:description" content="재외국민을 위한 교수학습, 채용정보, 대입입시, 진로 정보를 제공합니다.">
+	<meta property="og:image" content="//www.okep.kr/images/og/okep.jpg">
+	<meta name="viewport" content="user-scalable=yes, maximum-scale=1.0, minimum-scale=0.25, width=1200">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	
+	<!-- css초기화코드 -->
+	<link rel="stylesheet" href="/css/kor/style.css" type="text/css">
+	<link rel="stylesheet" href="/css/kor/style_tab.css" type="text/css">
+	<link rel="stylesheet" href="/css/kor/style_mob.css" type="text/css">
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"> -->
+	<link rel="stylesheet" href="/css/kor/slick.css" type="text/css">
+	<link rel="stylesheet" href="/css/kor/lenis.css">
+
+	<!-- js -->
+	<script src="/js/vendor/jquery-3.5.1.min.js"></script>
+	<script defer src="/js/kor/slick.min.js"></script>
+	<script defer src="/js/kor/main.js"></script>
+	<script src="/js/kor/lenis.min.js"></script>
+	
+	<script src="/js/kor/jquery.rwdImageMaps.min.js"></script>
+	<script src="/js/kor/gsap.min.js"></script>
+	<script src="/js/kor/ScrollTrigger.min.js"></script>
+
+	<style></style>
+	<script src="/js/vendor/owl.carousel.js" type="text/javascript"></script>
+<script src="/js/vendor/common.js" type="text/javascript"></script>
+<script src="/js/vendor/iziModal.js"></script><!-- modal popup -->
+<script src="/js/com/util/prototype.js" type="text/javascript"></script>
+<script src="/js/com/util/paging.js" type="text/javascript"></script>
+<script src="/js/com/util/timePicker.js" type="text/javascript"></script>
+<script src="/js/com/util/moneyPicker.js" type="text/javascript"></script>
+<script src="/js/com/util/floating-window.js" type="text/javascript"></script>
+<script src="/js/com/util/util.js" type="text/javascript"></script>
+<script src="/js/com/util/moneyTool.js" type="text/javascript"></script>
+<script src="/js/com/util/menu.js" type="text/javascript"></script>
+<script src="/js/board/view_common.js"></script>
+
+
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("p.boan").forEach(function (el) {
+      var text = el.textContent.trim();
+      if (text.length >= 2) {
+    	el.textContent = text.charAt(0) + "*" + text.slice(2);  
+      }
+    });
+  });
+ 
+function content_print(){
+	var w = 840;
+	var h = 550;
+	
+	var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+    var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+    var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+    var top = ((height / 2) - (h / 2)) + dualScreenTop;
+    
+	window.open("", 'contentPopup' , 'top=' + top + ', left=' + left + ' ,width='+w+',height='+h+',scrollbars=yes, directories=no' );
+
+	contentPopupForm.contentBody.value = jQuery("#bbs_con").html();
+	
+	contentPopupForm.target = "contentPopup";
+	contentPopupForm.submit();
+	contentPopupForm.contentBody.value="";
+
+}
+
+function recomEvent(){
+	resultData = requestData('boardRecomCountAdd', {'board_manager_seq':$('board_manager_seq').value, 'board_seq':$('board_seq_view').value});
+	
+	recomAfterEvent(resultData);
+}
+
+function recomAfterEvent(resultData){
+	var defaultRecomCount = 0;
+	
+	if(resultData['state'] == 0){
+		alert('오류가 발생하였습니다.\n\n잠시후 다시 시도 해 주십시오.');
+	} else if(resultData['state'] == 1){
+		alert('이미 추천한 게시물입니다.');
+	} else if(resultData['state'] == 2){
+		$('recomCnt').innerText = defaultRecomCount+1;
+		alert('추천되었습니다.');
+	} else if(resultData['state'] == 3){
+		alert('본 메뉴는 로그인 후에 사용이 가능합니다.');
+	} else {
+		alert('잘못된 정보입니다.');
+	}
+}
+
+function boardRecom() {
+	if(confirm('게시물을 추천 하시겠습니까?')) {
+		recomEvent();
+	}
+}
+function boardReplayAdd(group_step) {
+
+	if(group_step > 4){
+		alert("답글은 5단계까지만 가능합니다.");
+		return;
+	}
+	
+	
+	
+	alert("권한이 없습니다.");
+	
+}
+function boardModify() {
+	
+	
+	alert("권한이 없습니다.");
+	
+}
+
+function boardModify2(seq, id, key){
+	$('board_seq_view').value = seq;
+	//$('confirm_user_id').value = id;
+	$('confirm_board_key').value = key; 
+	$('auth_mode').value = 'modify';
+	$('boardForm').action = 'simpleAuth3.do';
+	$('boardForm').submit();
+}
+
+function boardDelete(seq) {
+	if(confirm('게시물을 삭제 하시겠습니까?')) {
+		$('boardForm').action = 'deleteBoard.do';
+		$('boardForm').submit();
+	}
+}
+
+function boardDelete2(seq, id, key) {
+	if(confirm('게시물을 삭제 하시겠습니까?')) {
+		$('board_seq_view').value = seq;
+		//$('confirm_user_id').value = id;
+		$('confirm_board_key').value = key;
+		$('auth_mode').value = 'delete';
+		$('boardForm').action = 'simpleAuth3.do';
+		$('boardForm').submit();
+	}
+}
+function boardList() {
+	$('boardForm').action= "list.do";
+	$('boardForm').method='get';
+	$('boardForm').submit();
+}
+function boardViewNew(seq,board_manager_seq) {
+	$('board_seq_view').value = seq;
+	$('board_manager_seq').value = board_manager_seq;
+	$('boardForm').action = 'view.do';
+	$('boardForm').submit();
+}
+
+//image view 사이즈 줄이기 
+function imgResize(str)
+{
+	var x, y = "";
+	var ch_x_val , ch_y_val = "";
+	var arr = []
+	var strReg = new RegExp("<img*[^>]*","gim");
+	arr =  str.match(strReg);
+	
+	if(arr != null){
+		for(var i=0; i<arr.length; i++){
+			x = arr[i].substring(arr[i].indexOf('width:'), arr[i].length);
+			x_val = x.substring(x.indexOf(":") + 1, x.indexOf("px"));
+			
+			y = arr[i].substring(arr[i].indexOf('height:'), arr[i].length);
+			y_val = y.substring(y.indexOf(":") + 1, y.indexOf("px"));
+			
+			if(x_val > 820){
+				ch_x_val = arr[i].replace("width:"+x_val+"px", "width:100%");
+				str = str.replace(arr[i], ch_x_val);
+				ch_y_val = ch_x_val.replace("height:"+y_val+"px;", "height:100%;");
+				str = str.replace(ch_x_val, ch_y_val);				
+			}
+		}
+	}
+	
+	return str;
+}
+
+function altCheck(str) {
+	var alt = "";
+	var alt_val = "";
+	var arr = [];
+	var arr2 = [];
+	var strReg = new RegExp("<img*[^>]*>","gim"); 
+	arr =  str.match(strReg);
+	
+	if(arr != null){
+		for(var i=0; i<arr.length; i++){
+			document.getElementById("img_temp").empty();
+			document.getElementById("img_temp").innerHTML = arr[i];
+			var img_temp = document.getElementById("img_temp").getElementsByTagName('img')[0];
+			if(img_temp != null && img_temp != ""){
+				if(img_temp.alt == null || img_temp.alt == ""){
+					img_temp.alt = "image"; 
+					str = str.replace(arr[i], document.getElementById("img_temp").innerHTML);
+				}
+			}
+		}
+	}
+	
+	return str;
+}
+
+function HTMLDecode(str)
+{
+   str = str.replace(/&lt;/gi,"<");
+   str = str.replace(/&amp;/gi,"&");
+   return str;
+}
+
+function fnLoadContent()
+{
+	var strContent = "";
+	strContent += HTMLDecode(document.textareaForm["board_textarea"].value);
+	strContent = imgResize(strContent);
+	// strContent = altCheck(strContent);
+	strContent = strContent.replace(/FONT-SIZE/g,'line-height:100%;FONT-SIZE');
+	'';
+	var objView = document.getElementById("divView");
+	objView.innerHTML = strContent;
+}
+
+jQuery(document).ready(function(){
+	jQuery("#divView img").each(function(){
+		if(jQuery(this).attr('alt') == ""){
+			jQuery(this).attr("alt", 'image');			
+		}
+	});
+	
+	jQuery('.clipBoardURL').click(function(){
+		var clipUrl = jQuery(this).prev('.ebookUrl').text().trim();
+		
+		if(browserCheck()){		
+			// IE일 경우
+			window.clipboardData.setData("Text", clipUrl);
+			alert("복사되었습니다");
+		} else {
+			// IE가 아닐 경우
+			prompt("Ctrl + C를 눌러 복사하세요", clipUrl);	
+		} 
+	});	
+	jQuery('.in > .fa').removeClass("fa-heart-o");
+	jQuery('.in > .fa').addClass("fa-heart");
+	
+	
+	var favourite_yn = '';
+	
+	if(favourite_yn == "Y"){
+		jQuery("#favouritePc").attr("src","/images/kor/sub/bookmark_on_icon.png");
+		jQuery("#favouriteTab").attr("src","/images/kor/sub/bookmark_on_icon.png");
+		jQuery("#favouriteMob").attr("src","/images/kor/sub/bookmark_on_icon.png");
+	}else{
+		jQuery("#favouritePc").attr("src","/images/kor/sub/bookmark_icon.png");
+		jQuery("#favouriteTab").attr("src","/images/kor/sub/bookmark_icon.png");
+		jQuery("#favouriteMob").attr("src","/images/kor/sub/bookmark_icon.png");
+	}
+});
+
+// 신고하기
+function formSubmit() {
+
+	if($('contentStr').value == ''){
+		alert('신고내용을 입력하세요.');
+		$('contentStr').focus();
+		return;
+	}
+
+	if(confirm('게시물을 신고 하시겠습니까?')){
+		$('contentReport').value = $('contentStr').value;
+		$('boardForm').action = 'modifyBoardReportState.do';
+		$('boardForm').submit();
+	}
+}
+
+//신고하기 취소
+function cancelSubmit() {
+	$('contentStr').value = '';
+}
+
+//즐겨찾기 등록_2024.04
+function addFavouriteLst(boardseq){
+	jQuery.ajax({
+		type  : "POST",
+ 		url   : "updateFavouriteBoard.do",
+		data  : { "board_seq" : boardseq },
+		success : function onSuccess(data) {
+			if(data != null){
+				if(data.result == "success"){
+					if(data.value == "Y"){
+						jQuery(".fa").removeClass("fa-heart-o");
+						jQuery(".fa").addClass("fa-heart");
+						jQuery("#favour_" + boardseq).addClass("in");
+						jQuery('.info').text("이 게시물이 '나의콘텐츠 > 즐겨찾기'에 추가되었습니다.");
+						
+						jQuery("#favouritePc").attr("src","/images/kor/sub/bookmark_on_icon.png");
+						jQuery("#favouriteTab").attr("src","/images/kor/sub/bookmark_on_icon.png");
+						jQuery("#favouriteMob").attr("src","/images/kor/sub/bookmark_on_icon.png");
+					} else {
+						jQuery(".fa").addClass("fa-heart-o");
+						jQuery(".fa").removeClass("fa-heart");
+						jQuery("#favour_" + boardseq).removeClass("in");
+						jQuery('.info').text("이 게시물이 '나의콘텐츠 > 즐겨찾기' 목록에서 삭제되었습니다.");
+						
+						jQuery("#favouritePc").attr("src","/images/kor/sub/bookmark_icon.png");
+						jQuery("#favouriteTab").attr("src","/images/kor/sub/bookmark_icon.png");
+						jQuery("#favouriteMob").attr("src","/images/kor/sub/bookmark_icon.png");
+					}
+					jQuery('.info').fadeIn().delay(1200).fadeOut();
+				} else {
+					if(data.value == -1){
+						alert("로그인 후에 사용 가능합니다.");
+						location.href="/login/loginPage.do";
+					}
+				}
+			}
+		},
+		error : function(request,status,error) {
+			alert("Error : " + error);
+		}
+	});
+}
+
+function goTop(){
+	jQuery('html').scrollTop(0);
+}
+</script>
+<noscript>Script를 지원하지 않습니다.</noscript>
+	
+	<script type="text/javascript">
+	function cmmPrint(){
+		
+		var w = 870;
+		var h = 600;
+		
+		var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+	    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+	    var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+	    var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+	    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+	    var top = ((height / 2) - (h / 2)) + dualScreenTop;
+		
+	    var printForm = document.printPopupForm;
+	    
+		window.open("", 'printPopup' , 'top=' + top + ', left=' + left + ' ,width='+w+',height='+h+',scrollbars=yes, directories=no' );
+		
+		jQuery("#printArea").parents('.RT').find('.share').hide();
+		printForm.contentBody.value = jQuery("#printArea").parents('.RT').html();
+		jQuery("#printArea").parents('.RT').find('.share').show();
+		printForm.cssName.value = "okepinfo";
+		
+		printForm.target = "printPopup";
+		printForm.submit();
+	}
+	</script>
+</head>
+<body>
+
+	<form id="printPopupForm" name="printPopupForm" action="/util/print/page.do" method="post">
+		<input type="hidden" id="contentBody" name="contentBody" />
+		<input type="hidden" id="cssName" name="cssName" />
+	</form>
+	<a href="#skip01" class="skip01">본문 바로가기</a>
+	<a href="#skip02" class="skip02">상단메뉴 바로가기</a>
+
+	<header class="HD">
+		
+
+
+<script type="text/javascript">
+
+	if(document.location.protocol == 'http:'){
+		//document.location.href = document.location.href.replace('http:', 'https:');
+	}
+	
+	function menuMove(menu_type, url){
+		if(menu_type == 2){
+			window.open(url, "_blank");
+		}else{
+			// @icommtech 폴더 타입 메인 메뉴도, ok-mooc일 경우 open 처리
+			if(url.indexOf('ok-mooc') > -1)
+				window.open(url, "_blank");
+			else
+				window.location = url;
+		}
+	}
+	
+	function searchTotal(){
+		$('#contSearch').submit();
+	}
+</script>
+	<div id="header">
+			<div class="h_top">
+				<div class="inner">
+					<div class="left">
+						<a href="/introInfo/sitemap/sitemap.do">
+							<img src="/images/kor/main/h_icon01_pc.png" alt="사이트맵아이콘" class="pc_img">
+							<img src="/images/kor/main/h_icon01_tab.png" alt="사이트맵아이콘" class="tab_img">
+							<img src="/images/kor/main/h_icon01_mob.png" alt="사이트맵아이콘" class="mob_img">
+							사이트맵
+						</a>
+						<a href="/root/eng_index.do" target="_blank">
+							<img src="/images/kor/main/h_icon02_pc.png" alt="영문페이지이동아이콘" class="pc_img">
+							<img src="/images/kor/main/h_icon02_tab.png" alt="영문페이지이동아이콘" class="tab_img">
+							<img src="/images/kor/main/h_icon02_mob.png" alt="영문페이지이동아이콘" class="mob_img">
+							ENG
+						</a>
+					</div><!-- left -->
+					<div class="right">
+						<div class="btn_wrap">
+							<a href="/html/page.do?htmlId=23&menu_seq=209" title="국내평생교육 이동">국내평생교육</a>
+							<a href="/ok-mooc/index.do" target="_blank" title="OK-MOOC 새창열기">OK-MOOC</a>
+						</div><!-- btn_wrap -->
+						
+						
+							
+							
+								<div class="log_wrap">
+									<a href="/login/loginPage.do" title="로그인 이동">로그인</a>
+									<a href="/member/register/start.do" title="회원가입 이동">회원가입</a>
+								</div><!-- log_wrap -->
+							
+						
+						
+					</div><!-- right -->
+				</div><!-- inner -->
+			</div><!-- h_top -->
+			
+			<div class="h_bot">
+				<div class="inner">
+					<h1>
+						<a href="/" id="skip02" title="메인으로 이동">
+							<img src="/images/kor/main/main_logo01_pc.png" alt="재외교육기관포털로고">
+						</a>
+					</h1>
+					
+					<ul class="gnb" id = "gnb">
+						
+						<li><a href="#">알림·소식</a></li>
+						<li><a href="#">한국학교</a></li>
+						<li><a href="#">한국교육원</a></li>
+						<li><a href="#">재외교육 자료</a></li>
+					</ul>
+					
+					<div class="right">
+						<a href="javascript:void(0);" class="search_pop_btn" title="검색창 열림">
+							<img src="/images/kor/main/search_icon01_pc.png" alt="검색레이어팝업아이콘">
+						</a>
+						<div class="all_btn">
+							<a href="javascript:void(0);" title="메뉴 열림">
+								<span></span>
+							</a>
+						</div><!-- all_btn -->
+						<div class="nav_btn">
+							<a href="javascript:void(0);" title="메뉴 열림">
+								<span></span>
+							</a>
+						</div><!-- nav_btn -->
+					</div><!-- right -->
+				</div><!-- inner -->
+			</div><!-- h_bot -->
+		</div><!-- header -->
+		
+		<div class="search_pop">
+			<div class="search">
+				<form id="contSearch" name="formSearch" method="post" action="/unified/search/list.do;jsessionid=tnmyewxrQHoa9Btwymsl9Hlj.okep21">
+					<input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요." value="" maxlength="100">
+				</form>
+				<a href="javascript:searchTotal();" class="search_btn" title="검색하기 버튼">
+					<img src="/images/kor/main/search_icon01_pc.png" alt="검색하기버튼아이콘">
+				</a>
+			</div><!-- search -->
+		</div>
+
+		
+
+
+
+<script type="text/javascript">
+	function menuMove(menu_type, url){
+		if(menu_type == 2){
+			window.open(url, "_blank");
+		}else{
+			// @icommtech 폴더 타입 메인 메뉴도, ok-mooc일 경우 open 처리
+			if(url.indexOf('ok-mooc') > -1)
+				window.open(url, "_blank");
+			else
+				window.location = url;
+		}
+	}
+	
+</script>
+
+
+<div class="all_menu_wrap">
+	<div class="all_menu">
+		
+			
+		
+			
+		
+			
+		
+			
+				<div class="menu">
+					<strong>알림∙소식</strong>
+					
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('4','/html/page.do?htmlId=6&menu_seq=65');" title = "포털 소개 이동">
+											포털 소개
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=1&menu_seq=78');" title = "공지사항 이동">
+											공지사항
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=4&menu_seq=79');" title = "재외채용정보 이동">
+											재외채용정보
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=59&menu_seq=172');" title = "온라인 소식지 이동">
+											온라인 소식지
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('0','/alertInfo/cmt/index.do');" title = "재외교육카페 이동">
+											재외교육카페
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=2&menu_seq=83');" title = "묻고 답하기 이동">
+											묻고 답하기
+										</a>
+									</li>
+								</ul>
+							
+						
+					
+				</div>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				<div class="menu">
+					<strong>한국학교</strong>
+					
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('4','/html/page.do?htmlId=17&menu_seq=60');" title = "학교 소개 이동">
+											학교 소개
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('0','/html/page.do?htmlId=14&menu_seq=102');" title = "학교 현황 이동">
+											학교 현황
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=40&menu_seq=105');" title = "학교 소식 이동">
+											학교 소식
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('4','/html/page.do?htmlId=2&menu_seq=88');" title = "관련 법령 및 규정 이동">
+											관련 법령 및 규정
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=31&menu_seq=96');" title = "재정/회계 이동">
+											재정/회계
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=96&menu_seq=256');" title = "온라인공동교육과정 이동">
+											온라인공동교육과정
+										</a>
+									</li>
+								</ul>
+							
+						
+					
+				</div>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				<div class="menu">
+					<strong>한국교육원</strong>
+					
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('4','/html/page.do?htmlId=16&menu_seq=109');" title = "교육원 소개 이동">
+											교육원 소개
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('0','/html/page.do?htmlId=15&menu_seq=112');" title = "교육원 현황 이동">
+											교육원 현황
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=38&menu_seq=118');" title = "교육원 소식 이동">
+											교육원 소식
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=29&menu_seq=77');" title = "해외교육제도 및 현황 이동">
+											해외교육제도 및 현황
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('4','/html/page.do?htmlId=29&menu_seq=110');" title = "관련 법령 및 규정 이동">
+											관련 법령 및 규정
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=41&menu_seq=119');" title = "재정/회계 이동">
+											재정/회계
+										</a>
+									</li>
+								</ul>
+							
+						
+					
+				</div>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				<div class="menu">
+					<strong>재외교육 자료</strong>
+					
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('0','/html/page.do?htmlId=18&menu_seq=21');" title = "재외국민특별전형 이동">
+											재외국민특별전형
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('0','/teachInfo/koAdopt/edu/idxData.do');" title = "해외 한국어 채택 현황 이동">
+											해외 한국어 채택 현황
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=44&menu_seq=121');" title = "한국학교 교육자료 이동">
+											한국학교 교육자료
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=54&menu_seq=139');" title = "한국학교 연수&middot;연구자료 이동">
+											한국학교 연수&middot;연구자료
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('0','/contents/list.do?clss_id=CLSS00000034&menu_seq=136');" title = "한국어교육 자료 이동">
+											한국어교육 자료
+										</a>
+									</li>
+								</ul>
+							
+						
+							
+								<ul>
+									<li>
+										<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=46&menu_seq=127');" title = "일반 자료실 이동">
+											일반 자료실
+										</a>
+									</li>
+								</ul>
+							
+						
+					
+				</div>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</div><!-- all_menu -->
+</div><!-- all_menu_wrap -->
+
+<!-- 모바일 -->
+<div class="navigation">
+	<div class="nav_wrap">
+		<div class="depth01_wrap">
+			<a href="#none">알림∙소식</a>
+			<a href="#none">한국학교</a>
+			<a href="#none">한국교육원</a>
+			<a href="#none">재외교육 자료</a>
+			
+		</div><!-- depth01_wrap -->
+		
+		<div class="menu_wrap">
+			
+				
+			
+				
+			
+				
+			
+				
+					<div class="lnb_wrap">
+						<div class="depth02_wrap">
+							<h3><a href="#" id="9"><span>알림∙소식</span></a></h3>
+							<ul>
+								
+									
+										<li>
+											<a href="javascript:menuMove('4','/html/page.do?htmlId=6&menu_seq=65');">포털 소개</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=1&menu_seq=78');">공지사항</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=4&menu_seq=79');">재외채용정보</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=59&menu_seq=172');">온라인 소식지</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('0','/alertInfo/cmt/index.do');">재외교육카페</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=2&menu_seq=83');">묻고 답하기</a>
+										</li>
+									
+								
+							</ul>
+						</div>
+					</div>
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					<div class="lnb_wrap">
+						<div class="depth02_wrap">
+							<h3><a href="#" id="61"><span>한국학교</span></a></h3>
+							<ul>
+								
+									
+										<li>
+											<a href="javascript:menuMove('4','/html/page.do?htmlId=17&menu_seq=60');">학교 소개</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('0','/html/page.do?htmlId=14&menu_seq=102');">학교 현황</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=40&menu_seq=105');">학교 소식</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('4','/html/page.do?htmlId=2&menu_seq=88');">관련 법령 및 규정</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=31&menu_seq=96');">재정/회계</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=96&menu_seq=256');">온라인공동교육과정</a>
+										</li>
+									
+								
+							</ul>
+						</div>
+					</div>
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					<div class="lnb_wrap">
+						<div class="depth02_wrap">
+							<h3><a href="#" id="62"><span>한국교육원</span></a></h3>
+							<ul>
+								
+									
+										<li>
+											<a href="javascript:menuMove('4','/html/page.do?htmlId=16&menu_seq=109');">교육원 소개</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('0','/html/page.do?htmlId=15&menu_seq=112');">교육원 현황</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=38&menu_seq=118');">교육원 소식</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=29&menu_seq=77');">해외교육제도 및 현황</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('4','/html/page.do?htmlId=29&menu_seq=110');">관련 법령 및 규정</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=41&menu_seq=119');">재정/회계</a>
+										</li>
+									
+								
+							</ul>
+						</div>
+					</div>
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					<div class="lnb_wrap">
+						<div class="depth02_wrap">
+							<h3><a href="#" id="6"><span>재외교육 자료</span></a></h3>
+							<ul>
+								
+									
+										<li>
+											<a href="javascript:menuMove('0','/html/page.do?htmlId=18&menu_seq=21');">재외국민특별전형</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('0','/teachInfo/koAdopt/edu/idxData.do');">해외 한국어 채택 현황</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=44&menu_seq=121');">한국학교 교육자료</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=54&menu_seq=139');">한국학교 연수&middot;연구자료</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('0','/contents/list.do?clss_id=CLSS00000034&menu_seq=136');">한국어교육 자료</a>
+										</li>
+									
+								
+									
+										<li>
+											<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=46&menu_seq=127');">일반 자료실</a>
+										</li>
+									
+								
+							</ul>
+						</div>
+					</div>
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+		</div>
+	</div><!-- nav_wrap -->
+</div><!-- navigation -->
+<div class="navi_bg"></div>
+	
+	</header>
+
+ 	<!--서브 비주얼-->
+	
+
+
+<div id="sub_visual_wrap">
+	<p style="background: url(/images/kor/sub/sub_visual01_pc.jpg)center no-repeat; background-size: cover;height: 220px;" class="pc_img"></p>
+	<img src="/images/kor/sub/sub_visual01_tab.jpg" alt="" class="tab_img" style="width: 100%;">
+	<img src="/images/kor/sub/sub_visual01_mob.jpg" alt="" class="mob_img" style="width: 100%;">
+	<div class="txt_wrap">
+		<h3>재외교육 자료</h3>
+		<p class="fp">Overseas Koreans Education Portal</p>
+	</div><!-- txt_wrap -->
+	
+	<div class="tab_menu_mob">
+		<ul class="menu">
+			<li class="menulink01">
+				<a href="#none">재외교육 자료</a>
+				<ul>
+					
+						
+					
+						
+					
+						
+					
+						
+							<li ><a href="javascript:menuMove('0','/html/page.do?htmlId=6&menu_seq=65');">알림∙소식</a></li>
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							<li ><a href="javascript:menuMove('0','/html/page.do?htmlId=17&menu_seq=60');">한국학교</a></li>
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							<li ><a href="javascript:menuMove('0','/html/page.do?htmlId=16&menu_seq=109');">한국교육원</a></li>
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							<li class="on"><a href="javascript:menuMove('0','/html/page.do?htmlId=18&menu_seq=21');">재외교육 자료</a></li>
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				</ul>
+			</li><!--// menulink	01 -->
+			<li class="menulink02">
+				
+					
+						<a href="#none">
+							재외국민특별전형
+						</a>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+				
+				<ul>
+					
+					 	
+					 		
+				 				<li class = "on">
+				 					<a href="javascript:menuMove('0','/html/page.do?htmlId=18&menu_seq=21');" title = "	재외국민특별전형 메뉴 이동">
+				 						재외국민특별전형
+				 					</a>
+				 				</li>
+				 			
+				 		
+					 		
+				 				<li class = "">
+				 					<a href="javascript:menuMove('0','/teachInfo/koAdopt/edu/idxData.do');" title = "	해외 한국어 채택 현황 메뉴 이동">
+				 						해외 한국어 채택 현황
+				 					</a>
+				 				</li>
+				 			
+				 		
+					 		
+				 				<li class = "">
+				 					<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=44&menu_seq=121');" title = "	한국학교 교육자료 메뉴 이동">
+				 						한국학교 교육자료
+				 					</a>
+				 				</li>
+				 			
+				 		
+					 		
+				 				<li class = "">
+				 					<a href="javascript:menuMove('0','/board/list.do?board_manager_seq=54&menu_seq=139');" title = "	한국학교 연수&middot;연구자료 메뉴 이동">
+				 						한국학교 연수&middot;연구자료
+				 					</a>
+				 				</li>
+				 			
+				 		
+					 		
+				 				<li class = "">
+				 					<a href="javascript:menuMove('0','/contents/list.do?clss_id=CLSS00000034&menu_seq=136');" title = "	한국어교육 자료 메뉴 이동">
+				 						한국어교육 자료
+				 					</a>
+				 				</li>
+				 			
+				 		
+					 		
+				 				<li class = "">
+				 					<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=46&menu_seq=127');" title = "	일반 자료실 메뉴 이동">
+				 						일반 자료실
+				 					</a>
+				 				</li>
+				 			
+				 		
+				 	
+			 	</ul>
+		 	</li><!--// menulink02 -->
+		</ul><!-- // menu -->
+	</div><!-- // tab_menu_mob -->
+</div><!-- sub_visual_wrap -->
+	<div id="sub_container">
+		<div class="inner">
+			
+
+
+
+
+<script type="text/javascript">
+</script>
+
+<div class="tab_menu_pc">
+	<div class="sub_tit">
+		<h3>재외교육 자료</h3>
+	</div>
+	<div class="menu_wrap">
+		
+		 	
+		 		
+	 				
+	 					
+	 						<div class="menu on">
+	 							<h3>
+				 					<a href="#none">
+				 						재외국민특별전형
+				 					</a>
+			 					</h3>
+			 					<ul style = "display:block">
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('4','/html/page.do?htmlId=18&menu_seq=21');">
+						 								
+						 								대학입학전형기본사항
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+				 						<li class="on">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=16&menu_seq=22');">
+						 								
+						 								대학별 모집요강
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('5','/contents/list.do?clss_id=CLSS00000045&menu_seq=132');">
+						 								
+						 								대입정보자료실
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=94&menu_seq=253&amp;rowSize=12');">
+						 								
+						 								학과별 진로멘토링
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('2','https://www.adiga.kr/uve/oca/onlineConseView.do?menuId=PCUVEOCA1000');">
+						 								
+						 								입시정보(대입정보포털)
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+			 					</ul>
+			 				</div>
+	 					
+	 					
+	 				
+		 		
+		 	
+		 		
+	 				
+	 					
+	 						<div class="menu ">
+	 							<h3>
+				 					<a href="#none">
+				 						해외 한국어 채택 현황
+				 					</a>
+			 					</h3>
+			 					<ul style = "">
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('1','/teachInfo/koAdopt/edu/idxData.do');">
+						 								
+						 								국가별 현황
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+						 							<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=42&menu_seq=124');">
+						 								해외 한국어<br>교육과정 연구
+						 							</a>
+				 								
+				 								
+				 							
+				 						</li>
+			 						
+			 					</ul>
+			 				</div>
+	 					
+	 					
+	 				
+		 		
+		 	
+		 		
+	 				
+	 					
+	 						<div class="menu ">
+	 							<h3>
+				 					<a href="#none">
+				 						한국학교 교육자료
+				 					</a>
+			 					</h3>
+			 					<ul style = "">
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=44&menu_seq=121');">
+						 								
+						 								교수&middot;학습자료
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('1','/ok-mooc/courses/list.do?coursesSeq=0&amp;find=search&amp;coursesType=EDU&amp;cours
+esCode=&amp;viewPage=1&amp;coursesCnt=563&amp;title=&amp;coursesSubSubject=&amp;schoolLevel=&amp;coursesSubTraining');">
+						 								
+						 								교육 영상 콘텐츠<br>(OK-MOOC)
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=26&menu_seq=163');">
+						 								
+						 								참고자료
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+			 					</ul>
+			 				</div>
+	 					
+	 					
+	 				
+		 		
+		 	
+		 		
+	 				
+	 					
+	 						<div class="menu ">
+	 							<h3>
+				 					<a href="#none">
+				 						한국학교 연수&middot;연구자료
+				 					</a>
+			 					</h3>
+			 					<ul style = "">
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=54&menu_seq=139');">
+						 								
+						 								교사 연수자료
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('2','/ok-mooc/courses/list.do?coursesSeq=0&amp;find=search&amp;coursesType=PER&amp;cours
+esCode=&amp;viewPage=1&amp;coursesCnt=563&amp;title=&amp;coursesSubSubject=&amp;schoolLevel=&amp;coursesSubTraining');">
+						 								
+						 								온라인 상시 연수<br>(OK-MOOC)
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=43&menu_seq=122');">
+						 								
+						 								연구자료
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+			 					</ul>
+			 				</div>
+	 					
+	 					
+	 				
+		 		
+		 	
+		 		
+	 				
+	 					
+	 						<div class="menu ">
+	 							<h3>
+				 					<a href="#none">
+				 						한국어교육 자료
+				 					</a>
+			 					</h3>
+			 					<ul style = "">
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('5','/contents/list.do?clss_id=CLSS00000034&menu_seq=136');">
+						 								
+						 								한국어  교과교육
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('5','/contents/list.do?clss_id=CLSS00000062&menu_seq=203');">
+						 								
+						 								한국어 교재 지도서
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=28&menu_seq=76');">
+						 								
+						 								한국어 교수학습
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+				 						<li class="">
+				 							
+				 							
+				 								
+				 								
+						 							<a href="javascript:menuMove('5','/contents/list.do?clss_id=CLSS00000044&menu_seq=31');">
+						 								
+						 								한국문화 교육
+						 							</a>
+				 								
+				 							
+				 						</li>
+			 						
+			 					</ul>
+			 				</div>
+	 					
+	 					
+	 				
+		 		
+		 	
+		 		
+	 				
+	 					
+	 					
+	 						<div class="menu ">
+				 				<h3>
+				 					<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=46&menu_seq=127');">
+				 						일반 자료실
+				 					</a>
+				 				</h3>
+			 				</div>
+		 				
+	 				
+		 		
+		 	
+		
+	</div>
+</div>
+
+			<!-- 본문내용 -->
+			<div id="sub_contents">
+				
+					<div class="depth03_mob">
+						<em>대학별 모집요강</em>
+						<ul>
+							
+								
+									
+										<li class="">
+											<a href="javascript:menuMove('4','/html/page.do?htmlId=18&menu_seq=21');" title = "대학입학전형기본사항 이동">
+												대학입학전형기본사항
+											</a>
+										</li>
+									
+										<li class="on">
+											<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=16&menu_seq=22');" title = "대학별 모집요강 이동">
+												대학별 모집요강
+											</a>
+										</li>
+									
+										<li class="">
+											<a href="javascript:menuMove('5','/contents/list.do?clss_id=CLSS00000045&menu_seq=132');" title = "대입정보자료실 이동">
+												대입정보자료실
+											</a>
+										</li>
+									
+										<li class="">
+											<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=94&menu_seq=253&amp;rowSize=12');" title = "학과별 진로멘토링 이동">
+												학과별 진로멘토링
+											</a>
+										</li>
+									
+										<li class="">
+											<a href="javascript:menuMove('2','https://www.adiga.kr/uve/oca/onlineConseView.do?menuId=PCUVEOCA1000');" title = "입시정보(대입정보포털) 이동">
+												입시정보(대입정보포털)
+											</a>
+										</li>
+											
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+						</ul>
+					</div><!-- depth03_mob -->
+				
+				<div class="contop" id="skip01">
+					<h3>대학별 모집요강</h3>
+					<ul class="sub_nav">
+						<li>
+							<a href="/root/index.do" title = "재외교육기관포털 홈">
+								<img src="/images/kor/sub/home_pc.png" alt="" class="pc_img">
+								<img src="/images/kor/sub/home_tab.png" alt="" class="tab_img">
+								<img src="/images/kor/sub/home_mob.png" alt="" class="mob_img">
+								HOME
+							</a>
+						</li>
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<li>
+									<a href="javascript:menuMove('0','/html/page.do?htmlId=18&menu_seq=21');">재외교육 자료</a>
+								</li>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						
+							
+								
+									<li>
+										<a href="javascript:menuMove('0','/html/page.do?htmlId=18&menu_seq=21');" title = "재외국민특별전형 이동">재외국민특별전형</a>
+									</li>
+									
+										<li>
+											<a href="javascript:menuMove('3','/board/list.do?board_manager_seq=16&menu_seq=22');" title = "대학별 모집요강 이동">대학별 모집요강</a>
+										</li>
+									
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+								
+							
+						
+					</ul>
+				</div>
+				<div class="conbody">
+					<div class="skin_view_wrap skin01_view">
+		<div class="tbl_wrap">
+			
+			<table class="skin_tbl02 tbl_pc" summary="게시판 글 상세화면">
+				<caption>한국학교 〉재외국민특별전형 〉대학별 요강</caption>
+				<colgroup>
+					<col class="col01">
+					<col class="col02">
+					<col class="col01">
+					<col class="col02">
+				</colgroup>
+				<tr>
+					<th>제목</th>
+					<td colspan="3">
+						부산대학교_2027학년도 재외국민 특별전형 모집요강&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<th>작성자</th>
+					<td>
+						
+							
+							
+								<p class="boan">서울대관리자</p>
+							
+						
+					</td>
+					<th>작성일</th>
+					<td>
+						26.06.12
+						
+							<span>
+								(
+									수정일 26.06.12
+								)
+						 	 </span>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<th>조회수</th>
+					<td colspan="3">789</td>
+				</tr>
+				
+				
+					<tr>
+						<th>첨부파일</th>
+						<td colspan="3">
+							
+								<div class="file_wrap">
+									
+										<div class="file">
+											<p>
+												<img src="/images/kor/sub/file_icon01_pc.png" alt="첨부파일아이콘" class="pc_img">
+												부산대학교_2027학년도 재외국민 특별전형 모집요강.pdf
+												
+												
+												
+													
+														
+														
+															
+																(907 KB)
+															
+															
+														
+													
+													
+												
+											</p>
+											<div class="btn_wrap">
+												<a href="/board/download.do?board_seq=26938&board_manager_seq=16&board_file_seq=27743" >
+													<img src="/images/kor/sub/dw_btn01_pc.png" alt="다운로드아이콘" class="pc_img">
+													<img src="/images/kor/sub/dw_btn01_tab.png" alt="다운로드아이콘" class="tab_img">
+													<img src="/images/kor/sub/dw_btn01_mob.png" alt="다운로드아이콘" class="mob_img">
+													다운로드
+												</a>
+												<a href='javascript:previewDocument("/previewBoard.do","{ \"board_seq\" : 26938, \"board_manager_seq\" : 16, \"board_file_seq\" : 27743 }");'>
+													<img src="/images/kor/sub/view_icon01_pc.png" alt="미리보기아이콘" class="pc_img">
+													<img src="/images/kor/sub/view_icon01_tab.png" alt="미리보기아이콘" class="tab_img">
+													<img src="/images/kor/sub/view_icon01_mob.png" alt="미리보기아이콘" class="mob_img">
+													미리보기
+												</a>
+											</div>
+										</div>
+									
+								</div>
+								
+							
+							
+						</td>
+					</tr>
+				
+				<tr>
+					<td colspan="4" class="txt_wrap">
+						<div class="txt">
+							<p>본 첨부자료는 참고용으로 제공되며, 현재 시점의 최신 수정 사항이 반영되지 않았을 수 있습니다. 모집요강의 최신 내용은 해당 학교 입학처 홈페이지에서 반드시 확인하시기 바랍니다.</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="skin_tbl02 tbl_mob">
+				<colgroup>
+					<col class="col01">
+					<col class="col02">
+				</colgroup>
+				<tr>
+					<th>제목</th>
+					<td>
+						부산대학교_2027학년도 재외국민 특별전형 모집요강&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<th>작성자</th>
+					<td>
+						<p class="boan">서울대관리자123</p>
+						
+					</td>
+				</tr>
+				<tr>
+					<th>작성일</th>
+					<td>
+						26.06.12
+						
+							<span>
+								(
+									수정일 26.06.12
+								)
+						 	 </span>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<th>조회수</th>
+					<td>
+						789
+					</td>
+				</tr>
+				
+					<tr>
+						<th>첨부파일</th>
+						<td>
+							
+								<div class="file_wrap">
+									
+									
+										<div class="file">
+										<p>
+											<img src="/images/kor/sub/file_icon01_pc.png" alt="첨부파일아이콘" class="pc_img">
+											부산대학교_2027학년도 재외국민 특별전형 모집요강.pdf
+											
+											
+											
+												
+													
+													
+														
+															(907 KB)
+														
+														
+													
+												
+												
+											
+											<span class="btn_wrap">
+												<a href="/board/download.do?board_seq=26938&board_manager_seq=16&board_file_seq=27743" >
+													<img src="/images/kor/sub/dw_btn01_mob.png" alt="다운로드아이콘" class="mob_img">
+													다운로드
+												</a>
+												<a href='javascript:previewDocument("/previewBoard.do","{ \"board_seq\" : 26938, \"board_manager_seq\" : 16, \"board_file_seq\" : 27743 }");'>
+													<img src="/images/kor/sub/view_icon01_mob.png" alt="미리보기아이콘" class="mob_img">
+													미리보기
+												</a>
+											</span>
+										</p>
+										</div>
+									
+								</div>
+							
+							
+						</td>
+					</tr>
+				
+				<tr>
+					<td colspan="2" class="txt_wrap">
+						<div class="txt">
+							<p>본 첨부자료는 참고용으로 제공되며, 현재 시점의 최신 수정 사항이 반영되지 않았을 수 있습니다. 모집요강의 최신 내용은 해당 학교 입학처 홈페이지에서 반드시 확인하시기 바랍니다.</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div class="bot_wrap">
+				<div class="left">
+					
+					
+					
+					<a href="#" class="btn02 report_btn"title="신고하기버튼">
+						<img src="/images/kor/sub/report_icon01_pc.png" alt="신고하기아이콘" class="pc_img">
+						<img src="/images/kor/sub/report_icon01_tab.png" alt="신고하기아이콘" class="tab_img">
+						<img src="/images/kor/sub/report_icon01_mob.png" alt="신고하기아이콘" class="mob_img">
+						신고하기
+					</a>
+					
+					<!-- 즐겨찾기 추가_2024.04 -->
+					
+					<!-- // 즐겨찾기 추가 -->
+				</div>
+				<div class="right">
+					<a href="#" onClick="boardList();" onKeyPress="" title="목록바로가기">목록</a>
+				</div><!-- right -->
+			</div>
+		
+			
+				
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+var startNum = 0;
+var endNum   = 1000;
+var sortType = 'DESC';
+var commentTotalCount = 0;
+
+// HTML 이스케이프
+function escapeHtml(str) {
+	if (str == null) return '';
+	return String(str)
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#39;');
+}
+
+// 줄바꿈 -> <br>
+function nl2br(str) {
+	return escapeHtml(str).replace(/\r\n|\r|\n/g, '<br>');
+}
+
+// 댓글 등록
+function addComment(up_comment_seq) {
+	
+		alert('로그인 후에 사용 가능합니다.');
+		location.href = "/login/loginPage.do";
+		return;
+	
+
+	
+
+	var contentStr = '';
+
+	if (up_comment_seq == 0) {
+		if ($('re_content').value == '' || $('re_content').value == null) {
+			alert('당신의 의견을 남겨 주세요.');
+			$('re_content').focus();
+			return;
+		}
+		contentStr = $('re_content').value;
+	} else {
+		var contentId = 'content' + up_comment_seq;
+
+		if ($(contentId).value == '' || $(contentId).value == null) {
+			alert('당신의 의견을 남겨 주세요.');
+			$(contentId).focus();
+			return;
+		}
+		contentStr = $(contentId).value;
+	}
+
+	var commentMap = {};
+	commentMap['board_seq'] = $('comment_board_seq').value;
+	commentMap['board_manager_seq'] = $('comment_manager_seq').value;
+	commentMap['content'] = contentStr;
+	commentMap['up_board_comment_seq'] = up_comment_seq;
+
+	requestData('addBoardComment', commentMap, function(data) {
+		var ok =
+			data === true ||
+			data === "true" ||
+			(data && (data.result === true || data.result === "true")) ||
+			(data && data.result && (data.result.result === true || data.result.result === "true"));
+
+		if (ok) {
+			commentListAjax();
+		} else {
+			alert("댓글 등록 횟수를 초과하였습니다.\n잠시후 다시 시도해주세요.");
+			return;
+		}
+	});
+}
+
+// 댓글/대댓글 HTML 생성
+function buildCommentHtml(item, isReply, memberType, replyCount) {
+	var myId = '';
+	var isAdmin = ('false' === 'true');
+	var canEdit = (memberType == "true" && (item.user_id == myId || isAdmin));
+
+	var crtdt  = item.crt_str ? item.crt_str.substr(0, 16) : '';
+	var crtdt2 = item.crt_str ? item.crt_str.substr(0, 10) : '';
+	var uptdt  = item.upt_str ? item.upt_str.substr(0, 16) : '';
+
+	var viewDate = '';
+	if (crtdt == uptdt) {
+		viewDate = crtdt;
+	} else {
+		viewDate = crtdt2 + ' (' + uptdt + ' 수정)';
+	}
+
+	var html = '';
+	html += '<div class="reply_box' + (isReply ? ' re' : '') + '" id="section_' + item.board_comment_seq + '" data-comment-seq="' + item.board_comment_seq + '">';
+
+	// 본문
+	html += '	<div class="box">';
+	
+	if (item.del_dt == null) {
+		if (isAdmin == true) {
+			html += '		<p class="name">' + escapeHtml(item.user_name)
+			/* + '(' + escapeHtml(item.user_id) + ')' */ 
+			+ '</p>';
+		} else {
+			if(item.user_name.length >= 2) {
+				html += '		<p class="name">' + item.user_name.charAt(0) + "*" + item.user_name.slice(2) + '</p>';
+			}
+		}
+
+		html += '		<div class="txt">';
+		html += '			<p id="content_' + item.board_comment_seq + '">' + nl2br(item.content) + '</p>';
+		html += '		</div>';
+
+		html += '		<div class="bot">';
+		html += '			<div class="left">';
+		html += '				<span>' + escapeHtml(viewDate) + '</span>';
+
+		if (!isReply) {
+			if (replyCount > 0) {
+				html += '				<a href="javascript:void(0);" class="form_pop_btn">답글쓰기 <b>' + replyCount + '</b></a>';
+			} else {
+				html += '				<a href="javascript:void(0);" class="form_pop_btn">답글쓰기</a>';
+			}
+		}
+
+		html += '			</div>';
+
+		if (canEdit) {
+			html += '			<div class="right">';
+			html += '				<a href="javascript:void(0);" title="댓글수정하기" class="mod_pop_btn">수정</a>';
+			html += '				<a href="javascript:void(0);" title="댓글삭제하기" class="del_btn">삭제</a>';
+			html += '			</div>';
+		}
+
+		html += '		</div>';
+	} else {
+		html += '		<div class="txt">';
+		html += '			<p id="content_' + item.board_comment_seq + '">삭제된 댓글입니다.</p>';
+		html += '		</div>';
+	}
+
+	html += '	</div>';
+
+	// 답글 작성 폼(부모댓글만)
+	if (item.del_dt == null && !isReply) {
+		html += '	<div class="re_form" style="display:none;">';
+		html += '		<div class="icon">';
+		html += '			<img src="/images/kor/sub/re_form_icon.png" alt="">';
+		html += '		</div>';
+		html += '		<div class="form_wrap">';
+		html += '			<textarea id="content' + item.board_comment_seq + '" placeholder="댓글을 작성해 주세요."></textarea>';
+		html += '			<a href="javascript:void(0);" class="form_btn">등록</a>';
+		html += '		</div>';
+		html += '	</div>';
+	}
+
+	// 수정 폼
+	if (item.del_dt == null && canEdit) {
+		html += '	<div class="mod_form" style="display:none;">';
+		html += '		<div class="form_wrap">';
+		html += '			<p class="name">' + escapeHtml(item.user_name) + '</p>';
+		html += '			<textarea id="modify_content_' + item.board_comment_seq + '">' + escapeHtml(item.content) + '</textarea>';
+		html += '			<div class="bot">';
+		html += '				<div class="left">';
+		html += '					<span>' + escapeHtml(viewDate) + '</span>';
+		html += '				</div>';
+		html += '				<div class="right">';
+		html += '					<a href="javascript:void(0);" title="수정저장하기" class="mod_save_btn">저장</a>';
+		html += '					<a href="javascript:void(0);" title="수정취소하기" class="mod_pop_back">취소</a>';
+		html += '				</div>';
+		html += '			</div>';
+		html += '		</div>';
+		html += '	</div>';
+	}
+
+	html += '</div>';
+
+	return html;
+}
+
+// 댓글 리스트 조회
+function commentListAjax() {
+	var memberType = jQuery("#sessionType").val();
+
+	jQuery.ajax({
+		type : "POST",
+		url  : "/selectBoardComment.do",
+		data : {
+			"board_seq" : jQuery('#comment_board_seq').val(),
+			"start_num" : startNum,
+			"end_num"   : endNum,
+			"sortType"  : sortType
+		},
+		success : function(data) {
+			var list = data.boardCommentList || [];
+			var comment_cnt = list.length;
+			var appendHtml = '';
+			var cmmtVaildCnt = 0;
+
+			var parentList = [];
+			var childMap = {};
+			var item, i, j;
+
+			if (comment_cnt < 1) {
+				appendHtml += '<div class="reply_box">';
+				appendHtml += '	<div class="box">';
+				appendHtml += '		<div class="txt"><p>작성된 댓글이 없습니다.</p></div>';
+				appendHtml += '	</div>';
+				appendHtml += '</div>';
+			} else {
+				// 부모 / 자식 분리
+				for (i = 0; i < comment_cnt; i++) {
+					item = list[i];
+
+					// 부모댓글: board_seq == up_board_comment_seq
+					if (item.board_seq == item.up_board_comment_seq) {
+						parentList.push(item);
+					} else {
+						if (!childMap[item.up_board_comment_seq]) {
+							childMap[item.up_board_comment_seq] = [];
+						}
+						childMap[item.up_board_comment_seq].push(item);
+					}
+				}
+
+				// 렌더링
+				for (i = 0; i < parentList.length; i++) {
+					item = parentList[i];
+					var children = childMap[item.board_comment_seq] || [];
+					var replyCount = 0;
+
+					for (j = 0; j < children.length; j++) {
+						if (children[j].del_dt == null) {
+							replyCount++;
+						}
+					}
+
+					appendHtml += buildCommentHtml(item, false, memberType, replyCount);
+
+					if (item.del_dt == null) {
+						cmmtVaildCnt++;
+					}
+
+					for (j = 0; j < children.length; j++) {
+						appendHtml += buildCommentHtml(children[j], true, memberType, 0);
+
+						if (children[j].del_dt == null) {
+							cmmtVaildCnt++;
+						}
+					}
+				}
+			}
+
+			jQuery('#reply_wrap').html(appendHtml);
+			jQuery('.write_wrap').find('textarea').val('');
+
+			if (cmmtVaildCnt > 0) {
+				jQuery('#commentLength').text(cmmtVaildCnt);
+			} else {
+				jQuery('#commentLength').text('0');
+			}
+		},
+		error : function(request, status, error) {
+			alert("error : " + error);
+		}
+	});
+}
+
+// 댓글 접기/펼치기
+function viewComment() {
+	var $list = jQuery('#reply_wrap');
+	var $write = jQuery('.write_wrap');
+
+	if ($list.is(':visible')) {
+		$list.slideUp(150);
+		$write.slideUp(150);
+	} else {
+		$list.slideDown(150);
+		$write.slideDown(150);
+	}
+}
+
+jQuery(document).ready(function() {
+	commentListAjax();
+
+	// 답글 폼 열기/닫기
+	jQuery(document).on('click', '.form_pop_btn', function() {
+		
+			alert('로그인 후에 사용 가능합니다.');
+			location.href = "/login/loginPage.do";
+			return;
+		
+
+		var $replyBox = jQuery(this).closest('.reply_box');
+
+		jQuery('.re_form').not($replyBox.find('.re_form')).hide();
+		jQuery('.mod_form').hide();
+
+		$replyBox.find('.re_form').toggle();
+	});
+
+	// 답글 등록
+	jQuery(document).on('click', '.form_btn', function() {
+		var commentSeq = jQuery(this).closest('.reply_box').data('comment-seq');
+		addComment(commentSeq);
+	});
+
+	// 수정 폼 열기
+	jQuery(document).on('click', '.mod_pop_btn', function() {
+		var $replyBox = jQuery(this).closest('.reply_box');
+
+		jQuery('.re_form').hide();
+		jQuery('.mod_form').not($replyBox.find('.mod_form')).hide();
+
+		$replyBox.find('.mod_form').show();
+	});
+
+	// 수정 취소
+	jQuery(document).on('click', '.mod_pop_back', function() {
+		jQuery(this).closest('.mod_form').hide();
+	});
+
+	// 댓글/답글 수정 저장
+	jQuery(document).on('click', '.mod_save_btn', function() {
+		
+			alert("댓글 수정 권한이 없습니다.");
+			return false;
+		
+
+		var board_comment_seq = jQuery(this).closest('.reply_box').data('comment-seq');
+		var contentStr = jQuery('#modify_content_' + board_comment_seq).val();
+
+		var commentMap = {};
+		commentMap['board_comment_seq'] = board_comment_seq;
+		commentMap['board_seq'] = $('comment_board_seq').value;
+		commentMap['board_manager_seq'] = $('comment_manager_seq').value;
+		commentMap['modify_content'] = contentStr;
+
+		requestData('modifyBoardComment', commentMap, function(data) {
+			commentListAjax();
+		});
+	});
+
+	// 댓글/답글 삭제
+	jQuery(document).on('click', '.del_btn', function() {
+		
+			alert("댓글을 삭제할 권한이 없습니다.");
+			return false;
+		
+
+		if (!confirm('댓글을 삭제하시겠습니까?')) {
+			return;
+		}
+
+		var board_comment_seq = jQuery(this).closest('.reply_box').data('comment-seq');
+
+		var commentMap = {};
+		commentMap['board_comment_seq'] = board_comment_seq;
+		commentMap['board_seq'] = jQuery('#boardCommentForm').find('#comment_board_seq').val();
+
+		requestData('deleteBoardComment', commentMap, function(data) {
+			commentListAjax();
+		});
+	});
+});
+</script>
+
+<noscript>Script를 지원하지 않습니다.</noscript>
+
+<form id="boardCommentForm" name="boardCommentForm" action="addBoardComment.do" method="post">
+	<input type="hidden" id="comment_board_seq" name="board_seq" value="26938" />
+	<input type="hidden" id="comment_manager_seq" name="board_manager_seq" value="16" />
+	<input id="board_comment_seq" name="board_comment_seq" type="hidden" value="0"/>
+	<input id="modify_content" name="modify_content" type="hidden" value=""/>
+	<input id="boardSearchCondition.rowSize" name="boardSearchCondition.rowSize" type="hidden" value="10"/>
+	<input id="boardSearchCondition.sortField" name="boardSearchCondition.sortField" type="hidden" value=""/>
+	<input id="boardSearchCondition.sortType" name="boardSearchCondition.sortType" type="hidden" value=""/>
+	<input id="boardSearchCondition.viewPage" name="boardSearchCondition.viewPage" type="hidden" value="1"/>
+	<input id="boardSearchCondition.board_seq" name="boardSearchCondition.board_seq" type="hidden" value="26938"/>
+	<input id="boardSearchCondition.up_board_seq" name="boardSearchCondition.up_board_seq" type="hidden" value="0"/>
+	<input id="boardSearchCondition.menu_seq" name="boardSearchCondition.menu_seq" type="hidden" value="22"/>
+	<input id="boardSearchCondition.boardListType" name="boardSearchCondition.boardListType" type="hidden" value=""/>
+	<input id="boardSearchCondition.find" name="boardSearchCondition.find" type="hidden" value=""/>
+	<input id="boardSearchCondition.search" name="boardSearchCondition.search" type="hidden" value=""/>
+	<input type="hidden" id="sessionType" name="sessionType" value="false" />
+
+	<!-- 댓글 목록 -->
+	<div class="reply_con">
+		<div class="re_btn" onclick="viewComment()">
+			<p>댓글 <em id="commentLength">0</em></p>
+			<img src="/images/kor/sub/select_icon03_pc.png" alt="" class="pc_img">
+			<img src="/images/kor/sub/select_icon03_tab.png" alt="" class="tab_img">
+			<img src="/images/kor/sub/select_icon03_mob.png" alt="" class="mob_img">
+		</div><!-- re_btn -->
+
+		<div class="reply_wrap" id="reply_wrap">
+		</div><!-- reply_wrap -->
+
+		<div class="write_wrap">
+			
+			
+				<textarea placeholder="로그인 후 댓글을 작성할 수 있습니다." id="re_content" name="re_content" title="댓글 작성란" disabled></textarea>
+				<a href="/login/loginPage.do" title = "로그인 화면 이동">로그인</a>
+			
+		</div><!-- write_wrap -->
+	</div><!-- reply_con -->
+</form>
+			
+			
+				<div class="arr_tbl">
+					<table class="skin_tbl02">
+						<colgroup>
+							<col class="col01">
+							<col class="col02">
+						</colgroup>
+						<tr>
+							<th>
+								<p>
+									이전글
+									<img src="/images/kor/sub/next_icon01_pc.png" alt="이전글아이콘" class="pc_img">
+									<img src="/images/kor/sub/next_icon01_tab.png" alt="이전글아이콘" class="tab_img">
+									<img src="/images/kor/sub/next_icon01_mob.png" alt="이전글아이콘" class="mob_img">
+								</p>
+							</th>
+							<td>
+								
+									
+									
+										<a href="#none" onClick="javascript:boardViewNew('26937','16');" title="이전글로이동">
+											부경대학교_2027학년도 국립부경대학교 재외국민 특별전형 모집요강
+
+										</a>
+									
+								
+							</td>
+						</tr>
+						<tr>
+							<th>
+								<p>
+									다음글
+									<img src="/images/kor/sub/next_icon01_pc.png" alt="다음글아이콘" class="pc_img">
+									<img src="/images/kor/sub/next_icon01_tab.png" alt="다음글아이콘" class="tab_img">
+									<img src="/images/kor/sub/next_icon01_mob.png" alt="다음글아이콘" class="mob_img">
+								</p>
+							</th>
+							<td>
+								
+									
+									
+										<a href="#none" onClick="javascript:boardViewNew('26939','16');" title="다음글로이동">
+											부산외국어대학교_2027학년도 수시 재외국민전형 모집요강
+
+										</a>
+									
+								
+							</td>
+						</tr>
+					</table>
+				</div>
+			
+		</div>
+		<div class="report_pop_wrap pop_wrap01">
+			<div class="pop_con">
+				<div class="tit">
+					<p>신고하기</p>
+					<div class="btn_wrap">
+						<a href="#">
+							<img src="/images/kor/sub/pop_icon01.png" alt="">
+						</a>
+						<a href="#">
+							<img src="/images/kor/sub/pop_icon02.png" alt="">
+						</a>
+						<a href="javascript:void(0);" class="x_btn">
+							<img src="/images/kor/sub/pop_x_btn.png" alt="">
+						</a>
+					</div><!-- btn_wrap -->
+				</div><!-- tit -->
+				<div class="txt_wrap">
+					<strong>신고사유</strong>
+					<textarea id="contentStr" name="contentStr" ></textarea>
+					<div class="btn">
+						<a href="#" onclick="formSubmit();">신고하기</a>
+					</div><!-- btn -->
+				</div><!-- txt_wrap -->
+			</div><!-- pop_con -->
+		</div><!-- report_pop_wrap -->
+	</div>
+	
+
+	<!-- 게시판 하단 html-->  
+<!-- 	<div class="board_bt"> -->
+
+<!-- 	</div> -->
+	<!-- // 게시판 하단 html-->
+	<form id="boardForm" name="boardForm" action="/board/view.do;jsessionid=tnmyewxrQHoa9Btwymsl9Hlj.okep21?board_manager_seq=16&amp;menu_seq=22&amp;board_seq=26938" method="post">
+		<input id="rowSize" name="rowSize" type="hidden" value="10"/>
+		<input id="sortField" name="sortField" type="hidden" value=""/>
+		<input id="sortType" name="sortType" type="hidden" value=""/>
+		<input id="viewPage" name="viewPage" type="hidden" value="1"/>
+		<input id="board_manager_seq" name="board_manager_seq" type="hidden" value="16"/>
+		<input id="move_manager_seq" name="move_manager_seq" type="hidden" value="0"/>
+		<input id="copy_manager_seq" name="copy_manager_seq" type="hidden" value="0"/>
+		<input id="board_seq_view" name="board_seq" type="hidden" value="26938"/>
+		<input id="up_board_seq" name="up_board_seq" type="hidden" value="0"/>
+		<input id="menu_seq" name="menu_seq" type="hidden" value="22"/>
+		<input id="boardListType" name="boardListType" type="hidden" value=""/>
+		<input id="find" name="find" type="hidden" value=""/>
+		<input id="search" name="search" type="hidden" value=""/>
+		<input id="category1" name="category1" type="hidden" value=""/>
+		<input id="category2" name="category2" type="hidden" value=""/>
+		<input id="category3" name="category3" type="hidden" value=""/>
+		<input id="category4" name="category4" type="hidden" value=""/>
+		<input id="category5" name="category5" type="hidden" value=""/>
+		<input id="re_title" name="re_title" type="hidden" value=""/>
+		
+		<input id="confirm_board_key" name="confirm_board_key" type="hidden" value=""/>
+		<input id="auth_mode" name="auth_mode" type="hidden" value=""/>
+		<input id="mode" name="mode" type="hidden" value=""/>
+		<input type="hidden" name="report_state" id="report_state" value="2" />
+		<input type="hidden" name="contentReport" id="contentReport" />
+		<input type="hidden" id="fileId" name="fileId" value="" />
+	</form>
+	
+	<form name="contentPopupForm" action="/util/print/contentPage.do" method="post">
+	    <input type="hidden" id="contentBody" name="contentBody" />
+	</form>
+	
+<!-- modal 팝업창(사이트맵) -->
+<script>
+    jQuery("#report_pop").iziModal();
+    jQuery(document).on('click', '.report', function (event) {
+
+    	'';
+    		alert('로그인 후에 사용 가능합니다.');    		
+    		return;	
+    	'';
+    	
+        event.preventDefault();
+        jQuery('#report_pop').iziModal('open');
+    });
+    jQuery('#report_pop').iziModal('setWidth', 600);
+    jQuery('#report_pop').iziModal('setTitle', '신고하기');
+    jQuery('#report_pop').iziModal('setHeaderColor', '#354185');
+    jQuery('#report_pop').iziModal('setZindex', 999);
+</script>
+    
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+fnLoadContent();
+//-->
+</SCRIPT>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+
+
+<div id="footer">
+	<div class="inner">
+		<div class="left">
+			<div class="a_wrap">
+				<a href="/html/page.do?htmlId=3&menu_seq=89">이용약관</a>
+				<a href="/html/page.do?htmlId=4&menu_seq=90">개인정보 처리방침</a>
+				<a href="/html/page.do?htmlId=1&menu_seq=86">서비스 소개</a>
+			</div><!-- a_wrap -->
+			<address>
+				<p>세종특별자치시 갈매로 408, 14동(어진동) 정부세종청사 <br>
+				E-mail: <a href="mailto:okepwebmaster@gmail.com">okepwebmaster@gmail.com</a>
+				</p>
+				<p class="copy">Copyright (c) Overseas Koreans Education Portal. All Rights Reserved.</p>
+			</address>
+		</div><!-- left -->
+		<div class="right">
+			<div class="site_wrap">
+				<div class="site site01">
+					<a href="javascript:void(0);" class="site_btn" title="학교 바로가기 슬라이드 열림">  
+						학교 바로가기
+						<img src="/images/kor/main/arr01_pc.png" alt="" class="pc_img">
+						<img src="/images/kor/main/arr01_tab.png" alt="" class="tab_img">
+						<img src="/images/kor/main/arr01_mob.png" alt="" class="mob_img">
+					</a>
+					<div class="box" data-lenis-prevent>
+						<ul>
+							
+								<li>
+									<a href="http://www.keonguk.ac.jp" target="_blank" title="건국한국학교 사이트 바로가기"
+									>
+										건국한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://gks.or.kr" target="_blank" title="광저우한국학교 사이트 바로가기"
+									>
+										광저우한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="https://kyoto-kokusai.ed.jp/jp/" target="_blank" title="교토국제학교 사이트 바로가기"
+									>
+										교토국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.khks.kr" target="_blank" title="까오숑한국국제학교 사이트 바로가기"
+									>
+										까오숑한국국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.dkischool.org/" target="_blank" title="대련한국국제학교 사이트 바로가기"
+									>
+										대련한국국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.tokos.ed.jp/smain.html" target="_blank" title="동경한국학교 사이트 바로가기"
+									>
+										동경한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://riyadhkorea.kr" target="_blank" title="리야드한국학교 사이트 바로가기"
+									>
+										리야드한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://ksmy.kr/" target="_blank" title="말레이시아한국학교 사이트 바로가기"
+									>
+										말레이시아한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://moscowks.net/" target="_blank" title="모스크바한국국제학교 사이트 바로가기"
+									>
+										모스크바한국국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://wxks.kr" target="_blank" title="무석한국학교 사이트 바로가기"
+									>
+										무석한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://kisbangkok.co.kr/" target="_blank" title="방콕한국국제학교 사이트 바로가기"
+									>
+										방콕한국국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kisb.net" target="_blank" title="북경한국국제학교 사이트 바로가기"
+									>
+										북경한국국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://skoschool.com" target="_blank" title="상해한국학교 사이트 바로가기"
+									>
+										상해한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://sykis.withschool.co.kr/" target="_blank" title="선양한국국제학교 사이트 바로가기"
+									>
+										선양한국국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://suzhouks.kr/" target="_blank" title="소주한국학교 사이트 바로가기"
+									>
+										소주한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.skis.kr/" target="_blank" title="싱가포르한국국제학교 사이트 바로가기"
+									>
+										싱가포르한국국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.icaschool.net/" target="_blank" title="아르헨티나한국학교 사이트 바로가기"
+									>
+										아르헨티나한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.koreaschool.org/" target="_blank" title="옌타이한국국제학교 사이트 바로가기"
+									>
+										옌타이한국국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://kisy.or.kr" target="_blank" title="연변한국국제학교 사이트 바로가기"
+									>
+										연변한국국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="https://www.kongogakuen.ed.jp/-" target="_blank" title="오사카금강인터내셔널소중고등학교 사이트 바로가기"
+									style="line-height:18px">
+										오사카금강인터내셔널소중고등학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.weihaischool.org" target="_blank" title="웨이하이한국학교 사이트 바로가기"
+									>
+										웨이하이한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://jiks.com" target="_blank" title="자카르타한국학교 사이트 바로가기"
+									>
+										자카르타한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.jeddahschool.kr/" target="_blank" title="젯다한국학교 사이트 바로가기"
+									>
+										젯다한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kistschool.cn/" target="_blank" title="천진한국국제학교 사이트 바로가기"
+									>
+										천진한국국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.qchwn.org/" target="_blank" title="칭다오청운한국학교 사이트 바로가기"
+									>
+										칭다오청운한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.cairoschool.kr/" target="_blank" title="카이로한국학교 사이트 바로가기"
+									>
+										카이로한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://taipeiks.net/" target="_blank" title="타이뻬이한국학교 사이트 바로가기"
+									>
+										타이뻬이한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.tehranschool.net/" target="_blank" title="테헤란한국학교 사이트 바로가기"
+									>
+										테헤란한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="https://pycolegiocoreano.net/" target="_blank" title="파라과이한국학교 사이트 바로가기"
+									>
+										파라과이한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://kispp.net" target="_blank" title="프놈펜한국국제학교 사이트 바로가기"
+									>
+										프놈펜한국국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://kisp.ph" target="_blank" title="필리핀한국국제학교 사이트 바로가기"
+									>
+										필리핀한국국제학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.hanoischool.net" target="_blank" title="하노이한국학교 사이트 바로가기"
+									>
+										하노이한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kshcm.net/" target="_blank" title="호치민시한국학교 사이트 바로가기"
+									>
+										호치민시한국학교
+									</a>
+								</li>
+							
+								<li>
+									<a href="https://kis.edu.hk/" target="_blank" title="홍콩한국국제학교 사이트 바로가기"
+									>
+										홍콩한국국제학교
+									</a>
+								</li>
+							
+						</ul>
+					</div><!-- box -->
+				</div><!-- site -->
+				<div class="site site02">
+					<a href="javascript:void(0);" class="site_btn" title="교육원 바로가기 슬라이드 열림"> 
+						교육원 바로가기
+						<img src="/images/kor/main/arr01_pc.png" alt="" class="pc_img">
+						<img src="/images/kor/main/arr01_tab.png" alt="" class="tab_img">
+						<img src="/images/kor/main/arr01_mob.png" alt="" class="mob_img">
+					</a>
+					<div class="box" data-lenis-prevent>
+						<ul>
+							
+								<li>
+									<a href="http://kanagawa.kankoku.or.kr" target="_blank" title="가나가와한국종합교육원 사이트 바로가기">
+										가나가와한국종합교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://kobe.kankoku.or.kr" target="_blank" title="고베한국교육원 사이트 바로가기">
+										고베한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://kyoto.kankoku.or.kr" target="_blank" title="교토한국교육원 사이트 바로가기">
+										교토한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://nagano.kankoku.or.kr" target="_blank" title="나가노한국교육원 사이트 바로가기">
+										나가노한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://nara.kankoku.or.kr/" target="_blank" title="나라한국교육원 사이트 바로가기">
+										나라한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="https://www.kecny.org" target="_blank" title="뉴욕한국교육원 사이트 바로가기">
+										뉴욕한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.nzkoreanedu.com" target="_blank" title="뉴질랜드한국교육원 사이트 바로가기">
+										뉴질랜드한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.keid.or.kr" target="_blank" title="독일한국교육원 사이트 바로가기">
+										독일한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://tokyo.kankoku.or.kr/smain.html" target="_blank" title="동경한국교육원 사이트 바로가기">
+										동경한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kecla.org" target="_blank" title="로스앤젤레스한국교육원 사이트 바로가기">
+										로스앤젤레스한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://rostovkec.org" target="_blank" title="로스토프나도누한국교육원 사이트 바로가기">
+										로스토프나도누한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://kecmy.com" target="_blank" title="말레이시아한국교육원 사이트 바로가기">
+										말레이시아한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="https://kecmx.net/" target="_blank" title="멕시코한국교육원 사이트 바로가기">
+										멕시코한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.vladikoredu.kr" target="_blank" title="블라디보스톡한국교육원 사이트 바로가기">
+										블라디보스톡한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="https://kecb.kg/" target="_blank" title="비쉬켁한국교육원 사이트 바로가기">
+										비쉬켁한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://saitama.kankoku.or.kr/" target="_blank" title="사이타마한국교육원 사이트 바로가기">
+										사이타마한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.sakhalinedu.kr/main/main.php" target="_blank" title="사할린 한국교육원 사이트 바로가기">
+										사할린 한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://sapporo.kankoku.or.kr/smain.html" target="_blank" title="삿포로한국교육원 사이트 바로가기">
+										삿포로한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kecsf.org" target="_blank" title="샌프란시스코한국교육원 사이트 바로가기">
+										샌프란시스코한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://sendai.kankoku.or.kr/" target="_blank" title="센다이한국교육원 사이트 바로가기">
+										센다이한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.auskec.kr/" target="_blank" title="시드니한국교육원 사이트 바로가기">
+										시드니한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://shimonoseki.kankoku.or.kr" target="_blank" title="시모노세키한국교육원 사이트 바로가기">
+										시모노세키한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.chicagokec.org" target="_blank" title="시카고한국교육원 사이트 바로가기">
+										시카고한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://kecseattle.org" target="_blank" title="시애틀한국교육원 사이트 바로가기">
+										시애틀한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.koreacenter.or.kr/" target="_blank" title="알마티한국교육원 사이트 바로가기">
+										알마티한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="https://atlkec.org" target="_blank" title="애틀랜타한국교육원 사이트 바로가기">
+										애틀랜타한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.koreaneducentreinuk.org/" target="_blank" title="영국한국교육원 사이트 바로가기">
+										영국한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://osaka-koredu.or.kr/" target="_blank" title="오사카한국교육원 사이트 바로가기">
+										오사카한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://okayama.kankoku.or.kr/smain.html" target="_blank" title="오카야마한국교육원 사이트 바로가기">
+										오카야마한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.uakoreaedu.org" target="_blank" title="우크라이나한국교육원 사이트 바로가기">
+										우크라이나한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://kecdc.org" target="_blank" title="워싱턴한국교육원 사이트 바로가기">
+										워싱턴한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kecindia.org/" target="_blank" title="인도한국교육원 사이트 바로가기">
+										인도한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kecid.org" target="_blank" title="인도네시아한국교육원 사이트 바로가기">
+										인도네시아한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://cecsp.com.br/kr/" target="_blank" title="주상파울루한국교육원 사이트 바로가기">
+										주상파울루한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.ieka.net" target="_blank" title="주아르헨티나한국교육원 사이트 바로가기">
+										주아르헨티나한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://chiba.kankoku.or.kr/jp/" target="_blank" title="치바한국교육원 사이트 바로가기">
+										치바한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.cakec.com" target="_blank" title="캐나다한국교육원 사이트 바로가기">
+										캐나다한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://tashkec.uz" target="_blank" title="타슈켄트한국교육원 사이트 바로가기">
+										타슈켄트한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://kecthai.kr" target="_blank" title="태국한국교육원 사이트 바로가기">
+										태국한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.cecp.or.kr/" target="_blank" title="파라과이한국교육원 사이트 바로가기">
+										파라과이한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://educoree.fr" target="_blank" title="프랑스한국교육원 사이트 바로가기">
+										프랑스한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.havaedu.com/main/main.php" target="_blank" title="하바롭스크 한국교육원 사이트 바로가기">
+										하바롭스크 한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://klech.org" target="_blank" title="호치민시한국어교육원 사이트 바로가기">
+										호치민시한국어교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://fukuoka.kankoku.or.kr/index.php" target="_blank" title="후쿠오카한국교육원 사이트 바로가기">
+										후쿠오카한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://houkec.org" target="_blank" title="휴스턴한국교육원 사이트 바로가기">
+										휴스턴한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://hiroshima.kankoku.or.kr" target="_blank" title="히로시마한국교육원 사이트 바로가기">
+										히로시마한국교육원
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.kecvn.com" target="_blank" title="하노이한국교육원 사이트 바로가기">
+										하노이한국교육원
+									</a>
+								</li>
+							
+						</ul>
+					</div><!-- box -->
+				</div><!-- site -->
+				<div class="site site03">
+					<a href="javascript:void(0);" class="site_btn" title="관련사이트 바로가기 슬라이드 열림"> 
+						관련사이트 바로가기
+						<img src="/images/kor/main/arr01_pc.png" alt="" class="pc_img">
+						<img src="/images/kor/main/arr01_tab.png" alt="" class="tab_img">
+						<img src="/images/kor/main/arr01_mob.png" alt="" class="mob_img">
+					</a>
+					<div class="box" data-lenis-prevent>
+						<ul>
+							
+								<li><a href="http://www.moe.go.kr" target="_blank" title="교육부 사이트 바로가기">교육부</a></li>
+							
+								<li><a href="https://overseaskoreanedu.snu.ac.kr/" target="_blank" title="교육부 재외교육지원센터 사이트 바로가기">교육부 재외교육지원센터</a></li>
+							
+								<li><a href="http://www.niied.go.kr" target="_blank" title="국립국제교육원 사이트 바로가기">국립국제교육원</a></li>
+							
+								<li><a href="http://www.neis.go.kr" target="_blank" title="나이스대국민서비스 사이트 바로가기">나이스대국민서비스</a></li>
+							
+								<li><a href="http://www.academyinfo.go.kr" target="_blank" title="대학알리미 사이트 바로가기">대학알리미</a></li>
+							
+								<li><a href="https://www.ksif.or.kr/" target="_blank" title="세종학당재단 사이트 바로가기">세종학당재단</a></li>
+							
+								<li><a href="http://study.korean.net" target="_blank" title="스터디코리안 사이트 바로가기">스터디코리안</a></li>
+							
+								<li><a href="https://www.edunet.net/" target="_blank" title="에듀넷 사이트 바로가기">에듀넷</a></li>
+							
+								<li><a href="http://www.mofa.go.kr" target="_blank" title="외교부 사이트 바로가기">외교부</a></li>
+							
+								<li><a href="https://oka.go.kr/" target="_blank" title="재외동포청 사이트 바로가기">재외동포청</a></li>
+							
+								<li><a href="https://okocc.or.kr/" target="_blank" title="재외동포협력센터 사이트 바로가기">재외동포협력센터</a></li>
+							
+								<li><a href="http://www.korean.net" target="_blank" title="코리안넷 사이트 바로가기">코리안넷</a></li>
+							
+								<li><a href="https://www.schoolinfo.go.kr/" target="_blank" title="학교알리미 사이트 바로가기">학교알리미</a></li>
+							
+								<li><a href="http://www.schoolinfo.go.kr" target="_blank" title="학교알리미 사이트 바로가기">학교알리미</a></li>
+							
+								<li><a href="http://www.keris.or.kr" target="_blank" title="한국교육학술정보원 사이트 바로가기">한국교육학술정보원</a></li>
+							
+								<li><a href="https://kefa.or.kr" target="_blank" title="한국디지털교육협회 사이트 바로가기">한국디지털교육협회</a></li>
+							
+								<li><a href="http://www.topik.go.kr" target="_blank" title="한국어능력시험 TOPIK 사이트 바로가기">한국어능력시험 TOPIK</a></li>
+							
+								<li><a href="http://www.studyinkorea.go.kr" target="_blank" title="한국유학정보 사이트 바로가기">한국유학정보</a></li>
+							
+						</ul>
+					</div><!-- box -->
+				</div><!-- site -->
+			</div><!-- site_wrap -->
+			<a href="/" class="f_logo" title="메인으로 이동">
+				<img src="/images/kor/main/main_logo01_pc.png" alt="재외교육기관포털로고">
+				<img src="/images/kor/main/f_logo02.png" alt="태극기이미지">
+			</a>
+		</div><!-- right -->
+	</div><!-- inner -->
+</div><!-- footer -->
+
+</body>
+
+</html>

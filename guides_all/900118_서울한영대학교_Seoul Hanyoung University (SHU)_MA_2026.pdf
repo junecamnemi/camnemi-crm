@@ -1,0 +1,727 @@
+    <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="description" content="서울한영대학교 대학원">
+	<meta name="keywords" content="서울한영대학교 대학원">
+	<!-- 페이지 로드시마다 페이지를 캐싱하지 않음 (HTTP 1.1) -->
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<title>서울한영대학교 대학원</title>
+
+	<!-- 캐시저장이슈때문에 수정한 css 뒤에 [?날짜] 추가(변경시에 날짜만 변경하면 됨) -->
+	<link rel="stylesheet" type="text/css" href="/fro_end/css/default.css?231115">
+	<link rel="stylesheet" type="text/css" href="/fro_end/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/fro_end/css/main.css?231012"> 
+	<link rel="stylesheet" type="text/css" href="/fro_end/css/slick.css">
+	<link rel="stylesheet" type="text/css" href="/fro_end/css/program.css">
+	<link rel="stylesheet" type="text/css" href="/fro_end/css/sub.css?250514">
+	<link rel="stylesheet" type="text/css" href="/fro_end/css/bbs.css">
+	<link rel="stylesheet" type="text/css" href="/fro_end/css/jquery.mCustomScrollbar.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/fro_end/css/form.css"> -->
+	<link rel="shortcut icon" type="image/x-icon" href="/fro_end/img/head_icon.gif">
+
+
+	<script src="/fro_end/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="/fro_end/js/slick.js"></script>
+	<script src="/fro_end/js/jquery.mCustomScrollbar.concat.min.js"></script>	</head>
+	<style>
+	.btn_go{
+		margin:20pt;
+		margin-left:450pt;
+		}
+	</style>
+    <body>
+	<header class="header cf">
+	<div class="util cf">
+		<div class="util-wrap cf">
+			<ul class="util-menu">
+				<li><a href="/fro_end/html/main/index.php">HOME</a></li>
+				<!--<li><a href="https://see.hytu.ac.kr/">LOGIN<img src="/fro_end/img/foreign.svg"></a></li> 삭제 요청 21-09-02-->
+				<li><a href="/fro_end/html/main/sitemap.php">사이트맵</a></li>
+				<li><a href="/fro_end_eng/html/main/index.php">ENG</a></li>
+			</ul><!--util-menu-->
+		</div><!--util-wrap-->
+	</div><!--util-->
+
+	<div class="header-wrap cf">
+		<div class="header-inner cf">
+			<div class="ham-menu">
+				<a href="#none">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>
+			</div><!--ham-menu-->
+			<div class="h_logo cf">
+				<h1 class="wrap"><a href="/fro_end/html/main/index.php">서울한영대학교 대학원</a></h1>
+			</div><!--h_logo-->
+			<ul class="menu cf">
+				<li class="menu-item cf">
+					<a class="dlt" href="/fro_end/html/dep_01/1100.php">대학원소개</a>
+					<ul class="sub-menu cf">
+						<li><a href="/fro_end/html/dep_01/1100.php">원장인사말</a></li>
+						<li><a href="/fro_end/html/dep_01/1200.php">연혁</a></li>
+						<li><a href="/fro_end/html/dep_01/1300.php">학칙</a></li>
+						<li><a href="/fro_end/html/dep_01/1400.php">오시는길</a></li>
+					</ul>
+				</li><!--대학원소개-->
+				<li class="menu-item cf">
+					<a class="dlt" href="/fro_end/html/dep_02/2100_new.php">학과안내</a>
+					<ul class="sub-menu cf">
+						<li><a href="/fro_end/html/dep_02/2100_new.php">일반대학원</a></li>
+						<li><a href="/fro_end/html/dep_02/2210.php">국제신학선교대학원</a></li>
+						<li><a href="/fro_end/html/dep_02/2300_new.php">상담복지대학원</a></li>
+					</ul>
+				</li><!--입학안내-->
+				<li class="menu-item cf">
+					<a class="dlt" href="/fro_end/html/dep_03/3110.php">입학안내</a>
+					<ul class="sub-menu cf">
+						<li><a href="/fro_end/html/dep_03/3110.php">학생모집요강</a></li>
+						<li><a href="/fro_end/html/dep_03/3200.php">전형일정 및 서류안내</a></li>
+						<li><a href="/fro_end/html/dep_03/3300.php">입시자료실</a></li>
+						<!--2023-10-12 기존 원서접수 숨김처리-->
+						<!--<li><a href="http://grad.hytu.ac.kr/gradipsi/html/" target="_blank">원서접수</a></li>-->
+						<li><a href="/fro_end/html/dep_03/3400_intro.php">원서접수</a></li>
+						<!-- <li><a href="/fro_end/html/dep_03/3400.php">원서지원</a></li>
+						<li><a href="/fro_end/html/dep_03/3500.php">지원현황</a></li>	 -->				
+					</ul>
+				</li><!--학과소개-->
+				<li class="menu-item cf">
+					<a class="dlt" href="/fro_end/html/dep_04/4100.php">외국어종합시험<br>논문안내</a>
+					<ul class="sub-menu cf">
+						<li><a href="/fro_end/html/dep_04/4100.php">외국어 종합시험</a></li>
+						<li><a href="/fro_end/html/dep_04/4210.php">논문학사일정</a></li>
+						<li><a href="/fro_end/html/dep_04/4300.php">학위논문심사</a></li>
+						<li><a href="/fro_end/html/dep_04/4400.php">논문관련양식</a></li>
+					</ul>
+				</li><!--논문정보-->
+				<li class="menu-item cf">
+					<a class="dlt" href="/fro_end/html/dep_05/5100.php">학사정보</a>
+					<ul class="sub-menu cf">
+						<li><a href="/fro_end/html/dep_05/5100.php">학사일정</a></li>
+						<li><a href="/fro_end/html/dep_05/5200.php">수강신청안내</a></li>
+						<li><a href="/fro_end/html/dep_05/5300.php">학사행정 자료실</a></li>
+						<li><a href="/fro_end/html/dep_05/5400.php">장학정보</a></li>
+					</ul>	
+				</li><!--학사안내-->
+				<li class="menu-item cf">
+					<a class="dlt" href="/fro_end/html/dep_06/6100.php">커뮤니티</a>
+					<ul class="sub-menu cf">
+						<li><a href="/fro_end/html/dep_06/6100.php">공지사항</a></li>
+						<li><a href="/fro_end/html/dep_06/6200.php">학과게시판</a></li>
+						<li><a href="/fro_end/html/dep_06/6300.php">원우회게시판</a></li>
+					</ul>
+				</li><!--커뮤니티-->
+			</ul><!--menu-->
+		</div><!--header-inner-->
+	</div><!--header-wrap-->
+</header>        <div class="visual cf">
+            <div class="visual_img03">
+                <h1>입학안내</h1>
+                <ul class="location cf">
+                    <div class="location_wrap cf">
+                        <li><img src="/fro_end/img/home.svg" alt="홈페이지 아이콘"></li>
+                        <div class="arr"><img src="/fro_end/img/locate_arr.png" alt="화살표"></div>
+                        <li>입학안내</li>
+                        <div class="arr"><img src="/fro_end/img/locate_arr.png" alt="화살표"></div>
+                        <li>전형일정 및 서류안내</li>
+                    </div><!--location_wrap-->
+                </ul>
+            </div><!--visual_img-->
+        </div><!--visual-->
+        <div class="contents_wrap D3200 cf">
+            <div class="container cf">
+                <div class="title_box cf">
+                    <h2 class="highlight cf">전형일정 및 서류안내</h2>
+                </div><!--title_box-->
+                <div class="sub_cont cf cf">
+                    <h3 class="icon01">전형일정
+						<div class="btn-wrap">
+							<a href="/fro_end/html/dep_03/3400.php" class="btn_go"> 원서접수 바로가기 </a>
+							<a href="https://grad.shyu.ac.kr/fro_end/html/dep_03/3300.php?pagetype=&bbs_idx=2174&pageno=1&pagekind=c&bbsid=reference_room&cafeid=&ref_code=&keyword=&keyfield=&category=&search_year=&search_month=&qstr=&c_pagesize=15&use_eng=&gopage=/fro_end/html/dep_03/3300.php?" class="btn_go color02" target="_blank"> 입시서류 바로가기</a>
+						</div>								
+					</h3>
+                    <div class="table_wrap">
+                        <table class="table01 mb10 txt_cen cf">
+                            <colgroup>
+                                <col width="20%">
+                                <col width="40%">
+                                <col width="40%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>구분</th>
+                                    <th>일정</th>
+                                    <th>비고</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>원서접수</td>
+                                    <!-- <td>2024. 11. 1(금) ~ 2024. 12. 10(화)</td> 2025-05-08 사후관리 요청에 의한 수정 -->
+									<td>2026. 08. 03. (월) ~ 2026. 08. 06. (목)</td>
+									<!-- 2025-05-08 사후관리 요청에 의한 수정
+                                    <td class="txt_left">원서접수 : <br class="mo"><br>
+                                    · 대학원 홈페이지 → 입학원서접수에서 온라인 원서접수
+									<br>
+									· 서류제출 : 직접방문 또는 우편송부</td> -->
+									<td class="txt_left">원서접수 : <br class="mo"><br>
+                                    · 대학원 홈페이지 → 입학안내 → 원서접수에서 온라인 원서접수
+									<br>
+									· 서류제출 : 직접방문 또는 우편송부</td>
+                                </tr>
+								<!-- 2024-05-22 이민주 사후관리 수정 요청
+                                <tr>
+                                    <td>전형일</td>
+                                    <td>추후 공지</td>
+                                    <td class="txt_left">대학원 홈페이지 공지</td>
+                                </tr>
+								
+								<tr>
+									<td>합격자발표</td>
+									<td>개별 통보</td>
+                                    <td colspan="3">&nbsp;</td>
+								</tr>
+								 -->
+                                <tr>
+                                    <td>등록기간</td>
+                                    <!-- <td>2024.12.31(화) ~ 2025. 1. 3(금)</td> 2025-05-08 사후관리 요청에 의한 수정 -->
+									<td>2026. 08. 11. (화) ~ 2026. 08. 12. (수)</td>
+                                    <!--<td class="txt_left">계좌이체, 본교방문 (카드수납 : 모든카드)</td>-->
+									<td>&nbsp;</td>
+                                </tr>
+								<!-- 2024-05-22 이민주 사후관리 수정 요청
+                                <tr>
+                                    <td rowspan="3">전형료</td>
+									<td>박사</td>
+									<td class="txt_left">100,000원</td>
+                                </tr>
+								<tr>
+  									<td rowspan="2">석사</td>
+									<td class="txt_left">일반대학원 70,000원<br>특수대학원 50,000원(국제신학선교대학원/상담복지대학원)</td>
+                                </tr>
+								-->
+                            </tbody>
+                        </table><!--table01-->
+                    </div><!--table_wrap-->
+                </div><!--sub_cont cf 모집과정-->
+				<!-- 모집과정 -->
+				<div class="sub_cont cf cf">
+					<h3 class="icon01">모집과정 예상인원</h3>
+                    <div class="table_wrap">
+						<table class="table01 mb10 txt_cen cf">
+							<colgroup>
+							<!--
+								<col width="10%">
+								<col width="13%">
+								<col width="8%">
+								<col width="15%">
+								<col width="6%">
+								<col width="6%">
+								<col width="6%">
+								<col width="8%">
+								<col width="8%">
+							-->
+								<col width="10%">
+								<col width="16%">
+								<col width="12%">
+								<col width="18%">
+								<col width="14%">
+								<col width="15%">
+								<col width="15%">
+								
+							    
+                            </colgroup>
+							<thead>
+								<tr>
+									<th rowspan="3" colspan="2">구분</th>
+									<th rowspan="3">과정</th>
+									<th rowspan="3">학과</th>
+									<th rowspan="3">수업<br>연한<br>(학기)</th>
+									<!--<th rowspan="2">년수</th>-->
+									<!-- <th colspan="2">전기 모집인원</th> 2025-05-08 사후관리 요청에 의한 수정 -->
+									<th colspan="2">모집인원</th>
+                                </tr>
+								<tr>
+									<th>신입생</th>
+									<th rowspan="2">편입생</th>
+								</tr>
+                                <tr>
+                                    <th>2026후기<br>모집인원</th>
+                                    
+                                    
+                                </tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td colspan="2" rowspan="5">일반대학원</td>
+									<td rowspan="4">박사</td>
+									<td>신학</td>
+									<td>6(7)</td>
+									<!-- <td rowspan="2">8</td> 2025-05-08 사후관리 요청에 의한 수정 -->
+									
+									
+									<td rowspan="4">8</td>
+								<td rowspan="10">4</td></tr>
+								<tr>
+									<td>(실천신학-상담심리학)</td>
+									<td>6</td>
+									
+								</tr>
+								<tr>
+									<td>사회복지학</td>
+									<td>6</td>
+									<!-- <td>8</td> 2025-05-08 사후관리 요청에 의한 수정 -->
+									<!-- <td>4</td> -->
+									
+								</tr>
+								<tr>
+									<td>아동학</td>
+									<td>6</td>
+									<!-- <td>6</td> 2025-05-08 사후관리 요청에 의한 수정 -->
+									
+								</tr>
+								<tr>
+									<td>석사</td>
+									<td>신학</td>
+									<td>4(6)</td>
+									<td>3</td>
+									
+								</tr>
+								<tr>
+									<td rowspan="5">특수대학원</td>
+									<td rowspan="2">국제신학선교대학원</td>
+									<td rowspan="2">석사</td>
+									<td>신학</td>
+									<td>6</td>
+									<!-- <td rowspan="2">25</td> 2025-05-08 사후관리 요청에 의한 수정 -->
+									<td rowspan="2">17</td>
+									
+								</tr>
+								<tr>
+									<td>선교학</td>
+									<td>4</td>
+									
+								</tr>
+								<tr>
+									<td rowspan="3">상담복지대학원</td>
+									<td rowspan="3">석사</td>
+									<td>상담심리학</td>
+									<td rowspan="3">4</td>
+									<!-- <td rowspan="3">31</td> 2025-05-08 사후관리 요청에 의한 수정 -->
+									<td rowspan="3">14</td>
+									
+								</tr>
+								<tr>
+									<td>사회복지학</td>
+									
+								</tr>
+								<tr>
+									<td>아동놀이심리학</td>
+									
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+					<ul class="ref_list01">
+						<!--<li>일반대학원 신입학 모집인원은 편입학 결과에 따라 변동될 수 있습니다.</li>-->
+						<!-- <li>편입모집 정원은 결원 상황에 따라 정원 발생(학교에 직접 문의)</li> -->
+                        <!-- <li>편입모집은 지원전 학교에 상담 후 지원필요.</li> 2026-08-03 사후관리 요청에 의한 수정 -->
+                        <li>학과별 모집 인원 미달 시 모집이 취소될 수 있으므로, 지원 전 교학처로 ​지원 현황을 유선 확인하신 후 지원하시기 바랍니다.</li>
+					</ul>
+				</div> 
+
+				<div class="sub_cont cf cf">
+                    <h3 class="icon01">모집기간</h3>
+                    <div class="table_wrap">
+                        <table class="table01 mb10 txt_cen cf">
+                            <colgroup>
+                                <col width="40%">
+								<col width="*">
+                                <col width="*">
+                                <col width="20%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>지원서 접수<br class="mo">(인터넷 접수만 시행)<br class="mo"> 및 서류제출</th>
+									<th>전형</th>
+									<th>합격자 발표</th>
+									<th>등록기간</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+								<!-- 2025-05-08 사후관리 요청에 의한 수정 
+                                <tr>
+                                    <td>
+										<span class="Nt_B">2024. 11. 1(금) ~ 2024. 12. 10(화) </span><br>
+										대학원 홈페이지<a href="https://grad.shyu.ac.kr/" target="_blank" class="color03">(https://grad.shyu.ac.kr/)</a> <br>→ 입학원서접수에서 온라인 원서접수 및
+										<br>서류제출(직접방문 또는 우편송부)
+									</td>
+                                    <td>2024.12.19.(목)</td>
+                                    <td>2024.12.27.(금)</td>
+									<td>2024.12.31.(화)~2025.01.03(금)</td>
+                                </tr>
+								-->
+								<tr>
+                                    <td>
+										<span class="Nt_B">2026. 08. 03(월) ~ 08. 06(목)</span><br>
+										대학원 홈페이지<a href="https://grad.shyu.ac.kr/" target="_blank" class="color03">(https://grad.shyu.ac.kr/)</a> <br>→ 입학안내 → 원서접수에서 온라인 원서접수 및
+										<br>서류제출(직접방문 또는 우편송부)
+									</td>
+                                    <td>2026. 08. 10. (월)</td>
+                                    <td>2026. 08. 11. (화)<br><span class="Nt_B">합격자 개별통지</span></td>
+									<td>2026.08. 11. (화)~<br>2026. 08. 12. (수)</td>
+                                </tr>
+                            </tbody>
+                        </table><!--table01-->
+                    </div><!--table_wrap-->
+					<ul class="ref_list01">
+						<!-- <li>세부일정은 조정될 수 있으며, 학과에 따라 전형일이 아닌 별도 기간에 전형을 시행할 수 있음.</li> -->
+                        <li>상기일정은 상황에 따라 일부 변동될 수 있음.</li>
+					</ul>
+                </div><!--sub_cont cf 모집기간-->
+				<div class="sub_cont cf">
+                    <h3 class="icon01">특전</h3>
+					<h5 class="sub_tit_squ">석-박사과정 지원자 모두 입학금 전액 면제</h5>
+				</div>
+				<div class="sub_cont cf">
+                    <h3 class="icon01">전형방법</h3>
+                    <div class="con-d01">
+						<ul>
+							<li>서류심사<br><span class="num">100점</span></li>
+							<li class="sb">+</li>
+							<li>구술시험<br class="mo">(면접)<br><span class="num">100점</span></li>
+							<li class="sb">=</li>
+							<li><span class="num">200점</span></li>
+						</ul>
+                    </div>
+					<ul class="ref_list01">
+						<li>세부일정은 조정될 수 있으며, 학과에 따라 전형일이 아닌 별도 기간에 저형을 시행할 수 있음.</li>
+					</ul>
+                </div><!--sub_cont cf 전형방법-->
+				<div class="sub_cont">
+					<h3 class="icon01">문의처</h3>
+					<h5 class="sub_tit_squ">대학원 교학처 : (02)2669-2300,2305</h5>
+				</div>
+                <div class="sub_cont cf cf">
+                    <h3 class="icon01">제출서류 안내</h3>
+                    <h5 class="sub_tit_squ">정원내</h5>
+                    <div class="table_wrap">
+                        <table class="table01 mb20 txt_cen cf">
+                            <colgroup>
+                                <col width="5%">
+                                <col width="25%">
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="40%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th colspan="2" rowspan="2">구분</th>
+                                    <th colspan="2">일반대학원</th>
+                                    <th>특수대학원</th>
+                                    <th rowspan="2">비고</th>
+                                </tr>
+                                <tr>
+                                    <th>박사</th>
+                                    <th>석사</th>
+                                    <th>석사</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>입학원서<span class="ast color03 fs20">*</span></td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>졸업(예정)증명서</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="txt_left">
+                                        · 예정증명서제출자는 졸업후 1주일이내 졸업증명서 제출 <br>
+                                        · 외국대학일 경우 국문 또는 영문 번역 공증<br>
+                                        <span style="color:red;">· 반드시 3개월 이내 발급된 원본제출</span><br>
+										<!-- 2025-05-12 사후관리 요청으로 인한 추가 -->
+										· 박사는 석사, 학사 증명서 모두 제출<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>전학년성적증명서</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="txt_left">
+                                        · 전학년 모두 제출<br>
+                                        · 백분율표기<br>
+                                        · 외국대학일 경우 국문 또는 영문 번역 공증<br>
+										· 박사는 석사, 학사 증명서 모두 제출<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>신앙고백서</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="txt_left">A4 1매 (신학 및 선교학 전공)</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>자기소개서</td>
+                                    <td>0</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td class="txt_left">A4 1매</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>이력서<span class="ast color03 fs20">*</span></td>
+                                    <td>0</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td class="txt_left">A4 1매</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>재직증명서</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="txt_left">해당자</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>학업연구계획서<span class="ast color03 fs20">*</span></td>
+                                    <td>0</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>출신대학원 교수추천서<span class="ast color03 fs20">*</span></td>
+                                    <td>0</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>주민등록등본</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>대학인가확인서 (외국대학출신자)</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="txt_left">아포스티유 또는 제외공관영사 확인서</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>학력조회동의서</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table><!--table01-->
+                    </div><!--table_wrap-->
+                    <ul class="ref_list01">
+                        <li>(<span class="ast color03 fs20">*</span>는 본교 소정양식)</li>
+                    </ul>
+                </div><!--sub_cont cf 응시자격-->
+				<br>
+				<div class="sbox_02 mb40">
+					<h5 class="sub_tit_squ">외국인 학생(정원내) 지원자</h5>
+					<ul class="list_04">
+						<!--<li>응시자격 :-->
+							<!--<li>1. 재외국민, 외국인으로서 각 대학원의 자격조건을 갖춘 자</li>-->
+							<li>외국인(정원내) 지원자는 한국어 능력 TOPIK 4급 이상 취득자로써 자료 제출해야 합니다.</li>
+						</li>
+					</ul>
+				</div><!--sbox_02-->
+				<!-- 2024-10-10 이민주 사후관리 삭제요청
+                <div class="sub_cont cf cf">
+                <h3 class="icon01">제출서류 안내</h3>
+					
+                    <h5 class="sub_tit_squ">정원외</h5>
+                    <div class="table_wrap">
+                        <table class="table01 mb20 txt_cen cf">
+                            <colgroup>
+                                <col width="5%">
+                                <col width="30%">
+                                <col width="15%">
+                                <col width="50%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th colspan="2" rowspan="2">구분</th>
+                                    <th >특수대학원</th>
+                                    <th rowspan="2">비고</th>
+                                </tr>
+                                <tr>
+                                    <th>석사</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>대학인가확인서 (외국대학출신자)</td>
+                                    <td>0</td>
+                                    <td class="txt_left">아포스티유 또는 제외공관영사 확인서</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>졸업(예정)증명서</td>
+                                    <td>0</td>
+                                    <td class="txt_left">
+                                        · 예정증명서제출자는 졸업후 1주일이내 졸업증명서 제출 <br>
+                                        · 외국대학일 경우 국문 또는 영문 번역 공증<br>
+										<span style="color:red;">· 반드시 3개월 이내 발급된 원본제출</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>전학년성적증명서</td>
+                                    <td>0</td>
+                                    <td class="txt_left">
+                                        · 전학년 모두 제출<br>
+                                        · 백분율표기<br>
+                                        · 외국대학일 경우 국문 또는 영문 번역 공증
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>TOPIK</td>
+                                    <td>0</td>
+                                    <td class="txt_left">4급 이상 제출해야 함</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>여권사본</td>
+                                    <td>0</td>
+                                    <td class="txt_left">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>외국인등록증</td>
+                                    <td>0</td>
+                                    <td class="txt_left">해당자</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>본인 또는 후원자 은행잔고증명</td>
+                                    <td>0</td>
+                                    <td class="txt_left">1개월이내 은행에서 발급한 것</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>학력조회동의서</td>
+                                    <td>0</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>신앙고백서</td>
+                                    <td>0</td>
+                                    <td class="txt_left">A4 1매 (신학전공)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="ref_list01">
+                        <li>(<span class="ast color03 fs20">*</span>는 본교 소정양식)</li>
+                        <li>입학시 입학금 면제, 수업료 40% 장학금 감면</li>
+                    </ul>
+					 
+                </div>-->
+
+                <div class="sbox_02">
+                    <div class="">
+                        <h5 class="sub_tit_squ">유의사항</h5>
+                        <ul class="list_04">
+                            <li>접수된 서류는 일체 반환하지 않음</li>
+                            <li>입학전형 성적을 공개하지않음</li>
+                            <li>제출서류 허위 등 부정한 방법으로 입력한 사실이 확인된 경우 입학이 취소됨</li>
+                            <li>기타 자세한 사항은 대학원 사무실 및 홈페이지로 문의 바람</li>
+                            <li>TEL 02-2669-2300</li>
+                        </ul>
+                    </div> <!--sbox_01-->
+                </div><!--sub_cont cf-->
+                <div class="sub_cont cf">
+                    <h3 class="icon01 color03 Nt_B">생활관 안내</h3>
+                    <div class="sbox_02">
+                        <h5 class="sub_tit_squ">선발기준</h5>
+                        <ul class="list_04">
+                            <li>1. 생활관에 입사할 수 있는 자는 본교 재학생에 한한다.</li>
+                            <li>2. 관생선발 기준은 평균 B학점 이상자를 대상으로 학차별, 학과별 인원을 배정하여 <br class="pc">학기별로 생활관 운영위원회에서 선발한다.</li>
+                            <li>3. 본 대학원 재학생으로서 원거리 학생(200K 이상) 우선 선발한다.</li>
+                        </ul>
+                        <h5 class="sub_tit_squ mt35">입사제한</h5>
+                        <ul class="list_04">
+                            <li>1. 퇴사 처분 받은 자</li>
+                            <li>2. 입·퇴사원의 제출과 승인 없이 임의로 입·퇴사한 자</li>
+                            <li>※ 기타문의사항은 서울한영대학교 생활관 사무실로 <br class="pc">연락을 주시거나 홈페이지로 들어오시면 자세히 안내해 드립니다.</li>
+                            <li>TEL 02-2669-2230</li> 
+							<li>FAX 02-2669-2331</li>
+                        </ul>
+                    </div><!--sbox_01-->
+                </div><!--sub_cont cf-->
+
+            </div><!--container-->
+        </div><!--contents_wrap-->
+
+		<div class="go-top cf">
+	<a href="#none">↑</a>
+</div><!--go-top-->
+<footer class="footer cf">
+	<div class="footer-wrap cf">
+		<ul class="f_link">
+			<li><a href="https://www.shyu.ac.kr/" target="_blank">서울한영대학교 홈페이지</a></li>
+			<li><a href="http://person.shyu.ac.kr" target="_blank">통합정보시스템</a></li>
+			<li><a href="https://lib.shyu.ac.kr/C_WebHYU/HYU/Index" target="_blank">서울한영대학교 도서관</a></li>
+			<li><a href="https://www.kosaf.go.kr/ko/main.do" target="_blank">한국장학재단</a></li>
+			<li><a href="https://www.shyu.ac.kr/fro_end/html/main/privacy.php" target="_blank">개인정보처리방침</a></li>
+			<li><a href="http://webmail.shyu.ac.kr/intro.php" target="_blank">웹메일</a></li>
+		</ul><!--f_link-->								
+		
+		<h1 class="f_logo">
+			<a href="#none">
+				<img src="/fro_end/img/f_logo.svg" alt="서울한영대학교 로고">
+			</a>
+		</h1><!--f_logo-->
+		<address>
+			<ul class="address cf">
+				<li>주소 : (08274) 서울특별시 구로구 경인로 290-42</li>
+				<li>Copyrightⓒ2011 SEOUL HANYOUNG UNIVERSITY ALL RIGHTS RESERVED</li>
+				<li>Tel :<a href="tel:02-2669-2300"> 02-2669-2300</a></li>
+				<li>Fax :<a href="faxto:02-2669-2308"> 02-2669-2308</a></li>
+				<li>E-mail :<a href="mailto:grad@shyu.ac.kr">grad@shyu.ac.kr</a></li>
+			</ul>
+		</address>
+	</div><!--footer-wrap-->
+</footer>
+
+<script type="text/javascript" src="/fro_end/js/sub.js"></script>
+<script type="text/javascript" src="/fro_end/js/common.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,999 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no,target-densitydpi=medium-dpi" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="expries" content="0" />
+<meta name="format-detection" content="telephone=no" />
+
+<!-- all base : CSS -->
+<link rel="stylesheet" type="text/css" href="/resources/_Css/core/jquery-ui-1.13.3.min.css" />
+<link rel="stylesheet" type="text/css" href="/resources/_Css/jquery-ui-timepicker-addon-1.6.3.min.css" />
+<link rel="stylesheet" type="text/css" href="/resources/_Css/common/popup.css" /><!-- 레이어팝업 & 윈도우 팝업 공통 스타일 -->
+
+<!-- all base : JS -->
+<script charset="utf-8" src="/resources/_Js/core/jquery-3.7.1.min.js"></script>
+<script charset="utf-8" src="/resources/_Js/core/jquery-migrate-3.5.2.min.js"></script>
+<script charset="utf-8" src="/resources/_Js/core/jquery-ui-1.13.3.min.js"></script>
+<script charset="utf-8" src="/resources/_Js/jquery-ui-timepicker-addon-1.6.3.min.js"></script>
+<script charset="utf-8" src='/resources/_Js/core/common_base_util.js'></script>
+<script charset="utf-8" src="/resources/_Js/browser.detect.js"></script><!-- 방문자통계에서 필요한 스크립트파일 -->
+<script charset="utf-8" src="/resources/_Plugin/jquery.TabMenu/jquery.TabMenu.js"></script><!-- 텝메뉴 플러그인 -->
+<script charset="utf-8" src="/resources/_Js/comm.LayerPopup.js"></script><!-- 레이어 팝업 플러그인 -->
+<script src="/resources/_Js/jquery/slick.min.js"></script>
+<link rel="stylesheet" href="/resources/_Css/plugin/slick.css" />
+<script type="text/javascript" src="/resources/_Js/gsap/gsap.min.js"></script>
+<script type="text/javascript" src="/resources/_Js/gsap/ScrollTrigger.min.js"></script>
+
+<!-- configuration -->
+<link rel="stylesheet" type="text/css" href="/resources/_Css/common/common.css?">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/common/webfont.css">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/common/board.css?">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/common/prg.style.css?">
+<script type="text/javascript" src="/resources/_Js/jquery/jquery.mCustomScrollbar.js"></script>
+<script src="/resources/_Js/jquery/swiper-bundle.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/resources/_Css/plugin/jquery.mCustomScrollbar.css" />
+<link rel="stylesheet" type="text/css" href="/resources/_Css/core/core.common.css">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/core/core.style.css">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/core/core.program.default.style.css">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/plugin/swiper-bundle.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/_Templet/ipsiLayout.css?styleCss=bGF5b3V0X2lwc2ksZ25hdmlfaXBzaSxsb2dvX2lwc2ksaGVhZGVyX2lwc2ksc3VibWVudV9pcHNpLGZvb3Rlcl9pcHNp">
+<link rel="stylesheet" type="text/css" href="/resources/_Css/common/content.default.css">
+<link rel="stylesheet" type="text/css" href="/resources/homepage/ipsi/_Css/common.css">
+<script charset="utf-8" src="/resources/_Js/jquery/jquery.cs_tab.js" defer ></script>
+<script type="text/javascript" src="/resources/homepage/ipsi/_Js/common.js"></script>
+<script type="text/javascript" src="/resources/_Js/jquery/owl.carousel.v2.3.4.js"></script>
+<link rel="stylesheet" type="text/css" href="/resources/_Css/plugin/owl.carousel.v2.3.4.css" />
+<script src="/resources/_Templet/Layout/layout_ipsi/Js/common.js"></script>
+
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="ipsi.daedong.ac.kr/ipsi">
+	<meta property="og:title" content="입학안내">
+	<meta property="og:description" content="">
+	<meta property="og:site_name" content="입학안내">
+	<meta property="og:locale" content="ko-KR">
+	<meta property="og:image" content="/resources/_Img/Common/meta_og1.png">
+	<meta property="og:image:width" content="800">
+	<meta property="og:image:height" content="800">
+
+		<link rel="shortcut icon" href="/resources/_Img/Common/favicon.ico">
+		<link rel="icon"  href="/resources/_Img/Common/favicon.ico">
+		<link rel="apple-touch-icon"  href="/resources/_Img/Common/favicon.ico">
+		<title>입학안내  </title>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128270146-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-128270146-1',{
+    			'cookie_flags': 'secure;samesite=none'
+			});
+		</script>
+		<link rel="stylesheet" type="text/css" href="/resources/_Templet/Main/main_ipsi/main_ipsi.css">
+	<script src="/resources/_Js/common.simple.js"></script>
+	<script>
+		var currentAddress = location.href;
+		var isDevelopMode = ""
+		if ( isDevelopMode != "Y" && false ) {
+			if ( currentAddress.indexOf("http://") > -1 ) {
+				currentAddress = currentAddress.replace("http://","https://");
+				location.href = currentAddress;
+			}
+		}
+	</script>
+</head>
+<body class="isMain">
+	<div id="skipNavi">
+		<h1 class="blind">스킵네비게이션</h1>
+		<ul>
+				<li><a href="#mcontainer" class="skipLink">본문바로가기</a></li>
+			<li><a href="#mainNavi" class="skipLink">주메뉴바로가기</a></li>
+		</ul>
+	</div>
+	<div id="doc-wrap">
+		<header id="header-wrap">
+<div id="gNavi">
+	<div class="global-wrap">
+					<div class="srvc-sec">
+				<div class="srvcLink">
+						<!-- 대표홈 -->
+							<a href="https://www.daedong.ac.kr/"  target="_blank" title="새창열림" class="whome"><span>대동대학교</span></a>
+							
+																				<a href="/ipsi/CMS/TotalSearch/total.do?mCode=MN098"   class="link5"><span>통합검색</span></a>
+							
+																				<a href="/ipsi/CMS/SiteMap/SiteMap.do?mCode=MN013"   class="amenu"><span>사이트맵</span></a>
+							
+												<div class="glnk-sec">
+						<div id="toppop-ctrl" class="toppop-ctrl">
+							<button type="button" onclick="tpopWidePkg.tpCasting();" class="btn-wctrl">
+								<span class="blind">POPUP</span>								
+								
+
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+</div>			<div id="header">
+<h1 class="logo">
+	<a href="/ipsi/Main.do">
+		<span class="slogo">
+				<img src="/resources/_Templet/Layout/layout_ipsi/Img/logo.png" alt="입학안내">
+			<em class="logo-txt">입학안내</em>
+		</span>
+	</a>
+</h1>				<div id="mainNavi-wrap">
+					<div id="mn-ctrs-btns">
+						<button type="button" class="mn-ctrs-btn" id="mn-ctr-toggle" title="클릭하면 메뉴가 열립니다"><span class="blind">전체메뉴열기</span></button>
+					</div>
+					<div id="menu-wrap" class="menu-cont">
+						<div class="mGnavi">
+							<h2 class="tmn-tit blind">전체메뉴</h2>
+							<a href="https://www.daedong.ac.kr" class="home" title="새창열림" target="_blank"><span class="txt">대동대학교</span></a>
+							<button type="button" class="btn-close" id="hideAllmenu"><span class="blind">전체메뉴닫기</span></button>
+						</div>
+<nav id="mainNavi">
+				<div class="depth1-wrap" >
+				<ul class="depth1-ul">
+
+								<li class='mn_li1 first'>
+										<a class='mn_a1 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/DeptIntro/intro.do?mCode=MN049"    >
+											<span>학부(과) 안내</span>
+										</a>
+								</li>
+
+								<li class='mn_li1'>
+										<a class='mn_a1 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN059"    >
+											<span>입학 안내</span>
+										</a>
+			<div class="depth2-wrap" >
+				<ul class="depth2-ul">
+
+								<li class='mn_li2 first'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN059"    >
+											<span>수시 모집 (1차)</span>
+										</a>
+			<div class="depth3-wrap" >
+				<ul class="depth3-ul">
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN059"    >
+											<span>전형 일정</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN060"    >
+											<span>모집 인원</span>
+										</a>
+								</li>
+				</ul>
+			</div>
+								</li>
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN061"    >
+											<span>수시 모집 (2차)</span>
+										</a>
+			<div class="depth3-wrap" >
+				<ul class="depth3-ul">
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN061"    >
+											<span>전형 일정</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN062"    >
+											<span>모집 인원</span>
+										</a>
+								</li>
+				</ul>
+			</div>
+								</li>
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN063"    >
+											<span>정시 모집</span>
+										</a>
+			<div class="depth3-wrap" >
+				<ul class="depth3-ul">
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN063"    >
+											<span>전형 일정</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN064"    >
+											<span>모집 인원</span>
+										</a>
+								</li>
+				</ul>
+			</div>
+								</li>
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="https://apy.daedong.ac.kr/calculation/nonscheduled_nursing" target="_blank" title="새창열림"    >
+											<span>성적산출</span>
+										</a>
+			<div class="depth3-wrap" >
+				<ul class="depth3-ul">
+
+								<li class='mn_li3 first nw'>
+										<a class='mn_a3 '  href="https://apy.daedong.ac.kr/calculation/nonscheduled_nursing" target="_blank" title="새창열림"    >
+											<span>간호학부</span>
+										</a>
+								</li>
+
+								<li class='mn_li3 nw'>
+										<a class='mn_a3 '  href="https://apy.daedong.ac.kr/calculation/nonscheduled" target="_blank" title="새창열림"    >
+											<span>간호학부 제외 학과</span>
+										</a>
+								</li>
+				</ul>
+			</div>
+								</li>
+				</ul>
+			</div>
+								</li>
+
+								<li class='mn_li1'>
+										<a class='mn_a1 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN067"    >
+											<span>원서접수 및 조회</span>
+										</a>
+			<div class="depth2-wrap" >
+				<ul class="depth2-ul">
+
+								<li class='mn_li2 first'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN067"    >
+											<span>원클릭 원서접수</span>
+										</a>
+								</li>
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="https://apy.daedong.ac.kr/retrieve/reception" target="_blank" title="새창열림"    >
+											<span>원서접수 및 수험번호 조회</span>
+										</a>
+								</li>
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="https://apy.daedong.ac.kr/retrieve/pass" target="_blank" title="새창열림"    >
+											<span>합격자 조회</span>
+										</a>
+								</li>
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="https://apy.daedong.ac.kr/retrieve/pay" target="_blank" title="새창열림"    >
+											<span>등록 조회</span>
+										</a>
+								</li>
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="https://apy.daedong.ac.kr/print/tuition" target="_blank" title="새창열림"    >
+											<span>등록금 고지서 출력 및 전송</span>
+										</a>
+								</li>
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="https://apy.daedong.ac.kr/retrieve/interview" target="_blank" title="새창열림"    >
+											<span>면접고사 조회</span>
+										</a>
+								</li>
+
+								<li class='mn_li2 nw'>
+										<a class='mn_a2 '  href="https://apy.daedong.ac.kr/print/deposit" target="_blank" title="새창열림"    >
+											<span>예치금 고지서 출력 및 전송</span>
+										</a>
+								</li>
+				</ul>
+			</div>
+								</li>
+
+								<li class='mn_li1'>
+										<a class='mn_a1 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN075"    >
+											<span>입시 상담</span>
+										</a>
+			<div class="depth2-wrap" >
+				<ul class="depth2-ul">
+
+								<li class='mn_li2 first'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN075"    >
+											<span>입시 문의</span>
+										</a>
+			<div class="depth3-wrap" >
+				<ul class="depth3-ul">
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN075"    >
+											<span>입학 FAQ</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN076"    >
+											<span>간호학부</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN077"    >
+											<span>치위생과</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN084"    >
+											<span>응급구조과</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN081"    >
+											<span>호텔조리&베이커리과</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN080"    >
+											<span>호텔소믈리에&바리스타과</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN083"    >
+											<span>외식&디저트창업과</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN078"    >
+											<span>토탈미용과</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN079"    >
+											<span>사회복지서비스과</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN082"    >
+											<span>생활문화음악과</span>
+										</a>
+								</li>
+				</ul>
+			</div>
+								</li>
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN085"    >
+											<span>공지사항</span>
+										</a>
+								</li>
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN086"    >
+											<span>자료실</span>
+										</a>
+								</li>
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN087"    >
+											<span>입시상담 연락처</span>
+										</a>
+								</li>
+				</ul>
+			</div>
+								</li>
+
+								<li class='mn_li1'>
+										<a class='mn_a1 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN088"    >
+											<span>학생 복지 안내</span>
+										</a>
+			<div class="depth2-wrap" >
+				<ul class="depth2-ul">
+
+								<li class='mn_li2 first'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN088"    >
+											<span>장학제도</span>
+										</a>
+								</li>
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN089"    >
+											<span>찾아오시는 길</span>
+										</a>
+								</li>
+				</ul>
+			</div>
+								</li>
+
+								<li class='mn_li1'>
+										<a class='mn_a1 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN091"    >
+											<span>대동 소식</span>
+										</a>
+			<div class="depth2-wrap" >
+				<ul class="depth2-ul">
+
+								<li class='mn_li2 first'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN091"    >
+											<span>대동 매거진</span>
+										</a>
+			<div class="depth3-wrap" >
+				<ul class="depth3-ul">
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN091"    >
+											<span>뉴스레터</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN092"    >
+											<span>브로슈어</span>
+										</a>
+								</li>
+				</ul>
+			</div>
+								</li>
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN093"    >
+											<span>대동 갤러리</span>
+										</a>
+								</li>
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN094"    >
+											<span>대동 FOCUS</span>
+										</a>
+								</li>
+
+								<li class='mn_li2'>
+										<a class='mn_a2 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN096"    >
+											<span>대동 NEWS</span>
+										</a>
+			<div class="depth3-wrap" >
+				<ul class="depth3-ul">
+
+								<li class='mn_li3 first'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN096"    >
+											<span>교내 소식</span>
+										</a>
+								</li>
+
+								<li class='mn_li3'>
+										<a class='mn_a3 '  href="http://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN097"    >
+											<span>언론 보도</span>
+										</a>
+								</li>
+				</ul>
+			</div>
+								</li>
+				</ul>
+			</div>
+								</li>
+				</ul>
+			</div>
+</nav>
+<a href="/ipsi/CMS/SiteMap/SiteMap.do?mCode=MN277" class="allmn-btn"><span class="txt"><span class="blind">전체메뉴보기</span></span></a>
+
+							<div class="mDeco"></div>
+					</div>
+				</div>
+				<div class="body-slider-ovclick"></div>
+			</div>
+		</header>
+			<article id="container-wrap">
+
+	 <!-- 메인팝업존 사이즈 크기 -->
+<link rel="stylesheet" type="text/css" href="/resources/Main/ipsimainModule.css?styleCss=bWFpbnZpc3VhbC1UTVBMMDksbWljYmFuLVRNUEwwOSxtdGFiYm9hcmQtVE1QTDA5LG1pY2JhbjItVE1QTDA5LG1pbWJhbi1UTVBMMDks">
+<div id="MouseCursor"><div class="cursor__circle"></div></div>
+<div id="MouseCursorTxt"><div class="cursor__circleTxt"><span class="txkr">바로가기</span></div></div>
+<main id="mcontainer-wrap">
+	<div id="mcontainer">
+		<div class="mSec mSec01">
+			<div class="sideL">
+				<div class="mVisual-wr">
+					<div id="mVisual" class="swiper mvis-swiper">
+						<div class="dataList swiper-wrapper">
+											<div class="swiper-slide" data-idx="1" data-title="2027학년도 수시1차">
+												<a href="https://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN067">
+													<div class="swiperBox">
+															<div class="txtBox">
+																<span class="pTxt1">2027학년도 수시1차</span>
+																<p class="pTxt2">
+																	<span class="t1">2025 취업률·유지취업률</span>
+<span class="t2">부산소재 전문대학 1위</span>
+<span class="t3">*대학정보공시(2024.12.31.) 기준 취업률 77.7%, 유지취업률 93.4%</span>
+																</p>
+															</div>
+														<div class="imgBox">
+															<img src="/attach/IMAGE/PopupMgr/PopupZoneUpload/2026/9/elx8FDETidJZWLQ1.PNG" alt="대동대학교 2027학년도 수시1차 모집안내
+원서접수 : 2026.09.07.(월)~09.30.(수)
+*원서접수 마감은 9월 30일 수요일 자정(24시)까지입니다.
+서류제출마감 : 2026.10.01.(목).
+최초합격자발표 : 2026.10.23.(금) 예정
+예치금 등록 : 2026.12.21.(월) ~ 12.23.(수)" class="pimg">
+														</div>
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide" data-idx="2" data-title="2027 지역대학을 가다">
+												<a href="https://youtu.be/6I5ffr65yY4" target="_blank" title="새창열림">
+													<div class="swiperBox">
+															<div class="txtBox">
+																<span class="pTxt1">2027 지역대학을 가다</span>
+																<p class="pTxt2">
+																	<span class="t1">2025 취업률·유지취업률</span>
+<span class="t2">부산소재 전문대학 1위</span>
+<span class="t3">*대학정보공시(2024.12.31.) 기준 취업률 77.7%, 유지취업률 93.4%</span>
+																</p>
+															</div>
+														<div class="imgBox">
+															<img src="/attach/IMAGE/PopupMgr/PopupZoneUpload/2026/8/uvL7BlykEtnCDTXf.PNG" alt="2027 지역대학을 가다 대동대학교편" class="pimg">
+														</div>
+													</div>
+												</a>
+											</div>
+						</div>
+					</div>
+					<div class="data-ctrl">
+						<div class="data-pkgs">
+							<button type="button" class="btn-prev"><span class="blind">이전 장면</span></button>
+							<div class="data-nums">
+								<span class="current">1</span>
+								<span class="bar">/</span>
+								<span class="total"></span>
+							</div>
+							<div class="data-auto">
+								<button class="btn-stop" type="button"><span class="blind">정지</span></button>
+								<button class="btn-play" type="button"><span class="blind">재생</span></button>
+							</div>
+							<button type="button" class="btn-next"><span class="blind">다음 장면</span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sideR">
+				<div id="total-search" class="total-search">
+					<form id="mainTotalSchFrom" action="/ipsi/CMS/TotalSearch/total.do" method="get">
+					<input type="hidden" name="mCode" value="MN098"/>
+					<div class="total-search-frm">
+						<label for="category_code" class="blind">통합검색</label>
+						<select name="category_code" id="category_code" class="search-cate">
+							<option value="">통합검색</option>
+							<option value="O">교내조직</option>
+							<option value="M">메뉴검색</option>
+							<option value="T">전화번호</option>
+							<option value="C">컨텐츠</option>
+							<option value="B">게시판</option>
+						</select>
+						<input type="text" class="sch-input" name="searchKeyword" id="schKey" placeholder="검색하고자 하는 단어를 직접 입력해 주세요.">
+						<button type="submit" class="sch-btn"><span class="blind">검색</span></button>
+					</div>
+					</form>
+				</div>
+<div id="mIcban1" class="micban micban-TMPL09">
+	<ul class="dataLst">
+		<li class="n1 ">
+			<a href="https://ipsi.daedong.ac.kr/ipsi/CMS/Contents/Contents.do?mCode=MN067" target="_blank" title='원서접수 <br>(새창)' >
+				<div class="pPkg">
+					<div class="pIco icon2"></div>
+					<span class="sTit">원서접수 <br></span>
+				</div>
+				<span class="sBtn"><span>바로가기</span></span>
+			</a>
+		</li>
+		<li class="n2 ">
+			<a href="https://apy.daedong.ac.kr/print/tuition" target="_blank" title='고지서출력(새창)' >
+				<div class="pPkg">
+					<div class="pIco icon1"></div>
+					<span class="sTit">고지서 출력</span>
+				</div>
+				<span class="sBtn"><span>바로가기</span></span>
+			</a>
+			<a href="https://apy.daedong.ac.kr/retrieve/pay" target="_blank" title='등록납부조회(새창)' >
+				<div class="pPkg">
+					<div class="pIco icon1"></div>
+					<span class="sTit">등록납부조회</span>
+				</div>
+				<span class="sBtn"><span>바로가기</span></span>
+			</a>
+		</li>
+		<li class="n3 ">
+			<a href="https://apy.daedong.ac.kr/retrieve/pass" target="_blank" title='합격자 <br>조회(새창)' >
+				<div class="pPkg">
+					<div class="pIco icon6"></div>
+					<span class="sTit">합격자 <br>조회</span>
+				</div>
+				<span class="sBtn"><span>바로가기</span></span>
+			</a>
+		</li>
+	</ul>
+</div>
+			</div>
+		</div>
+		<div class="mSec mSec02">
+			<div class="sideL">
+	<div id="mTabBoard">
+				<dl class="first vnum1 isOn " id="mTabBbs1">
+					<dt><a href="#mTabBbs1" onclick="setBoardTab('mTabBoard',1,'');return false;" onfocus="setBoardTab('mTabBoard',1,'');return false;" onblur="setBoardTab('mTabBoard',1,'');return false;"><span>공지사항</span></a></dt>
+					<dd>			
+						<div class="mboard-sld swiper">
+							<div id="mBoard1" class="swiper-wrapper"></div>
+						</div>
+						<div class="data-ctrl">
+							<button type="button" class="btn-prev"><span class="blind">이전 새로운소식 슬라이드</span></button>
+							<button type="button" class="btn-next"><span class="blind">다음 새로운소식 슬라이드</span></button>
+							<div class="data-auto">
+								<button class="btn-stop" type="button"><span class="blind">정지</span></button>
+								<button class="btn-play" type="button"><span class="blind">재생</span></button>
+							</div>
+						</div>
+						<a href="/ipsi/CMS/Board/Board.do?mCode=MN085" target="_self"  class="dataMore"><span class="blind">공지사항 더보기</span></a>
+					</dd>
+				</dl>
+	</div>
+<script>
+				
+					$.ajax({
+						cache : false,
+						url : '/ipsi/ajx_json/MainBoard.do?site_code=ipsi&pageSize=4&mCode=MN085&skin=mTabBoard9&mgr_seq=26&category=&widget_type=mtabboard&tmpl_code=TMPL09',
+						type : 'post',
+						datatype : 'script',
+						resetForm : false,
+						beforeSubmit : function(formData, jqForm, options) {
+							var obj = jqForm[0];
+							return true;
+						},
+						success : function(responseText, statusText) {
+							$('#mBoard1').html(responseText);
+							setTimeout(function() {
+								mBoard.init();
+							}, 300);
+						}
+					})
+					$('#mTabBbs1 dt a').on("click focusin",function() {
+						if($("#mBoard1 > div").length == 0){
+							$.ajax({
+								cache : false,
+								url : '/ipsi/ajx_json/MainBoard.do?site_code=ipsi&pageSize=4&mCode=MN085&skin=mTabBoard9&mgr_seq=26&category=&widget_type=mtabboard&tmpl_code=TMPL09',
+								type : 'post',
+								datatype : 'script',
+								resetForm : false,
+								beforeSubmit : function(formData, jqForm, options) {
+									var obj = jqForm[0];
+									return true;
+								},
+								success : function(responseText, statusText) {
+									$('#mBoard1').html(responseText);
+									setTimeout(function() {
+										mBoard.init();
+									}, 300);
+								}
+							})
+						}
+					});
+</script>			</div>
+		</div>
+		<div class="mSec mSec03">
+<div id="mIcban2" class="micban2 micban2-TMPL09">
+	<ul class="dataLst">
+		<li class="n1 ">
+			<a href="/ipsi/CMS/Contents/Contents.do?mCode=MN059" target="_self"  >
+				<div class="pIco icon1"></div>
+				<span class="sTit">전형일정</span>
+			</a>
+		</li>
+		<li class="n2 hidden">
+			<a href="https://apy.daedong.ac.kr/calculation/nonscheduled" target="_blank" title='성적산출(새창)' >
+				<div class="pIco icon1"></div>
+				<span class="sTit">배너</span>
+			</a>
+		</li>
+		<li class="n3 ">
+			<a href="/ipsi/CMS/Contents/Contents.do?mCode=MN088" target="_self"  >
+				<div class="pIco icon3"></div>
+				<span class="sTit">장학제도</span>
+			</a>
+		</li>
+		<li class="n4 ">
+			<a href="/ipsi/CMS/Board/Board.do?mCode=MN086" target="_self"  >
+				<div class="pIco icon4"></div>
+				<span class="sTit">전년도 입시결과</span>
+			</a>
+		</li>
+		<li class="n5 ">
+			<a href="https://apy.daedong.ac.kr/retrieve/interview" target="_blank" title='면접고사 조회(새창)' >
+				<div class="pIco icon5"></div>
+				<span class="sTit">면접고사 조회</span>
+			</a>
+		</li>		
+		<li class="n6 ">
+			<a href="https://apy.daedong.ac.kr/print/tuition" target="_blank" title='등록금고지서(새창)' >
+				<div class="pIco icon6"></div>
+				<span class="sTit">등록금고지서</span>
+			</a>
+		</li>
+		<li class="n7 ">
+			<a href="/ipsi/CMS/Contents/Contents.do?mCode=MN087" target="_self"  >
+				<div class="pIco icon7"></div>
+				<span class="sTit">입시상담 연락처</span>
+			</a>
+		</li>		
+		<li class="n8 ">
+			<a href="https://ipsi.daedong.ac.kr/ipsi/CMS/Board/Board.do?mCode=MN086&mgr_seq=27&mode=view&mgr_seq=27&board_seq=104220" target="_self"  >
+				<div class="pIco icon8"></div>
+				<span class="sTit">환불신청 안내 </span>
+			</a>
+		</li>		
+	</ul>	
+</div>
+		</div>
+		<div class="mSec mSec04">
+			<h3 class="mtit">모집별 입시정보</h3>
+			<div id="ipsiStep" class="ipsi-step">
+				<div class="tabs">
+					<button type="button" class="msteptablinks active" onclick="openMprocess(event, 'stepType1')"><span>수시1차</span></button>
+					<button type="button" class="msteptablinks" onclick="openMprocess(event, 'stepType2')"><span>수시2차</span></button>
+					<button type="button" class="msteptablinks" onclick="openMprocess(event, 'stepType3')"><span>정시</span></button>
+				</div>
+				<div class="tab-container">
+					<div id="stepType1" class="msteptabcont active" style="display:block;">
+						<ol class="list">
+							<li><span class="icon icon1"></span><p class="txt-box"><span class="txt">원서접수</span><span class="date">2026.9.7.(월)~9.30.(수) 24시까지</span></p></li>
+							<li><span class="icon icon2"></span><p class="txt-box"><span class="txt">첨부서류 제출</span><span class="date">2026.9.7.(월)~10.1.(목)</span></p></li>
+							<li><span class="icon icon3"></span><p class="txt-box"><span class="txt">면접고사</span><span class="date">2026.10.13.(화)~10.18.(일)</span></p></li>
+							<li><span class="icon icon4"></span><p class="txt-box"><span class="txt">최초 합격자</span><span class="date">2026.10.23.(금) 예정</span></p></li>
+							<li><span class="icon icon5"></span><p class="txt-box"><span class="txt">충원 합격자</span><span class="date">2026.12.24.(목)~2026.12.31.(목) 21시까지</span></p></li>
+						</ol>
+					</div>
+					<div id="stepType2" class="msteptabcont">
+						<ol class="list">
+							<li><span class="icon icon1"></span><p class="txt-box"><span class="txt">원서접수</span><span class="date">2026.11.11.(수)~11.25.(수) 24시까지</span></p></li>
+							<li><span class="icon icon2"></span><p class="txt-box"><span class="txt">첨부서류 제출</span><span class="date">2026.11.11.(수)~11.25.(수)</span></p></li>
+							<li><span class="icon icon3"></span><p class="txt-box"><span class="txt">면접고사</span><span class="date">2026.12.3.(목)~12.6.(일)</span></p></li>
+							<li><span class="icon icon4"></span><p class="txt-box"><span class="txt">최초 합격자</span><span class="date">2026.12.11.(금) 예정</span></p></li>
+							<li><span class="icon icon5"></span><p class="txt-box"><span class="txt">충원 합격자</span><span class="date">2026.12.24.(목)~2026.12.31(목) 21시까지</span></p></li>
+						</ol>
+					</div>
+					<div id="stepType3" class="msteptabcont">
+						<ol class="list">
+							<li><span class="icon icon1"></span><p class="txt-box"><span class="txt">원 서 접 수</span><span class="date">2027.1.4.(월)~2027.1.20.(수) 24시까지</span></p></li>
+							<li><span class="icon icon2"></span><p class="txt-box"><span class="txt">첨부서류 제출</span><span class="date">2027.1.4.(월)~2027.1.21.(목)까지</span></p></li>
+							<li><span class="icon icon3"></span><p class="txt-box"><span class="txt">면접고사</span><span class="date">2027.1.26.(화)~1.28.(목)</span></p></li>
+							<li><span class="icon icon4"></span><p class="txt-box"><span class="txt">최초 합격자</span><span class="date">2027.2.3.(수) 예정</span></p></li>
+							<li><span class="icon icon5"></span><p class="txt-box"><span class="txt">추가 합격자</span><span class="date">2027.2.13.(토)~2.27.(토)</span></p></li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mSec mSec05">
+	<div id="mImban1" class="mimban mimban-TMPL09">
+		<div class="dataTitle">
+			<h3 class="mtit">학과소개</h3>
+			<p class="mtxt">미래를 향한 도전과 열정! 취업률 1위의 대동대학교에서 미래를 펼쳐보세요.</p>
+			<a href="/ipsi/CMS/DeptIntro/intro.do?mCode=MN049" class="mbtn"><span>전체학과 보기</span></a>
+		</div>
+		<ul class="dataLst">
+			<li>
+				<a href="/nurs" target="_blank" title='간호학부(새창)'  cursor-class="overlay">
+					<div class="pImg">
+						<span class="img-wr"><img src="/attach/IMAGE//mimban/TMPL09/2024/6/awyOCNeCxXaMabrjE4L8.jpg" alt=""></span>
+					</div>
+					<div class="pStr">
+						<p class="sTit">간호학부</p>
+						<span class="sBtn">바로가기</span>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/dent" target="_blank" title='치위생과(새창)'  cursor-class="overlay">
+					<div class="pImg">
+						<span class="img-wr"><img src="/attach/IMAGE//mimban/TMPL09/2024/6/xdreBkZAwjB9MTRMZyuD.jpg" alt=""></span>
+					</div>
+					<div class="pStr">
+						<p class="sTit">치위생과</p>
+						<span class="sBtn">바로가기</span>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/paramedicine" target="_blank" title='응급구조과(새창)'  cursor-class="overlay">
+					<div class="pImg">
+						<span class="img-wr"><img src="/attach/IMAGE//mimban/TMPL09/2024/6/F5u7Oi8oAgTQxQWFeopT.jpg" alt=""></span>
+					</div>
+					<div class="pStr">
+						<p class="sTit">응급구조과</p>
+						<span class="sBtn">바로가기</span>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/culinary" target="_blank" title='호텔조리& 베이커리과(새창)'  cursor-class="overlay">
+					<div class="pImg">
+						<span class="img-wr"><img src="/attach/IMAGE//mimban/TMPL09/2024/6/W8bcYUtKQKARF1QTFxLN.jpg" alt=""></span>
+					</div>
+					<div class="pStr">
+						<p class="sTit">호텔조리& 베이커리과</p>
+						<span class="sBtn">바로가기</span>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/sommel" target="_blank" title='호텔소믈리에& 바리스타과(새창)'  cursor-class="overlay">
+					<div class="pImg">
+						<span class="img-wr"><img src="/attach/IMAGE//mimban/TMPL09/2024/6/IkTAuy9y74iGfiWdHaiP.jpg" alt=""></span>
+					</div>
+					<div class="pStr">
+						<p class="sTit">호텔소믈리에& 바리스타과</p>
+						<span class="sBtn">바로가기</span>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/foodstartup" target="_blank" title='외식& 디저트창업과(새창)'  cursor-class="overlay">
+					<div class="pImg">
+						<span class="img-wr"><img src="/attach/IMAGE//mimban/TMPL09/2024/6/9LGlvqobdrmvRxEmEMsl.jpg" alt=""></span>
+					</div>
+					<div class="pStr">
+						<p class="sTit">외식& 디저트창업과</p>
+						<span class="sBtn">바로가기</span>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/creative" target="_blank" title='토탈미용과(새창)'  cursor-class="overlay">
+					<div class="pImg">
+						<span class="img-wr"><img src="/attach/IMAGE//mimban/TMPL09/2024/6/f2qRJ2ss31dLDYHsFB16.jpg" alt=""></span>
+					</div>
+					<div class="pStr">
+						<p class="sTit">토탈미용과</p>
+						<span class="sBtn">바로가기</span>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/social" target="_blank" title='사회복지서비스과(새창)'  cursor-class="overlay">
+					<div class="pImg">
+						<span class="img-wr"><img src="/attach/IMAGE//mimban/TMPL09/2024/6/CfvGowCwekcezWRo42FV.jpg" alt=""></span>
+					</div>
+					<div class="pStr">
+						<p class="sTit">사회복지서비스과</p>
+						<span class="sBtn">바로가기</span>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/music" target="_blank" title='생활문화음악과(새창)'  cursor-class="overlay">
+					<div class="pImg">
+						<span class="img-wr"><img src="/attach/IMAGE//mimban/TMPL09/2024/6/X5rgefNzBqVsQY29MJ7o.jpg" alt=""></span>
+					</div>
+					<div class="pStr">
+						<p class="sTit">생활문화음악과</p>
+						<span class="sBtn">바로가기</span>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+		</div>
+	</div>
+</main>
+<script type="text/javascript" src="/resources/homepage/ipsi/_Js/MouseCursor.js"></script>
+			</article>
+<footer id="footer-wrap">
+	<a href="#doc-wrap" class="topBt"><span class="blind">TOP</span></a>
+	<div class="ft-wr">
+		<div class="ftSvce">
+			<div class="fts-fmls">
+				<div class="fmlsPkg">
+											<div class="fSite order01">
+							<dl>
+								<dt><button type="button"><span>학과 바로가기</span><span class="arr"></span></button></dt>
+								<dd>
+									<div class="sel">
+										<ul>
+
+		<li><a href="/nurs" target="_blank" title="새창열림"><span> 간호학부</span></a></li>
+		<li><a href="/dent" target="_blank" title="새창열림"><span>치위생과</span></a></li>
+		<li><a href="/paramedicine" target="_blank" title="새창열림"><span>응급구조과</span></a></li>
+		<li><a href="/culinary" target="_blank" title="새창열림"><span>호텔조리& 베이커리과</span></a></li>
+		<li><a href="/sommel" target="_blank" title="새창열림"><span>호텔소믈리에& 바리스타</span></a></li>
+		<li><a href="/foodstartup" target="_blank" title="새창열림"><span>외식& 디저트창업</span></a></li>
+		<li><a href="/creative" target="_blank" title="새창열림"><span>토탈미용과</span></a></li>
+		<li><a href="/social" target="_blank" title="새창열림"><span>사회복지서비스과</span></a></li>
+		<li><a href="/music" target="_blank" title="새창열림"><span>생활문화음악과</span></a></li>
+										</ul>
+									</div>
+									<button type="button"><span class="blind">학과 바로가기 닫기</span></button>
+								</dd>
+							</dl>
+						</div>
+						<div class="fSite order02">
+							<dl>
+								<dt><button type="button"><span>기관 바로가기</span><span class="arr"></span></button></dt>
+								<dd>
+									<div class="sel">
+										<ul>
+
+		<li><a href="/ipsi" target="_blank" title="새창열림"><span>입학안내</span></a></li>
+		<li><a href="/lifeedu" target="_blank" title="새창열림"><span>평생교육원</span></a></li>
+		<li><a href="/sh" target="_blank" title="새창열림"><span>지산학협력(처)단</span></a></li>
+		<li><a href="/ctl" target="_blank" title="새창열림"><span>교수학습혁신센터</span></a></li>
+		<li><a href="/esg" target="_blank" title="새창열림"><span>ESG혁신본부</span></a></li>
+		<li><a href="/innovation" target="_blank" title="새창열림"><span>혁신지원사업</span></a></li>
+		<li><a href="/darthall" target="_blank" title="새창열림"><span>D'Art Hall</span></a></li>
+		<li><a href="/iec" target="_blank" title="새창열림"><span>국제교류협력센터</span></a></li>
+		<li><a href="/human" target="_blank" title="새창열림"><span>인권센터</span></a></li>
+		<li><a href="https://www.ddh.co.kr/" target="_blank" title="새창열림"><span>대동병원</span></a></li>
+										</ul>
+									</div>
+									<button type="button"><span class="blind">기관 바로가기 닫기</span></button>
+								</dd>
+							</dl>
+						</div>
+				</div>
+			</div>
+		</div>
+		<div class="ftInfo">
+			<div class="ft-sns">
+				<ul>
+								<li><a href="https://blog.naver.com/daedongcollege"  target="_blank" title="새창열림"  class="naverblog"><span>네이버블로그</span></a></li>
+								<li><a href="https://www.instagram.com/dc21daedong/"  target="_blank" title="새창열림"  class="insta"><span>인스타그램</span></a></li>
+								<li><a href="https://www.youtube.com/@%EB%8C%80%EB%8F%99%EB%8C%80%ED%95%99%EA%B5%90-l2m"  target="_blank" title="새창열림"  class="youtube"><span>유튜브</span></a></li>
+								<li><a href="http://pf.kakao.com/_lxnxcNxb"  target="_blank" title="새창열림"  class="facebook"><span>카카오채널</span></a></li>
+				</ul>
+			</div>
+			<div class="fts-link">
+				<h3 class="blind">입학안내 서비스메뉴</h3>
+				<button type="button" class="arr btn-prev"><span class="blind">좌측으로</span></button>
+				<ul>
+								<li><a href="/www/CMS/Board/Board.do?mCode=MN010"  target="_blank" title="새창열림"  class="privacy"><span>개인정보처리방침</span></a></li>
+								<li><a href="/www/CMS/ContactMgr/list.do?mCode=MN075"  target="_blank" title="새창열림"  class="terms"><span>교내전화번호안내</span></a></li>
+								<li><a href="/www/CMS/Contents/Contents.do?mCode=MN011"  target="_blank" title="새창열림"  class="campus"><span>이메일무단수집거부</span></a></li>
+				</ul>
+				<button type="button" class="arr btn-next"><span class="blind">우측으로</span></button>
+			</div>
+			<div class="fti-addr">
+	<dl>
+		<dt>회사정보</dt>
+		<dd>
+			<address>(46270) 부산 금정구 동부곡로27번길 88 </address>
+				<ul class="cs-info">
+					<li><span>TEL :</span> 051-518-5444</li>
+					<li><span>FAX :</span> 051-514-5847</li>
+					
+				</ul>
+		</dd>
+	</dl>
+			</div>
+				<div class="fti-copy">Copyright 2024 Daedong University. All rights reserved.</div>
+			<div class="fti-logo">
+				<p class="flogo">
+					<a href="/ipsi/Main.do">
+							<img src="/resources/_Templet/Layout/layout_ipsi/Img/flogo.png" alt="입학안내">
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>	</div>
+<script src="/resources/_Js/common.base.js"></script>
+<script src="/resources/_Templet/Header/header_ipsi/Js/topmenu.js"></script>
+<script src="/resources/_Js/common.pageShare.js"></script>
+	<script src="/resources/_Templet/Main/main_ipsi/Js/layout_main.js"></script>
+</body>
+</html>
