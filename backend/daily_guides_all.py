@@ -47,9 +47,19 @@ def counts():
     try:
         rows = json.load(open(m, encoding="utf-8"))
     except Exception:
-        return ""
+        rows = []
     def n(t): return sum(1 for r in rows if str(r.get(f"{t}_status","")).startswith("2027"))
-    return f"2027 확보 — 학부 {n('ba')} / 대학원 {n('ma')} / 어학 {n('lang')} (총 {len(rows)}교)"
+    junior_n = 0
+    jf = os.path.join(BASE, "_guide_2027_junior.json")
+    try:
+        jrows = json.load(open(jf, encoding="utf-8"))
+        junior_n = sum(1 for v in jrows.values() if str(v.get("status","")) == "2027_published")
+        junior_total = len(jrows)
+    except Exception:
+        junior_total = 0
+    if not rows and not junior_total:
+        return ""
+    return f"2027 확보 — 학부 {n('ba')} / 대학원 {n('ma')} / 어학 {n('lang')} / 전문대 {junior_n} (일반 {len(rows)}교 + 전문대 {junior_total}교)"
 
 def main():
     today = datetime.date.today().isoformat()
