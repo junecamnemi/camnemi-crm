@@ -1,5 +1,5 @@
 {
- "date": "2026-09-21",
+ "date": "2026-09-22",
  "ba": [
   {
    "school": "강원대학교",
@@ -324,16 +324,6 @@
    "adiga_2027": false
   },
   {
-   "school": "서울기독대학교",
-   "status_prev": "2026_or_older",
-   "url": "",
-   "reachable": false,
-   "has_2027": false,
-   "keywords": [],
-   "probe": "no_url/drive",
-   "adiga_2027": false
-  },
-  {
    "school": "서울신학대학교",
    "status_prev": "2026_or_older",
    "url": "https://www.stu.ac.kr/",
@@ -576,14 +566,10 @@
    "school": "조선대학교",
    "status_prev": "2026_or_older",
    "url": "https://www3.chosun.ac.kr/bbs/global/424/276714/artclView.do",
-   "reachable": true,
+   "reachable": false,
    "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인",
-    "전형"
-   ],
-   "probe": "http:200",
+   "keywords": [],
+   "probe": "error:ConnectionError",
    "adiga_2027": false
   },
   {
@@ -774,13 +760,10 @@
    "school": "가톨릭관동대학교",
    "status_prev": "not_found",
    "url": "https://www.cku.ac.kr/bbs/cku/414/92249/artclView.do",
-   "reachable": true,
+   "reachable": false,
    "has_2027": false,
-   "keywords": [
-    "외국인",
-    "전형"
-   ],
-   "probe": "http:200",
+   "keywords": [],
+   "probe": "error:ReadTimeout",
    "adiga_2027": false
   },
   {
@@ -976,6 +959,7 @@
    "has_2027": false,
    "keywords": [
     "모집요강",
+    "2027",
     "외국인",
     "전형"
    ],
@@ -1565,14 +1549,10 @@
    "school": "삼육대학교",
    "status_prev": "2026_or_older",
    "url": "https://www.syu.ac.kr/mba/admission-guide/foreign-admission-guide-2/",
-   "reachable": true,
+   "reachable": false,
    "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인",
-    "전형"
-   ],
-   "probe": "http:200",
+   "keywords": [],
+   "probe": "error:ReadTimeout",
    "adiga_2027": false
   },
   {
@@ -2108,6 +2088,7 @@
    "reachable": true,
    "has_2027": false,
    "keywords": [
+    "2027",
     "외국인",
     "전형"
    ],
@@ -2309,10 +2290,13 @@
    "school": "추계예술대학교",
    "status_prev": "2026_or_older",
    "url": "https://www.chugye.ac.kr/mbs/grad/",
-   "reachable": false,
+   "reachable": true,
    "has_2027": false,
-   "keywords": [],
-   "probe": "error:ReadTimeout",
+   "keywords": [
+    "외국인",
+    "전형"
+   ],
+   "probe": "http:200",
    "adiga_2027": false
   },
   {
@@ -2437,7 +2421,8 @@
    "has_2027": false,
    "keywords": [
     "모집요강",
-    "2027"
+    "2027",
+    "외국인"
    ],
    "probe": "http:200",
    "adiga_2027": false
