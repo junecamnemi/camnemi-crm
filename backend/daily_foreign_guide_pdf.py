@@ -24,6 +24,17 @@ jr_pending = load("_junior_pending.json", []) or []
 jr_done = {k: v for k, v in jr.items() if str(v.get("status", "")).startswith("2027_published")}
 jr_wait = {k: v for k, v in jr.items() if str(v.get("status", "")) == "2027_not_yet"}
 
+# 전문대 외국인 요강 수집 실적 — _junior_foreign_collected.json (별도 파일, 재생성돼도 유지)
+jr_col = load("_junior_foreign_collected.json", {}) or {}
+jr_collected = {e["name"]: e for e in jr_col.get("collected", [])}   # PDF 확보
+jr_page = {e["name"]: e for e in jr_col.get("page_guide", [])}       # HTML page-guide
+jr_missing = {e["name"]: e for e in jr_col.get("missing", [])}       # 무요강 확인
+jr_col_2027 = {n for n, e in jr_collected.items() if str(e.get("year", "")).startswith("2027")}
+# 확보 = daily checker가 2027_published로 확인한 것 + 수집으로 PDF 확보한 것
+jr_secured = dict(jr_done)
+for n, e in jr_collected.items():
+    jr_secured.setdefault(n, e)
+
 # 요약: 2027 상태 보유 학교 수
 ba2027 = sum(1 for m in master if str(m.get("ba_status", "")).startswith("2027"))
 ma2027 = sum(1 for m in master if str(m.get("ma_status", "")).startswith("2027"))
@@ -97,12 +108,11 @@ E.append(Paragraph(f"③ 전체 2027 현황 (감시 {len(master)}교 + 전문대
 E.append(Paragraph(f"- 학부(BA) 2027 확보: <b>{ba2027}</b>교", body_s))
 E.append(Paragraph(f"- 대학원(MA) 2027 확보: <b>{ma2027}</b>교", body_s))
 E.append(Paragraph(f"- 어학(lang) 2027 확보: <b>{lang2027}</b>교", body_s))
-E.append(Paragraph(f"- 전문대(junior) 2027 확보: <b>{len(jr_done)}</b>교 / 대기 {len(jr_wait)}교 / unvCd미확보 {len(jr_pending)}교", body_s))
-if jr_done:
-    E.append(Paragraph("  전문대 2027 확정: " + ", ".join(list(jr_done.keys())[:30]), body_s))
-if jr_pending:
-    E.append(Paragraph("  전문대 브라우저 확인 필요(" + str(len(jr_pending)) + "): "
-                       + ", ".join(p.get("school","") for p in jr_pending[:20]), body_s))
+E.append(Paragraph(f"- 전문대(junior) 요강 확보: <b>{len(jr_secured)}</b>교 (2027 {len(jr_col_2027)} / 2026 등 {len(jr_collected)-len(jr_col_2027)}) / page-guide {len(jr_page)} / 무요강 {len(jr_missing)}", body_s))
+if jr_secured:
+    E.append(Paragraph("  전문대 요강 확보: " + ", ".join(list(jr_secured.keys())[:30]), body_s))
+if jr_page:
+    E.append(Paragraph("  page-guide(HTML만, PDF 없음): " + ", ".join(list(jr_page.keys())[:20]), body_s))
 E.append(Spacer(1, 8*mm))
 E.append(Paragraph("※ 외국인(재외국민/외국인전형) 모집요강만 수집 · 일반 수시/정시 제외", body_s))
 
