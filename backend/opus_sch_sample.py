@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Opus scholarship enrichment: for each parsed guide, Opus extracts the FULL
-scholarship details (tiers, conditions, benefits) from the source text, replacing
-Pro's thin scholarship_note. Output: _opus_scholarships.jsonl
-{school, program, year, scholarships: [ {name, condition, benefit} ]}
+"""Opus scholarship extraction for a SAMPLE of BA/MA/junior guides (lang excluded).
+Compares Opus scholarships vs Pro scholarship_note to find where Opus is richer.
+Output: _opus_sch_sample.jsonl {school, program, pro_note, opus_scholarships}
 """
 import os, re, json, urllib.request
 
 BASE = r"C:\Users\USER\camnemi-crm\backend"
 PARSED = os.path.join(BASE, "guides_llm_parsed.jsonl")
-OUT = os.path.join(BASE, "_opus_scholarships.jsonl")
+OUT = os.path.join(BASE, "_opus_sch_sample.jsonl")
 MODEL = "anthropic/claude-opus-5"
+LIMIT = int(os.environ.get("OPUS_SAMPLE", "20"))
 
 def _auth():
     for p in [r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\USER\AppData\Local\hermes\auth.json"]:
@@ -50,31 +50,24 @@ def call(text):
     return m.get("content") or m.get("reasoning") or ""
 
 def main():
-    # read parsed guides that have a source file
-    items = []
-    for l in open(PARSED, encoding="utf-8"):
-        if not l.strip(): continue
-        d = json.loads(l)
-        f = d.get("_file", "")
-        if f:
-            items.append(d)
-    # lang excluded (user: 어학연수 제외)
-    items = [d for d in items if d.get("program") != "lang"]
-    print(f"장학금 보강 대상: {len(items)} (lang 제외)")
+    pro = [json.loads(l) for l in open(PARSED, encoding="utf-8") if l.strip()]
+    # lang excluded, with scholarship_note and source file
+    cands = [d for d in pro if d.get("program") != "lang" and d.get("scholarship_note") and d.get("_file")]
+    print(f"후보: {len(cands)} (lang 제외, 장학금 보유)")
+    sample = cands[:LIMIT]
+    print(f"샘플: {len(sample)}")
     ok = 0
-    with open(OUT, "a", encoding="utf-8") as out:
-        for d in items:
+    with open(OUT, "w", encoding="utf-8") as out:
+        for d in sample:
             f = d.get("_file", "")
-            # find the actual path
             path = None
-            for prog in ["ba", "ma", "junior", "lang"]:
+            for prog in ["ba", "ma", "junior"]:
                 for y in ["2026", "2027"]:
                     p = os.path.join(r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\guides", prog, y, f)
                     if os.path.exists(p):
                         path = p; break
                 if path: break
-            if not path:
-                continue
+            if not path: continue
             try:
                 txt = extract_text(path)
                 resp = call(txt)
@@ -82,12 +75,14 @@ def main():
                 if not m: continue
                 sch = json.loads(m.group(0))
                 rec = {"school": d.get("school"), "program": d.get("program"),
-                       "year": d.get("year"), "scholarships": sch.get("scholarships", [])}
+                       "pro_note": d.get("scholarship_note"),
+                       "opus_scholarships": sch.get("scholarships", [])}
                 out.write(json.dumps(rec, ensure_ascii=False) + "\n")
                 ok += 1
+                print(f"  OK: {d.get('school')} [{d.get('program')}] opus={len(sch.get('scholarships',[]))}개")
             except Exception as e:
                 print(f"  ERR: {d.get('school')} {type(e).__name__}")
-    print(f"완료: {ok}/{len(items)} 장학금 보강")
+    print(f"완료: {ok}/{len(sample)}")
 
 if __name__ == "__main__":
     main()

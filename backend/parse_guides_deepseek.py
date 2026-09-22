@@ -31,7 +31,14 @@ PROMPT = """한국 대학 외국인 모집요강 텍스트에서 정보를 추�
 {"school":"대학명(한글)", "program":"ba|ma|lang|junior", "year":"2026|2027|unknown",
  "period":"원서접수 기간(문자열)", "topik":TOPIK최소급수 숫자 또는 null, "ielts":IELTS최소 숫자 또는 null,
  "toefl":TOEFL최소 숫자 또는 null, "majors":["모집학과 전체 목록"],
- "tuition_note":"등록금 관련 한 줄 요약", "scholarship_note":"장학금 관련 한 줄 요약"}
+ "tuition_note":"등록금 관련 한 줄 요약",
+ "scholarships":[{"name":"장학금명", "condition":"지급조건(TOPIK/IELTS/성적 등)", "benefit":"혜택(수업료 %/금액/기간)"}]}
+
+장학금 추출 규칙(중요):
+- 요강에 나온 **모든 장학금 등급/조건/혜택을 빠짐없이** 배열로 추출하라.
+- TOPIK/IELTS/성적별 감면율(예: TOPIK6→100%, TOPIK5→70%)을 각각 별도 항목으로.
+- "별도 페이지 참조"로만 나오면 빈 배열 [].
+- 장학금이 없으면 {"scholarships":[]}.
 
 === 모집요강 텍스트 ===
 """
