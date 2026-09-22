@@ -55486,7 +55486,8 @@ window.UNIV_KNOWLEDGE = [
     "condition": "부모 중 1명 이상이 외국 국적이거나 귀화한 가정의 자녀, 직전학기 백분위 70점 이상",
     "benefit": "학기당 150만원"
    }
-  ]
+  ],
+  "period": "2027. 1. 4.(월) 9:00 ~ 2027. 1. 20.(수) 18:00까지"
  },
  {
   "n": "명지전문대학",
@@ -56373,7 +56374,8 @@ window.UNIV_KNOWLEDGE = [
   },
   "en": "Kyungmin University",
   "es": "KMU",
-  "foreign_guide": "not_checked"
+  "foreign_guide": "not_checked",
+  "period": "2026.05.04.()~15.(), 2026.06.22.()~07.01.() 09:00~18:00"
  },
  {
   "n": "경복대학교",
@@ -66334,7 +66336,8 @@ window.UNIV_KNOWLEDGE = [
     "condition": "국립대학으로 입학생 전원 (졸업 후 일정 요건 시 상환)",
     "benefit": "학비 등 전액 국비 지원"
    }
-  ]
+  ],
+  "period": "2025.02.03.(월)~02.28.(금)"
  },
  {
   "n": "광양보건대학교",
