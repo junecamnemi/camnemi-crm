@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """daily_guides_all.py — one daily pass over every admission-guide source.
 
-Runs (in order):
-  1. daily_2027_check.py            — adiga scrape + pending list (BA/MA/Lang)
-  2. daily_homepage_2027_check.py   — school-homepage 2027 detection (BA/MA)
-  3. daily_junior_2027_check.py     — junior-college 2027 detection
-  4. upsert_2027_guides.py          — push any NEW 2027 guides into Supabase
+Runs (in order) — all DIRECT school-URL collection (adiga NOT used):
+  1. daily_guide_scraper.py          — BA/MA/lang direct collection (school guide_url)
+  2. daily_homepage_2027_check.py    — school-homepage 2027 detection (BA/MA)
+  3. daily_junior_direct.py          — junior-college direct collection (school URL)
+  4. upsert_2027_guides.py           — push any NEW 2027 guides into Supabase
 
 Prints a SHORT summary to stdout ONLY (safe for a no_agent cron: silent when
 nothing changed is not possible for a status line, so we always print one line —
@@ -18,9 +18,9 @@ import os, subprocess, sys, json, datetime
 BASE = os.path.dirname(os.path.abspath(__file__))
 PY = sys.executable
 STEPS = [
-    ("daily_2027_check.py", "BA/MA/어학 (adiga+pending)"),
+    ("daily_guide_scraper.py", "BA/MA/어학 직접 수집 (학교 URL)"),
     ("daily_homepage_2027_check.py", "홈페이지 2027 탐지"),
-    ("daily_junior_2027_check.py", "전문대 2027 탐지"),
+    ("daily_junior_direct.py", "전문대 외국인 요강 직접 수집 (학교 URL)"),
     ("upsert_2027_guides.py", "Supabase 반영"),
 ]
 

@@ -23,7 +23,7 @@ UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
 B = r"C:\Users\USER\camnemi-crm\backend"
 FP = os.path.join(B, "_guide_fingerprint.json")
 CHANGES = os.path.join(B, "_scrape_changes.jsonl")
-OWN_DIR = os.path.join(UP, "_ownsite_daily")
+OWN_DIR = os.path.join(UP, "guides")  # single managed folder: guides/{prog}/{year}/
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36",
            "Accept-Language": "ko-KR,ko;q=0.9"}
@@ -134,10 +134,14 @@ def main():
             if prev.get("md5") == h:
                 fp[key] = {**prev, "last_checked": today, "status": "ok", "size": sz, "url": src_url}
             else:
-                # save the new guide
+                # save the new guide into guides/{prog}/{year}/
                 ext = os.path.splitext(src_url.split("?")[0])[1] or ".pdf"
                 fname = f"{norm(school)}_{lvl}{ext}"
-                path = os.path.join(OWN_DIR, fname)
+                prog = {"ba": "ba", "ma": "ma", "junior": "junior", "lang": "lang"}.get(lvl, "ba")
+                year = "2027" if ("2027" in str(url) or "2027" in str(src_url)) else "2026"
+                gdir = os.path.join(OWN_DIR, prog, year)
+                os.makedirs(gdir, exist_ok=True)
+                path = os.path.join(gdir, fname)
                 open(path, "wb").write(b)
                 fp[key] = {"md5": h, "size": sz, "url": src_url, "saved": path,
                            "last_checked": today, "status": "updated",

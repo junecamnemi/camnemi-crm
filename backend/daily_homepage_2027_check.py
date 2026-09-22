@@ -134,11 +134,9 @@ def main():
             if "drive.google" in url:
                 url = rec.get(f"{track}_src", "")
             reachable, has27, kws, pstatus = probe(url)
-            # adiga cross-check
-            adiga = adiga_has_foreign(school) if track == "ba" else adiga_has_grad(school)
             entry = {"school": school, "status_prev": status, "url": url[:90],
                      "reachable": reachable, "has_2027": has27, "keywords": kws,
-                     "probe": pstatus, "adiga_2027": adiga}
+                     "probe": pstatus}
             results[track].append(entry)
             probed += 1
             if reachable:
@@ -148,10 +146,6 @@ def main():
                 rec[f"{track}_status"] = "2027_own"
                 rec[f"{track}_url"] = url
                 rec[f"{track}_note"] = f"HOMEPAGE 2027 detected {today} (auto). kw={kws}"
-                new_ba.append(school) if track == "ba" else new_ma.append(school)
-            elif adiga is True and status not in OK_2027:
-                rec[f"{track}_status"] = "2027_adiga"
-                rec[f"{track}_note"] = f"adiga 2027 guide available {today} (auto)"
                 new_ba.append(school) if track == "ba" else new_ma.append(school)
             if args.limit and probed >= args.limit:
                 break

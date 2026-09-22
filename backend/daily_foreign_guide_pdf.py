@@ -18,11 +18,10 @@ new_ma = newd.get("new_ma", []) or []
 ups = load("upserted_2027.json", {}).get("upserts", []) or []
 master = load("_guide_2027_master.json", []) or []
 
-# 전문대(junior) 2027 상태 — daily_junior_2027_check.py 산출물
-jr = load("_guide_2027_junior.json", {}) or {}
-jr_pending = load("_junior_pending.json", []) or []
-jr_done = {k: v for k, v in jr.items() if str(v.get("status", "")).startswith("2027_published")}
-jr_wait = {k: v for k, v in jr.items() if str(v.get("status", "")) == "2027_not_yet"}
+# 전문대(junior) 2027 상태 — 직접 수집(daily_junior_direct.py) 산출물 (adiga 미사용)
+jr = load("_junior_direct_collected.json", {}) or {}
+jr_done = {k: v for k, v in jr.items() if v.get("status") == "downloaded"}
+jr_wait = {k: v for k, v in jr.items() if v.get("status") in ("no_pdf_link", "no_url")}
 
 # 전문대 외국인 요강 수집 실적 — _junior_foreign_collected.json (별도 파일, 재생성돼도 유지)
 jr_col = load("_junior_foreign_collected.json", {}) or {}
@@ -30,7 +29,7 @@ jr_collected = {e["name"]: e for e in jr_col.get("collected", [])}   # PDF 확�
 jr_page = {e["name"]: e for e in jr_col.get("page_guide", [])}       # HTML page-guide
 jr_missing = {e["name"]: e for e in jr_col.get("missing", [])}       # 무요강 확인
 jr_col_2027 = {n for n, e in jr_collected.items() if str(e.get("year", "")).startswith("2027")}
-# 확보 = daily checker가 2027_published로 확인한 것 + 수집으로 PDF 확보한 것
+# 확보 = 직접 수집으로 PDF 확보한 것 + 기존 수집 실적
 jr_secured = dict(jr_done)
 for n, e in jr_collected.items():
     jr_secured.setdefault(n, e)
@@ -90,7 +89,7 @@ else:
 
 E.append(Paragraph("② 최근 upsert된 2027 요강 (전문대 검출분 포함)", h_s))
 if new_jr_names:
-    E.append(Paragraph("※ 전문대 2027은 adiga(공식) 확인이라 upsert 목록과 별개입니다.", body_s))
+    E.append(Paragraph("※ 전문대 2027은 각 학교 공식 사이트에서 직접 수집(daily_junior_direct.py)한 결과입니다.", body_s))
 E.append(Paragraph(f"   upsert 기록 {len(ups)}건", body_s))
 if ups:
     data = [["레벨","학교","요강"]]
