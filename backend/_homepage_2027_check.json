@@ -1,5 +1,5 @@
 {
- "date": "2026-09-22",
+ "date": "2026-09-23",
  "ba": [
   {
    "school": "강원대학교",
@@ -118,6 +118,7 @@
     "모집요강",
     "외국인",
     "재외국민",
+    "신입학",
     "전형"
    ],
    "probe": "http:200"
@@ -456,10 +457,16 @@
    "school": "우석대학교",
    "status_prev": "2026_or_older",
    "url": "https://enter.woosuk.ac.kr/main/",
-   "reachable": false,
-   "has_2027": false,
-   "keywords": [],
-   "probe": "error:SSLError"
+   "reachable": true,
+   "has_2027": true,
+   "keywords": [
+    "모집요강",
+    "2027",
+    "외국인",
+    "재외국민",
+    "전형"
+   ],
+   "probe": "http:200"
   },
   {
    "school": "울산대학교",
@@ -493,20 +500,6 @@
    "reachable": true,
    "has_2027": false,
    "keywords": [],
-   "probe": "http:200"
-  },
-  {
-   "school": "유원대학교",
-   "status_prev": "2026_or_older",
-   "url": "https://www.u1.ac.kr/global/admissions/recruitment.do",
-   "reachable": true,
-   "has_2027": true,
-   "keywords": [
-    "모집요강",
-    "2027",
-    "외국인",
-    "전형"
-   ],
    "probe": "http:200"
   },
   {
@@ -556,7 +549,10 @@
    "reachable": true,
    "has_2027": false,
    "keywords": [
-    "신입학"
+    "모집요강",
+    "외국인",
+    "신입학",
+    "전형"
    ],
    "probe": "http:200"
   },
@@ -717,11 +713,11 @@
   {
    "school": "가톨릭꽃동네대학교",
    "status_prev": "not_found",
-   "url": "",
-   "reachable": false,
+   "url": "https://kerp.kkot.ac.kr/HtmlConv/ipsi/g_ipsi_login.html",
+   "reachable": true,
    "has_2027": false,
    "keywords": [],
-   "probe": "no_url/drive"
+   "probe": "http:200"
   },
   {
    "school": "가톨릭대학교",
@@ -740,11 +736,11 @@
   {
    "school": "감리교신학대학교",
    "status_prev": "not_found",
-   "url": "",
+   "url": "https://www.kwtu.ac.kr/",
    "reachable": false,
    "has_2027": false,
    "keywords": [],
-   "probe": "no_url/drive"
+   "probe": "error:ConnectionError"
   },
   {
    "school": "강남대학교",
@@ -1073,11 +1069,16 @@
   {
    "school": "극동대학교",
    "status_prev": "not_found",
-   "url": "",
-   "reachable": false,
+   "url": "https://www.kdu.ac.kr/ipsi/sub.do?mncd=1330",
+   "reachable": true,
    "has_2027": false,
-   "keywords": [],
-   "probe": "no_url/drive"
+   "keywords": [
+    "모집요강",
+    "외국인",
+    "재외국민",
+    "전형"
+   ],
+   "probe": "http:200"
   },
   {
    "school": "금강대학교",
@@ -1103,11 +1104,13 @@
   {
    "school": "나사렛대학교",
    "status_prev": "not_found",
-   "url": "",
-   "reachable": false,
+   "url": "https://ipsi.kornu.ac.kr/ipsi/index.do",
+   "reachable": true,
    "has_2027": false,
-   "keywords": [],
-   "probe": "no_url/drive"
+   "keywords": [
+    "신입학"
+   ],
+   "probe": "http:200"
   },
   {
    "school": "남부대학교",
@@ -1857,10 +1860,14 @@
    "school": "우석대학교",
    "status_prev": "unknown_year",
    "url": "http://grad.woosuk.ac.kr/main/",
-   "reachable": false,
+   "reachable": true,
    "has_2027": false,
-   "keywords": [],
-   "probe": "error:SSLError"
+   "keywords": [
+    "모집요강",
+    "2027",
+    "전형"
+   ],
+   "probe": "http:200"
   },
   {
    "school": "우송대학교",
@@ -2387,7 +2394,7 @@
   }
  ],
  "new_ba": [
-  "유원대학교"
+  "우석대학교"
  ],
  "new_ma": []
 }
