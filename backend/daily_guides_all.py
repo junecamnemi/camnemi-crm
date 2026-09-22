@@ -50,11 +50,12 @@ def counts():
         rows = []
     def n(t): return sum(1 for r in rows if str(r.get(f"{t}_status","")).startswith("2027"))
     junior_n = 0
-    jf = os.path.join(BASE, "_guide_2027_junior.json")
+    jf = os.path.join(BASE, "_junior_direct_collected.json")
     try:
         jrows = json.load(open(jf, encoding="utf-8"))
-        junior_n = sum(1 for v in jrows.values() if str(v.get("status","")) == "2027_published")
-        junior_total = len(jrows)
+        # count downloaded guides whose year is 2027
+        junior_n = sum(1 for v in jrows.values() if v.get("status") == "downloaded" and str(v.get("year", "")) == "2027")
+        junior_total = len([v for v in jrows.values() if v.get("status") == "downloaded"])
     except Exception:
         junior_total = 0
     if not rows and not junior_total:
