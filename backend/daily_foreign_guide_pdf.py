@@ -73,9 +73,13 @@ E.append(Spacer(1, 6*mm))
 
 E.append(Paragraph(f"① 오늘 신규 감지 (BA {len(new_ba)} / MA {len(new_ma)} / 전문대 {len(new_jr_names)})", h_s))
 if new_ba or new_ma or new_jr_names:
+    def _row(level, x):
+        if isinstance(x, dict):
+            return [level, x.get("school",""), (x.get("url","") or "")[:70]]
+        return [level, str(x), ""]
     data = [["구분","학교","요강 URL"]]
-    for x in new_ba: data.append(["BA", x.get("school",""), (x.get("url","") or "")[:70]])
-    for x in new_ma: data.append(["MA", x.get("school",""), (x.get("url","") or "")[:70]])
+    for x in new_ba: data.append(_row("BA", x))
+    for x in new_ma: data.append(_row("MA", x))
     for name in new_jr_names:
         v = jr.get(name, {})
         data.append(["전문대", name, (v.get("unvCd","") or "")])
