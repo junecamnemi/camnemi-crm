@@ -6,20 +6,12 @@
 - 장학금 보유: 220 (69.2%)  [게이트 60%]
 
 ## 이슈
-### V2 (warn) — 1091건
+### V2 (warn) — 1039건
 - _chsu_guide: 글로벌휴먼케어학과: korean-only w/o topik
 - _chsu_guide: 글로벌IT학과: korean-only w/o topik
 - _chsu_guide: 스마트기계가공학과: korean-only w/o topik
 - _chsu_guide: 전기배터리융합학과: korean-only w/o topik
 - _chsu_guide: 기계자동차융합학과: korean-only w/o topik
-- 가야대학교: 사회복지상담학과: korean-only w/o topik
-- 가야대학교: 스포츠재활복지학과: korean-only w/o topik
-- 가야대학교: 부동산금융재테크학과: korean-only w/o topik
-- 가야대학교: 사회복지상담학: korean-only w/o topik
-- 가야대학교: 사회복지상담학과: korean-only w/o topik
-- 가야대학교: 물류학: korean-only w/o topik
-- 가야대학교: 간호학: korean-only w/o topik
-- 가야대학교: 방사선학: korean-only w/o topik
 - 가톨릭대_2026후기1차_일반대학원: 경영학과: korean-only w/o topik
 - 가톨릭대_2026후기1차_일반대학원: 국어국문학과: korean-only w/o topik
 - 가톨릭대_2026후기1차_일반대학원: 국사학과: korean-only w/o topik
@@ -32,7 +24,15 @@
 - 가톨릭대_2026후기1차_일반대학원: 한국어교육학과: korean-only w/o topik
 - 가톨릭대_2026후기1차_일반대학원: 행정학과: korean-only w/o topik
 - 가톨릭대_2026후기1차_일반대학원: 교육학과: korean-only w/o topik
-- … 외 1066건
+- 가톨릭대_2026후기1차_일반대학원: 중독학과: korean-only w/o topik
+- 가톨릭대_2026후기1차_일반대학원: 물리학과: korean-only w/o topik
+- 가톨릭대_2026후기1차_일반대학원: 생명과학과: korean-only w/o topik
+- 가톨릭대_2026후기1차_일반대학원: 공간디자인•소비자학과: korean-only w/o topik
+- 가톨릭대_2026후기1차_일반대학원: 수학과: korean-only w/o topik
+- 가톨릭대_2026후기1차_일반대학원: 식품영양학과: korean-only w/o topik
+- 가톨릭대_2026후기1차_일반대학원: 아동학과: korean-only w/o topik
+- 가톨릭대_2026후기1차_일반대학원: 화학과: korean-only w/o topik
+- … 외 1014건
 
 ### V3 (warn) — 12건
 - 원광대학교: tuition out of range: 의생명융합대학=50000
