@@ -11566,7 +11566,7 @@
    "guide_pdf": "C:/Users/USER/camnemi-crm/backend/_foreign_ba_pdf/예수대학교_외국인모집요강_2027.pdf",
    "source": "C:/Users/USER/camnemi-crm/backend/_foreign_ba_pdf/예수대학교_외국인모집요강_2027.pdf",
    "foreign_guide_updated": "2026-09-23",
-   "scholarship_note": "2027 재외국민과 외국인 특별전형 모집요강(간호학부, TOPIK 4급 이상) 및 공식 장학제도 페이지(jesus.ac.kr/enter 장학/학자금)에 외국인(순수외국인) 전용 장학금 미게재. 교내장학은 내국인 대상(성적우수·교직원직계·목회자가족·형제자매·장애·다문화가정 등)이며 순수외국인 전용 금액 정보 없음 → null. need=scholarship."
+   "scholarship_note": "외국인 유학생 전용 장학제도 공개 소스 없음. 공식 장학제도 페이지(입학정보>장학/학자금>장학제도)에 성적우수/교직원직계자녀/기타감면(다문화가정·목회자가족 등)/공로/민간기탁/국가장학금 등 일반 교내·교외 장학만 공개되며 순수외국인 전형 장학금은 확인되지 않음. 간호학부 중심 소규모 대학."
   },
   "초당대학교": {
    "name": "초당대학교",
@@ -15012,7 +15012,7 @@
    "_student_source": "교육부_대학알리미_대학주요정보(2025) data.go.kr 15118998",
    "guide_page_url": "https://www.kwangshin.ac.kr/front/boardView.do?menu_no=522&brd_no=42864&brd_mgrno=191&listurl=/front/boardList.do",
    "foreign_guide_updated": "2026-09-23",
-   "scholarship_note": "외국인 모집요강 PDF 미확보, 공식 홈페이지(kwangshin.ac.kr)는 접속 지연/무응답으로 내용 확인 불가. 공개 웹소스에서 외국인(순수외국인) 전용 장학금·등록금 정보 미확인 → null. need=scholarship."
+   "scholarship_note": "외국인 유학생 전용 장학금 공개 소스 없음. 공식 홈페이지(kwangshin.ac.kr) 접근 불가(Forbidden) 및 검색에서 외국인 장학제도 페이지 미확인. 사립 신학대(광주)로 외국인 유학생 장학 정보 공개 없음."
   },
   "국민대학교": {
    "name": "국민대학교",
@@ -16469,7 +16469,10 @@
    "guide_pdf": "https://www.scu.ac.kr",
    "source": "https://www.scu.ac.kr",
    "foreign_guide_updated": "2026-09-23",
-   "scholarship_note": "2027 부모 모두 외국인인 외국인 특별전형 모집요강(안)(글로벌 AI 융합대학 5개 전담학과, 전형료 60,000원) 및 공식 장학안내 페이지(admission.scu.ac.kr/introduction/scholarship)에 외국인 전용 장학금·등록금 금액 미게재(교내 장학은 내국인 대상). 글로벌 AI 융합대학의 별도 등록금/장학 공개 페이지 미확인 → null. need=tuition+scholarship."
+   "scholarship_note": "외국인 유학생 전용 장학 없음. 공식 장학안내 페이지에 공로자/성적학비감면(수석 100%·차석 80%·그외 50%)/교역자·교역자가족 50%/저소득층 등 일반 교내 장학·학비감면만 공개. 등록금은 2021학년도 공연음악학과 기준 연 7,896,000원(수업료=등록금, 학기당 약 3,948,000원) — 타 학과(신학·사회복지·음악 등)는 미확인. 외국인 유학생 472명(2025.12 기준) 재학.",
+   "tuition_min": 7896000,
+   "tuition_max": 7896000,
+   "tuition_semester": "₩7,896,000~₩7,896,000"
   },
   "동국대학교": {
    "name": "동국대학교",
@@ -17413,7 +17416,14 @@
    "guide_pdf": "C:/Users/USER/camnemi-crm/backend/_foreign_ba_pdf/동양대학교_외국인모집요강_2026.pdf",
    "source": "C:/Users/USER/camnemi-crm/backend/_foreign_ba_pdf/동양대학교_외국인모집요강_2026.pdf",
    "foreign_guide_updated": "2026-09-23",
-   "scholarship_note": "2026 후기 신입학 외국인 특별전형 모집요강 및 국제교류원 외국인입학 페이지(global.dyu.ac.kr: 지원자격/지원절차/제출서류/모집단위)에 장학금·등록금 정보 미게재. 외국인(순수외국인) 전용 장학금 공개 정보 미확인 → null. need=scholarship."
+   "scholarship_note": "공식 교내외장학금 페이지에 '자비유학생 장학금(자비 유학생, 직전학기 성적 1.5 이상)' 존재하나 금액/비율 미공개. 이외 다문화가족 장학금(학기당 150만원) 등 일반 장학만 공개. 2024학년도 외국인 신입생 55명(국제경영·글로벌비즈니스·철도건설안전공학) 입학 및 성적우수자 장학 수여 보도 있으나 구체 금액 미공개.",
+   "scholarships_categorized": [
+    {
+     "name": "자비유학생 장학금",
+     "criteria": "자비 유학생, 재학 중 직전학기 성적 1.5 이상",
+     "amount": "미공개(등록금 감면)"
+    }
+   ]
   },
   "부산가톨릭대학교": {
    "name": "부산가톨릭대학교",
@@ -21763,7 +21773,7 @@
    "guide_pdf": "인천가톨릭대학교_외국인모집요강_2026.pdf (adiga 0000168)",
    "source": "인천가톨릭대학교_외국인모집요강_2026.pdf (adiga 0000168)",
    "foreign_guide_updated": "2026-09-23",
-   "scholarship_note": "2026 외국인 특별전형 모집요강(신학대학 신학과만, 전형료 없음)에 장학금·등록금 미수록. 외국인(순수외국인) 전용 장학금 공개 정보 미확인 → null. need=scholarship."
+   "scholarship_note": "외국인 유학생 전용 장학 없음. 공식 장학제도 페이지에 이사장·총장·학장·조형예술·나이팅게일 등 일반 교내 장학만 공개. '국제교류생활장학금'은 본교-MOU 외국대학으로 파견되는 내국인 교환학생 대상(외국인 유입생 아님). 순수외국인 전형 장학금 공개 없음."
   },
   "전주대학교": {
    "name": "전주대학교",
@@ -24225,7 +24235,7 @@
    "guide_pdf": "C:/Users/USER/camnemi-crm/backend/_foreign_ba_pdf/목포가톨릭대학교_신입생모집요강_2027.pdf",
    "source": "C:/Users/USER/camnemi-crm/backend/_foreign_ba_pdf/목포가톨릭대학교_신입생모집요강_2027.pdf",
    "foreign_guide_updated": "2026-09-23",
-   "scholarship_note": "need=scholarship. 외국인(순수외국인) 전용 장학제도 공개 페이지·금액표 미확인. 확보 요강(목포가톨릭대학교_신입생모집요강_2027)은 48p 이미지 스캔본(텍스트층 없음)으로 내국인 수시/정시 위주이며 외국인 특별전형·장학 항목 미확인. → 비지어냄(장학금 null 처리)."
+   "scholarship_note": "외국인 유학생 전용 장학제도 공개 소스 없음. 공식 홈페이지(mcu.ac.kr) 장학 게시판은 산학협력·국가근로 등 일반 장학 공지 위주. 간호학과 중심 소규모 가톨릭 대학으로 순수외국인 전형/전용 장학 정보 확인 안 됨."
   },
   "광주대학교": {
    "name": "광주대학교",
@@ -24850,7 +24860,19 @@
    "guide_pdf": "https://ibhak.gimcheon.ac.kr",
    "source": "https://ibhak.gimcheon.ac.kr",
    "foreign_guide_updated": "2026-09-23",
-   "scholarship_note": "need=scholarship. 요강(김천대학교_외국인모집요강_2026, 부모 모두 외국인인 외국인 한국어트랙/ENGLISH TRACK)에 장학금·등록금 금액 미수록(모집단위/일정/자격/서류/기숙사만). 언론보도로 외국인 유학생 '유학토픽장학금' 신설(2019)은 확인되나 공식 급수별 금액표 미공개 → 비지어냄."
+   "scholarship_note": "외국인 특별전형(신입·편입) 운영. 언어요건: TOPIK 3급 이상(예체능 2급 이상), 본교 국제교육원 4급 이상 수료자, KIIP 3단계/사전평가 61점 이상. 장학은 유학토픽장학금(외국인유학생) 신설 및 어학연수 국제교육원 장학금, 학부 진학 후 TOPIK 성적 기반 교내장학금 운영 보도 있으나 공식 페이지에 구체 금액 미공개.",
+   "scholarships_categorized": [
+    {
+     "name": "유학토픽장학금(외국인 유학생)",
+     "criteria": "한국어능력시험(TOPIK) 성적 기준",
+     "amount": "미공개(교내 장학규정에 의거 차등지급)"
+    },
+    {
+     "name": "국제교육원 장학금(어학연수 과정)",
+     "criteria": "어학연수 기간 출결·성적",
+     "amount": "미공개"
+    }
+   ]
   },
   "한국공학대학교": {
    "name": "한국공학대학교",
@@ -30415,21 +30437,24 @@
    "scholarships_categorized": [
     {
      "name": "외국인 유학생 입학장학금",
-     "condition": "외국인전형 입학기준 충족자(TOPIK 2급 이상)",
-     "benefit": "TOPIK 성적별 차등지급(구체 금액 미공개)"
+     "criteria": "외국인전형 입학기준 충족, TOPIK 2급 이상",
+     "amount": "성적별 차등지급(비율 미공개)"
     },
     {
      "name": "성적장학금(재학생)",
-     "condition": "외국인 입학자, 직전학기 12학점 이수 + 학업성적 일정 수준 이상",
-     "benefit": "성적별 차등지급"
+     "criteria": "직전학기 12학점 이수, 학업성적 일정 수준 이상",
+     "amount": "성적별 차등지급"
     },
     {
      "name": "TOPIK 장학금(재학생)",
-     "condition": "외국인 유학생 한국어능력시험(TOPIK)",
-     "benefit": "등급별 차등지급"
+     "criteria": "한국어능력시험(TOPIK) 등급",
+     "amount": "등급별 차등지급"
     }
    ],
-   "scholarship_note": "need=tuition+scholarship. 요강(대구한의대학교_외국인모집요강_2026, 정원내 외국인Ⅰ/정원외 외국인Ⅱ)에 등록금·장학금 금액 미수록(전형료 25,000원만 명시). 공식 'GLOBAL DHU>장학제도' 페이지에 장학금 종류(입학/성적/TOPIK)는 있으나 급수별 금액은 '학생지원팀 기준에 근거'로 미공개 → 구체 금액·등록금 비지어냄."
+   "scholarship_note": "연간 등록금(대학알리미 계열) 기준 최저 경찰행정학과 5,684,000원 ~ 최고 한의예과 9,328,000원(한의학과 9,260,000원, 간호학과 7,672,189원 등). 학기당 환산 약 284만~466만원. 장학제도는 GLOBAL DHU 페이지 공식 확인.",
+   "tuition_min": 5684000,
+   "tuition_max": 9328000,
+   "tuition_semester": "₩5,684,000~₩9,328,000"
   },
   "경일대학교": {
    "name": "경일대학교",
@@ -32407,7 +32432,7 @@
     "tuition_semester": "LLM(pro)",
     "scholarships_categorized": "LLM(pro)"
    },
-   "scholarship_note": "need=lang. 요강(호서대학교_외국인모집요강_2026, 순수외국인)에 등록금·장학·어학기준 모두 수록. 첫학기 등록금: 인문사회/국제학부 3,591,000 ~ 예능계열 4,558,000 (2학기부터 3,441,000~4,408,000). 어학요건: 일반계열 TOPIK 3급 이상(예체능 2급)·세종학당 중급1·사회통합 3단계·호서토픽 등; 영어트랙 TOEFL iBT 71·IELTS 5.5."
+   "scholarship_note": "외국인 입학 언어요건(공식 모집요강): 한국어능력시험(TOPIK) 3급 이상 입학, 졸업 전까지 4급 이상 취득. 영어능력시험 대체 가능(TOEFL 550점/CBT 210/iBT 80, IELTS 5.5, TEPS 550 등). 출처: 호서대 모집요강(leader.hoseo.ac.kr 신입학안내). 장학·등록금은 이번 조사범위(need=lang) 외."
   }
  },
  "master": {
@@ -46176,9 +46201,16 @@
     "foreign_guide_updated": "2026-09-23",
     "tuition_min": 7032500,
     "tuition_max": 7032500,
-    "tuition_semester": "연간 ₩7,032,500~₩7,032,500",
+    "tuition_semester": "₩7,032,500~₩7,032,500",
     "tuition_source": "대학알리미 2025 등록금 공시(김박사넷 phdkim.net/gradinfo/school/721)",
-    "tuition_note": "연간 등록금(대학알리미 2025 공시 항목 129 기준). 국제융합대학원(특수대학원, 2025 신설) 석사 3개 전공(국제호텔및관광경영·인공지능및데이터과학 등) 연간 7,032,500원 동일 학기당 약 3,516,250~3,516,250원. 입학금 면제."
+    "tuition_note": "연간 등록금(대학알리미 2025 공시 항목 129 기준). 국제융합대학원(특수대학원, 2025 신설) 석사 3개 전공(국제호텔및관광경영·인공지능및데이터과학 등) 연간 7,032,500원 동일 학기당 약 3,516,250~3,516,250원. 입학금 면제.",
+    "scholarships_categorized": {
+     "외국인_특화_장학": null,
+     "교내_일반": "학부 장학제도에 '외국인장학' 항목 존재(학비감면). 대학원(국제융합대학원) 외국인 특화 장학 금액은 공시 없음",
+     "정부_외부": null,
+     "비고": "국제융합대학원(특수대학원, 2025 신설) 장학금 대학알리미 '미공시'"
+    },
+    "scholarship_note": "경동대 대학원은 국제융합대학원(특수대학원, 2025 신설)으로 국제경영·국제호텔관광경영·인공지능데이터과학 등 석사 3개 전공. 연간 등록금 7,032,500원(대학알리미 2025 공시, 학기당 약 3,516,250원), 입학금 면제. 외국인 특화 장학은 공개 소스에서 금액 미확인(대학알리미 장학 '미공시'; 학교 장학페이지의 '외국인장학'은 학부 기준). 출처: phdkim.net/gradinfo/school/721, kduniv.ac.kr 장학금 페이지."
    },
    "경북대학교": {
     "name": "경북대학교",
@@ -47292,7 +47324,7 @@
     "apply_source": "LLM(pro)-scan 2026-09-12",
     "tuition_min": 2087500,
     "tuition_max": 2691500,
-    "tuition_semester": "학기",
+    "tuition_semester": "₩2,087,500~₩2,691,500",
     "majors_ma": [
      "해사법·정책학과(해사법, 해사정책)",
      "기관시스템공학과(기계·재료, 선박기계에너지시스템, 선박전기전자제어)",
@@ -47341,7 +47373,14 @@
     ],
     "guide_year": "2026",
     "source": "C:/Users/USER/camnemi-crm/backend/_foreign_ma_pdf/국립한국해양대학교_외국인모집요강_2026.pdf",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarships_categorized": {
+     "외국인_특화_장학": "외국인유학생 장학금: 수업연한 이내 재학 중인 외국인 전일제 대학원생 대상(일반대학원). 금액은 공시 일정표에 미기재('대학원 장학금 지급 지침' 참조)",
+     "교내_일반": "지도교수 장학금(등록금 전액, 지도교수 1인당 2명) / 성적우수 장학금(등록금 일부) / 특전장학금(등록금 전액+학비보조금, 학부 수석·차석)",
+     "정부_외부": "정부초청 외국인 장학생(GKS) 학위과정 수학대학 선정. 생활지원금형: 홍인정·세원·초계·국제해양문제연구소·묵암재단 장학금 / ABS(미국선급협회) 장학금(조선해양공학 석사 등록금 일부)",
+     "언어_자격": "TOEFL iBT 68 / TOEIC 600 / NEW TEPS 279 / IELTS 5.5 / TOPIK 3급 중 택1 (영어권 국적자 면제, 지도교수 추천 시 면제 가능). 재정증빙 연 ₩16,000,000"
+    },
+    "scholarship_note": "국립 일반대학원(부산). 연간 등록금(대학알리미 2025): 인문사회 2,087,500원 / 자연·예체능(데이터정보·스포츠융합) 2,562,500원 / 공학 2,691,500원(학기당 약 1,043,750~1,345,750원). 전형료 5만원(USD $60). 외국인 전형은 정원외, 서류심사(면접 없음). 출처: KMOU Graduate Admission Guide Spring 2026, 대학원 주요 장학금 일정표, phdkim.net/gradinfo/school/66."
    },
    "국립한밭대학교": {
     "name": "국립한밭대학교",
@@ -47939,7 +47978,14 @@
     ],
     "guide_year": "2026학년도 후기",
     "source": "guides/ma/2026/대신대_대학원_모집요강.pdf(일반대학원) + 김박사넷",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarships_categorized": {
+     "외국인_특화_장학": null,
+     "교내_일반": "대학원 장학금 연간 실적 교내 약 1.55억원(2024 공시)이나 외국인 특화 장학 내역은 공시 안 됨. 학부에는 '외국인유학생 장학금' 존재(교내 장학제도)",
+     "정부_외부": null,
+     "비고": "대학원(일반대학원 5개 학과·신학대학원·휴먼케어영상콘텐츠대학원) 외국인 특화 장학 공개 소스 미확인"
+    },
+    "scholarship_note": "대신대(경산, 사립 신학계). 대학원 등록금은 대학알리미/김박사넷에 미공시(등록금 '-' 표기). 외국인 유학생 2,243명(2025.12 기준)이나 대부분 학부. 대학원 외국인 특화 장학·등록금 금액은 공개 소스에서 확인 불가. 공식 홈페이지(daeshin.ac.kr)는 크롤링 차단(403). 출처: phdkim.net/gradinfo/school/475·476·925, kidok.com·kyongbuk.co.kr 보도."
    },
    "덕성여자대학교": {
     "name": "덕성여자대학교",
@@ -49076,9 +49122,9 @@
     ],
     "apply_evidence": "접수방법 : 입학원서는 인터넷 접수[2025.11.28.(금) 18:00까지 교학팀에 도착한 원서에 한함], 제출서류의 원본은 방문 또는 우편 접수[2025.11.28.(금) 18:00까지 교학팀에 도착한 서류에 한함] * 원서접수는 인터넷접수가 원칙, 인터넷 사용이 제한되는 지원자에 한해 현장접수 가능",
     "apply_source": "LLM(pro)-scan 2026-09-12",
-    "tuition_min": 3358000,
+    "tuition_min": 4465000,
     "tuition_max": 4465000,
-    "tuition_semester": "학기",
+    "tuition_semester": "₩4,465,000~₩4,465,000",
     "majors_ma": [
      "평생교육학과(평생교육전공)",
      "유아교육학과(유아교육전공)",
@@ -49103,23 +49149,11 @@
      "상담및임상수사심리학과(임상및범죄심리학/상담심리)",
      "한국어교육학과"
     ],
-    "scholarships_categorized": [
-     {
-      "name": "일반대학원 장학",
-      "benefit": "수업료 20% 감면",
-      "target": "서원대 졸업자, 교직원·조교, 산학협력단 직원, 직장재직자, 전공 관련 자격증 소지자"
-     },
-     {
-      "name": "교육대학원 장학",
-      "benefit": "수업료 10~70% 감면",
-      "target": "서원대 졸업자 30~70%, 교직원·조교 70%, 교직원 배우자·직계존비속 50%, 산하학교 교직원 50%, 영유아보육기관 종사자 30~40%, 현직교사 40%, 교원자격증 소지자 10% 등"
-     },
-     {
-      "name": "산업대학원 장학",
-      "benefit": "수업료 30~70% 감면",
-      "target": "서원대 졸업자 30~70%, 교직원·조교 70%, 10년 이상 실무경력자 50%, 공무원·공공기관 50%, 자격증 소지자 30%, 가족 재학 30%, 연구과제 수주 30~50% 등"
-     }
-    ],
+    "scholarships_categorized": {
+     "외국인_특화_장학": null,
+     "교내_일반": "학비감면(수업료 %)은 서원대 졸업자·교직원·재직자 등 내국인 대상만 규정. 외국인 특화 장학 없음",
+     "언어_자격": "외국인 특별전형 별도 요강 없음(일반전형만). TOPIK 등 한국어 자격 기준 명시 없음. 외국어 서류는 한글 번역공증 제출만 요구"
+    },
     "n_majors": 22,
     "majors_sample": [
      "평생교육학과(평생교육전공)",
@@ -49130,7 +49164,8 @@
     ],
     "guide_year": "2026",
     "source": "C:/Users/USER/camnemi-crm/backend/_foreign_ma_pdf/서원대학교_외국인모집요강_2026.pdf",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "서원대 대학원 2026 후기 요강은 일반전형만(외국인 전형 별도 없음). 일반대학원 평생교육학과 연간 등록금 4,465,000원·입학금 677,000원(대학알리미 2025, phdkim.net/gradinfo/school/649). 단 석사과정은 교육대학원(5학기)·산업대학원(4학기)이 담당하며 이들 등록금은 별도(미확인). 외국인 TOPIK 기준·장학은 공개 소스에서 확인 안 됨."
    },
    "성공회대학교": {
     "name": "성공회대학교",
@@ -49435,11 +49470,17 @@
     "_llm_parsed": {
      "majors_ma": "LLM(pro)"
     },
-    "tuition_min": 1682750,
-    "tuition_max": 2315500,
-    "tuition_semester": "학기 ₩1,682,750~₩2,315,500",
+    "tuition_min": 3427125,
+    "tuition_max": 4701857,
+    "tuition_semester": "₩3,427,125~₩4,701,857",
     "tuition_source": "대학알리미 등록금 공시(2026) 연간 수업료÷2. 외국인모집요강(2026)에는 등록금 금액 미수록(장학은 수업료 30~50% 감면).",
-    "tuition_note": "신경주대 일반대학원 석사: 인문사회 1,682,750 / 자연과학 2,038,000~2,165,900 / 공학 2,293,400~2,315,500. 입학금 684,000원 별도."
+    "tuition_note": "신경주대 일반대학원 석사: 인문사회 1,682,750 / 자연과학 2,038,000~2,165,900 / 공학 2,293,400~2,315,500. 입학금 684,000원 별도.",
+    "scholarships_categorized": {
+     "외국인_특화_장학": null,
+     "언어_자격": null,
+     "비고": "학교 회생절차(사실상 파산)로 외국인 입학·장학 운영 중단 상태"
+    },
+    "scholarship_note": "⚠️ 신경주대는 2026.7.23 회생절차 개시 신청, 8.25 법원 결정(회생절차 개시). 외국인 유학생 등록금 약 20억원 미반환 논란, 교육부 '비자심사 강화대학' 지정 검토 중. 외국인 입학/장학/언어기준은 사실상 무의미. 등록금(참고, 대학알리미 2025): 인문사회 1,682,750~ / 자연 2,038,000~2,165,900 / 공학 2,293,400~2,315,500(학기당), 연간 3,427,125~4,701,857, 입학금 684,000원. 출처: 뉴스민·k-withus 보도, sgu.ac.kr 공지, phdkim.net/gradinfo/school/493."
    },
    "신라대학교": {
     "name": "신라대학교",
@@ -49661,8 +49702,8 @@
     "apply_evidence": "온라인 원서접수(http://www.jinhakapply.com) / 인터넷 원서접수 사이트(진학사 어플라이)",
     "apply_source": "LLM(pro)-scan 2026-09-12",
     "tuition_min": 4700000,
-    "tuition_max": 5200000,
-    "tuition_semester": "학기",
+    "tuition_max": 4700000,
+    "tuition_semester": "₩4,700,000~₩4,700,000",
     "majors_ma": [
      "국제개발협력학",
      "사회복지학",
@@ -49697,7 +49738,13 @@
     ],
     "guide_year": "2026학년도 후기",
     "source": "guides/ma/2026/신한대학교_대학원_모집요강.pdf(후기 2차) + 신한대 등록금 책정 문서",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarships_categorized": {
+     "외국인_특화_장학": "외국인 유학생 입학전형 입학자 대상(수업료 %). 입학학기: 본교(신흥·한북)대 졸업·국제어학센터 2학기 수료 50% / TOPIK 3급 40% / TOPIK 4급↑ 50% / MOU 해외대학 재학·졸업생 40% / 대학원장 추천 60% / 해외 정직 공무원(장관 추천) 100%. 재학: 대학원장 추천 50% / 주임교수 추천(직전학기 2.0~3.0 30%, 3.0~4.5 50%) / MOU 40% / 공무원 100%",
+     "교내_일반": "총장장학(수업료 40%), 대학원장 장학(30%), 동문·교직원·홍보단 장학 등",
+     "비고": "대학원 장학 규정 [별표1](2026.6.30 확인)"
+    },
+    "scholarship_note": "신한대 일반대학원 석사과정 전계열 수업료 4,700,000원/학기(2025 등록금 공지; 박사 5,200,000원/학기, 계약학과 정원외 석사 3,150,000원/학기). 대학알리미 2025 일부 학과(행정정책학과) 연간 등록금 4,825,000원·입학금 500,000원 표기(공시 기준 상이). 외국인 장학은 위 규정표와 같이 수업료 30~100% 감면. 출처: shinhan.ac.kr 대학원 장학 규정·등록금 책정 공지, phdkim.net/gradinfo/school/112."
    },
    "아신대학교": {
     "name": "아신대학교",
@@ -50204,11 +50251,18 @@
     "guide_year": "2023",
     "source": "guides/ma/2026/예수대학교_대학원_모집요강.pdf",
     "foreign_guide_updated": "2026-09-23",
-    "tuition_min": 1950000,
-    "tuition_max": 1950000,
-    "tuition_semester": "학기 ₩1,950,000~₩1,950,000",
+    "tuition_min": 3900000,
+    "tuition_max": 3900000,
+    "tuition_semester": "₩3,900,000~₩3,900,000",
     "tuition_source": "대학알리미 등록금 공시(2026) 연간 수업료÷2. 외국인모집요강(첨부본, 2023년차)에는 등록금 금액 미수록.",
-    "tuition_note": "예수대 일반대학원 석사: 간호학과(자연과학계열) 단일 학과, 수업료 1,950,000/학기(연 3,900,000). 입학금 473,000원 별도."
+    "tuition_note": "예수대 일반대학원 석사: 간호학과(자연과학계열) 단일 학과, 수업료 1,950,000/학기(연 3,900,000). 입학금 473,000원 별도.",
+    "scholarships_categorized": {
+     "외국인_특화_장학": null,
+     "교내_일반": "대학원 외국인 특화 장학 공시 없음. 학부 교내장학(국가장학 병행)만 확인",
+     "정부_외부": null,
+     "비고": "대학원 모집요강(2023년차)에 외국인 전형·장학 항목 없음. 외국 출신자는 졸업·성적증명서 번역공증 제출"
+    },
+    "scholarship_note": "예수대 일반대학원은 간호학과(석사, 자연과학계열) 단일 학과. 연간 등록금 3,900,000원(학기당 1,950,000원), 입학금 473,000원(대학알리미 2025, phdkim.net/gradinfo/school/1031). 수업일 매주 목요일, 면접(구술) 전형. 외국인 특화 장학·외국인 전형은 공개 소스에서 확인 안 됨."
    },
    "용인대학교": {
     "name": "용인대학교",
@@ -51245,11 +51299,17 @@
     "guide_year": "2026",
     "source": "2026학년도 전기 칼빈대학교 일반대학원 일반전형 모집요강 PDF → PDF 저장",
     "foreign_guide_updated": "2026-09-23",
-    "tuition_min": 2125000,
-    "tuition_max": 2510000,
-    "tuition_semester": "학기 ₩2,125,000~₩2,510,000",
+    "tuition_min": 4250000,
+    "tuition_max": 5020000,
+    "tuition_semester": "₩4,250,000~₩5,020,000",
     "tuition_source": "대학알리미 등록금 공시(2026) 연간 수업료÷2. 외국인모집요강(2026)은 일반전형 요강으로 등록금 금액 미수록.",
-    "tuition_note": "칼빈대 대학원 석사(인문사회계열): 복지상담학과 2,125,000 / 신학과 2,510,000. 입학금 160,000원 별도."
+    "tuition_note": "칼빈대 대학원 석사(인문사회계열): 복지상담학과 2,125,000 / 신학과 2,510,000. 입학금 160,000원 별도.",
+    "scholarships_categorized": {
+     "외국인_특화_장학": "외국인 유학생 생활장학금(국제교육원, 금액 비공개·원장 결정) / 어학자격증 취득 지원: TOPIK·IELTS 응시료 전액 지원(선착순 TOPIK 100명·IELTS 50명, 기존보다 높은 성적 취득자)",
+     "교내_일반": "대학원 등록금 감면형 외국인 장학은 공개 소스 미확인",
+     "언어_자격": "대학원 외국인 전형 TOPIK 기준은 공개 소스 미확인. 국제교육원이 한국어·영어 과정(어학연수) 병행 운영"
+    },
+    "scholarship_note": "칼빈대 대학원(일반, 인문사회계열): 복지상담학과 연간 4,250,000원 / 신학과(3년제) 5,020,000원(학기당 약 2,125,000~2,510,000원), 입학금 160,000원(대학알리미 2025, phdkim.net/gradinfo/school/303). 외국인 유학생 다수(2024 일반대학원 문학석사 유학생 125명). 생활장학금 금액은 비공개, 어학응시료 지원은 공개. 대학원 외국인 TOPIK 입학기준은 공개 소스 미확인. 출처: international.calvin.ac.kr."
    },
    "포항공과대학교": {
     "name": "포항공과대학교",
@@ -55661,12 +55721,12 @@
     ],
     "tuition_min": 3345000,
     "tuition_max": 4002000,
-    "tuition_semester": "학기당 수업료(입학금 없음): 공학 4,002,000원 / 인문사회 3,345,000원 / 자연과학 3,725,000원 / 예체능 4,002,000원 (2026학년도 기준, 2027학년도 미확정)",
+    "tuition_semester": "₩3,345,000~₩4,002,000",
     "period": "수시1차 2026.09.07~09.30 / 수시2차 2026.11.11~11.25 / 정시 2027.01.04~01.20",
     "guide_url": "https://ipsi.baewha.ac.kr/",
     "lang_note": "TOPIK 2-based; IELTS may also be accepted (confirm with college)",
     "lang_src": "https://www.baewha.ac.kr/",
-    "scholarships_categorized": [],
+    "scholarships_categorized": "교내 장학금 제도에 따라 외국인 유학생에게 '소정의 금액' 장학금 지급(요강 5-1 차항, 구체 액수는 미명시)",
     "foreign_guide": "not_checked",
     "majors_full": [
      "컴퓨터공학과",
@@ -55717,7 +55777,8 @@
     "guide_year": 2027,
     "apply_system": "서류전형 100% (120점 만점); 방문 또는 등기우편 접수",
     "source": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\배화여자대학교_외국인모집요강_2027.pdf",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "계열별 등록금: 공학 4,002,000 / 인문사회 3,345,000 / 자연과학 3,725,000 / 예체능 4,002,000원(입학금 없음). 2027학년도 금액 미확정으로 2026학년도 기준 제시."
    },
    "삼육보건대학교": {
     "name": "삼육보건대학교",
@@ -55807,7 +55868,7 @@
     ],
     "tuition_min": 3726000,
     "tuition_max": 3726000,
-    "tuition_semester": "학기 (수업료, 2026학년도 기준 / 2027 미정)",
+    "tuition_semester": "₩3,726,000~₩3,726,000",
     "period": "정시 원서접수 2027.01.04~01.20 / 합격발표 2027.02.05 / 등록 2027.02.10~02.12",
     "guide_url": "https://ipsi.snjc.ac.kr/recruit/foreigner.php",
     "lang_note": "No explicit language requirement in our data — confirm with the college before applying",
@@ -55834,7 +55895,8 @@
      "period": "LLM(pro)-2027",
      "apply_system": "LLM(pro)-2027",
      "guide_year": "LLM(pro)-2027"
-    }
+    },
+    "scholarship_note": "need=장학금이나 2027 재외국민·외국인 특별전형 요강에 장학금 항목 자체가 없음(제출서류/전형방법/유의사항만). 등록금은 수업료 3,726,000원 확인(참고)."
    },
    "서울예술대학교": {
     "name": "서울예술대학교",
@@ -56645,28 +56707,7 @@
     "period": "9월학기 1차 2026.05.04~15 / 2차 2026.06.22~07.01",
     "guide_url": "https://iphak.kyungmin.ac.kr/category/5",
     "lang_note": "TOPIK 3-based; IELTS may also be accepted (confirm with college)",
-    "scholarships_categorized": [
-     {
-      "name": "외국인 장학",
-      "condition": "외국인 유학생 전원",
-      "benefit": "등록금 30% 감면(전체 학기)"
-     },
-     {
-      "name": "학업장려금(토픽)",
-      "condition": "입학 후 TOPIK 2급 이상 취득",
-      "benefit": "200,000원"
-     },
-     {
-      "name": "학업장려금(토픽)",
-      "condition": "입학 후 TOPIK 3급 이상 취득",
-      "benefit": "300,000원"
-     },
-     {
-      "name": "학업장려금(토픽)",
-      "condition": "입학 후 TOPIK 4급 이상 취득",
-      "benefit": "500,000원"
-     }
-    ],
+    "scholarships_categorized": "외국인장학: 등록금 30% 감면(전체 학기) / TOPIK 학업장려금: 2급 20만원·3급 30만원·4급 50만원(학기말 지급, 중복불가)",
     "foreign_guide": {
      "year": "2027",
      "title": "외국인 모집요강",
@@ -56696,7 +56737,8 @@
     "guide_year": 2026,
     "guide_pdf": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\경민대학교_외국인모집요강_2027.pdf",
     "source": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\경민대학교_외국인모집요강_2027.pdf",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=등록금이나 요강(2026.9월학기 순수외국인)에 학과별 수업료/입학금 금액이 명시되지 않음. 장학금은 요강 06~07항에서 확인됨(등록금 30% 감면 전체학기 + 토픽 장려금)."
    },
    "경복대학교": {
     "name": "경복대학교",
@@ -57792,7 +57834,8 @@
     "guide_pdf": "C:/Users/USER/camnemi-crm/backend/_foreign_junior_pdf/두원공과대학교_외국인모집요강_unknown.pdf",
     "source": "C:/Users/USER/camnemi-crm/backend/_foreign_junior_pdf/두원공과대학교_외국인모집요강_unknown.pdf",
     "guide_year": "unknown",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=등록금. 보유 요강 PDF가 공백(텍스트/이미지 모두 추출불가)이고 학교 홈페이지 등록금납부 안내에도 금액 미공개. 공개 소스상 외국인 등록금 금액 확인 불가."
    },
    "부천대학교": {
     "name": "부천대학교",
@@ -60150,7 +60193,8 @@
      "lang_req": "LLM(pro)",
      "period": "LLM(pro)",
      "apply_system": "LLM(pro)"
-    }
+    },
+    "scholarship_note": "need=등록금+장학금. 요강(입학안내)에 '등록금은 대학 내부 규정에 따름'이라만 명시, 금액 없음. 외국인 전용 장학금 항목도 요강에 없음."
    },
    "강릉영동대학교": {
     "name": "강릉영동대학교",
@@ -61164,28 +61208,7 @@
     "guide_url": "https://ent.wsi.ac.kr/",
     "lang_note": "No explicit language requirement in our data — confirm with the college before applying",
     "lang_src": "https://wsckli.wsi.ac.kr/",
-    "scholarships_categorized": [
-     {
-      "name": "외국어성적우수 장학금",
-      "condition": "TOEIC 750점 이상 / TOEIC-S 150점 이상 / JPT 650점 이상 / HSK 5급 이상",
-      "benefit": "등록금 50% 감면"
-     },
-     {
-      "name": "입학성적우수 장학금",
-      "condition": "학과 모집 전형별 입학성적 상위 10% 이내",
-      "benefit": "등록금 100만원 감면"
-     },
-     {
-      "name": "재능장학금",
-      "condition": "지원학과 관련 기능사 자격증 2개 이상(산업기사 1개 이상)",
-      "benefit": "등록금 100만원 감면"
-     },
-     {
-      "name": "입상장학금",
-      "condition": "본 대학/학과 주최 경시·경진대회 입상자",
-      "benefit": "대회 규모별 소정 금액 감면"
-     }
-    ],
+    "scholarships_categorized": "신입생 장학제도 상세(외국어성적우수 TOEIC750·JPT650·HSK5급 '등록금 50% 감면', 입학성적우수 '등록금 100만원 감면' 등 다수) - 단 외국인 전용이 아닌 전체 신입생 대상",
     "foreign_guide": "not_checked",
     "majors_full": [
      "K-뷰티학부",
@@ -61227,7 +61250,8 @@
     "guide_year": 2027,
     "guide_pdf": "C:/Users/USER/camnemi-crm/backend/_foreign_junior_pdf/우송정보대학_외국인모집요강_2027.pdf",
     "source": "C:/Users/USER/camnemi-crm/backend/_foreign_junior_pdf/우송정보대학_외국인모집요강_2027.pdf",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=등록금. 2027 순수외국인 요강에 학과별 등록금액 자체가 없음(장학금 감면율/절대액만 명시). 기본 등록금 금액은 공개 소스 미확인."
    },
    "한국영상대학교": {
     "name": "한국영상대학교",
@@ -61345,7 +61369,7 @@
     "period": "원서접수 일정은 학기에 따라 공지 사항에 공고 예정",
     "guide_url": "https://ipsi.gangdong.ac.kr/intro/main/index.do",
     "lang_note": "TOPIK 3-based; IELTS may also be accepted (confirm with college)",
-    "scholarships_categorized": [],
+    "scholarships_categorized": "글로벌특별장학: 외국인 유학생 수업료 20~40% 감면(학교 공식 블로그 '강동대학교 장학 프로그램')",
     "foreign_guide": {
      "year": "unknown",
      "title": "외국인 모집요강(기존 확인)",
@@ -61416,7 +61440,8 @@
     "guide_pdf": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\강동대학교_외국인모집요강_unknown.pdf",
     "source": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\강동대학교_외국인모집요강_unknown.pdf",
     "guide_year": "unknown",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=장학금. 요강 PDF는 입학안내/지원서류 위주로 장학 항목 없음. 학교 공식 블로그에서 '외국인 유학생 글로벌특별장학 수업료 20~40% 감면' 확인(구간 기준 상세 미공개)."
    },
    "대원대학교": {
     "name": "대원대학교",
@@ -61743,14 +61768,7 @@
     "period": "2026.06.01~08.31 (인터넷접수 08.10까지)",
     "guide_url": "https://community.bscu.ac.kr/global/index.do",
     "lang_note": "TOPIK 3 / IELTS 5.5",
-    "scholarships_categorized": [
-     {
-      "name": "TOPIK 장학금 (외국인학생 장학금)",
-      "target": "재학생",
-      "condition": "외국인 학부생, 직전학기 성적 백분위 70점 이상, TOPIK 성적증명서 보유",
-      "benefit": "별도 공지 금액"
-     }
-    ],
+    "scholarships_categorized": "외국인 학부생 TOPIK 장학금(직전학기 성적 백분위 70점 이상 + TOPIK 성적 보유자 대상, 학기별 신청, 4학기 초과 제외)",
     "foreign_guide": "not_checked",
     "majors_full": [
      "경찰행정과",
@@ -61812,7 +61830,8 @@
     "guide_pdf": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\백석문화대학교_외국인모집요강_2026.pdf",
     "source": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\백석문화대학교_외국인모집요강_2026.pdf",
     "guide_year": 2026,
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=등록금. 보유 PDF는 '9월입학 성인학습자(만학도) 전형' 요강으로 순수외국인 요강이 아니며 등록금액 미공개. 외국인 TOPIK 장학금 존재는 확인되나 등록금 금액은 공개 소스 미확인."
    },
    "신성대학교": {
     "name": "신성대학교",
@@ -61909,7 +61928,8 @@
     "guide_page_url": "https://ipsi.motor.ac.kr/CmsHome/consulting_01.aspx?T=C&c1=1&sn=198655&page=1",
     "guide_pdf": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\아주자동차대학교_외국인모집요강_2027.pdf",
     "source": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\아주자동차대학교_외국인모집요강_2027.pdf",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=장학금. 외국인(순수외국인) 전용 장학금 공개 소스 미확인. 확인된 장학은 내국인 신입생 대상(대우재단 - 수석 입학금+2년 등록금 전액 등)이며 외국인 별도 장학 없음."
    },
    "연암대학교": {
     "name": "연암대학교",
@@ -62234,7 +62254,8 @@
     "guide_pdf": "C:/Users/USER/camnemi-crm/backend/_foreign_junior_pdf/경남정보대학교_외국인모집요강_2026.pdf",
     "source": "C:/Users/USER/camnemi-crm/backend/_foreign_junior_pdf/경남정보대학교_외국인모집요강_2026.pdf",
     "guide_year": 2027,
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=등록금. 2027 순수외국인 모집 안내(일정/지원자격/제출서류)에 등록금 금액이 명시되지 않음. 공개 요강상 금액 확인 불가."
    },
    "대동대학교": {
     "name": "대동대학교",
@@ -62548,7 +62569,8 @@
     "guide_page_url": "https://iea.bsks.ac.kr/",
     "guide_pdf": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\부산경상대학교_외국인모집요강_2026.pdf",
     "source": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\부산경상대학교_외국인모집요강_2026.pdf",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=장학금. 입학홈페이지는 '재학생 1인당 장학금 지급률 1위(2022 공시)' 등 일반 장학 홍보만, 외국인(순수외국인) 전용 장학금 기준/액수는 공개 소스 미확인."
    },
    "부산과학기술대학교": {
     "name": "부산과학기술대학교",
@@ -63043,7 +63065,9 @@
     "guide_pdf": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\대구과학대학교_외국인모집요강_unknown.pdf",
     "source": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\대구과학대학교_외국인모집요강_unknown.pdf",
     "guide_year": "unknown",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarships_categorized": "유학생 특별장학금 운영(대구시 유학 플랫폼 등재, 구체 선발기준·액수 미공개)",
+    "scholarship_note": "need=등록금+장학금. 요강 명칭의 PDF는 '체류안내(비자)' 문서여서 등록금/장학금 없음. 외국인 유학생 특별장학금 존재는 확인되나 금액 미공개, 등록금 금액도 미확인."
    },
    "대구보건대학교": {
     "name": "대구보건대학교",
@@ -63425,7 +63449,7 @@
     "period": "원서접수 : 외국인 한국어과정 및 유학생 원서접수 클릭",
     "guide_url": "https://oic.yju.ac.kr/guidance/admission-guide",
     "lang_note": "No explicit language requirement in our data — confirm with the college before applying",
-    "scholarships_categorized": [],
+    "scholarships_categorized": "GKS(정부초청 외국인 장학생) 수학대학 - 지역 전문대 유일 6년 연속 선정(학비 전액·왕복항공료·생활비·기숙사 무료)",
     "foreign_guide": "not_checked",
     "majors_full": [
      "AI컴퓨터보안계열",
@@ -63458,7 +63482,8 @@
     "apply_evidence": "원서접수 : 외국인 한국어과정 및 유 학생 원서접수 클릭 서류접수 및 전형 심사 ★온라인 접수★ ... 아래 원본서류 우편으로 제출",
     "apply_source": "LLM(pro)-scan 2026-09-12",
     "guide_page_url": "https://oic.yju.ac.kr/select/international-agreements",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=장학금. 외국인 대상 GKS 장학(학비 전액 등) 운영 확인. 교내 자체 외국인 장학 세부액수는 요강/홈페이지 공개 소스에서 상세 미확인."
    },
    "울산과학대학교": {
     "name": "울산과학대학교",
@@ -64113,7 +64138,8 @@
     "apply_evidence": "원서접수/등록 입학도우미 구미대학교 입학안내 https://ipsi.gumi.ac.kr/admission/index.htm",
     "apply_source": "LLM(pro)-scan 2026-09-12",
     "guide_page_url": "https://ipsi.gumi.ac.kr/admission/sub.htm?nav_code=ips1535327705&mode=view&mv_data=aWR4PTEzODk3NyZzdGFydFBhZ2U9Jmxpc3RObz0mdGFibGU9Y3NfYmJzX2RhdGEmY29kZT1hZG1pc3Npb24mc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mbGlzdF9zY2FsZT0mdmlld19sZXZlbD0mdmlld19jYXRlPSZ2aWV3X2NhdGUyPQ==||",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=장학금. GKS 유치 가능 전국 9개 전문대 중 하나, 지역 외국인 장학생 입학 사례 확인되나 구체 외국인 장학 기준·액수는 공개 소스 미확인."
    },
    "대경대학교": {
     "name": "대경대학교",
@@ -64583,7 +64609,8 @@
     "_llm_parsed": {
      "lang_req": "LLM(pro)",
      "n_majors": "LLM(pro)"
-    }
+    },
+    "scholarship_note": "need=장학금. 보유 PDF가 '편입학 모집요강'(외국인 요강 아님)이며 장학금 항목 없음. 외국인 전용 장학금 공개 소스 미확인(편입 연계 한국외대 장학은 호산대 자체 장학 아님)."
    },
    "거제대학교": {
     "name": "거제대학교",
@@ -64988,7 +65015,8 @@
      "n_majors": "LLM(pro)",
      "period": "LLM(pro)",
      "apply_system": "LLM(pro)"
-    }
+    },
+    "scholarship_note": "need=등록금+장학금. 보유 PDF는 추가입학(재외국민/외국인6호) 일정만 담고 금액 없음. 외국인 장학은 일회성 기탁장학(기업 300만원 입학금·수업료 전액 등) 사례만, 제도화 금액 미공개."
    },
    "연암공과대학교": {
     "name": "연암공과대학교",
@@ -65033,7 +65061,8 @@
     "guide_page_url": "https://enter.yc.ac.kr/enter/susi1-guide.do",
     "guide_pdf": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\연암공과대학교_외국인모집요강_2027.pdf",
     "source": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\연암공과대학교_외국인모집요강_2027.pdf",
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=등록금+장학금. 외국인(순수외국인) 전용 등록금/장학금 공개 소스 미확인(검색 결과는 국가장학금 등 내국인 장학 또는 동명 '연암대학교'와 혼재)."
    },
    "진주보건대학교": {
     "name": "진주보건대학교",
@@ -65866,7 +65895,8 @@
     "guide_pdf": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\전주기전대학_외국인모집요강_2025.pdf",
     "source": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\전주기전대학_외국인모집요강_2025.pdf",
     "guide_year": 2025,
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=장학금. 2025 모집요강(외국인 정원외 전형 포함)에 장학금 항목 없음(전형료 무료, 등록금 환불 규정만). 외국인 전용 장학금 공개 소스 미확인."
    },
    "전주비전대학교": {
     "name": "전주비전대학교",
@@ -66274,7 +66304,8 @@
     "guide_pdf": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\목포과학대학교_외국인모집요강_2026.pdf",
     "source": "C:\\Users\\USER\\camnemi-crm\\backend\\_foreign_junior_pdf\\목포과학대학교_외국인모집요강_2026.pdf",
     "guide_year": 2026,
-    "foreign_guide_updated": "2026-09-23"
+    "foreign_guide_updated": "2026-09-23",
+    "scholarship_note": "need=등록금. 외국인 전담학과 모집요강에 등록금 납부 일정만 있고 금액 미명시. 공개 소스상 등록금 금액 확인 불가."
    },
    "순천제일대학교": {
     "name": "순천제일대학교",
@@ -69799,8 +69830,13 @@
     "dorm": false,
     "period": null,
     "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\경기대_한국어교육원.pdf",
-    "guide_url": "https://www.kyonggi.ac.kr/IOIE/contents.do?key=1494",
-    "guide_page_url": "https://www.kyonggi.ac.kr/IOIE/contents.do?key=1485"
+    "guide_url": "https://www.kyonggi.ac.kr/www/contents.do?key=5710",
+    "guide_page_url": "https://www.kyonggi.ac.kr/IOIE/contents.do?key=1485",
+    "tuition_semester": "1,250,000원/학기 (신청비 100,000원, 기숙사비 1,896,500원/6개월)",
+    "programs": "한국어과정(국제교육원) 정규과정, 연 4학기(봄·여름·가을·겨울), 학기당 10주·200시간(주 20시간·일 4시간), 1~6급, 오전/오후반",
+    "scholarship_note": "어학과정 자체 장학은 공개 안내 미확인 (학부생 대상 외국인 신입생 수업료 감면·정착지원금·TOPIK 장학은 별도)",
+    "note": "고등학교 졸업 이상. 신청비 납부 후 서류심사 진행. 원서는 우편/방문 또는 계좌 송금(USD $100)",
+    "updated": "2026-09-23"
    },
    "경남대": {
     "region": "경상남도",
@@ -70031,8 +70067,13 @@
     ],
     "apply_evidence": "온라인 지원서 제출 후 입학 신청 서류를 한국어센터 사무실로 우편 또는 방문 접수 ; 한국어센터 홈페이지에서 온라인 지원서 제출",
     "apply_source": "LLM(pro)-scan 2026-09-12",
-    "guide_url": "https://klc.korea.ac.kr/",
-    "guide_page_url": "https://klc.korea.ac.kr/klckor/life/notice.do?mode=view&articleNo=1583027"
+    "guide_url": "https://flang.korea.ac.kr (한국어센터, korean@korea.ac.kr)",
+    "guide_page_url": "https://klc.korea.ac.kr/klckor/life/notice.do?mode=view&articleNo=1583027",
+    "tuition_semester": "1,800,000원/학기 (전형료 120,000원, 환불 불가)",
+    "programs": "한국어센터 정규과정 1급~6급 + 최상급, 일반목적반·학문목적반·온라인반, 오전/오후반, 학기당 200시간(10주, 주 5일), 단기집중·청소년여름학교·위탁과정 등 병행",
+    "scholarship_note": "학비감면: 형제자매·부부 동시수강 10%, 고대 교우·교직원 자녀 10%, 고려대 재학생 20%, 각국 정부기관 파견 외교관·공무원 및 가족 20% (중복 시 높은 감면율 1개만 적용)",
+    "note": "D-4-1 비자 신청 시 2학기 한번에 등록. 기숙사 프런티어관 1,450,000원/학기(신입 1학기만). 베트남·몽골·우즈벡 국적자는 4학기 일괄 등록",
+    "updated": "2026-09-23"
    },
    "광운대": {
     "region": "서울특별시",
@@ -70250,7 +70291,12 @@
     ],
     "apply_evidence": "원서접수 ’26. 8. 11.(화)~8. 31.(월) 본교지원서식에맞춰이메일접수",
     "apply_source": "LLM(pro)-scan 2026-09-12",
-    "guide_url": "https://www.mmu.ac.kr/OE/board/185"
+    "guide_url": "https://www.mmu.ac.kr (국제교류본부, mmuklcc@mmu.ac.kr, 061-240-7402)",
+    "tuition_semester": "1,200,000원/학기 (학비 2,400,000원/2학기 일괄, 전형료 200,000원)",
+    "programs": "한국어연수과정(국제교류본부), 2학기 과정, 서울대 한국어 1A~2A 교재, 분반시험(MMU-TOPIK)",
+    "scholarship_note": "장학금 명시 안내 없음 (우대사항: 교육기관장 추천)",
+    "note": "지원자격 TOPIK 1급 이상 또는 MMU-TOPIK 통과. 기숙사비 900,000원/6개월(4인1실), 교재비 105,000원, 입학필수경비 약 3,605,000원(2학기)",
+    "updated": "2026-09-23"
    },
    "국립부경대학교": {
     "region": "부산광역시",
@@ -70465,7 +70511,12 @@
     ],
     "apply_evidence": "원서 접수 및 구비서류 제출 (방문 또는 우편접수) 2026.06.15.(월) ∼ 2026.06.26.(금) ○ 본교 홈페이지에서 입학원서 다운로드 후 접수 ○ 우편(경북 김천시 대학로 214, 김천대학교 본관 1층 국제교육원)",
     "apply_source": "LLM(pro)-scan 2026-09-12",
-    "guide_url": "https://gimcheon.ac.kr/site/english/html/sub3/0302.html"
+    "guide_url": "https://www.gimcheon.ac.kr/site/gimcheon/ (054-420-4194)",
+    "tuition_semester": "1,100,000원/학기 (연 4학기 4,400,000원/1년; 원서접수비 50,000원, 교재비 268,800원/4급, 보험료 120,000원/6개월)",
+    "programs": "한국어과정(국제교육원) 연 4학기(봄·여름·가을·겨울), 급수 상/중/하(초) 구성, D-4-1 신청자·비신청자 구분",
+    "scholarship_note": "장학금 명시 안내 없음",
+    "note": "고등학교 졸업 이상(검정고시·홈스쿨링 제외). 기숙사비 650,000원/6개월(선택). 면접(유선/화상) 필수",
+    "updated": "2026-09-23"
    },
    "김포대학교": {
     "region": "경기도",
@@ -70672,7 +70723,12 @@
     "_llm_parsed": {
      "period": "LLM(pro)"
     },
-    "guide_url": "https://www.daeshin.ac.kr/html/03_edu/03_4_1.php"
+    "guide_url": "https://www.dst.ac.kr/global/ (국제교류원)",
+    "tuition_semester": "1,200,000원/학기 (2025학년도 여름학기 신입생부터 적용)",
+    "programs": "한국어연수과정(국제교류원) 연 4학기(봄·여름·가을·겨울), 1~6급, 반별 20명 내외, 월~목 09:00~13:00(학기당 160시간), 서울대 한국어 교재",
+    "scholarship_note": "장학금 명시 안내 없음",
+    "note": "기숙사 6개월 1,000,000원, 보험료 연 600,000원. ※ 국제교류교육원(IEEI) 파일에는 입문기초·초급·중급·고급심화 4단계, 학기당 150시간(3h×5일×10주)으로도 표기되어 있음(부서별 표기 상이)",
+    "updated": "2026-09-23"
    },
    "대전대": {
     "region": "대전광역시",
@@ -70921,8 +70977,13 @@
     "dorm": true,
     "period": null,
     "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\동신대_한국어교육원.pdf",
-    "guide_url": "https://ie.dsu.ac.kr/ie/index.php?pCode=korprogram",
-    "guide_page_url": "http://ipsi.dsu.ac.kr/"
+    "guide_url": "https://ie.dsu.ac.kr/ie/index.php?pCode=korprogram (국제교육원)",
+    "guide_page_url": "http://ipsi.dsu.ac.kr/",
+    "tuition_semester": "2,100,000원/학기 (교재비 포함, 기숙사비 별도)",
+    "programs": "정규 한국어과정(1일 4시간·주 5일, 1학기 20주=400시간, 1년 2학기=총 800시간), TOPIK 프로그램(단기·중기), 단기연수(기본 4주)",
+    "scholarship_note": "매학기 반별 성적우수자·출석우수자 시상, 한국어능력시험 2급 이상 합격 시 시험비 전액 지원",
+    "note": "18세 이상 외국인·재외교포. 문화체험 학기당 1회, 한글날 행사 등 운영",
+    "updated": "2026-09-23"
    },
    "동아대": {
     "region": "부산광역시",
@@ -71142,8 +71203,13 @@
     ],
     "apply_evidence": "국제교육원 이메일로 지원서 제출",
     "apply_source": "LLM(pro)-scan 2026-09-12",
-    "guide_url": "https://www.mokwon.ac.kr/klec/html/sub02/0201.html",
-    "guide_page_url": "https://www.mokwon.ac.kr/klec/html/sub03/0301.html"
+    "guide_url": "https://www.mokwon.ac.kr/klec/ (inter@mokwon.ac.kr, 042-829-7137)",
+    "guide_page_url": "https://www.mokwon.ac.kr/klec/html/sub03/0301.html",
+    "tuition_semester": "미확인 (홈페이지 등록금납부 페이지에 금액 미게시, 국제교육원 문의 필요)",
+    "programs": "한국어연수과정(한국어교육원) 연 4학기(봄·여름·가을·겨울), 매학기 10주, 하루 4시간, 연 4회 기초소양교육 + 연 2회 문화체험",
+    "scholarship_note": "성적우수·개근·TOPIK 장학(수료식 시상, 금액 미공개)",
+    "note": "고등학교 졸업 이상. 잔고증명 8,000,000원 이상. 등록금(수업료/전형료) 납부 후 표준입학허가서 발급",
+    "updated": "2026-09-23"
    },
    "배재대": {
     "region": "대전광역시",
@@ -71373,8 +71439,13 @@
     "_llm_parsed": {
      "period": "LLM(pro)"
     },
-    "guide_url": "https://cklc.smu.ac.kr/international/curriculum/regular.do",
-    "guide_page_url": "https://cklc.smu.ac.kr/cms/fileDownload.do?path=%2F_res%2Finternational%2Fetc%2F2026_ILCEC_Leaflet_KR.pdf"
+    "guide_url": "https://cklc.smu.ac.kr (universitysangmyung@gmail.com, 02-2287-5298)",
+    "guide_page_url": "https://cklc.smu.ac.kr/cms/fileDownload.do?path=%2F_res%2Finternational%2Fetc%2F2026_ILCEC_Leaflet_KR.pdf",
+    "tuition_semester": "1,500,000원/학기 (전형료 50,000원)",
+    "programs": "국제언어문화교육원(ILCEC) 정규과정, 연 4학기, 학기당 10주·200시간(주 5일·일 4시간), 1~6급 + 대학예비반, 반당 약 16명; 단기과정·위탁교육과정 병행",
+    "scholarship_note": "성적장학금 30%, 근로장학금 50%, 특별장학금 30~50%, 외국인유학생장학금 30% (장학금 중복 수혜 가능)",
+    "note": "D-4-1 비자 신청 시 2학기 학비 선납. 졸업 시 총장 명의 수료증 수여",
+    "updated": "2026-09-23"
    },
    "상지대": {
     "region": "강원도",
@@ -71595,8 +71666,13 @@
     "dorm": true,
     "period": null,
     "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\서울한영대_한국어교육원.pdf",
-    "guide_url": "https://ili.shyu.ac.kr/fro_end/html/dep_04/4000.php",
-    "guide_page_url": "https://ili.shyu.ac.kr/fro_end/html/dep_04/4000.php?pagetype=&bbs_idx=1969&pageno=1&pagekind=c&bbsid=notice&cafeid=&ref_code=&keyword=&keyfield=&category=&search_year=&search_month=&qstr=&c_pagesize=10&gopage=/fro_end/html/dep_04/4000.php?"
+    "guide_url": "https://ili.shyu.ac.kr/ (국제교류원, 02-2669-2400~2409)",
+    "guide_page_url": "https://ili.shyu.ac.kr/fro_end/html/dep_04/4000.php?pagetype=&bbs_idx=1969&pageno=1&pagekind=c&bbsid=notice&cafeid=&ref_code=&keyword=&keyfield=&category=&search_year=&search_month=&qstr=&c_pagesize=10&gopage=/fro_end/html/dep_04/4000.php?",
+    "tuition_semester": "1,450,000원/학기 (전형료 100,000원, 신입생만/환불 불가; 기타 보험·교재·픽업비 별도)",
+    "programs": "국제어학원 한국어 정규과정, 초급(1·2급)·중급(3·4급)·고급(5·6급), 일 4~5시간·주 5일, 학기당 약 8~10주(170시간 이상), 총 1년 6개월",
+    "scholarship_note": "장학금 명시 안내 없음",
+    "note": "신입생 4학기 등록 필수. 기숙사 월 300,000원(최초 2학기 등록). 수료기준: 중간40%+기말40%+출석20%, 총점 70점 이상",
+    "updated": "2026-09-23"
    },
    "서원대": {
     "region": "충청북도",
@@ -71829,7 +71905,12 @@
     ],
     "apply_evidence": "온라인지원 접수",
     "apply_source": "LLM(pro)-scan 2026-09-12",
-    "guide_url": "https://en.sejong.ac.kr/cms/etcResourceDown.do?key=$cms$BQUQcg4glAyiBSB5SB9AqmAkgNRAJRkwBUBNFOJVAGQEFI0aIQUBhcI-FGgEQFlMYhZCghpM3ZgCYADJIBs0gIwBmaQDoADgBMAZkA&site=$cms$KYOw5kA"
+    "guide_url": "https://www.sejong.ac.kr (세종어학원, ili@sejong.ac.kr, 02-3408-4052)",
+    "tuition_semester": "1,650,000원/학기 (전형료 100,000원)",
+    "programs": "세종어학원 정규과정 연 4학기(봄·여름·가을·겨울), 레벨 1~6급, 문화수업·동아리(무료)·토픽II 대비반 병행",
+    "scholarship_note": "세종상 1,650,000원(전교 1등), 최우수상 500,000원(동일급수 1등), 우수상 100,000원(반 1등); 장학금 중복 지급 불가",
+    "note": "기숙사비 750,000원/학기(4인1실, 신입 첫 학기만). 글로벌친친 프로그램(3급 이상)",
+    "updated": "2026-09-23"
    },
    "세한대학교": {
     "region": "전라남도",
@@ -72038,7 +72119,12 @@
     "d4_eligible": false,
     "dorm": true,
     "period": "2025.3.17.~2025.5.6.",
-    "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\신구대학교_한국어교육원.pdf"
+    "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\신구대학교_한국어교육원.pdf",
+    "tuition_semester": 1200000,
+    "programs": "정규반(한국어 어학연수과정), 연 4학기, 10주/학기(주4일·월~목, 총 160시간), 10~15명/반, 09:00~12:50. 최대 8학기(2년) 수강 가능",
+    "guide_url": "https://global.shingu.ac.kr/cms/FR_CON/index.do?MENU_ID=180",
+    "note": "수업료 2,400,000원(6개월·2학기 기준, 학기당 1,200,000원), 전형료 50,000원, 보험료 150,000원. 장학 공개정보 없음. 전문대(국제교류원)",
+    "updated": "2026-09-23"
    },
    "신라대": {
     "region": "부산광역시",
@@ -72259,9 +72345,13 @@
     "dorm": false,
     "period": null,
     "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\guides\\lang\\2027\\영산대_외국인모집요강_2027.pdf",
-    "guide_url": "https://klec.ysu.ac.kr/klec/CMS/Board/Board.do?mCode=MN038",
+    "guide_url": "https://klec.ysu.ac.kr/klec/CMS/Contents/Contents.do?mCode=MN026",
     "guide_page_url": "https://ipsi.ysu.ac.kr/",
-    "guide_year": "2027"
+    "guide_year": "2027",
+    "tuition_semester": 1200000,
+    "programs": "초급1·초급2·중급3·중급4·고급5단계 + TOPIK 대비반, 1학기 3개월, 월~금 주5일 09:30~13:10",
+    "note": "학비 1,200,000원/학기(3개월). 대학 입학 조건 TOPIK 3급 이상(글로벌학부는 2급). 교재 경희한국어. 장학 공개정보 없음",
+    "updated": "2026-09-23"
    },
    "예원예술대": {
     "region": "전라북도",
@@ -72451,7 +72541,11 @@
     "period": null,
     "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\유원대_한국어교육원.pdf",
     "guide_url": "https://www.u1.ac.kr/global/admissions/admissons.do",
-    "guide_page_url": "https://drive.google.com/drive/folders/1fqvXaG8llPCUJvUkLm-XPAb4QxPVqZgn?usp=drive_link"
+    "guide_page_url": "https://drive.google.com/drive/folders/1fqvXaG8llPCUJvUkLm-XPAb4QxPVqZgn?usp=drive_link",
+    "tuition_semester": 900000,
+    "programs": "연 4학기(봄/여름/가을/겨울), 월~목 09:00~14:00",
+    "note": "학비 1,800,000원(2학기·6개월 기준, 학기당 900,000원), 기숙사 600,000원, 보험 100,000원 → 총 2,500,000원(6개월). D-4 비자, 유학경비 보증금 8,000,000원 예치. 장학 공개정보 없음",
+    "updated": "2026-09-23"
    },
    "을지대": {
     "region": "대전광역시",
@@ -72700,7 +72794,12 @@
     "_llm_parsed": {
      "period": "LLM(pro)"
     },
-    "guide_url": "https://top.jbnu.ac.kr/sites/lec_korean/index.do"
+    "guide_url": "https://top.jbnu.ac.kr/sites/lec_korean/index.do",
+    "tuition_semester": 1300000,
+    "programs": "1~6급 체계적 교육과정, 연 4학기(봄/여름/가을/겨울), 10주/학기. 특별강좌: 한국어 회화·TOPIK 대비반·면접 대비반·한국어교원 양성과정",
+    "scholarship_note": "언어교육부 한국어학당 근로봉사 장학생 선발(공지 확인). 어학당 성적우수 장학은 공개 페이지에서 미확인",
+    "note": "등록금 1,300,000원/학기, 전형료 50,000원 (2027년 봄학기부터 등록금 1,400,000원·전형료 70,000원 인상 예정)",
+    "updated": "2026-09-23"
    },
    "전주대": {
     "region": "전라북도",
@@ -72913,7 +73012,12 @@
     "d4_eligible": true,
     "dorm": false,
     "period": "2026 봄 03.03~05.31 / 가을 09.01~11.30 (auto, PDF 기준)",
-    "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\청운대_한국어교육원.pdf"
+    "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\청운대_한국어교육원.pdf",
+    "tuition_semester": 1250000,
+    "programs": "정규 한국어연수과정, 연 4학기, 10주(200시간)/학기, 주 20시간(월~금), 한 학급 15명 내외(반편성 시험)",
+    "guide_url": "https://iec.chungwoon.ac.kr/iec/contents.do?key=6575",
+    "note": "수강료 1,250,000원/학기(10주), 전형료 100,000원, 유학생보험 100,000원(6개월), 교재비 60,000원 → 첫 학기 합계 1,510,000원. 인천·홍성 캠퍼스. D-4 2학기 이상 신청. 모집요강에 장학 미기재",
+    "updated": "2026-09-23"
    },
    "청주대": {
     "region": "충청북도",
@@ -73104,7 +73208,10 @@
     "dorm": false,
     "period": null,
     "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\포항공과대학교_한국어교육원.pdf",
-    "guide_url": "https://picl.postech.ac.kr/picl/index.do"
+    "guide_url": "https://picl.postech.ac.kr/picl/index.do",
+    "programs": "언어문화원(PICL) 한국어 프로그램: 외국인 대학원생 대상 학점/비학점 한국어 과정(Practical Korean, Graduate Korean)",
+    "note": "missing — 외국인(D-4) 대상 일반 한국어어학연수(어학당) 과정 없음. 2026.3 개원한 언어문화원은 재학 외국인 대학원생 대상 한국어 교육 기관",
+    "updated": "2026-09-23"
    },
    "한경국립대학교": {
     "region": "경기도",
@@ -73302,7 +73409,10 @@
     "dorm": false,
     "period": null,
     "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\한서대학교_한국어교육원.pdf",
-    "guide_url": "https://www.hanseo.ac.kr/sub/info.do?page=01050207&m=010502&s=hs"
+    "guide_url": "https://www.hanseo.ac.kr/sub/info.do?page=01050207&m=010502&s=hs",
+    "programs": "어학교육원 한국어과정: 기초·초급(TOPIK I), 중급(TOPIK II), 토픽특강(방학 중 3주). 봄·가을학기 15주, 여름학기 12주",
+    "note": "등록금 공개 페이지 미표기(모집요강/문의 필요). 충청남도 유학생 한국어 거점센터 지정. 장학 공개정보 없음",
+    "updated": "2026-09-23"
    },
    "한세대학교": {
     "region": "경기도",
@@ -73527,7 +73637,11 @@
     "visa_restricted_2026": true,
     "visa_restricted_scope": "lang",
     "visa_restricted_note": "비자 정밀심사(lang과정) — 2026-2학기부터 1년간 신입생 비자 발급 원칙 제한. 교육부·법무부·한국연구재단 공동보도 2026.2.12 (2026 2학기~1년)",
-    "guide_url": "https://iecenter.howon.kr/page/page14"
+    "guide_url": "https://iecenter.howon.kr/page/page14",
+    "tuition_semester": 1200000,
+    "programs": "연 4학기(봄/여름/가을/겨울), 10주(160시간)/학기, 주4일, 오전 09:00~13:00 / 오후 13:00~17:00",
+    "note": "등록금 4,800,000원(40주·4분기, 학기당 1,200,000원), 유학생보험 100,000원(12개월), 전형료 100,000원 → 합계 5,000,000원. D-4. '장학 및 프로그램' 메뉴 있으나 세부 금액 미확인",
+    "updated": "2026-09-23"
    },
    "홍익대": {
     "region": "서울특별시",
@@ -73721,7 +73835,12 @@
     "period": "2026-2027 연 4학기(봄/여름/가을/겨울) — 2026 가을 09.08~11.23, 겨울 12.10~2027.02.12 등. 2027 일정도 게시(2027 봄 03.08~05.18).",
     "guide_pdf": "C:\\Users\\USER\\내 드라이브\\02_Crawling_Sheet\\University_Project\\adiga_2026_어학연수_모집요강\\서울시립대_한국어교육원.pdf",
     "lang_note": "한국어교육센터. Tel 02-6490-6670~6673 / uosklcp@uos.ac.kr / klcp.uos.ac.kr · 동대문구.",
-    "guide_url": "https://klcp.uos.ac.kr/klcp/korNotice/view.do?list_id=KK01&seq=34&sort=4&menuid=2200005001000000000"
+    "guide_url": "https://klcp.uos.ac.kr",
+    "tuition_semester": 1600000,
+    "programs": "정규과정 1~6급, 연 4학기, 10주(200시간)/학기, 10~16명/반. 3~6급 09:00~12:50 / 1~2급 14:00~17:50",
+    "scholarship_note": "급별 성적우수 장학금(수업료의 최대 100%, 50%, 20%, 10% 등 - 요강 OCR에서 확인)",
+    "note": "수업료 1,600,000원/학기, 전형료 50,000원(합계 1,650,000원). 요강이 스캔본이라 OCR 추출값으로 일부 수치 재확인 권장",
+    "updated": "2026-09-23"
    },
    "서울신학대": {
     "region": "경기도",
