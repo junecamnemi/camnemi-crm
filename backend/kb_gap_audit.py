@@ -27,18 +27,23 @@ jun_page = {e["name"]: e for e in jun_col.get("page_guide", [])}
 
 CRITICAL = ["tuition", "lang", "major", "scholarship"]
 
-def missing_fields(e):
+def missing_fields(e, level=None):
     m = []
+    if level == "lang":
+        if not (e.get("tuition_note") or e.get("tuition_semester") or e.get("tuition_min")): m.append("tuition")
+        if not (e.get("programs") or e.get("levels") or e.get("duration")): m.append("program")
+        if not (e.get("scholarship_note") or e.get("scholarships_categorized")): m.append("scholarship")
+        return m
     if not e.get("tuition_min") and not e.get("tuition_semester"): m.append("tuition")
     if e.get("topik_req") is None and e.get("ielts_req") is None and not e.get("lang_req"): m.append("lang")
-    if not (e.get("majors_full") or e.get("majors_ba") or e.get("majors_sample")): m.append("major")
+    if not (e.get("majors_full") or e.get("majors_ba") or e.get("majors_sample") or e.get("majors_ma")): m.append("major")
     if not (e.get("scholarships_categorized") or e.get("scholarships")): m.append("scholarship")
     return m
 
 def audit(level, schools, collected_map, missing_map, page_map):
     report = []
     for nm, e in schools.items():
-        mf = missing_fields(e)
+        mf = missing_fields(e, level)
         if not mf: continue
         if nm in collected_map:
             action = "reparse"   # has guide, parsed null -> re-parse/re-collect better guide
