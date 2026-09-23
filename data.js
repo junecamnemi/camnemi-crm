@@ -4870,7 +4870,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1400000
+    }
    },
    "ma": {
     "min": null,
@@ -8218,7 +8220,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1500000
+    }
    },
    "lang": {
     "min": 1500000,
@@ -10992,7 +10996,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1100000
+    }
    },
    "lang": {
     "min": 1100000,
@@ -13521,7 +13527,11 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "Humanities & Social": 2095300,
+     "이학·체육": 2532300,
+     "공학·예능": 2743100
+    }
    },
    "ma": {
     "min": 2095300,
@@ -15439,7 +15449,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 4400000
+    }
    },
    "ma": {
     "min": null,
@@ -15856,7 +15868,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1100000
+    }
    },
    "lang": {
     "min": 1100000,
@@ -16198,7 +16212,15 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "일반대학원 특수교육학과(석사)": 3169000,
+     "일반대학원 간호학과(석사)": 3600000,
+     "일반대학원 사회복지학과(박사)": 3737000,
+     "일반대학원 간호학과(박사)": 4068000,
+     "교육대학원 유아교육전공(석사)": 2829000,
+     "경영학과(석사)": 2970000,
+     "언어치료청각학과(석사)": 3375000
+    }
    },
    "ma": {
     "min": 2829000,
@@ -18793,7 +18815,18 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "일반대학원 인문사회(석사)": 4500000,
+     "일반대학원 인문사회(박사)": 5000000,
+     "일반대학원 자연공학(석사)": 5000000,
+     "일반대학원 자연공학(박사)": 6000000,
+     "일반대학원 의학(석사)": 7000000,
+     "일반대학원 한의학(박사)": 7300000,
+     "보건복지대학원 인문사회(석사)": 4500000,
+     "보건복지대학원 자연공학예체능(석사)": 5000000,
+     "K-MEDI융합산업대학원 인문사회자연(석사)": 4500000,
+     "K-MEDI융합산업대학원 자연공학(석사)": 5000000
+    }
    },
    "ma": {
     "min": 4500000,
@@ -19251,7 +19284,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 3800000
+    }
    },
    "lang": {
     "min": 3800000,
@@ -19400,7 +19435,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1210000
+    }
    },
    "ma": {
     "min": null,
@@ -20631,7 +20668,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1400000
+    }
    },
    "ma": {
     "min": null,
@@ -22077,7 +22116,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 2100000
+    }
    },
    "ma": {
     "min": null,
@@ -22157,7 +22198,20 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": 3857000,
     "max": null,
-    "fields": {}
+    "fields": {
+     "석사 인문·사회": 4618000,
+     "석사 이학·체육": 5480000,
+     "석사 공학·예능": 6149000,
+     "석사 의학과": 7712000,
+     "박사 인문·사회": 4799000,
+     "박사 이학·체육": 5765000,
+     "박사 공학·예능": 6478000,
+     "박사 의학과": 8100000,
+     "석·박사통합 인문·사회": 4708000,
+     "석·박사통합 이학·체육": 5623000,
+     "석·박사통합 공학·예능": 6312000,
+     "석·박사통합 의학과": 7905000
+    }
    },
    "ma": {
     "min": 4618000,
@@ -22535,7 +22589,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1300000
+    }
    },
    "ma": {
     "min": null,
@@ -23914,7 +23970,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1300000
+    }
    },
    "lang": {
     "min": 1300000,
@@ -24398,7 +24456,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1300000
+    }
    },
    "lang": {
     "min": 1300000,
@@ -31269,7 +31329,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1100000
+    }
    },
    "lang": {
     "min": 1100000,
@@ -33358,7 +33420,10 @@ window.UNIV_KNOWLEDGE = [
    },
    "ba": {
     "min": 2800000,
-    "max": 3550000
+    "max": 3550000,
+    "fields": {
+     "어학연수": 1000000
+    }
    },
    "ma": {
     "min": "학기"
@@ -33835,7 +33900,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1660000
+    }
    },
    "ma": {
     "min": null,
@@ -35678,7 +35745,10 @@ window.UNIV_KNOWLEDGE = [
    },
    "ba": {
     "min": 3920000,
-    "max": 4990000
+    "max": 4990000,
+    "fields": {
+     "어학연수": 1400000
+    }
    },
    "ma": {
     "min": "₩4,700,000~₩4,700,000"
@@ -37413,7 +37483,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1200000
+    }
    },
    "lang": {
     "min": 1200000,
@@ -37902,7 +37974,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1100000
+    }
    },
    "lang": {
     "min": 1100000,
@@ -38621,7 +38695,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1300000
+    }
    },
    "ma": {
     "min": null,
@@ -39067,7 +39143,10 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "인문·사회/경영": 4065000,
+     "자연·공학 등(대표)": 4881000
+    }
    },
    "ma": {
     "min": 4065000,
@@ -39570,7 +39649,10 @@ window.UNIV_KNOWLEDGE = [
    },
    "ba": {
     "min": 3108000,
-    "max": 4214000
+    "max": 4214000,
+    "fields": {
+     "어학연수": 2400000
+    }
    },
    "ma": {
     "min": "1학기"
@@ -39680,7 +39762,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "모든 계열 동일(6학점 신청기준)": 3150000
+    }
    },
    "ma": {
     "min": 3150000,
@@ -41158,7 +41242,12 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "인문사회과학(석사)": 4447000,
+     "자연과학(석사)": 5284000,
+     "공학/예체능(석사)": 6098000,
+     "의학(석사)": 6792000
+    }
    },
    "ma": {
     "min": 4447000,
@@ -42207,7 +42296,12 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "Humanities & Social": 5921000,
+     "자연과학,체육": 7115000,
+     "공학,예능": 7667000,
+     "의학": 9697000
+    }
    },
    "ma": {
     "min": 5921000,
@@ -42908,7 +43002,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1400000
+    }
    },
    "ma": {
     "min": null,
@@ -45884,7 +45980,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1100000
+    }
    },
    "ma": {
     "min": null,
@@ -47018,7 +47116,13 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "일반대학원 간호학 석사": 4000000,
+     "일반대학원 (부동산/융합경영/사회복지/유아교육/식품영양 박사)": 3800000,
+     "특수대학원 스마트휴먼대학원": 3500000,
+     "특수대학원 글로벌교육학과": 4500000,
+     "특수대학원 융합공과대학원": 4250000
+    }
    },
    "ma": {
     "min": 3500000,
@@ -47633,7 +47737,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 2400000
+    }
    },
    "ma": {
     "min": null,
@@ -48097,7 +48203,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 2000000
+    }
    },
    "ma": {
     "min": null,
@@ -48410,7 +48518,10 @@ window.UNIV_KNOWLEDGE = [
    },
    "ba": {
     "min": 4120000,
-    "max": 6020000
+    "max": 6020000,
+    "fields": {
+     "어학연수": 1600000
+    }
    },
    "ma": {
     "min": 4120000,
@@ -54282,7 +54393,13 @@ window.UNIV_KNOWLEDGE = [
    },
    "ba": {
     "min": 3985000,
-    "max": 5311000
+    "max": 5311000,
+    "fields": {
+     "지식서비스&컨설팅대학원(다언어과정)": 3600000,
+     "지식서비스&컨설팅대학원(영어트랙)": 3600000,
+     "부동산대학원(다언어과정)": 4000000,
+     "부동산대학원(영어트랙)": 5000000
+    }
    }
   },
   "en": "Hansung University",
@@ -54590,7 +54707,10 @@ window.UNIV_KNOWLEDGE = [
    },
    "ba": {
     "min": 3635500,
-    "max": 4339000
+    "max": 4339000,
+    "fields": {
+     "어학연수": 1500000
+    }
    },
    "ma": {
     "min": "학기 ₩2,090,000~₩2,541,600"
@@ -54696,7 +54816,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1850000
+    }
    },
    "ma": {
     "min": null,
@@ -54940,7 +55062,11 @@ window.UNIV_KNOWLEDGE = [
    },
    "ba": {
     "min": 3464000,
-    "max": 4506000
+    "max": 4506000,
+    "fields": {
+     "석사": 3408000,
+     "박사": 3934000
+    }
    }
   },
   "en": "Hyupsung University",
@@ -55117,7 +55243,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1200000
+    }
    },
    "ma": {
     "min": null,
@@ -55475,7 +55603,9 @@ window.UNIV_KNOWLEDGE = [
    "ba": {
     "min": null,
     "max": null,
-    "fields": {}
+    "fields": {
+     "어학연수": 1200000
+    }
    },
    "lang": {
     "min": 1200000,
@@ -55645,7 +55775,10 @@ window.UNIV_KNOWLEDGE = [
    },
    "ba": {
     "min": 3619500,
-    "max": 4827000
+    "max": 4827000,
+    "fields": {
+     "어학연수": 1750000
+    }
    },
    "ma": {
     "min": "학기"
