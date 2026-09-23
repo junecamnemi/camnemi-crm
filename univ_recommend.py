@@ -97,6 +97,11 @@ MAJOR_KEYWORDS = {
 }
 
 
+def _major_str(mm):
+    if isinstance(mm, dict):
+        return f"{mm.get('kr','')} {mm.get('en','')}".lower()
+    return str(mm).lower()
+
 def match_major(univ, major_query, level):
     """Return True if a university has a major matching the query."""
     q = major_query.lower()
@@ -104,18 +109,18 @@ def match_major(univ, major_query, level):
     major_texts = []
     if level == "ba":
         for mm in univ.get("majors_ba", []) or []:
-            major_texts.append(f"{mm.get('kr','')} {mm.get('en','')}".lower())
+            major_texts.append(_major_str(mm))
         # fallback to flat majors list
         if not major_texts:
             major_texts = [str(x).lower() for x in (univ.get("majors") or [])]
     elif level == "ma":
         for mm in univ.get("majors_ma", []) or []:
-            major_texts.append(f"{mm.get('kr','')} {mm.get('en','')}".lower())
+            major_texts.append(_major_str(mm))
     else:
         for mm in univ.get("majors_ba", []) or []:
-            major_texts.append(f"{mm.get('kr','')} {mm.get('en','')}".lower())
+            major_texts.append(_major_str(mm))
         for mm in univ.get("majors_ma", []) or []:
-            major_texts.append(f"{mm.get('kr','')} {mm.get('en','')}".lower())
+            major_texts.append(_major_str(mm))
 
     combined = " ".join(major_texts)
     # direct keyword match against query tokens
@@ -172,7 +177,17 @@ def recommend(ielts=None, major=None, level="ba", top=15, min_rank=None):
         return (rk, t)
 
     results.sort(key=sort_key)
-    return results[:top]
+    top_results = results[:top]
+
+    # KB 자기개선 ①: 결과가 없거나 매우 약하면 쿼리갭 로그
+    if not top_results:
+        try:
+            from backend.kb_query_gap import log_gap
+            log_gap(query=major, level=level, ielts=ielts, major=major,
+                    result_count=0, note="no school matched criteria")
+        except Exception:
+            pass
+    return top_results
 
 
 # --- output ------------------------------------------------------------------
