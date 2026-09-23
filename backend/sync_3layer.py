@@ -68,6 +68,15 @@ for name, s in db["schools"].items():
             ch |= fill("period", v.get("period"))
             ch |= fill("tuition", v.get("tuition_range"))
         if ch: cdb_filled[lvl] = cdb_filled.get(lvl, 0) + 1
+    # school-level IEQAS 인증대 필드 (fill-only)
+    for lvl, v in entry.items():
+        if v.get("ieqas_certified") is not None and s.get("ieqas_certified") is None:
+            s["ieqas_certified"] = v.get("ieqas_certified")
+            s["ieqas_level"] = v.get("ieqas_level")
+            s["ieqas_course"] = v.get("ieqas_course")
+            s["ieqas_source"] = v.get("ieqas_source")
+            s["ieqas_year"] = v.get("ieqas_year")
+            break
 
 with io.open(DB, "w", encoding="utf-8", newline="\n") as f:
     json.dump(db, f, ensure_ascii=False, indent=1)
