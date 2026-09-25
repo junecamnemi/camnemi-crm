@@ -1,5 +1,5 @@
 import os, re, json
-GUIDER = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+GUIDER = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 # 외국인/ 하위폴더와 상위 폴더 모두 포함 전수 스캔
 print("=== 1) adiga_*_외국인_모집요강 (하위 포함) ===")
 for d in sorted(os.listdir(GUIDER)):

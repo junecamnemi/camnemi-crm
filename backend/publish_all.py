@@ -7,7 +7,7 @@
 import json, os, re, sys, math
 import psycopg2
 
-BE = r'C:\Users\USER\camnemi-crm\backend'
+BE = r'C:\Users\wisew\camnemi-crm\backend'
 CANON = os.path.join(BE, 'canonical', 'schools.jsonl')
 REPORT = os.path.join(BE, 'validation_report.md')
 
@@ -60,7 +60,7 @@ def main():
         return 2
     recs = load_canon()
     pw = re.search(r'SUPABASE_DB_PASSWORD\s*=\s*(\S+)',
-                   open(r'C:\Users\USER\camnemi-crm\.env', encoding='utf-8').read()).group(1)
+                   open(r'C:\Users\wisew\camnemi-crm\.env', encoding='utf-8').read()).group(1)
     conn = psycopg2.connect(host='aws-0-ap-northeast-2.pooler.supabase.com', port=5432,
                             user='postgres.zjdvzpylxazfbazioxto', password=pw, dbname='postgres')
     cur = conn.cursor()

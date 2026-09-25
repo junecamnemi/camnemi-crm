@@ -26,5 +26,5 @@ print("검증 필요:", to_check)
 B=5
 for i in range(0, len(to_check), B):
     batch = to_check[i:i+B]
-    json.dump(batch, open(rf"C:\Users\USER\camnemi-crm\backend\_pharm_batch{i//B}.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(batch, open(rf"C:\Users\wisew\camnemi-crm\backend\_pharm_batch{i//B}.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"  batch{i//B}: {', '.join(batch)}")

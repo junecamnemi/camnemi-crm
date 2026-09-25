@@ -7,7 +7,7 @@ Schools without a 2027 guide keep their existing (2026) row.
 import json, os, re, urllib.request
 
 key = None
-h = open(r"C:\Users\USER\camnemi-crm\index.html", encoding="utf-8").read()
+h = open(r"C:\Users\wisew\camnemi-crm\index.html", encoding="utf-8").read()
 m = re.search(r"DEFAULT_SUPABASE_KEY\s*=\s*'([^']+)'", h)
 if m: key = m.group(1)
 BASE = "https://zjdvzpylxazfbazioxto.supabase.co/rest/v1/university_guides"
@@ -27,8 +27,8 @@ def school_from_file(name):
     return n
 
 def main():
-    upmap = json.load(open(r"C:\Users\USER\camnemi-crm\backend\adiga2027_upload_map.json", encoding="utf-8"))
-    master = json.load(open(r"C:\Users\USER\camnemi-crm\backend\_guide_2027_master.json", encoding="utf-8"))
+    upmap = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\adiga2027_upload_map.json", encoding="utf-8"))
+    master = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_guide_2027_master.json", encoding="utf-8"))
     master_by_school = {r["school"]: r for r in master}
 
     adiga_ba = {}
@@ -72,7 +72,7 @@ def main():
             fail += 1
             print("  fail", univ, track, e)
     print(f"done ok={ok} fail={fail}")
-    json.dump({"upserts": final}, open(r"C:\Users\USER\camnemi-crm\backend\upserted_2027.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump({"upserts": final}, open(r"C:\Users\wisew\camnemi-crm\backend\upserted_2027.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 if __name__ == "__main__":
     import urllib.parse

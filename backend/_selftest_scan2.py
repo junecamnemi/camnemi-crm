@@ -3,7 +3,7 @@
 """1) Find '자체' (own-test) mentions in all guide PDFs + 2) list majors for selftest schools."""
 import os, re, pymupdf
 
-DIR = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+DIR = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
 
 print("=" * 60)
 print("1. 요강 PDF에서 '자체시험/자체 한국어' 문구 검색")

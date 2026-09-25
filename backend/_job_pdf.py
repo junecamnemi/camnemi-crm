@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Render the complete 일자리 매뉴얼 PDF (Camnemi navy/gold)."""
 import json, os, pymupdf
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 job = json.load(open(os.path.join(B,"job_manual_kr.json"), encoding="utf-8"))
 tp = job.get("time_parttime", {})
 

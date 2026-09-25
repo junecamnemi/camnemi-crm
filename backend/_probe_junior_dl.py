@@ -3,7 +3,7 @@
 import os
 from playwright.sync_api import sync_playwright
 
-OUT = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\guides\junior\_probe"
+OUT = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\guides\junior\_probe"
 os.makedirs(OUT, exist_ok=True)
 
 with sync_playwright() as p:

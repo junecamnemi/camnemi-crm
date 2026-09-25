@@ -4,10 +4,10 @@ Adds per-school: foreign_guide (status), foreign_topik, foreign_tuition, foreign
 guide_type (combined/degree), guide_pdf path, and flags for closed/merged."""
 import json, os
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
-SCAN = json.load(open(r"C:\Users\USER\camnemi-crm\backend\_junior_foreign_scan.json", encoding="utf-8"))
-STATUS = json.load(open(r"C:\Users\USER\camnemi-crm\backend\_junior_foreign_status.json", encoding="utf-8"))
-SAVEDIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+SCAN = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_junior_foreign_scan.json", encoding="utf-8"))
+STATUS = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_junior_foreign_status.json", encoding="utf-8"))
+SAVEDIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
 
 kb = json.load(open(KB_PATH, encoding="utf-8"))
 js = kb["junior"]["schools"]

@@ -3,7 +3,7 @@
 """Fix ambiguous English short-name mappings (KMU/KW/KWU) in _en_names.json."""
 import json
 
-PATH = r"C:\Users\USER\camnemi-crm\backend\_en_names.json"
+PATH = r"C:\Users\wisew\camnemi-crm\backend\_en_names.json"
 with open(PATH, encoding="utf-8") as f:
     names = json.load(f)
 

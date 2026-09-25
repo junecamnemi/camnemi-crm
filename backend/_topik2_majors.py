@@ -2,7 +2,7 @@
 """TOPIK<=2 schools WITH their majors listed."""
 import json, re
 
-kb = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+kb = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 
 def min_topik(v):
     txt = " ".join(str(v.get(k,"")) for k in ("topik_req","lang_req","foreign_topik"))

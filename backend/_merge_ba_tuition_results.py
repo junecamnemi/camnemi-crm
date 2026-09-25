@@ -3,9 +3,9 @@
 Reads the consolidated _ba_tuition_results.json (no concurrency)."""
 import json, re
 
-DB = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
-RES = json.load(open(r"C:\Users\USER\camnemi-crm\backend\_ba_tuition_results.json", encoding="utf-8"))
+DB = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+RES = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_ba_tuition_results.json", encoding="utf-8"))
 
 def norm(s): return re.sub(r"\[.*?\]","",s).replace("대학교","").replace("대학","").replace(" ","")
 

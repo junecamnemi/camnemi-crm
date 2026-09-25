@@ -4,8 +4,8 @@
 import json, os, re, time, urllib.request, shutil
 import pymupdf
 
-B=r"C:\Users\USER\camnemi-crm\backend"
-DEST=r"C:\Users\USER\camnemi-crm\guides_all"
+B=r"C:\Users\wisew\camnemi-crm\backend"
+DEST=r"C:\Users\wisew\camnemi-crm\guides_all"
 os.makedirs(DEST,exist_ok=True)
 UA={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131.0.0.0 Safari/537.36'}
 

@@ -1,7 +1,7 @@
 import pymupdf, os
 
-SRC = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_외국인_모집요강\외국인\경운대학교[본교]_2026_외국인.pdf"
-OUT = r"C:\Users\USER\camnemi-crm\backend\경운대_학부_외국인전형_요약.pdf"
+SRC = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_외국인_모집요강\외국인\경운대학교[본교]_2026_외국인.pdf"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\경운대_학부_외국인전형_요약.pdf"
 
 doc = pymupdf.open(SRC)
 new = pymupdf.open()

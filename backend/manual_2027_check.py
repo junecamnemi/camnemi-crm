@@ -17,7 +17,7 @@ Schools still unverifiable by script stay in the pending set for a browser pass.
 """
 import json, os, re, datetime, io
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 PENDING = os.path.join(BASE, "_daily_pending.json")
 PENDING_JR = os.path.join(BASE, "_junior_pending.json")
 OUT_JSON = os.path.join(BASE, "_manual_check_result.json")

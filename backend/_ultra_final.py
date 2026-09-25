@@ -41,7 +41,7 @@ IELTS55_NO = {
 }
 
 # ---- Build final table from data.js + the above ----
-with open(r"C:\Users\USER\camnemi-crm\data.js", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\data.js", encoding="utf-8") as f:
     content = f.read()
 start = content.find("[")
 depth = 0
@@ -119,7 +119,7 @@ def sk(r):
 rows.sort(key=sk)
 
 import csv
-out_path = r"C:\Users\USER\camnemi-crm\backend\recommend_ultra.csv"
+out_path = r"C:\Users\wisew\camnemi-crm\backend\recommend_ultra.csv"
 with open(out_path, "w", encoding="utf-8-sig", newline="") as f:
     w = csv.writer(f)
     w.writerow(["순위","학교","영문명","지역","IELTS(data)","TOPIK(data)","등록금최소","등록금최대","데이터사이언스학과","장학금","검증비고"])

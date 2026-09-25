@@ -3,7 +3,7 @@
 """Promote ALL discovered candidates (tier A or B, best pick) into scrape_map for monitoring.
 Tier A = direct guide PDF; Tier B = guide page (checker will resolve page->pdf)."""
 import json, os, re, datetime
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 batch = json.load(open(os.path.join(B, "_guide_review_batch.json"), encoding="utf-8"))
 sm = json.load(open(os.path.join(B, "scrape_map.json"), encoding="utf-8"))
 today = datetime.date.today().isoformat()

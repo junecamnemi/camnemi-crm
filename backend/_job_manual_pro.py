@@ -4,7 +4,7 @@
 import json, os, re, urllib.request
 
 def _auth():
-    for p in [r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\USER\AppData\Local\hermes\auth.json"]:
+    for p in [r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\wisew\AppData\Local\hermes\auth.json"]:
         if not os.path.exists(p): continue
         d = json.load(open(p, encoding="utf-8"))
         if d.get("access_token"):
@@ -14,7 +14,7 @@ def _auth():
             return n.get("inference_base_url") or "https://inference-api.nousresearch.com/v1", n["agent_key"]
     raise SystemExit("no auth")
 BASE, KEY = _auth(); MODEL="deepseek/deepseek-v4-pro"
-B = r"C:\Users\USER\camnemi-crm\backend"; HM=os.path.join(B,"hikorea_manuals")
+B = r"C:\Users\wisew\camnemi-crm\backend"; HM=os.path.join(B,"hikorea_manuals")
 che = open(os.path.join(HM,"체류민원_md.txt"), encoding="utf-8").read()
 saj = open(os.path.join(HM,"사증민원_매뉴얼_전체.txt"), encoding="utf-8").read()
 

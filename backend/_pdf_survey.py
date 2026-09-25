@@ -2,7 +2,7 @@
 """Survey all guide PDFs: path, size, name — to find duplicates & non-foreigner guides."""
 import os, hashlib, json
 
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 
 # all PDFs under UP (recursive)
 pdfs = []
@@ -32,5 +32,5 @@ for k, v in list(dups.items())[:20]:
         print(f"     {e['path']}")
 
 # save full manifest
-json.dump(pdfs, open(r"C:\Users\USER\camnemi-crm\backend\_pdf_manifest.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(pdfs, open(r"C:\Users\wisew\camnemi-crm\backend\_pdf_manifest.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print("\n매니페스트 저장: _pdf_manifest.json")

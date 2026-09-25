@@ -4,7 +4,7 @@ Scans a directory of hermes output files."""
 import json, os, re, sys
 
 OUTDIR = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.environ.get("LOCALAPPDATA",""), "Temp","bypass_mis")
-OUTFILE = sys.argv[2] if len(sys.argv) > 2 else r"C:\Users\USER\camnemi-crm\backend\_bypass_mis_structured.json"
+OUTFILE = sys.argv[2] if len(sys.argv) > 2 else r"C:\Users\wisew\camnemi-crm\backend\_bypass_mis_structured.json"
 BS = chr(92)
 
 def answer_region(txt):

@@ -3,7 +3,7 @@
 Each school's guide_url is the admission site; agents find+download the 모집요강 PDF."""
 import json, os
 
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 js = KB["junior"]["schools"]
 
 # entries with guide_url (degree admission page)
@@ -16,7 +16,7 @@ for n, v in js.items():
 
 print(f"guide_url 보유 전문대: {len(need)}")
 # save full need list
-json.dump(need, open(r"C:\Users\USER\camnemi-crm\backend\_junior_deg_need.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(need, open(r"C:\Users\wisew\camnemi-crm\backend\_junior_deg_need.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 # save a mapping of school->guide_url for reference (no PDF dir yet)
 # Note: previously 126 junior colleges were enumerated; include those WITHOUT guide_url too? They have no source URL -> mark.
 no_url = [n for n, v in js.items() if not v.get("guide_url")]

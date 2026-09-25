@@ -5,7 +5,7 @@ ONLY fills lang_guide where currently empty. Backs up data.js first.
 Preserves UNIV_GUIDES and overall structure; rewrites UNIV_KNOWLEDGE minified."""
 import json, os, shutil, datetime
 
-DATA = r"C:\Users\USER\camnemi-crm\data.js"
+DATA = r"C:\Users\wisew\camnemi-crm\data.js"
 bak = DATA.replace(".js", f"_bak_{datetime.date.today().isoformat()}.js")
 shutil.copy(DATA, bak)
 print("백업:", bak)

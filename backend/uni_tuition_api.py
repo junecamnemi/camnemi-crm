@@ -77,4 +77,4 @@ if __name__ == '__main__':
         out.append(r)
         print(json.dumps(r, ensure_ascii=False)[:800], flush=True)
         time.sleep(1)
-    json.dump(out, open(r'C:\Users\USER\_acadinfo_out.json','w',encoding='utf-8'), ensure_ascii=False, indent=1)
+    json.dump(out, open(r'C:\Users\wisew\_acadinfo_out.json','w',encoding='utf-8'), ensure_ascii=False, indent=1)

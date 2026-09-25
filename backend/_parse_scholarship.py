@@ -4,7 +4,7 @@
 import re
 import json
 
-with open(r"C:\Users\USER\camnemi-crm\data.js", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\data.js", encoding="utf-8") as f:
     content = f.read()
 start = content.find("[")
 depth = 0
@@ -60,7 +60,7 @@ for u in data:
     }
 
 # Save
-with open(r"C:\Users\USER\camnemi-crm\backend\_scholarship_parsed.json", "w", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_scholarship_parsed.json", "w", encoding="utf-8") as f:
     json.dump(result, f, ensure_ascii=False, indent=2)
 
 for nm in SCHOOLS:

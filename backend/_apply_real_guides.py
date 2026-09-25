@@ -12,7 +12,7 @@ Usage: python _apply_real_guides.py [--write]
 """
 import json, os, re, argparse, shutil, datetime
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(B, "verified_kb.json")
 REAL = os.path.join(B, "guides_llm_parsed_real.jsonl")
 

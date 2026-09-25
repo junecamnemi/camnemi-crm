@@ -1,5 +1,5 @@
 import json, os
-B = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals"
+B = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals"
 
 def show(fp, label):
     print("="*60)

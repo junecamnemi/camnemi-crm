@@ -2,7 +2,7 @@
 """Clean wave-2 batches: strip leading numeric prefixes in school names."""
 import json, re
 
-PATH = r"C:\Users\USER\camnemi-crm\backend\_curation_2026_batches.json"
+PATH = r"C:\Users\wisew\camnemi-crm\backend\_curation_2026_batches.json"
 batches = json.load(open(PATH, encoding="utf-8"))
 
 for b in batches:

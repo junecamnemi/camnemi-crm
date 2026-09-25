@@ -7,7 +7,7 @@ import json
 import csv
 
 # ---- load data.js ----
-with open(r"C:\Users\USER\camnemi-crm\data.js", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\data.js", encoding="utf-8") as f:
     content = f.read()
 start = content.find("[")
 depth = 0
@@ -148,7 +148,7 @@ def sk(r):
     return (rk, gy)
 rows.sort(key=sk)
 
-out = r"C:\Users\USER\camnemi-crm\backend\recommend_final_verified.csv"
+out = r"C:\Users\wisew\camnemi-crm\backend\recommend_final_verified.csv"
 with open(out, "w", encoding="utf-8-sig", newline="") as f:
     w = csv.writer(f)
     w.writerow(["가이드연도(검증)","순위","학교","영문명","지역","IELTS","TOPIK","자체시험","등록금최소","등록금최대","데이터사이언스학과","장학금","모집기간/비고"])

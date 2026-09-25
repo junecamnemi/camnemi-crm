@@ -6,12 +6,12 @@ requests.packages.urllib3.disable_warnings()
 BASE = 'https://www.adiga.kr'
 HEADERS = {'User-Agent': 'Mozilla/5.0', 'Accept-Language': 'ko-KR,ko;q=0.9'}
 
-with open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8") as f:
     kb = json.load(f)
 juniors = list(kb["junior"]["schools"].keys())
 
 # load existing known
-with open(r"C:\Users\USER\camnemi-crm\backend\_guide_2027_junior.json", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_guide_2027_junior.json", encoding="utf-8") as f:
     existing = json.load(f)
 found = {name: v["unvCd"] for name, v in existing.items() if v["unvCd"]}
 found["동양미래대학교"] = "0000463"
@@ -54,6 +54,6 @@ for name in unknown:
     time.sleep(0.5)
 
 print(f"\n총 발견: {len(found)} / {len(juniors)}")
-with open(r"C:\Users\USER\camnemi-crm\backend\_junior_unvcd_map.json", "w", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_junior_unvcd_map.json", "w", encoding="utf-8") as f:
     json.dump(found, f, ensure_ascii=False, indent=2)
 print("저장: backend/_junior_unvcd_map.json")

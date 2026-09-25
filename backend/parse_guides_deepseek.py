@@ -14,14 +14,14 @@ Usage:
   python parse_guides_deepseek.py --merge            # push results to Supabase
 """
 import os, sys, json, hashlib, zipfile, argparse, time, threading, queue, re, urllib.request
-sys.path.insert(0, r'C:\Users\USER\pdf-venv\Lib\site-packages')
+sys.path.insert(0, r'C:\Users\wisew\pdf-venv\Lib\site-packages')
 import pymupdf
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUT_JSONL = os.path.join(BASE, "guides_llm_parsed.jsonl")
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 
-AUTH = json.load(open(r"C:\Users\USER\AppData\Local\hermes\auth.json", encoding="utf-8"))
+AUTH = json.load(open(r"C:\Users\wisew\AppData\Local\hermes\auth.json", encoding="utf-8"))
 _N = AUTH["providers"]["nous"]
 API_BASE = _N["inference_base_url"].rstrip("/")
 API_KEY = _N.get("agent_key") or _N.get("access_token")
@@ -175,7 +175,7 @@ def main():
 def merge_to_db():
     """push parsed results into Supabase universities + university_guides."""
     import urllib.parse
-    H = open(r"C:\Users\USER\camnemi-crm\index.html", encoding="utf-8").read()
+    H = open(r"C:\Users\wisew\camnemi-crm\index.html", encoding="utf-8").read()
     K = re.search(r"DEFAULT_SUPABASE_KEY\s*=\s*'([^']+)'", H).group(1)
     URL = "https://zjdvzpylxazfbazioxto.supabase.co/rest/v1/"
     def api(method, path, body=None, prefer=None):

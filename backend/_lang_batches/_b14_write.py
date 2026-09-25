@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json, io
 
-path = r"C:/Users/USER/camnemi-crm/backend/_lang_batches/lang_batch_14_result.json"
+path = r"C:/Users/wisew/camnemi-crm/backend/_lang_batches/lang_batch_14_result.json"
 
 results = [
     {"school": "협성대학교", "status": "unknown_year", "url": "https://www.uhs.ac.kr/uhs/191/subview.do", "title": "협성어학원", "note": "Official lang center page exists but JS-rendered (no content captured); no 2027 schedule surfaced in searches."},

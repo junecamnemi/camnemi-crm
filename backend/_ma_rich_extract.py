@@ -4,7 +4,7 @@
 import re, json
 from collections import defaultdict
 
-with open(r"C:\Users\USER\camnemi-crm\data.js", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\data.js", encoding="utf-8") as f:
     content = f.read()
 start = content.find("[")
 depth = 0
@@ -77,7 +77,7 @@ with_majors = [s for s in ma if s["majors"]]
 print(f"석사 데이터: 총 {len(ma)}, 전공 있는 {len(with_majors)}개")
 
 # Save rich MA data
-with open(r"C:\Users\USER\camnemi-crm\backend\_ma_rich.json", "w", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_ma_rich.json", "w", encoding="utf-8") as f:
     json.dump(with_majors, f, ensure_ascii=False, indent=2)
 
 # Ranked schools

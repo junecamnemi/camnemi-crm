@@ -3,7 +3,7 @@
 """Mirror the DeepSeek-Pro application-system classification into verified_kb + consulting_db."""
 import json, os, re, shutil, datetime
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(B, "verified_kb.json"); CDB = os.path.join(B, "consulting_db.json")
 AGG = os.path.join(B, "_apply_pro_agg.json")
 

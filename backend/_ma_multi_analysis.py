@@ -4,7 +4,7 @@
 import json, re
 from collections import defaultdict
 
-with open(r"C:\Users\USER\camnemi-crm\backend\_ma_rich.json", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_ma_rich.json", encoding="utf-8") as f:
     schools = json.load(f)
 
 # ---- 1. by region ----

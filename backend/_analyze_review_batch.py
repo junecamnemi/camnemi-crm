@@ -8,7 +8,7 @@ Candidates -> each school a single best guess.
 """
 import json, re, os
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 batch = json.load(open(os.path.join(B, "_guide_review_batch.json"), encoding="utf-8"))
 GUIDE = re.compile(r"모집요강|외국인|재외국민|graduate|general|foreign|international|yogang|mojib|notice", re.I)
 PDF = re.compile(r"\.(pdf|hwp|hml|docx?)([?#]|$)|download\.do|fileview|/file/|filedown|boiled|nullFile", re.I)

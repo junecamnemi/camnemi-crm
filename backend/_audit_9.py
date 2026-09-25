@@ -1,5 +1,5 @@
 import json, os, re
-os.chdir(r"C:\Users\USER\camnemi-crm")
+os.chdir(r"C:\Users\wisew\camnemi-crm")
 kb=json.load(open(r'backend\verified_kb.json',encoding='utf-8'))
 arr=json.load(open(r'backend\_djs_parsed.json',encoding='utf-8'))
 D={x['n']:x for x in arr}

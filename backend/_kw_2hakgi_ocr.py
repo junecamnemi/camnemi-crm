@@ -1,7 +1,7 @@
 import pymupdf, numpy as np, re, os
 from rapidocr_onnxruntime import RapidOCR
 
-p = os.path.join(os.environ.get("LOCALAPPDATA", r"C:\Users\USER\AppData\Local"), "Temp", "kw_2hakgi.pdf")
+p = os.path.join(os.environ.get("LOCALAPPDATA", r"C:\Users\wisew\AppData\Local"), "Temp", "kw_2hakgi.pdf")
 d = pymupdf.open(p)
 print("페이지별 텍스트/이미지:")
 low = []

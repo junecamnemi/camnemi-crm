@@ -3,7 +3,7 @@
 import os, json, base64, re, time, urllib.request, urllib.parse
 
 BACKEND_URL = "https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec"
-h = open(r"C:\Users\USER\camnemi-crm\index.html", encoding="utf-8").read()
+h = open(r"C:\Users\wisew\camnemi-crm\index.html", encoding="utf-8").read()
 m = re.search(r"DEFAULT_SUPABASE_KEY\s*=\s*'([^']+)'", h)
 key = m.group(1)
 BASE = "https://zjdvzpylxazfbazioxto.supabase.co/rest/v1/customers"
@@ -30,7 +30,7 @@ def api(method, path, body=None):
         return json.loads(r.read().decode("utf-8"))
 
 # 1. upload JPG to Bora's folder
-data = open(r"C:\Users\USER\camnemi-crm\backend\_bora_photo.jpg", "rb").read()
+data = open(r"C:\Users\wisew\camnemi-crm\backend\_bora_photo.jpg", "rb").read()
 b64 = base64.b64encode(data).decode("ascii")
 r = post({"action": "uploadCustomerFile", "folderId": FOLDER_ID, "filename": "Bora_Sreyka_Photo.jpg", "contentBase64": b64})
 print("upload:", r.get("ok"), r.get("viewLink") or r.get("error","?"))

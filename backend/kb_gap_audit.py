@@ -12,7 +12,7 @@ verified_kb에서 필수필드(학비/어학/전공/장학)가 누락된 학교�
 import json, os, datetime
 from collections import Counter
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 today = datetime.date.today().isoformat()
 
 def load(p, d=None):

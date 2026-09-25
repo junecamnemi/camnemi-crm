@@ -4,8 +4,8 @@
 with the majors available via that route. Confirmed: selftest is usually limited to specific majors."""
 import json, re, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
-DATA_FILE = r"C:\Users\USER\camnemi-crm\data.js"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
+DATA_FILE = r"C:\Users\wisew\camnemi-crm\data.js"
 
 # load data.js
 with open(DATA_FILE, encoding="utf-8") as f:

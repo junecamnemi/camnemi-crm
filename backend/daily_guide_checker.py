@@ -11,8 +11,8 @@ Discover unknown/missing URLs with discover_guides.py (chrome headless).
 """
 import os, re, json, hashlib, datetime, argparse, urllib.request, ssl
 
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
-B = r"C:\Users\USER\camnemi-crm\backend"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 MAP = os.path.join(B, "scrape_map.json")
 FP = os.path.join(B, "_guide_fingerprint.json")
 CHANGES = os.path.join(B, "_scrape_changes.jsonl")

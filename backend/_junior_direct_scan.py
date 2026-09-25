@@ -4,9 +4,9 @@ guide_url, find any 외국인 admission PDF link, download. Uses curl via subpro
 (no agent LLM calls -> no rate limit). Logs results."""
 import json, os, re, subprocess, time
 
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 js = KB["junior"]["schools"]
-SAVEDIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
+SAVEDIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
 os.makedirs(SAVEDIR, exist_ok=True)
 
 # schools we already have
@@ -45,7 +45,7 @@ for n, u in targets:
     results[n] = {"url": u, "pdfs": pdfs[:6], "file_links": files[:6], "size": len(html)}
     time.sleep(0.3)
 
-json.dump(results, open(r"C:\Users\USER\camnemi-crm\backend\_junior_scan_urls.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(results, open(r"C:\Users\wisew\camnemi-crm\backend\_junior_scan_urls.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 n_pdf = sum(1 for r in results.values() if r.get("pdfs"))
 n_file = sum(1 for r in results.values() if r.get("file_links"))
 print(f"직접 .pdf 링크 발견: {n_pdf}개 | fileDown/요강 링크: {n_file}개")

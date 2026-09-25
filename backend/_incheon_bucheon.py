@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Extract winter(겨울/12월) term + application from Incheon/Bucheon lang PDFs."""
 import pymupdf, os, re
-D = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_어학연수_모집요강"
+D = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_어학연수_모집요강"
 cands = {
  "인천대학교_한국어교육원.pdf":"인천대",
  "인하대_한국어교육원.pdf":"인하대",

@@ -4,8 +4,8 @@
 import os, sys, io, contextlib
 import pymupdf
 
-BASE = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인"
-OUT = r"C:/Users/USER/camnemi-crm/backend/_curation_tmp/_w2_batch8"
+BASE = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인"
+OUT = r"C:/Users/wisew/camnemi-crm/backend/_curation_tmp/_w2_batch8"
 
 files = [
     "0002660_인천대학교[본교]_2026_외국인.pdf",

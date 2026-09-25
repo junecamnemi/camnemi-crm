@@ -12,10 +12,10 @@ Run after any guide ingest, before trusting year filters.
 """
 import os, re, sys, json, zipfile, urllib.request, urllib.parse
 from collections import defaultdict, Counter
-sys.path.insert(0, r'C:\Users\USER\pdf-venv\Lib\site-packages')
+sys.path.insert(0, r'C:\Users\wisew\pdf-venv\Lib\site-packages')
 import pymupdf
 
-UP = r'C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project'
+UP = r'C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project'
 PROG = {'대학원':'ma','어학연수':'lang','외국인':'ba','전문대학':'junior'}
 ALIAS = {'포스텍':'포항공과대학교','한국해양대학교':'국립한국해양대학교','한국교통대학교':'국립한국교통대학교',
          '부경대학교':'국립부경대학교','창원대학교':'국립창원대학교','용인송담대학교':'용인예술과학대학교'}
@@ -67,7 +67,7 @@ def school_of(name):
     return re.sub(r'\.pdf$','',n,flags=re.I).strip('_ ').strip()
 
 def key():
-    h=open(r"C:\Users\USER\camnemi-crm\index.html",encoding="utf-8").read()
+    h=open(r"C:\Users\wisew\camnemi-crm\index.html",encoding="utf-8").read()
     return re.search(r"DEFAULT_SUPABASE_KEY\s*=\s*'([^']+)'",h).group(1)
 
 def main():

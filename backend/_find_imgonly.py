@@ -5,7 +5,7 @@ import pymupdf, numpy as np, io, os, re
 from PIL import Image
 from rapidocr_onnxruntime import RapidOCR
 
-PDF = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\사증민원_매뉴얼.pdf"
+PDF = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\사증민원_매뉴얼.pdf"
 d = pymupdf.open(PDF)
 ocr = RapidOCR()
 cand = []
@@ -30,4 +30,4 @@ for i in range(len(d)):
 print(f"누락 후보 페이지: {len(cand)}")
 for c in cand[:60]:
     print("  p%-4d text=%-5d imgs=%d cover=%.2f" % c)
-json.dump(cand, open(r"C:\Users\USER\camnemi-crm\backend\_imgonly_pages.json","w"), ensure_ascii=False)
+json.dump(cand, open(r"C:\Users\wisew\camnemi-crm\backend\_imgonly_pages.json","w"), ensure_ascii=False)

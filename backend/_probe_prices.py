@@ -4,7 +4,7 @@
 import json, os, re, time, urllib.request
 
 def _auth():
-    d = json.load(open(r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", encoding="utf-8"))
+    d = json.load(open(r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", encoding="utf-8"))
     return d["access_token"], d["inference_base_url"].rstrip("/")
 
 KEY, BASE = _auth()

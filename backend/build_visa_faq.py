@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Build visa FAQ from our KB (visa_kb_kr, labor_medical, official sources)."""
 import json, os, sys
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 sys.path.insert(0, B)
 kb = json.load(open(os.path.join(B,"visa_kb_kr.json"), encoding="utf-8"))
 lab = json.load(open(os.path.join(B,"labor_medical_rights_kr.json"), encoding="utf-8"))

@@ -8,8 +8,8 @@ Writes data.js back (preserving window.UNIV_KNOWLEDGE = [...] wrapper).
 """
 import json, re, os
 
-DATA = r"C:\Users\USER\camnemi-crm\data.js"
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+DATA = r"C:\Users\wisew\camnemi-crm\data.js"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB = json.load(open(os.path.join(BASE, "verified_kb.json"), encoding="utf-8"))
 
 # curation output files (source of truth for these 46 schools)

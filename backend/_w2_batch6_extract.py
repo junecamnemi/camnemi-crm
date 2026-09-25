@@ -3,7 +3,7 @@ import os, sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 import pymupdf
 
-BASE = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인"
+BASE = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인"
 files = [
     "0000173_중부대학교[본교]_2026_외국인.pdf",
     "0000187_차의과학대학교[본교]_2026_외국인.pdf",
@@ -15,7 +15,7 @@ files = [
     "0000208_호남대학교[본교]_2026_외국인.pdf",
     "0000215_가톨릭꽃동네대학교[본교]_2026_외국인.pdf",
 ]
-OUT = r"C:/Users/USER/camnemi-crm/backend/_w2_batch6_txt"
+OUT = r"C:/Users/wisew/camnemi-crm/backend/_w2_batch6_txt"
 os.makedirs(OUT, exist_ok=True)
 for f in files:
     fp = os.path.join(BASE, f)

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Grep 2027 dates in the 4 PDFs to confirm 2027 schedule captured."""
 import pymupdf, os, re
-DIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_어학연수_모집요강"
+DIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_어학연수_모집요강"
 files = ["가톨릭대_한국어교육원_2027.pdf","서강대_한국어교육원_2027.pdf",
          "연세대_한국어교육원_2027.pdf","이화여자대학교_한국어교육원_2027.pdf"]
 for fn in files:

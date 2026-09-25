@@ -4,7 +4,7 @@
 Backup first. Only removes if '인하대학교' has 어학연수 (the canonical record)."""
 import json, os, shutil, datetime
 
-DB = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
+DB = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
 bak = DB.replace(".json", f"_dedupe_{datetime.date.today().isoformat()}.json")
 shutil.copy(DB, bak)
 

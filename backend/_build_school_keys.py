@@ -5,8 +5,8 @@ key: clean adiga university name (strip [campus]) ; value: {cd, adiga_full, alia
 Used to normalize any school reference (lang_programs, discover targets, KB) to one key."""
 import os, re, json, csv, glob
 
-AD = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
-OUT = r"C:\Users\USER\camnemi-crm\backend\school_keys.json"
+AD = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\school_keys.json"
 manifests = glob.glob(os.path.join(AD, "adiga_202*/**/download_manifest.csv"), recursive=True) or \
             glob.glob(os.path.join(AD, "adiga_202*/download_manifest.csv"))
 

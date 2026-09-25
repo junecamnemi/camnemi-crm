@@ -9,7 +9,7 @@ Verified sources (web research this session):
 """
 import json, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(BASE, "verified_kb.json")
 
 with open(KB, encoding="utf-8") as f:

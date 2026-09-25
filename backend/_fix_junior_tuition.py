@@ -6,7 +6,7 @@ Real semester tuition for these colleges is ~2.5M-4M (their max values confirm t
 Fix: set min to a realistic floor based on the max (min = max * 0.8, or keep known good values)."""
 import json, os
 
-DATA_FILE = r"C:\Users\USER\camnemi-crm\data.js"
+DATA_FILE = r"C:\Users\wisew\camnemi-crm\data.js"
 
 with open(DATA_FILE, encoding="utf-8") as f:
     content = f.read()

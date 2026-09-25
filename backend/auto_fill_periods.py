@@ -25,7 +25,7 @@ import re
 BASE = os.path.dirname(os.path.abspath(__file__))
 KB_PATH = os.path.join(BASE, "verified_kb.json")
 SCAN_PATH = os.path.join(BASE, "_period_scan.json")
-PDF_DIR = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+PDF_DIR = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
 OUT_NEW = os.path.join(BASE, "_daily_period_new.json")
 
 import pymupdf  # fitz

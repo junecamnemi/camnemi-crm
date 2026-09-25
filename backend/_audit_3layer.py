@@ -18,7 +18,7 @@ def cov(schools, level_fields):
     return n, res
 
 # ---- verified_kb ----
-kb=json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json",encoding="utf-8"))
+kb=json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json",encoding="utf-8"))
 print("========== verified_kb (원본) ==========")
 for sec,key,node in [("BA","schools","schools"),("MA","master","master"),("junior","junior","junior")]:
     sch = kb[key]
@@ -36,7 +36,7 @@ for sec,key,node in [("BA","schools","schools"),("MA","master","master"),("junio
           f" lang_bypass={sum(1 for s in sch.values() if s.get('lang_bypass'))}")
 
 # ---- consulting_db ----
-db=json.load(open(r"C:\Users\USER\camnemi-crm\backend\consulting_db.json",encoding="utf-8"))
+db=json.load(open(r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json",encoding="utf-8"))
 print("\n========== consulting_db (상담) ==========")
 for lvl in ["BA","MA","전문학사","어학연수"]:
     cnt=0; t=0; by=0; sc=0; pe=0
@@ -52,7 +52,7 @@ for lvl in ["BA","MA","전문학사","어학연수"]:
 print(f"총 학교: {len(db['schools'])}")
 
 # ---- data.js ----
-content=open(r"C:\Users\USER\camnemi-crm\data.js",encoding="utf-8").read()
+content=open(r"C:\Users\wisew\camnemi-crm\data.js",encoding="utf-8").read()
 s=content.find("[");d=0
 for i in range(s,len(content)):
     if content[i]=="[":d+=1

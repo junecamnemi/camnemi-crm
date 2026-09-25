@@ -5,7 +5,7 @@ import json, re, glob, os
 
 # normalize and merge all batches
 all_results = {}
-for fp in glob.glob(r"C:\Users\USER\camnemi-crm\backend\_ma_tuition_batch*.json"):
+for fp in glob.glob(r"C:\Users\wisew\camnemi-crm\backend\_ma_tuition_batch*.json"):
     data = json.load(open(fp, encoding="utf-8"))
     for school, raw in data.items():
         if not isinstance(raw, dict): continue
@@ -23,7 +23,7 @@ for fp in glob.glob(r"C:\Users\USER\camnemi-crm\backend\_ma_tuition_batch*.json"
             continue
         all_results[school] = entry
 
-json.dump(all_results, open(r"C:\Users\USER\camnemi-crm\backend\_ma_tuition_all.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(all_results, open(r"C:\Users\wisew\camnemi-crm\backend\_ma_tuition_all.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"정규화 완료: {len(all_results)}개 MA 항목")
 for s,e in all_results.items():
     print(f"  {s}: {e['tuition']}")

@@ -10,7 +10,7 @@ Usage: python _sync_consulting_db.py [--write]
 """
 import json, os, re, argparse, shutil, datetime
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(B, "verified_kb.json")
 CDB = os.path.join(B, "consulting_db.json")
 

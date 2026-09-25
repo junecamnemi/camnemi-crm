@@ -8,8 +8,8 @@ Values matched the existing scholarships_categorized — the gap was missing sou
 """
 import json, os, shutil, datetime
 
-KB = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
-CDB = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
+KB = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+CDB = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
 URL = "https://www.ikw.ac.kr/worldle/page/link.tc?mn=3874&pageSeq=2748"
 
 kb = json.load(open(KB, encoding="utf-8"))

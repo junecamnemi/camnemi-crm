@@ -4,7 +4,7 @@
 import json, os, re, urllib.request
 
 def _auth():
-    for p in [r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\USER\AppData\Local\hermes\auth.json"]:
+    for p in [r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\wisew\AppData\Local\hermes\auth.json"]:
         if not os.path.exists(p): continue
         d = json.load(open(p, encoding="utf-8"))
         if isinstance(d, dict) and d.get("access_token"):
@@ -16,7 +16,7 @@ def _auth():
 BASE, KEY = _auth()
 MODEL = "deepseek/deepseek-v4-pro"
 
-MAN = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\체류민원_md.txt"
+MAN = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\체류민원_md.txt"
 t = open(MAN, encoding="utf-8").read()
 
 # locate family-invitation sections by keywords
@@ -71,7 +71,7 @@ print("model:", d.get("model"), "| finish:", d["choices"][0].get("finish_reason"
 out = re.sub(r"^```(json)?|```$","",c.strip(),flags=re.M).strip()
 mm = re.search(r"\{.*\}", out, re.S)
 data = json.loads(mm.group(0) if mm else out)
-OUT = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\가족초청_재정요건_pro.json"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\가족초청_재정요건_pro.json"
 json.dump(data, open(OUT,"w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print("saved", OUT)
 print(json.dumps(data, ensure_ascii=False)[:1500])

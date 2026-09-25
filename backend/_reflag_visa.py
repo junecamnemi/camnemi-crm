@@ -2,8 +2,8 @@
 """Revert bad greedy flags, then re-flag using EXACT normalized equality only."""
 import json, re
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
-DB_PATH = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+DB_PATH = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
 SOURCE = "교육부·법무부·한국연구재단 공동보도 2026.2.12 (2026 2학기~1년)"
 
 degree_restricted = ["금강대학교","수원가톨릭대학교","중앙승가대학교","협성대학교","부산경상대학교","부산예술대학교","한영대학교","구세군사관대학원대학교","국제법률경영대학원대학교","능인대학원대학교","성서침례대학원대학교","순복음대학원대학교","에스라성경대학원대학교","치유상담대학원대학교","한국상담대학원대학교","합동신학대학원대학교"]

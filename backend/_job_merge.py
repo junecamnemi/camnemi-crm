@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Build the 일자리 매뉴얼: merge employment paths + render a branded PDF (navy/gold, Camnemi)."""
 import json, os
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 job = json.load(open(os.path.join(B,"job_manual_kr.json"), encoding="utf-8"))
 vkb = json.load(open(os.path.join(B,"visa_kb_kr.json"), encoding="utf-8"))
 

@@ -1,5 +1,5 @@
 import json, os
-B = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals"
+B = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals"
 d = json.load(open(os.path.join(B,"체류민원_D2D4D10E7_pro.json"), encoding="utf-8"))
 print("keys:", list(d.keys()))
 for s in d["by_status"]:

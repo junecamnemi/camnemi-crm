@@ -1,5 +1,5 @@
 import os, re
-GUIDER = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+GUIDER = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 # 1) 전문대 폴더 - 외국인 여부 (파일명/내용으로 확인)
 jr = os.path.join(GUIDER, "adiga_2026_전문대학_모집요강")
 files = [f for f in os.listdir(jr) if f.lower().endswith('.pdf')]

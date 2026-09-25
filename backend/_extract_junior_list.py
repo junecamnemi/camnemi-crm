@@ -17,7 +17,7 @@ for params in [
         items = re.findall(r'code="(\d+)">([^<]+)</a>', r.text)
         print(f'params {params} → {len(items)}개')
         if len(items) > 15:
-            with open(r'C:\Users\USER\camnemi-crm\backend\_junior_unis.json', 'w', encoding='utf-8') as f:
+            with open(r'C:\Users\wisew\camnemi-crm\backend\_junior_unis.json', 'w', encoding='utf-8') as f:
                 json.dump(dict(items), f, ensure_ascii=False, indent=2)
             print('저장 완료!')
             names = [n for _, n in items]

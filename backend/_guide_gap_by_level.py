@@ -4,8 +4,8 @@ Levels: BA(학사 2026+2027), MA(석사), 전문학사(junior), 어학연수(lan
 Cross-references local guide PDF folders + verified_kb against the master school list."""
 import os, re, json, glob
 
-BASE = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+BASE = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 
 # local guide folders per level
 FOLDERS = {
@@ -42,7 +42,7 @@ def has_pdf(school, names):
 
 # school universe: all schools that appear anywhere in KB (BA+MA+junior as degree schools)
 # Master list of degree-granting schools (4-yr + junior) from data.js
-content = open(r"C:\Users\USER\camnemi-crm\data.js",encoding="utf-8").read()
+content = open(r"C:\Users\wisew\camnemi-crm\data.js",encoding="utf-8").read()
 s=content.find("[");d=0
 for i in range(s,len(content)):
     if content[i]=="[":d+=1

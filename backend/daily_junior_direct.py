@@ -10,8 +10,8 @@ Outputs:
 """
 import os, re, json, datetime, hashlib, urllib.request, ssl
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 GUIDES = os.path.join(UP, "guides", "junior")
 OUT = os.path.join(BASE, "_junior_direct_collected.json")
 

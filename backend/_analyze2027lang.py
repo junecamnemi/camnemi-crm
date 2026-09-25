@@ -3,7 +3,7 @@
 """Analyze the 4 downloaded 2027 language PDFs: extract 2027 terms, tuition, D-4, dorm."""
 import pymupdf, os, re, json
 
-DIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_어학연수_모집요강"
+DIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_어학연수_모집요강"
 files = ["가톨릭대_한국어교육원_2027.pdf","서강대_한국어교육원_2027.pdf",
          "연세대_한국어교육원_2027.pdf","이화여자대학교_한국어교육원_2027.pdf"]
 

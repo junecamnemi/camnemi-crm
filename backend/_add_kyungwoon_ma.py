@@ -3,7 +3,7 @@
 verified from official graduate guide (2026 후기 추가2차 모집요강)."""
 import json
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB_PATH, encoding="utf-8"))
 ma = kb["master"]["schools"]
 

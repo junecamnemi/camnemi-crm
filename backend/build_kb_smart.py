@@ -14,7 +14,7 @@ Output: backend/kb_smart.json
 """
 import json, os, re, datetime
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(B, "verified_kb.json")
 OUT = os.path.join(B, "kb_smart.json")
 

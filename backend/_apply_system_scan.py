@@ -13,7 +13,7 @@ Separates by level: ba(schools) / junior / ma(master) / lang.
 """
 import json, re, collections
 
-KB = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+KB = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB, encoding="utf-8"))
 
 SECTIONS = [("학부", kb["schools"]),
@@ -62,5 +62,5 @@ for label, r in report.items():
         if k.startswith("__primary:"):
             print(f"    {k.split(':',1)[1]}: {v}")
 
-json.dump(report, open(r"C:\Users\USER\camnemi-crm\backend\_apply_systems.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(report, open(r"C:\Users\wisew\camnemi-crm\backend\_apply_systems.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print("\n저장: _apply_systems.json")

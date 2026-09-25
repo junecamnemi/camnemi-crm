@@ -7,7 +7,7 @@ PDF: adiga_2026_대학원_모집요강/경운대학교_대학원_모집요강.pd
 """
 import json, os, shutil, datetime
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(B, "verified_kb.json")
 CDB = os.path.join(B, "consulting_db.json")
 

@@ -3,7 +3,7 @@
 """Print protected 사증민원 to PDF via HAction (set printer + print)."""
 import os, sys, time, pythoncom, win32com.client as win32
 
-SRC = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.hwp"
+SRC = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.hwp"
 def log(*a): print(*a, flush=True)
 
 pythoncom.CoInitialize()

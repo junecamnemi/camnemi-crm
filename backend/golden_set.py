@@ -19,9 +19,9 @@ Verdict per file: MATCH / DRIFT / MISSING. Overall pass = MATCH ratio >= 0.8
 """
 import os, re, json, glob, argparse, random
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 GS = os.path.join(BASE, "golden_set.json")
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 TIER_A, TIER_B = 5000, 1000
 
 def norm(s):

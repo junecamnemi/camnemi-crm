@@ -5,8 +5,8 @@ import os, glob, json, base64, time, urllib.request
 
 BACKEND_URL = "https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec"
 FOLDER_ID   = "1nGH6jaZmqvQJ9yFKZuh-zsDOoeog3lo7"
-SRC         = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_전문대학_모집요강"
-MAP_PATH    = r"C:\Users\USER\camnemi-crm\backend\junior2026_upload_map.json"
+SRC         = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_전문대학_모집요강"
+MAP_PATH    = r"C:\Users\wisew\camnemi-crm\backend\junior2026_upload_map.json"
 MAX_B64     = 60_000_000
 
 def post(payload, retries=3):

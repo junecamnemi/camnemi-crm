@@ -1,5 +1,5 @@
 import os, re, json
-GUIDER = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+GUIDER = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 
 # 인벤토리: 폴더별 외국인 요강 전수
 def count(root):

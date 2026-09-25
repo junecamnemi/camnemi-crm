@@ -4,8 +4,8 @@
 into structured tiers for data.js, then rebuild data.js scholarships."""
 import json, re, os
 
-DATA = r"C:\Users\USER\camnemi-crm\data.js"
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+DATA = r"C:\Users\wisew\camnemi-crm\data.js"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 CURATION_FILES = [
     "_curation_out_batch0.json", "_curation_out_batch1.json",
     "_curation_out_batch2.json", "_curation_out_batch3.json",

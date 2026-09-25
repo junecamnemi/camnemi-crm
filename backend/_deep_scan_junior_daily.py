@@ -7,10 +7,10 @@ Runs many schools with light HTTP; logs a pending list for prioritized curation.
 """
 import json, os, re, subprocess, time, urllib.parse
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB_PATH, encoding="utf-8"))
 jr = kb["junior"]["schools"]
-SAVEDIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
+SAVEDIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
 
 # candidates: not_checked/missing that have a guide_url
 cands = []
@@ -52,7 +52,7 @@ for n, u in cands:
 # save report
 report = {"note": "딥-스캔: not_checked 전문대 guide_url에서 외국인/유학 언급 탐색 (2026-09-06)",
           "results": results}
-json.dump(report, open(r"C:\Users\USER\camnemi-crm\backend\_junior_deep_scan_daily.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(report, open(r"C:\Users\wisew\camnemi-crm\backend\_junior_deep_scan_daily.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 
 n_have = sum(1 for v in results.values() if v=="have_pdf_on_disk")
 n_unreach = sum(1 for v in results.values() if v=="unreachable")
@@ -66,5 +66,5 @@ for n, v in results.items():
     if isinstance(v, dict) and v.get("hits",0) >= 2:
         pending.append({"school": n, "hits": v["hits"], "flinks": v.get("flinks",[])})
 pending.sort(key=lambda x:-x["hits"])
-json.dump(pending, open(r"C:\Users\USER\camnemi-crm\backend\_junior_foreign_pending.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(pending, open(r"C:\Users\wisew\camnemi-crm\backend\_junior_foreign_pending.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"우선 큐레이션 대상(외국인 언급 2+): {len(pending)}개")

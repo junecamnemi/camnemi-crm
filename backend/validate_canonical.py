@@ -4,8 +4,8 @@
 """
 import json, os, math, sys, re
 
-CANON = r'C:\Users\USER\camnemi-crm\backend\canonical\schools.jsonl'
-REPORT = r'C:\Users\USER\camnemi-crm\backend\validation_report.md'
+CANON = r'C:\Users\wisew\camnemi-crm\backend\canonical\schools.jsonl'
+REPORT = r'C:\Users\wisew\camnemi-crm\backend\validation_report.md'
 PROGS = ['ba', 'junior', 'ma', 'lang']
 
 

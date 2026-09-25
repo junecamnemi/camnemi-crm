@@ -40,6 +40,6 @@ if __name__ == '__main__':
                 print(f"--  {n}: no data", flush=True)
         except Exception as e:
             print(f"ERR {n}: {str(e)[:60]}", flush=True)
-        json.dump(out, open(r'C:\Users\USER\_acadinfo_tuition.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+        json.dump(out, open(r'C:\Users\wisew\_acadinfo_tuition.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
         time.sleep(0.8)
     print("saved", len(out))

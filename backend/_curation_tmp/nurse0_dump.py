@@ -1,9 +1,9 @@
 import json, os, re, sys
-sys.path.insert(0, r"C:/Users/USER/camnemi-crm")
+sys.path.insert(0, r"C:/Users/wisew/camnemi-crm")
 import pymupdf
 
-d = json.load(open(r"C:/Users/USER/camnemi-crm/backend/_medcat_nurse0.json", encoding='utf-8'))
-outdir = r"C:/Users/USER/camnemi-crm/backend/_curation_tmp/nurse0_pages"
+d = json.load(open(r"C:/Users/wisew/camnemi-crm/backend/_medcat_nurse0.json", encoding='utf-8'))
+outdir = r"C:/Users/wisew/camnemi-crm/backend/_curation_tmp/nurse0_pages"
 os.makedirs(outdir, exist_ok=True)
 
 KW = ['간호']

@@ -134,7 +134,7 @@ def sk(r):
     return r["rank"] if r["rank"] else 9999
 VERIFIED_2027.sort(key=sk)
 
-out = r"C:\Users\USER\camnemi-crm\backend\recommend_ultimate.csv"
+out = r"C:\Users\wisew\camnemi-crm\backend\recommend_ultimate.csv"
 with open(out, "w", encoding="utf-8-sig", newline="") as f:
     w = csv.writer(f)
     w.writerow(["순위","학교","영문명","지역","IELTS(요강확인)","TOPIK","원서접수기간","데이터사이언스학과","등록금최소","등록금최대","비고"])

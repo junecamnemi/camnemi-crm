@@ -4,20 +4,20 @@
 import os, sys, json, glob, threading, queue, re, time, urllib.request
 import pymupdf
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 OUT = os.path.join(BASE, "guides_llm_parsed_real.jsonl")
 DIRS = [os.path.join(UP, "adiga_2026_전문대학_모집요강", "real"),
         os.path.join(UP, "adiga_2026_어학연수_모집요강", "real"),
         os.path.join(UP, "adiga_2027_어학연수_모집요강", "real")]
 
 def _load_auth():
-    shared = r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json"
+    shared = r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json"
     if os.path.exists(shared):
         d = json.load(open(shared, encoding="utf-8"))
         if d.get("access_token"):
             return d["access_token"], d["inference_base_url"].rstrip("/")
-    a = json.load(open(r"C:\Users\USER\AppData\Local\hermes\auth.json", encoding="utf-8"))["providers"]["nous"]
+    a = json.load(open(r"C:\Users\wisew\AppData\Local\hermes\auth.json", encoding="utf-8"))["providers"]["nous"]
     return (a.get("agent_key") or a.get("access_token")), a["inference_base_url"].rstrip("/")
 
 API_KEY, API_BASE = _load_auth()

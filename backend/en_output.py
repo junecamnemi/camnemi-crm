@@ -47,7 +47,7 @@ _EN_NAMES = _load_json("_en_names.json")      # ek (Korean) -> en (English)
 _EN_MAJORS = _load_json("_en_majors.json")    # kr major -> en major
 _LOGOS = _load_json("_logos.json")            # ek (Korean) -> logo path
 
-LOGO_BASE = r"C:\Users\USER\camnemi-crm"      # relative logo paths resolve under this
+LOGO_BASE = r"C:\Users\wisew\camnemi-crm"      # relative logo paths resolve under this
 
 # fallback translations for common majors missing from the data.js map
 _MAJOR_FALLBACK = {

@@ -4,7 +4,7 @@
 Direct apply (preserves enriched fields like popular_majors — no blind rebuild)."""
 import json, os, shutil
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(B, "verified_kb.json")
 CDB = os.path.join(B, "consulting_db.json")
 shutil.copy(CDB, os.path.join(B, "consulting_db_bak_addlang_2026-09-11.json"))

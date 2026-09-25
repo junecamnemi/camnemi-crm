@@ -4,7 +4,7 @@
 import json, os, urllib.request, time
 
 def _auth():
-    for p in [r'C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json', r'C:\Users\USER\AppData\Local\hermes\auth.json']:
+    for p in [r'C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json', r'C:\Users\wisew\AppData\Local\hermes\auth.json']:
         if os.path.exists(p):
             try: return json.load(open(p,encoding='utf-8'))
             except: pass
@@ -33,7 +33,7 @@ def call(text):
             last=str(ex)[:100]; time.sleep(2)
     return {"error":last}
 
-SAMP=r"C:\Users\USER\camnemi-crm\backend\_opus_sample"
+SAMP=r"C:\Users\wisew\camnemi-crm\backend\_opus_sample"
 schools=["중앙대학교","성균관대학교","인하대학교","경희대학교","한국외국어대학교","경북대학교","홍익대학교","단국대학교","건국대학교","경기대학교"]
 opus={}
 for nm in schools:

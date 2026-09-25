@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json, os, re, glob
 
-D = r"C:/Users/USER/camnemi-crm/_curation_tmp/medcat_dentalvet"
+D = r"C:/Users/wisew/camnemi-crm/_curation_tmp/medcat_dentalvet"
 files = [f for f in glob.glob(os.path.join(D, "*.txt")) if not f.endswith("_meta.json") and "_extract" not in f]
 
 # For each school file, find mentions of its department and print window context.

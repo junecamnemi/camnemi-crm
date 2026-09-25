@@ -3,9 +3,9 @@
 the 외국인/유학생 admission page, then find the 모집요강 PDF there. Pure curl."""
 import json, os, re, subprocess, urllib.parse, time
 
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 js = KB["junior"]["schools"]
-SAVEDIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
+SAVEDIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
 
 def curl(url, timeout=18):
     try:
@@ -15,7 +15,7 @@ def curl(url, timeout=18):
 def is_pdf(b): return b[:4]==b"%PDF" and len(b)>20000
 
 # load the redo list schools
-redo = [r["school"] for r in json.load(open(r"C:\Users\USER\camnemi-crm\backend\_junior_foreign_class.json",encoding="utf-8"))["redownload"]]
+redo = [r["school"] for r in json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_junior_foreign_class.json",encoding="utf-8"))["redownload"]]
 
 # keyword pages to probe on each site
 PROBE_PATH = ["/international", "/global", "/ipsi", "/foreign", "/intl",
@@ -61,7 +61,7 @@ for school in redo:
         results[school]={"url":found_url or gu,"pdf":None,"note":"foreign page url found but pdf unknown" if found_url else "no foreign page found"}
     time.sleep(0.2)
 
-json.dump(results, open(r"C:\Users\USER\camnemi-crm\backend\_junior_foreign_pages.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(results, open(r"C:\Users\wisew\camnemi-crm\backend\_junior_foreign_pages.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 n_pdf=sum(1 for v in results.values() if v.get("pdf"))
 print(f"외국인 페이지 처리 {len(results)} | PDF직접확보 {n_pdf}")
 for s,v in results.items():

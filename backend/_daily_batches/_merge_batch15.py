@@ -4,7 +4,7 @@
 into the per-track daily result files, replacing any existing entry per school."""
 import json, io, os
 
-BASE = "C:/Users/USER/camnemi-crm/backend"
+BASE = "C:/Users/wisew/camnemi-crm/backend"
 FILES = {
     "BA":   os.path.join(BASE, "_ba_batches",   "BA_daily_20260905_result.json"),
     "MA":   os.path.join(BASE, "_ma_batches",   "MA_daily_20260905_result.json"),

@@ -1,4 +1,4 @@
-p = r"C:\Users\USER\AppData\Local\hermes\profiles\univ\cache\documents\doc_1ddee2b7761d_음성 260911_141623_original.txt"
+p = r"C:\Users\wisew\AppData\Local\hermes\profiles\univ\cache\documents\doc_1ddee2b7761d_음성 260911_141623_original.txt"
 raw = open(p, "rb").read()
 for enc in ("utf-16", "utf-16-be", "utf-16-le"):
     try:

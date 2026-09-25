@@ -1,6 +1,6 @@
 import json, re
 
-kb = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+kb = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 
 # 1) top-level selftest section
 st = kb.get("selftest")

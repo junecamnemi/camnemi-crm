@@ -11,7 +11,7 @@ def norm(s):
 
 # collect all results (handle list or dict form)
 results = {}
-for fp in glob.glob(r"C:\Users\USER\camnemi-crm\backend\_langtui_result*.json"):
+for fp in glob.glob(r"C:\Users\wisew\camnemi-crm\backend\_langtui_result*.json"):
     data = json.load(open(fp, encoding="utf-8"))
     items = data.items() if isinstance(data, dict) else [(x.get("school"), x) for x in data if isinstance(x,dict)]
     for k, v in items:

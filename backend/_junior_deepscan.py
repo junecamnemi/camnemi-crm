@@ -4,9 +4,9 @@ PDF; else fetch and crawl depth-1 links looking for 외국인/모집/요강 PDFs
 Pure curl, no LLM -> no rate limit."""
 import json, os, re, subprocess, time, urllib.parse
 
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 js = KB["junior"]["schools"]
-SAVEDIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
+SAVEDIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
 
 def norm(s): return s.replace("대학교","").replace("대학","").replace("전문대","").replace(" ","")
 have = set(norm(os.path.splitext(f)[0].replace("_전문학사_모집요강","")) for f in os.listdir(SAVEDIR) if f.endswith(".pdf"))
@@ -61,4 +61,4 @@ print(f"\n저장 성공: {len(saved)}")
 for n,m,sz in saved: print(f"  ✓ {n} ({m}, {sz})")
 print(f"\n실패(수동 필요): {len(failed)}")
 print("  ", failed)
-json.dump({"saved":saved,"failed":failed}, open(r"C:\Users\USER\camnemi-crm\backend\_junior_deepscan.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump({"saved":saved,"failed":failed}, open(r"C:\Users\wisew\camnemi-crm\backend\_junior_deepscan.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)

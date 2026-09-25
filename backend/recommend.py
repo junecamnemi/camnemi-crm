@@ -17,7 +17,7 @@ Verdicts: ELIGIBLE / CONDITIONAL / NOT_ELIGIBLE
 """
 import json, os, argparse, re
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 SMART = os.path.join(B, "kb_smart.json")
 KB = os.path.join(B, "verified_kb.json")
 RATE = 1400.0

@@ -5,8 +5,8 @@ import json, os, re, sys, time, urllib.request
 import pymupdf
 from playwright.sync_api import sync_playwright
 
-B=r"C:\Users\USER\camnemi-crm\backend"
-DEST=r"C:\Users\USER\camnemi-crm\guides_all"
+B=r"C:\Users\wisew\camnemi-crm\backend"
+DEST=r"C:\Users\wisew\camnemi-crm\guides_all"
 enmap=json.load(open(B+r"\school_en_map.json",encoding='utf-8'))
 
 # failed (school, level) → URL 재구성 (master에서)

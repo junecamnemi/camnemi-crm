@@ -3,8 +3,8 @@
 """Download HiKorea 민원서식 HWP forms (recipe: POST /fileNewExistsChkAjax.pt with Referer)."""
 import re, os, json, time, urllib.request, urllib.parse
 
-DOM = r"C:\Users\USER\camnemi-crm\backend\_hikorea_dom.html"
-OUT = r"C:\Users\USER\camnemi-crm\backend\hikorea_forms"
+DOM = r"C:\Users\wisew\camnemi-crm\backend\_hikorea_dom.html"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\hikorea_forms"
 os.makedirs(OUT, exist_ok=True)
 html = open(DOM, encoding="utf-8").read()
 

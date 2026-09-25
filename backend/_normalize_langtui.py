@@ -18,7 +18,7 @@ def get_tuition(x):
 
 # collect
 results = {}
-for fp in glob.glob(r"C:\Users\USER\camnemi-crm\backend\_langtui_result*.json"):
+for fp in glob.glob(r"C:\Users\wisew\camnemi-crm\backend\_langtui_result*.json"):
     data = json.load(open(fp, encoding="utf-8"))
     if isinstance(data, dict):
         entries = data.values()  # dict keyed by school -> school dict
@@ -35,7 +35,7 @@ for fp in glob.glob(r"C:\Users\USER\camnemi-crm\backend\_langtui_result*.json"):
                                    "source":x.get("source_url") or x.get("source",""),
                                    "status":x.get("status","")}
 
-json.dump(results, open(r"C:\Users\USER\camnemi-crm\backend\_langtui_all.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(results, open(r"C:\Users\wisew\camnemi-crm\backend\_langtui_all.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"확보된 어학 수업료: {len(results)}개")
 for k,v in results.items():
     print(f"  ✓ {k}: {v['tuition']}")

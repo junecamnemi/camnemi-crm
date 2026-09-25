@@ -2,7 +2,7 @@
 """Deduplicate consulting_db. Fixed norm strips trailing 대/대학/대학교/전문대."""
 import json, re
 
-DB = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
+DB = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
 db = json.load(open(DB, encoding="utf-8"))
 schools = db["schools"]
 

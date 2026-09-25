@@ -4,7 +4,7 @@
 import json, os, re, urllib.request
 
 def _auth():
-    for p in [r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\USER\AppData\Local\hermes\auth.json"]:
+    for p in [r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\wisew\AppData\Local\hermes\auth.json"]:
         if not os.path.exists(p): continue
         d = json.load(open(p, encoding="utf-8"))
         if isinstance(d, dict) and d.get("access_token"):
@@ -16,7 +16,7 @@ def _auth():
 
 BASE, KEY = _auth()
 MODEL = "openai/gpt-6-astra-pro"
-TXT = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\체류민원_md.txt"
+TXT = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\체류민원_md.txt"
 t = open(TXT, encoding="utf-8").read()
 print("전체 길이:", len(t))
 
@@ -61,7 +61,7 @@ print("model:", d.get("model"), "| finish:", d["choices"][0].get("finish_reason"
 out = re.sub(r"^```(json)?|```$","",c.strip(),flags=re.M).strip()
 mm = re.search(r"\{.*\}", out, re.S)
 data = json.loads(mm.group(0) if mm else out)
-dst = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\체류민원_D2D4D10E7_astra.json"
+dst = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\체류민원_D2D4D10E7_astra.json"
 json.dump(data, open(dst,"w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print("저장:", dst)
 for x in data.get("by_status", []):

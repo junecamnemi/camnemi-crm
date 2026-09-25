@@ -4,9 +4,9 @@ import os, json, time, base64, re, urllib.request, urllib.parse
 
 BACKEND_URL = "https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec"
 FOLDER_ID   = "1nGH6jaZmqvQJ9yFKZuh-zsDOoeog3lo7"
-MAP_PATH    = r"C:\Users\USER\camnemi-crm\backend\adiga2027_upload_map.json"
+MAP_PATH    = r"C:\Users\wisew\camnemi-crm\backend\adiga2027_upload_map.json"
 
-h = open(r"C:\Users\USER\camnemi-crm\index.html", encoding="utf-8").read()
+h = open(r"C:\Users\wisew\camnemi-crm\index.html", encoding="utf-8").read()
 m = re.search(r"DEFAULT_SUPABASE_KEY\s*=\s*'([^']+)'", h)
 key = m.group(1)
 BASE = "https://zjdvzpylxazfbazioxto.supabase.co/rest/v1/university_guides"
@@ -32,8 +32,8 @@ def post(payload, retries=4):
 mapping = json.load(open(MAP_PATH, encoding="utf-8")) if os.path.exists(MAP_PATH) else {}
 
 jobs = [
-    (os.path.join(os.environ.get("LOCALAPPDATA", "C:/Users/USER/AppData/Local"), "Temp", "kyw", "kyw_1.pdf"), "건양대학교_2027_외국인.pdf", "건양대학교"),
-    (os.path.join(os.environ.get("LOCALAPPDATA", "C:/Users/USER/AppData/Local"), "Temp", "kyw", "kyw_2.pdf"), "건양대학교_제2캠퍼스_2027_외국인.pdf", "건양대학교"),
+    (os.path.join(os.environ.get("LOCALAPPDATA", "C:/Users/wisew/AppData/Local"), "Temp", "kyw", "kyw_1.pdf"), "건양대학교_2027_외국인.pdf", "건양대학교"),
+    (os.path.join(os.environ.get("LOCALAPPDATA", "C:/Users/wisew/AppData/Local"), "Temp", "kyw", "kyw_2.pdf"), "건양대학교_제2캠퍼스_2027_외국인.pdf", "건양대학교"),
 ]
 for path, clean_name, sch in jobs:
     data = open(path, "rb").read()

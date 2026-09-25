@@ -13,7 +13,7 @@ Guardrails (model_config.json): golden pass >= 0.8, json success >= 0.95, auto_a
 """
 import os, re, json, glob, argparse, subprocess, sys, datetime
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 CFG = os.path.join(B, "model_config.json")
 BENCH = os.path.join(B, "model_bench.json")
 

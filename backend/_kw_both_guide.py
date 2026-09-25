@@ -1,8 +1,8 @@
 import pymupdf, re
 
 files = {
-    "학부(외국인)": r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_외국인_모집요강\외국인\경운대학교[본교]_2026_외국인.pdf",
-    "대학원": r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_대학원_모집요강\경운대학교_대학원_모집요강.pdf",
+    "학부(외국인)": r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_외국인_모집요강\외국인\경운대학교[본교]_2026_외국인.pdf",
+    "대학원": r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_대학원_모집요강\경운대학교_대학원_모집요강.pdf",
 }
 for label, p in files.items():
     d = pymupdf.open(p)

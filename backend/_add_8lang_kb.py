@@ -4,11 +4,11 @@
 Data sourced from OCR of their official 2026 한국어교육원 PDFs (rapidocr)."""
 import json, os, shutil
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(B, "verified_kb.json")
 shutil.copy(KB, os.path.join(B, "verified_kb_bak_addlang_2026-09-11.json"))
 
-GPDF = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_어학연수_모집요강"
+GPDF = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_어학연수_모집요강"
 
 new = {
  "국립금오공과대학교": {

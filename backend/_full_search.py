@@ -5,9 +5,9 @@ to produce the full recommended list: IELTS 5.5 + data-science majors, with most
 import re
 import json
 
-DATA_FILE = r"C:\Users\USER\camnemi-crm\data.js"
-MASTER = r"C:\Users\USER\camnemi-crm\backend\_guide_2027_master.json"
-ADIGA = r"C:\Users\USER\camnemi-crm\backend\adiga2027_upload_map.json"
+DATA_FILE = r"C:\Users\wisew\camnemi-crm\data.js"
+MASTER = r"C:\Users\wisew\camnemi-crm\backend\_guide_2027_master.json"
+ADIGA = r"C:\Users\wisew\camnemi-crm\backend\adiga2027_upload_map.json"
 
 def load_datajs():
     with open(DATA_FILE, encoding="utf-8") as f:

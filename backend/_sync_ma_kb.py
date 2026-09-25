@@ -3,12 +3,12 @@
 so the source KB is complete (not just consulting_db)."""
 import json, re, os
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB_PATH, encoding="utf-8"))
 ma = kb["master"]["schools"]
 
 # from consulting_db MA (already has merged scan data)
-cdb = json.load(open(r"C:\Users\USER\camnemi-crm\backend\consulting_db.json", encoding="utf-8"))
+cdb = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json", encoding="utf-8"))
 cdb_schools = cdb["schools"]
 
 def norm(s): return re.sub(r"\[.*?\]","",s).replace("대학교","").replace("대학","").replace(" ","")

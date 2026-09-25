@@ -6,7 +6,7 @@ import json
 import csv
 
 # ---- load period scan ----
-with open(r"C:\Users\USER\camnemi-crm\backend\_period_scan.json", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_period_scan.json", encoding="utf-8") as f:
     period_scan = json.load(f)
 
 # False-positive date patterns: page numbers, "3 - 1", "13 - 1", "1 - 1", "42-28" (phone), "0-28"
@@ -55,7 +55,7 @@ for school, v in period_scan.items():
     period_detail[school] = (", ".join(best_dates[:3]) + " | " + best_ctx) if best_dates else "모집기간 미발견"
 
 # ---- load data.js for IELTS + majors ----
-with open(r"C:\Users\USER\camnemi-crm\data.js", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\data.js", encoding="utf-8") as f:
     content = f.read()
 start = content.find("[")
 depth = 0
@@ -69,11 +69,11 @@ for i in range(start, len(content)):
             break
 
 # ---- manual verdicts from previous step (track, year) ----
-exec(open(r"C:\Users\USER\camnemi-crm\backend\_final_reviewed.py", encoding="utf-8").read().split("# ---- Classification")[0])
+exec(open(r"C:\Users\wisew\camnemi-crm\backend\_final_reviewed.py", encoding="utf-8").read().split("# ---- Classification")[0])
 
 # Rebuild MANUAL from the earlier file - simpler: re-import by re-running logic
 # Instead, reload the verdicts from the CSV we already produced
-with open(r"C:\Users\USER\camnemi-crm\backend\recommend_final.csv", encoding="utf-8-sig") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\recommend_final.csv", encoding="utf-8-sig") as f:
     reader = csv.DictReader(f)
     verdicts = {}
     for row in reader:
@@ -162,7 +162,7 @@ def sk(r):
 final.sort(key=sk)
 
 # ---- output CSV ----
-out = r"C:\Users\USER\camnemi-crm\backend\recommend_detail.csv"
+out = r"C:\Users\wisew\camnemi-crm\backend\recommend_detail.csv"
 with open(out, "w", encoding="utf-8-sig", newline="") as f:
     w = csv.writer(f)
     w.writerow(["가이드연도","순위","학교","영문명","지역","IELTS","TOPIK","자체시험","등록금최소","등록금최대","데이터사이언스학과","장학금","모집기간(요강에서 확인)","비고"])

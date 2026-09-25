@@ -1,6 +1,6 @@
 import pymupdf, re, os
 
-p = os.path.join(os.environ.get("LOCALAPPDATA", r"C:\Users\USER\AppData\Local"), "Temp", "kw_2hakgi.pdf")
+p = os.path.join(os.environ.get("LOCALAPPDATA", r"C:\Users\wisew\AppData\Local"), "Temp", "kw_2hakgi.pdf")
 d = pymupdf.open(p)
 t = re.sub(r"[\s\x00-\x1f]+", " ", "\n".join(d[i].get_text() for i in range(len(d))))
 n = len(d)

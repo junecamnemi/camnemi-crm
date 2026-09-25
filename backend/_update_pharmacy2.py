@@ -3,7 +3,7 @@
 Yonsei & Korea-Sejong from official 등록금 일람표 PDF; Inje from 대학알리미 공시; SNU national-tier."""
 import json
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB_PATH, encoding="utf-8"))
 med = kb["medical_reqs"]["약학(Pharmacy)"]
 med["tuition"]["schools"].update({

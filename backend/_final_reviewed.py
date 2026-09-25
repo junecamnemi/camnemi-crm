@@ -5,9 +5,9 @@ import re
 import json
 import csv
 
-DATA_FILE = r"C:\Users\USER\camnemi-crm\data.js"
-MASTER = r"C:\Users\USER\camnemi-crm\backend\_guide_2027_master.json"
-ADIGA = r"C:\Users\USER\camnemi-crm\backend\adiga2027_upload_map.json"
+DATA_FILE = r"C:\Users\wisew\camnemi-crm\data.js"
+MASTER = r"C:\Users\wisew\camnemi-crm\backend\_guide_2027_master.json"
+ADIGA = r"C:\Users\wisew\camnemi-crm\backend\adiga2027_upload_map.json"
 
 def load_datajs():
     with open(DATA_FILE, encoding="utf-8") as f:
@@ -232,7 +232,7 @@ rows.sort(key=sk)
 fk = [r for r in rows if r["track"] == "F"]
 jk = [r for r in rows if r["track"] == "J"]
 
-out = r"C:\Users\USER\camnemi-crm\backend\recommend_final.csv"
+out = r"C:\Users\wisew\camnemi-crm\backend\recommend_final.csv"
 with open(out, "w", encoding="utf-8-sig", newline="") as f:
     w = csv.writer(f)
     w.writerow(["전형","가이드연도","순위","학교","영문명","지역","IELTS","TOPIK","자체시험","등록금최소","등록금최대","데이터사이언스관련학과","장학금","비고","가이드링크"])

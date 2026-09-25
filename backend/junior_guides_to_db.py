@@ -5,7 +5,7 @@ import os, re, json, urllib.request, urllib.parse
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 MAP = os.path.join(BASE, "junior2026_upload_map.json")
-H = open(r"C:\Users\USER\camnemi-crm\index.html", encoding="utf-8").read()
+H = open(r"C:\Users\wisew\camnemi-crm\index.html", encoding="utf-8").read()
 KEY = re.search(r"DEFAULT_SUPABASE_KEY\s*=\s*'([^']+)'", H).group(1)
 URL = "https://zjdvzpylxazfbazioxto.supabase.co"
 REST = URL + "/rest/v1/university_guides"

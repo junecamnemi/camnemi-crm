@@ -8,7 +8,7 @@ import json
 
 import openpyxl
 
-BASE = r"C:\Users\USER\camnemi-crm\backend\_gksu_univinfo"
+BASE = r"C:\Users\wisew\camnemi-crm\backend\_gksu_univinfo"
 
 BIZ_KW = ["business", "management", "economics", "trade", "commerce", "finance",
           "accounting", "marketing", "hospitality", "tourism", "international studies"]
@@ -58,7 +58,7 @@ for folder in sorted(glob.glob(os.path.join(BASE, "*"))):
         "cos": cos,
     })
 
-json.dump(results, open(r"C:\Users\USER\camnemi-crm\backend\_gksu_summary.json", "w", encoding="utf-8"),
+json.dump(results, open(r"C:\Users\wisew\camnemi-crm\backend\_gksu_summary.json", "w", encoding="utf-8"),
           ensure_ascii=False, indent=1)
 
 print(f"=== {len(results)} GKS-U universities scanned ===")

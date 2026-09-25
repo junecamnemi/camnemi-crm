@@ -3,7 +3,7 @@
 """Coverage report: how many KB schools (per level) are monitored vs not.
 Monitored = has scrape_map entry. Discovered = has a candidate in review batch (tier A/B)."""
 import json, os, re
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 LEVEL_BASE = {"ba": ["schools", None], "ma": ["master","schools"], "junior": ["junior","schools"], "lang": ["lang_programs","schools"]}
 kb = json.load(open(os.path.join(B, "verified_kb.json"), encoding="utf-8"))
 sm = json.load(open(os.path.join(B, "scrape_map.json"), encoding="utf-8"))

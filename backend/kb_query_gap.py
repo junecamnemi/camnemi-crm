@@ -7,7 +7,7 @@
 """
 import json, os, datetime
 
-GAP_LOG = r"C:\Users\USER\camnemi-crm\backend\_kb_query_gaps.jsonl"
+GAP_LOG = r"C:\Users\wisew\camnemi-crm\backend\_kb_query_gaps.jsonl"
 
 def log_gap(query=None, level=None, ielts=None, topik=None, major=None,
             result_count=0, note="", source="univ_recommend"):

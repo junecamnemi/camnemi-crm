@@ -4,8 +4,8 @@
 These are cheap, short (2-3yr) programs with low language requirements."""
 import json, re, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
-DATA_FILE = r"C:\Users\USER\camnemi-crm\data.js"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
+DATA_FILE = r"C:\Users\wisew\camnemi-crm\data.js"
 
 with open(DATA_FILE, encoding="utf-8") as f:
     content = f.read()

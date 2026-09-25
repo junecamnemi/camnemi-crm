@@ -1,6 +1,6 @@
 import json, os, sys
 
-path = "C:/Users/USER/camnemi-crm/backend/_ma_batches/MA_fill_3_result.json"
+path = "C:/Users/wisew/camnemi-crm/backend/_ma_batches/MA_fill_3_result.json"
 
 schools = [
     {"school": "국립공주대학교", "status": "2026_or_older", "url": "https://oia.kongju.ac.kr/admboard/4166", "title": "2026학년도 후기 일반대학원 외국인 특별전형 신입생 모집", "note": "2027학년도 외국인 요강은 학부(신입생) 특별전형만 확인됨(ipsi.kongju.ac.kr). 대학원 외국인전형 최신은 2026학년도 후기(OIA). 2027 대학원 요강 미발견."},

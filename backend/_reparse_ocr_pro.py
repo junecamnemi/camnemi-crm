@@ -7,7 +7,7 @@ produced for the low-text PDFs the first pass couldn't read.
 """
 import os, sys, json, glob, argparse, time, threading, queue, re, urllib.request
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 OCR_DIR = os.path.join(BASE, "_ocr_text")
 OUT_JSONL = os.path.join(BASE, "guides_llm_parsed_ocr.jsonl")
 TRUST = os.path.join(BASE, "_llmparse_trust.json")
@@ -15,11 +15,11 @@ TRUST = os.path.join(BASE, "_llmparse_trust.json")
 def _load_auth():
     """Prefer the freshest token: shared/nous_auth.json (runtime-refreshed) → auth.json agent_key."""
     cands = []
-    shared = r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json"
+    shared = r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json"
     if os.path.exists(shared):
         d = json.load(open(shared, encoding="utf-8"))
         cands.append((d.get("access_token"), d.get("inference_base_url")))
-    a = json.load(open(r"C:\Users\USER\AppData\Local\hermes\auth.json", encoding="utf-8"))["providers"]["nous"]
+    a = json.load(open(r"C:\Users\wisew\AppData\Local\hermes\auth.json", encoding="utf-8"))["providers"]["nous"]
     cands.append((a.get("agent_key"), a.get("inference_base_url")))
     cands.append((a.get("access_token"), a.get("inference_base_url")))
     for tok, base in cands:

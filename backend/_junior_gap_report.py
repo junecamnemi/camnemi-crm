@@ -4,7 +4,7 @@
 Reports the current gap precisely (for the user's question)."""
 import json, os, csv
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 
 # 1. master report — does it include junior?
 with open(os.path.join(BASE, "_guide_2027_master.json"), encoding="utf-8") as f:
@@ -17,7 +17,7 @@ print("=== 1. _guide_2027_master.json ===")
 print(f"  총 {len(master)}개 | 유형: {types}")
 
 # 2. adiga scrape — does it include junior?
-with open(r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/universities_2027.json", encoding="utf-8") as f:
+with open(r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/universities_2027.json", encoding="utf-8") as f:
     unis = json.load(f)
 junior_names = ["전문대", "대학"]  # heuristic
 junior_count = sum(1 for u in unis if "전문" in str(u))

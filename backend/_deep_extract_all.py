@@ -7,10 +7,10 @@ import os, re, json, glob
 import pymupdf
 
 FOLDERS = {
-    "2027": r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인",
-    "2026": r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인",
+    "2027": r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인",
+    "2026": r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인",
 }
-OUT = r"C:\Users\USER\camnemi-crm\backend\_deep_all.json"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\_deep_all.json"
 
 
 def school_key(fn):

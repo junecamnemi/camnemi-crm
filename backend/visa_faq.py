@@ -5,7 +5,7 @@
   python visa_faq.py "아르바이트" / "불법체류" / "가족"
 """
 import json, os, re, argparse
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 FAQ = json.load(open(os.path.join(B,"visa_faq_kr.json"), encoding="utf-8"))["faq"]
 def search(kw):
     kws = [w for w in re.findall(r"[가-힣A-Za-z0-9\-]+", kw) if len(w)>=2]

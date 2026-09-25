@@ -23,12 +23,12 @@ Called by the daily cron after the guide checks.
 """
 import os, re, json, hashlib, datetime
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB_PATH = os.path.join(BASE, "verified_kb.json")
 PROC_PATH = os.path.join(BASE, "_processed_guides.json")
 LOG_PATH = os.path.join(BASE, "_guide_analysis_log.json")
 
-UP = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project"
+UP = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project"
 
 ADIGA_FOREIGN = f"{UP}/adiga_2027_외국인_모집요강/외국인"
 

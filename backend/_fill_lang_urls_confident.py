@@ -2,7 +2,7 @@
 """Fill verified lang guide_url from _lang_url_backfill.json — only confident hits."""
 import json, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(BASE, "verified_kb.json")
 
 # school -> (url, is_good). Only is_good entries get filled.

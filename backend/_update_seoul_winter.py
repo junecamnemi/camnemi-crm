@@ -3,7 +3,7 @@
 Verified 2026-09-10 from official .ac.kr sites (서울대/연세/고려/성균관/한국외대/서강/이화/한양/중앙/경희/동국/건국)."""
 import json
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB_PATH, encoding="utf-8"))
 lp = kb["lang_programs"]["schools"]
 

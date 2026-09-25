@@ -14,7 +14,7 @@ Usage:
 """
 import json, os, sys, argparse
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 KB = json.load(open(os.path.join(B, "visa_kb_kr.json"), encoding="utf-8"))
 
 def show_change(frm):

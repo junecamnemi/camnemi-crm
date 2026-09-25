@@ -1,5 +1,5 @@
 import json, os, re
-os.chdir(r"C:\Users\USER\camnemi-crm")
+os.chdir(r"C:\Users\wisew\camnemi-crm")
 arr=json.load(open(r'backend\_djs_parsed.json',encoding='utf-8'))
 def tu(x,l):
     t=x.get('tuition'); return isinstance(t,dict) and isinstance(t.get(l),dict) and t[l].get('min') is not None

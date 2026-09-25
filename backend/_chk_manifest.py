@@ -1,7 +1,7 @@
 import csv, os
 from collections import Counter
 
-BASE = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+BASE = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 for y, rel in [("2027", "adiga_2027_외국인_모집요강/download_manifest.csv"),
                ("2026", "adiga_2026_외국인_모집요강/download_manifest.csv")]:
     path = os.path.join(BASE, rel)

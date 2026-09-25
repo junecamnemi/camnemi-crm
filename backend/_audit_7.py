@@ -1,5 +1,5 @@
 import json, os, re
-os.chdir(r"C:\Users\USER\camnemi-crm")
+os.chdir(r"C:\Users\wisew\camnemi-crm")
 txt=open('data.js',encoding='utf-8').read()
 i=txt.find('[')
 # bracket match

@@ -33,6 +33,6 @@ else:
     print("JSON 블록 없음")
 
 # Save raw for inspection
-with open(r'C:\Users\USER\camnemi-crm\backend\_coll_raw_page1.txt', 'w', encoding='utf-8') as f:
+with open(r'C:\Users\wisew\camnemi-crm\backend\_coll_raw_page1.txt', 'w', encoding='utf-8') as f:
     f.write(html)
 print("\n원본 저장 완료 (backend/_coll_raw_page1.txt)")

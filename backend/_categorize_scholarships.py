@@ -4,8 +4,8 @@
 Writes _scholarship_categorized.json + adds a 'category' to each scholarship for KB/PDF output."""
 import json, re, os
 
-DATA_FILE = r"C:\Users\USER\camnemi-crm\data.js"
-OUT = r"C:\Users\USER\camnemi-crm\backend\_scholarship_categorized.json"
+DATA_FILE = r"C:\Users\wisew\camnemi-crm\data.js"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\_scholarship_categorized.json"
 
 with open(DATA_FILE, encoding="utf-8") as f:
     content = f.read()

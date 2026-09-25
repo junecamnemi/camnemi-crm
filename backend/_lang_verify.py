@@ -7,7 +7,7 @@ import re
 import pymupdf
 import json
 
-DIR = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+DIR = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
 
 pdf_files = {}
 for fn in os.listdir(DIR):
@@ -74,5 +74,5 @@ for s in SHORTLIST:
     if not r["ielts_vals"] and r["lang_block"]:
         print(f"      lang: {r['lang_block'][:180]}")
 
-with open(r"C:\Users\USER\camnemi-crm\backend\_lang_verify.json", "w", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_lang_verify.json", "w", encoding="utf-8") as f:
     json.dump(out, f, ensure_ascii=False, indent=2)

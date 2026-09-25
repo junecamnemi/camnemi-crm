@@ -11,7 +11,7 @@ Output: prints NEW detections (cron delivers); silent if none.
 import os, re, json, datetime
 from collections import Counter
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 STATE = os.path.join(BASE, "_guide_2027_detected.json")
 YEAR_KW = re.compile(r"(20\d\d)")
 

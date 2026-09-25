@@ -1,5 +1,5 @@
 import re
-p = r"C:\Users\USER\camnemi-crm\backend\_job_pdf.py"
+p = r"C:\Users\wisew\camnemi-crm\backend\_job_pdf.py"
 c = open(p, encoding="utf-8").read()
 c = c.replace('KR="korea"; KRB="korea"  # pymupdf builtin CJK (no 13MB embed)',
               'KR=r"C:\\Windows\\Fonts\\malgun.ttf"; KRB=r"C:\\Windows\\Fonts\\malgunbd.ttf"')

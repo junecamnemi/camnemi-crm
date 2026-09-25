@@ -8,7 +8,7 @@ import json
 
 import pymupdf
 
-FOLDER = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_외국인_모집요강\외국인"
+FOLDER = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_외국인_모집요강\외국인"
 
 
 def main():
@@ -48,7 +48,7 @@ def main():
             has_eng = any(k in ctx for k in ["IELTS", "TOEFL", "TEPS", "TOEIC", "English"])
             has_topik = "TOPIK" in ctx
             print(f"  [p{page}] {'ENG!' if has_eng and not has_topik else ''} {ctx[:150]}")
-    json.dump(results, open(r"C:\Users\USER\camnemi-crm\backend\_pharmacy_scan.json",
+    json.dump(results, open(r"C:\Users\wisew\camnemi-crm\backend\_pharmacy_scan.json",
                             "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 

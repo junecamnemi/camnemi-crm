@@ -3,7 +3,7 @@
 """Promote verified guide URLs into scrape_map.json (review-approved Tier A)."""
 import json, os, datetime
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 ver = json.load(open(os.path.join(B, "_scrape_verified.json"), encoding="utf-8"))
 sm = json.load(open(os.path.join(B, "scrape_map.json"), encoding="utf-8"))
 today = datetime.date.today().isoformat()

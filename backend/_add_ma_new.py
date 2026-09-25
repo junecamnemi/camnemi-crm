@@ -3,12 +3,12 @@
 Fields: name, region(from data.js), majors, lang_req, foreign_guide flag, guide_pdf."""
 import json, re
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
-scan = json.load(open(r"C:\Users\USER\camnemi-crm\backend\_ma_new_scan.json", encoding="utf-8"))
-BASE = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_대학원_모집요강"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+scan = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_ma_new_scan.json", encoding="utf-8"))
+BASE = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_대학원_모집요강"
 
 # region from data.js
-content=open(r"C:\Users\USER\camnemi-crm\data.js",encoding="utf-8").read()
+content=open(r"C:\Users\wisew\camnemi-crm\data.js",encoding="utf-8").read()
 s=content.find("[");d=0
 for i in range(s,len(content)):
     if content[i]=="[":d+=1

@@ -4,7 +4,7 @@
 import json, os, urllib.request, urllib.parse, io, re, time
 import pymupdf
 
-OUT=r"C:\Users\USER\camnemi-crm\backend\_opus_sample"
+OUT=r"C:\Users\wisew\camnemi-crm\backend\_opus_sample"
 os.makedirs(OUT,exist_ok=True)
 UA={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131.0.0.0 Safari/537.36'}
 
@@ -32,7 +32,7 @@ def pdftext(data):
         return "\n".join(p.get_text() for p in d)
     except Exception as e: return ""
 
-B=r"C:\Users\USER\camnemi-crm\backend"
+B=r"C:\Users\wisew\camnemi-crm\backend"
 u=json.load(open(B+r"\upserted_2027.json",encoding='utf-8')).get('upserts',[])
 ba={}
 for s in u:

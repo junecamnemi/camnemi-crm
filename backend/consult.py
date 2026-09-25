@@ -9,7 +9,7 @@ Usage:
 """
 import json, os, re, sys, argparse
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 CONSULT = json.load(open(os.path.join(B,"consultation_kr.json"), encoding="utf-8"))
 VKB = json.load(open(os.path.join(B,"visa_kb_kr.json"), encoding="utf-8"))
 LABOR = json.load(open(os.path.join(B,"labor_medical_rights_kr.json"), encoding="utf-8"))

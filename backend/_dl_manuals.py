@@ -5,7 +5,7 @@ import subprocess, re, os, json, urllib.request, urllib.parse, ssl
 
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 URL = "https://www.hikorea.go.kr/board/BoardNtcDetailR.pt?BBS_SEQ=1&BBS_GB_CD=BS10&NTCCTT_SEQ=1062&page=1"
-OUT = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals"
 os.makedirs(OUT, exist_ok=True)
 
 r = subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-sandbox",

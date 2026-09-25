@@ -5,7 +5,7 @@ Only add URLs that are VERIFIED language-school (어학당/한국어교육원/�
 Schools without a confirmed language school are left blank (lang_status='no_lang_school')."""
 import json, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 MASTER = os.path.join(BASE, "_guide_2027_master.json")
 
 # Web-VERIFIED language-school URLs (official, language-specific pages)

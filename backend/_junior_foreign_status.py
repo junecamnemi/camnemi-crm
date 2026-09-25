@@ -3,9 +3,9 @@
 KB. Categories: has_foreign_pdf, no_public_foreign_guide, closed(폐교), merged."""
 import json, os
 
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 js = KB["junior"]["schools"]
-SAVEDIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
+SAVEDIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
 
 def norm(s):
     s = s.replace("대학교","").replace("대학","").replace("전문대","").replace(" ","")
@@ -42,5 +42,5 @@ nopub = sum(1 for v in status.values() if v["foreign_guide"]=="no_public_guide")
 print(f"외국인 요강 확보: {obtained}")
 print(f"공개 요강 없음: {nopub}")
 print(f"폐교: {len(closed)} | 통합: {len(merged)} | 미확인: {sum(1 for v in status.values() if v['foreign_guide']=='not_checked')}")
-json.dump(status, open(r"C:\Users\USER\camnemi-crm\backend\_junior_foreign_status.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(status, open(r"C:\Users\wisew\camnemi-crm\backend\_junior_foreign_status.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print("저장: _junior_foreign_status.json")

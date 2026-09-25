@@ -3,7 +3,7 @@
 Safe: horizontal text, overlay only — never rotates existing content."""
 import os, pymupdf
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 PDFS = [
     "취업_비자_매뉴얼_유학생.pdf",
     "비자별_상세규정_매뉴얼.pdf",

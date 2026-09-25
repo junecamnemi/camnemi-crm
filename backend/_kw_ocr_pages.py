@@ -1,7 +1,7 @@
 import pymupdf, numpy as np, re
 from rapidocr_onnxruntime import RapidOCR
 
-SRC = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_외국인_모집요강\외국인\경운대학교[본교]_2026_외국인.pdf"
+SRC = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_외국인_모집요강\외국인\경운대학교[본교]_2026_외국인.pdf"
 d = pymupdf.open(SRC)
 ocr = RapidOCR()
 targets = [0, 1, 2, 3, 4, 5, 6, 12]  # low-text pages

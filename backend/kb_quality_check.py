@@ -15,7 +15,7 @@ Usage: python kb_quality_check.py [--write]   (--write saves _kb_quality_report.
 import json, os, re, argparse, datetime
 from collections import Counter
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(B, "verified_kb.json")
 SMART = os.path.join(B, "kb_smart.json")
 OUT = os.path.join(B, "_kb_quality_report.json")

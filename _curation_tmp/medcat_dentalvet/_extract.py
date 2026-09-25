@@ -2,7 +2,7 @@
 import json, os, re, sys
 import pymupdf  # PyMuPDF
 
-BACK = r"C:/Users/USER/camnemi-crm/backend"
+BACK = r"C:/Users/wisew/camnemi-crm/backend"
 
 def norm(p):
     p = p.replace("\\\\", "/").replace("\\", "/")
@@ -52,14 +52,14 @@ for path, c in seen.items():
         print("ERR", path, e)
 
 # Save text to disk for analysis
-os.makedirs(r"C:/Users/USER/camnemi-crm/_curation_tmp/medcat_dentalvet", exist_ok=True)
+os.makedirs(r"C:/Users/wisew/camnemi-crm/_curation_tmp/medcat_dentalvet", exist_ok=True)
 meta = []
 for path, c in seen.items():
     txt = "\n<<<PAGEBREAK>>>\n".join(cache.get(path, []))
-    out = os.path.join(r"C:/Users/USER/camnemi-crm/_curation_tmp/medcat_dentalvet", f"{c['school']}_{c['year']}_{c['dept']}.txt")
+    out = os.path.join(r"C:/Users/wisew/camnemi-crm/_curation_tmp/medcat_dentalvet", f"{c['school']}_{c['year']}_{c['dept']}.txt")
     with open(out, "w", encoding="utf-8") as f:
         f.write(txt)
     meta.append({"school": c["school"], "year": c["year"], "dept": c["dept"], "path": path, "txt": out})
-with open(r"C:/Users/USER/camnemi-crm/_curation_tmp/medcat_dentalvet/_meta.json", "w", encoding="utf-8") as f:
+with open(r"C:/Users/wisew/camnemi-crm/_curation_tmp/medcat_dentalvet/_meta.json", "w", encoding="utf-8") as f:
     json.dump(meta, f, ensure_ascii=False, indent=1)
 print("done extraction")

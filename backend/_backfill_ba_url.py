@@ -2,7 +2,7 @@
 """Backfill BA/MA urls in _guide_2027_master.json from scrape_map.json."""
 import json, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 MP = os.path.join(BASE, "_guide_2027_master.json")
 
 master = json.load(open(MP, encoding="utf-8"))

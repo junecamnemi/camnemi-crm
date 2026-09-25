@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Render 유학생 한국생활 가이드 as a branded PDF (Camnemi navy/gold)."""
 import json, os, pymupdf
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 G = json.load(open(os.path.join(B,"student_life_guide_kr.json"), encoding="utf-8"))
 OUT = os.path.join(B, "유학생_한국생활_가이드.pdf")
 NAVY=(0.08,0.13,0.27); GOLD=(0.85,0.65,0.13); WHITE=(1,1,1); INK=(0.15,0.15,0.2); GREY=(0.45,0.45,0.5)

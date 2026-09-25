@@ -12,14 +12,14 @@ that was never merged, so scholarships stayed at 152/317 universities with no
 Usage: python parse_scholarships.py [--workers 8] [--limit N]
 """
 import os, sys, json, hashlib, zipfile, argparse, time, threading, queue, re, urllib.request
-sys.path.insert(0, r'C:\Users\USER\pdf-venv\Lib\site-packages')
+sys.path.insert(0, r'C:\Users\wisew\pdf-venv\Lib\site-packages')
 import pymupdf
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE, "scholarships_llm.jsonl")
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 
-AUTH = json.load(open(r"C:\Users\USER\AppData\Local\hermes\auth.json", encoding="utf-8"))
+AUTH = json.load(open(r"C:\Users\wisew\AppData\Local\hermes\auth.json", encoding="utf-8"))
 _N = AUTH["providers"]["nous"]
 API = _N["inference_base_url"].rstrip("/")
 KEY = _N.get("agent_key") or _N.get("access_token")

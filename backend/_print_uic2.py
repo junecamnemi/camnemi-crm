@@ -2,7 +2,7 @@
 """Print ONLY UIC-track-applicable departments for UIC bachelor universities."""
 import json
 
-data = json.load(open(r"C:\Users\USER\camnemi-crm\backend\_gksu_uic_majors.json", encoding="utf-8"))
+data = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_gksu_uic_majors.json", encoding="utf-8"))
 
 UIC = ["Ajou University", "Daegu University", "Dong-A University", "Inje University",
        "Keimyung University", "Konyang University", "Kookmin University",

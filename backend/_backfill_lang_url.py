@@ -2,7 +2,7 @@
 """Backfill lang_programs guide_url from _guide_2027_master.json lang_url."""
 import json, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(BASE, "verified_kb.json")
 M = os.path.join(BASE, "_guide_2027_master.json")
 

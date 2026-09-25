@@ -2,8 +2,8 @@
 """Merge valid junior periods into consulting_db; invalid/old ones dropped."""
 import json, re
 
-DB = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
-SCAN = json.load(open(r"C:\Users\USER\camnemi-crm\backend\_junior_period_scan.json", encoding="utf-8"))
+DB = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
+SCAN = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_junior_period_scan.json", encoding="utf-8"))
 db = json.load(open(DB, encoding="utf-8"))
 schools = db["schools"]
 

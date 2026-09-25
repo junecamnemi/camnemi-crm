@@ -1,6 +1,6 @@
 import os, json, re, sys
 sys.path.insert(0, ".")
-GUIDER = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+GUIDER = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 folders = {
     "junior2026": os.path.join(GUIDER, "adiga_2026_전문대학_모집요강"),
     "junior2027": os.path.join(GUIDER, "adiga_2027_전문대학_모집요강"),

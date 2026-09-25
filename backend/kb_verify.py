@@ -92,7 +92,7 @@ def score(rec, tier="B", text=None, kb_index=None):
 
 def load_kb_index():
     kb = None
-    for p in (r"C:\Users\USER\camnemi-crm\backend\verified_kb.json",):
+    for p in (r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json",):
         if os.path.exists(p):
             kb = json.load(open(p, encoding="utf-8"))
     if not kb:
@@ -144,10 +144,10 @@ def main():
     kb_index = load_kb_index()
     # text cache: OCR text + real guide PDFs (by filename)
     text_cache = {}
-    BASEB = r"C:\Users\USER\camnemi-crm\backend"
+    BASEB = r"C:\Users\wisew\camnemi-crm\backend"
     for f in glob.glob(os.path.join(BASEB, "_ocr_text", "*.txt")):
         text_cache[os.path.splitext(os.path.basename(f))[0]] = open(f, encoding="utf-8").read()
-    UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+    UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
     pdf_index = {}
     for p in glob.glob(os.path.join(UP, "**", "*.pdf"), recursive=True):
         pdf_index.setdefault(os.path.basename(p), p)

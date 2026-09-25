@@ -3,7 +3,7 @@
 """Download the HiKorea 사증민원 / 체류민원 자격별 안내 매뉴얼 HWP (8-param POST)."""
 import os, json, time, ssl, urllib.request, urllib.parse, re
 
-OUT = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals"
 os.makedirs(OUT, exist_ok=True)
 URL = "https://www.hikorea.go.kr/fileNewExistsChkAjax.pt"
 CTX = ssl.create_default_context(); CTX.check_hostname=False; CTX.verify_mode=ssl.CERT_NONE

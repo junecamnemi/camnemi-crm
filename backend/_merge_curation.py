@@ -5,8 +5,8 @@ Only fills schools not already present (or upgrades with richer data flag).
 """
 import json, re, os
 
-KB = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+KB = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 
 kb = json.load(open(KB, encoding="utf-8"))
 ba_sec = kb["schools"]

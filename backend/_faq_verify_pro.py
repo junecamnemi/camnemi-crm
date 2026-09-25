@@ -4,7 +4,7 @@
 import json, os, re, time, urllib.request
 
 def _auth():
-    for p in [r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\USER\AppData\Local\hermes\auth.json"]:
+    for p in [r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\wisew\AppData\Local\hermes\auth.json"]:
         if not os.path.exists(p): continue
         d = json.load(open(p, encoding="utf-8"))
         if isinstance(d, dict) and d.get("access_token"):
@@ -16,7 +16,7 @@ def _auth():
 BASE, KEY = _auth()
 MODEL = "deepseek/deepseek-v4-pro"
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 faq = json.load(open(os.path.join(B, "_faq_items.json"), encoding="utf-8"))
 MAN = open(os.path.join(B, "hikorea_manuals", "체류민원_md.txt"), encoding="utf-8").read()
 KB = open(os.path.join(B, "visa_kb_kr.json"), encoding="utf-8").read()

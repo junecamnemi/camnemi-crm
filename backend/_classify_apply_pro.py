@@ -9,8 +9,8 @@ Output: _apply_pro.jsonl
 import os, re, json, glob, time, threading, queue, urllib.request
 import pymupdf
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 OUT = os.path.join(BASE, "_apply_pro.jsonl")
 FOLDERS = {
     "학부": ["adiga_2026_외국인_모집요강", "adiga_2027_외국인_모집요강"],
@@ -36,12 +36,12 @@ PROMPT = """다음은 한국 대학의 외국인 모집요강 텍스트입니다
 """
 
 def load_auth():
-    s = r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json"
+    s = r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json"
     if os.path.exists(s):
         d = json.load(open(s, encoding="utf-8"))
         if d.get("access_token"):
             return d["access_token"], d["inference_base_url"].rstrip("/")
-    a = json.load(open(r"C:\Users\USER\AppData\Local\hermes\auth.json", encoding="utf-8"))["providers"]["nous"]
+    a = json.load(open(r"C:\Users\wisew\AppData\Local\hermes\auth.json", encoding="utf-8"))["providers"]["nous"]
     return (a.get("agent_key") or a.get("access_token")), a["inference_base_url"].rstrip("/")
 
 TOK, URL = load_auth()

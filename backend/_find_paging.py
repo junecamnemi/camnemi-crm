@@ -3,7 +3,7 @@
 """Find pagination mechanism in collAjax response."""
 import re
 
-with open(r"C:\Users\USER\camnemi-crm\backend\_coll_raw_page1.txt", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_coll_raw_page1.txt", encoding="utf-8") as f:
     html = f.read()
 
 # Page numbers 1-9 found as <a>1</a>... find their link/href context

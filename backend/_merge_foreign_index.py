@@ -32,7 +32,7 @@ for cd, v in fidx.items():
 # 전문대: 이름으로 매칭 (univCd 없음, "?"에 들어있던 것 + 4년제 중 junior)
 # 실제 전문대 외국인은 junior 레벨이지만 인덱스가 "?"로 모음 - 재구성 필요
 # adiga_2026_전문대학에서 외국인 파일을 다시 이름으로 수집
-GUIDER = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+GUIDER = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 jr_root = os.path.join(GUIDER, "adiga_2026_전문대학_모집요강")
 junior_foreign = {}
 for root, dd, ff in os.walk(jr_root):

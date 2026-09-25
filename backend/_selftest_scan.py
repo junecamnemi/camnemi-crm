@@ -4,7 +4,7 @@
 Goal: confirm whether 자체시험 is limited to specific majors (as user suspects)."""
 import os, re, pymupdf
 
-DIR = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+DIR = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
 
 # key schools that have selftest=true AND we have their PDF
 TARGETS = ["건국대", "인하대", "세종대", "한국외국어대", "고려대", "동국대", "숭실대", "서울시립대",

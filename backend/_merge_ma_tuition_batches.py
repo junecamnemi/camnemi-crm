@@ -2,12 +2,12 @@
 """Merge MA tuition from 4 per-batch files into consulting_db MA + verified_kb master."""
 import json, re, os, glob
 
-DB = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+DB = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 
 # load all batch files
 results = {}
-for fp in glob.glob(r"C:\Users\USER\camnemi-crm\backend\_ma_tuition_batch*.json"):
+for fp in glob.glob(r"C:\Users\wisew\camnemi-crm\backend\_ma_tuition_batch*.json"):
     data = json.load(open(fp, encoding="utf-8"))
     for k, v in data.items():
         results[k] = v  # last wins, but each school only in one batch

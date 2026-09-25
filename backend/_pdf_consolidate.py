@@ -4,7 +4,7 @@ University_Project/guides/{ba,ma,junior,lang}/{2026,2027}/
 Foreigner HTML files stay in place (they are the guide)."""
 import os, shutil, re
 
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 GUIDES = os.path.join(UP, "guides")
 
 # program -> list of (source_folder, year, subfolder-or-None, is_foreigner_only)

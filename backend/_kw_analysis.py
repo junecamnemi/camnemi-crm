@@ -3,7 +3,7 @@
 """Analyze Kyungwoon Univ 2026 foreigner guide: majors, schedule, lang req, scholarship."""
 import pymupdf, re
 
-doc = pymupdf.open(r"C:\Users\USER\camnemi-crm\backend\_guide_pdfs\kyungwoon_2026.pdf")
+doc = pymupdf.open(r"C:\Users\wisew\camnemi-crm\backend\_guide_pdfs\kyungwoon_2026.pdf")
 full = "\n".join(p.get_text() for p in doc)
 doc.close()
 print("총 chars:", len(full))

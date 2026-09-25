@@ -3,7 +3,7 @@
 """Build unified visa KB (사증발급 + 체류변경 connected) and wire it into the bot query."""
 import json, os, datetime
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 HM = os.path.join(B, "hikorea_manuals")
 
 # sources

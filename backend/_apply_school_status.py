@@ -10,7 +10,7 @@ Adds `status` / `status_note` and mirrors into consulting_db.
 """
 import json, os, re, shutil, datetime
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(B, "verified_kb.json"); CDB = os.path.join(B, "consulting_db.json")
 
 FINDINGS = {

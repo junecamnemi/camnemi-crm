@@ -12,13 +12,13 @@ Usage: python _merge_llm_into_kb.py [--write]
 """
 import json, os, glob, re, argparse, shutil, datetime
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(BASE, "verified_kb.json")
 J1 = os.path.join(BASE, "guides_llm_parsed.jsonl")
 J2 = os.path.join(BASE, "guides_llm_parsed_ocr.jsonl")
 J3 = os.path.join(BASE, "guides_llm_parsed_real.jsonl")   # newly-collected REAL guides
 TRUST = os.path.join(BASE, "_llmparse_trust.json")
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 
 PDF_BY_NAME = {}
 for p in glob.glob(os.path.join(UP, "**", "*.pdf"), recursive=True):

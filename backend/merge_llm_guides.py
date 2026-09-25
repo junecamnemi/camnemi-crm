@@ -5,7 +5,7 @@ from collections import defaultdict
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 rows = [json.loads(l) for l in open(os.path.join(BASE, 'guides_llm_parsed.jsonl'), encoding='utf-8')]
-H = open(r"C:\Users\USER\camnemi-crm\index.html", encoding="utf-8").read()
+H = open(r"C:\Users\wisew\camnemi-crm\index.html", encoding="utf-8").read()
 K = re.search(r"DEFAULT_SUPABASE_KEY\s*=\s*'([^']+)'", H).group(1)
 URL = "https://zjdvzpylxazfbazioxto.supabase.co/rest/v1/"
 

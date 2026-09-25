@@ -4,7 +4,7 @@
 import json, os, re, urllib.request
 
 def _auth():
-    for p in [r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\USER\AppData\Local\hermes\auth.json"]:
+    for p in [r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\wisew\AppData\Local\hermes\auth.json"]:
         if not os.path.exists(p): continue
         d = json.load(open(p, encoding="utf-8"))
         if isinstance(d, dict) and d.get("access_token"):
@@ -16,8 +16,8 @@ def _auth():
 BASE, KEY = _auth()
 
 # load extracted knowledge
-pro = json.load(open(r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\체류민원_D2D4D10E7_pro.json", encoding="utf-8"))
-toc = open(r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.txt", encoding="utf-8").read()[:1500] if os.path.exists(r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.txt") else "(목차 미확보)"
+pro = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\체류민원_D2D4D10E7_pro.json", encoding="utf-8"))
+toc = open(r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.txt", encoding="utf-8").read()[:1500] if os.path.exists(r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.txt") else "(목차 미확보)"
 
 knowledge = f"[사증민원 매뉴얼 목차]\n{toc}\n\n[체류민원 매뉴얼 pro 분석 (D-2/D-4/D-10/E-7)]\n{json.dumps(pro, ensure_ascii=False)[:12000]}"
 
@@ -74,6 +74,6 @@ for line in md.split("\n"):
         page.insert_text((40, y), s, fontname="KR", fontsize=size, color=color); y += size+3
     if y > 800:
         page = doc.new_page(width=595, height=842); page.insert_font(fontname="KR", fontfile=KFONT); y = 40
-OUT = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\사증체류_민원_안내_astra.pdf"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\사증체류_민원_안내_astra.pdf"
 doc.save(OUT)
 print("PDF:", OUT, os.path.getsize(OUT), "bytes,", len(doc), "pages")

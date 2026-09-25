@@ -5,7 +5,7 @@ Keyword-context extraction → output JSON per school for later pro-model struct
 import os, re, json
 import pymupdf
 
-BASE = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+BASE = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 FOLDERS = {
     "BA": [os.path.join(BASE,"adiga_2027_외국인_모집요강","외국인"),
            os.path.join(BASE,"adiga_2026_외국인_모집요강","외국인")],
@@ -63,7 +63,7 @@ for level, folders in FOLDERS.items():
                 key = f"{level}:{school}"
                 out[key] = {"school": school, "level": level, "file": fn, "paths": found}
 
-json.dump(out, open(r"C:\Users\USER\camnemi-crm\backend\_bypass_raw.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(out, open(r"C:\Users\wisew\camnemi-crm\backend\_bypass_raw.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"추출 학교: {len(out)}")
 from collections import Counter
 c=Counter()

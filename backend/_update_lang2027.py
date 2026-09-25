@@ -9,8 +9,8 @@ NOT confirmed (do NOT mark 2027):
   - 연세대: no 2027 schedule captured
 """
 import json, os
-KB = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
-D2027 = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_어학연수_모집요강"
+KB = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+D2027 = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_어학연수_모집요강"
 
 kb = json.load(open(KB, encoding="utf-8"))
 lp = kb["lang_programs"]["schools"]

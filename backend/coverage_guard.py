@@ -5,7 +5,7 @@ Exits non-zero (and prints REGRESSION lines) if a derived layer drops materially
 below the source. Run after sync_3layer.py in cron."""
 import json, re, sys, os
 
-BASE = r"C:\Users\USER\camnemi-crm"
+BASE = r"C:\Users\wisew\camnemi-crm"
 KB   = os.path.join(BASE, "backend", "verified_kb.json")
 DB   = os.path.join(BASE, "backend", "consulting_db.json")
 DATA = os.path.join(BASE, "data.js")

@@ -4,8 +4,8 @@ and extract: majors, lang_req(TOPIK/IELTS/TOEFL), period, tuition."""
 import os, re, json
 import pymupdf
 
-BASE = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_대학원_모집요강"
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+BASE = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_대학원_모집요강"
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 ma_existing = list(KB["master"]["schools"].keys())
 
 def norm(s):
@@ -81,7 +81,7 @@ for fn in targets:
         "has_foreigner": bool(re.search(r"외국인|순수외국인|유학생|foreign", full, re.I)),
     }
 
-json.dump(results, open(r"C:\Users\USER\camnemi-crm\backend\_ma_new_scan.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(results, open(r"C:\Users\wisew\camnemi-crm\backend\_ma_new_scan.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 n_foreign=sum(1 for v in results.values() if v.get("has_foreigner"))
 n_lang=sum(1 for v in results.values() if v.get("lang"))
 print(f"스캔 {len(results)}개 | 외국인언급 {n_foreign} | 언어요건 {n_lang}")

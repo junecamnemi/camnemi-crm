@@ -2,9 +2,9 @@
 """Merge normalized MA tuition (21 schools) into consulting_db MA + verified_kb master."""
 import json, re
 
-DB = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
-results = json.load(open(r"C:\Users\USER\camnemi-crm\backend\_ma_tuition_all.json", encoding="utf-8"))
+DB = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+results = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_ma_tuition_all.json", encoding="utf-8"))
 
 def norm(s):
     s = re.sub(r"\[.*?\]","",s)

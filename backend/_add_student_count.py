@@ -3,9 +3,9 @@
 """Add student count (stu) to verified_kb.json schools from data.js, for transparency."""
 import json, os, re
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(BASE, "verified_kb.json")
-DATA = r"C:\Users\USER\camnemi-crm\data.js"
+DATA = r"C:\Users\wisew\camnemi-crm\data.js"
 
 with open(DATA, encoding="utf-8") as f:
     content = f.read()

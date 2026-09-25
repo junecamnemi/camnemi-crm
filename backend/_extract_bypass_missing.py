@@ -4,8 +4,8 @@ Broader patterns + multi-keyword windows + explicit '지원자격' section captu
 import os, re, json
 import pymupdf
 
-BASE = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
-KB = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+BASE = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
+KB = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 FOLDERS = {
     "BA": [os.path.join(BASE,"adiga_2027_외국인_모집요강","외국인"),
            os.path.join(BASE,"adiga_2026_외국인_모집요강","외국인")],
@@ -69,7 +69,7 @@ for level, folders in FOLDERS.items():
             if found:
                 out[f"{level}:{school}"] = {"school":school,"level":level,"file":fn,"paths":found}
 
-json.dump(out, open(r"C:\Users\USER\camnemi-crm\backend\_bypass_missing_raw.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(out, open(r"C:\Users\wisew\camnemi-crm\backend\_bypass_missing_raw.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"재추출(미보유): {len(out)}개")
 from collections import Counter
 c=Counter()

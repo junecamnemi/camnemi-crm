@@ -3,8 +3,8 @@
 """Probe Hangul COM text-extraction signatures on the protected 사증민원 manual."""
 import pythoncom, win32com.client as win32, time, os
 
-SRC = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.hwp"
-OUT = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\사증_정부.txt"
+SRC = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.hwp"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\사증_정부.txt"
 def log(*a): print(*a, flush=True)
 
 pythoncom.CoInitialize()

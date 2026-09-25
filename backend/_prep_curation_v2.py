@@ -7,9 +7,9 @@
 """
 import os, re, json, glob
 
-FOLDER = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
-OUT = r"C:\Users\USER\camnemi-crm\backend\_curation_2027_batches.json"
+FOLDER = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+OUT = r"C:\Users\wisew\camnemi-crm\backend\_curation_2027_batches.json"
 
 EXCLUDE_WORDS = ["신학대", "교육대", "교원대", "장신대", "선학대"]
 # campuses to keep (본교); skip 제2/3/4캠퍼스 + 분교 where 본교 exists separately

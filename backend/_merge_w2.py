@@ -2,8 +2,8 @@
 """Merge wave-2 BA 2026 curation outputs (completed batches 2-7, 9) into verified_kb.json."""
 import json, re, os
 
-KB = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+KB = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 kb = json.load(open(KB, encoding="utf-8"))
 ba_sec = kb["schools"]
 

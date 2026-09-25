@@ -8,5 +8,5 @@ def rewrite(path, indent):
     crlf = b"\r\n" in raw[:200000]
     print(path, "indent=", indent, "CRLF=", crlf, "bytes=", len(raw))
 
-rewrite(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", 2)
-rewrite(r"C:\Users\USER\camnemi-crm\backend\consulting_db.json", 1)
+rewrite(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", 2)
+rewrite(r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json", 1)

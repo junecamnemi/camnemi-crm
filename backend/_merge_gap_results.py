@@ -4,9 +4,9 @@ Input: backend/_gap_fill_results.json = {school: {level, tuition(min/max or amou
 """
 import json, re, os
 
-RESULTS = r"C:\Users\USER\camnemi-crm\backend\_gap_fill_results.json"
-DB = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+RESULTS = r"C:\Users\wisew\camnemi-crm\backend\_gap_fill_results.json"
+DB = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 
 if not os.path.exists(RESULTS):
     print("결과 파일 없음"); raise SystemExit

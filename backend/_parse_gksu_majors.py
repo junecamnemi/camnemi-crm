@@ -5,8 +5,8 @@ import os
 import json
 import openpyxl
 
-BASE = r"C:\Users\USER\camnemi-crm\backend\_gksu_univinfo"
-OUT = r"C:\Users\USER\camnemi-crm\backend\_gksu_uic_majors.json"
+BASE = r"C:\Users\wisew\camnemi-crm\backend\_gksu_univinfo"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\_gksu_uic_majors.json"
 
 UIC = ["Ajou University", "Daegu University", "Dong-A University", "Inje University",
        "Keimyung University", "Konyang University", "Kookmin University",

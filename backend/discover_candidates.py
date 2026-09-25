@@ -9,7 +9,7 @@ Verified picks are then moved into scrape_map.json (used by daily_guide_checker.
 """
 import os, re, json, subprocess, datetime, argparse, tempfile, urllib.parse
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 OUT = os.path.join(B, "_guide_review_batch.json")
 MAP = os.path.join(B, "scrape_map.json")
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"

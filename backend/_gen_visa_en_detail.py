@@ -25,7 +25,7 @@ else:
 NAVY=colors.HexColor("#0B2545"); GOLD=colors.HexColor("#C9A227")
 LGRAY=colors.HexColor("#EEF1F5"); WHITE=colors.white; DARK=colors.HexColor("#1a1a1a")
 
-B=r"C:\Users\USER\camnemi-crm\backend"
+B=r"C:\Users\wisew\camnemi-crm\backend"
 hk=json.load(open(B+r"\hikorea_manuals\체류민원_D2D4D10E7_pro.json",encoding="utf-8"))
 job=json.load(open(B+r"\job_manual_kr.json",encoding="utf-8"))
 by={s["status"]:s for s in hk["by_status"]}

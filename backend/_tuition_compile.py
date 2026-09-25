@@ -38,7 +38,7 @@ TUITION = {
     "한림대학교": "₩3,575,800~₩4,644,800 (data.js)",
 }
 
-with open(r"C:\Users\USER\camnemi-crm\backend\_tuition_final.json", "w", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_tuition_final.json", "w", encoding="utf-8") as f:
     json.dump(TUITION, f, ensure_ascii=False, indent=2)
 
 print("등록금 데이터 정리 완료:", len(TUITION), "개 학교")

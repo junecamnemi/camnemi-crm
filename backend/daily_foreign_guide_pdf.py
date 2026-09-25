@@ -3,8 +3,8 @@
 """일일 외국인 모집요강 수집 PDF 생성 → 크론이 이 파일을 텔레그램으로 전송."""
 import json, os, datetime, glob
 
-B = r"C:\Users\USER\camnemi-crm\backend"
-OUTDIR = r"C:\Users\USER\camnemi-crm\backend\daily_guide_pdf"
+B = r"C:\Users\wisew\camnemi-crm\backend"
+OUTDIR = r"C:\Users\wisew\camnemi-crm\backend\daily_guide_pdf"
 os.makedirs(OUTDIR, exist_ok=True)
 
 def load(p, default=None):

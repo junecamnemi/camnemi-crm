@@ -2,7 +2,7 @@
 import json, os, sys
 import pymupdf
 
-base = r"C:\Users\USER\camnemi-crm\backend"
+base = r"C:\Users\wisew\camnemi-crm\backend"
 with open(os.path.join(base, "_curation_2027_batches.json"), "r", encoding="utf-8") as f:
     batches = json.load(f)
 

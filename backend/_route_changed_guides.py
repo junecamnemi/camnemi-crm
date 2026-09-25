@@ -2,8 +2,8 @@
 # so guide_auto_analyze.py re-parses them into verified_kb.
 import json, os, re, shutil, sys, datetime
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
-UP = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
+UP = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project"
 TODAY = datetime.date.today().isoformat()
 
 DEST = {

@@ -3,7 +3,7 @@
 """Extract text from HWP via PrvText + BodyText/Section0 record parsing."""
 import olefile, zlib, struct, re, os
 
-OUT = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals"
 src = os.path.join(OUT, "260901 사증민원 자격별 안내 매뉴얼.hwp")
 
 f = olefile.OleFileIO(src)

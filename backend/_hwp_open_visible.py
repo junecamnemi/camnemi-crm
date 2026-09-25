@@ -3,7 +3,7 @@
 """Open the protected 사증민원 manual via Hangul COM and keep it VISIBLE for GUI control."""
 import os, sys, time, pythoncom, win32com.client as win32
 
-SRC = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.hwp"
+SRC = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.hwp"
 pythoncom.CoInitialize()
 hwp = win32.Dispatch("HWPFrame.HwpObject")
 try: hwp.RegisterModule("FilePathCheckDLL", "FilePathCheckerModule")

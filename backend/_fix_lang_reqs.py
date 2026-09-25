@@ -8,7 +8,7 @@ not a certificate. Any real requirement is a note, not a req field.
 """
 import json, os, shutil, datetime, re
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(B, "verified_kb.json")
 CDB = os.path.join(B, "consulting_db.json")
 FIELDS = ["topik_req", "ielts_req", "toefl_req"]

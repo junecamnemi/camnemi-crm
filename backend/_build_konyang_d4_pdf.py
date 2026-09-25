@@ -19,7 +19,7 @@ pdfmetrics.registerFont(TTFont("Malgun", r"C:\Windows\Fonts\malgun.ttf"))
 pdfmetrics.registerFont(TTFont("Malgun-Bold", r"C:\Windows\Fonts\malgunbd.ttf"))
 pdfmetrics.registerFontFamily("Malgun", normal="Malgun", bold="Malgun-Bold", italic="Malgun", boldItalic="Malgun-Bold")
 
-OUT = r"C:\Users\USER\camnemi-crm\backend\건양대_D4_12월입학_컨설팅_2026.pdf"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\건양대_D4_12월입학_컨설팅_2026.pdf"
 
 def st(name, **kw):
     base = dict(fontName="Malgun", fontSize=10, leading=15, textColor=colors.HexColor("#1a1a1a"), spaceAfter=4)

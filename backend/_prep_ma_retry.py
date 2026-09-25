@@ -17,7 +17,7 @@ remaining = [
 B=3
 for i in range(0, len(remaining), B):
     b = remaining[i:i+B]
-    json.dump(b, open(rf"C:\Users\USER\camnemi-crm\backend\_ma_retry_batch{i//B}.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(b, open(rf"C:\Users\wisew\camnemi-crm\backend\_ma_retry_batch{i//B}.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"{len(remaining)}개 → {len(range(0,len(remaining),B))} 배치 (각 {B}개)")
 for i in range(0, len(remaining), B):
     print(f"  batch{i//B}: {', '.join(remaining[i:i+B])}")

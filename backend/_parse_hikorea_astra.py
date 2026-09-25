@@ -4,8 +4,8 @@
 import json, os, re, urllib.request
 
 def _auth():
-    for p in [r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json",
-              r"C:\Users\USER\AppData\Local\hermes\auth.json"]:
+    for p in [r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json",
+              r"C:\Users\wisew\AppData\Local\hermes\auth.json"]:
         if not os.path.exists(p):
             continue
         d = json.load(open(p, encoding="utf-8"))
@@ -19,7 +19,7 @@ def _auth():
 BASE, KEY = _auth()
 MODEL = "openai/gpt-6-astra-pro"
 
-PAGE = r"C:\Users\USER\AppData\Local\hermes\profiles\univ\cache\web\www.hikorea.go.kr-2eccf79a99.md"
+PAGE = r"C:\Users\wisew\AppData\Local\hermes\profiles\univ\cache\web\www.hikorea.go.kr-2eccf79a99.md"
 raw = open(PAGE, encoding="utf-8").read()
 # strip the markdown image/link noise -> keep the form names
 txt = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", raw)
@@ -53,7 +53,7 @@ print("model:", d.get("model"), "| finish:", d["choices"][0].get("finish_reason"
 out = re.sub(r"^```(json)?|```$", "", content.strip(), flags=re.M).strip()
 m = re.search(r"\{.*\}", out, re.S)
 data = json.loads(m.group(0) if m else out)
-json.dump(data, open(os.path.join(os.path.dirname(PAGE).replace("web","web"), "..", "..", "..", "hikorea_forms.json") if False else r"C:\Users\USER\camnemi-crm\backend\hikorea_forms.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(data, open(os.path.join(os.path.dirname(PAGE).replace("web","web"), "..", "..", "..", "hikorea_forms.json") if False else r"C:\Users\wisew\camnemi-crm\backend\hikorea_forms.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print("서식 수:", len(data.get("forms", [])))
 for f in data.get("forms", [])[:40]:
     print(f"  [{f.get('category','?')}] {f['name']}  {f.get('filetypes')}")

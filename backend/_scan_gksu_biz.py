@@ -11,7 +11,7 @@ import json
 
 import openpyxl
 
-ROOT = r"C:\Users\USER\camnemi-crm\backend\_gksu_univinfo"
+ROOT = r"C:\Users\wisew\camnemi-crm\backend\_gksu_univinfo"
 
 # business-related keywords (match if any appears in a cell)
 KW = [
@@ -67,7 +67,7 @@ def main():
         print(f"  지원가능 학과(행) 수: {len(all_rows)} | 비즈니스 관련 행: {len(biz_rows)}")
         for s in biz_rows[:12]:
             print(f"    · {s[:100]}")
-    with open(r"C:\Users\USER\camnemi-crm\backend\_gksu_biz_scan.json", "w", encoding="utf-8") as f:
+    with open(r"C:\Users\wisew\camnemi-crm\backend\_gksu_biz_scan.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=1)
     print("\n\n=== 요약: 비즈니스 관련 학과 보유 대학 ===")
     for u, r in sorted(results.items(), key=lambda x: -x[1]["biz_count"]):

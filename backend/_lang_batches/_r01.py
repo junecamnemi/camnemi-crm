@@ -16,7 +16,7 @@ RES = [
 {"school":"경기대학교","status":"2026_or_older","url":"https://www.kyonggi.ac.kr/IOIE/contents.do?key=1494","title":"경기대 국제교육원 한국어과정 모집요강","note":"Brochures labeled 2026 (Korean/Chinese/English/Vietnamese); no 2027 version"},
 ]
 
-path = r"C:/Users/USER/camnemi-crm/backend/_lang_batches/lang_batch_01_result.json"
+path = r"C:/Users/wisew/camnemi-crm/backend/_lang_batches/lang_batch_01_result.json"
 with io.open(path, "w", encoding="utf-8") as f:
     json.dump(RES, f, ensure_ascii=False, indent=1)
 print("written", len(RES))

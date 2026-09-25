@@ -3,9 +3,9 @@
 """Build a consultation-ready KB from real counseling cases using gpt-6-astra (deep analysis)."""
 import json, os, re, urllib.request, collections
 
-D = r"C:\Users\USER\visa_qa"; B = r"C:\Users\USER\camnemi-crm\backend"
+D = r"C:\Users\wisew\visa_qa"; B = r"C:\Users\wisew\camnemi-crm\backend"
 def _auth():
-    for p in [r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\USER\AppData\Local\hermes\auth.json"]:
+    for p in [r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\wisew\AppData\Local\hermes\auth.json"]:
         if not os.path.exists(p): continue
         d = json.load(open(p, encoding="utf-8"))
         if d.get("access_token"): return d.get("inference_base_url") or "https://inference-api.nousresearch.com/v1", d["access_token"]

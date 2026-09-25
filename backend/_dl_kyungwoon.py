@@ -7,7 +7,7 @@ base = "https://www.ikw.ac.kr/resources/templates/ipsi/assets/file/"
 fn = "2026 2학기 외국인 모집요강_신입 국문260727_3차.pdf"
 url = base + urllib.parse.quote(fn)
 
-out = r"C:\Users\USER\camnemi-crm\backend\_guide_pdfs\kyungwoon_2026.pdf"
+out = r"C:\Users\wisew\camnemi-crm\backend\_guide_pdfs\kyungwoon_2026.pdf"
 req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
 try:
     resp = urllib.request.urlopen(req, timeout=90)

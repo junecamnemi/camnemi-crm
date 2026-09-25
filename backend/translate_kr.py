@@ -12,10 +12,10 @@ Usage:
 """
 import json, os, re, csv, sys, argparse, urllib.request
 
-K = r"C:\Users\USER\khmer"; T = r"C:\Users\USER\camnemi-topik"; B = r"C:\Users\USER\camnemi-crm\backend"
+K = r"C:\Users\wisew\khmer"; T = r"C:\Users\wisew\camnemi-topik"; B = r"C:\Users\wisew\camnemi-crm\backend"
 
 def _auth():
-    for p in [r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\USER\AppData\Local\hermes\auth.json"]:
+    for p in [r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\wisew\AppData\Local\hermes\auth.json"]:
         if not os.path.exists(p): continue
         d = json.load(open(p, encoding="utf-8"))
         if d.get("access_token"): return d.get("inference_base_url") or "https://inference-api.nousresearch.com/v1", d["access_token"]

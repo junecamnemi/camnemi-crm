@@ -16,7 +16,7 @@ Saves `_guide_pages.json`: {school: {page_url, pdf_url, year, title, html_only, 
 import os, re, json, datetime
 from collections import Counter
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 OUT = os.path.join(BASE, "_guide_pages.json")
 
 TITLE_KW = re.compile(r"(외국인|순수외국인|유학생|국제|foreign|international).{0,8}(모집|입학|요강)", re.I)

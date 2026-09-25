@@ -4,8 +4,8 @@ scholarship, application period. Fill MA gaps in the consulting DB."""
 import os, re, json
 import pymupdf
 
-DIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_대학원_모집요강"
-OUT = r"C:\Users\USER\camnemi-crm\backend\_ma_scan_lang.json"
+DIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_대학원_모집요강"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\_ma_scan_lang.json"
 
 def norm(t): return re.sub(r"[ \t]+"," ",t)
 

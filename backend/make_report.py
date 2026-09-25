@@ -14,7 +14,7 @@ from en_output import en_name, en_region, logo, fmt_tuition_usd, en_lang, en_sch
 
 from PIL import Image, ImageDraw, ImageFont
 
-BASE = r"C:\Users\USER\camnemi-crm"
+BASE = r"C:\Users\wisew\camnemi-crm"
 KB = json.load(open(os.path.join(BASE, "backend", "verified_kb.json"), encoding="utf-8"))
 
 # ---- fonts ----

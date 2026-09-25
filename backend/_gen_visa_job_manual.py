@@ -29,9 +29,9 @@ LGRAY  = colors.HexColor("#EEF1F5")
 WHITE  = colors.white
 DARK   = colors.HexColor("#1a1a1a")
 
-OUT = r"C:\Users\USER\camnemi-crm\backend\취업_비자_매뉴얼_유학생.pdf"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\취업_비자_매뉴얼_유학생.pdf"
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 job = json.load(open(B + r"\job_manual_kr.json", encoding="utf-8"))
 # hikorea D2/D4/D10/E7
 hk = {}

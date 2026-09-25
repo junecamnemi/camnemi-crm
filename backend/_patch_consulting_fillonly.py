@@ -4,8 +4,8 @@ STRICT: exact normalized name match only (no fuzzy). NEVER creates a new program
 Preserves all enrichment (popular_majors, similar_majors, toefl)."""
 import json, re, shutil, datetime
 
-KB = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
-DB = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
+KB = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+DB = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
 shutil.copy(DB, DB.replace(".json", f"_bak_patch_{datetime.datetime.now():%Y%m%d_%H%M}.json"))
 
 kb = json.load(open(KB, encoding="utf-8"))

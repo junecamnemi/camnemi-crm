@@ -2,8 +2,8 @@
 """Full gap analysis per level. Count schools in KB lacking a local PDF."""
 import json, os, re
 
-BASE = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+BASE = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 
 def norm_folder(folder):
     """set of normalized school tokens present as PDFs in folder"""

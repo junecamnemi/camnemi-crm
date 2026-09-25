@@ -2,7 +2,7 @@
 """Add BA_0 and BA_3 tuition from transcripts (they were lost to overwrites)."""
 import json
 
-RESULTS = r"C:\Users\USER\camnemi-crm\backend\_ba_tuition_results.json"
+RESULTS = r"C:\Users\wisew\camnemi-crm\backend\_ba_tuition_results.json"
 results = json.load(open(RESULTS, encoding="utf-8"))
 
 # BA_0 from task-0 transcript (경동~한서)
@@ -45,7 +45,7 @@ for grp in [BA0,BA3]:
 json.dump(results, open(RESULTS,"w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"BA 수업료 최종: {len(results)}개 학교")
 # check against BA gap list
-need=json.load(open(r"C:\Users\USER\camnemi-crm\backend\_gap_BA_0.json",encoding="utf-8"))+json.load(open(r"C:\Users\USER\camnemi-crm\backend\_gap_BA_1.json",encoding="utf-8"))+json.load(open(r"C:\Users\USER\camnemi-crm\backend\_gap_BA_2.json",encoding="utf-8"))+json.load(open(r"C:\Users\USER\camnemi-crm\backend\_gap_BA_3.json",encoding="utf-8"))+json.load(open(r"C:\Users\USER\camnemi-crm\backend\_gap_BA_4.json",encoding="utf-8"))
+need=json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_gap_BA_0.json",encoding="utf-8"))+json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_gap_BA_1.json",encoding="utf-8"))+json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_gap_BA_2.json",encoding="utf-8"))+json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_gap_BA_3.json",encoding="utf-8"))+json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_gap_BA_4.json",encoding="utf-8"))
 missing=[x['school'] for x in need if x['school'] not in results and x['school'] not in ['대전가톨릭대학교']]
 print(f"BA 갭 46개 중 결과 반영: {len([s for s in set(x['school'] for x in need) if s in results])}")
 print("아직 없는(대전가톨릭 제외):", missing)

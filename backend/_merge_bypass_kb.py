@@ -2,9 +2,9 @@
 """Merge BOTH structured bypass files into KB lang_bypass (handles both key formats)."""
 import json, re
 
-KB = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
-SRC = [r"C:\Users\USER\camnemi-crm\backend\_bypass_structured.json",
-       r"C:\Users\USER\camnemi-crm\backend\_bypass_mis_structured.json"]
+KB = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+SRC = [r"C:\Users\wisew\camnemi-crm\backend\_bypass_structured.json",
+       r"C:\Users\wisew\camnemi-crm\backend\_bypass_mis_structured.json"]
 # preserve hand-curated 경운대
 KYW = None
 kb = json.load(open(KB, encoding="utf-8"))

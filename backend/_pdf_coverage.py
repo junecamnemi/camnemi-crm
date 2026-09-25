@@ -3,7 +3,7 @@
 Counts FOREIGNER-only guides (excludes 재외국민/own_site) by program & year."""
 import os, re, json
 
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 
 # program -> list of (folder, year, subfolder-or-None)
 FOLDERS = {

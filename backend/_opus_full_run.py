@@ -4,12 +4,12 @@
 import json, os, re, time, urllib.request
 import pymupdf
 
-OUT=r"C:\Users\USER\camnemi-crm\backend\_opus_full.jsonl"
-LOG=r"C:\Users\USER\camnemi-crm\backend\_opus_full_log.txt"
+OUT=r"C:\Users\wisew\camnemi-crm\backend\_opus_full.jsonl"
+LOG=r"C:\Users\wisew\camnemi-crm\backend\_opus_full_log.txt"
 UA={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131.0.0.0 Safari/537.36'}
 
 def _auth():
-    for p in [r'C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json', r'C:\Users\USER\AppData\Local\hermes\auth.json']:
+    for p in [r'C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json', r'C:\Users\wisew\AppData\Local\hermes\auth.json']:
         if os.path.exists(p):
             try: return json.load(open(p,encoding='utf-8'))
             except: pass
@@ -61,7 +61,7 @@ def load_done():
     return done
 
 # source: _guide_2027_master (BA + MA, 최신 요강)
-B=r"C:\Users\USER\camnemi-crm\backend"
+B=r"C:\Users\wisew\camnemi-crm\backend"
 m=json.load(open(B+r"\_guide_2027_master.json",encoding='utf-8'))
 sources=[]
 for x in m:

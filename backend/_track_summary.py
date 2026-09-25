@@ -133,5 +133,5 @@ for s in order_2026:
 
 # JSON save
 out = {s: {"info": TRACKS[s], "majors": DS_MAJORS.get(s, [])} for s in list(order_2027) + list(order_2026)}
-with open(r"C:\Users\USER\camnemi-crm\backend\track_summary.json", "w", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\track_summary.json", "w", encoding="utf-8") as f:
     json.dump(out, f, ensure_ascii=False, indent=2)

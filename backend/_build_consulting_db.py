@@ -4,7 +4,7 @@ existing KB sections (schools=BA, master, junior, lang_programs).
 School-centric: each school has region/rank + programs{BA,MA,전문학사,어학연수}."""
 import json, re
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB_PATH, encoding="utf-8"))
 
 ba = kb["schools"]                       # BA 학사
@@ -111,7 +111,7 @@ result = {
     "schools": schools,
 }
 
-json.dump(result, open(r"C:\Users\USER\camnemi-crm\backend\consulting_db.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(result, open(r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 n_schools=len(schools)
 n_ba=sum(1 for s in schools.values() if "BA" in s["programs"])
 n_ma=sum(1 for s in schools.values() if "MA" in s["programs"])

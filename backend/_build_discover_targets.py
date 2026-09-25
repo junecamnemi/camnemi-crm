@@ -3,7 +3,7 @@
 """Build _discover_targets.json: {school,level,url} from master + KB URLs (own-site only, http)."""
 import os, re, json
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 targets = []
 seen = set()
 

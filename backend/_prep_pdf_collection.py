@@ -3,8 +3,8 @@
 Excludes 신학대/교육대/특수 (not consulting targets). Creates batch files per level."""
 import os, re, json
 
-BASE = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
-content = open(r"C:\Users\USER\camnemi-crm\data.js",encoding="utf-8").read()
+BASE = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
+content = open(r"C:\Users\wisew\camnemi-crm\data.js",encoding="utf-8").read()
 s=content.find("[");d=0
 for i in range(s,len(content)):
     if content[i]=="[":d+=1
@@ -64,7 +64,7 @@ print(f"어학연수 수집 필요: {len(LANG_need)}")
 
 # save lists
 for nm, lst in [("BA",BA_need),("MA",MA_need),("JR",JR_need),("LANG",LANG_need)]:
-    json.dump(lst, open(rf"C:\Users\USER\camnemi-crm\backend\_collect_{nm}.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(lst, open(rf"C:\Users\wisew\camnemi-crm\backend\_collect_{nm}.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 
 print("\nBA:", ", ".join(BA_need))
 print("\n전문학사:", ", ".join(JR_need))

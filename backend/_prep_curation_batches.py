@@ -2,8 +2,8 @@
 """Prepare curation batches for 2027 BA guides (priority wave 1)."""
 import os, re, json, glob
 
-FOLDER = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
-OUT = r"C:\Users\USER\camnemi-crm\backend\_curation_2027_ba.json"
+FOLDER = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\_curation_2027_ba.json"
 
 files = sorted(glob.glob(os.path.join(FOLDER, "*.pdf")))
 # exclude 재외국민 or non-foreigner by filename pattern? folder is 외국인 already

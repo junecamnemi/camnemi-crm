@@ -1,5 +1,5 @@
 import os, re, json
-GUIDER = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+GUIDER = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 B = os.path.dirname(os.path.abspath(__file__))
 
 def walk_foreign(root):

@@ -7,7 +7,7 @@
   python case_query.py --match "E-9 출산"      상황으로 케이스 검색
 """
 import json, os, re, argparse
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 CASES = json.load(open(os.path.join(B,"cases_kr.json"), encoding="utf-8"))["cases"]
 try:
     QA = json.load(open(os.path.join(B,"qa_profiles_kr.json"), encoding="utf-8"))

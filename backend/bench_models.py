@@ -11,12 +11,12 @@ Usage: python bench_models.py [--n 15] [--models a,b,c] [--out bench.json]
 import os, re, json, glob, argparse, time, urllib.request
 import pymupdf
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 GS = os.path.join(BASE, "golden_set.json")
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 
 def _auth():
-    d = json.load(open(r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", encoding="utf-8"))
+    d = json.load(open(r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", encoding="utf-8"))
     return d["access_token"], d["inference_base_url"].rstrip("/")
 
 KEY, BASEURL = _auth()

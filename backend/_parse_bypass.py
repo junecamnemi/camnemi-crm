@@ -76,5 +76,5 @@ for fp in files:
 
 print(f"\n총 구조화: {len(all_paths)} | 깨진 엔트리: {len(broken)}")
 if broken: print("깨진:", broken[:10])
-json.dump(all_paths, open(r"C:\Users\USER\camnemi-crm\backend\_bypass_structured.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(all_paths, open(r"C:\Users\wisew\camnemi-crm\backend\_bypass_structured.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print("saved")

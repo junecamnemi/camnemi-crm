@@ -4,11 +4,11 @@ import os, sys, json, time, base64, urllib.request, glob
 
 BACKEND_URL = "https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec"
 FOLDER_ID   = "1nGH6jaZmqvQJ9yFKZuh-zsDOoeog3lo7"
-SRC         = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
-MAP_PATH    = r"C:\Users\USER\camnemi-crm\backend\adiga2027_upload_map.json"
+SRC         = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+MAP_PATH    = r"C:\Users\wisew\camnemi-crm\backend\adiga2027_upload_map.json"
 
 key = None
-h = open(r"C:\Users\USER\camnemi-crm\index.html", encoding="utf-8").read()
+h = open(r"C:\Users\wisew\camnemi-crm\index.html", encoding="utf-8").read()
 import re
 m = re.search(r"DEFAULT_SUPABASE_KEY\s*=\s*'([^']+)'", h)
 if m: key = m.group(1)

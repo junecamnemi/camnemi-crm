@@ -1,6 +1,6 @@
 import json, re
 
-kb = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+kb = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 ma = kb["master"]["schools"]
 for k in ["조선대학교", "청운대학교"]:
     v = ma.get(k, {})

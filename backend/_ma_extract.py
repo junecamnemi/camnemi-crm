@@ -3,7 +3,7 @@
 """Extract ALL master's (석사) data from data.js: majors, tuition, cert. Then categorize."""
 import re, json
 
-with open(r"C:\Users\USER\camnemi-crm\data.js", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\data.js", encoding="utf-8") as f:
     content = f.read()
 start = content.find("[")
 depth = 0
@@ -44,7 +44,7 @@ print(f"등록금(최소) 있는 학교: {sum(1 for s in ma_list if s['tuition_m
 print(f"등록금(최대) 있는 학교: {sum(1 for s in ma_list if s['tuition_max'])}")
 
 # Save to JSON for further analysis
-with open(r"C:\Users\USER\camnemi-crm\backend\_ma_raw.json", "w", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_ma_raw.json", "w", encoding="utf-8") as f:
     json.dump(ma_list, f, ensure_ascii=False, indent=2)
 print("\n저장 완료: backend/_ma_raw.json")
 

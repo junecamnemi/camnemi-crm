@@ -3,7 +3,7 @@
 """Generate batch input files from _daily_pending.json for the daily 2027 re-check."""
 import json, os, datetime
 
-BASE = r"C:/Users/USER/camnemi-crm/backend"
+BASE = r"C:/Users/wisew/camnemi-crm/backend"
 D = datetime.date.today().strftime("%Y%m%d")
 
 pend = json.load(open(os.path.join(BASE, "_daily_pending.json"), encoding="utf-8"))

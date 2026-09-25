@@ -6,8 +6,8 @@ import numpy as np
 from PIL import Image
 from rapidocr_onnxruntime import RapidOCR
 
-SRC = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.hwp"
-OUTDIR = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\사증_images"
+SRC = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.hwp"
+OUTDIR = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\사증_images"
 os.makedirs(OUTDIR, exist_ok=True)
 
 f = olefile.OleFileIO(SRC)

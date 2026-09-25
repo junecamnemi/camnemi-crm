@@ -1,7 +1,7 @@
 import pymupdf, os
 
-base = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인"
-outdir = r"C:/Users/USER/camnemi-crm/backend/_w2_txt8/png"
+base = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인"
+outdir = r"C:/Users/wisew/camnemi-crm/backend/_w2_txt8/png"
 os.makedirs(outdir, exist_ok=True)
 
 jobs = {

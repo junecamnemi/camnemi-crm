@@ -10,7 +10,7 @@ sys.path.insert(0, ".")
 from school_keys import resolve, resolve_short
 
 B = os.path.dirname(os.path.abspath(__file__))
-GUIDER = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+GUIDER = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 JR_FOLDER = os.path.join(GUIDER, "adiga_2026_전문대학_모집요강")
 
 idx = json.load(open(os.path.join(B, "unvcd_index.json"), encoding="utf-8"))

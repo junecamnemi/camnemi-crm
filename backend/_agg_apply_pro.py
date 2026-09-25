@@ -3,7 +3,7 @@
 """Aggregate the DeepSeek-Pro application-system classification by level."""
 import json, re, collections, os
 
-P = r"C:\Users\USER\camnemi-crm\backend\_apply_pro.jsonl"
+P = r"C:\Users\wisew\camnemi-crm\backend\_apply_pro.jsonl"
 rows = [json.loads(l) for l in open(P, encoding="utf-8") if l.strip()]
 print(f"총 {len(rows)}개 판별\n")
 
@@ -39,6 +39,6 @@ for lvl, v in out.items():
         ss = [s for s, x in v["schools"].items() if x["primary"] == prim]
         if ss:
             lines.append(f"### {prim} ({len(ss)})\n" + ", ".join(ss) + "\n")
-open(r"C:\Users\USER\camnemi-crm\backend\지원시스템_레벨별.md", "w", encoding="utf-8").write("\n".join(lines))
-json.dump(out, open(r"C:\Users\USER\camnemi-crm\backend\_apply_pro_agg.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+open(r"C:\Users\wisew\camnemi-crm\backend\지원시스템_레벨별.md", "w", encoding="utf-8").write("\n".join(lines))
+json.dump(out, open(r"C:\Users\wisew\camnemi-crm\backend\_apply_pro_agg.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print("저장: 지원시스템_레벨별.md / _apply_pro_agg.json")

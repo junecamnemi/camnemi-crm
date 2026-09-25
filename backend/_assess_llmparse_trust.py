@@ -5,9 +5,9 @@ Records whose PDF has little/no text layer are UNTRUSTWORTHY (LLM could hallucin
 import json, os, glob, re
 import pymupdf
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 JSONL = os.path.join(BASE, "guides_llm_parsed.jsonl")
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 
 PDF_BY_NAME = {}
 for p in glob.glob(os.path.join(UP, "**", "*.pdf"), recursive=True):

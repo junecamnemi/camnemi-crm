@@ -1,6 +1,6 @@
 import json, sys, os
 
-path = r"C:/Users/USER/camnemi-crm/backend/_ba_batches/BA_batch_03_result.json"
+path = r"C:/Users/wisew/camnemi-crm/backend/_ba_batches/BA_batch_03_result.json"
 
 if os.path.exists(path):
     with open(path, encoding="utf-8") as f:

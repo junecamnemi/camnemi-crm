@@ -5,7 +5,7 @@
 Each agent handles ~10 schools, looks up official lang-program tuition / junior admission period."""
 import json, os, re
 
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 lp = KB["lang_programs"]["schools"]
 jr = KB["junior"]["schools"]
 
@@ -30,14 +30,14 @@ for n, v in jr.items():
 print(f"전문학사 지원시기 갭: {len(jr_gap)}개")
 
 # write full lists
-json.dump(lang_gap, open(r"C:\Users\USER\camnemi-crm\backend\_gap_lang_tuition.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
-json.dump(jr_gap, open(r"C:\Users\USER\camnemi-crm\backend\_gap_junior_period.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(lang_gap, open(r"C:\Users\wisew\camnemi-crm\backend\_gap_lang_tuition.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(jr_gap, open(r"C:\Users\wisew\camnemi-crm\backend\_gap_junior_period.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 
 # batches of 10 for lang
 B=10
 for i in range(0, len(lang_gap), B):
-    json.dump(lang_gap[i:i+B], open(rf"C:\Users\USER\camnemi-crm\backend\_langtui_batch{i//B}.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(lang_gap[i:i+B], open(rf"C:\Users\wisew\camnemi-crm\backend\_langtui_batch{i//B}.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"어학 수업료 배치: {(len(lang_gap)+B-1)//B}개")
 for i in range(0, len(jr_gap), B):
-    json.dump(jr_gap[i:i+B], open(rf"C:\Users\USER\camnemi-crm\backend\_jrperiod_batch{i//B}.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(jr_gap[i:i+B], open(rf"C:\Users\wisew\camnemi-crm\backend\_jrperiod_batch{i//B}.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"전문학사 지원시기 배치: {(len(jr_gap)+B-1)//B}개")

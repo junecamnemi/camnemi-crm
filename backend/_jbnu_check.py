@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import pymupdf, re
-doc = pymupdf.open(r"C:\Users\USER\camnemi-crm\backend\_guide_pdfs\jbnu_2026_spring.pdf")
+doc = pymupdf.open(r"C:\Users\wisew\camnemi-crm\backend\_guide_pdfs\jbnu_2026_spring.pdf")
 full = "\n".join(p.get_text() for p in doc)
 doc.close()
 

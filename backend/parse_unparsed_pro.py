@@ -7,13 +7,13 @@ or its _file is already in guides_llm_parsed.jsonl. lang files like
 """
 import os, re, json, urllib.request
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 PARSED = os.path.join(BASE, "guides_llm_parsed.jsonl")
 MODEL = "deepseek/deepseek-v4-pro"
 
 def _auth():
-    for p in [r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\USER\AppData\Local\hermes\auth.json"]:
+    for p in [r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\wisew\AppData\Local\hermes\auth.json"]:
         if not os.path.exists(p): continue
         d = json.load(open(p, encoding="utf-8"))
         if isinstance(d, dict) and d.get("access_token"):

@@ -4,8 +4,8 @@ gaps where tuition_range is missing in consulting_db."""
 import os, re, json
 import pymupdf
 
-DIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_어학연수_모집요강"
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+DIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_어학연수_모집요강"
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 lp = KB["lang_programs"]["schools"]
 
 def norm(s): return re.sub(r"\[.*?\]","",s).replace("대학교","").replace("대학","").replace(" ","")
@@ -65,6 +65,6 @@ for k,f in targets2:
     if amts:
         found[k]={"min":amts[0],"max":amts[-1]}
 
-json.dump(found, open(r"C:\Users\USER\camnemi-crm\backend\_lang_tuition_gap.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(found, open(r"C:\Users\wisew\camnemi-crm\backend\_lang_tuition_gap.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"수업료 추가 추출: {len(found)}개")
 for k,v in list(found.items())[:20]: print(f"  {k}: {v}")

@@ -3,8 +3,8 @@
 already carry curated period/lang (esp. the original 43-deep set + 46 curated)."""
 import json, re
 
-DATA = r"C:\Users\USER\camnemi-crm\data.js"
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+DATA = r"C:\Users\wisew\camnemi-crm\data.js"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB_PATH, encoding="utf-8"))
 
 content = open(DATA, encoding="utf-8").read()

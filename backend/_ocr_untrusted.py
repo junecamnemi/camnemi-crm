@@ -6,11 +6,11 @@ import json, os, glob, sys
 import pymupdf, numpy as np
 from rapidocr_onnxruntime import RapidOCR
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 TRUST = os.path.join(BASE, "_llmparse_trust.json")
 OUTDIR = os.path.join(BASE, "_ocr_text")
 os.makedirs(OUTDIR, exist_ok=True)
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 
 PDF_BY_NAME = {}
 for p in glob.glob(os.path.join(UP, "**", "*.pdf"), recursive=True):

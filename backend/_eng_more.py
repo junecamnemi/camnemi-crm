@@ -7,7 +7,7 @@ import re
 import json
 import pymupdf
 
-DIR = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+DIR = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
 
 FOCUS = ["경희대학교","광운대학교","한양대학교(ERICA)","한경국립대학교","서울대학교","연세대학교",
          "경북대학교","선문대학교","한동대학교","고신대학교","영남대학교","동신대학교","중원대학교",

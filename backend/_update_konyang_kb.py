@@ -3,7 +3,7 @@
 Verified 2026-09-07 from official sources (interedu.konyang.ac.kr + 2026 외국인 요강)."""
 import json
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB_PATH, encoding="utf-8"))
 
 # ---- lang_programs: 건양대 D-4 어학연수 ----

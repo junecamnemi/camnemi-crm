@@ -13,7 +13,7 @@ ALIAS = {'포스텍':'포항공과대학교','한국해양대학교':'국립한�
          '부경대학교':'국립부경대학교','창원대학교':'국립창원대학교','용인송담대학교':'용인예술과학대학교'}
 
 def main():
-    h = open(r"C:\Users\USER\camnemi-crm\index.html", encoding="utf-8").read()
+    h = open(r"C:\Users\wisew\camnemi-crm\index.html", encoding="utf-8").read()
     K = re.search(r"DEFAULT_SUPABASE_KEY\s*=\s*'([^']+)'", h).group(1)
     base = "https://zjdvzpylzazfbazioxto.supabase.co/rest/v1/" if False else "https://zjdvzpylxazfbazioxto.supabase.co/rest/v1/"
     def get(p):

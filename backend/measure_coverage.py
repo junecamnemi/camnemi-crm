@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Measure dictionary coverage: token hit-rate across all sources + gap analysis."""
 import json, os, re, csv, sys, collections
-K=r"C:\Users\USER\khmer"; T=r"C:\Users\USER\camnemi-topik"; N=r"C:\Users\USER\khmer_news"; B=r"C:\Users\USER\camnemi-crm\backend"
+K=r"C:\Users\wisew\khmer"; T=r"C:\Users\wisew\camnemi-topik"; N=r"C:\Users\wisew\khmer_news"; B=r"C:\Users\wisew\camnemi-crm\backend"
 
 def load_all():
     ko_en={}; 

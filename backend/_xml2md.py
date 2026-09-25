@@ -3,8 +3,8 @@
 """Convert hwp5proc XML → clean text WITH tables (markdown-ish), for astra parsing."""
 import re, os, xml.etree.ElementTree as ET
 
-SRC = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\체류민원.xml"
-OUT = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\체류민원_md.txt"
+SRC = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\체류민원.xml"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\체류민원_md.txt"
 
 # The hwp5proc XML uses a namespace-less structure with <Table>/<Row>/<Cell>/<Text>
 # Names may have prefixes; strip them for simplicity.
@@ -42,6 +42,6 @@ txt = re.sub(r"\n{3,}", "\n\n", txt)
 open(OUT, "w", encoding="utf-8").write(txt)
 print("변환 길이:", len(txt))
 print("테이블 마커:", txt.count("[TABLE]"))
-open(r"C:\Users\USER\AppData\Local\Temp\man_preview.txt","w",encoding="utf-8").write(txt[:3000])
+open(r"C:\Users\wisew\AppData\Local\Temp\man_preview.txt","w",encoding="utf-8").write(txt[:3000])
 print("\n=== 미리보기 ===")
 print(txt[:1200])

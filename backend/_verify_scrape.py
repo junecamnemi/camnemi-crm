@@ -4,7 +4,7 @@
 Output _scrape_verified.json {school,level,url,ok,reason,size}."""
 import json, os, re, urllib.request, ssl
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 suggest = json.load(open(os.path.join(B, "_scrape_suggest_A.json"), encoding="utf-8"))
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124.0 Safari/537.36"}
 CTX = ssl.create_default_context(); CTX.check_hostname=False; CTX.verify_mode=ssl.CERT_NONE

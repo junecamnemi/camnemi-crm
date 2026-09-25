@@ -2,7 +2,7 @@
 """FIX: remove 한양대 winter-data wrongly injected into 한양여자대학교; add 한양대학교."""
 import json
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB_PATH, encoding="utf-8"))
 lp = kb["lang_programs"]["schools"]
 

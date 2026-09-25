@@ -9,11 +9,11 @@ import os, re, json, glob
 import pymupdf
 
 FOLDERS = {
-    "ba2027": r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인",
-    "ba2026": r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인",
-    "ma": r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_대학원_모집요강",
+    "ba2027": r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인",
+    "ba2026": r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인",
+    "ma": r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_대학원_모집요강",
 }
-OUT = r"C:\Users\USER\camnemi-crm\backend\_deep_all_v3.json"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\_deep_all_v3.json"
 
 
 def school_key(fn, kind):

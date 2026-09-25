@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import os, re
-D = r"C:/Users/USER/camnemi-crm/_curation_tmp/medcat_dentalvet"
+D = r"C:/Users/wisew/camnemi-crm/_curation_tmp/medcat_dentalvet"
 def clean(f):
     return re.sub(r"[ \t]+"," ",open(os.path.join(D,f),encoding="utf-8").read().replace("\x00"," "))
 def dump_occ(f, kw, w, maxn):

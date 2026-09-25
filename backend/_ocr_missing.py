@@ -5,7 +5,7 @@ import pymupdf, numpy as np, io, json
 from PIL import Image
 from rapidocr_onnxruntime import RapidOCR
 
-PDF = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\사증민원_매뉴얼.pdf"
+PDF = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\사증민원_매뉴얼.pdf"
 d = pymupdf.open(PDF)
 ocr = RapidOCR()
 out = {}
@@ -18,5 +18,5 @@ for pg in [1, 279, 447, 508]:
     out[pg] = txt
     print(f"===== p{pg} (텍스트층 {len(page.get_text().strip())}자 → OCR {len(txt)}자) =====")
     print(txt[:600]); print()
-json.dump(out, open(r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\사증민원_이미지페이지_OCR.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(out, open(r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\사증민원_이미지페이지_OCR.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print("저장됨")

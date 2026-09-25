@@ -27,7 +27,7 @@ ALIAS = {'포스텍': '포항공과대학교', '한국해양대학교': '국립�
          '창원대학교': '국립창원대학교', '용인송담대학교': '용인예술과학대학교'}
 
 def _key():
-    h = open(r"C:\Users\USER\camnemi-crm\index.html", encoding="utf-8").read()
+    h = open(r"C:\Users\wisew\camnemi-crm\index.html", encoding="utf-8").read()
     return re.search(r"DEFAULT_SUPABASE_KEY\s*=\s*'([^']+)'", h).group(1)
 
 def _get(key, path):

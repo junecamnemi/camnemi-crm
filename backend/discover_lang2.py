@@ -9,7 +9,7 @@ Falls back to a web-search-triggered domain guess if no admission URL is known.
 """
 import os, re, json, subprocess, datetime, argparse, urllib.parse
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 LANG_KEY = re.compile(r"한국어교육원|어학당|어학원|한국어|어학|international|korean.?language|klc|korean", re.I)
 

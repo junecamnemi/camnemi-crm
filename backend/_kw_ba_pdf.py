@@ -1,6 +1,6 @@
 import pymupdf, re, os, glob
 
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 cands = glob.glob(os.path.join(UP, "**", "*경운대학교[본교]_2026_외국인*.pdf"), recursive=True) or \
         glob.glob(os.path.join(UP, "**", "*경운대*외국인*.pdf"), recursive=True)
 print("찾은 파일:", cands)

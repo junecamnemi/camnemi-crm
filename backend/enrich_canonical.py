@@ -9,9 +9,9 @@ canonical/schools.jsonl 을 in-place 갱신.
 import json, os, re, math
 from collections import Counter
 
-BE = r'C:\Users\USER\camnemi-crm\backend'
+BE = r'C:\Users\wisew\camnemi-crm\backend'
 CANON = os.path.join(BE, 'canonical', 'schools.jsonl')
-ACAD = r'C:\Users\USER\_tuition_acad.jsonl'
+ACAD = r'C:\Users\wisew\_tuition_acad.jsonl'
 KB = os.path.join(BE, 'verified_kb.json')
 
 

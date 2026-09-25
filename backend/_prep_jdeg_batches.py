@@ -3,10 +3,10 @@
 exists in the local junior-guide folder. Batch into ~12 each."""
 import json, os, re
 
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 js = KB["junior"]["schools"]
 
-SRC_DEG = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
+SRC_DEG = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
 os.makedirs(SRC_DEG, exist_ok=True)
 # existing PDFs
 have = set()
@@ -28,12 +28,12 @@ for n, v in js.items():
                  "topik_req": v.get("topik_req"), "ielts_req": v.get("ielts_req")})
 
 print(f"PDF 확보 필요 전문대: {len(need)} (guide_url 보유 중 로컬 PDF 없는 것)")
-json.dump(need, open(r"C:\Users\USER\camnemi-crm\backend\_junior_deg_need.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(need, open(r"C:\Users\wisew\camnemi-crm\backend\_junior_deg_need.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 BATCH = 10
 batches = [need[i:i+BATCH] for i in range(0, len(need), BATCH)]
 for i, b in enumerate(batches):
-    json.dump(b, open(rf"C:\Users\USER\camnemi-crm\backend\_jdeg_batch{i}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(b, open(rf"C:\Users\wisew\camnemi-crm\backend\_jdeg_batch{i}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"배치 {len(batches)}개")
 for i, b in enumerate(batches):
     print(f"  batch{i} ({len(b)}): {', '.join(x['school'] for x in b)}")

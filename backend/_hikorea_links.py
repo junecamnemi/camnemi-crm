@@ -10,7 +10,7 @@ r = subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-sandbox",
                     "--virtual-time-budget=15000", "--dump-dom", URL],
                    capture_output=True, text=True, encoding="utf-8", errors="ignore", timeout=180)
 html = r.stdout or ""
-open(r"C:\Users\USER\camnemi-crm\backend\_hikorea_dom.html", "w", encoding="utf-8").write(html)
+open(r"C:\Users\wisew\camnemi-crm\backend\_hikorea_dom.html", "w", encoding="utf-8").write(html)
 print("DOM len:", len(html))
 
 # find onclick handlers / file links

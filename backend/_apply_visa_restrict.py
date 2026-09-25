@@ -8,7 +8,7 @@ Also patches recommend.py to respect `recommend_exclude`.
 """
 import json, os, re, shutil, datetime
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(B, "verified_kb.json"); CDB = os.path.join(B, "consulting_db.json")
 
 def norm(s):

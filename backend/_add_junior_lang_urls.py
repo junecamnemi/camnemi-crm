@@ -4,7 +4,7 @@
 Merges web-researched URLs into verified_kb.json junior section (lang_src field)."""
 import json, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(BASE, "verified_kb.json")
 
 # Junior-college language school URLs (web-researched, 2026)

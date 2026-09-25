@@ -4,7 +4,7 @@
 + junior colleges (KB lang_src). Also flags anomalous junior lang tuition."""
 import json, os, csv
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 OUT_CSV = os.path.join(BASE, "language_school_urls.csv")
 OUT_JSON = os.path.join(BASE, "language_school_urls.json")
 

@@ -6,7 +6,7 @@ Idempotent — safe to run in cron.
 """
 import json, re, io, shutil, datetime, sys, subprocess, os
 
-BASE = r"C:\Users\USER\camnemi-crm"
+BASE = r"C:\Users\wisew\camnemi-crm"
 KB   = os.path.join(BASE, "backend", "verified_kb.json")
 DB   = os.path.join(BASE, "backend", "consulting_db.json")
 DATA = os.path.join(BASE, "data.js")

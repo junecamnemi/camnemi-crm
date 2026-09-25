@@ -22,7 +22,7 @@ REFERER_LIST = f"{BASE}/ucp/uvt/uni/univView.do?menuId=PCUVTINF2000"
 REFERER_DETAIL = f"{BASE}/ucp/uvt/uni/univDetail.do?menuId=PCUVTINF2000&searchSyr=2026"
 
 YEAR = 2026
-OUT_DIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
+OUT_DIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
 os.makedirs(OUT_DIR, exist_ok=True)
 
 TARGETS = [

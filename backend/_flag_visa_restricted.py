@@ -3,8 +3,8 @@
 Restriction = 2026 2학기부터 1년간 신입생 비자 발급 원칙 제한."""
 import json
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
-db_path = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+db_path = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
 
 # (school, scope) — scope: 'degree' = 학위과정, 'lang' = 어학연수과정
 restricted = {

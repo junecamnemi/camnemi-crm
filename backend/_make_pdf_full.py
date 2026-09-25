@@ -21,7 +21,7 @@ addMapping("Malgun", 1, 0, "Malgun-Bold")
 FONT = "Malgun"
 FONT_BOLD = "Malgun-Bold"
 
-OUT = r"C:\Users\USER\camnemi-crm\backend\영어트랙_대학정리_2026_2027_전체.pdf"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\영어트랙_대학정리_2026_2027_전체.pdf"
 
 # school, loc, rank, majors(eng track), lang, period, tuition, scholarship, year
 DATA = [

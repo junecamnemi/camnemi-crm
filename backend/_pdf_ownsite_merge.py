@@ -3,7 +3,7 @@
 Foreigner HTML files stay in _ownsite_daily (they are the guide)."""
 import os, re, shutil
 
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 GUIDES = os.path.join(UP, "guides")
 OWNSITE = os.path.join(UP, "_ownsite_daily")
 

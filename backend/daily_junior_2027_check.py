@@ -15,7 +15,7 @@ website. Outputs:
 """
 import json, os, re, datetime
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 OUT = os.path.join(BASE, "_guide_2027_junior.json")
 PENDING = os.path.join(BASE, "_junior_pending.json")
 

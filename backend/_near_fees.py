@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Extract fees + country/admission from Shinhan & Seojeong PDFs."""
 import pymupdf, os, re
-DIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_어학연수_모집요강"
+DIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_어학연수_모집요강"
 for fn in ["신한대_한국어교육원.pdf","서정대학교_한국어교육원.pdf"]:
     doc = pymupdf.open(os.path.join(DIR,fn))
     txt = "".join(doc[i].get_text() for i in range(len(doc)))

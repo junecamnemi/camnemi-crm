@@ -8,7 +8,7 @@ records the resulting program page into scrape_map (level=lang).
 """
 import os, re, json, subprocess, datetime, argparse, tempfile
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 LANG_KEY = re.compile(r"한국어교육원|어학당|어학원|한국어|국제|어학|인터내셔널|international|korean.?language|klc|ellt", re.I)
 

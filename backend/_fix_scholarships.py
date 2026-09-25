@@ -5,7 +5,7 @@ Adds tier conditions extracted from the actual 2027 guides."""
 import re
 import json
 
-DATA_FILE = r"C:\Users\USER\camnemi-crm\data.js"
+DATA_FILE = r"C:\Users\wisew\camnemi-crm\data.js"
 
 with open(DATA_FILE, encoding="utf-8") as f:
     content = f.read()

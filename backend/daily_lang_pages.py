@@ -8,7 +8,7 @@ Output: _lang_guide_pages.json {school: {page_url,title,year,pdf_url,html_only,s
 import os, re, json, datetime
 from collections import Counter
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 OUT = os.path.join(BASE, "_lang_guide_pages.json")
 
 TITLE_KW = re.compile(r"(외국인|유학생|어학연수|연수|입학|모집|답),?", re.I)

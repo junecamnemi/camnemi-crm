@@ -10,8 +10,8 @@ Data:
 """
 import json, os, re, csv, sys, itertools, urllib.request
 
-K = r"C:\Users\USER\khmer"; T = r"C:\Users\USER\camnemi-topik"; N = r"C:\Users\USER\khmer_news"
-OUT = r"C:\Users\USER\camnemi-crm\backend"
+K = r"C:\Users\wisew\khmer"; T = r"C:\Users\wisew\camnemi-topik"; N = r"C:\Users\wisew\khmer_news"
+OUT = r"C:\Users\wisew\camnemi-crm\backend"
 
 def load_ko_en():
     """vocab-dict.js -> {korean: english}"""

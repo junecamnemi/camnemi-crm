@@ -6,7 +6,7 @@ import os
 import re
 import pymupdf
 
-DIR_ADIGA = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+DIR_ADIGA = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
 
 targets = {
     "숙명여대": "0000141_숙명여자대학교[본교]_2027_외국인.pdf",

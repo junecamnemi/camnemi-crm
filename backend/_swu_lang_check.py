@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Extract full text from Seoul Women's Univ lang PDF, esp. the country list part."""
 import fitz
-p = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_어학연수_모집요강\서울여자대_한국어교육원.pdf"
+p = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_어학연수_모집요강\서울여자대_한국어교육원.pdf"
 doc = fitz.open(p)
 print("pages:", len(doc))
 full = ""

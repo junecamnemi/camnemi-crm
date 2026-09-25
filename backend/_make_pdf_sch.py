@@ -20,18 +20,18 @@ addMapping("Malgun", 1, 0, "Malgun-Bold")
 FONT, FONT_BOLD = "Malgun", "Malgun-Bold"
 
 # Load parsed scholarships + categorized scholarships + fee structures
-with open(r"C:\Users\USER\camnemi-crm\backend\_scholarship_parsed.json", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_scholarship_parsed.json", encoding="utf-8") as f:
     SCH = json.load(f)
-with open(r"C:\Users\USER\camnemi-crm\backend\_scholarship_categorized.json", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_scholarship_categorized.json", encoding="utf-8") as f:
     SCH_CAT = json.load(f)
-with open(r"C:\Users\USER\camnemi-crm\backend\_fees_extracted.json", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_fees_extracted.json", encoding="utf-8") as f:
     FEES = json.load(f)
 
 # Load compiled tuition data
-with open(r"C:\Users\USER\camnemi-crm\backend\_tuition_final.json", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_tuition_final.json", encoding="utf-8") as f:
     TUITION = json.load(f)
 
-OUT = r"C:\Users\USER\camnemi-crm\backend\영어트랙_대학정리_2026_2027_장학금포함.pdf"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\영어트랙_대학정리_2026_2027_장학금포함.pdf"
 
 # school, loc, rank, majors, lang, period, year (tuition pulled from TUITION dict)
 DATA = [

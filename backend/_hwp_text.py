@@ -3,7 +3,7 @@
 """Extract text from the HiKorea manuals (HWP) via pyhwp."""
 import os, sys, io, contextlib
 
-OUT = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals"
 files = ["260901 사증민원 자격별 안내 매뉴얼.hwp", "260901 체류민원 자격별 안내 매뉴얼.hwp"]
 
 for fn in files:

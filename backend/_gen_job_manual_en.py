@@ -22,7 +22,7 @@ else: FONT,FBOLD="Helvetica","Helvetica-Bold"
 NAVY=colors.HexColor("#0B2545"); GOLD=colors.HexColor("#C9A227")
 LGRAY=colors.HexColor("#EEF1F5"); WHITE=colors.white; DARK=colors.HexColor("#1a1a1a")
 
-B=r"C:\Users\USER\camnemi-crm\backend"
+B=r"C:\Users\wisew\camnemi-crm\backend"
 job=json.load(open(B+r"\job_manual_kr.json",encoding="utf-8"))
 tp=job["time_parttime"]
 

@@ -3,7 +3,7 @@
 """Analyze master's tuition: low/high, by region, by field."""
 import json
 
-with open(r"C:\Users\USER\camnemi-crm\backend\_ma_raw.json", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_ma_raw.json", encoding="utf-8") as f:
     ma = json.load(f)
 
 with_tuition = [s for s in ma if s["tuition_min"]]

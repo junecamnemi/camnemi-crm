@@ -8,7 +8,7 @@
 """
 import json, re, os, glob
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 
 # load rich MA data
 with open(os.path.join(BASE, "_ma_rich.json"), encoding="utf-8") as f:

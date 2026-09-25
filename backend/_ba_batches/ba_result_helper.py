@@ -1,6 +1,6 @@
 import json, sys, io
 
-PATH = r"C:/Users/USER/camnemi-crm/backend/_ba_batches/BA_batch_01_result.json"
+PATH = r"C:/Users/wisew/camnemi-crm/backend/_ba_batches/BA_batch_01_result.json"
 
 def load():
     try:

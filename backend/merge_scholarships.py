@@ -15,7 +15,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 JSONL = os.path.join(BASE, "scholarships_llm.jsonl")
 
 def _key():
-    h = open(r"C:\Users\USER\camnemi-crm\index.html", encoding="utf-8").read()
+    h = open(r"C:\Users\wisew\camnemi-crm\index.html", encoding="utf-8").read()
     return re.search(r"DEFAULT_SUPABASE_KEY\s*=\s*'([^']+)'", h).group(1)
 
 ALIAS = {'포스텍':'포항공과대학교','한국해양대학교':'국립한국해양대학교','한국교통대학교':'국립한국교통대학교',

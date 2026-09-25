@@ -10,7 +10,7 @@ def main():
     title = sys.argv[5]
     note = sys.argv[6]
 
-    base = r"C:/Users/USER/camnemi-crm/backend"
+    base = r"C:/Users/wisew/camnemi-crm/backend"
     path = os.path.join(base, "_%s_batches" % track, "%s_daily_20260905_result.json" % track.upper())
 
     data = []

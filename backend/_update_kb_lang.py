@@ -5,7 +5,7 @@ Source of truth is verified_kb; consulting_db is regenerated afterward by _build
 Backup first."""
 import json, os, shutil, datetime
 
-KB = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+KB = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 bak = KB.replace(".json", f"_lang_bak_{datetime.date.today().isoformat()}.json")
 shutil.copy(KB, bak)
 print("백업:", bak)
@@ -13,8 +13,8 @@ print("백업:", bak)
 kb = json.load(open(KB, encoding="utf-8"))
 lp = kb["lang_programs"]["schools"]
 
-D26 = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_어학연수_모집요강"
-D27 = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_어학연수_모집요강"
+D26 = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_어학연수_모집요강"
+D27 = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_어학연수_모집요강"
 
 # Updates keyed by the verified_kb lang_programs key name
 updates = {

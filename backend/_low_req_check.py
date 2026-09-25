@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import pymupdf, re, os
-DIR = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+DIR = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
 KEYS = ['우송','동신','제주국제','한일장신','중원','창신','한동','고신','선문']
 for fn in sorted(os.listdir(DIR)):
     if not fn.endswith('.pdf'): continue

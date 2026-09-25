@@ -5,7 +5,7 @@ Foreigner HTML files are NOT touched (they are the guide itself)."""
 import os
 from collections import defaultdict
 
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 
 # canonical priority: adiga_* folders first, then _ownsite_daily, then real
 def priority(path):

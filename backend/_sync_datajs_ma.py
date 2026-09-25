@@ -2,8 +2,8 @@
 """Sync MA curated data into data.js — map short curator names to full data.js school names."""
 import json, re, os
 
-DATA = r"C:\Users\USER\camnemi-crm\data.js"
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+DATA = r"C:\Users\wisew\camnemi-crm\data.js"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 
 # MA curation: short name -> (matching data.js name, period, lang_req, enroll, existing)
 MA_FILES = ["_curation_ma_out_batch0.json", "_curation_ma_out_batch1.json"]

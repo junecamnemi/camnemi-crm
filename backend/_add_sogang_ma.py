@@ -3,7 +3,7 @@
 """Add Sogang (서강대) to the master's KB — it was missed because majors_ma is empty."""
 import json, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(BASE, "verified_kb.json")
 
 with open(KB, encoding="utf-8") as f:

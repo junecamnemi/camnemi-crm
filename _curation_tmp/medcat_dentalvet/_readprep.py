@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import os, re
-D = r"C:/Users/USER/camnemi-crm/_curation_tmp/medcat_dentalvet"
+D = r"C:/Users/wisew/camnemi-crm/_curation_tmp/medcat_dentalvet"
 def clean(f):
     t = open(os.path.join(D,f),encoding="utf-8").read().replace("\u0001"," ").replace("\x00"," ")
     return re.sub(r"[ \t]+"," ",t)

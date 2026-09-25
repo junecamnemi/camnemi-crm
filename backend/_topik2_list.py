@@ -2,7 +2,7 @@
 """Schools accepting TOPIK 2 (or lower / no-TOPIK with alternatives) across BA / MA / junior."""
 import json, re
 
-kb = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+kb = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 
 def lvl_of(v):
     """Extract minimum TOPIK level mentioned in requirement fields."""

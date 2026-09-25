@@ -7,7 +7,7 @@
 """
 import json, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(BASE, "verified_kb.json")
 SCH_CAT = os.path.join(BASE, "_scholarship_categorized.json")
 FEES = os.path.join(BASE, "_fees_extracted.json")

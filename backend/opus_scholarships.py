@@ -7,13 +7,13 @@ Pro's thin scholarship_note. Output: _opus_scholarships.jsonl
 """
 import os, re, json, urllib.request
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 PARSED = os.path.join(BASE, "guides_llm_parsed.jsonl")
 OUT = os.path.join(BASE, "_opus_scholarships.jsonl")
 MODEL = "anthropic/claude-opus-5"
 
 def _auth():
-    for p in [r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\USER\AppData\Local\hermes\auth.json"]:
+    for p in [r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\wisew\AppData\Local\hermes\auth.json"]:
         if not os.path.exists(p): continue
         d = json.load(open(p, encoding="utf-8"))
         if isinstance(d, dict) and d.get("access_token"):
@@ -69,7 +69,7 @@ def main():
             path = None
             for prog in ["ba", "ma", "junior", "lang"]:
                 for y in ["2026", "2027"]:
-                    p = os.path.join(r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\guides", prog, y, f)
+                    p = os.path.join(r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\guides", prog, y, f)
                     if os.path.exists(p):
                         path = p; break
                 if path: break

@@ -4,7 +4,7 @@ Sources: _guide_pages.json (BA/MA/lang/junior), _junior_guide_pages.json,
 _lang_guide_pages.json. Only page_found entries with a real http page_url."""
 import json, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(BASE, "verified_kb.json")
 
 kb = json.load(open(KB, encoding="utf-8"))

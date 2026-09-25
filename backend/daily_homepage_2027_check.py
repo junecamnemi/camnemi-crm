@@ -33,17 +33,17 @@ try:
 except Exception:
     requests = None
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 MASTER = os.path.join(BASE, "_guide_2027_master.json")
 OUT_JSON = os.path.join(BASE, "_homepage_2027_check.json")
 OUT_NEW = os.path.join(BASE, "_homepage_2027_new.json")
 OUT_TXT = os.path.join(BASE, "_homepage_2027_summary.txt")
 
-ADIGA_BASE = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_외국인_모집요강"
+ADIGA_BASE = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_외국인_모집요강"
 ADIGA_MANIFEST = os.path.join(ADIGA_BASE, "download_manifest.csv")
 ADIGA_FOREIGN_DIR = os.path.join(ADIGA_BASE, "외국인")
-ADIGA_GRAD_DIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_대학원_모집요강"
-ADIGA_GRAD_DIR_2026 = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_대학원_모집요강"
+ADIGA_GRAD_DIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_대학원_모집요강"
+ADIGA_GRAD_DIR_2026 = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_대학원_모집요강"
 
 OK_2027 = {"2027_own", "2027_adiga", "2027_guide"}
 HEADERS = {

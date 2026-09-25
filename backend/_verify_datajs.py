@@ -1,6 +1,6 @@
 import json
 BS = chr(92)
-c = open(r"C:\Users\USER\camnemi-crm\data.js", encoding="utf-8").read()
+c = open(r"C:\Users\wisew\camnemi-crm\data.js", encoding="utf-8").read()
 s = c.find("["); d=0
 for i in range(s, len(c)):
     if c[i]=="[": d+=1

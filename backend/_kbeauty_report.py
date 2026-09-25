@@ -2,7 +2,7 @@
 """K-Beauty majors: admission req + tuition (+ per-dept fields) + scholarship, from synced KB."""
 import json, re
 
-kb = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+kb = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 KW = r"(뷰티|미용|코스메틱|K-뷰티|K뷰티|메이크업|피부|헤어|네일|향장|바이오코스메틱)"
 
 def find_depts(v):

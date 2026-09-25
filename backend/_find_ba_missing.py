@@ -4,7 +4,7 @@ Visits each school's main homepage (domain inferred) and locates the 입학/
 admission menu link via Playwright. Save _ba_missing_urls.json."""
 import json, os, re, datetime
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 OUT = os.path.join(BASE, "_ba_missing_urls.json")
 
 # 19 schools -> homepage; use web-search/known domain, fallback to .ac.kr guess

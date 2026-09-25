@@ -5,11 +5,11 @@ import os, json, re, urllib.request
 import pymupdf
 
 def _auth():
-    d = json.load(open(r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", encoding="utf-8"))
+    d = json.load(open(r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", encoding="utf-8"))
     return d["access_token"], d["inference_base_url"].rstrip("/")
 
 KEY, BASE = _auth()
-F = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강\real\국제대학교_전문학사_외국인모집요강.pdf"
+F = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강\real\국제대학교_전문학사_외국인모집요강.pdf"
 
 d = pymupdf.open(F)
 txt = re.sub(r"[\s\x00-\x1f]+", " ", "\n".join(d[i].get_text() for i in range(len(d))))

@@ -6,8 +6,8 @@
 Each entry gets school, level, and the guide_url / known source if available."""
 import json, re, os
 
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
-db = json.load(open(r"C:\Users\USER\camnemi-crm\backend\consulting_db.json", encoding="utf-8"))
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+db = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json", encoding="utf-8"))
 
 def norm(s): return re.sub(r"\[.*?\]","",s).replace("대학교","").replace("대학","").replace("전문대","").replace(" ","")
 
@@ -51,7 +51,7 @@ print(f"전문학사 지원시기 갭: {len(jr_need)}")
 
 # save all
 json.dump({"BA":ba_need,"MA":ma_need,"lang":lang_need,"junior":jr_need},
-          open(r"C:\Users\USER\camnemi-crm\backend\_all_gaps.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+          open(r"C:\Users\wisew\camnemi-crm\backend\_all_gaps.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 
 # make per-level batch files (10 each)
 all_levels = {"BA":ba_need,"MA":ma_need,"lang":lang_need,"junior":jr_need}
@@ -59,5 +59,5 @@ for lv, items in all_levels.items():
     B=10
     n_batch=(len(items)+B-1)//B
     for i in range(n_batch):
-        json.dump(items[i*B:(i+1)*B], open(rf"C:\Users\USER\camnemi-crm\backend\_gap_{lv}_{i}.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+        json.dump(items[i*B:(i+1)*B], open(rf"C:\Users\wisew\camnemi-crm\backend\_gap_{lv}_{i}.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"{lv}: {len(items)}개 → {n_batch} 배치")

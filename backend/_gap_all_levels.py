@@ -4,8 +4,8 @@ Levels: junior(전문학사), ba(학사), ma(석사), lang(어학연수).
 Cross-references verified_kb.json school lists vs local PDF folders."""
 import json, os, glob, re
 
-BASE = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+BASE = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 
 # ---- local PDF folders ----
 FOLDERS = {
@@ -13,7 +13,7 @@ FOLDERS = {
     "ba2026": os.path.join(BASE, "adiga_2026_외국인_모집요강", "외국인"),
     "ma": os.path.join(BASE, "adiga_2026_대학원_모집요강"),
     "lang": os.path.join(BASE, "adiga_2026_어학연수_모집요강"),
-    "junior_guides": r"C:\Users\USER\camnemi-crm\junior_guides",
+    "junior_guides": r"C:\Users\wisew\camnemi-crm\junior_guides",
 }
 
 def norm_pdf_names(folder):
@@ -48,7 +48,7 @@ def has_local_pdf(school, folder):
 junior_names = set(KB.get("junior", {}).get("schools", {}).keys()) if KB.get("junior") else set()
 lang_names = set(KB.get("lang_programs", {}).get("schools", {}).keys()) if KB.get("lang_programs") else set()
 # lang also includes those in language_school_urls.json
-lang_urls = json.load(open(r"C:\Users\USER\camnemi-crm\backend\language_school_urls.json", encoding="utf-8"))
+lang_urls = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\language_school_urls.json", encoding="utf-8"))
 lang_all = set(x["school"] for x in lang_urls) | lang_names
 
 report = {

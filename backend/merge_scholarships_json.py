@@ -30,7 +30,7 @@ def load_records(paths):
 def main():
     paths = sys.argv[1:]
     if not paths:
-        paths = glob.glob(r'C:\Users\USER\_schol_*.json')
+        paths = glob.glob(r'C:\Users\wisew\_schol_*.json')
     recs = load_records(paths)
     print(f"loaded {len(recs)} records from {len(paths)} files")
     # normalize into the parser JSONL shape

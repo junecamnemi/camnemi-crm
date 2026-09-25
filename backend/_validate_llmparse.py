@@ -8,9 +8,9 @@ Deterministic — no LLM. Outputs a per-record PASS/PARTIAL/FAIL + accuracy stat
 """
 import json, os, re, glob, random
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 JSONL = os.path.join(BASE, "guides_llm_parsed.jsonl")
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 
 # index all PDFs by filename
 PDF_BY_NAME = {}

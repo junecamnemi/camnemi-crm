@@ -3,8 +3,8 @@
 """Convert the distribution-protected 사증민원 manual to PDF/text using Hangul (HWPFrame COM)."""
 import os, sys, time, pythoncom, win32com.client as win32
 
-SRC = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.hwp"
-OUTDIR = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals"
+SRC = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals\260901 사증민원 자격별 안내 매뉴얼.hwp"
+OUTDIR = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals"
 
 def main():
     pythoncom.CoInitialize()

@@ -3,8 +3,8 @@
 MA programs. Also compute popular/similar majors for each level."""
 import json, re
 
-DB = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
-SCAN = json.load(open(r"C:\Users\USER\camnemi-crm\backend\_ma_scan_lang.json", encoding="utf-8"))
+DB = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
+SCAN = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_ma_scan_lang.json", encoding="utf-8"))
 db = json.load(open(DB, encoding="utf-8"))
 schools = db["schools"]
 

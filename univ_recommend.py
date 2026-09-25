@@ -12,7 +12,7 @@ import re
 import sys
 import os
 
-DATA_FILE = r"C:\Users\USER\camnemi-crm\data.js"
+DATA_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data.js")
 
 # English + USD output helpers (all student-facing output is English, tuition in USD)
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "backend"))
@@ -173,7 +173,12 @@ def recommend(ielts=None, major=None, level="ba", top=15, min_rank=None):
     # sort: ranked first, then by tuition min
     def sort_key(u):
         rk = u.get("rk") or 9999
-        t = ((u.get("tuition") or {}).get("ba") or {}).get("min") or 999999999
+        tu = u.get("tuition")
+        t = 999999999
+        if isinstance(tu, dict):
+            ba = tu.get("ba")
+            if isinstance(ba, dict):
+                t = ba.get("min") or 999999999
         return (rk, t)
 
     results.sort(key=sort_key)

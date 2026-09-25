@@ -1,7 +1,7 @@
 import pymupdf, re, os
 
-SRC = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_대학원_모집요강\경운대학교_대학원_모집요강.pdf"
-OUT = r"C:\Users\USER\camnemi-crm\backend\경운대_대학원_외국인전형_요약.pdf"
+SRC = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_대학원_모집요강\경운대학교_대학원_모집요강.pdf"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\경운대_대학원_외국인전형_요약.pdf"
 
 doc = pymupdf.open(SRC)
 # find pages mentioning 외국인/이중언어/영어Track/정원외

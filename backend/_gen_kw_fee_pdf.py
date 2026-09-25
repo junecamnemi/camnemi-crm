@@ -63,7 +63,7 @@ txt(page, 40, y, "※ 등록금은 2023학년도 기준 — 최신 금액은 학
 y += 12
 txt(page, 40, y, "※ 모집요강 PDF에는 등록금·장학금 표가 없으며, 위 자료는 공식 국제처 웹페이지 기준임", size=8)
 
-OUT = r"C:\Users\USER\camnemi-crm\backend\경운대_등록금_장학금_정리.pdf"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\경운대_등록금_장학금_정리.pdf"
 doc.save(OUT)
 doc.close()
 print("저장:", OUT)

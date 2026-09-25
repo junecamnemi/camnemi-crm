@@ -3,7 +3,7 @@
 Keeps HTML, manifests, scripts, and non-PDF files (foreigner HTML = the guide)."""
 import os
 
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 
 # folders to clean (PDFs only)
 FOLDERS = [

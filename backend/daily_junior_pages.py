@@ -18,8 +18,8 @@ Saves into `_junior_guide_pages.json`:
 import os, re, json, datetime
 from collections import Counter
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 OUT = os.path.join(BASE, "_junior_guide_pages.json")
 
 TITLE_KW = re.compile(r"(외국인|순수외국인|유학생|국제).{0,8}(모집|입학|요강)", re.I)

@@ -3,7 +3,7 @@
 from the 2026/2027 graduate admission guide PDF scan (2026-09-03)."""
 import json
 
-KB = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+KB = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB, encoding="utf-8"))
 master = kb["master"]["schools"]
 

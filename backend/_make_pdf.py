@@ -25,7 +25,7 @@ else:
     FONT = "Helvetica"
     FONT_BOLD = "Helvetica-Bold"
 
-OUT = r"C:\Users\USER\camnemi-crm\backend\영어트랙_대학정리_2026_2027.pdf"
+OUT = r"C:\Users\wisew\camnemi-crm\backend\영어트랙_대학정리_2026_2027.pdf"
 
 # ---------- Data: English-track schools (2026/2027) ----------
 # fields: school, loc, rank, majors, lang, period, tuition, scholarship

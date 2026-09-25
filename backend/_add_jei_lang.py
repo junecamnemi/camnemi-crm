@@ -5,7 +5,7 @@
 (consistent with the 85 lang-only abbrev key design)."""
 import json, os
 
-DB = r"C:\Users\USER\camnemi-crm\backend\consulting_db.json"
+DB = r"C:\Users\wisew\camnemi-crm\backend\consulting_db.json"
 d = json.load(open(DB, encoding="utf-8"))
 sch = d["schools"]
 

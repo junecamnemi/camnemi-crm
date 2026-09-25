@@ -4,9 +4,9 @@ KB(모집공고)가 업데이트되면 사이트에 바로 반영. 실패 시 �
 import json, re, os, sys, datetime
 import psycopg2
 
-BD = r'C:\Users\USER\camnemi-crm\backend'
+BD = r'C:\Users\wisew\camnemi-crm\backend'
 KB = os.path.join(BD, 'consulting_db.json')
-LOG = r'C:\Users\USER\_sup_sync.log'
+LOG = r'C:\Users\wisew\_sup_sync.log'
 
 def log(m):
     with open(LOG, 'a', encoding='utf-8') as f:
@@ -21,7 +21,7 @@ def main():
     if not src:
         log("no schools in KB"); return
     norm_map = {norm(k): k for k in src}
-    env = open(r'C:\Users\USER\camnemi-crm\.env', encoding='utf-8', errors='ignore').read()
+    env = open(r'C:\Users\wisew\camnemi-crm\.env', encoding='utf-8', errors='ignore').read()
     pw = re.search(r'SUPABASE_DB_PASSWORD\s*=\s*(\S+)', env).group(1)
     conn = psycopg2.connect(host='aws-0-ap-northeast-2.pooler.supabase.com', port=5432,
                             dbname='postgres', user='postgres.zjdvzpylxazfbazioxto',

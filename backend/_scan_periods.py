@@ -6,7 +6,7 @@ import os
 import re
 import json
 
-DIR = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+DIR = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
 
 import pymupdf  # fitz
 
@@ -80,5 +80,5 @@ for s in sorted(no):
     print(f"  {s}: {'ERROR' if v.get('error') else '기간 없음'} (chars={v.get('chars')})")
 
 # save full detail for further use
-with open(r"C:\Users\USER\camnemi-crm\backend\_period_scan.json", "w", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_period_scan.json", "w", encoding="utf-8") as f:
     json.dump(results, f, ensure_ascii=False, indent=2)

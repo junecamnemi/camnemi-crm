@@ -3,7 +3,7 @@
 """Clean scrape_map: drop 오탐 lang picks; re-pick error entries from the review batch (best candidate).
 Outputs updated scrape_map + a list for fresh discovery (error&uncovered with no usable candidate)."""
 import json, re, os, datetime
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 BADS = re.compile(r"\.css|\.js\b|korean\.net|\.png|\.jpg|smLogon|depart_intro", re.I)
 GUIDE = re.compile(r"모집요강|외국인|재외국민|graduate|foreign|international|yogang|mojib|notice|입학", re.I)
 PDF = re.compile(r"\.(pdf|hwp|hml|docx?)([?#]|$)|download\.do|fileview", re.I)

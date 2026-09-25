@@ -7,7 +7,7 @@
 - broad: 광역/계열모집/단일계열"""
 import json, re
 
-KB_PATH = r"C:\Users\USER\camnemi-crm\backend\verified_kb.json"
+KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB_PATH, encoding="utf-8"))
 
 def classify(unit):

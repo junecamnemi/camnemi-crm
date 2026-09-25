@@ -49,6 +49,6 @@ d.text((60,y),"○ 라인업: 르세라핌 · BTS · BLACKPINK · IVE",font=f(24
 d.rectangle((0,H-150,W,H),fill=(10,20,45))
 d.text((60,H-105),"CAMNEMI · 유학생을 위한 한국 소식",font=f(26),fill=GOLD)
 d.text((60,H-60),"출처: 벅스 K-POP 차트 · 하이코리아 · OTT",font=f(20,False),fill=MUTED)
-OUT=r"C:\Users\USER\camnemi-crm\backend\K트렌드_카드뉴스_0916.png"
+OUT=r"C:\Users\wisew\camnemi-crm\backend\K트렌드_카드뉴스_0916.png"
 img.save(OUT)
 print("저장:", OUT, os.path.getsize(OUT), "bytes |", W,"x",H)

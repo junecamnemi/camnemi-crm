@@ -2,8 +2,8 @@
 """Point KB guide_pdf/guide_page_url to the newly-downloaded 2027 guides."""
 import json, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 KB = os.path.join(BASE, "verified_kb.json")
 STATE = os.path.join(BASE, "_guide_2027_detected.json")
 

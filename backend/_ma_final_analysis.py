@@ -6,14 +6,14 @@ Saves to backend/master_analysis.csv for instant replies."""
 import json, re, csv
 from collections import defaultdict
 
-with open(r"C:\Users\USER\camnemi-crm\backend\_ma_rich.json", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_ma_rich.json", encoding="utf-8") as f:
     schools = json.load(f)
 
 # Load MA guide status/URLs from batches
 ma_guide = {}
 import glob
-for fn in glob.glob(r"C:\Users\USER\camnemi-crm\backend\_ma_batches\MA_batch_*_result.json") + \
-          glob.glob(r"C:\Users\USER\camnemi-crm\backend\_ma_batches\MA_fill_*_result.json"):
+for fn in glob.glob(r"C:\Users\wisew\camnemi-crm\backend\_ma_batches\MA_batch_*_result.json") + \
+          glob.glob(r"C:\Users\wisew\camnemi-crm\backend\_ma_batches\MA_fill_*_result.json"):
     try:
         with open(fn, encoding="utf-8") as f:
             r = json.load(f)
@@ -64,7 +64,7 @@ def rk_key(r):
 rows.sort(key=rk_key)
 
 # Write CSV
-out = r"C:\Users\USER\camnemi-crm\backend\master_analysis.csv"
+out = r"C:\Users\wisew\camnemi-crm\backend\master_analysis.csv"
 with open(out, "w", encoding="utf-8-sig", newline="") as f:
     w = csv.DictWriter(f, fieldnames=["school","region","rank","n_majors","majors","tuition_min","tuition_max","guide_status","guide_url","lang_req"])
     w.writeheader()

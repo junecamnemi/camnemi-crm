@@ -4,7 +4,7 @@ missing guide_url. For each: visit the school homepage, find international/
 language-institute link. Save into _lang_url_backfill.json."""
 import os, re, json, datetime
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 OUT = os.path.join(BASE, "_lang_url_backfill.json")
 
 HOMEPAGES = {  # 29 schools -> guess homepage (school domain)

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Extract Kyungin Women's Univ D-4 Korean program details."""
 import pymupdf, re
-doc = pymupdf.open(r"C:\Users\USER\AppData\Local\Temp\kiwu.pdf")
+doc = pymupdf.open(r"C:\Users\wisew\AppData\Local\Temp\kiwu.pdf")
 txt = "".join(doc[i].get_text() for i in range(len(doc)))
 print("pages:", len(doc))
 # find 한국어과정(D-4) section

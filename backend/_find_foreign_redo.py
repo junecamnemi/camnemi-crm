@@ -4,9 +4,9 @@ For each, find the proper 외국인/유학생 admission page and note it for red
 Save a needs-redo list + the correct foreigner admission URL if discoverable."""
 import pymupdf, os, re, json, subprocess, urllib.parse
 
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 js = KB["junior"]["schools"]
-SAVEDIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
+SAVEDIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
 
 FOREIGN_KW = re.compile(r'외국인|유학생|순수외국인|재외국민|international|foreign|D-4|D4|유학')
 
@@ -32,7 +32,7 @@ for fn in sorted(os.listdir(SAVEDIR)):
     gu = v.get("guide_url","")
     redo.append({"school": school, "file": fn, "guide_url": gu, "text_len": len(t.strip())})
 
-json.dump(redo, open(r"C:\Users\USER\camnemi-crm\backend\_junior_need_foreign.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(redo, open(r"C:\Users\wisew\camnemi-crm\backend\_junior_need_foreign.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"외국인 전형 아닌(재확보 필요) PDF: {len(redo)}")
 for r in redo:
     print(f"  {r['school']} | {r['file']}")

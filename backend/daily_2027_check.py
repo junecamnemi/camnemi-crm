@@ -15,7 +15,7 @@ Flow:
       the pending lists and merges results.]
   4. Rebuild the master + summary reports and emit a "new today" diff.
 
-Outputs (in C:/Users/USER/camnemi-crm/backend/):
+Outputs (in C:/Users/wisew/camnemi-crm/backend/):
   _guide_2027_master.csv/.json   updated per-school 3-track status
   _guide_2027_summary.csv        compact summary
   _daily_pending.json            pending-school list for the subagent pass
@@ -23,9 +23,9 @@ Outputs (in C:/Users/USER/camnemi-crm/backend/):
 """
 import json, os, re, csv, datetime, glob
 
-BASE = r"C:/Users/USER/camnemi-crm/backend"
+BASE = r"C:/Users/wisew/camnemi-crm/backend"
 OUT = BASE
-ADIGA27 = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강"
+ADIGA27 = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강"
 SCRAPE = os.path.join(ADIGA27, "scrape_adiga_2027.py")
 
 TRACK_KEY = {"BA": "ba_status", "MA": "ma_status", "lang": "lang_status"}
@@ -50,7 +50,7 @@ def run_adiga_scrape():
 
 def load_avail(year):
     """adiga availability set for a given year (stripped names)."""
-    path = rf"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_{year}_외국인_모집요강/download_manifest.csv"
+    path = rf"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_{year}_외국인_모집요강/download_manifest.csv"
     out = set()
     if os.path.exists(path):
         with open(path, encoding="utf-8-sig") as f:

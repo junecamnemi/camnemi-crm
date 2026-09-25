@@ -3,11 +3,11 @@
 Fallback when no direct 요강 PDF is downloadable but the admission page has info."""
 import json, os, subprocess, time
 
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
 js = KB["junior"]["schools"]
-SAVEDIR = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
+SAVEDIR = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2026_전문대학_모집요강"
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-TMP = os.path.join(os.environ.get("LOCALAPPDATA", r"C:\Users\USER\AppData\Local"), "Temp")
+TMP = os.path.join(os.environ.get("LOCALAPPDATA", r"C:\Users\wisew\AppData\Local"), "Temp")
 
 def norm(s): return s.replace("대학교","").replace("대학","").replace("전문대","").replace(" ","")
 have = set(norm(os.path.splitext(f)[0].replace("_전문학사_모집요강","").replace("_전문학사학위심화","")) for f in os.listdir(SAVEDIR) if f.endswith(".pdf"))
@@ -51,4 +51,4 @@ print(f"\n렌더 성공: {len(ok)}")
 for n,s in ok: print(f"  ✓ {n} ({s})")
 print(f"\n실패: {len(fail)}")
 print(" ", fail)
-json.dump({"ok":ok,"fail":fail}, open(r"C:\Users\USER\camnemi-crm\backend\_junior_render.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump({"ok":ok,"fail":fail}, open(r"C:\Users\wisew\camnemi-crm\backend\_junior_render.json","w",encoding="utf-8"), ensure_ascii=False, indent=1)

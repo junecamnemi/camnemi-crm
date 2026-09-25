@@ -3,7 +3,7 @@
 import re, json, os, glob
 
 # Parse data.js properly
-txt = open(r'C:\Users\USER\camnemi-crm\data.js', encoding='utf-8').read()
+txt = open(r'C:\Users\wisew\camnemi-crm\data.js', encoding='utf-8').read()
 start = txt.find('[')
 # find matching close bracket
 depth = 0
@@ -33,11 +33,11 @@ def local_guides(folder):
         guides[fn2] = fp
     return guides
 
-g2027 = local_guides(r'C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인')
-g2026 = local_guides(r'C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인')
+g2027 = local_guides(r'C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인')
+g2026 = local_guides(r'C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인')
 # MA guides
 gma = {}
-for fp in glob.glob(r'C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_대학원_모집요강/*.pdf'):
+for fp in glob.glob(r'C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_대학원_모집요강/*.pdf'):
     fn = os.path.basename(fp).replace('_대학원_모집요강.pdf','').replace('_2026전기_일반대학원_국문','')
     gma[fn] = fp
 

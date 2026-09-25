@@ -6,7 +6,7 @@ Focus statuses: D-2, D-4, D-10, E-7 (+ D-4→D-2 change path). Model: deepseek-v
 import json, os, re, urllib.request
 
 def _auth():
-    for p in [r"C:\Users\USER\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\USER\AppData\Local\hermes\auth.json"]:
+    for p in [r"C:\Users\wisew\AppData\Local\hermes\shared\nous_auth.json", r"C:\Users\wisew\AppData\Local\hermes\auth.json"]:
         if not os.path.exists(p): continue
         d = json.load(open(p, encoding="utf-8"))
         if isinstance(d, dict) and d.get("access_token"):
@@ -17,7 +17,7 @@ def _auth():
     raise SystemExit("no auth")
 BASE, KEY = _auth()
 MODEL = "deepseek/deepseek-v4-pro"
-HM = r"C:\Users\USER\camnemi-crm\backend\hikorea_manuals"
+HM = r"C:\Users\wisew\camnemi-crm\backend\hikorea_manuals"
 
 saj = open(os.path.join(HM,"사증민원_매뉴얼_전체.txt"), encoding="utf-8").read()
 che = open(os.path.join(HM,"체류민원_md.txt"), encoding="utf-8").read()

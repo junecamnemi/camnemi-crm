@@ -7,12 +7,12 @@ BASE = 'https://www.adiga.kr'
 HEADERS = {'User-Agent': 'Mozilla/5.0', 'Accept-Language': 'ko-KR,ko;q=0.9'}
 
 # load 126 junior names
-with open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8") as f:
     kb = json.load(f)
 juniors = list(kb["junior"]["schools"].keys())
 
 # load existing known unvcds
-with open(r"C:\Users\USER\camnemi-crm\backend\_guide_2027_junior.json", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_guide_2027_junior.json", encoding="utf-8") as f:
     existing = json.load(f)
 known = {name: v["unvCd"] for name, v in existing.items() if v["unvCd"]}
 

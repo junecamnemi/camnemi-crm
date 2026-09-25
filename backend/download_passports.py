@@ -5,7 +5,7 @@ import json, urllib.request, os, re, sys, time
 BACKEND = "https://script.google.com/macros/s/AKfycbwJ7QxDviSojjDJrRHJokneMebb46aS19ooqYiIuyYQsXdxzcZmyzPDleJXr-7JCnonAQ/exec"
 DIR = os.path.dirname(os.path.abspath(__file__))
 PASSPORTS = os.path.join(DIR, "_passport_files.json")
-OUT_DIR = os.path.join(os.environ.get("USERPROFILE", "C:/Users/USER"), "Desktop", "Passports_57")
+OUT_DIR = os.path.join(os.environ.get("USERPROFILE", "C:/Users/wisew"), "Desktop", "Passports_57")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 def file_id_from_url(url):

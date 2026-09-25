@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 """51개 실패 요강 재시도 (더 긴 타임아웃 + 재시도)."""
 import json, os, re, time, urllib.request
-B=r"C:\Users\USER\camnemi-crm\backend"
-DEST=r"C:\Users\USER\camnemi-crm\guides_all"
+B=r"C:\Users\wisew\camnemi-crm\backend"
+DEST=r"C:\Users\wisew\camnemi-crm\guides_all"
 UA={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/131.0.0.0 Safari/537.36'}
 
 enmap=json.load(open(B+r"\school_en_map.json",encoding="utf-8"))

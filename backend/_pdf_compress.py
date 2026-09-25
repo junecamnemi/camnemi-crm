@@ -2,7 +2,7 @@
 """Compress all PDFs in guides/ using pymupdf (recompress streams, deflate)."""
 import os, pymupdf
 
-GUIDES = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\guides"
+GUIDES = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\guides"
 
 total_before = 0
 total_after = 0

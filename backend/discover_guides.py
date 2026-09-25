@@ -8,7 +8,7 @@ Uses SCHOOL-OWN pages only (no adiga).
 """
 import os, re, json, subprocess, datetime, argparse, tempfile
 
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 MAP = os.path.join(B, "scrape_map.json")
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 KEY = re.compile(r"모집요강|외국인|입학|2027|2026|한국어|어학|전형|admission|apply|intl", re.I)

@@ -9,8 +9,8 @@ Then run guide_auto_analyze.py to re-parse new PDFs into verified_kb.
 """
 import os, re, json, datetime, urllib.request, ssl
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 STATE = os.path.join(BASE, "_guide_2027_detected.json")
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36",

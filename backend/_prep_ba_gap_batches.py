@@ -14,6 +14,6 @@ SCHOOLS = [
 
 # Split into batches of 5
 batches = [SCHOOLS[i:i+5] for i in range(0, len(SCHOOLS), 5)]
-json.dump(batches, open(r'C:\Users\USER\camnemi-crm\backend\_ba_gap_batches.json', 'w', encoding='utf-8'), ensure_ascii=False)
+json.dump(batches, open(r'C:\Users\wisew\camnemi-crm\backend\_ba_gap_batches.json', 'w', encoding='utf-8'), ensure_ascii=False)
 for i, b in enumerate(batches):
     print(f'batch {i}: {b}')

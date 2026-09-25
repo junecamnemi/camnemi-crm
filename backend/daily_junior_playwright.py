@@ -7,8 +7,8 @@ Output: _junior_playwright_collected.json
 """
 import os, re, json, datetime
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
-UP = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
+UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
 OUT = os.path.join(BASE, "_junior_playwright_collected.json")
 
 def load_targets():

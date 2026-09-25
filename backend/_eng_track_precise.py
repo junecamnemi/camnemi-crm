@@ -8,7 +8,7 @@ import re
 import json
 import pymupdf
 
-DIR = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+DIR = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
 
 pdf_files = {}
 for fn in os.listdir(DIR):
@@ -68,7 +68,7 @@ for school in FOCUS:
     }
 
 # Save
-with open(r"C:\Users\USER\camnemi-crm\backend\_eng_track_precise.json", "w", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_eng_track_precise.json", "w", encoding="utf-8") as f:
     json.dump(out, f, ensure_ascii=False, indent=2)
 
 for s in FOCUS:

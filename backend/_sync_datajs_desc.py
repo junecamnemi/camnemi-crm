@@ -3,8 +3,8 @@
 'full/partial waiver' style (no numeric % ladder), from curation data."""
 import json, re
 
-DATA = r"C:\Users\USER\camnemi-crm\data.js"
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+DATA = r"C:\Users\wisew\camnemi-crm\data.js"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 
 content = open(DATA, encoding="utf-8").read()
 start = content.find("[")

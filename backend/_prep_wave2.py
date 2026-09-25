@@ -3,15 +3,15 @@
 curated via 2027 (no 2027 guide exists for them). Exclude seminary/edu."""
 import os, re, json, glob
 
-FOLDER = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인"
-KB = json.load(open(r"C:\Users\USER\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
-OUT = r"C:\Users\USER\camnemi-crm\backend\_curation_2026_batches.json"
+FOLDER = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인"
+KB = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json", encoding="utf-8"))
+OUT = r"C:\Users\wisew\camnemi-crm\backend\_curation_2026_batches.json"
 
 # Schools already in KB (78 BA) — skip
 kb_ba = set(KB.get("schools", {}).keys())
 # Also skip ones with a 2027 PDF (curated or will-be)
 g2027 = set()
-for fp in glob.glob(r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인/*.pdf"):
+for fp in glob.glob(r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인/*.pdf"):
     fn = os.path.basename(fp)
     s = re.sub(r"^0000\d+_", "", fn)
     s = re.sub(r"_2027_외국인.*", "", s)

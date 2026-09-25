@@ -6,7 +6,7 @@
 Outputs a report + exclusion list."""
 import re, json
 
-with open(r"C:\Users\USER\camnemi-crm\data.js", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\data.js", encoding="utf-8") as f:
     content = f.read()
 start = content.find("[")
 depth = 0
@@ -53,6 +53,6 @@ out = {
     "theo_edu": [{"name": n, "type": t, "stu": s} for n, t, s in theo_edu],
     "small": [{"name": n, "type": t, "stu": s} for n, t, s in small],
 }
-with open(r"C:\Users\USER\camnemi-crm\backend\_exclusion_report.json", "w", encoding="utf-8") as f:
+with open(r"C:\Users\wisew\camnemi-crm\backend\_exclusion_report.json", "w", encoding="utf-8") as f:
     json.dump(out, f, ensure_ascii=False, indent=2)
 print(f"\n저장: backend/_exclusion_report.json")

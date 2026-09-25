@@ -4,7 +4,7 @@ For each school in _opus_sch_sample.jsonl, set scholarships_categorized from
 Opus's structured scholarships array (name/condition/benefit)."""
 import json, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(BASE, "verified_kb.json")
 SAMPLE = os.path.join(BASE, "_opus_sch_sample.jsonl")
 

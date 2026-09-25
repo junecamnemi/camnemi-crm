@@ -1,5 +1,5 @@
 import json
-B = r"C:\Users\USER\camnemi-crm\backend"
+B = r"C:\Users\wisew\camnemi-crm\backend"
 d = json.load(open(B + r"\job_manual_kr.json", encoding="utf-8"))
 
 tp = d["time_parttime"]

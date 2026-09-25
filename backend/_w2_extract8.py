@@ -1,6 +1,6 @@
 import pymupdf, json, os, re, sys
 
-base = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인"
+base = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_외국인_모집요강/외국인"
 files = {
     "인천대학교": "0002660_인천대학교[본교]_2026_외국인.pdf",
     "신한대학교": "0002800_신한대학교[제2캠퍼스]_2026_외국인.pdf",
@@ -13,7 +13,7 @@ files = {
     "송원대학교": "송원대학교[본교]_2026_외국인.pdf",
 }
 
-outdir = r"C:/Users/USER/camnemi-crm/backend/_w2_txt8"
+outdir = r"C:/Users/wisew/camnemi-crm/backend/_w2_txt8"
 os.makedirs(outdir, exist_ok=True)
 report = {}
 for name, fn in files.items():

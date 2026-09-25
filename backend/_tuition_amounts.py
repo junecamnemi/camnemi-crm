@@ -5,8 +5,8 @@ import os
 import re
 import pymupdf
 
-DIR_ADIGA = r"C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
-DIR_GUIDE = r"C:\Users\USER\camnemi-crm\backend\_guide_pdfs"
+DIR_ADIGA = r"C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2027_외국인_모집요강/외국인"
+DIR_GUIDE = r"C:\Users\wisew\camnemi-crm\backend\_guide_pdfs"
 
 targets = {
     "인하대학교": os.path.join(DIR_ADIGA, "0000169_인하대학교[본교]_2027_외국인.pdf"),

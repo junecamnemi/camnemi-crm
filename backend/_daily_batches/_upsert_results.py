@@ -3,9 +3,9 @@
 import json, io, sys, os
 
 FILES = {
-    "BA": r"C:/Users/USER/camnemi-crm/backend/_ba_batches/BA_daily_20260905_result.json",
-    "MA": r"C:/Users/USER/camnemi-crm/backend/_ma_batches/MA_daily_20260905_result.json",
-    "lang": r"C:/Users/USER/camnemi-crm/backend/_lang_batches/lang_daily_20260905_result.json",
+    "BA": r"C:/Users/wisew/camnemi-crm/backend/_ba_batches/BA_daily_20260905_result.json",
+    "MA": r"C:/Users/wisew/camnemi-crm/backend/_ma_batches/MA_daily_20260905_result.json",
+    "lang": r"C:/Users/wisew/camnemi-crm/backend/_lang_batches/lang_daily_20260905_result.json",
 }
 
 def upsert(track, entries):

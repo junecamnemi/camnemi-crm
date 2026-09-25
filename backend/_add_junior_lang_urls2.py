@@ -3,7 +3,7 @@
 """Add more junior-college language-school URLs (batch 2) to verified_kb.json."""
 import json, os
 
-BASE = r"C:\Users\USER\camnemi-crm\backend"
+BASE = r"C:\Users\wisew\camnemi-crm\backend"
 KB = os.path.join(BASE, "verified_kb.json")
 
 MORE_URLS = {

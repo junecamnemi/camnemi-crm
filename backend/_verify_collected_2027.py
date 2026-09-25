@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 """Verify the 13 downloaded 2027 guide PDFs: year + foreigner-track + school match."""
 import pymupdf, os, re
-BA = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_외국인_모집요강\own_site"
-MA = r"C:\Users\USER\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_대학원_모집요강"
+BA = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_외국인_모집요강\own_site"
+MA = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project\adiga_2027_대학원_모집요강"
 files = [(BA,f) for f in os.listdir(BA) if f.endswith('.pdf')] + [(MA,f) for f in os.listdir(MA) if f.endswith('.pdf')]
 for d,fn in sorted(files):
     p = os.path.join(d,fn)

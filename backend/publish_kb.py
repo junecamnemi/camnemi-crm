@@ -7,7 +7,7 @@
 import json, os, re, shutil, math
 from collections import Counter
 
-BE = r'C:\Users\USER\camnemi-crm\backend'
+BE = r'C:\Users\wisew\camnemi-crm\backend'
 CANON = os.path.join(BE, 'canonical', 'schools.jsonl')
 VKB = os.path.join(BE, 'verified_kb.json')
 CDB = os.path.join(BE, 'consulting_db.json')

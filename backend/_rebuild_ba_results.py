@@ -3,10 +3,10 @@
 school-keyed dict, level=BA. Fixes concurrency data loss. Separate per-school file."""
 import json, os
 
-RESULTS = r"C:\Users\USER\camnemi-crm\backend\_ba_tuition_results.json"
+RESULTS = r"C:\Users\wisew\camnemi-crm\backend\_ba_tuition_results.json"
 
 # BA_0 (from _gap_fill_results current state)
-cur = json.load(open(r"C:\Users\USER\camnemi-crm\backend\_gap_fill_results.json", encoding="utf-8"))
+cur = json.load(open(r"C:\Users\wisew\camnemi-crm\backend\_gap_fill_results.json", encoding="utf-8"))
 results = {}
 for k, v in cur.items():
     if v.get("level") == "BA":
