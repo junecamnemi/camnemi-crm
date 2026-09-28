@@ -9,7 +9,7 @@ verified_kb에서 필수필드(학비/어학/전공/장학)가 누락된 학교�
   - no_foreign : 외국인 요강 자체가 없음(확인됨) → 수집 불가(무요강)
 출력: _kb_gap_report.json + _kb_gap_queue.json (야간/주간 크론이 소비)
 """
-import json, os, datetime
+import json, os, re, datetime
 from collections import Counter
 
 B = r"C:\Users\wisew\camnemi-crm\backend"
@@ -26,6 +26,34 @@ jun_missing = {e["name"]: e for e in jun_col.get("missing", [])}
 jun_page = {e["name"]: e for e in jun_col.get("page_guide", [])}
 
 CRITICAL = ["tuition", "lang", "major", "scholarship"]
+
+# 자가감사 정확성 보강(2026-09-28): 아래 두 경우를 '수집 필요'로 오분류하지 않는다.
+#  1) documented : 필드 옆 note에 부재 근거가 이미 기록된 경우 → 재파싱해도 안 채워짐(요강에 미기재).
+#  2) dedupe    : lang레벨에서 표준키/단축 별칭키가 동시에 존재해 데이터가 쪼개진 경우 → 수집이 아니라 키 병합.
+DOC_TOKENS = ("need=", "미공개", "미확인", "미명시", "미기재", "내부규정", "확인 불가", "없음")
+NOTE_FOR = {"tuition": ("tuition_note", "note"), "scholarship": ("scholarship_note",),
+            "lang": ("lang_note", "note"), "major": ("major_note", "note"),
+            "program": ("program_note", "note")}
+
+
+def documented_missing(e, mf):
+    out = []
+    for f in mf:
+        for k in NOTE_FOR.get(f, ("note",)):
+            v = e.get(k)
+            if isinstance(v, str) and any(t in v for t in DOC_TOKENS):
+                out.append(f)
+                break
+    return out
+
+
+def alias_twin(nm, schools, level):
+    if level != "lang":
+        return None
+    for cand in (nm + "학교", re.sub(r"학교$", "", nm)):
+        if cand != nm and cand in schools:
+            return cand
+    return None
 
 def missing_fields(e, level=None):
     m = []
@@ -53,6 +81,13 @@ def audit(level, schools, collected_map, missing_map, page_map):
             action = "no_foreign" # confirmed no foreigner guide
         else:
             action = "collect"   # no guide recorded -> collect
+        if action in ("reparse", "recollect", "collect"):
+            doc = documented_missing(e, mf)
+            twin = alias_twin(nm, schools, level)
+            if len(doc) == len(mf):
+                action = "documented"   # note에 부재 근거 기록됨 → 수집해도 안 채워짐
+            elif twin:
+                action = "dedupe"       # 별칭키 중복 → 키 병합으로 해결
         report.append({"school": nm, "level": level, "missing": mf, "action": action})
     return report
 
@@ -70,8 +105,8 @@ by_missing = Counter()
 for r in all_report:
     for m in r["missing"]: by_missing[m] += 1
 
-# actionable queue (exclude no_foreign)
-queue = [r for r in all_report if r["action"] in ("reparse", "recollect", "collect")]
+# actionable queue (exclude no_foreign / documented)
+queue = [r for r in all_report if r["action"] in ("reparse", "recollect", "collect", "dedupe")]
 
 json.dump({"generated": today, "summary": {"by_action": dict(by_action), "by_level": dict(by_level),
            "by_missing": dict(by_missing), "actionable": len(queue)},
