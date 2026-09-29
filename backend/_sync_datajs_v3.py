@@ -5,10 +5,11 @@
 - junior branch included (was missing → 0% period/scholarship)
 - adds visa_restricted flag + window.UNIV_SPECIAL sections
 """
-import json, re, shutil, datetime
+import json, re, shutil, datetime, os
 
-DATA = r"C:\Users\wisew\camnemi-crm\data.js"
-KB   = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA = os.path.join(BASE, "data.js")
+KB   = os.path.join(BASE, "backend", "verified_kb.json")
 shutil.copy(DATA, DATA + f".bak_sync_{datetime.datetime.now():%Y%m%d_%H%M}")
 
 content = open(DATA, encoding="utf-8").read()
@@ -105,6 +106,14 @@ for u in data:
         if n in vr_degree or n in vr_lang:
             u["visa_restricted"] = {"degree": n in vr_degree, "lang": n in vr_lang}
             bump("junior", "visa_flag")
+
+    # lang(D-4) course tuition from lang_programs — fill-only, whichever row hosts the school
+    lv = lang_idx.get(n)
+    if lv and isinstance(u.get("tuition"), dict) and not u["tuition"].get("lang"):
+        lr = lv.get("tuition_range")
+        if lr:
+            u["tuition"]["lang"] = {"min": lr, "max": lr, "fields": {"어학연수": lr}}
+            bump(typ if typ in upd else "univ", "lang_tuition")
 
 # special sections payload
 special = {

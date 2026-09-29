@@ -6,7 +6,7 @@ Idempotent — safe to run in cron.
 """
 import json, re, io, shutil, datetime, sys, subprocess, os
 
-BASE = r"C:\Users\wisew\camnemi-crm"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KB   = os.path.join(BASE, "backend", "verified_kb.json")
 DB   = os.path.join(BASE, "backend", "consulting_db.json")
 DATA = os.path.join(BASE, "data.js")
@@ -44,7 +44,13 @@ for name, s in db["schools"].items():
     progs = s.get("programs", {})
     for lvl, v in entry.items():
         p = progs.get(lvl)
-        if p is None: continue
+        if p is None:
+            if lvl == "어학연수":
+                # KB holds a Korean-course row for this school but the consulting entry
+                # never had the program node — create it so the data is visible
+                p = progs.setdefault(lvl, {})
+            else:
+                continue
         def fill(k, val):
             if val and not p.get(k): p[k] = val; return True
             return False
@@ -83,8 +89,10 @@ with io.open(DB, "w", encoding="utf-8", newline="\n") as f:
 print("[consulting_db] filled:", cdb_filled)
 
 # ---------- 2. data.js ----------
-rc = subprocess.call([sys.executable, os.path.join(BASE,"backend","_sync_datajs_v3.py")])
+rc = subprocess.call([sys.executable, os.path.join(BASE, "backend", "_sync_datajs_v3.py")])
 print("[data.js] sync rc =", rc)
+if rc != 0:
+    raise SystemExit("data.js sync failed; refusing to report successful 3-layer sync")
 
 # ---------- 3. normalize line endings (keep diffs clean) ----------
 for path, ind in [(KB,1),(DB,1)]:

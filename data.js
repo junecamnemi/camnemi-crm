@@ -2,7 +2,7 @@ window.UNIV_KNOWLEDGE = [
  {
   "n": "가야대학교",
   "loc": "경상남도",
-  "t": null,
+  "t": 3,
   "i": null,
   "eng": "",
   "majors": [],
@@ -16,8 +16,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3469231,
+    "max": 3469231,
     "fields": {}
    }
   },
@@ -1989,7 +1989,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Department of Music"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "음악공연융합학과",
+   "음악학과",
+   "세부전공",
+   "신학과",
+   "성서신학전공",
+   "이론신학전공",
+   "실천신학전공",
+   "사회복지학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -2072,13 +2081,13 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 30980004418000,
+    "max": 30980004418000,
     "fields": {}
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3300000,
+    "max": 4497000,
     "fields": {}
    }
   },
@@ -2127,7 +2136,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Department of Applied Music"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "학부신학전공",
+   "학부비신학전공",
+   "사회복지학과",
+   "상담심리학과",
+   "교학과",
+   "전공과",
+   "신학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -3869,7 +3887,82 @@ window.UNIV_KNOWLEDGE = [
   "stu": 13732,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "글로벌자유전공학부",
+   "국어국문학과",
+   "영어영문학과",
+   "사학과",
+   "문헌정보학과",
+   "글로벌어문학부",
+   "독어독문전공",
+   "프랑스어문전공",
+   "일어일문전공",
+   "중어중문전공",
+   "러시아어문전공",
+   "입체조형학과",
+   "디자인학부",
+   "시각정보디자인전공",
+   "산업디자인전공",
+   "리빙·주얼리디자인전공",
+   "Fine Arts 학부",
+   "한국화전공",
+   "서양화전공",
+   "미술경영전공",
+   "서예전공",
+   "체육학과",
+   "경호보안학과",
+   "스포츠과학부",
+   "스포츠건강과학전공",
+   "스포츠레저산업전공",
+   "법학과",
+   "무역학과",
+   "공공안전학부",
+   "범죄교정심리학전공",
+   "경찰행정학전공",
+   "사회복지·청소년학과",
+   "공공인재학부",
+   "행정학전공",
+   "정치외교학전공",
+   "경제학부",
+   "경제학전공",
+   "응용통계학전공",
+   "지식재산학전공",
+   "경영학부",
+   "경영학전공",
+   "회계세무학전공",
+   "산업경영공학과",
+   "AI컴퓨터공학부",
+   "컴퓨터공학전공",
+   "인공지능전공",
+   "SW안전보안전공",
+   "모빌리티SW전공",
+   "수학과",
+   "화학과",
+   "바이오융합학부",
+   "생명과학전공",
+   "식품생물공학전공",
+   "건축학과(5년제)",
+   "사회에너지시스템공학과",
+   "기계시스템공학과",
+   "전자공학부",
+   "나노·반도체전공",
+   "정보통신시스템전공",
+   "신소재화학공학부",
+   "신소재공학전공",
+   "화학공학전공",
+   "스마트시티공학부",
+   "건축공학전공",
+   "도시·교통공학전공",
+   "미디어영상학과",
+   "관광개발경영학과",
+   "관광문화콘텐츠학과",
+   "호텔외식경영학부",
+   "호텔경영전공",
+   "외식·조리전공",
+   "연기학과",
+   "애니메이션학과",
+   "실용음악학과"
+  ],
   "majors_ma": [
    {
     "kr": "국어국문학과",
@@ -4220,8 +4313,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3692000,
+    "max": 3692000,
     "fields": {}
    },
    "lang": {
@@ -4796,7 +4889,10 @@ window.UNIV_KNOWLEDGE = [
     "en": "International Beauty Care Convergence Major"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "한국학전공"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -4868,15 +4964,15 @@ window.UNIV_KNOWLEDGE = [
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 19540002670000,
+    "max": 19540002670000,
     "fields": {
      "어학연수": 1400000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 2563000,
+    "max": 4902000,
     "fields": {}
    },
    "lang": {
@@ -4894,8 +4990,117 @@ window.UNIV_KNOWLEDGE = [
   "stu": 22562,
   "rk": 21,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "국어국문학과",
+   "영어영문학과",
+   "사학과",
+   "철학과",
+   "불어불문학과",
+   "독어독문학과",
+   "중어중문학과",
+   "고고인류학과",
+   "일어일문학과",
+   "한문학과",
+   "노어노문학과",
+   "정치외교학과",
+   "사회학과",
+   "지리학과",
+   "문헌정보학과",
+   "심리학과",
+   "사회복지학부",
+   "미디어커뮤니케이션학과",
+   "수학과",
+   "물리학과",
+   "화학과",
+   "생명공학부",
+   "지구시스템과학부",
+   "지구시스템과학부(지질학전공)",
+   "지구시스템과학부(천문대기과학전공)",
+   "지구시스템과학부(해양학전공)",
+   "생물학과",
+   "통계학과",
+   "경영학부",
+   "경제통상학부",
+   "금속재료공학과",
+   "신소재공학과",
+   "기계공학부",
+   "건축학부(건축학전공)",
+   "건축학부(건축공학전공)",
+   "토목공학과",
+   "응용화학공학부",
+   "고분자공학과",
+   "응용화학과",
+   "화학공학과",
+   "섬유시스템공학과",
+   "환경공학과",
+   "에너지공학부",
+   "전자공학부",
+   "전자공학부(인공지능전공)",
+   "컴퓨터학부(심화컴퓨팅전공)",
+   "컴퓨터학부(인공지능컴퓨팅전공)",
+   "컴퓨터학부(플랫폼소프트웨어전공, 데이터과학전공)",
+   "컴퓨터학부(글로벌소프트웨어융합전공)",
+   "전기공학과",
+   "응용생명과학부",
+   "응용생명과학부(식물생명과학전공, 환경생명화학전공)",
+   "식물의학과",
+   "식품공학부",
+   "식품공학부(식품생물공학전공, 식품소재공학전공, 식품응용공학전공)",
+   "산림과학조경학부",
+   "산림과학조경학부(임산공학전공)",
+   "산림과학조경학부(임학전공)",
+   "산림과학조경학부(조경학전공)",
+   "원예과학과",
+   "바이오섬유소재학과",
+   "식품자원경제학과",
+   "농업토목공학과",
+   "스마트생물산업기계공학과",
+   "식물자원학과",
+   "산림생태보호학과",
+   "곤충생명과학과",
+   "관광학과",
+   "체육학부(체육학전공)",
+   "체육학부(건강운동관리전공)",
+   "축산학과",
+   "동물생명공학과",
+   "말특수동물학과",
+   "건설방재공학과",
+   "환경안전공학과",
+   "정밀기계공학과",
+   "자동차공학과",
+   "자동차공학부(친환경자동차전공)",
+   "자동차공학부(지능형자동차전공)",
+   "소프트웨어학과",
+   "나노신소재공학과",
+   "에너지화학공학과",
+   "식품외식산업학과",
+   "섬유패션디자인학부(패션디자인전공)",
+   "섬유패션디자인학부(섬유공학전공)",
+   "위치정보시스템학과",
+   "스마트플랜트공학과",
+   "음악학과",
+   "국악학과",
+   "디자인학과",
+   "미술학과",
+   "역사교육과",
+   "아동학부",
+   "아동학부(아동가족학전공)",
+   "아동학부(아동학전공)",
+   "의류학과",
+   "식품영양학과",
+   "행정학부",
+   "글로벌자율학부"
+  ],
+  "majors_ma": [
+   "공간정보학과",
+   "지식재산융합학과",
+   "영어영문학과",
+   "사학과",
+   "철학과",
+   "중어중문학과",
+   "고고인류학과",
+   "정치학과"
+  ],
   "req": {
    "topik": 4,
    "ielts": 5.5,
@@ -5660,8 +5865,73 @@ window.UNIV_KNOWLEDGE = [
   "stu": 12568,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "인문문화학부",
+   "글로컬문화학부",
+   "영어영문학과",
+   "중국학과",
+   "문헌정보학과",
+   "심리학과",
+   "법학과",
+   "경찰행정학과",
+   "미디어커뮤니케이션학과",
+   "광고홍보학과",
+   "사회복지학과",
+   "경제금융물류학부",
+   "호텔관광외식경영학부",
+   "경영학과",
+   "국제무역통상학과",
+   "회계학과",
+   "빅데이터응용통계학과",
+   "기계자동차공학과",
+   "메카트로닉스공학과",
+   "환경공학과",
+   "토목공학과",
+   "도시계획학과",
+   "건축학과",
+   "실내건축학과",
+   "산업경영공학과",
+   "전기공학과",
+   "전자공학과",
+   "컴퓨터공학과",
+   "소프트웨어학과",
+   "정보통신공학과",
+   "화학공학과",
+   "신소재에너지공학과",
+   "음악학과",
+   "시각디자인학과",
+   "산업디자인학과",
+   "연극영화학부",
+   "영상애니메이션학부",
+   "미디어콘텐츠학과",
+   "스포츠건강학과",
+   "현대미술학과",
+   "공예디자인학과",
+   "사진학과",
+   "패션디자인학과",
+   "식품생명공학과",
+   "식품영양학과",
+   "동물보건생명과학과",
+   "화장품학과",
+   "스마트바이오학과",
+   "제약공학과",
+   "AI미디어학과",
+   "AI수리학과",
+   "글로벌학부",
+   "글로벌공학부",
+   "글로벌자율전공학부",
+   "한미비즈니스스쿨"
+  ],
+  "majors_ma": [
+   "모집학과",
+   "국어국문학과",
+   "영어영문학과",
+   "중어중문학과",
+   "역사학과",
+   "문헌정보학과",
+   "교육학과",
+   "유아교육학과"
+  ],
   "req": {
    "topik": 4,
    "ielts": 5.5,
@@ -5806,8 +6076,62 @@ window.UNIV_KNOWLEDGE = [
   "stu": 5074,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "항공운항학과",
+   "항공정비학부(기계설계, 전기전자)",
+   "무인항공기학부(드론시스템, 드론응용)",
+   "항공관제물류학부(항공교통, 항공물류)",
+   "항공서비스학과",
+   "소프트웨어학부(지능형소프트웨어, 모빌리티소프트웨어, 사이버보안)",
+   "반도체학과",
+   "물리치료학과",
+   "작업치료학과",
+   "치위생학과",
+   "임상병리학과",
+   "간호학과",
+   "군사학과",
+   "경찰학과",
+   "상담심리사회복지학부(사회복지, 상담심리치료)",
+   "재난안전학과",
+   "웹툰애니메이션디자인학과",
+   "스포츠지도학과",
+   "항공보안경호학부(항공보안, 경호무도)",
+   "글로벌경영학과",
+   "글로벌한국학과",
+   "디지털콘텐츠학과",
+   "바이오헬스케어학과",
+   "REC학부(케어서비스전공, 융합모듈전공)",
+   "휴먼케어서비스학과",
+   "제조ICT융합학과",
+   "서비스경영학과",
+   "ESG탄소중립학과",
+   "항공엔지니어링학과",
+   "바이오메디컬학과"
+  ],
+  "majors_ma": [
+   "일반대학원-간호학과(간호학석사)",
+   "일반대학원-물리치료학과(이학석사)",
+   "일반대학원-임상병리학과(이학석사)",
+   "일반대학원-경찰행정학과(행정학석사)",
+   "일반대학원-항공정책경영학과(경영학석사)",
+   "일반대학원-글로벌한국학과(문학석사)",
+   "일반대학원-안전보안학과(안전학석사)",
+   "일반대학원-사회체육학과(체육학석사)",
+   "일반대학원-IT에너지학과(공학석사)",
+   "일반대학원-항공소프트웨어융합학과(공학석사)",
+   "일반대학원-무인기공학과(공학석사)",
+   "일반대학원-[협동]산업공정AI융합학과(공학석사)",
+   "산업정보대학원-작업치료학과(이학석사)",
+   "산업정보대학원-글로벌경영학과(경영학석사)",
+   "산업정보대학원-관광개발경영학과(관광경영학석사)",
+   "산업정보대학원-멀티미디어학과(미술학석사)",
+   "산업정보대학원-도시건축학과(공학석사)",
+   "사회복지대학원-사회복지학과(문학석사)",
+   "사회복지대학원-상담복지학과(문학석사)",
+   "일반대학원-경찰행정학과(행정학박사)",
+   "일반대학원-안전보안학과(안전학박사)",
+   "일반대학원-보건학과(보건학박사)"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -6018,8 +6342,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3579333,
+    "max": 4851400,
     "fields": {}
    },
    "lang": {
@@ -7667,7 +7991,7 @@ window.UNIV_KNOWLEDGE = [
   "n": "고려대학교",
   "loc": "서울특별시",
   "t": 5,
-  "i": null,
+  "i": 7.0,
   "eng": "",
   "majors": [
    "국어국문학과",
@@ -8054,7 +8378,14 @@ window.UNIV_KNOWLEDGE = [
   "majors_ba": [
    "영어트랙 전학과"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "신학과",
+   "기독교교육학과",
+   "유아교육학과",
+   "사회복지학과",
+   "보건과학과",
+   "언어치료학과"
+  ],
   "req": {
    "topik": 2,
    "ielts": 5.5,
@@ -8149,8 +8480,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 28126593536000,
+    "max": 28126593536000,
     "fields": {}
    },
    "ma": {
@@ -8178,7 +8509,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "School of Music"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "신학과",
+   "성경연구학과",
+   "코칭심리학과",
+   "심리디지털융합학과",
+   "유아교육학과",
+   "상담심리치료학과",
+   "가족상담청소년학과",
+   "통합예술심리치료학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": null,
@@ -8207,7 +8547,19 @@ window.UNIV_KNOWLEDGE = [
    ],
    "notes": "TOPIK 3급은 공통 기준(우회경로 아님). TOEFL은 '필요시' 제출로 우회경로로 확정하기 어려움"
   },
-  "fstu": 115
+  "fstu": 115,
+  "scholarships": [
+   {
+    "name": "특별전형(외국인) 장학",
+    "condition": "정원외 외국인 유학생 특별전형 합격자",
+    "benefit": "입학금 및 등록금 50% 감면(1년)"
+   },
+   {
+    "name": "다문화 장학",
+    "condition": "이주여성·재외국민·외국인(비신학계열 석사 등)",
+    "benefit": "1,000,000원(매학기)"
+   }
+  ]
  },
  {
   "n": "광운대학교",
@@ -8218,8 +8570,8 @@ window.UNIV_KNOWLEDGE = [
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 40420004645000,
+    "max": 40420004645000,
     "fields": {
      "어학연수": 1500000
     }
@@ -8242,7 +8594,37 @@ window.UNIV_KNOWLEDGE = [
   "stu": 8414,
   "rk": 23,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "전자공학과",
+   "전자통신공학과",
+   "전자융합공학과",
+   "전기공학과",
+   "전자재료공학과",
+   "반도체시스템공학부(반도체시스템공학전공·영어트랙)",
+   "로봇학부(정보제어·지능시스템전공, AI로봇전공)",
+   "컴퓨터정보공학부(지능컴퓨팅시스템전공, 지능정보전공)",
+   "소프트웨어학부(소프트웨어전공, 인공지능전공)",
+   "정보융합학부(비주얼테크놀로지전공, 데이터사이언스전공)",
+   "건축학과(5년제)",
+   "건축공학과(4년제)",
+   "화학공학과",
+   "환경공학과",
+   "수학과",
+   "전자바이오물리학과",
+   "화학과",
+   "스포츠융합과학과",
+   "국어국문학과",
+   "영어영문학과",
+   "영어산업학과",
+   "미디어커뮤니케이션학부(미디어엔터테인먼트전공, 인터랙티브미디어커뮤니케이션전공, 전략커뮤니케이션전공)",
+   "산업심리학과",
+   "동북아문화산업학부(문화교류전공, 문화콘텐츠개발전공)",
+   "행정학과",
+   "법학부(일반법학전공, 기업법무전공, 과학기술법무전공)",
+   "국제학부(국제지역전공)",
+   "경영학부(경영학전공, 빅데이터경영전공)",
+   "국제통상학부(글로벌비즈니스전공, 국제금융전공, 국제통상전공)"
+  ],
   "majors_ma": [
    {
     "kr": "전자공학과",
@@ -8629,8 +9011,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 4205000,
+    "max": 4205000,
     "fields": {}
    },
    "lang": {
@@ -9068,7 +9450,23 @@ window.UNIV_KNOWLEDGE = [
   "stu": 3239,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "항공서비스학과",
+   "경찰행정학과",
+   "사회복지학과",
+   "상담심리학과",
+   "국어교육과",
+   "국제학부(국어교육, 글로벌영어교육, 경영학)",
+   "뷰티과학과",
+   "뷰티과학부(뷰티, 코스메틱)",
+   "화장품과학과",
+   "식품콘텐츠학과",
+   "AI미디어콘텐츠학과",
+   "실내건축디자인학과",
+   "스포츠재활학과",
+   "스포츠과학과",
+   "글로벌융합학부[국제학생학부, 영어트랙](글로벌비즈니스, TESOL, IT, K-Beauty)"
+  ],
   "majors_ma": [],
   "req": {
    "topik": 3,
@@ -10267,7 +10665,7 @@ window.UNIV_KNOWLEDGE = [
   "n": "국립공주대학교",
   "loc": "충청남도",
   "t": 3,
-  "i": null,
+  "i": 5.5,
   "eng": "",
   "majors": [],
   "tuition": {
@@ -10300,8 +10698,170 @@ window.UNIV_KNOWLEDGE = [
   "stu": 12357,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "영어영문학과",
+   "중어중문학과",
+   "불어불문학과",
+   "독어독문학과",
+   "사학과",
+   "지리학과",
+   "경제통상학부",
+   "경영학과",
+   "관광경영학과",
+   "관광&영어통역융복합학과",
+   "행정학과",
+   "법학과",
+   "사회복지학과",
+   "데이터정보물리학과",
+   "응용수학과",
+   "화학과",
+   "생명과학과",
+   "지질환경과학과",
+   "대기과학과",
+   "문화재보존과학과",
+   "의류상품학과",
+   "스포츠과학과",
+   "간호학과",
+   "보건행정학과",
+   "응급구조학과",
+   "의료정보학과",
+   "게임디자인학과",
+   "가구리빙디자인학과",
+   "도자문화융합디자인학과",
+   "주얼리·금속디자인학과",
+   "만화애니메이션학부",
+   "무용학과",
+   "영상학과",
+   "국제학부",
+   "전기전자제어공학부",
+   "정보통신공학과",
+   "스마트정보기술공학과",
+   "컴퓨터공학과",
+   "소프트웨어학과",
+   "기계자동차공학부",
+   "미래자동차공학과",
+   "스마트인프라공학과",
+   "도시·교통공학과",
+   "건축학과",
+   "그린스마트건축공학과",
+   "화학공학부",
+   "신소재공학부",
+   "디자인컨버전스학과",
+   "환경공학과",
+   "산업공학과",
+   "광공학과",
+   "디지털융합금형공학과",
+   "지능형모빌리티공학과",
+   "인공지능학부",
+   "지역사회개발학과",
+   "부동산학과",
+   "산업유통학과",
+   "식물자원학과",
+   "원예학과",
+   "동물생명과학과",
+   "지역건설공학과",
+   "스마트팜공학과",
+   "산림과학과",
+   "조경학과",
+   "식품영양학과",
+   "외식상품학과",
+   "식품공학과",
+   "특수동물학과",
+   "수산생명의학과"
+  ],
+  "majors_ma": [
+   "국어국문학과",
+   "한문학과",
+   "영어교육학과",
+   "영어영문학과",
+   "교육학과",
+   "사학과",
+   "지리학과",
+   "경영학과",
+   "한문교육학과",
+   "중어중문학과",
+   "금융통상학과",
+   "사회복지학과",
+   "기술경영학과",
+   "역사교육학과",
+   "지리교육학과",
+   "법학과",
+   "국어교육학과",
+   "유아교육학과",
+   "문헌정보교육학과",
+   "윤리교육학과",
+   "경영금융교육학과",
+   "응용수학과",
+   "물리학과",
+   "화학과",
+   "생명과학과",
+   "지질환경과학과",
+   "대기과학과",
+   "환경과학과",
+   "문화재보존과학과",
+   "의류상품학과",
+   "컴퓨터과학과",
+   "컴퓨터교육학과",
+   "수학교육학과",
+   "물리교육학과",
+   "생물교육학과",
+   "지구과학교육학과",
+   "화학교육학과",
+   "기술교육학과",
+   "게임디자인학과",
+   "체육학과",
+   "체육교육학과",
+   "음악교육학과",
+   "조형디자인학과",
+   "만화애니메이션학과",
+   "도자문화융합디자인학과",
+   "군사과학정보학과",
+   "융합과학과",
+   "동양학과",
+   "한국어교육학과",
+   "관광경영학과",
+   "스마트의료웰니스치유관광학과",
+   "국제관광&한영통번역융복합학과",
+   "사회적기업경영학과",
+   "AI융합교육학과",
+   "문화예술콘텐츠학과",
+   "지역사회개발학과",
+   "부동산학과",
+   "조경학과",
+   "식물자원학과",
+   "동물생명과학과",
+   "원예학과",
+   "산림과학과",
+   "식품영양학과",
+   "특수동물학과",
+   "외식상품학과",
+   "수산과학과",
+   "식품공학과",
+   "농공학과",
+   "농생명바이오시스템학과",
+   "응용생명공학과",
+   "정보통신공학과",
+   "기계공학과",
+   "건설환경공학과",
+   "도시융합시스템공학과",
+   "화학공학과",
+   "신소재공학과",
+   "건축학과",
+   "건축공학과",
+   "컴퓨터공학과",
+   "소프트웨어학과",
+   "전기전자제어공학과",
+   "환경공학과",
+   "산업공학과",
+   "광공학과",
+   "AI도시재생학과",
+   "에너지시스템공학과",
+   "미래융합공학과",
+   "광공학ㆍ금형공학과",
+   "지능융합기술공학과",
+   "반도체공학과",
+   "AX융합학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -10954,7 +11514,7 @@ window.UNIV_KNOWLEDGE = [
   "n": "국립금오공과대학교",
   "loc": "경상북도",
   "t": 4,
-  "i": null,
+  "i": 5.5,
   "eng": "",
   "majors": [
    "글로컬융합학부",
@@ -10994,8 +11554,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 17002001896200,
+    "max": 17002001896200,
     "fields": {
      "어학연수": 1100000
     }
@@ -11821,8 +12381,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 2388000,
+    "max": 2388000,
     "fields": {}
    },
    "lang": {
@@ -13475,7 +14035,7 @@ window.UNIV_KNOWLEDGE = [
   "n": "국립창원대학교",
   "loc": "경상남도",
   "t": 3,
-  "i": null,
+  "i": 5.5,
   "eng": "",
   "majors": [
    "모집단위별학과",
@@ -13939,8 +14499,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 2778000,
+    "max": 2778000,
     "fields": {}
    },
    "lang": {
@@ -14176,7 +14736,13 @@ window.UNIV_KNOWLEDGE = [
     "en": "Admission Application Department"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "식품공학과",
+   "간호학과",
+   "물리치료학과",
+   "응급구조학과",
+   "식품영양학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": null,
@@ -14289,8 +14855,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 2087500,
+    "max": 2691500,
     "fields": {}
    },
    "lang": {
@@ -14466,7 +15032,69 @@ window.UNIV_KNOWLEDGE = [
     "en": "Schools (Departments) and Majors Other Than Natural Science and Arts and Physical Education"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "Maritime Law",
+   "Maritime policy",
+   "Machine and Materials Engineering",
+   "Ship Machinery Energy Systems Engineering",
+   "Ship Electrics and Electronics Control Engineering",
+   "Maritime Safety Technology",
+   "Maritime Traffic Information",
+   "Mechanical Fusion & Material Engineering",
+   "Green Ship Technology",
+   "Mechatronics Engineering",
+   "Maritime Police Administration",
+   "Maritime Safety & Environment",
+   "Maritime AI and Humanities",
+   "Maritime Cyber Security",
+   "Maritime Mobility",
+   "Smart Systems Engineering",
+   "Information Technology Engineering",
+   "Mechanical Engineering",
+   "Naval Architecture and Ocean Systems Engineering",
+   "Electronics and Communications Engineering",
+   "Ocean Engineering",
+   "Energy and Resource Engineering",
+   "Ocean Energy Engineering",
+   "Logistics",
+   "Control and Instrumentation ・ IT Convergence Engineering",
+   "Materials Engineering",
+   "Refrigeration and Air-Conditioning Engineering",
+   "Electrical and Electronic Engineering",
+   "Radio Communication Engineering",
+   "Civil Engineering",
+   "Environmental Engineering",
+   "Computer Information Engineering",
+   "Nano-Semiconductor Engineering",
+   "Architectural Design",
+   "Disaster Prevention of Offshore Structures",
+   "Convergence of Maritime& Ocean City Design",
+   "Logistics System",
+   "Advanced Ship Operations Management",
+   "Advanced Ship Technology Management",
+   "Data Informatics",
+   "Marine Biotechnology",
+   "Marine Environmental Science",
+   "Aquatic BioScience",
+   "Marine Biotechnology & Aquatic Bioscience",
+   "Shipping Management",
+   "Private Law",
+   "Public Law",
+   "Maritime Law",
+   "International Trade",
+   "Economics",
+   "English Linguistics",
+   "English Literature",
+   "International Policy",
+   "Maritime Administration",
+   "East-Asia Studies",
+   "Maritime History and Culture",
+   "Cultural Interaction Studies",
+   "Convergence of Maritime & Ocean Culture Contents",
+   "Marine Leisure Industry",
+   "Sports Medicine",
+   "Ocean Safety"
+  ],
   "req": {
    "topik": 3,
    "ielts": 6.0,
@@ -14560,8 +15188,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 2353800,
+    "max": 3130000,
     "fields": {}
    },
    "lang": {
@@ -14611,7 +15239,13 @@ window.UNIV_KNOWLEDGE = [
    "지능미디어공학과",
    "컴퓨터공학과"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "기계공학과",
+   "응용소재공학과",
+   "전기공학과",
+   "전자공학과",
+   "토목공학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 6.0,
@@ -15447,15 +16081,15 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 32374084119835,
+    "max": 32374084119835,
     "fields": {
      "어학연수": 4400000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 4079000,
+    "max": 4906000,
     "fields": {}
    },
    "lang": {
@@ -15785,8 +16419,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 3299000,
+    "max": 3299000,
     "fields": {}
    },
    "ma": {
@@ -15866,8 +16500,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 32805003663000,
+    "max": 32805003663000,
     "fields": {
      "어학연수": 1100000
     }
@@ -15924,7 +16558,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Department of K-Global Studies"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "상담심리학과",
+   "경영학과",
+   "간호학과",
+   "물리치료학과",
+   "방사선학과",
+   "치기공학과",
+   "융복합공학과"
+  ],
   "req": {
    "topik": 2,
    "ielts": 5.5,
@@ -16012,13 +16655,29 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 3665000,
+    "max": 4498000,
     "fields": {}
    },
    "ma": {
     "min": 3711000,
     "max": 5710000
+   },
+   "lang": {
+    "min": {
+     "min": 1300000,
+     "max": 1900000
+    },
+    "max": {
+     "min": 1300000,
+     "max": 1900000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1300000,
+      "max": 1900000
+     }
+    }
    }
   },
   "en": "Korea Nazarene University",
@@ -16134,7 +16793,15 @@ window.UNIV_KNOWLEDGE = [
     "en": "Department of Global Convergence"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "신학과",
+   "재활학과",
+   "언어치료학과",
+   "특수교육학과",
+   "부동산학과",
+   "TESOL전공",
+   "일부학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -16250,7 +16917,23 @@ window.UNIV_KNOWLEDGE = [
   "stu": 2364,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "자동차기계공학과",
+   "AI전기공학과",
+   "경찰행정학과",
+   "사회복지학과",
+   "한국어학과",
+   "AI경영학과",
+   "향장미용학과",
+   "호텔조리학과",
+   "식품영양학과",
+   "한방건강제약학과",
+   "유아교육과",
+   "초등특수교육과",
+   "스포츠레저학과",
+   "무도경호학과",
+   "자율전공학부"
+  ],
   "majors_ma": [
    {
     "kr": "자동차기계공학과",
@@ -17056,7 +17739,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "School of New Music, Singer-Songwriting Major"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "한국어학과",
+   "인공지능융합학과",
+   "파운드리공학과",
+   "의학융합학과",
+   "지원학과",
+   "패션산업디자인학과",
+   "체육학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -18708,7 +19400,20 @@ window.UNIV_KNOWLEDGE = [
   "stu": 369,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "영상/만화애니메이션전공",
+   "게임·웹툰전공",
+   "커뮤니케이션디자인전공",
+   "공연융합예술학과[음악전공]",
+   "공연융합예술학과[무용전공]",
+   "회화작가전공",
+   "건축기술디자인학과",
+   "국제스포츠학과",
+   "국제관광경영학과",
+   "시각콘텐츠학과",
+   "뷰티아트학과",
+   "한국어·복지학과"
+  ],
   "majors_ma": [],
   "req": {
    "topik": 3,
@@ -18774,7 +19479,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어트랙 지원자는 IELTS 5.5 또는 TOEFL iBT 51 이상인 자만 지원 가능"
     }
    ]
-  }
+  },
+  "period": "1차 2026.6.1.(월)~7.3(금), 2차 2026.7.6.(월)~8.7(금)"
  },
  {
   "n": "대구한의대학교",
@@ -19282,8 +19988,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 3191500,
+    "max": 3191500,
     "fields": {
      "어학연수": 3800000
     }
@@ -19367,14 +20073,14 @@ window.UNIV_KNOWLEDGE = [
  {
   "n": "대전가톨릭대학교",
   "loc": "세종특별자치시",
-  "t": null,
+  "t": 3,
   "i": null,
   "eng": "",
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 34000004200000,
+    "max": 34000004200000,
     "fields": {}
    }
   },
@@ -19427,21 +20133,21 @@ window.UNIV_KNOWLEDGE = [
  {
   "n": "대전대학교",
   "loc": "대전광역시",
-  "t": null,
+  "t": 2,
   "i": null,
   "eng": "",
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 3286000,
+    "max": 4109000,
     "fields": {
      "어학연수": 1210000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3992000,
+    "max": 5238000,
     "fields": {}
    },
    "lang": {
@@ -19459,7 +20165,50 @@ window.UNIV_KNOWLEDGE = [
   "stu": 7823,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "글로벌문화콘텐츠학전공",
+   "국어국문창작학전공",
+   "역사문화학전공",
+   "영미언어문학전공",
+   "경제학전공",
+   "생명과학전공",
+   "PPE전공",
+   "MCS(수학·컴퓨터과학전공)",
+   "학생설계전공",
+   "건축학과",
+   "패션디자인·비즈니스학과",
+   "뷰티디자인학과",
+   "웹툰애니메이션학과",
+   "공연예술영상콘텐츠학과",
+   "법·행정학부 법학전공",
+   "법·행정학부 행정학전공",
+   "사회복지학과",
+   "상담학과",
+   "경영학부 경영학전공",
+   "경영학부 회계학전공",
+   "비즈니스일본어학과",
+   "물류통상학과",
+   "산업·광고심리학과",
+   "건축공학과",
+   "건설환경안전공학부 건설환경공학전공",
+   "건설환경안전공학부 재난안전공학전공",
+   "소방방재학과",
+   "반도체공학과",
+   "컴퓨터공학과",
+   "정보통신공학과",
+   "정보보안학과",
+   "AI소프트웨어학부 빅데이터전공",
+   "AI소프트웨어학부 인공지능전공",
+   "물리치료학과",
+   "임상병리학과",
+   "응급구조학과",
+   "식품영양학과",
+   "스포츠과학부 체육학전공",
+   "스포츠과학부 운동재활전공",
+   "보건의료경영학과",
+   "화장품학과",
+   "한의예과"
+  ],
   "majors_ma": [
    {
     "kr": "국어국문학과",
@@ -19751,7 +20500,9 @@ window.UNIV_KNOWLEDGE = [
   "stu": 52,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "신학과"
+  ],
   "majors_ma": [],
   "req": {
    "topik": null,
@@ -19791,7 +20542,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "교환학생·영어권 국가 문구는 해외 파견 교환학생 관련으로 요건 대체 경로 아님"
-  }
+  },
+  "period": "2026.9.7(월)~9.11(금)"
  },
  {
   "n": "대진대학교",
@@ -20146,7 +20898,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Textile Design Major"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "유아교육학과",
+   "약학과",
+   "지원학과",
+   "바이오헬스융합학과",
+   "식품영양학과",
+   "바이오공학과",
+   "화학과",
+   "응용데이터사이언스학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": null,
@@ -20559,7 +21320,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "School of Fine Arts"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "세부전공",
+   "불교교육학과",
+   "국제불교학과",
+   "불교학과",
+   "선학과",
+   "인도철학과",
+   "부디스트비즈니스학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": null,
@@ -20666,15 +21436,15 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 30130004473250,
+    "max": 30130004473250,
     "fields": {
      "어학연수": 1400000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 4370000,
+    "max": 6107000,
     "fields": {}
    },
    "lang": {
@@ -22114,15 +22884,15 @@ window.UNIV_KNOWLEDGE = [
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 60000003000000,
+    "max": 60000003000000,
     "fields": {
      "어학연수": 2100000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 1851500,
+    "max": 3261150,
     "fields": {}
    },
    "lang": {
@@ -22140,8 +22910,43 @@ window.UNIV_KNOWLEDGE = [
   "stu": 5571,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "건축학과",
+   "산림조경학과",
+   "토목환경공학과",
+   "AI컴퓨터융합학부",
+   "AI보안학과",
+   "AI미디어콘텐츠학과",
+   "전기공학과",
+   "미래에너지기술학부(이차전지전공, 신재생에너지전공)",
+   "안경광학과",
+   "보건행정학과",
+   "언어치료학과",
+   "식품영양학과",
+   "스포츠의학과",
+   "반려동물학과",
+   "뷰티미용학과",
+   "사회복지학과",
+   "상담심리학과",
+   "경찰행정학과",
+   "소방안전학과",
+   "도시계획학과",
+   "호텔관광경영학과",
+   "생활체육학과",
+   "태권도학과",
+   "뮤지컬·실용음악학과",
+   "공연예술무용학과",
+   "국제학부(글로벌경영전공, 호텔투어리즘전공, IT전공)",
+   "국제한국어학과",
+   "자유전공학부"
+  ],
+  "majors_ma": [
+   "목재·종이공학과",
+   "전기전자공학과",
+   "도시계획학과",
+   "건축공학과",
+   "보석공학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -22188,7 +22993,7 @@ window.UNIV_KNOWLEDGE = [
  {
   "n": "동아대학교",
   "loc": "부산광역시",
-  "t": null,
+  "t": 2,
   "i": 5.5,
   "eng": "TOEFL iBT 90, IELTS 7.0, TEPS 428, New TEPS 428",
   "majors": [
@@ -22587,15 +23392,15 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 3655750,
+    "max": 3655750,
     "fields": {
      "어학연수": 1300000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3536000,
+    "max": 4627000,
     "fields": {}
    },
    "lang": {
@@ -22948,8 +23753,92 @@ window.UNIV_KNOWLEDGE = [
   "stu": 14302,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "인문사회과학대학자유전공학부",
+   "국어국문학과",
+   "중어중국학과",
+   "일본학과",
+   "영어영문학과",
+   "문헌정보학과",
+   "평생교육상담학과",
+   "심리학과",
+   "아동학과",
+   "유아교육과",
+   "광고홍보학과",
+   "미디어커뮤니케이션학과",
+   "법학과",
+   "경찰행정학과",
+   "소방방재행정학과",
+   "행정학과",
+   "사회복지학과",
+   "디지털콘텐츠학과",
+   "상경대학자유전공학부",
+   "금융경영학과",
+   "재무부동산학과",
+   "무역학과",
+   "유통물류학과",
+   "스마트항만물류학과",
+   "창업투자경영학과",
+   "경영학과",
+   "회계학과",
+   "경영정보학과",
+   "국제관광경영학과",
+   "호텔·컨벤션경영학과",
+   "외식경영학과",
+   "임상병리학과",
+   "치위생학과",
+   "방사선학과",
+   "의료경영학과",
+   "물리치료학과",
+   "식품영양학과",
+   "응급구조학과",
+   "공과대학자유전공학부",
+   "기계공학과",
+   "로봇공학과",
+   "자동차공학과(외국인전용분반)",
+   "조선해양공학과",
+   "신소재공학과",
+   "건축학과(5년제)",
+   "건축공학과",
+   "토목공학과",
+   "도시공학과",
+   "환경공학과",
+   "화학공학과",
+   "화장품공학과",
+   "의생명공학과",
+   "바이오의약학과",
+   "식품공학과",
+   "산업경영빅데이터공학과",
+   "전기공학과",
+   "전자공학과",
+   "첨단에너지공학과",
+   "소프트웨어융합대학",
+   "디자인조형학과",
+   "시각디자인",
+   "산업디자인",
+   "공예디자인",
+   "패션디자인학과",
+   "체육학과",
+   "레저스포츠학과",
+   "태권도학과",
+   "영화학과",
+   "K-뷰티학과",
+   "자유전공",
+   "글로벌호스피탈리티경영학과",
+   "지능형컴퓨팅학과",
+   "글로벌경영학과",
+   "글로벌산업융합학과(외국인유학생전담학과)"
+  ],
+  "majors_ma": [
+   "모집학과",
+   "일반학과",
+   "음악학과",
+   "한의학과",
+   "인공지능학과",
+   "간호학과",
+   "식품영양학과",
+   "세부전공"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -23067,8 +23956,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 3150000,
+    "max": 3150000,
     "fields": {}
    }
   },
@@ -23968,8 +24857,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 65000003250000,
+    "max": 65000003250000,
     "fields": {
      "어학연수": 1300000
     }
@@ -24247,7 +25136,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "School of Piano"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "미술학과",
+   "디자인학과",
+   "조형예술학과",
+   "교학과",
+   "해당학과",
+   "신학과",
+   "사회복지학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -24351,8 +25249,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 28240003418500,
+    "max": 28240003418500,
     "fields": {}
    }
   },
@@ -24454,8 +25352,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 77300003865000,
+    "max": 77300003865000,
     "fields": {
      "어학연수": 1300000
     }
@@ -24629,7 +25527,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Department of International Trade"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "음악학과",
+   "한국어교육학과",
+   "동아시아학과",
+   "경영학과",
+   "국제통상학과",
+   "전자상거래학과",
+   "관광축제문화유산경영학과"
+  ],
   "req": {
    "topik": 2,
    "ielts": 5.5,
@@ -24719,8 +25626,59 @@ window.UNIV_KNOWLEDGE = [
   "stu": 11574,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "신학",
+   "기독교문화컨텐츠",
+   "상담학",
+   "영어학",
+   "일본어학",
+   "청소년학",
+   "사회복지학",
+   "노인복지학",
+   "경찰행정학",
+   "경찰범죄수사학",
+   "범죄교정학",
+   "경영학",
+   "회계학",
+   "국제무역학",
+   "관광경영학",
+   "호텔경영학",
+   "항공서비스",
+   "글로벌호텔비즈니스",
+   "호텔외식조리",
+   "제과제빵",
+   "AI소프트웨어전공",
+   "AI정보보호전공",
+   "AI디지털미디어전공",
+   "AI빅데이터전공",
+   "AI로보틱스전공",
+   "AI핀테크전공",
+   "물리치료학과",
+   "안경광학과",
+   "응급구조학과",
+   "치위생학과",
+   "작업치료학과",
+   "간호학과",
+   "유아교육과",
+   "특수교육과",
+   "유아특수교육과",
+   "특수체육교육과",
+   "영상애니메이션",
+   "시각디자인",
+   "산업디자인",
+   "인테리어디자인",
+   "스포츠건강관리",
+   "스포츠경영",
+   "태권도",
+   "글로벌뷰티아트전공",
+   "연기·뮤지컬전공",
+   "실용음악"
+  ],
+  "majors_ma": [
+   "신학전공",
+   "세부전공",
+   "입학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -24760,7 +25718,7 @@ window.UNIV_KNOWLEDGE = [
  {
   "n": "부산가톨릭대학교",
   "loc": "부산광역시",
-  "t": null,
+  "t": 3,
   "i": null,
   "eng": "",
   "majors": [
@@ -26578,7 +27536,9 @@ window.UNIV_KNOWLEDGE = [
   "stu": 143,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "신학과"
+  ],
   "majors_ma": [],
   "req": {
    "topik": 3,
@@ -26610,7 +27570,9 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "국제학부(영어트랙)"
     }
    ]
-  }
+  },
+  "period": "미정",
+  "scholarships": []
  },
  {
   "n": "삼육대학교",
@@ -26780,7 +27742,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Department of Architecture"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "신학과",
+   "상담심리학과",
+   "사회복지학과",
+   "유아교육학과",
+   "글로벌한국학과",
+   "경영학과",
+   "간호학과",
+   "물리치료학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -26874,8 +27845,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 5286000,
+    "max": 5286000,
     "fields": {}
    },
    "lang": {
@@ -27831,7 +28802,41 @@ window.UNIV_KNOWLEDGE = [
     "en": "Transfer Admission Departments"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "Korean Language and Literature",
+   "English Language and Literature",
+   "German Language and Literature",
+   "French Language and Literature",
+   "Chinese Language, Literature and Culture",
+   "History",
+   "Philosophy",
+   "Religious Studies",
+   "Sociology",
+   "Psychology",
+   "Media and Communication",
+   "Political Science",
+   "Economics",
+   "Business Administration",
+   "Global Korean Studies",
+   "Korean Language Education",
+   "Gender Studies",
+   "Southeast Asian Studies",
+   "Critical Global Studies",
+   "Counseling Psychology (EIC)",
+   "AI Behavioral Studies",
+   "Mathematics",
+   "Chemistry",
+   "Life Science",
+   "Physics",
+   "Electronic Engineering",
+   "Chemical and Biomolecular Engineering",
+   "Computer Science and Engineering",
+   "Mechanical Engineering",
+   "Semiconductor Engineering",
+   "Integrative Bioengineering",
+   "Artificial Intelligence",
+   "Art & Technology"
+  ],
   "req": {
    "topik": 6,
    "ielts": 7.0,
@@ -27941,8 +28946,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3987000,
+    "max": 5454000,
     "fields": {}
    },
    "lang": {
@@ -28070,7 +29075,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Department of Civil and Architectural Engineering"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "미용예술학과",
+   "글로벌융합경영학과",
+   "해당학과",
+   "문화예술학과",
+   "경영학과",
+   "환경화학공학과",
+   "융합교육학과"
+  ],
   "req": {
    "topik": 4,
    "ielts": null,
@@ -28158,7 +29172,51 @@ window.UNIV_KNOWLEDGE = [
   "stu": 10444,
   "rk": 18,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "기계시스템공학부 지능형로봇전공",
+   "기계시스템공학부 미래자동차전공",
+   "기계공학과",
+   "안전공학과",
+   "신소재공학과",
+   "건설시스템공학과",
+   "건축학부 건축공학전공",
+   "건축학부 건축학전공",
+   "전기정보공학과",
+   "전자공학과",
+   "스마트ICT융합공학과",
+   "컴퓨터공학과",
+   "화공생명공학과",
+   "환경공학과",
+   "식품생명공학과",
+   "정밀화학과",
+   "안경광학과",
+   "스포츠과학과",
+   "디자인학과 산업디자인전공",
+   "디자인학과 시각디자인전공",
+   "도예학과",
+   "금속공예디자인학과",
+   "조형예술학과",
+   "행정학과",
+   "영어영문학과",
+   "문예창작학과",
+   "산업공학과 산업정보시스템전공",
+   "산업공학과 ITM전공",
+   "MSDE학과",
+   "경영학과 경영학전공",
+   "경영학과 경영학전공(AMS과정)",
+   "경영학과 경영학전공(IMS과정)",
+   "글로벌테크노경영전공",
+   "지능형반도체공학과",
+   "미래에너지융합학과",
+   "글로벌자유전공학부 공과계열",
+   "글로벌자유전공학부 정보통신계열",
+   "글로벌자유전공학부 에너지바이오계열",
+   "글로벌자유전공학부 디자인계열",
+   "글로벌자유전공학부 인문사회계열",
+   "글로벌자유전공학부 컴퓨터공학계열",
+   "글로벌한국어문화학과",
+   "글로벌IT컨버전스학과"
+  ],
   "majors_ma": [],
   "req": {
    "topik": 3,
@@ -28365,8 +29423,8 @@ window.UNIV_KNOWLEDGE = [
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 7896000,
+    "max": 7896000,
     "fields": {}
    }
   },
@@ -29624,8 +30682,8 @@ window.UNIV_KNOWLEDGE = [
     "fields": {}
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3846000,
+    "max": 3846000,
     "fields": {}
    },
    "lang": {
@@ -29777,7 +30835,25 @@ window.UNIV_KNOWLEDGE = [
     }
    ],
    "notes": "구술시험은 전형방식(신학 Th.M./M.A. 온라인)으로서 언어요건 대체 아님"
-  }
+  },
+  "period": "2025년 11월 17일(월) 10:00 ~ 2025년 12월 31일(수) 18:00",
+  "scholarships": [
+   {
+    "name": "대학원 총동문회 장학금",
+    "condition": "별도 심사",
+    "benefit": "미기재"
+   },
+   {
+    "name": "복지장학금",
+    "condition": "별도 심사",
+    "benefit": "미기재"
+   },
+   {
+    "name": "지정기탁후원장학금",
+    "condition": "기탁 목적에 따라 선발",
+    "benefit": "미기재"
+   }
+  ]
  },
  {
   "n": "서울여자대학교",
@@ -30402,6 +31478,11 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "어학연수": 1100000
     }
+   },
+   "ma": {
+    "min": null,
+    "max": null,
+    "fields": {}
    }
   },
   "en": "SPTS University",
@@ -30433,7 +31514,31 @@ window.UNIV_KNOWLEDGE = [
     "en": "All Departments"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "Major in Biblical Studies",
+   "Major in Old Testament Studies",
+   "Major in New Testament Studies",
+   "Major in Systematic Theology",
+   "Major in Church History",
+   "Major in Theology of Worship and Preaching",
+   "Major in Missiology",
+   "Major in Counseling",
+   "Major in Diakonia",
+   "Major in Christian Education",
+   "Major in Study of Spirituality",
+   "Major in Social Welfare",
+   "Major in Naturopathy",
+   "Major in Theology of Christian Music",
+   "Major in Voice",
+   "Major in Piano",
+   "Major in Organ",
+   "Major in Conducting",
+   "Major in Transformative Ecumenism",
+   "Major in Theology",
+   "Major in Counseling Psychology",
+   "Major in Spiritual Healing",
+   "Major in Pastoral Studies"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -30493,7 +31598,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "글로벌경영학과/컴퓨터공학과 ※영어트랙/한국어트랙"
     }
    ]
-  }
+  },
+  "period": "2025.10.14(화) ~ 2026.02.07(토)"
  },
  {
   "n": "서울한영대학교",
@@ -30649,7 +31755,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Department of Healthcare and Exercise"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집전공",
+   "모집학과",
+   "평생교육학과",
+   "평생교육전공",
+   "유아교육학과",
+   "유아교육전공",
+   "임상수사심리학과",
+   "임상및범죄심리학전공"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -31327,8 +32442,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 32312504410167,
+    "max": 32312504410167,
     "fields": {
      "어학연수": 1100000
     }
@@ -31575,8 +32690,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 5519500,
+    "max": 6877500,
     "fields": {}
    },
    "lang": {
@@ -31597,7 +32712,16 @@ window.UNIV_KNOWLEDGE = [
   "majors_ba": [
    "국제학부(외국인전담학부): 글로벌미디어아트전공, 글로벌디지털경영전공"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "아시아비정부기구학전공",
+   "사회복지학과",
+   "사회학과",
+   "국제문화연구학과",
+   "인공지능융합학과",
+   "신학과",
+   "협동조합경영학과",
+   "융합경영학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -32555,8 +33679,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 4295000,
+    "max": 6507500,
     "fields": {}
    },
    "lang": {
@@ -33449,7 +34573,13 @@ window.UNIV_KNOWLEDGE = [
    "미용예술학과",
    "스포츠지도학과(주간)"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "군사학과",
+   "공연예술경영학과",
+   "미용예술학과",
+   "상담심리치료학과",
+   "스포츠데이터분석학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": null,
@@ -33603,8 +34733,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 4082000,
+    "max": 5568000,
     "fields": {}
    },
    "lang": {
@@ -33898,15 +35028,15 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 85900004295000,
+    "max": 85900004295000,
     "fields": {
      "어학연수": 1660000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 2549000,
+    "max": 3493000,
     "fields": {}
    },
    "lang": {
@@ -33978,7 +35108,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "School of English Language & Literature"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "피아노학과",
+   "작곡학과",
+   "조형예술학과",
+   "국어국문학과",
+   "역사문화학과",
+   "문화학과",
+   "중어중문학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -35363,6 +36502,22 @@ window.UNIV_KNOWLEDGE = [
    },
    "ma": {
     "min": "₩3,427,125~₩4,701,857"
+   },
+   "lang": {
+    "min": {
+     "min": 1050000,
+     "max": 1200000
+    },
+    "max": {
+     "min": 1050000,
+     "max": 1200000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1050000,
+      "max": 1200000
+     }
+    }
    }
   },
   "en": "SKU University",
@@ -35470,7 +36625,14 @@ window.UNIV_KNOWLEDGE = [
     "en": "Applied Department"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "관광학과",
+   "문화재학과",
+   "뷰티보건향장학과",
+   "산업안전보건공학과",
+   "간호학과",
+   "유사학과"
+  ],
   "req": {
    "topik": 2,
    "ielts": 5.5,
@@ -35580,8 +36742,60 @@ window.UNIV_KNOWLEDGE = [
   "stu": 6877,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "항공운항학과",
+   "항공서비스학과",
+   "항공교통물류학부(항공교통관리전공, 항공물류전공)",
+   "교육학과",
+   "유아교육과",
+   "국어교육과",
+   "일어교육과",
+   "영어교육과",
+   "역사교육과",
+   "수학교육과",
+   "컴퓨터교육과",
+   "사회복지학과",
+   "상담치료복지학과",
+   "응급구조학과",
+   "반려동물학부(동물보건전공, 동물행동매개치료전공)",
+   "외식조리학부(외식조리전공, 베이커리전공, 식품영양전공)",
+   "체육학부(체육학전공, 특수체육전공)",
+   "소방안전학과",
+   "미디어문예창작학과",
+   "문화콘텐츠학과",
+   "경찰행정학과",
+   "문헌정보학과",
+   "일본어일본학과",
+   "호텔관광학부(호텔경영전공, 관광경영전공)",
+   "경영학과",
+   "미디어커뮤니케이션학부(광고홍보학전공, 미디어커뮤니케이션전공, 방송영상전공)",
+   "게임콘텐츠디자인학과",
+   "웹툰학과",
+   "패션디자인학과",
+   "뷰티케어학과",
+   "실내건축디자인학과",
+   "건축학과(4/5년제)",
+   "미래융합학과",
+   "자동차기계공학과",
+   "신소재반도체공학과",
+   "컴퓨터공학과",
+   "전기전자공학과",
+   "융합기술공학과",
+   "글로벌비즈니스학과",
+   "K-Culture학과(영어트랙)",
+   "호텔관광학과(영어트랙)",
+   "디자인융합학과"
+  ],
+  "majors_ma": [
+   "어문학과",
+   "행정학과",
+   "범죄학과",
+   "사회복지학과",
+   "가족치료학과",
+   "경영학과",
+   "광고홍보영상미디어학과",
+   "관광경영학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -35688,8 +36902,8 @@ window.UNIV_KNOWLEDGE = [
  {
   "n": "신한대학교",
   "loc": "경기도",
-  "t": null,
-  "i": null,
+  "t": 3,
+  "i": 5.5,
   "eng": "IELTS 5.5",
   "majors": [
    "미래자동차공학과",
@@ -35931,7 +37145,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "All Departments"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "전형유형지원학과",
+   "국제개발협력학과",
+   "국제개발협력전공",
+   "인공지능다국어번역전공",
+   "사회복지실천전공",
+   "사회복지정책전공",
+   "임상사회복지전공",
+   "행정학전공"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -36065,7 +37288,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Applied Department"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "세부전공",
+   "신학전공",
+   "학점전공",
+   "취득자전공",
+   "전공과",
+   "신학과",
+   "교육학과",
+   "기독교교육학과"
+  ],
   "req": {
    "topik": 2,
    "ielts": 5.5,
@@ -36215,7 +37447,33 @@ window.UNIV_KNOWLEDGE = [
   "stu": 10194,
   "rk": 15,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "기계공학과",
+   "산업공학과",
+   "화학공학과",
+   "첨단신소재공학과",
+   "응용화학과",
+   "환경안전공학과",
+   "건설시스템공학과",
+   "교통시스템공학과",
+   "건축학과(건축공학 4년/건축학 5년)",
+   "전자공학과",
+   "소프트웨어학과(소프트웨어및컴퓨터공학전공/글로벌IT전공-중국어트랙)",
+   "사이버보안학과",
+   "디지털미디어학과",
+   "수학과",
+   "프런티어과학학부",
+   "경영학과(경영학전공/영어트랙, 편입만)",
+   "국제경영학과(국제경영/IT경영 전공, 한국어·영어트랙)",
+   "국어국문학과(국어국문/한국어문전공)",
+   "영어영문학과",
+   "불어불문학과",
+   "사학과",
+   "문화콘텐츠학과",
+   "행정학과",
+   "심리학과",
+   "경제정치사회융합학부"
+  ],
   "majors_ma": [
    {
     "kr": "분자과학기술학과",
@@ -36576,19 +37834,19 @@ window.UNIV_KNOWLEDGE = [
  {
   "n": "안양대학교",
   "loc": "경기도",
-  "t": null,
-  "i": null,
+  "t": 3,
+  "i": 5.5,
   "eng": "",
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 36520004584000,
+    "max": 36520004584000,
     "fields": {}
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 4062000,
+    "max": 5566000,
     "fields": {}
    }
   },
@@ -36599,8 +37857,53 @@ window.UNIV_KNOWLEDGE = [
   "stu": 4653,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "신학과",
+   "기독교교육과",
+   "국어국문학과",
+   "영어언어문화학과",
+   "러시아언어문화학과",
+   "중국언어문화학과",
+   "인문계열자유전공",
+   "유아교육과",
+   "디지털미디어디자인학과",
+   "화장품발명디자인학과",
+   "공연예술학과",
+   "뷰티메디컬디자인학과",
+   "음악학과",
+   "게임콘텐츠학과(강화캠퍼스)",
+   "스포츠과학과",
+   "스포츠응용산업학과",
+   "스포츠계열자유전공",
+   "글로벌경영학과",
+   "행정학과",
+   "관광경영학과",
+   "사회계열자유전공",
+   "통계데이터사이언스학과",
+   "식품영양학과",
+   "컴퓨터공학과",
+   "정보전기전자공학과",
+   "소프트웨어학과",
+   "도시정보공학과",
+   "환경에너지공학과",
+   "AI융합학과",
+   "스마트시티공학과(강화캠퍼스)",
+   "해양바이오공학과(강화캠퍼스)",
+   "이공계열자유전공",
+   "자유전공",
+   "K-컬처한국어학과(외국인 전담학과)",
+   "글로벌통상비즈니스학과(외국인 전담학과, 한국어/영어 트랙)"
+  ],
+  "majors_ma": [
+   "모집학과",
+   "신학과",
+   "경영학과",
+   "경영학전공",
+   "관광경영학과",
+   "교육학과",
+   "교육학전공",
+   "유아교육전공"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -36647,7 +37950,7 @@ window.UNIV_KNOWLEDGE = [
   "n": "연세대학교",
   "loc": "서울특별시",
   "t": 5,
-  "i": null,
+  "i": 5.5,
   "eng": "",
   "majors": [
    "글로벌인재학부",
@@ -37136,7 +38439,7 @@ window.UNIV_KNOWLEDGE = [
   "n": "영남대학교",
   "loc": "경상북도",
   "t": 3,
-  "i": null,
+  "i": 5.5,
   "eng": "",
   "majors": [
    "휴먼서비스학과",
@@ -37165,8 +38468,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 4116000,
+    "max": 9343000,
     "fields": {}
    },
    "lang": {
@@ -37230,7 +38533,13 @@ window.UNIV_KNOWLEDGE = [
     "en": "Major in Dance"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "국어국문학과",
+   "영어영문학과",
+   "중국어문학과",
+   "일어일문학과",
+   "철학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": null,
@@ -37399,7 +38708,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어를 모국어 또는 법적 공용어로 사용하는 국가의 국적을 소지한 학생은 중등교육 또는 고등교육을"
     }
    ]
-  }
+  },
+  "period": "수시: 2026.09.07.(월)~09.11.(금), 정시(가)군: 2027.01.04.(월)~01.07.(목), 북한이탈주민·전 교육과정 이수자·부모 모두 외국인인 외국인: 2026.09.07.(월)~12.22.(화)"
  },
  {
   "n": "영산대학교",
@@ -37481,8 +38791,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 31310004240000,
+    "max": 31310004240000,
     "fields": {
      "어학연수": 1200000
     }
@@ -37787,7 +39097,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Department Recognized as Equivalent Discipline by the University Admissions Unit"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "부동산학과",
+   "사회복지학과",
+   "한국문화학과",
+   "호텔관광경영학과",
+   "조리예술학과",
+   "미용예술학과",
+   "정보공학과",
+   "게임VR학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -37877,7 +39196,9 @@ window.UNIV_KNOWLEDGE = [
   "stu": 35,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "원불교학부"
+  ],
   "majors_ma": [],
   "req": {
    "topik": 4,
@@ -37909,7 +39230,9 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "영어권 국가에서 수료한 자는 영어성적 제출을 면제함"
     }
    ]
-  }
+  },
+  "period": "2025. 9. 10.(수) ~ 2025. 9. 12.(금) 09:00~17:00",
+  "scholarships": []
  },
  {
   "n": "예수대학교",
@@ -37922,8 +39245,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 3636500,
+    "max": 3636500,
     "fields": {}
    },
    "ma": {
@@ -37943,7 +39266,11 @@ window.UNIV_KNOWLEDGE = [
     "en": "School of Nursing"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "간호학과",
+   "지원학과"
+  ],
   "req": {
    "topik": 4,
    "ielts": null,
@@ -37972,8 +39299,8 @@ window.UNIV_KNOWLEDGE = [
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 4252500,
+    "max": 4252500,
     "fields": {
      "어학연수": 1100000
     }
@@ -37993,7 +39320,22 @@ window.UNIV_KNOWLEDGE = [
   "stu": 1236,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "금속조형디자인",
+   "융합조형디자인",
+   "뷰티디자인",
+   "만화게임영상",
+   "애니메이션&웹툰",
+   "시각·영상디자인",
+   "연극영화",
+   "공연예술",
+   "실용음악",
+   "스포츠과학",
+   "국제매니지먼트",
+   "게임애니메이션",
+   "스포츠융합복지",
+   "글로벌문화예술경영"
+  ],
   "majors_ma": [],
   "req": {
    "topik": 3,
@@ -38287,7 +39629,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "School of Food & Culinary Arts"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "교육학과",
+   "대학원교학과",
+   "체육과학대학교학과",
+   "인문사회융합대학교학과",
+   "문화예술대학교학과",
+   "재활복지대학교학과",
+   "무도대교학과",
+   "체육학과"
+  ],
   "req": {
    "topik": 2,
    "ielts": null,
@@ -38615,7 +39966,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Preferred Department for Advancing to a School"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "관광경영학과",
+   "관광경영학전공",
+   "관광문화경영학과",
+   "관광문화경영학전공",
+   "AI기반교육문화콘텐츠학과",
+   "문화교육콘텐츠개발전공",
+   "교육콘텐츠개발전공"
+  ],
   "req": {
    "topik": 2,
    "ielts": null,
@@ -38693,15 +40053,15 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 3600000380000043000004500000,
+    "max": 3600000380000043000004500000,
     "fields": {
      "어학연수": 1300000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3400000,
+    "max": 6930000,
     "fields": {}
    },
    "lang": {
@@ -39225,7 +40585,9 @@ window.UNIV_KNOWLEDGE = [
     "en": "School of Global Humanities"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "한국어교육학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": null,
@@ -39305,6 +40667,22 @@ window.UNIV_KNOWLEDGE = [
      "공학/예능/약학/한약학/간호학(석사)": 5453000,
      "의학(의,치,한)(석사)": 7077000
     }
+   },
+   "lang": {
+    "min": {
+     "min": 477000,
+     "max": 1100000
+    },
+    "max": {
+     "min": 477000,
+     "max": 1100000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 477000,
+      "max": 1100000
+     }
+    }
    }
   },
   "en": "Wonkwang University",
@@ -39314,7 +40692,44 @@ window.UNIV_KNOWLEDGE = [
   "stu": 12360,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "의생명공학계열",
+   "의료상담학과",
+   "그린바이오계열",
+   "스마트농업계열",
+   "국제농업학부(외국인)",
+   "푸드테크계열",
+   "외식조리과(2년)",
+   "임상병리학과",
+   "물리치료학과",
+   "방사선학과",
+   "치기공학과",
+   "치위생학과",
+   "안경광학과",
+   "언어재활학과",
+   "식품영양학과",
+   "보건행정학과",
+   "사회복지학과",
+   "스포츠과학부",
+   "반려동물산업학과",
+   "안전보건학과",
+   "뷰티디자인학과",
+   "미용피부관리과(2년)",
+   "호텔관광과(2년)",
+   "웰니스케어과(2년)",
+   "디자인융합계열",
+   "원불교학과",
+   "건축학과(5년제)",
+   "공학1계열",
+   "공학2계열",
+   "공학3계열",
+   "경영계열",
+   "경제금융.회계세무계열",
+   "경찰.공공행정계열",
+   "소방행정.방재계열",
+   "창의문화융합계열",
+   "자율전공학부"
+  ],
   "majors_ma": [
    {
     "kr": "경영학과",
@@ -39677,7 +41092,16 @@ window.UNIV_KNOWLEDGE = [
    "경영학과",
    "전력시스템공학과"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "교육학과",
+   "불교학과",
+   "경찰보안학과",
+   "외식산업학과",
+   "공학과",
+   "레저스포츠학과",
+   "불교문화학과",
+   "경영학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": null,
@@ -39760,8 +41184,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 31700983960820,
+    "max": 31700983960820,
     "fields": {
      "모든 계열 동일(6학점 신청기준)": 3150000
     }
@@ -40011,13 +41435,13 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 109700005485000,
+    "max": 109700005485000,
     "fields": {}
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 4793000,
+    "max": 6303154,
     "fields": {}
    }
   },
@@ -41560,6 +42984,11 @@ window.UNIV_KNOWLEDGE = [
   "majors": [],
   "tuition": {
    "ba": {
+    "min": 2723000,
+    "max": 2723000,
+    "fields": {}
+   },
+   "ma": {
     "min": null,
     "max": null,
     "fields": {}
@@ -41575,7 +43004,9 @@ window.UNIV_KNOWLEDGE = [
   "majors_ba": [
    "신학과"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "신학과"
+  ],
   "req": {
    "topik": null,
    "ielts": null,
@@ -41604,7 +43035,8 @@ window.UNIV_KNOWLEDGE = [
    ],
    "notes": "IBE영어트랙 운영"
   },
-  "fstu": 7
+  "fstu": 7,
+  "scholarships": []
  },
  {
   "n": "인천대학교",
@@ -43000,15 +44432,15 @@ window.UNIV_KNOWLEDGE = [
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 18370002436000,
+    "max": 18370002436000,
     "fields": {
      "어학연수": 1400000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 2502000,
+    "max": 4840000,
     "fields": {}
    },
    "lang": {
@@ -43114,7 +44546,13 @@ window.UNIV_KNOWLEDGE = [
    "해양수산자율전공계열(여수)",
    "조선해양공학과(여수)"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "미래모빌리티융합학과",
+   "간호학과",
+   "경영학과",
+   "경제학과",
+   "디지털미래융합서비스협동과정"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -44731,7 +46169,7 @@ window.UNIV_KNOWLEDGE = [
   "n": "제주대학교",
   "loc": "제주특별자치도",
   "t": 3,
-  "i": null,
+  "i": 5.5,
   "eng": "",
   "majors": [
    "국어국문학과",
@@ -45128,7 +46566,92 @@ window.UNIV_KNOWLEDGE = [
     "en": "Department of Environmental Engineering"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "국어국문학과",
+   "경영학과",
+   "영어영문학과",
+   "사회학과",
+   "농업경제학과",
+   "회계학과",
+   "중어중문학과",
+   "무역학과",
+   "행정학과",
+   "독일학과",
+   "정치외교학과",
+   "관광경영학과",
+   "일어일문학과",
+   "사학과",
+   "철학과",
+   "언론홍보학과",
+   "지속성장데이터사이언스학부 관광개발학전공",
+   "지속성장데이터사이언스학부 경영정보학전공",
+   "지속성장데이터사이언스학부 경제학전공",
+   "지리학과",
+   "법학과",
+   "교육학과",
+   "어문교육학부 국어교육전공",
+   "어문교육학부 영어교육전공",
+   "어문교육학부 초등영어교육전공",
+   "사회교육학부 지리교육전공",
+   "사회교육학부 초등사회과교육전공",
+   "도덕윤리교육학부 윤리교육전공",
+   "원예학과",
+   "해양산업경찰학과",
+   "생물학과",
+   "농학과",
+   "화학과",
+   "식품영양학과",
+   "수학과",
+   "데이터사이언스학과",
+   "생활환경복지학과",
+   "패션의류학과",
+   "간호학과",
+   "바이오소재공학과",
+   "해양생명과학과",
+   "의생명・신약개발학과",
+   "생명공학부 동물생명공학전공",
+   "생명공학부 분자생명공학전공",
+   "약학과",
+   "물리학과",
+   "컴퓨터교육학과",
+   "과학교육학부 물리교육전공",
+   "과학교육학부 생물교육전공",
+   "과학교육학부 초등과학교육전공",
+   "과학교육학부 초등실과교육전공",
+   "에너지응용시스템학부 기계공학전공",
+   "에너지응용시스템학부 에너지화학공학전공",
+   "에너지응용시스템학부 전기공학전공",
+   "에너지응용시스템학부 전자공학전공",
+   "에너지응용시스템학부 메카트로닉스공학전공",
+   "지구해양융합학부 지구해양과학전공",
+   "지구해양융합학부 해양시스템공학전공",
+   "식품공학과",
+   "통신공학과",
+   "환경공학과",
+   "컴퓨터공학과",
+   "토목공학과",
+   "건축공학과",
+   "인공지능학과",
+   "미래지속시스템공학과",
+   "풍력공학부 풍력기계시스템전공",
+   "풍력공학부 풍력전기·제어시스템전공",
+   "풍력공학부 풍력해양·토목공학전공",
+   "체육학과",
+   "체육교육과",
+   "미술학과",
+   "음악학과",
+   "디자인학과",
+   "수의학과",
+   "의학과",
+   "의공학협동과정",
+   "해양기상학협동과정",
+   "풍력특성화협동과정",
+   "차세대융복합과학기술협동과정",
+   "융합정보보안학협동과정",
+   "한국어교육협동과정",
+   "지하수학협동과정",
+   "반도체협동과정"
+  ],
   "req": {
    "topik": 3,
    "ielts": null,
@@ -45181,7 +46704,7 @@ window.UNIV_KNOWLEDGE = [
   "n": "조선대학교",
   "loc": "광주광역시",
   "t": 3,
-  "i": null,
+  "i": 5.5,
   "eng": "",
   "majors": [
    "국어국문학부",
@@ -45972,21 +47495,21 @@ window.UNIV_KNOWLEDGE = [
  {
   "n": "중부대학교",
   "loc": "충청남도",
-  "t": null,
+  "t": 3,
   "i": 5.5,
   "eng": "TOEFL iBT 59, IELTS 5.5",
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 35390004107000,
+    "max": 35390004107000,
     "fields": {
      "어학연수": 1100000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3200000,
+    "max": 4871000,
     "fields": {}
    },
    "lang": {
@@ -46004,7 +47527,10 @@ window.UNIV_KNOWLEDGE = [
   "stu": 6991,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "글로벌보건행정학전공",
+   "국제통상학전공"
+  ],
   "majors_ma": [
    {
     "kr": "국어국문학과",
@@ -46234,7 +47760,7 @@ window.UNIV_KNOWLEDGE = [
   "n": "중앙대학교",
   "loc": "서울특별시",
   "t": 4,
-  "i": null,
+  "i": 5.5,
   "eng": "TOEFL iBT 60, IELTS 5.5",
   "majors": [
    "융합콘텐츠학과",
@@ -46887,8 +48413,50 @@ window.UNIV_KNOWLEDGE = [
   "stu": 3324,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "한국어학과",
+   "경영학과",
+   "항공서비스학과",
+   "기계공학과",
+   "전기전자공학과",
+   "뷰티메디컬학과",
+   "생명공학과",
+   "교육학과",
+   "스마트농산림학과",
+   "보건복지학과",
+   "종교문화유산학과",
+   "한국어교육문화학과",
+   "경찰행정학과",
+   "AI드라마제작학과",
+   "만화애니메이션전공",
+   "AI미디어디자인전공",
+   "자율전공학부",
+   "스포츠산업전공",
+   "축구전공",
+   "골프전공",
+   "스포츠지도전공",
+   "생활체육융합전공",
+   "스포츠과학전공",
+   "간호학과",
+   "작업치료학과",
+   "임상병리학과",
+   "항공운항학과",
+   "글로벌항공서비스학과",
+   "드론봇군사학과",
+   "항공정비학과",
+   "바이오융합학과",
+   "전기반도체컴퓨터공학과"
+  ],
+  "majors_ma": [
+   "사회복지학과",
+   "교육학과",
+   "행정학과",
+   "문화재학과",
+   "한국어교육학과",
+   "국가안보융합학과",
+   "항공경영학과",
+   "생명과학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -47040,8 +48608,8 @@ window.UNIV_KNOWLEDGE = [
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 41220004536400,
+    "max": 41220004536400,
     "fields": {}
    }
   },
@@ -47105,7 +48673,7 @@ window.UNIV_KNOWLEDGE = [
   "n": "창신대학교",
   "loc": "경상남도",
   "t": 3,
-  "i": null,
+  "i": 5.5,
   "eng": "",
   "majors": [
    "식품영양학과",
@@ -47365,6 +48933,22 @@ window.UNIV_KNOWLEDGE = [
    "ma": {
     "min": 2613600,
     "max": 4500000
+   },
+   "lang": {
+    "min": {
+     "min": 1250000,
+     "max": 1510000
+    },
+    "max": {
+     "min": 1250000,
+     "max": 1510000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1250000,
+      "max": 1510000
+     }
+    }
    }
   },
   "en": "Chungwoon University",
@@ -47536,7 +49120,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Department of Service Management"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "연극예술학과",
+   "뮤지컬학과",
+   "뮤직트레이너학과",
+   "공연기획경영학과",
+   "방송영화영상학과",
+   "미디어커뮤니케이션학과",
+   "호텔조리식당경영학과"
+  ],
   "req": {
    "topik": 2,
    "ielts": 5.5,
@@ -47676,8 +49269,8 @@ window.UNIV_KNOWLEDGE = [
  {
   "n": "청주대학교",
   "loc": "충청북도",
-  "t": null,
-  "i": null,
+  "t": 3,
+  "i": 5.5,
   "eng": "",
   "majors": [
    "경영학과",
@@ -47735,15 +49328,15 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 3562000,
+    "max": 3562000,
     "fields": {
      "어학연수": 2400000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 4039000,
+    "max": 5356200,
     "fields": {}
    },
    "lang": {
@@ -48201,15 +49794,15 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 30055004064500,
+    "max": 30055004064500,
     "fields": {
      "어학연수": 2000000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3236000,
+    "max": 3236000,
     "fields": {}
    },
    "lang": {
@@ -48535,8 +50128,22 @@ window.UNIV_KNOWLEDGE = [
   "stu": 1113,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "국제학부 음악전공",
+   "국제학부 미술전공",
+   "국제학부 무용전공",
+   "융합예술학부 콘텐츠비즈니스전공"
+  ],
+  "majors_ma": [
+   "세부전공",
+   "음악전공",
+   "미술전공",
+   "무용전공",
+   "콘텐츠비즈니스전공",
+   "음악학과",
+   "미술학과",
+   "글로벌공연예술학과"
+  ],
   "req": {
    "topik": 2,
    "ielts": null,
@@ -48761,8 +50368,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 2447318,
+    "max": 3751200,
     "fields": {}
    },
    "lang": {
@@ -49342,7 +50949,7 @@ window.UNIV_KNOWLEDGE = [
   "n": "충북대학교",
   "loc": "충청북도",
   "t": 3,
-  "i": null,
+  "i": 5.5,
   "eng": "TOEFL iBT 530, IELTS 5.5, TEPS 600",
   "majors": [
    "국제학부",
@@ -50070,8 +51677,8 @@ window.UNIV_KNOWLEDGE = [
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 35100004350000,
+    "max": 35100004350000,
     "fields": {}
    },
    "ma": {
@@ -50088,7 +51695,12 @@ window.UNIV_KNOWLEDGE = [
   "majors_ba": [
    "신학과, 글로벌문화경영학과, 사회복지학과, 반려동물산업학과, 스포츠지도학과 (부모 모두 외국인인 외국인 정원외 전형, 모집인원은 '00명'으로 미확정 표기)"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "신학과",
+   "복지상담학과",
+   "신학전공"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -50902,7 +52514,7 @@ window.UNIV_KNOWLEDGE = [
   "n": "포항공과대학교",
   "loc": "경상북도",
   "t": null,
-  "i": null,
+  "i": 6.5,
   "eng": "",
   "majors": [],
   "tuition": 2807000,
@@ -50916,7 +52528,29 @@ window.UNIV_KNOWLEDGE = [
   "majors_ba": [
    "무은재학부(Mueunjae School of Undergraduate Studies) - 전공 미선언 입학"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "수학과",
+   "물리학과",
+   "화학과",
+   "생명과학과",
+   "신소재공학과",
+   "기계공학과",
+   "산업경영공학과",
+   "전자전기공학과",
+   "컴퓨터공학과",
+   "화학공학과",
+   "융합생명공학과",
+   "환경공학과",
+   "인공지능대학원",
+   "첨단원자력공학과",
+   "융합생명과학과",
+   "산업데이터사이언스",
+   "합성생물학과",
+   "의과학과",
+   "경영과학",
+   "철강·에코소재기술",
+   "배터리공학과"
+  ],
   "req": {
    "topik": null,
    "ielts": 6.5,
@@ -51745,7 +53379,13 @@ window.UNIV_KNOWLEDGE = [
   "i": 5.5,
   "eng": "",
   "majors": [],
-  "tuition": null,
+  "tuition": {
+   "ba": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   }
+  },
   "en": "KOREATECH University",
   "es": "KOREATECH",
   "ek": "한국기술교육대학교",
@@ -51753,7 +53393,26 @@ window.UNIV_KNOWLEDGE = [
   "stu": 5768,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "기계공학부",
+   "메카트로닉스공학부",
+   "디자인공학과",
+   "건축공학과",
+   "에너지신소재화학공학부",
+   "에너지신소재공학전공",
+   "화학생명공학전공",
+   "전기·전자·통신공학부",
+   "전기공학전공",
+   "전자공학전공",
+   "AI정보통신공학전공",
+   "컴퓨터공학부",
+   "컴퓨터공학전공",
+   "AI·소프트웨어전공",
+   "경영학부",
+   "융합경영전공",
+   "데이터경영전공",
+   "고용서비스정책학과"
+  ],
   "majors_ma": [],
   "req": {
    "topik": 2,
@@ -51805,7 +53464,8 @@ window.UNIV_KNOWLEDGE = [
    "excellent": false,
    "foreign": "85",
    "foreign_pct": "1.5"
-  }
+  },
+  "period": "2026. 7. 6.(월) ~ 9.(목) 16:00까지"
  },
  {
   "n": "한국성서대학교",
@@ -51879,7 +53539,9 @@ window.UNIV_KNOWLEDGE = [
    "excellent": false,
    "foreign": "116",
    "foreign_pct": "10.1"
-  }
+  },
+  "period": "2026. 9. 7(월) ~ 11(금) 6pm",
+  "scholarships": []
  },
  {
   "n": "한국외국어대학교",
@@ -51953,8 +53615,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 4844000,
+    "max": 5524000,
     "fields": {}
    },
    "lang": {
@@ -52178,7 +53840,9 @@ window.UNIV_KNOWLEDGE = [
     "en": "All Fields and Departments"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "일반대학원 52개 학과(언어·지역학·사회과학·자연과학·공학; 예: 영어영문학, 법학, 한국어번역 KFLT 등)"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -52387,8 +54051,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3168000,
+    "max": 3244000,
     "fields": {}
    }
   },
@@ -53207,7 +54871,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "School of Free Majors (Undecided)"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과및과",
+   "미술학과지원자는전공",
+   "해당학과학과",
+   "해당학과",
+   "모집학과및모집과",
+   "모집학과",
+   "국어국문학과",
+   "문예창작학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -53333,6 +55006,11 @@ window.UNIV_KNOWLEDGE = [
      "글로벌리더십학부(신입생 전원) 1학기": 4023000,
      "글로벌리더십학부(신입생 전원) 2학기": 3843000
     }
+   },
+   "ma": {
+    "min": null,
+    "max": null,
+    "fields": {}
    }
   },
   "en": "Handong University",
@@ -53500,7 +55178,9 @@ window.UNIV_KNOWLEDGE = [
     "en": "School of Global Leadership"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "국제개발협력학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 6.0,
@@ -53630,7 +55310,16 @@ window.UNIV_KNOWLEDGE = [
    "스포츠학과",
    "자유전공학부"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집전공",
+   "자동차공학전공",
+   "전자공학전공",
+   "컴퓨터공학전공",
+   "정보통신공학전공",
+   "건축공학전공",
+   "토목공학전공",
+   "AI정보보안전공"
+  ],
   "req": {
    "topik": 2,
    "ielts": 5.5,
@@ -53942,7 +55631,16 @@ window.UNIV_KNOWLEDGE = [
     "en": "Pharmaceutical Advanced Materials Major"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "의학과",
+   "학과지정과",
+   "국어국문학과",
+   "영어영문학과",
+   "철학과",
+   "사학과",
+   "심리학과",
+   "사회학과"
+  ],
   "req": {
    "topik": 2,
    "ielts": 5.5,
@@ -54078,8 +55776,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 4444000,
+    "max": 4444000,
     "fields": {}
    },
    "ma": {
@@ -54303,7 +56001,13 @@ window.UNIV_KNOWLEDGE = [
     "en": "Preferred Department"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "글로벌문화콘텐츠학과(영어트랙)",
+   "노인복지학과",
+   "아동청소년상담심리학과",
+   "항공관광학과",
+   "행정학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -54637,7 +56341,16 @@ window.UNIV_KNOWLEDGE = [
    "디자인학부(시각정보디자인전공, 실내건축디자인전공, 섬유패션디자인전공)",
    "자유전공학부(전공선택 시 간호학과/공연예술학과 제외)"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "신학과",
+   "경영학과",
+   "경찰학과",
+   "상담심리학과",
+   "사회복지학과",
+   "IT융합학과",
+   "환경경영학과",
+   "전공과"
+  ],
   "req": {
    "topik": 3,
    "ielts": null,
@@ -54736,7 +56449,16 @@ window.UNIV_KNOWLEDGE = [
    "AI·SW계열(AI·SW학: 소프트웨어/인공지능/데이터사이언스/XR콘텐츠/지능형IoT)",
    "AI시스템반도체학"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "신학과",
+   "목회신학전공",
+   "사회혁신전공",
+   "전공과",
+   "휴먼서비스전공",
+   "지원학과",
+   "세부전공"
+  ],
   "req": {
    "topik": 4,
    "ielts": null,
@@ -54825,8 +56547,8 @@ window.UNIV_KNOWLEDGE = [
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 7257000,
+    "max": 11324000,
     "fields": {}
    },
    "lang": {
@@ -54857,7 +56579,16 @@ window.UNIV_KNOWLEDGE = [
    "예술·체육대학: 스포츠산업과학부(스포츠매니지먼트·스포츠사이언스), 연극영화학과(연출및스탭·연기·영화), 무용학과(한국무용·현대무용·발레)",
    "국제대학: ENG 국제학부, 글로벌콘텐츠융합학부 (본교 서울캠퍼스; 간호·의과 등 일부 단과대 미개설)"
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "지원학과",
+   "일반학과과",
+   "교통물류공학과",
+   "스템공학과",
+   "컴퓨터공학과",
+   "전Xf공학과",
+   "재료화학공학과"
+  ],
   "req": {
    "topik": 4,
    "ielts": 6.0,
@@ -54932,8 +56663,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 60000003000000,
+    "max": 60000003000000,
     "fields": {}
    },
    "ma": {
@@ -55245,15 +56976,15 @@ window.UNIV_KNOWLEDGE = [
   "majors": [],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 29695003445000,
+    "max": 29695003445000,
     "fields": {
      "어학연수": 1200000
     }
    },
    "ma": {
-    "min": null,
-    "max": null,
+    "min": 3216000,
+    "max": 4656571,
     "fields": {}
    },
    "lang": {
@@ -55271,7 +57002,43 @@ window.UNIV_KNOWLEDGE = [
   "stu": 6223,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "글로벌한국어교육학과",
+   "사회복지학과",
+   "상담심리학과",
+   "경찰행정학과",
+   "소방행정학과",
+   "미디어커뮤니케이션학과",
+   "경영학부",
+   "호텔컨벤션학과",
+   "관광경영학과",
+   "항공서비스학과",
+   "유아교육학과",
+   "간호학과",
+   "치위생학과",
+   "치기공학과",
+   "물리치료학과",
+   "작업치료학과",
+   "임상병리학과",
+   "응급구조학과",
+   "외식조리학과",
+   "식품영양학과",
+   "건축학부",
+   "토목환경공학과",
+   "미래모빌리티학과",
+   "전기공학과",
+   "로봇드론공학과",
+   "컴퓨터공학과",
+   "패션디자인학과",
+   "만화애니메이션학과",
+   "시각융합디자인학과",
+   "미디어영상공연학과",
+   "뷰티미용학과",
+   "e스포츠산업학과",
+   "스포츠레저학과",
+   "축구학과",
+   "태권도학과"
+  ],
   "majors_ma": [
    {
     "kr": "동일(유사)전공",
@@ -55389,7 +57156,13 @@ window.UNIV_KNOWLEDGE = [
   "i": 5.5,
   "eng": "",
   "majors": [],
-  "tuition": null,
+  "tuition": {
+   "ba": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   }
+  },
   "en": "HTU University",
   "es": "HTU",
   "ek": "호남신학대학교",
@@ -55397,7 +57170,11 @@ window.UNIV_KNOWLEDGE = [
   "stu": 752,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
+  "majors_ba": [
+   "신학과",
+   "기독교사회복지상담학과",
+   "교회음악학과"
+  ],
   "majors_ma": [],
   "req": {
    "topik": 3,
@@ -55437,7 +57214,8 @@ window.UNIV_KNOWLEDGE = [
      "evidence": "※ 중국어트랙 지원자(이중언어과목 지원자) : 경영학부 지원자로 외국인으로서 한국어 능력"
     }
    ]
-  }
+  },
+  "period": "2025.9.8(월)~9.12(금), 2025.12.29(월)~12.31(수)"
  },
  {
   "n": "호서대학교",
@@ -55483,8 +57261,70 @@ window.UNIV_KNOWLEDGE = [
   "stu": 15633,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "정보통신공학과",
+   "컴퓨터공학과",
+   "지능로봇학과",
+   "전자공학과",
+   "전기시스템공학과",
+   "기계공학과",
+   "미래자동차공학과",
+   "화학공학과",
+   "안전공학과",
+   "소방방재학과",
+   "건축학과(5년제)",
+   "건축토목공학부(건축공학트랙, 토목공학트랙)",
+   "환경공학과",
+   "전자재료공학과",
+   "빅데이터AI학부(빅데이터분석트랙, AI응용비즈니스트랙)",
+   "게임소프트웨어학과",
+   "반도체공학과",
+   "식품공학과",
+   "제약공학과",
+   "화장품과학과",
+   "생명공학과",
+   "식품영양학과",
+   "간호학과",
+   "물리치료학과",
+   "임상병리학과",
+   "동물보건복지학과",
+   "시각디자인학과",
+   "산업디자인학과",
+   "실내디자인학과",
+   "디지털프로덕트디자인학과",
+   "애니메이션스쿨",
+   "사회체육학과",
+   "골프산업학과",
+   "문화영상학부(영상미디어트랙, 문화콘텐츠기획트랙)",
+   "공연예술학부(연극트랙, 실용음악트랙)",
+   "기독교학과",
+   "글로벌통상학과",
+   "경영학과(경영학, 세무회계학)",
+   "디지털금융경영학과",
+   "한국언어문화학과",
+   "영어영문학과",
+   "중국학과",
+   "경찰행정학과",
+   "사회복지학부(사회복지학트랙, 노인복지학트랙)",
+   "청소년문화·상담학과",
+   "유아교육과",
+   "미디어커뮤니케이션학과",
+   "심리학과",
+   "항공서비스학과",
+   "자유전공학부",
+   "국제학부(국제학트랙(영어트랙), 국제경영학트랙)",
+   "국제산학융합학부(실버케어트랙, 글로벌비즈니스트랙)"
+  ],
+  "majors_ma": [
+   "모집학과",
+   "음악학과",
+   "계약학과",
+   "신학과",
+   "국어국문학과",
+   "영어영문학과",
+   "상담학과",
+   "인재개발학과"
+  ],
   "req": {
    "topik": 3,
    "ielts": 5.5,
@@ -55605,8 +57445,8 @@ window.UNIV_KNOWLEDGE = [
   ],
   "tuition": {
    "ba": {
-    "min": null,
-    "max": null,
+    "min": 30050003875000,
+    "max": 30050003875000,
     "fields": {
      "어학연수": 1200000
     }
@@ -55671,7 +57511,10 @@ window.UNIV_KNOWLEDGE = [
     "en": "Department of Dental Hygiene"
    }
   ],
-  "majors_ma": [],
+  "majors_ma": [
+   "모집학과",
+   "전공과"
+  ],
   "req": {
    "topik": 2,
    "ielts": null,
@@ -55795,8 +57638,93 @@ window.UNIV_KNOWLEDGE = [
   "stu": 17886,
   "rk": null,
   "type": "univ",
-  "majors_ba": [],
-  "majors_ma": [],
+  "majors_ba": [
+   "전자·전기공학부",
+   "신소재·화공시스템공학부(신소재공학전공/화학공학전공)",
+   "컴퓨터공학과",
+   "산업·데이터공학과",
+   "기계·시스템디자인공학과",
+   "건설환경공학과",
+   "건축학부 건축학전공(5년제)",
+   "건축학부 실내건축학전공",
+   "도시공학과",
+   "경영학부",
+   "영어영문학과",
+   "독어독문학과",
+   "불어불문학과",
+   "국어국문학과",
+   "법학부",
+   "경제학부",
+   "예술학과",
+   "동양화과",
+   "회화과",
+   "판화과",
+   "조소과",
+   "디자인학부(시각디자인전공/산업디자인전공)",
+   "금속조형디자인과",
+   "도예·유리과",
+   "목조형가구학과",
+   "섬유미술·패션디자인과",
+   "공연예술학부 뮤지컬전공(연기)",
+   "공연예술학부 실용음악전공(보컬/작곡)",
+   "전자전기융합공학과",
+   "소프트웨어융합학과",
+   "나노반도체공학과",
+   "건축공학부(건축디자인전공(5년제)/건축공학전공)",
+   "AI기계융합공학과",
+   "조선해양모빌리티공학과",
+   "바이오화학융합공학과",
+   "게임학부 게임소프트웨어전공(공학계)",
+   "상경학부(글로벌경영전공/회계학전공/금융보험학전공)",
+   "광고홍보학부",
+   "디자인컨버전스학부",
+   "영상·애니메이션학부",
+   "게임학부 게임그래픽디자인전공(미술계)"
+  ],
+  "majors_ma": [
+   "물리학과",
+   "수학과",
+   "건축학과",
+   "실내건축학과",
+   "기계공학과",
+   "도시계획과",
+   "신소재공학과",
+   "전자전기공학과",
+   "산업·데이터공학과",
+   "컴퓨터공학과",
+   "토목공학과",
+   "화학공학과",
+   "경영학과",
+   "경제학과",
+   "세무학과",
+   "문화예술경영학과",
+   "광고홍보학과",
+   "교육학과(교육사ㆍ철학, 교육심리, 상담심리, 교육행정, 교육평가, 교육공학, 교육사회ㆍ평생교육)",
+   "국어국문학과(국어국문학전공, 한국어교육전공)",
+   "독어독문학과",
+   "불어불문학과",
+   "영어영문학과",
+   "미술사학과",
+   "미학과",
+   "법학과",
+   "사학과",
+   "지식재산학과",
+   "금속조형디자인과",
+   "도예•유리과",
+   "동양화과",
+   "목조형가구학과",
+   "섬유미술·텍스타일디자인과",
+   "예술학과",
+   "패션디자인과",
+   "조소과",
+   "판화과",
+   "회화과",
+   "디자인학부(공간디자인, 산업디자인, 시각디자인, 사진)",
+   "미술학과(동양화, 예술학, 조소, 판화, 회화)",
+   "디자인공예학과(공간디자인, 공공디자인, 금속조형디자인, 도예•유리, 목조형가구, 사진, 산업디자인, 섬유미술·텍스타일디자인과, 시각디자인, 패션디자인, 색채)",
+   "공연예술학과(공연예술, 실용음악)",
+   "영상•인터랙션학과"
+  ],
   "req": {
    "topik": 1,
    "ielts": null,
@@ -55846,7 +57774,8 @@ window.UNIV_KNOWLEDGE = [
     }
    ]
   },
-  "fstu": 1480
+  "fstu": 1480,
+  "period": "2026. 7. 16(목) 10:00 ~ 2026. 7. 23(목) 16:00"
  },
  {
   "n": "화성의과학대학교",
@@ -55961,7 +57890,7 @@ window.UNIV_KNOWLEDGE = [
   "website": "https://www.mjc.ac.kr/",
   "logo_url": "",
   "degree_guide": "https://ipsi.mjc.ac.kr/recruit/list.do?menu_idx=1806",
-  "lang_guide": "junior_guides/명지_한국어학당_모집요강_한국어.pdf",
+  "lang_guide": "G:\\공유 드라이브\\Hermes\\Camnemi\\02_Crawling_Sheet\\University_Project\\guides\\_archive\\2026\\junior\\명지_한국어학당_모집요강_한국어.pdf",
   "logo": "junior_logos/4c66c74055.png",
   "majors_ba": [
    {
@@ -56228,7 +58157,9 @@ window.UNIV_KNOWLEDGE = [
     "condition": "소득분위 3분위 이내, 서울시 외 타지역 유학생으로 주거안정이 필요한 학생(자취·고시원·하숙 우선순위), 생활비 형식 무상보조 100만원 이상 수혜자 제외",
     "benefit": "1,500,000원(생활비)"
    }
-  ]
+  ],
+  "t": 3,
+  "i": null
  },
  {
   "n": "서울여자간호대학교",
@@ -56262,7 +58193,10 @@ window.UNIV_KNOWLEDGE = [
   "en": "Seoul Women's College of Nursing",
   "es": "SNJC",
   "foreign_guide": "no_public_guide",
-  "period": "정시 원서접수 2027.01.04~01.20 / 합격발표 2027.02.05 / 등록 2027.02.10~02.12"
+  "period": "정시 원서접수 2027.01.04~01.20 / 합격발표 2027.02.05 / 등록 2027.02.10~02.12",
+  "t": null,
+  "i": null,
+  "scholarships": []
  },
  {
   "n": "서울예술대학교",
@@ -56581,7 +58515,9 @@ window.UNIV_KNOWLEDGE = [
     "condition": "가계 곤란 학생 또는 성장 가능성이 있다고 판단된 학생 중 국제교류단장 추천",
     "benefit": "일정액(성적산출 단위 별도로 정함)"
    }
-  ]
+  ],
+  "t": null,
+  "i": null
  },
  {
   "n": "인덕대학교",
@@ -56812,7 +58748,9 @@ window.UNIV_KNOWLEDGE = [
     "condition": "순수외국인전형 입학자 중 학업성적 우수(직전학기 미취득학점 없음)",
     "benefit": "수업료의 30%"
    }
-  ]
+  ],
+  "t": 2,
+  "i": 5.5
  },
  {
   "n": "한양여자대학교",
@@ -57081,6 +59019,22 @@ window.UNIV_KNOWLEDGE = [
      "친환경건축·공간디자인·드론건설·시각디자인·소프트웨어융합": 3728000,
      "실용음악·공연예술": 3824000
     }
+   },
+   "lang": {
+    "min": {
+     "min": 1300000,
+     "max": null
+    },
+    "max": {
+     "min": 1300000,
+     "max": null
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1300000,
+      "max": null
+     }
+    }
    }
   },
   "foreign_guide": "not_checked",
@@ -57151,7 +59105,9 @@ window.UNIV_KNOWLEDGE = [
     "condition": "직전학기 평점 85 이상",
     "benefit": "등록금의 40%"
    }
-  ]
+  ],
+  "t": 3,
+  "i": null
  },
  {
   "n": "계원예술대학교",
@@ -57348,7 +59304,9 @@ window.UNIV_KNOWLEDGE = [
     "condition": "국가공인 어학시험 만점 기준 60% 이상 점수 취득자 또는 IELTS 5.0 이상, JLPT N3 이상, HSK 4급 이상, HSKK 중급(입학일 기준 유효 자격증)",
     "benefit": "등록금(금액 미기재)"
    }
-  ]
+  ],
+  "t": 3,
+  "i": null
  },
  {
   "n": "김포대학교",
@@ -57479,7 +59437,9 @@ window.UNIV_KNOWLEDGE = [
     "benefit": "1,000,000원"
    }
   ],
-  "period": "봄학기 서류제출 2026.12 말 마감 / 가을학기 2027.06 말 마감(수시 상시 모집)"
+  "period": "봄학기 서류제출 2026.12 말 마감 / 가을학기 2027.06 말 마감(수시 상시 모집)",
+  "t": null,
+  "i": 5.5
  },
  {
   "n": "농협대학교",
@@ -57607,6 +59567,22 @@ window.UNIV_KNOWLEDGE = [
     "min": 3161000,
     "max": 4156000,
     "fields": {}
+   },
+   "lang": {
+    "min": {
+     "min": 1300000,
+     "max": 1300000
+    },
+    "max": {
+     "min": 1300000,
+     "max": 1300000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1300000,
+      "max": 1300000
+     }
+    }
    }
   },
   "en": "Daelim University College",
@@ -57985,7 +59961,9 @@ window.UNIV_KNOWLEDGE = [
     "benefit": "장학금 수여(금액·비율 미공개)"
    }
   ],
-  "period": "2026.09.07(월) ~ 09.30(수)"
+  "period": "2026.09.07(월) ~ 09.30(수)",
+  "t": 2,
+  "i": null
  },
  {
   "n": "동원대학교",
@@ -58198,7 +60176,7 @@ window.UNIV_KNOWLEDGE = [
   "website": "https://www.bc.ac.kr/",
   "logo_url": "",
   "degree_guide": "https://ipsi.bc.ac.kr/",
-  "lang_guide": "junior_guides/부천대_한국어학당_모집요강_2025_한국어.pdf",
+  "lang_guide": "G:\\공유 드라이브\\Hermes\\Camnemi\\02_Crawling_Sheet\\University_Project\\guides\\_archive\\unknown\\junior\\부천대_한국어학당_모집요강_2025_한국어.pdf",
   "logo": "junior_logos/809a6d1984.png",
   "majors_ba": [
    {
@@ -58336,6 +60314,22 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "tuition": 3432480,
      "first_sem_paid": 1716240
+    }
+   },
+   "lang": {
+    "min": {
+     "min": 1040000,
+     "max": null
+    },
+    "max": {
+     "min": 1040000,
+     "max": null
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1040000,
+      "max": null
+     }
     }
    }
   },
@@ -58887,6 +60881,22 @@ window.UNIV_KNOWLEDGE = [
     "min": 3100000,
     "max": 4100000,
     "fields": {}
+   },
+   "lang": {
+    "min": {
+     "min": 720000,
+     "max": 2400000
+    },
+    "max": {
+     "min": 720000,
+     "max": 2400000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 720000,
+      "max": 2400000
+     }
+    }
    }
   },
   "en": "Shingu College",
@@ -59031,6 +61041,22 @@ window.UNIV_KNOWLEDGE = [
     "min": 3373000,
     "max": 3780000,
     "fields": {}
+   },
+   "lang": {
+    "min": {
+     "min": 1300000,
+     "max": 5200000
+    },
+    "max": {
+     "min": 1300000,
+     "max": 5200000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1300000,
+      "max": 5200000
+     }
+    }
    }
   },
   "en": "Shin Ansan University",
@@ -59191,6 +61217,22 @@ window.UNIV_KNOWLEDGE = [
     "min": 3050000,
     "max": 3670000,
     "fields": {}
+   },
+   "lang": {
+    "min": {
+     "min": 1200000,
+     "max": null
+    },
+    "max": {
+     "min": 1200000,
+     "max": null
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1200000,
+      "max": null
+     }
+    }
    }
   },
   "en": "Ansan University",
@@ -59369,6 +61411,22 @@ window.UNIV_KNOWLEDGE = [
     "min": 3302000,
     "max": 4262000,
     "fields": {}
+   },
+   "lang": {
+    "min": {
+     "min": 1200000,
+     "max": 1200000
+    },
+    "max": {
+     "min": 1200000,
+     "max": 1200000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1200000,
+      "max": 1200000
+     }
+    }
    }
   },
   "en": "Yeonsung University",
@@ -59566,6 +61624,13 @@ window.UNIV_KNOWLEDGE = [
     "min": 3300000,
     "max": 7261789,
     "fields": {}
+   },
+   "lang": {
+    "min": 1300000,
+    "max": 1300000,
+    "fields": {
+     "어학연수": 1300000
+    }
    }
   },
   "en": "Yeoju Institute of Technology",
@@ -59798,6 +61863,22 @@ window.UNIV_KNOWLEDGE = [
     "min": 3480000,
     "max": 3480000,
     "fields": {}
+   },
+   "lang": {
+    "min": {
+     "min": 1100000,
+     "max": null
+    },
+    "max": {
+     "min": 1100000,
+     "max": null
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1100000,
+      "max": null
+     }
+    }
    }
   },
   "en": "Woongji Accounting & Tax College",
@@ -59937,7 +62018,7 @@ window.UNIV_KNOWLEDGE = [
   "website": "https://www.jangan.ac.kr/",
   "logo_url": "",
   "degree_guide": "https://iphak.jangan.ac.kr/",
-  "lang_guide": "junior_guides/장안대학교_한국어과정_모집요강.pdf",
+  "lang_guide": "G:\\공유 드라이브\\Hermes\\Camnemi\\02_Crawling_Sheet\\University_Project\\guides\\_archive\\2026\\junior\\장안대학교_한국어과정_모집요강.pdf",
   "logo": "junior_logos/3f3b2e85fb.png",
   "majors_ba": [
    {
@@ -60236,6 +62317,22 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "인문계열(1학기, 입학금포함)": 3214000,
      "인문계열(2학기 이후)": 2980000
+    }
+   },
+   "lang": {
+    "min": {
+     "min": 1100000,
+     "max": 1100000
+    },
+    "max": {
+     "min": 1100000,
+     "max": 1100000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1100000,
+      "max": 1100000
+     }
     }
    }
   },
@@ -60566,7 +62663,7 @@ window.UNIV_KNOWLEDGE = [
   "website": "https://www.gw.ac.kr/",
   "logo_url": "",
   "degree_guide": "https://ipsi.gw.ac.kr/",
-  "lang_guide": "junior_guides/강원도립대_어학연수_모집요강1_conv.pdf",
+  "lang_guide": "G:\\공유 드라이브\\Hermes\\Camnemi\\02_Crawling_Sheet\\University_Project\\guides\\_archive\\2026\\junior\\강원도립대_어학연수_모집요강1_conv.pdf",
   "logo": "junior_logos/795d7532fa.png",
   "majors_ba": [
    {
@@ -60785,7 +62882,9 @@ window.UNIV_KNOWLEDGE = [
     "condition": "해당 기준 충족 시",
     "benefit": "50만원 (등록금 범위 내)"
    }
-  ]
+  ],
+  "t": null,
+  "i": null
  },
  {
   "n": "송곡대학교",
@@ -61112,7 +63211,9 @@ window.UNIV_KNOWLEDGE = [
     "condition": null,
     "benefit": null
    }
-  ]
+  ],
+  "t": null,
+  "i": null
  },
  {
   "n": "한국골프과학기술대학교",
@@ -61620,6 +63721,13 @@ window.UNIV_KNOWLEDGE = [
     "min": 2632490,
     "max": 3650490,
     "fields": {}
+   },
+   "lang": {
+    "min": 1000000,
+    "max": 1000000,
+    "fields": {
+     "어학연수": 1000000
+    }
    }
   },
   "en": "Daejeon Health Institute of Technology",
@@ -62131,7 +64239,9 @@ window.UNIV_KNOWLEDGE = [
    ]
   },
   "period": "원서접수 일정은 학기에 따라 공지 사항에 공고 예정",
-  "scholarships": "글로벌특별장학: 외국인 유학생 수업료 20~40% 감면(학교 공식 블로그 '강동대학교 장학 프로그램')"
+  "scholarships": "글로벌특별장학: 외국인 유학생 수업료 20~40% 감면(학교 공식 블로그 '강동대학교 장학 프로그램')",
+  "t": 2,
+  "i": null
  },
  {
   "n": "대원대학교",
@@ -62361,7 +64471,10 @@ window.UNIV_KNOWLEDGE = [
     "name": "성적장학_1학년2학기부터",
     "benefit": "성적장학_1학년2학기부터"
    }
-  ]
+  ],
+  "period": "2025.12.26",
+  "t": null,
+  "i": 5.5
  },
  {
   "n": "충청대학교",
@@ -62370,7 +64483,7 @@ window.UNIV_KNOWLEDGE = [
   "website": "https://www.ok.ac.kr",
   "logo_url": "",
   "degree_guide": "https://www.ok.ac.kr/ipsi/contents.do?key=5532",
-  "lang_guide": "junior_guides/충청대_한국어학당_모집요강.pdf",
+  "lang_guide": "G:\\공유 드라이브\\Hermes\\Camnemi\\02_Crawling_Sheet\\University_Project\\guides\\_archive\\2026\\junior\\충청대_한국어학당_모집요강.pdf",
   "logo": "junior_logos/c63c9aa57c.png",
   "majors_ba": [
    {
@@ -62987,7 +65100,7 @@ window.UNIV_KNOWLEDGE = [
   "website": "https://www.dit.ac.kr",
   "logo_url": "",
   "degree_guide": "https://www.dit.ac.kr/ipsi/index.php?pCode=foreigner01",
-  "lang_guide": "junior_guides/동의과학대_글로벌_입학서류.pdf",
+  "lang_guide": "G:\\공유 드라이브\\Hermes\\Camnemi\\02_Crawling_Sheet\\University_Project\\guides\\_archive\\2026\\junior\\동의과학대_글로벌_입학서류.pdf",
   "logo": "junior_logos/83cb058b7f.png",
   "en": "Dong-Eui Institute of Technology",
   "es": "DIT",
@@ -63035,6 +65148,22 @@ window.UNIV_KNOWLEDGE = [
     "min": 3046000,
     "max": 3710000,
     "fields": {}
+   },
+   "lang": {
+    "min": {
+     "min": 1200000,
+     "max": 1200000
+    },
+    "max": {
+     "min": 1200000,
+     "max": 1200000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1200000,
+      "max": 1200000
+     }
+    }
    }
   },
   "foreign_guide": "not_checked",
@@ -63406,7 +65535,10 @@ window.UNIV_KNOWLEDGE = [
     "condition": "반별 최우수학생 심사 후 선발",
     "benefit": "장학금 지급 (학기 시작 전 어학센터에서 별도 공지)"
    }
-  ]
+  ],
+  "period": "미기재",
+  "t": null,
+  "i": null
  },
  {
   "n": "부산여자대학교",
@@ -64008,6 +66140,22 @@ window.UNIV_KNOWLEDGE = [
     "min": 3100000,
     "max": 4000000,
     "fields": {}
+   },
+   "lang": {
+    "min": {
+     "min": 1100000,
+     "max": 1100000
+    },
+    "max": {
+     "min": 1100000,
+     "max": 1100000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1100000,
+      "max": 1100000
+     }
+    }
    }
   },
   "en": "Suseong University",
@@ -64607,6 +66755,22 @@ window.UNIV_KNOWLEDGE = [
     "max": 2964000,
     "fields": {
      "수업료(전학과·2020년기준)": 2964000
+    }
+   },
+   "lang": {
+    "min": {
+     "min": 4000000,
+     "max": 4000000
+    },
+    "max": {
+     "min": 4000000,
+     "max": 4000000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 4000000,
+      "max": 4000000
+     }
     }
    }
   },
@@ -65538,6 +67702,22 @@ window.UNIV_KNOWLEDGE = [
     "min": 2700000,
     "max": 3287000,
     "fields": {}
+   },
+   "lang": {
+    "min": {
+     "min": 1100000,
+     "max": 1100000
+    },
+    "max": {
+     "min": 1100000,
+     "max": 1100000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1100000,
+      "max": 1100000
+     }
+    }
    }
   },
   "foreign_guide": "not_checked"
@@ -65577,6 +67757,22 @@ window.UNIV_KNOWLEDGE = [
     "fields": {
      "공학계열(기계·조선해양)": 3295000,
      "조리제빵과": 3169000
+    }
+   },
+   "lang": {
+    "min": {
+     "min": 1025000,
+     "max": 4100000
+    },
+    "max": {
+     "min": 1025000,
+     "max": 4100000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 1025000,
+      "max": 4100000
+     }
     }
    }
   },
@@ -65618,7 +67814,9 @@ window.UNIV_KNOWLEDGE = [
     "condition": "별도 기준",
     "benefit": "별도 지급"
    }
-  ]
+  ],
+  "t": 2,
+  "i": null
  },
  {
   "n": "김해대학교",
@@ -65881,6 +68079,22 @@ window.UNIV_KNOWLEDGE = [
     "min": 1617000,
     "max": 2443000,
     "fields": {}
+   },
+   "lang": {
+    "min": {
+     "min": 350000,
+     "max": 6150000
+    },
+    "max": {
+     "min": 350000,
+     "max": 6150000
+    },
+    "fields": {
+     "어학연수": {
+      "min": 350000,
+      "max": 6150000
+     }
+    }
    }
   },
   "en": "Masan University",
@@ -66671,7 +68885,7 @@ window.UNIV_KNOWLEDGE = [
   "website": "https://www.cst.ac.kr/",
   "logo_url": "",
   "degree_guide": "https://world.cst.ac.kr/",
-  "lang_guide": "junior_guides/조선이공대_입학지원서.pdf",
+  "lang_guide": "G:\\공유 드라이브\\Hermes\\Camnemi\\02_Crawling_Sheet\\University_Project\\guides\\_archive\\2026\\junior\\조선이공대_입학지원서.pdf",
   "logo": "junior_logos/c5fe458506.png",
   "majors_ba": [
    {
@@ -67043,7 +69257,17 @@ window.UNIV_KNOWLEDGE = [
   "en": "Paekche Institute of the Arts",
   "es": "Paekche Institute of the Arts",
   "foreign_guide": "not_checked",
-  "period": "수시 1차: 09.07(월)~09.30(수) 17:00, 수시 2차: 11.11(수)~11.25(수) 17:00, 정시: 2027.01.04(월)~01.20(수) 17:00, 자율: 01.21(목)~02.27(토) 17:00"
+  "period": "수시 1차: 09.07(월)~09.30(수) 17:00, 수시 2차: 11.11(수)~11.25(수) 17:00, 정시: 2027.01.04(월)~01.20(수) 17:00, 자율: 01.21(목)~02.27(토) 17:00",
+  "tuition": {
+   "ba": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   }
+  },
+  "t": null,
+  "i": null,
+  "scholarships": []
  },
  {
   "n": "전북과학대학교",
@@ -67609,7 +69833,16 @@ window.UNIV_KNOWLEDGE = [
     "benefit": "학비 등 전액 국비 지원"
    }
   ],
-  "period": "2025.02.03.(월)~02.28.(금)"
+  "period": "2025.02.03.(월)~02.28.(금)",
+  "tuition": {
+   "ba": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   }
+  },
+  "t": null,
+  "i": null
  },
  {
   "n": "광양보건대학교",
@@ -67981,7 +70214,9 @@ window.UNIV_KNOWLEDGE = [
     "condition": "3급: 토익 550점 이상, TOEFL 55점(iBT), JLPT N4급, JPT 550점, TEPS 350점, HSK 3급 이상",
     "benefit": "대학 장학규정에 의함"
    }
-  ]
+  ],
+  "t": 2,
+  "i": null
  },
  {
   "n": "전남과학대학교",
@@ -68409,7 +70644,9 @@ window.UNIV_KNOWLEDGE = [
     "benefit": "장학위원회에서 결정 (등록금 범위 초과 지급 가능)"
    }
   ],
-  "period": "1차 2026.05.04~05.14 / 2차 2026.06.02~06.22"
+  "period": "1차 2026.05.04~05.14 / 2차 2026.06.02~06.22",
+  "t": 2,
+  "i": 5.5
  },
  {
   "n": "제주한라대학교",
@@ -68485,10 +70722,533 @@ window.UNIV_KNOWLEDGE = [
     "benefit": "특급 등록금 전액 ~ F급 등록금의 15%"
    }
   ],
-  "period": "1차 2026.03.16~05.01 / 2차 05.11~06.12 / 자율모집 06.22~08.14"
+  "period": "1차 2026.03.16~05.01 / 2차 05.11~06.12 / 자율모집 06.22~08.14",
+  "t": 2,
+  "i": 5.5
+ },
+ {
+  "n": "가톨릭대학교 성신교정",
+  "loc": null,
+  "t": null,
+  "i": null,
+  "eng": "",
+  "majors": [],
+  "tuition": {
+   "ba": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   },
+   "ma": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   }
+  },
+  "en": null,
+  "es": null,
+  "ek": "가톨릭대학교 성신교정",
+  "logo": null,
+  "stu": null,
+  "rk": null,
+  "type": "univ",
+  "majors_ba": [
+   "신학과"
+  ],
+  "majors_ma": [],
+  "req": {
+   "topik": null,
+   "ielts": null,
+   "kiip": null,
+   "sejong": null,
+   "selftest": null,
+   "english": false
+  },
+  "req_note": "",
+  "cert": {
+   "degree": false,
+   "language": false,
+   "excellent": false,
+   "foreign": "",
+   "foreign_pct": ""
+  },
+  "period": "2027.1.4.(월) 10:00 ~ 2027.1.7.(목) 17:00까지",
+  "lang_bypass": null,
+  "fstu": null,
+  "scholarships": [],
+  "_new": true
+ },
+ {
+  "n": "건국대학교 GLOCAL 캠퍼스",
+  "loc": null,
+  "t": 3,
+  "i": null,
+  "eng": "",
+  "majors": [],
+  "tuition": {
+   "ba": {
+    "min": 44490006228000,
+    "max": 44490006228000,
+    "fields": {}
+   },
+   "ma": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   }
+  },
+  "en": null,
+  "es": null,
+  "ek": "건국대학교 GLOCAL 캠퍼스",
+  "logo": null,
+  "stu": null,
+  "rk": null,
+  "type": "univ",
+  "majors_ba": [
+   "산업디자인학과",
+   "실내디자인학과",
+   "패션디자인학과",
+   "시각영상디자인학과",
+   "미디어콘텐츠학과",
+   "조형예술학과",
+   "경영학과",
+   "경제통상학과",
+   "경찰학과",
+   "소방방재융합학과",
+   "문헌정보학과",
+   "사회복지학과",
+   "신문방송학과",
+   "동화·한국어문화학과",
+   "영어문화학과",
+   "메카트로닉스공학과",
+   "컴퓨터공학과",
+   "바이오메디컬공학과",
+   "녹색기술융합학과",
+   "에너지신소재공학과",
+   "바이오의약학과",
+   "생명공학과",
+   "식품영양학과",
+   "뷰티화장품학과",
+   "스포츠건강학과",
+   "골프산업학과",
+   "국제경영학과",
+   "미디어영상학과"
+  ],
+  "majors_ma": [],
+  "req": {
+   "topik": 3,
+   "ielts": null,
+   "kiip": null,
+   "sejong": null,
+   "selftest": null,
+   "english": false
+  },
+  "req_note": "",
+  "cert": {
+   "degree": false,
+   "language": false,
+   "excellent": false,
+   "foreign": "",
+   "foreign_pct": ""
+  },
+  "period": "2026.10.01.(목) ~ 10.23.(금), 2026.11.23.(월) ~ 12.11.(금)",
+  "lang_bypass": null,
+  "fstu": null,
+  "scholarships": [
+   {
+    "name": "신·편입학 TOPIK 장학",
+    "condition": "TOPIK 5급 이상 (국제경영, 미디어영상학과 제외)",
+    "benefit": "수업료의 70%"
+   },
+   {
+    "name": "신·편입학 TOPIK 장학",
+    "condition": "TOPIK 4급 (국제경영, 미디어영상학과 제외)",
+    "benefit": "수업료의 50%"
+   },
+   {
+    "name": "신·편입학 TOPIK 장학",
+    "condition": "TOPIK 3급 (국제경영, 미디어영상학과 제외)",
+    "benefit": "수업료의 40%"
+   },
+   {
+    "name": "신·편입학 자체 한국어시험 장학",
+    "condition": "자체 한국어시험 합격 (국제경영, 미디어영상학과 제외)",
+    "benefit": "수업료의 40%"
+   },
+   {
+    "name": "KU글로컬혁신대학 국제학부 입학 장학",
+    "condition": "국제경영, 미디어영상학과 입학 시",
+    "benefit": "수업료의 30%"
+   },
+   {
+    "name": "성적 최우수 학습지원 장학",
+    "condition": "직전학기 성적 3.0 이상/4.5, 15학점, TOPIK 4급 이상(정원의 5%)",
+    "benefit": "2,000,000원"
+   },
+   {
+    "name": "성적 향상 STEP-UP 장학",
+    "condition": "직전학기 성적 2.0 이상/4.5, 12학점, 직전 학기 대비 성적 향상(정원의 25%)",
+    "benefit": "600,000원~1,000,000원"
+   },
+   {
+    "name": "정주지원장학",
+    "condition": "직전학기 성적 4.0 이상/4.5, 15학점, 선발 기준 충족 시",
+    "benefit": "3,000,000원"
+   },
+   {
+    "name": "정주지원장학",
+    "condition": "직전학기 성적 3.5 이상/4.5, 15학점, 선발 기준 충족 시",
+    "benefit": "2,400,000원"
+   },
+   {
+    "name": "정주지원장학",
+    "condition": "직전학기 성적 3.0 이상/4.5, 15학점, 선발 기준 충족 시",
+    "benefit": "2,000,000원"
+   },
+   {
+    "name": "정주지원장학",
+    "condition": "직전학기 성적 2.3 이상/4.5, 15학점, 선발 기준 충족 시",
+    "benefit": "1,400,000원"
+   },
+   {
+    "name": "TOPIK 장학",
+    "condition": "입학 후 정규학기 내 TOPIK 3급 취득 시",
+    "benefit": "500,000원"
+   },
+   {
+    "name": "TOPIK 장학",
+    "condition": "입학 후 정규학기 내 TOPIK 4급 이상 취득 시",
+    "benefit": "2,500,000원"
+   },
+   {
+    "name": "생활관 주거 지원 장학",
+    "condition": "입학 후 첫 1년 동안 기숙사 거주 시",
+    "benefit": "1,600,000원 (800,000원×2학기)"
+   },
+   {
+    "name": "외국인 뉴프런티어",
+    "condition": "국내 현장 체험 및 기업 탐방 프로그램, 면접평가 100% (태도 및 지원동기 등)",
+    "benefit": "프로그램 참가비(전액)"
+   },
+   {
+    "name": "국제화장학",
+    "condition": "선발 기준 충족 시 방학 중 영어권 국가 어학연수 지원",
+    "benefit": "3,000,000원~4,500,000원"
+   },
+   {
+    "name": "국제학부 성조 장학금",
+    "condition": "재학생 150명당 1명, 직전학기 성적 4.0 이상/4.5, 국제학부 소속학생 중 성적 기준 충족자",
+    "benefit": "3,000,000원"
+   },
+   {
+    "name": "국제학부 신조",
+    "condition": "재학생 40명당 1명, 직전학기 성적 3.5 이상/4.5",
+    "benefit": "2,000,000원"
+   },
+   {
+    "name": "국제학부 의조",
+    "condition": "재학생 20명당 1명, 직전학기 성적 3.2 이상/4.5",
+    "benefit": "1,000,000원"
+   }
+  ],
+  "_new": true
+ },
+ {
+  "n": "고려대학교 세종캠퍼스",
+  "loc": null,
+  "t": 4,
+  "i": null,
+  "eng": "",
+  "majors": [],
+  "tuition": {
+   "ba": {
+    "min": 3945000,
+    "max": 6073000,
+    "fields": {}
+   },
+   "ma": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   }
+  },
+  "en": null,
+  "es": null,
+  "ek": "고려대학교 세종캠퍼스",
+  "logo": null,
+  "stu": null,
+  "rk": null,
+  "type": "univ",
+  "majors_ba": [
+   "데이터계산과학전공",
+   "반도체물리학부",
+   "신소재화학과",
+   "컴퓨터소프트웨어학과",
+   "전자및정보공학과",
+   "생명정보공학과",
+   "식품생명공학과",
+   "전자·기계융합공학과",
+   "환경시스템공학과",
+   "미래모빌리티학과",
+   "지능형반도체공학과",
+   "인공지능사이버보안학과",
+   "디지털헬스케어공학과",
+   "약학과(6년제)",
+   "첨단융합신약학과",
+   "한국학전공",
+   "중국학전공",
+   "영미학전공",
+   "글로벌경영전공",
+   "디지털경영전공",
+   "표준·지식학과",
+   "정부행정학부",
+   "공공사회학전공",
+   "통일외교안보전공",
+   "경제정책학전공",
+   "빅데이터사이언스학부",
+   "스포츠과학전공",
+   "스포츠비즈니스전공",
+   "문화유산융합학부",
+   "미디어문예창작전공",
+   "문화콘텐츠전공",
+   "스마트도시학부"
+  ],
+  "majors_ma": [],
+  "req": {
+   "topik": null,
+   "ielts": null,
+   "kiip": null,
+   "sejong": null,
+   "selftest": null,
+   "english": false
+  },
+  "req_note": "",
+  "cert": {
+   "degree": false,
+   "language": false,
+   "excellent": false,
+   "foreign": "",
+   "foreign_pct": ""
+  },
+  "period": "2026.10.06-11.06",
+  "lang_bypass": null,
+  "fstu": null,
+  "scholarships": [
+   {
+    "name": "신입생 장학금 A",
+    "condition": "TOPIK 5급 이상(매 정규학기 12학점·평균 3.8 이상 유지 시)",
+    "benefit": "수업연한 중 수업료 전액"
+   },
+   {
+    "name": "신입생 장학금 B",
+    "condition": "TOPIK 4급(평균 3.3 이상 유지 시)",
+    "benefit": "수업연한 중 수업료 50%"
+   },
+   {
+    "name": "신입생 장학금 C",
+    "condition": "TOPIK 3급",
+    "benefit": "첫 학기 수업료 35%"
+   },
+   {
+    "name": "KLIP 장학금",
+    "condition": "세종캠퍼스 한국어집중프로그램(KLIP) 6개월 이상 등록·수료 후 학부 진학",
+    "benefit": "첫 학기 수업료 35%"
+   },
+   {
+    "name": "재학생 장학금 S",
+    "condition": "직전학기 성적우수 + TOPIK 4급 이상 + 평점 2.8 이상(전공 6학점 포함 12학점)",
+    "benefit": "다음 학기 수업료 35%"
+   },
+   {
+    "name": "재학생 TOPIK 취득/향상",
+    "condition": "TOPIK 4급 이상 신규 취득 / 상위급수 취득",
+    "benefit": "50만원 / 30만원"
+   }
+  ],
+  "_new": true
+ },
+ {
+  "n": "연세대학교 미래캠퍼스",
+  "loc": null,
+  "t": 3,
+  "i": null,
+  "eng": "",
+  "majors": [],
+  "tuition": {
+   "ba": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   },
+   "ma": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   }
+  },
+  "en": null,
+  "es": null,
+  "ek": "연세대학교 미래캠퍼스",
+  "logo": null,
+  "stu": null,
+  "rk": null,
+  "type": "univ",
+  "majors_ba": [
+   "자율융합계열",
+   "기후에너지시스템공학부",
+   "반도체공학물리학과",
+   "의공학부",
+   "AI반도체학부",
+   "데이터사이언스학부",
+   "소프트웨어학부",
+   "디지털헬스케어학부",
+   "디자인예술학부",
+   "동아시아국제학부",
+   "글로벌엘리트학부",
+   "글로벌케이아트학부",
+   "임상병리학과",
+   "물리치료학과",
+   "작업치료학과",
+   "방사선학과",
+   "치위생학과",
+   "AI보건정보관리학과",
+   "의예과",
+   "간호학과"
+  ],
+  "majors_ma": [],
+  "req": {
+   "topik": 3,
+   "ielts": null,
+   "kiip": null,
+   "sejong": null,
+   "selftest": null,
+   "english": false
+  },
+  "req_note": "",
+  "cert": {
+   "degree": false,
+   "language": false,
+   "excellent": false,
+   "foreign": "",
+   "foreign_pct": ""
+  },
+  "period": "[1차] 2026. 7. 27.(화) 10:00 ~ 8. 14.(금) 17:00, [2차] 2026. 11. 9.(월) 10:00 ~ 11. 20.(금) 17:00 (의예과·간호학과는 1차만 가능)",
+  "lang_bypass": null,
+  "fstu": null,
+  "scholarships": [],
+  "_new": true
+ },
+ {
+  "n": "인천재능대학교",
+  "loc": null,
+  "t": null,
+  "i": null,
+  "eng": "",
+  "majors": [],
+  "tuition": {
+   "ba": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   },
+   "ma": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   }
+  },
+  "en": null,
+  "es": null,
+  "ek": "인천재능대학교",
+  "logo": null,
+  "stu": null,
+  "rk": null,
+  "type": "univ",
+  "majors_ba": [
+   "사물인터넷공학과",
+   "호텔외식조리학과",
+   "사회복지학과",
+   "항공서비스학과",
+   "유아교육학과"
+  ],
+  "majors_ma": [],
+  "req": {
+   "topik": null,
+   "ielts": null,
+   "kiip": null,
+   "sejong": null,
+   "selftest": null,
+   "english": false
+  },
+  "req_note": "",
+  "cert": {
+   "degree": false,
+   "language": false,
+   "excellent": false,
+   "foreign": "",
+   "foreign_pct": ""
+  },
+  "period": "2022.12.29.(목) ~ 2023.1.12.(목)",
+  "lang_bypass": null,
+  "fstu": null,
+  "scholarships": [],
+  "_new": true
+ },
+ {
+  "n": "침례신학대학교",
+  "loc": null,
+  "t": 4,
+  "i": null,
+  "eng": "",
+  "majors": [],
+  "tuition": {
+   "ba": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   },
+   "ma": {
+    "min": null,
+    "max": null,
+    "fields": {}
+   }
+  },
+  "en": null,
+  "es": null,
+  "ek": "침례신학대학교",
+  "logo": null,
+  "stu": null,
+  "rk": null,
+  "type": "univ",
+  "majors_ba": [
+   "신학과 신학전공",
+   "신학과 기독교상담학전공",
+   "신학과 복지신학전공",
+   "기독교문화학과 크리스천커뮤니케이션전공"
+  ],
+  "majors_ma": [],
+  "req": {
+   "topik": 4,
+   "ielts": null,
+   "kiip": null,
+   "sejong": null,
+   "selftest": null,
+   "english": false
+  },
+  "req_note": "",
+  "cert": {
+   "degree": false,
+   "language": false,
+   "excellent": false,
+   "foreign": "",
+   "foreign_pct": ""
+  },
+  "period": "2026. 9. 7.(월) ~ 11.(금) 18:00까지",
+  "lang_bypass": null,
+  "fstu": null,
+  "scholarships": [],
+  "_new": true
  }
-];
-
-window.UNIV_GUIDES = {"가야대학교": {"ba": "https://drive.google.com/file/d/1bJtNj136i69JMOH0QqYm94dwCrhix1RU/view", "ma": "https://drive.google.com/file/d/1o3xlX6I5fsRtYKLo3mUZV4N-t-Sy_bw9/view"}, "가천대학교": {"ba": "https://drive.google.com/file/d/1oJYmzI7N61370oYkuCkeq3tA4gmmkXIF/view", "ma": "https://drive.google.com/file/d/18lDTjpwlTbGss31jy60Qe9pA4zRnyO4q/view", "lang": "https://oia.gachon.ac.kr/international/a/m/klecInfo.do"}, "가톨릭관동대학교": {"ba": "https://drive.google.com/file/d/1wWQ9No5gdtdx1oaod_PoL2vMx7pRxxq_/view", "lang": "http://www.cku.ac.kr/oia/5520/subview.do"}, "가톨릭꽃동네대학교": {"ba": "https://drive.google.com/file/d/1bVoFUN13nYpc2U71C97vuiKIONWbKym8/view"}, "가톨릭대학교": {"ba": "https://drive.google.com/file/d/1wNehCMj3KksA5KkB8gTtkQEmXRrr-EM8/view", "ma": "https://drive.google.com/file/d/1eXbVvIF37IAZ9uMImec1WdMOL1-Ul9j9/view", "lang": "https://kli.catholic.ac.kr/kli/index.do"}, "감리교신학대학교": {"ba": "https://drive.google.com/file/d/1LmR8Ee0HG6cW2Fw1JhoiV7KHbCPlSMXy/view"}, "강남대학교": {"ba": "https://drive.google.com/file/d/1V9r0urc2KH_gUL71xu3iGhQhMz-D4HA1/view"}, "강서대학교": {"ba": "https://drive.google.com/file/d/1QBZUmstn6xsWszulW5la7w2U0n9WvhoV/view", "ma": "https://drive.google.com/file/d/1qYwwL_LBjib0wDgojaCRdvcoRsBhd_9J/view"}, "강원대학교": {"ba": "https://drive.google.com/file/d/1KuCiv2Zqql6KULMcAQ93daAesG5EeYmD/view", "ma": "https://drive.google.com/file/d/1Lpkv3ZOKItjRppi6DintV_O1H4XnYKl1/view", "lang": "https://oiaknu.kangwon.ac.kr/oiaknu/language/korean/guide-chuncheon01.do"}, "건국대학교": {"ba": "https://drive.google.com/file/d/17lkDOEbhw_uJJ1_-l1asy2LLzFYRmRGQ/view", "ma": "https://drive.google.com/file/d/1JhTGgC5caOZTLo2ku8Ict8yNcoKRcgAH/view", "lang": "https://fli.konkuk.ac.kr/ko/regular/"}, "건양대학교": {"ba": "https://drive.google.com/file/d/1Qs2mJQscnzevkCpHuW4Qw5SBvSB7wYX_/view", "ma": "https://drive.google.com/file/d/1avC9jxGpynqNFCB5n9Cc5SolS1c76Z33/view", "lang": "https://interedu.konyang.ac.kr/interedu/sub05_03.do"}, "경기대학교": {"ba": "https://drive.google.com/file/d/1MgrFaEIIquxnS4jTs9RSTsxv2qcKR-DL/view", "ma": "https://drive.google.com/file/d/1lLJUM0YISJKcJSx82gAjaGJJMkX0WwRu/view", "lang": "https://www.kyonggi.ac.kr/IOIE/contents.do?key=1494"}, "경남대학교": {"ba": "https://drive.google.com/file/d/1yBr6aw-kuCmS4Kqi3xT2SWR3SoFOHxXP/view", "ma": "https://drive.google.com/file/d/1sGdHmtd7GAs8ogR4PDh5GvcSDAAXDLt6/view", "lang": "https://www.kyungnam.ac.kr/international/6904/subview.do"}, "경동대학교": {"ba": "https://drive.google.com/file/d/190zjej1Ry22WhV7QAFAgH1MwTVi5v_hA/view"}, "경북대학교": {"ba": "https://drive.google.com/file/d/1ws-lrauAVKS7IxvX9OInIoSBy0D_1MDF/view", "ma": "https://drive.google.com/file/d/1lU40HtfGqXLAh_HKBW5nTT8179onz6c9/view", "lang": "https://lang.knu.ac.kr/hmpg/cms/subPage/MNU0080133.knu"}, "경상국립대학교": {"ba": "https://drive.google.com/file/d/1pWjXAE5HGqcxbiQ03VEoxsAL4_DIMmvs/view", "ma": "https://drive.google.com/file/d/1hFFqgWDLgzk9iSoV895G-wV2Gx-yPUaB/view", "lang": "https://www.gnu.ac.kr/sle/cm/cntnts/cntntsView.do?mi=7772&cntntsId=4140"}, "경성대학교": {"ba": "https://drive.google.com/file/d/1PwDlpcgxzO6rHA0oT9h-l0GiK38ufpIZ/view", "ma": "https://drive.google.com/file/d/1F7cX-dOF7krL5zz959RDc6xfBXxiLP7f/view", "lang": "https://kscms.ks.ac.kr/lec/CMS/Contents/Contents.do?mCode=MN070"}, "경일대학교": {"ba": "https://drive.google.com/file/d/15P_yvxyIAQpCCq0nP8rhNW7fkYOs4fdG/view", "ma": "https://drive.google.com/file/d/1085KK5JlfiupCserVKRDbclYlAwNFF-P/view", "lang": "https://global.kiu.ac.kr/"}, "경희대학교": {"ba": "https://drive.google.com/file/d/1JhD6CkiAU5iYL2DOyROrkmJhHY9DPtcY/view", "ma": "https://drive.google.com/file/d/12XN2dbPZFEd-ffAZRPhJaVroTKsB9G0U/view", "lang": "https://iie.khu.ac.kr/bbs/content.php?co_id=OnCampus"}, "계명대학교": {"ba": "https://drive.google.com/file/d/1hFW4RPKaSupHtD1EVrigZ3dNA4ZwQGYa/view", "ma": "https://drive.google.com/file/d/1PIlv2Jqeb0iAc2AENciJFVQSEdRC7ikc/view", "lang": "https://kintlcenter.kmu.ac.kr/sites/kintlcenter/index.do"}, "고려대학교": {"ba": "https://drive.google.com/file/d/1N5b_3A7V-xlgOK3LK_-RytmiB5yEt0m9/view", "ma": "https://drive.google.com/file/d/1Cn-H3c50lGnEKYgYopkR1OnY3Fak8fOa/view", "lang": "https://klc.korea.ac.kr/klckor/course/regular_guide.do"}, "고신대학교": {"ba": "https://drive.google.com/file/d/1UPVdgHE64mFJdPD0-ePsRe-rz2x6lRaX/view", "lang": "https://global.kosin.ac.kr/korean/bbs/board.php?bo_table=notice&wr_id=137"}, "광신대학교": {"ba": "https://drive.google.com/file/d/1JipyW1w_bzs0vhHNzWjz4UnabgEYielp/view"}, "광운대학교": {"ba": "https://drive.google.com/file/d/1YxGI-nnWcMa_HlCFC7jspqI2uXbr7OQe/view", "ma": "https://drive.google.com/file/d/1YhbD0fSmOLoIZGlPFmpnwFWIQejqiEry/view", "lang": "https://kwiie.kw.ac.kr/"}, "광주대학교": {"ba": "https://drive.google.com/file/d/1lYrUqtAr-F2wo7NtJTNLM_YNdaqyaEFF/view", "ma": "https://drive.google.com/file/d/1wBzOdLhWo-YFfk9VdcvGo0CWy-Ljn2v4/view", "lang": "https://ie.gwangju.ac.kr/board/?board=notice&site=gw_ie&mn=1438&type=view&post_idx=167953"}, "국립강릉원주대학교": {"ba": "https://drive.google.com/file/d/1gSowC-Fy07cYcEoCPIPDK1K4YOkdjqFo/view", "ma": "https://drive.google.com/file/d/1ft6HMaPQO7wvoazlZvhLgsHlS6E6sXbQ/view", "lang": "https://kls.gwnu.ac.kr/application/"}, "국립경국대학교": {"ba": "https://drive.google.com/file/d/1g4MRG-lJB0v1Dr4IwzT1tR_VVi53uNrE/view", "ma": "https://drive.google.com/file/d/1KpKLkpRJ4-N5irNuIUacFYGIWSvAlu_1/view", "lang": "https://ic.gknu.ac.kr/bbs/korean.php"}, "국립공주대학교": {"ba": "https://drive.google.com/file/d/1V1xuIgT1MvdX9KPlfyXUSvZZq4Bdg4nF/view", "ma": "https://drive.google.com/file/d/1jjKJ6bL483cE6gCzd6rnugng3cTid-bv/view", "lang": "https://iile.kongju.ac.kr/"}, "국립군산대학교": {"ba": "https://drive.google.com/file/d/1k2jkuo-7_kDxxyZIEcT6Lw01xcAsraRK/view", "ma": "https://drive.google.com/file/d/1mT_U1Rx53IwxKT0OJfNQXJQwQHcwOX98/view", "lang": "https://www.kunsan.ac.kr/inter/index.kunsan?menuCd=DOM_000013303005000000"}, "국립금오공과대학교": {"ba": "https://drive.google.com/file/d/1XGN8PgGQPhN_f6c2kpeoTFsbwDEE8_pM/view", "ma": "https://drive.google.com/file/d/1lOiJBtH0EGccuwbCz4ia6KACTAg9G-D1/view", "lang": "https://www.kumoh.ac.kr/iplec/sub06010102.do"}, "국립목포대학교": {"ba": "https://drive.google.com/file/d/1Yrg2aJ1cJleanabMUtvgSCALQREAZWDR/view", "ma": "https://drive.google.com/file/d/1hteFQxjUF4MlJvEM3o0zJPGQ9i6v_7XS/view", "lang": "https://oia.mokpo.ac.kr/bbs/iiee/155/280933/artclView.do"}, "국립목포해양대학교": {"ba": "https://drive.google.com/file/d/1mZCjmh6ob3Ixs_OYiymgIySZIcTiDwGP/view", "ma": "https://drive.google.com/file/d/1z6wk5FZLgS1IBrdRVRCZNMJ-exrir8l6/view", "lang": "https://www.mmu.ac.kr/OE/board/185"}, "국립부경대학교": {"ba": "https://drive.google.com/file/d/1xO2Shwfa_71bavZqJENyOrjjK_f6Nezu/view", "ma": "https://drive.google.com/file/d/1RJlhpZfLVcuBaR5ipkbVwsmGdF6WPUVy/view", "lang": "https://admission.pknu.ac.kr/"}, "국립순천대학교": {"ba": "https://drive.google.com/file/d/11e6bsaO7brMATjYBMJHeGK8hNFgdnJBv/view", "ma": "https://drive.google.com/file/d/134PLk6ZSktcSRg1WN_Ie3o99UCo4VBt1/view", "lang": "https://www.scnu.ac.kr/ials/cm/cntnts/cntntsView.do?mi=1844&cntntsId=1583"}, "국립창원대학교": {"ba": "https://drive.google.com/file/d/1wmlRIy0yvNn7M7C2kM2k0UEdJjHYXhw3/view", "ma": "https://drive.google.com/file/d/1_W8Ec5oH45VIVEdZl1xjj9YsSiCC2xqJ/view", "lang": "https://www.changwon.ac.kr/international/cm/cntnts/cntntsView.do?mi=18689&cntntsId=6832"}, "국립한국교통대학교": {"ba": "https://drive.google.com/file/d/1YhKdE3Qzj1v3DxemKCNBQyRfi-B39UaM/view", "ma": "https://drive.google.com/file/d/1JPnb2Z0MA3aJYSYbeu1WyFMn5EyWq63E/view", "lang": "https://www.ut.ac.kr/iec/sub04_05.do"}, "국립한국해양대학교": {"ba": "https://drive.google.com/file/d/19DKDlr_LEjCSXiIAwHIll1DV10Q3IxPd/view", "ma": "https://drive.google.com/file/d/16NHH89_Z-QUtMQQbgpEmUyVH-EKEPSF6/view", "lang": "https://www.kmou.ac.kr/global/cm/cntnts/cntntsView.do?mi=2702&cntntsId=2296"}, "국립한밭대학교": {"ba": "https://drive.google.com/file/d/1lNXsXvLaegvDW3F1r8QGfVb63miTHBvw/view", "ma": "https://drive.google.com/file/d/1ol--C78znRzyergIbvDmEPA_Mvspw9eI/view", "lang": "https://www.hanbat.ac.kr/global/sub05_01.do"}, "국민대학교": {"ba": "https://drive.google.com/file/d/1SlmJtqkza_NSjIuF4hLXRttrn_AfCrrA/view", "ma": "https://drive.google.com/file/d/1cPM5NKDAfgEqG5rcr4VFzth8tYaXTpmx/view", "lang": "https://iie.kookmin.ac.kr/"}, "극동대학교": {"ba": "https://drive.google.com/file/d/1StLshQ2d0GmIVKiko_1BlNjZnlYjwQuk/view", "ma": "https://drive.google.com/file/d/1-P2AF9hR5gwHTz1JDUk3X5d1KyXifp7n/view", "lang": "https://www.kdu.ac.kr/home/sub.do?mncd=2156"}, "금강대학교": {"ba": "https://drive.google.com/file/d/1IUAZWnN9Cjy4Tg6I12a2kzo742G8vFIq/view"}, "김천대학교": {"ba": "https://drive.google.com/file/d/1vUOPhvt8Le-kRyjF4zQfcOrdKq-z5Gop/view", "lang": "https://iec.gimcheon.ac.kr/"}, "나사렛대학교": {"ba": "https://drive.google.com/file/d/1Htj8olRBgKpKyHGR47-oxAKDcsmGgXRG/view"}, "남부대학교": {"ba": "https://drive.google.com/file/d/1Ozl4jYzSStuKuodCKlvevVLfUreJP5t3/view", "ma": "https://drive.google.com/file/d/1Sgj-WuCekegrN9R0okW2KbS5LTCfHx0m/view", "lang": "https://global.nambu.ac.kr/content/view.do?menuCd=dept_globa002003"}, "단국대학교": {"ba": "https://drive.google.com/file/d/1e2E2to5j5uIUlCQq4xqbjzMOwVhu3FuW/view", "ma": "https://drive.google.com/file/d/1dLVfgYj_jYkln3t8AWmKke06O2bctUyf/view", "lang": "https://klc.dankook.ac.kr/"}, "대구가톨릭대학교": {"ba": "https://drive.google.com/file/d/1PRToucvNNH5t5rvmvvl6kqi44Sa6n8ne/view", "ma": "https://drive.google.com/file/d/1FFbinN530QBByWnXkgGjGQe-ROCSo_tZ/view", "lang": "https://academics.cu.ac.kr/home/detail/etc/klei/"}, "대구대학교": {"ba": "https://drive.google.com/file/d/1oYNeTGWtUi12vSY4OONiEzThCWOo8rLW/view", "ma": "https://drive.google.com/file/d/1pUWM8P31kEwUqzYmoD_UG6Ftulq5EYXE/view", "lang": "https://www.daegu.ac.kr/dept/955/detail"}, "대구예술대학교": {"ba": "https://drive.google.com/file/d/1vPp7PEhxER7YnBUWEIAPPxdj5ohfq6H6/view"}, "대구한의대학교": {"ba": "https://drive.google.com/file/d/1MH5jrnU9u8XVk0CllyHc8KnzPAKTZH01/view", "ma": "https://drive.google.com/file/d/1AysaOsDQLNUlE5GN5Ze8CB_ldYeIJZez/view", "lang": "http://www.dhu.ac.kr/HOME/exchange/sub.htm?hmode=p&nav_code=exc1574837612"}, "대신대학교": {"ba": "https://drive.google.com/file/d/1U_trFi5thSaJxU1obzsnetbMZo9y8RGD/view", "lang": "https://www.daeshin.ac.kr/html/03_edu/03_4_1.php"}, "대전가톨릭대학교": {"ba": "https://drive.google.com/file/d/1A6smIYubcbD9U4RoBjCTevL5qJ6AvMpW/view"}, "대전대학교": {"ba": "https://drive.google.com/file/d/1LbZPVL9bdXfuUsboB85cEBywfEaE8ctE/view", "ma": "https://drive.google.com/file/d/18BMusdmPPeJJs_7s3fm5SAyBcSQeNik7/view", "lang": "https://www.dju.ac.kr/intro/global/cntnts.html?mi=7425#lang-center"}, "대진대학교": {"ba": "https://drive.google.com/file/d/1HSCkTtVuCwuZ3YJC6mCKau8fgRObxp1O/view", "ma": "https://drive.google.com/file/d/1Ah_DNhY_5mQur8k7Yr9p45HL61vSpDZP/view", "lang": "https://www.daejin.ac.kr/abroad/5220/subview.do"}, "덕성여자대학교": {"ba": "https://drive.google.com/file/d/1A0HpsdUdvp8RVpbnPtoGBHrNaBW9_V0r/view", "lang": "https://dilc.ds.ac.kr/main/eng_main.php"}, "동국대학교": {"ba": "https://drive.google.com/file/d/1efYIRu4G_K2Nr9MtfQgXpva8aJUCUi1e/view", "ma": "https://drive.google.com/file/d/1pFhOlG7zazgODljiWt08h3mKZsBWAQsw/view", "lang": "https://interlang.dongguk.edu/index_kr.php"}, "동덕여자대학교": {"ba": "https://drive.google.com/file/d/1BI1HN5Cm8CG93KGf1cDp4EuXqE-sSK11/view", "ma": "https://drive.google.com/file/d/1_KZNhT2kTAU73CSb0p8hf0JDQr7vZIct/view", "lang": "https://kli.dongduk.ac.kr/"}, "동명대학교": {"ba": "https://drive.google.com/file/d/1ibetJN1QujTjqjGwilw8n3AryZuzL-6q/view", "ma": "https://drive.google.com/file/d/1B04iIu_tYyqTNy6hPiseEeUZlH0tGcH2/view", "lang": "https://www.tu.ac.kr/kli/index.do"}, "동서대학교": {"ba": "https://drive.google.com/file/d/12A95LJp64ZUW342YW0MdtRBzt8-b6EiE/view", "ma": "https://drive.google.com/file/d/18FHRKbJu5LMMatrcCy8lOpidSCZ614Qt/view", "lang": "https://uni.dongseo.ac.kr/iec/index.php?pCode=admission&mode=view&idx=748"}, "동신대학교": {"ba": "https://drive.google.com/file/d/18dfnXEBEEmjuGV8DtVHsbIFbJLDmeXqF/view", "ma": "https://drive.google.com/file/d/1BoqnGdQWwG4QFjuA0qseYMuQpjrwtQvM/view", "lang": "https://ie.dsu.ac.kr/ie/index.php?pCode=korprogram"}, "동아대학교": {"ba": "https://drive.google.com/file/d/1jHpszZpI15-XqdOwbfYUFTHiQ3ZHCtVE/view", "ma": "https://drive.google.com/file/d/1KeCup3_H0C8dmkWiCSWXC2XopJcSOqix/view", "lang": "http://www.donga.ac.kr/global/CMS/Contents/Contents.do?mCode=MN032"}, "동양대학교": {"ba": "https://drive.google.com/file/d/1dUftDuy2HAQuMF-fEOVYOZUegT-Gyhr3/view", "ma": "https://drive.google.com/file/d/1WQsXfhetRNP9HreVT2pdiA0r26tFGE2N/view", "lang": "https://korean.dyu.ac.kr/"}, "루터대학교": {"ba": "https://drive.google.com/file/d/1_UsSB2vzrMHljK4bHPNUcg1VYWXlWUDs/view"}, "명지대학교": {"ba": "https://drive.google.com/file/d/1vPEymxjQWZWWyMzO3-sqo5mSDdmx7yLz/view", "ma": "https://drive.google.com/file/d/16JCsJqmVqY-sFEdt2Qglt__kdr1-Jj4P/view", "lang": "https://klec.mju.ac.kr/application/application_01.php"}, "목원대학교": {"ba": "https://drive.google.com/file/d/1STdlgPPwP5dyIBFKgAJz6iiBof1PM_nS/view", "lang": "https://www.mokwon.ac.kr/klec/"}, "목포가톨릭대학교": {"ba": "https://drive.google.com/file/d/1qhSPILM_P-7eOzqEjuBXaXbue9jPiOWZ/view"}, "배재대학교": {"ba": "https://drive.google.com/file/d/1j38jgJXe4whUYIoAGj9SwaecsaMjrd2W/view", "lang": "https://www.pcu.ac.kr/eckfl"}, "부산가톨릭대학교": {"ba": "https://drive.google.com/file/d/1dfHFbDa_P-HUWefQXBe1Dx03f7GpdG1T/view", "ma": "https://drive.google.com/file/d/1qY68dXaztPG4GWW1uLlf7-FT_wmwHeEz/view", "lang": "https://text.cup.ac.kr/organ/ext/front/conts/106003001000000.do"}, "부산대학교": {"ba": "https://drive.google.com/file/d/14b9ExOK7_NUiOwwCAFa88UQ_Pwebl4vy/view", "ma": "https://drive.google.com/file/d/1lb1Ux0UX2Ls6moIeo2ecVIQ_4w5GglCa/view", "lang": "https://lei.pusan.ac.kr/"}, "부산외국어대학교": {"ba": "https://drive.google.com/file/d/1DpjPihQrW2LdYsekPnbdT6WEH7_aR9sL/view", "ma": "https://drive.google.com/file/d/1pZ873rHLgWfiaAZvmYMha8IA31rkwU5r/view", "lang": "https://klce.bufs.ac.kr/"}, "부산장신대학교": {"ba": "https://drive.google.com/file/d/1tQHpBzeT8D2GH1KnONbKGucVXH1HuT07/view"}, "삼육대학교": {"ba": "https://drive.google.com/file/d/1CnxAks6KeIXZQDg7kv3qRDpa4b_Pvv0e/view", "ma": "https://drive.google.com/file/d/1CTlOKpeUH3UoKCSrHn9SEOtzm83nZKjq/view", "lang": "https://www.syu.ac.kr/iie/korean-course/course-introduction/"}, "상명대학교": {"ba": "https://drive.google.com/file/d/1cfeMR1pL_eSKiLA9Wj1wSOdnOuZ9n1OP/view", "ma": "https://drive.google.com/file/d/10nrzNIJhPxHdEJBOLNTYZO0aF8Wf5B8l/view", "lang": "https://cklc.smu.ac.kr/"}, "상지대학교": {"ba": "https://drive.google.com/file/d/10YZGbnfglDddk2KgNZcNKRo3kSTUJzIq/view", "ma": "https://drive.google.com/file/d/1oeiBXGeE0r92_HrfqghAWUC7cphb2BJH/view", "lang": "https://www.sangji.ac.kr/global/sub03_01.do"}, "서강대학교": {"ba": "https://drive.google.com/file/d/15_FmRn_qL2xo0QlcZZglTYWL6ktpR2nW/view", "ma": "https://drive.google.com/file/d/1kvgXV-2Tu-_58vD26PLXaaK1fpbISFEu/view", "lang": "https://klec.sogang.ac.kr/"}, "서경대학교": {"ba": "https://drive.google.com/file/d/1IaJerr1iYMDQ6fTscu6ZudDXiOAdu45Z/view", "ma": "https://drive.google.com/file/d/1dATIWdkZ983Our5vnrOd6vK3c3ERFX8A/view", "lang": "https://lcec.skuniv.ac.kr/korean-course"}, "서울기독대학교": {"ba": "https://drive.google.com/file/d/1KPviFRoDAEwyNu2nw95QD665apopG84v/view"}, "서울대학교": {"ba": "https://drive.google.com/file/d/14TgSLvjf-Flv5gHwuIBTOzIrTEAlFGEX/view", "ma": "https://drive.google.com/file/d/1Y2BqVOm15FrHKZks4Ebi0HRTaAB9WsKi/view", "lang": "https://lei.snu.ac.kr/klec/"}, "서울시립대학교": {"ba": "https://drive.google.com/file/d/17BUB1GcMuZEv9ruPhvYhqPYuslkzXz47/view", "ma": "https://drive.google.com/file/d/1UrHFeeEWJet7DYq-K80evvKb4wKTGgoe/view", "lang": "https://klcp.uos.ac.kr/klcp/main.do"}, "서울신학대학교": {"ba": "https://drive.google.com/file/d/1W5P0uTJyexOYvSa8tFN3YMK1jaL9GNOD/view", "ma": "https://drive.google.com/file/d/1QO-hqJkuVzEGp2aWe8q4R4yRBPlIubSr/view", "lang": "https://klei.stu.ac.kr/"}, "서울여자대학교": {"ba": "https://drive.google.com/file/d/1J7Uk07WWaE5M-QfQxnji2Hk3hLG3mR2_/view", "ma": "https://drive.google.com/file/d/1RWQkBIeHM3PICa6HXx_aWKdPVjDqaEpf/view", "lang": "https://klc.swu.ac.kr/"}, "서울장신대학교": {"ba": "https://drive.google.com/file/d/1-Z-JjhY_lSkRlzPt4JiKsy42M8OVAqyt/view", "lang": "https://www.sjs.ac.kr/ht_ml/w_01ed/1321_i1.php"}, "서울한영대학교": {"ba": "https://drive.google.com/file/d/1RPdIymM1y2r4H8qTNM9-qfpyCYnZKAaw/view", "ma": "https://drive.google.com/file/d/1rru-4fGsDXlRzzcy_sjUAfT2E7JZzWRZ/view", "lang": "https://ili.shyu.ac.kr/fro_end/html/dep_03/3200.php"}, "서원대학교": {"ba": "https://drive.google.com/file/d/1FcJ5WoVJzygck1egqXiAfK10goAa9Cgc/view", "lang": "https://www.seowon.ac.kr/kli/index.do"}, "선문대학교": {"ba": "https://drive.google.com/file/d/1zGcxG8dEmv2oEeMcyowh5VcGahcE-goY/view", "ma": "https://drive.google.com/file/d/1YmagHibOtjny22SQl4-1zMaaqBoL3m0e/view", "lang": "https://kli.sunmoon.ac.kr/file/%EC%84%A0%EB%AC%B8%EB%8C%80%ED%95%99%EA%B5%90%EB%AA%A8%EC%A7%91%EC%9A%94%EA%B0%95%2026%EB%85%84_%EC%96%B4%ED%95%99%EC%9B%90_%ED%95%9C%EA%B5%AD%EC%96%B4.pdf"}, "성결대학교": {"ba": "https://drive.google.com/file/d/1k2bozu_7AapD8Txyec1Q2-3SPnDl_5kG/view", "lang": "https://fims.sungkyul.ac.kr/application/"}, "성공회대학교": {"ba": "https://drive.google.com/file/d/1B6coIS6dW9KIsLmZ8l1u2C_qtvC00nlh/view", "ma": "https://drive.google.com/file/d/1J59N42-2qEGcLeBY3VFQ31oXOS55fyIZ/view", "lang": "https://www.skhu.ac.kr/studykorean/5671/subview.do"}, "성균관대학교": {"ba": "https://drive.google.com/file/d/127MIvWuKv0q8mxsAD2j2c12j-zC_b6or/view", "ma": "https://drive.google.com/file/d/1Zs5__wwn2oDeqz3C3S1J8c41zxiixaJW/view", "lang": "https://koreansli.skku.edu/ksli/index2.do"}, "성신여자대학교": {"ba": "https://drive.google.com/file/d/1OhT1j86Z-OwgrXFbP-6hi9qpubUyNC83/view", "ma": "https://drive.google.com/file/d/1Y9kyefdSKsFAuW7QmzmsuBxBbfBOijlu/view", "lang": "https://www.sungshin.ac.kr/siie_kor/20413/subview.do"}, "세명대학교": {"ba": "https://drive.google.com/file/d/1tZn1jpNKJgij1003TwW2w8itnshYbD0K/view", "ma": "https://drive.google.com/file/d/11i6KCb4NXnJMjQ-CCVnafDjjbTKQt8JR/view", "lang": "https://www.semyung.ac.kr/smiie.do"}, "세종대학교": {"ba": "https://drive.google.com/file/d/1guj7CE1tJzC-DagzoXprCO3x2J8mVwN6/view", "ma": "https://drive.google.com/file/d/1ZZbN7xc19do8Sp3I7wYbJdwZK1lnoTnj/view", "lang": "https://sos.sejong.ac.kr/kor/admission/koreaedu/index.do"}, "수원가톨릭대학교": {"ba": "https://drive.google.com/file/d/1TQUKEDZmxAlm8VEkLsnhPzKNnxPnPCNM/view"}, "수원대학교": {"ba": "https://drive.google.com/file/d/15_uQYXXaT4GCTNnyEu4fl6YOA0xmSWqT/view", "ma": "https://drive.google.com/file/d/1Pu04kVfgpQi3LxYeO8eMAM1R4s5SEBjU/view", "lang": "https://koredu.suwon.ac.kr/"}, "숙명여자대학교": {"ba": "https://drive.google.com/file/d/1d6ieBe8zj2V3N9jK76HUzYRO1wCAXKxH/view", "ma": "https://drive.google.com/file/d/1UdZpJKh5x4VJWP-793rqIHABz3awUi9U/view", "lang": "https://lingua.sookmyung.ac.kr/"}, "순천향대학교": {"ba": "https://drive.google.com/file/d/1ESlZmB01VVTAy0hKCLZSUIOlppgSIPHu/view", "ma": "https://drive.google.com/file/d/1NCnIz08oLdULvQ6if5K4Ty-D5KbKj_e2/view", "lang": "https://sgee.sch.ac.kr/guide/guide03.php"}, "숭실대학교": {"ba": "https://drive.google.com/file/d/1Yli-nSTha1wZt_EFTX0elqs8xm-C_BYa/view", "ma": "https://drive.google.com/file/d/169mP0_d_6vpeOc6jEb2i_S1glUjLmEoD/view", "lang": "https://language.ssu.ac.kr/"}, "신경주대학교": {"ba": "https://drive.google.com/file/d/1G5SozN_A6gL21p8WySuq7tt95ljtUrcj/view", "lang": "http://korean.gu.ac.kr/"}, "아신대학교": {"ba": "https://drive.google.com/file/d/1wMaECgfpX4jyWtxJaM9HvW92oW0SJ97Z/view", "lang": "https://www.acts.ac.kr/design/contents10.asp?code=15151115&left=acts6_2"}, "아주대학교": {"ba": "https://drive.google.com/file/d/1m1Mzg-xtx-1s7-ArMBD1b6MfqOgGQQJp/view", "ma": "https://drive.google.com/file/d/1_gs1PT3v_B99X3qUyTy0U3U-0Kw4WV_i/view", "lang": "http://www.ajou.ac.kr/iadmissions/korean/course.do"}, "안양대학교": {"ba": "https://drive.google.com/file/d/1kWe8HM6_TqwkYzehsptVY51uvzwOathQ/view", "ma": "https://drive.google.com/file/d/1tf9CZwASQLzgIo1KQeFvDtWRpxwpXVc6/view"}, "연세대학교": {"ba": "https://drive.google.com/file/d/1lge5cyJgikZdzIfJN-fBdd0AcOgXzrnD/view", "ma": "https://drive.google.com/file/d/1oTKi4-iU1SL7Ly6d0IoBScFjjlTT7CWf/view", "lang": "https://www.yskli.com/course.php?mid=K01_02"}, "영남대학교": {"ba": "https://drive.google.com/file/d/1FGCoMSsX3KMgEfl_S0SQZvMt178pniwP/view", "ma": "https://drive.google.com/file/d/1yaLFB85l_LzzkegR83bLrp6RFwLD9KZ5/view", "lang": "https://www.yu.ac.kr/kli/index.do"}, "영남신학대학교": {"ba": "https://drive.google.com/file/d/15ud_qViiDAiiTnRSHNQpTAhmGQJPFu8F/view", "lang": "http://langytus.tcubemnet.com/content/38"}, "영산대학교": {"ba": "https://drive.google.com/file/d/1-Vk-TUIQB3D-WZH6ONPXo6B8gjgeQlEt/view", "lang": "https://klec.ysu.ac.kr/"}, "영산선학대학교": {"ba": "https://drive.google.com/file/d/1MTb4hKLsV_897ERqXTWRrNDsyzuqo8Ff/view"}, "예수대학교": {"ba": "https://drive.google.com/file/d/1SzzCTzEIyolEqrzNj8ikkkT7wwzyySeJ/view"}, "예원예술대학교": {"ba": "https://drive.google.com/file/d/1ONiyeYsgzimgd7J4SiP9pnyu4Ym-FP0_/view", "lang": "https://www.yewon.ac.kr/main/?menu=495"}, "용인대학교": {"ba": "https://drive.google.com/file/d/1r-Dse5TRu9MxWtuoDojnkpew53ijhbOG/view", "lang": "https://language.yongin.ac.kr/"}, "우석대학교": {"ba": "https://drive.google.com/file/d/1W5PWPJpUK8lVhAOGZhMz5OhyLpmOsdh_/view"}, "우송대학교": {"ba": "https://drive.google.com/file/d/15RRIP2qybRzwDzcPQk2gyhPaDpP9vfSV/view", "ma": "https://drive.google.com/file/d/1GM-hjdMRXN6Amwgmiyhgq2PgYqObLtY-/view", "lang": "https://wkli.wsu.ac.kr/"}, "울산대학교": {"ba": "https://drive.google.com/file/d/1SBW2_LS2AmbsqXEHRcXlKpC0xDLOjFCK/view", "ma": "https://drive.google.com/file/d/1-siT2ZDk2Ku-5IOGOimku5QmaEbiwVMd/view", "lang": "https://international.ulsan.ac.kr/international/405"}, "원광대학교": {"ba": "https://drive.google.com/file/d/1HV5EUbEqbetWnJA60whnfB0IBS0fwMmD/view", "ma": "https://drive.google.com/file/d/13-0xOtWSKILgBYV80HGaVeogcadfjeMJ/view", "lang": "https://ipsi.wku.ac.kr/submenu.do?menuurl=8pYtphfeWm2Bb85hdKCTcQ%3D%3D&"}, "유원대학교": {"ba": "https://drive.google.com/file/d/1BoGHXBFebQ9IgI76OEznNzyTau8j2Ltc/view", "ma": "https://drive.google.com/file/d/13dpa1enYwLZJiXll6JZdRPAoRs8lCpBQ/view", "lang": "https://www.u1.ac.kr/global/education/greetings.do"}, "을지대학교": {"ba": "https://drive.google.com/file/d/1oMJQEgyNNTEDcTkOyFVjha-jk_j6HOr5/view", "ma": "https://drive.google.com/file/d/1v3ZubgRBMJUxbJ4KGjKQ1IpnFSFLJSzn/view", "lang": "http://eulji.ac.kr/cile/"}, "이화여자대학교": {"ba": "https://drive.google.com/file/d/1Kca_KxtMy2dGlbqMP14fxTEvSYcUOvP1/view", "ma": "https://drive.google.com/file/d/1k6RMrUJxhCWrE0ZWU9BbUSgrhmiL99ST/view", "lang": "https://elc.ewha.ac.kr/elc/main.do"}, "인제대학교": {"ba": "https://drive.google.com/file/d/1if0EcSQlpAYb_tjwV8k9UVmF1Oq5CGlj/view", "ma": "https://drive.google.com/file/d/1Htw1gW_ng3Okv6W0SW5ps_L0wPg9HqBj/view", "lang": "https://korean.inje.ac.kr/"}, "인천가톨릭대학교": {"ba": "https://drive.google.com/file/d/1321E0VCU637TfZOrAjQq805JoDgU0450/view"}, "인천대학교": {"ba": "https://drive.google.com/file/d/1E97ROSFnoZg1hR1efhBB1JX29OOX2RPI/view", "ma": "https://drive.google.com/file/d/1s3BjOoFeZfKQOBp78EaM6byeN1eMuzdg/view", "lang": "https://korean.inu.ac.kr/inukli/6853/subview.do"}, "인하대학교": {"ba": "https://drive.google.com/file/d/1ghN_cuQ0VZpff5WchwT3HJpeXATdmPJA/view", "ma": "https://drive.google.com/file/d/1jSg9U3p3D7xKIns8EyPZ6lfJJY_B9Hpi/view", "lang": "https://ltc.inha.ac.kr/"}, "장로회신학대학교": {"ba": "https://drive.google.com/file/d/14wBxTcVpuL-X093jI_enmqpRmK_tnnz_/view", "ma": "https://drive.google.com/file/d/1aUziDoqmgICIYWUCVreWZvcRTH88IKSn/view", "lang": "https://www.puts.ac.kr/pglc/"}, "전남대학교": {"ba": "https://drive.google.com/file/d/1zQfiv0d-EXi5AHv5asjLEs6U_LqkAAoJ/view", "ma": "https://drive.google.com/file/d/1jUo05idO8XXyFfg3zNcJGRybJTCXaJyW/view", "lang": "https://leckor.jnu.ac.kr/"}, "전북대학교": {"ba": "https://drive.google.com/file/d/1DlWJZlIS-2-i9nn4eYE2Gp3Df94q1s6v/view", "ma": "https://drive.google.com/file/d/1grpqOxwz_BSJ9jn2DTtuSfZpPBzGEOED/view", "lang": "https://top.jbnu.ac.kr/sites/lec_korean/index.do"}, "전주대학교": {"ba": "https://drive.google.com/file/d/1zxMbdl3NJbHNJ4YHyCF253LDYbGmkGez/view", "ma": "https://drive.google.com/file/d/1zEhJ-nbzLQB-diowT34v1heojwivnz_9/view", "lang": "https://oia.jj.ac.kr/oia/kec/entrance.do"}, "제주국제대학교": {"ba": "https://drive.google.com/file/d/1TCDb2f-K36zws28u6RVLSM_4kdks2-2_/view", "ma": "https://drive.google.com/file/d/18cS5AJ2-V-AR4PpUVQ4B5qiHWYDHb7ZF/view", "lang": "https://www.jeju.ac.kr/jejuie/korean.htm"}, "제주대학교": {"ba": "https://drive.google.com/file/d/1mwhEpppRTnCuE72Mwwc8w69EXBsUxofc/view", "ma": "https://drive.google.com/file/d/1G9RiLVFZtvHYxNzJ_2FXupuIF_WUcXOc/view", "lang": "https://intl.jejunu.ac.kr/intl/koreanlanguage.htm"}, "조선대학교": {"ba": "https://drive.google.com/file/d/1p4w6hpZZuOqH-6nrUB8WTanhFe-VGU5v/view", "ma": "https://drive.google.com/file/d/1V3X_ck4L0V_GDVBNmHZLmmW7chZdN5X9/view", "lang": "https://lei.chosun.ac.kr/"}, "중부대학교": {"ba": "https://drive.google.com/file/d/1ScbBy4s_3umbv9Xguoo48Amn_76Vzl_x/view", "ma": "https://drive.google.com/file/d/1MMF1Q0aKPvtY7nNZboM3GGfmeq16AM41/view", "lang": "https://www.joongbu.ac.kr/menu.es?mid=a10104050500"}, "중앙대학교": {"ba": "https://drive.google.com/file/d/1xfmfxQy9nnuq02T4XmgiA_hYrudFkVaV/view", "ma": "https://drive.google.com/file/d/1EGvXl9yN_qGoNbYIdwuPjHR0lufi1ukS/view", "lang": "https://korean.cau.ac.kr/korean/index.php"}, "중앙승가대학교": {"ba": "https://drive.google.com/file/d/1iLFy41ArAaDVBt5bO-CYgozZXNAOtqzt/view"}, "중원대학교": {"ba": "https://drive.google.com/file/d/14PgyA3Q3RkuOV20VlSLwBjnSMZfXGWj-/view", "lang": "https://jwukorean.jwu.ac.kr/site/deptSiteView.jwu"}, "차의과학대학교": {"ba": "https://drive.google.com/file/d/150S26IYVt5JPwnnSP0llGwmiehzpwH9-/view"}, "창신대학교": {"ba": "https://drive.google.com/file/d/1E0YA0hS0lGakX-_53NMQaKsN-CYlmiEn/view", "ma": "https://drive.google.com/file/d/1WXUPFrwuq3CjCaZ38GjeUy2_4RBBRHQY/view", "lang": "https://global.cs.ac.kr/"}, "청운대학교": {"ba": "https://drive.google.com/file/d/1S3O21P6DuAc-Ym6Rn9zZcQDdC__Fnv0q/view"}, "청주대학교": {"ba": "https://drive.google.com/file/d/1qEg3Djzkk3aw5pfGEabwxlyBbHzxGR1T/view", "ma": "https://drive.google.com/file/d/1GJCpO3THC0a6JOafVBx9f8_uHYjZcH9n/view", "lang": "https://www.cju.ac.kr/www/contents.do?key=6809&"}, "초당대학교": {"ba": "https://drive.google.com/file/d/1pk9kWuII1WQObfJ_Xid89CCh45Wsigrk/view", "ma": "https://drive.google.com/file/d/1pEDEiJN2dzJGcBuGNYHBnDtb6eMW_OM1/view", "lang": "https://ilec.cdu.ac.kr/"}, "충남대학교": {"ba": "https://drive.google.com/file/d/1GD2MrwkaAzEzQuSYyRaPXv8X57ulN7RL/view", "ma": "https://drive.google.com/file/d/1msqudBRZcVNNcf7KWX1yUJN5DwmFh0MN/view", "lang": "https://dream.cnu.ac.kr/"}, "충북대학교": {"ba": "https://drive.google.com/file/d/1wDWSN49cMkFQEgmnDuhsXhbQZGj9tiL_/view", "ma": "https://drive.google.com/file/d/1MMf8j3vWP_VIQ-XNJCREC3bc9hx8Jw5E/view", "lang": "https://oia.cbnu.ac.kr/language"}, "칼빈대학교": {"ba": "https://drive.google.com/file/d/1DLlQ_-xOE7JBu7hhGsuZT_X5_3Q3kJjg/view", "lang": "https://calvininternational.co.kr/"}, "평택대학교": {"ba": "https://drive.google.com/file/d/1b2UJugLthxtF57rHJ2PtP_6gZTvU_zNl/view", "ma": "https://drive.google.com/file/d/1gW7fRSO1B1nbteLwje6oAa4B9EXpu_UA/view", "lang": "https://global.ptu.ac.kr/global/6275/subview.do"}, "한경국립대학교": {"ba": "https://drive.google.com/file/d/1HiHUNNOOGjolrTcxonHIuFV4Im57b8vR/view", "ma": "https://drive.google.com/file/d/1jA7JdpLrYjQX_x9sH2DL2EL6Ywnb360a/view", "lang": "https://global.hknu.ac.kr/"}, "한국공학대학교": {"ba": "https://drive.google.com/file/d/14ZAjzHE1E7_JIpI-UQUXKit1tK5VwoVu/view", "ma": "https://drive.google.com/file/d/1FfI_GR_8q4Nuu53Ma_2iVlPg2Go4Y9s3/view", "lang": "https://www.tukorea.ac.kr/sites/iec/index..do"}, "한국성서대학교": {"ba": "https://drive.google.com/file/d/1bgOdOumm4_2QNbRgOUDRndXuTbaCpfaj/view", "lang": "https://www.bible.ac.kr/ko/center/korean_greet"}, "한국외국어대학교": {"ba": "https://drive.google.com/file/d/1uw4TYnEbTA137UtynsPjB6zvboaWFjd0/view", "ma": "https://drive.google.com/file/d/1ZPwFYokBkvUFnroUMtNRuvQGqOZFc0hx/view", "lang": "http://www.korean.ac.kr/"}, "한국체육대학교": {"ba": "https://drive.google.com/file/d/1wUXpIdXHVdIMAfUcE2mfV2LHQsj5JzZh/view", "ma": "https://drive.google.com/file/d/1Cc_YD95uxjA3jTU9zN2uysFqelm0Uzl0/view"}, "한국침례신학대학교": {"ba": "https://drive.google.com/file/d/1FmDpd1MBH4Sx6uxwHMquUtICKHHPrwOe/view"}, "한국항공대학교": {"ba": "https://drive.google.com/file/d/1jp_6ai7mziUlmgzHTUvfZWCmszwAnA7Y/view", "ma": "https://drive.google.com/file/d/1mKX2tkk5ak6CD-dqh9XqgPUVDc1OyE2J/view", "lang": "http://college.kau.ac.kr/web/pages/gc74994h.do"}, "한남대학교": {"ba": "https://drive.google.com/file/d/1e7CIgdq9R7GK89avDQQ3x4ezl7pk4Jvb/view", "ma": "https://drive.google.com/file/d/1dK5CK2okxVzk9tYn8J788lHa5oarlqO3/view", "lang": "http://cklks.hnu.kr/kor/admission/admission_01.html"}, "한동대학교": {"ba": "https://drive.google.com/file/d/1zYzV_XZ43w1c3fOZusYe1rZClX4M41BA/view", "lang": "https://hgukorean.co.kr/"}, "한림대학교": {"ba": "https://drive.google.com/file/d/1ip5XMhSxJmzYqFk6nkXuRcYSKIaNeM4B/view", "ma": "https://drive.google.com/file/d/1okzAC3ZA-r7D-9-rhr9GjYQvbPl_a7xv/view", "lang": "https://cge.hallym.ac.kr/sites/klec/index.do"}, "한서대학교": {"ba": "https://drive.google.com/file/d/1zcdvuGck2BTcxtevRjihjNf62ghOpFRw/view"}, "한성대학교": {"ba": "https://drive.google.com/file/d/1YFLNV4OtqbaE--BhgbNaIWDKDG1-CmvV/view", "ma": "https://drive.google.com/file/d/1dRkttYQ3t3pR1nTpkjIxuKCwkDCLWbcY/view", "lang": "https://www.hansung.ac.kr/korean/index.do"}, "한양대학교": {"ba": "https://drive.google.com/file/d/1t3CaRw52armCzFt3HhTe2enpqFvOhETi/view", "ma": "https://drive.google.com/file/d/1gH5IPqDrKdA3haZvouDrGrk5vW4RgCrS/view", "lang": "https://iie.hanyang.ac.kr/"}, "한일장신대학교": {"ba": "https://drive.google.com/file/d/1ltnjPjKSleYuu9MWQZWm0Rqt30M3ncRz/view", "ma": "https://drive.google.com/file/d/1eGZnIi0OcD7ztv778UF7tOXaUPov2uzK/view"}, "협성대학교": {"ba": "https://drive.google.com/file/d/1oYKFunlyph_mG2GmJ5Nw3bwhUCmYVkRH/view", "ma": "https://drive.google.com/file/d/1GHAYMOl8ih1VKTCuRmDA18dgpNlk-lRl/view", "lang": "https://www.uhs.ac.kr/uhs/191/subview.do"}, "호남대학교": {"ba": "https://drive.google.com/file/d/1kO0XT80CHeh8-wpFDI3na25aHB9tOOEi/view", "ma": "https://drive.google.com/file/d/18T0WXh1X5GZpniQp_JTacMbbdj223cj8/view", "lang": "https://global.honam.ac.kr/KoreanAdmissionGuide"}, "호서대학교": {"ba": "https://drive.google.com/file/d/18kLf1_qx7UIHKu4rHmsXYW-JYU5I3RCN/view", "lang": "https://ieec.hoseo.ac.kr/CmsHome/sub_06.eznic"}, "호원대학교": {"ba": "https://drive.google.com/file/d/1TmTNadajaPyy_aKRnGSm0w_MCiOURz1z/view", "lang": "https://iecenter.howon.kr/page/page14"}, "경운대학교": {"lang": "https://www.ikw.ac.kr/worldle/page/link.tc?mn=5711&pageSeq=4630"}, "광주여자대학교": {"lang": "https://globalgate.kwu.ac.kr/mod/page/view.do?MID=GLOBALGATE_C05010101"}, "남서울대학교": {"lang": "https://nice.nsu.ac.kr/?p=26"}, "동의대학교": {"lang": "https://deuhome.deu.ac.kr/language/sub08_01.do"}, "백석대학교": {"lang": "https://www.bu.ac.kr/bulanguage/index.do"}, "서울과학기술대학교": {"lang": "https://klc.seoultech.ac.kr/"}, "서울교육대학교": {"lang": "https://language.snue.ac.kr/"}, "세한대학교": {"lang": "https://www.sehan.ac.kr/sehan/271/subview.do"}, "송원대학교": {"lang": "https://iec.songwon.ac.kr/"}, "신라대학교": {"lang": "https://skli.silla.ac.kr/"}, "신한대학교": {"lang": "https://www.shinhan.ac.kr/kr/281/subview.do"}, "위덕대학교": {"lang": "https://lang.uu.ac.kr/sub_5/index3.php"}, "총신대학교": {"lang": "https://iie.csu.ac.kr/"}, "추계예술대학교": {"lang": "https://www.chugye.ac.kr/mbs/university/subview.jsp?id=university_150203000000"}, "포항공과대학교": {"lang": "https://picl.postech.ac.kr/"}, "한세대학교": {"lang": "http://www.hskli.com/"}, "한신대학교": {"lang": "https://www.hs.ac.kr/interedu/8209/subview.do"}, "홍익대학교": {"lang": "https://koreanle.hongik.ac.kr/"}};
+]}}};
 
 window.UNIV_SPECIAL = {"visa_restricted_2026": {"source": "교육부·법무부·한국연구재단 공동보도 2026.2.12", "effective": "2026학년도 2학기(2026.9)부터 1년간", "scope": "비자 정밀심사 대학 — 신입생 비자 발급 원칙적 제한", "note": "매년 2월 재평가. 인증대학 학위181·어학123, 정밀심사 20교(학위16+어학4), 컨설팅 13교(비공개)", "degree_restricted": ["금강대학교", "수원가톨릭대학교", "중앙승가대학교", "협성대학교", "부산경상대학교", "부산예술대학교", "한영대학교", "구세군사관대학원대학교", "국제법률경영대학원대학교", "능인대학원대학교", "성서침례대학원대학교", "순복음대학원대학교", "에스라성경대학원대학교", "치유상담대학원대학교", "한국상담대학원대학교", "합동신학대학원대학교"], "lang_restricted": ["대구한의대학교", "상지대학교", "호원대학교", "목포과학대학교"]}, "note_visa_restricted": "degree=true → 추천금지; lang=true → D-4만 금지(학위는 가능). 출처: 교육부·법무부 2026.2.12", "free_major_programs": {"note": "자유전공·자율전공·무전공·국제이공학부·글로벌자유전공·국제/글로벌학부·광역/융합학부 — 전공 미정 선발 후 전공 선택 가능한 모집단위. 상담 시 '전공 아직 못 정한 학생', '국제이공/영어트랙' 질문에 활용. english_track=True면 영어 지원 가능. category: free_major(자유전공) / intl_stem(국제이공·글로벌IT·공학) / intl(국제·글로벌학부) / convergence(융합) / broad(광역).", "updated": "2026-09-10", "schools": {"중앙대학교": {"name": "중앙대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "units": [{"name": "게임융합학과 (100% 영어수업)", "category": ["convergence"]}, {"name": "융합공학부", "category": ["convergence"]}]}, "인하대학교": {"name": "인하대학교", "loc": "인천광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌자유전공학부", "category": ["free_major"]}]}, "광운대학교": {"name": "광운대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "정보융합학부 데이터사이언스전공", "category": ["convergence"]}]}, "한양대학교(ERICA)": {"name": "한양대학교(ERICA)", "loc": "경기(안산)", "topik_req": null, "ielts_req": null, "english_track": true, "units": [{"name": "ICT융합학부", "category": ["convergence"]}]}, "단국대학교": {"name": "단국대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "바이오소재융합공학과", "category": ["convergence"]}]}, "전북대학교": {"name": "전북대학교", "loc": "전라북도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "units": [{"name": "국제이공학부(엔지니어링사이언스) 4년 영어강의", "category": ["intl_stem"]}, {"name": "국제학부(국제협력)", "category": ["intl"]}]}, "목원대학교": {"name": "목원대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌융합학부: 글로벌IT공학", "category": ["convergence", "intl", "intl_stem"]}]}, "배재대학교": {"name": "배재대학교", "loc": "대전광역시", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌융합학부: 글로벌경영", "category": ["convergence", "intl"]}, {"name": "글로벌IT", "category": ["intl_stem"]}]}, "선문대학교": {"name": "선문대학교", "loc": "충청남도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "글로벌자유전공학부", "category": ["free_major"]}]}, "동신대학교": {"name": "동신대학교", "loc": "전라남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "국제학부(글로벌경영", "category": ["intl"]}]}, "창신대학교": {"name": "창신대학교", "loc": "경상남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌학부(스마트경영", "category": ["intl"]}]}, "한일장신대학교": {"name": "한일장신대학교", "loc": "전라북도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "units": [{"name": "AI융합혁신경영학과 (영어트랙)", "category": ["convergence"]}]}, "평택대학교": {"name": "평택대학교", "loc": "경기도", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "AI융합학과", "category": ["convergence"]}, {"name": "융합소프트웨어", "category": ["convergence"]}]}, "한국외국어대학교": {"name": "한국외국어대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "AI데이터융합학부", "category": ["convergence"]}, {"name": "국제학부", "category": ["intl"]}]}, "한림대학교": {"name": "한림대학교", "loc": "강원도", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "AI융합학부", "category": ["convergence"]}]}, "이화여자대학교": {"name": "이화여자대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": 6.0, "english_track": false, "units": [{"name": "국제학부", "category": ["intl"]}]}, "경동대학교": {"name": "경동대학교", "loc": "강원도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "소프트웨어융합보안학과", "category": ["convergence"]}, {"name": "국제융합학부", "category": ["convergence", "intl"]}, {"name": "국제학부", "category": ["intl"]}]}, "경성대학교": {"name": "경성대학교", "loc": "부산광역시", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "units": [{"name": "글로벌학부", "category": ["intl"]}, {"name": "글로벌공학부", "category": ["intl_stem"]}, {"name": "글로벌자율전공학부", "category": ["free_major"]}]}, "나사렛대학교": {"name": "나사렛대학교", "loc": "충청남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌융합학과", "category": ["convergence"]}]}, "대진대학교": {"name": "대진대학교", "loc": "경기도", "topik_req": 1, "ielts_req": 5.5, "english_track": true, "units": [{"name": "국제학부(국제지역학전공, 중국학전공)", "category": ["intl"]}, {"name": "AI융합학부(스마트모빌리티전공, 컴퓨터공학전공, AI빅데이터전공)", "category": ["convergence"]}, {"name": "스마트융합보안학과", "category": ["convergence"]}, {"name": "반도체융합공학과", "category": ["convergence"]}]}, "명지대학교": {"name": "명지대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "자율전공학부(인문)", "category": ["free_major"]}, {"name": "융합에너지학전공", "category": ["convergence"]}]}, "부산외국어대학교": {"name": "부산외국어대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "글로벌창업융합전공", "category": ["convergence"]}, {"name": "영상콘텐츠융합전공", "category": ["convergence"]}, {"name": "스마트융합보안전공", "category": ["convergence"]}, {"name": "전자·인공지능융합전공", "category": ["convergence"]}]}, "숭실대학교": {"name": "숭실대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "컴퓨터학부 융합소프트웨어전공", "category": ["convergence"]}, {"name": "전자정보공학부 IT융합전공", "category": ["convergence"]}]}, "청주대학교": {"name": "청주대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "에너지융합공학과", "category": ["convergence"]}, {"name": "자유전공학부", "category": ["free_major"]}]}, "한서대학교": {"name": "한서대학교", "loc": "충청남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자유전공학과", "category": ["free_major"]}, {"name": "인문사회전공자율학과", "category": ["free_major"]}, {"name": "자연과학전공자율학과", "category": ["free_major"]}, {"name": "공학전공자율학과", "category": ["free_major"]}, {"name": "예체능전공자율학과", "category": ["free_major"]}]}, "동의대학교": {"name": "동의대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "인문사회과학대학자유전공학부", "category": ["free_major"]}, {"name": "상경대학자유전공학부", "category": ["free_major"]}, {"name": "공과대학자유전공학부", "category": ["free_major"]}, {"name": "소프트웨어융합대학", "category": ["convergence"]}, {"name": "자유전공", "category": ["free_major"]}, {"name": "글로벌산업융합학과(외국인유학생전담학과)", "category": ["convergence"]}]}, "서울과학기술대학교": {"name": "서울과학기술대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "스마트ICT융합공학과", "category": ["convergence"]}, {"name": "글로벌테크노경영전공", "category": ["intl_stem"]}, {"name": "미래에너지융합학과", "category": ["convergence"]}, {"name": "글로벌자유전공학부 공과계열", "category": ["free_major"]}, {"name": "글로벌자유전공학부 정보통신계열", "category": ["free_major"]}, {"name": "글로벌자유전공학부 에너지바이오계열", "category": ["free_major"]}, {"name": "글로벌자유전공학부 디자인계열", "category": ["free_major"]}, {"name": "글로벌자유전공학부 인문사회계열", "category": ["free_major"]}, {"name": "글로벌자유전공학부 컴퓨터공학계열", "category": ["free_major"]}, {"name": "글로벌IT컨버전스학과", "category": ["intl_stem"]}]}, "한세대학교": {"name": "한세대학교", "loc": "경기도", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "융합보안학전공", "category": ["convergence"]}, {"name": "자유전공학부", "category": ["free_major"]}]}, "국립한국해양대학교": {"name": "국립한국해양대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 6.0, "english_track": true, "units": [{"name": "항해융합학부", "category": ["convergence"]}, {"name": "해기자율전공학부", "category": ["free_major"]}, {"name": "해양과학융합학부", "category": ["convergence"]}, {"name": "해양신소재융합공학과", "category": ["convergence"]}, {"name": "인문사회자율전공학부", "category": ["free_major"]}]}, "국립한국교통대학교": {"name": "국립한국교통대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "행정정보융합학과", "category": ["convergence"]}, {"name": "융합경영학과", "category": ["convergence"]}, {"name": "생명자유전공학부", "category": ["free_major"]}, {"name": "철도대학자유전공학부", "category": ["free_major"]}, {"name": "자유전공학부", "category": ["free_major"]}]}, "국립한밭대학교": {"name": "국립한밭대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 6.0, "english_track": true, "units": [{"name": "창의융합공학과", "category": ["convergence"]}, {"name": "모바일융합공학과", "category": ["convergence"]}]}, "경남대학교": {"name": "경남대학교", "loc": "경상남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "기계공학부 스마트기계융합공학전공", "category": ["convergence"]}]}, "광신대학교": {"name": "광신대학교", "loc": "광주광역시", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "복지상담융합학부", "category": ["convergence"]}]}, "국민대학교": {"name": "국민대학교", "loc": "서울특별시", "topik_req": 5, "ielts_req": 5.5, "english_track": true, "units": [{"name": "동아시아국제학부(일본학/중국학)", "category": ["intl"]}, {"name": "AI빅데이터융합경영학과", "category": ["convergence"]}, {"name": "전자공학부 지능형반도체융합전자전공", "category": ["convergence"]}, {"name": "전자공학부 지능형ICT융합전공", "category": ["convergence"]}, {"name": "전자공학부 모빌리티전력전자융합전공", "category": ["convergence"]}, {"name": "융합바이오공학과", "category": ["convergence"]}]}, "극동대학교": {"name": "극동대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌융합학부 경영서비스학전공", "category": ["convergence", "intl"]}, {"name": "글로벌융합학부 과학기술학전공", "category": ["convergence", "intl"]}, {"name": "글로벌융합학부 K-컬처학전공", "category": ["convergence", "intl"]}]}, "대구대학교": {"name": "대구대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "공공안전학부 공직법무전공", "category": ["free_major"]}, {"name": "시각디자인융합학부 시각디자인전공", "category": ["convergence"]}, {"name": "시각디자인융합학부 서비스마케팅디자인전공", "category": ["convergence"]}]}, "대구가톨릭대학교": {"name": "대구가톨릭대학교", "loc": "경상북도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "units": [{"name": "자율전공학부", "category": ["free_major"]}, {"name": "소프트웨어융합학과", "category": ["convergence"]}]}, "대신대학교": {"name": "대신대학교", "loc": "경상북도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "units": [{"name": "DSU 자율전공학부", "category": ["free_major"]}]}, "서울기독대학교": {"name": "서울기독대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "AI 빅데이터 융합(전담학과)", "category": ["convergence"]}]}, "동국대학교": {"name": "동국대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "지능형네트워크융합학과", "category": ["convergence"]}, {"name": "융합환경과학과", "category": ["convergence"]}, {"name": "식품바이오융합공학과", "category": ["convergence"]}]}, "동덕여자대학교": {"name": "동덕여자대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "경영융합학부", "category": ["convergence"]}, {"name": "글로벌MICE융합전공", "category": ["convergence"]}]}, "동서대학교": {"name": "동서대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자유전공학부", "category": ["free_major"]}]}, "동아대학교": {"name": "동아대학교", "loc": "부산광역시", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "방송기술자유전공과", "category": ["free_major"]}, {"name": "콘텐츠창작자유전공과", "category": ["free_major"]}]}, "동양대학교": {"name": "동양대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "철도자율전공학부", "category": ["free_major"]}, {"name": "AI빅데이터융합학과", "category": ["convergence"]}, {"name": "IT융합경영학과", "category": ["convergence"]}]}, "삼육대학교": {"name": "삼육대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "뷰티융합과", "category": ["convergence"]}, {"name": "의료AI융합과", "category": ["convergence"]}]}, "상명대학교": {"name": "상명대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "지능·데이터융합학부 휴먼AI공학전공", "category": ["convergence"]}, {"name": "지능·데이터융합학부 핀테크전공", "category": ["convergence"]}, {"name": "지능·데이터융합학부 빅데이터융합전공", "category": ["convergence"]}, {"name": "지능·데이터융합학부 스마트생산전공", "category": ["convergence"]}, {"name": "SW융합학부 컴퓨터과학전공", "category": ["convergence"]}, {"name": "자유전공(인문계열)", "category": ["free_major"]}, {"name": "자유전공(이공계열)", "category": ["free_major"]}, {"name": "자유전공(예체능계열)", "category": ["free_major"]}]}, "상지대학교": {"name": "상지대학교", "loc": "강원도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌비즈니스융합학부", "category": ["convergence"]}]}, "서경대학교": {"name": "서경대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": null, "english_track": false, "units": [{"name": "글로벌융합학부1", "category": ["convergence", "intl"]}, {"name": "글로벌융합학부2", "category": ["convergence", "intl"]}, {"name": "미래융합학부 1 / 2", "category": ["convergence"]}, {"name": "자유전공학부", "category": ["free_major"]}]}, "성결대학교": {"name": "성결대학교", "loc": "경기도", "topik_req": 4, "ielts_req": null, "english_track": true, "units": [{"name": "자율전공학부", "category": ["free_major"]}, {"name": "인문사회계열자율전공학부", "category": ["free_major"]}, {"name": "공학계열자율전공학부", "category": ["free_major"]}, {"name": "융합학부", "category": ["convergence"]}]}, "성신여자대학교": {"name": "성신여자대학교", "loc": "서울특별시", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "units": [{"name": "국제학부 글로벌한국학전공(한국어교육 트랙)", "category": ["intl"]}, {"name": "국제학부 글로벌한국학전공(K-컬처 앤 엔터 트랙)", "category": ["intl"]}, {"name": "국제학부 뷰티·패션디자인전공", "category": ["intl"]}, {"name": "화학·에너지융합학부(화학/스마트에너지전공)", "category": ["convergence"]}, {"name": "바이오헬스융합학부(바이오헬스서비스/식품영양학전공)", "category": ["convergence"]}, {"name": "AI융합학부(AI/지능형시스템전공)", "category": ["convergence"]}, {"name": "융합보안공학과", "category": ["convergence"]}]}, "세명대학교": {"name": "세명대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자율전공학부", "category": ["free_major"]}, {"name": "글로벌학부[한국어언어문화]", "category": ["intl"]}]}, "수원대학교": {"name": "수원대학교", "loc": "경기도", "topik_req": 4, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자유전공학부", "category": ["free_major"]}]}, "순천향대학교": {"name": "순천향대학교", "loc": "충청남도", "topik_req": 5, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌자유전공학과", "category": ["free_major"]}]}, "유원대학교": {"name": "유원대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "문화복지융합학과", "category": ["convergence"]}, {"name": "미래라이프융합학부", "category": ["convergence"]}]}, "울산대학교": {"name": "울산대학교", "loc": "울산광역시", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "신소재·반도체융합학부(신소재공학)", "category": ["convergence"]}, {"name": "신소재·반도체융합학부(나노반도체공학)", "category": ["convergence"]}, {"name": "전기전자융합학부", "category": ["convergence"]}, {"name": "ICT 융합학부", "category": ["convergence"]}, {"name": "디자인융합학부", "category": ["convergence"]}, {"name": "경영경제융합학부", "category": ["convergence"]}]}, "원광대학교": {"name": "원광대학교", "loc": "전라북도", "topik_req": 4, "ielts_req": null, "english_track": false, "units": [{"name": "디자인융합계열", "category": ["convergence"]}, {"name": "창의문화융합계열", "category": ["convergence"]}, {"name": "자율전공학부", "category": ["free_major"]}]}, "조선대학교": {"name": "조선대학교", "loc": "광주광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "융합수리과학부", "category": ["convergence"]}, {"name": "글로벌학부 국제통상전공", "category": ["intl"]}, {"name": "글로벌학부 글로벌비즈니스전공", "category": ["intl"]}, {"name": "글로벌학부 K컬처공연기획전공", "category": ["intl"]}, {"name": "글로벌학부 K스포츠&무용전공", "category": ["intl"]}, {"name": "글로벌학부 기계공학전공", "category": ["intl"]}, {"name": "글로벌학부 K헬스케어전공", "category": ["intl"]}]}, "한국항공대학교": {"name": "한국항공대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "AI융합대학", "category": ["convergence"]}]}, "한남대학교": {"name": "한남대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "문과대학 자유전공학부", "category": ["free_major"]}, {"name": "공과대학 자유전공학부", "category": ["free_major"]}, {"name": "스마트융합대학 자유전공학부", "category": ["convergence", "free_major"]}, {"name": "AI융합학과", "category": ["convergence"]}, {"name": "경상대학 자유전공학부", "category": ["free_major"]}, {"name": "사회과학대학 자유전공학부", "category": ["free_major"]}, {"name": "생명·나노과학대학 자유전공학부", "category": ["free_major"]}, {"name": "융합디자인학과", "category": ["convergence"]}, {"name": "자유전공학부", "category": ["free_major"]}]}, "한성대학교": {"name": "한성대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "SW융합학과", "category": ["convergence"]}]}, "서울한영대학교": {"name": "서울한영대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "국제학부", "category": ["intl"]}]}, "호남대학교": {"name": "호남대학교", "loc": "광주광역시", "topik_req": 4, "ielts_req": null, "english_track": false, "units": [{"name": "시각융합디자인학과", "category": ["convergence"]}]}, "가톨릭꽃동네대학교": {"name": "가톨릭꽃동네대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "자율전공학부", "category": ["free_major"]}]}, "남부대학교": {"name": "남부대학교", "loc": "광주광역시", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "자율전공학부", "category": ["free_major"]}]}, "예원예술대학교": {"name": "예원예술대학교", "loc": "전라북도", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "융합조형디자인", "category": ["convergence"]}, {"name": "스포츠융합복지", "category": ["convergence"]}]}, "김천대학교": {"name": "김천대학교", "loc": "경상북도", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자율전공학부", "category": ["free_major"]}]}, "한국공학대학교": {"name": "한국공학대학교", "loc": "경기도", "topik_req": 3, "ielts_req": null, "english_track": false, "units": [{"name": "IT반도체융합대학", "category": ["convergence"]}, {"name": "스마트기계융합대학", "category": ["convergence"]}, {"name": "국제학부", "category": ["intl"]}]}, "호원대학교": {"name": "호원대학교", "loc": "전라북도", "topik_req": 2, "ielts_req": null, "english_track": false, "units": [{"name": "글로컬자유전공학부", "category": ["free_major"]}]}, "청운대학교": {"name": "청운대학교", "loc": "충청남도", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자율전공학부", "category": ["free_major"]}, {"name": "미래융합자율전공학부", "category": ["convergence", "free_major"]}]}, "추계예술대학교": {"name": "추계예술대학교", "loc": "서울특별시", "topik_req": 2, "ielts_req": null, "english_track": false, "units": [{"name": "국제학부 음악전공", "category": ["intl"]}, {"name": "국제학부 미술전공", "category": ["intl"]}, {"name": "국제학부 무용전공", "category": ["intl"]}, {"name": "융합예술학부 콘텐츠비즈니스전공", "category": ["convergence"]}]}, "충북대학교": {"name": "충북대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌IT학과", "category": ["intl_stem"]}, {"name": "전기배터리융합학과", "category": ["convergence"]}, {"name": "기계자동차융합학과", "category": ["convergence"]}]}, "강원대학교": {"name": "강원대학교", "loc": "강원도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "units": [{"name": "해양융합과학과", "category": ["convergence"]}, {"name": "글로벌융합학부", "category": ["convergence", "intl"]}, {"name": "기계융합공학부", "category": ["convergence"]}]}, "경상국립대학교": {"name": "경상국립대학교", "loc": "경상남도", "topik_req": 2, "ielts_req": null, "english_track": true, "units": [{"name": "글로벌자율전공학부", "category": ["free_major"]}, {"name": "동물생명융합학부", "category": ["convergence"]}]}, "국립군산대학교": {"name": "국립군산대학교", "loc": "전라북도", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "인공지능융합학과", "category": ["convergence"]}, {"name": "IT융합통신공학과", "category": ["convergence"]}, {"name": "자율전공학부", "category": ["free_major"]}, {"name": "글로벌융합학부", "category": ["convergence", "intl"]}, {"name": "공간디자인융합기술학부", "category": ["convergence"]}]}, "국립목포대학교": {"name": "국립목포대학교", "loc": "전라남도", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌학부", "category": ["intl"]}, {"name": "미래설계융합학부", "category": ["convergence"]}]}, "국립부경대학교": {"name": "국립부경대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "글로벌자율전공학부", "category": ["free_major"]}]}, "부산대학교": {"name": "부산대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "국제학부", "category": ["intl"]}, {"name": "의생명융합공학부", "category": ["convergence"]}, {"name": "글로벌자유전공학부", "category": ["free_major"]}, {"name": "첨단융합학부", "category": ["convergence"]}]}, "국립순천대학교": {"name": "국립순천대학교", "loc": "전라남도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "units": [{"name": "자유전공학부(인문사회·자연)", "category": ["free_major"]}, {"name": "융합바이오시스템기계공학과", "category": ["convergence"]}, {"name": "예체능분야(음악예술융합학전공)", "category": ["convergence"]}]}, "충남대학교": {"name": "충남대학교", "loc": "대전광역시", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "units": [{"name": "도시·자치융합학과", "category": ["convergence"]}, {"name": "국제학부", "category": ["intl"]}, {"name": "정보통신융합학부", "category": ["convergence"]}]}, "서울시립대학교": {"name": "서울시립대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": true, "units": [{"name": "융합응용화학과", "category": ["convergence"]}, {"name": "융합바이오헬스전공", "category": ["convergence"]}]}, "강남대학교": {"name": "강남대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자유전공학부", "category": ["free_major"]}, {"name": "인공지능융합공학부", "category": ["convergence"]}]}, "경일대학교": {"name": "경일대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "자율전공학부", "category": ["free_major"]}, {"name": "디자인융합학부", "category": ["convergence"]}, {"name": "스포츠융합학부", "category": ["convergence"]}]}, "신경주대학교": {"name": "신경주대학교", "loc": "경상북도", "topik_req": 2, "ielts_req": 5.5, "english_track": false, "units": [{"name": "글로벌융합학부", "category": ["convergence", "intl"]}, {"name": "AI융합미디어창업학과", "category": ["convergence"]}]}, "신한대학교": {"name": "신한대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "units": [{"name": "소프트웨어융합학과", "category": ["convergence"]}]}}}, "ai_departments": {"note": "AI/데이터사이언스/소프트웨어/컴퓨터 전공 전용학과 보유 학교 (data.js majors 기반). 상담 시 '어느 학교에 인공지능학과/데이터사이언스학과가 있나' 질문에 활용. english_track=True면 영어로도 지원 가능.", "updated": "2026-09-05", "schools": {"가천대학교": {"name": "가천대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": ["금융·빅데이터학부"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과", "컴퓨터공학부", "컴퓨터공학전공"]}}, "가톨릭대학교": {"name": "가톨릭대학교", "loc": "경기도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["인공지능학과", "AI의공학과"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": ["바이오메디컬소프트웨어학과"], "컴퓨터": []}}, "강남대학교": {"name": "강남대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["인공지능융합공학부", "인공지능전공"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": ["소프트웨어전공"], "컴퓨터": ["컴퓨터공학부"]}}, "강서대학교": {"name": "강서대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI기반경영학과"], "데이터사이언스": ["G2빅데이터경영학과"], "소프트웨어": [], "컴퓨터": []}}, "강원대학교": {"name": "강원대학교", "loc": "강원도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["첨단AI공학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "건국대학교": {"name": "건국대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI디자인학과"], "데이터사이언스": [], "소프트웨어": ["컴퓨터소프트웨어학과", "국제대학컴퓨터소프트웨어학과"], "컴퓨터": ["컴퓨터공학부"]}}, "건양대학교": {"name": "건양대학교", "loc": "충청남도", "topik_req": 5, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["기업소프트웨어학부"], "컴퓨터": []}}, "경남대학교": {"name": "경남대학교", "loc": "경상남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["인공지능학과"], "데이터사이언스": [], "소프트웨어": ["소프트웨어전공"], "컴퓨터": ["컴퓨터공학부", "컴퓨터공학전공"]}}, "경동대학교": {"name": "경동대학교", "loc": "강원도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어융합보안학과"], "컴퓨터": ["컴퓨터공학과"]}}, "경상국립대학교": {"name": "경상국립대학교", "loc": "경상남도", "topik_req": 2, "ielts_req": null, "english_track": false, "depts": {"AI": ["AI정보공학과"], "데이터사이언스": [], "소프트웨어": ["소프트웨어공학과"], "컴퓨터": ["컴퓨터공학부"]}}, "경희대학교": {"name": "경희대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 6.0, "english_track": true, "depts": {"AI": ["컴퓨터공학부인공지능학과"], "데이터사이언스": [], "소프트웨어": ["소프트웨어융합학과"], "컴퓨터": ["컴퓨터공학부컴퓨터공학과", "컴퓨터공학부인공지능학과"]}}, "계명대학교": {"name": "계명대학교", "loc": "대구광역시", "topik_req": 3, "ielts_req": 5.0, "english_track": false, "depts": {"AI": [], "데이터사이언스": ["경영빅데이터학과"], "소프트웨어": ["게임소프트웨어학과", "모빌리티소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "고려대학교": {"name": "고려대학교", "loc": "서울특별시", "topik_req": 5, "ielts_req": 7.0, "english_track": true, "depts": {"AI": ["인공지능학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터학과"]}}, "광주대학교": {"name": "광주대학교", "loc": "광주광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI소프트웨어학과"], "데이터사이언스": [], "소프트웨어": ["AI소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "국립강릉원주대학교": {"name": "국립강릉원주대학교", "loc": "강원도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI콘텐츠공학과"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": [], "컴퓨터": []}}, "국립경국대학교": {"name": "국립경국대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어융합전공"], "컴퓨터": ["컴퓨터공학전공"]}}, "국립군산대학교": {"name": "국립군산대학교", "loc": "전라북도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["인공지능융합학과"], "데이터사이언스": ["데이터사이언스학전공"], "소프트웨어": ["임베디드소프트웨어학과", "소프트웨어학과"], "컴퓨터": ["컴퓨터과학전공"]}}, "국립금오공과대학교": {"name": "국립금오공과대학교", "loc": "경상북도", "topik_req": 4, "ielts_req": 5.5, "english_track": false, "depts": {"AI": [], "데이터사이언스": ["산업·빅데이터공학부", "수리빅데이터전공"], "소프트웨어": ["소프트웨어전공"], "컴퓨터": ["컴퓨터공학부", "컴퓨터공학전공"]}}, "국립목포대학교": {"name": "국립목포대학교", "loc": "전라남도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능공학과"], "데이터사이언스": [], "소프트웨어": ["융합소프트웨어전공"], "컴퓨터": ["컴퓨터공학전공"]}}, "국립부경대학교": {"name": "국립부경대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능전공", "지능형로봇융합전공", "인공지능융합학과"], "데이터사이언스": ["데이터사이언스융합전공", "빅데이터융합학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "국립순천대학교": {"name": "국립순천대학교", "loc": "전라남도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능공학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "국립창원대학교": {"name": "국립창원대학교", "loc": "경상남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "국립한국교통대학교": {"name": "국립한국교통대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["철도AI·데이터공학부", "인공지능전공"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": ["컴퓨터소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "국립한국해양대학교": {"name": "국립한국해양대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 6.0, "english_track": false, "depts": {"AI": ["해사인공지능·보안학부", "인공지능공학부"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학전공"]}}, "국민대학교": {"name": "국민대학교", "loc": "서울특별시", "topik_req": 5, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI빅데이터융합경영학과", "지능형반도체융합전자전공", "지능형ICT융합전공", "인공지능학부", "AI디자인학과"], "데이터사이언스": ["AI빅데이터융합경영학과"], "소프트웨어": ["소프트웨어학부"], "컴퓨터": []}}, "나사렛대학교": {"name": "나사렛대학교", "loc": "충청남도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["AI인공지능학부", "AI빅데이터소프트웨어전공", "AI사물인터넷보안전공"], "데이터사이언스": ["AI빅데이터소프트웨어전공"], "소프트웨어": ["AI빅데이터소프트웨어전공"], "컴퓨터": []}}, "단국대학교": {"name": "단국대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": ["통계데이터사이언스학과"], "소프트웨어": ["소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "대구가톨릭대학교": {"name": "대구가톨릭대학교", "loc": "경상북도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI빅데이터공학과", "인공지능컴퓨터전공"], "데이터사이언스": ["AI빅데이터공학과"], "소프트웨어": ["컴퓨터소프트웨어학부", "소프트웨어융합학과"], "컴퓨터": ["컴퓨터공학전공"]}}, "대구대학교": {"name": "대구대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["컴퓨터소프트웨어전공"], "컴퓨터": ["컴퓨터공학전공"]}}, "덕성여자대학교": {"name": "덕성여자대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["AI신약학과"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": ["디지털소프트웨어공학부"], "컴퓨터": []}}, "동국대학교": {"name": "동국대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": true, "depts": {"AI": ["컴퓨터·AI학부", "인공지능전공", "의료인공지능공학과", "지능형네트워크융합학과"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": ["멀티미디어소프트웨어공학전공"], "컴퓨터": ["컴퓨터공학전공"]}}, "동덕여자대학교": {"name": "동덕여자대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": [], "컴퓨터": []}}, "동명대학교": {"name": "동명대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능응용학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "동서대학교": {"name": "동서대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어전공"], "컴퓨터": ["컴퓨터공학과"]}}, "동양대학교": {"name": "동양대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["AI빅데이터융합학과"], "데이터사이언스": ["AI빅데이터융합학과"], "소프트웨어": ["디지털트윈소프트웨어학과"], "컴퓨터": []}}, "명지대학교": {"name": "명지대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능전공"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": ["융합소프트웨어학부", "응용소프트웨어전공"], "컴퓨터": ["컴퓨터공학전공"]}}, "목원대학교": {"name": "목원대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI실감콘텐츠전공"], "데이터사이언스": ["마케팅빅데이터학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학전공"]}}, "배재대학교": {"name": "배재대학교", "loc": "대전광역시", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어공학부"], "컴퓨터": []}}, "부산대학교": {"name": "부산대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능전공"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": [], "컴퓨터": ["정보컴퓨터공학부", "컴퓨터공학전공"]}}, "부산외국어대학교": {"name": "부산외국어대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": ["빅데이터전공"], "소프트웨어": ["소프트웨어전공", "소프트웨어학부"], "컴퓨터": ["컴퓨터공학전공", "컴퓨터공학부"]}}, "삼육대학교": {"name": "삼육대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능융합학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학부"]}}, "상명대학교": {"name": "상명대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["지능·데이터융합학부휴먼AI공학전공"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": []}}, "상지대학교": {"name": "상지대학교", "loc": "강원도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "서강대학교": {"name": "서강대학교", "loc": "서울특별시", "topik_req": 6, "ielts_req": 7.0, "english_track": true, "depts": {"AI": ["인공지능학과", "AI기반자유전공학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "서경대학교": {"name": "서경대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "서울대학교": {"name": "서울대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 6.0, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학부"]}}, "서울시립대학교": {"name": "서울시립대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["인공지능학과", "첨단인공지능전공", "지능형반도체전공"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["전자전기컴퓨터공학부", "컴퓨터과학부"]}}, "서울신학대학교": {"name": "서울신학대학교", "loc": "경기도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "서울여자대학교": {"name": "서울여자대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": ["소프트웨어학과"], "컴퓨터": []}}, "선문대학교": {"name": "선문대학교", "loc": "충청남도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI소프트웨어학과"], "데이터사이언스": [], "소프트웨어": ["AI소프트웨어학과"], "컴퓨터": ["컴퓨터공학부"]}}, "성결대학교": {"name": "성결대학교", "loc": "경기도", "topik_req": 4, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["미디어소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "성균관대학교": {"name": "성균관대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": 6.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어학과"], "컴퓨터": []}}, "세종대학교": {"name": "세종대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI융합전자공학과", "AI로봇학과", "인공지능데이터사이언스학과"], "데이터사이언스": ["인공지능데이터사이언스학과"], "소프트웨어": ["소프트웨어학과", "콘텐츠소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "수원대학교": {"name": "수원대학교", "loc": "경기도", "topik_req": 4, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI데이터과학부", "지능형보안학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학부"]}}, "숙명여자대학교": {"name": "숙명여자대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["지능형전자시스템전공"], "데이터사이언스": ["데이터사이언스전공"], "소프트웨어": ["소프트웨어학부"], "컴퓨터": []}}, "순천향대학교": {"name": "순천향대학교", "loc": "충청남도", "topik_req": 5, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["AI·빅데이터학과"], "데이터사이언스": ["AI·빅데이터학과"], "소프트웨어": ["컴퓨터소프트웨어공학과"], "컴퓨터": ["컴퓨터공학과"]}}, "숭실대학교": {"name": "숭실대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["AI소프트웨어학부", "AI시스템전공"], "데이터사이언스": [], "소프트웨어": ["AI소프트웨어학부"], "컴퓨터": []}}, "신경주대학교": {"name": "신경주대학교", "loc": "경상북도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI융합미디어창업학과", "AI전기자동차학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": []}}, "신한대학교": {"name": "신한대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": [], "데이터사이언스": ["빅데이터경영학과"], "소프트웨어": ["소프트웨어융합학과", "소프트웨어공학과"], "컴퓨터": []}}, "연세대학교": {"name": "연세대학교", "loc": "서울특별시", "topik_req": 5, "ielts_req": null, "english_track": false, "depts": {"AI": ["지능형반도체전공"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": []}}, "영산대학교": {"name": "영산대학교", "loc": "부산광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["AI그래픽학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "용인대학교": {"name": "용인대학교", "loc": "경기도", "topik_req": 2, "ielts_req": null, "english_track": false, "depts": {"AI": ["AI융합학부", "AI학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": []}}, "우석대학교": {"name": "우석대학교", "loc": "전라북도", "topik_req": 2, "ielts_req": null, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과", "컴퓨터공학부"]}}, "우송대학교": {"name": "우송대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["철도소프트웨어전공", "게임소프트웨어전공", "컴퓨터·소프트웨어전공"], "컴퓨터": ["컴퓨터·소프트웨어전공"]}}, "유원대학교": {"name": "유원대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI소프트웨어학과"], "데이터사이언스": [], "소프트웨어": ["AI소프트웨어학과"], "컴퓨터": []}}, "을지대학교": {"name": "을지대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["빅데이터인공지능전공"], "데이터사이언스": ["빅데이터인공지능전공"], "소프트웨어": [], "컴퓨터": []}}, "이화여자대학교": {"name": "이화여자대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": 6.0, "english_track": false, "depts": {"AI": ["지능형반도체공학전공", "인공지능데이터사이언스학부", "인공지능전공", "지능형반도체학과"], "데이터사이언스": ["인공지능데이터사이언스학부", "데이터사이언스전공", "데이터사이언스학과"], "소프트웨어": ["소프트웨어학부"], "컴퓨터": ["컴퓨터공학과"]}}, "인제대학교": {"name": "인제대학교", "loc": "경상남도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI컴퓨터학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["AI컴퓨터학과"]}}, "인천대학교": {"name": "인천대학교", "loc": "인천광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학부"]}}, "인하대학교": {"name": "인하대학교", "loc": "인천광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능공학과"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "전북대학교": {"name": "전북대학교", "loc": "전라북도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["컴퓨터인공지능학부"], "데이터사이언스": [], "소프트웨어": ["소프트웨어공학과"], "컴퓨터": []}}, "전주대학교": {"name": "전주대학교", "loc": "전라북도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능학과"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "제주대학교": {"name": "제주대학교", "loc": "제주특별자치도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["인공지능학과", "인공지능전공"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "조선대학교": {"name": "조선대학교", "loc": "광주광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["AI소프트웨어학부", "인공지능공학전공"], "데이터사이언스": [], "소프트웨어": ["AI소프트웨어학부"], "컴퓨터": ["컴퓨터공학전공"]}}, "청운대학교": {"name": "청운대학교", "loc": "충청남도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "청주대학교": {"name": "청주대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["인공지능소프트웨어학과"], "데이터사이언스": ["데이터사이언스학과"], "소프트웨어": ["인공지능소프트웨어학과"], "컴퓨터": []}}, "충북대학교": {"name": "충북대학교", "loc": "충청북도", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어학부"], "컴퓨터": ["컴퓨터공학과"]}}, "평택대학교": {"name": "평택대학교", "loc": "경기도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["지능형반도체학과", "AI융합학과"], "데이터사이언스": [], "소프트웨어": ["융합소프트웨어학과"], "컴퓨터": []}}, "한국공학대학교": {"name": "한국공학대학교", "loc": "경기도", "topik_req": 3, "ielts_req": null, "english_track": false, "depts": {"AI": ["지능형모빌리티전공", "AI로봇전공", "인공지능학과"], "데이터사이언스": ["데이터사이언스경영전공"], "소프트웨어": ["소프트웨어전공"], "컴퓨터": ["컴퓨터공학전공", "컴퓨터공학부"]}}, "한국성서대학교": {"name": "한국성서대학교", "loc": "서울특별시", "topik_req": 4, "ielts_req": null, "english_track": false, "depts": {"AI": ["AI융합학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": []}}, "한국외국어대학교": {"name": "한국외국어대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["Language&AI융합학부", "SocialScience&AI융합학부", "AI데이터융합학부", "Finance&AI융합학부"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학부"]}}, "한국항공대학교": {"name": "한국항공대학교", "loc": "경기도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI자율주행시스템공학과"], "데이터사이언스": [], "소프트웨어": ["소프트웨어학과"], "컴퓨터": ["컴퓨터공학과"]}}, "한남대학교": {"name": "한남대학교", "loc": "대전광역시", "topik_req": 3, "ielts_req": 5.5, "english_track": false, "depts": {"AI": ["AI융합학과"], "데이터사이언스": ["빅데이터응용학과"], "소프트웨어": [], "컴퓨터": ["컴퓨터공학과"]}}, "한동대학교": {"name": "한동대학교", "loc": "경상북도", "topik_req": 3, "ielts_req": 6.0, "english_track": false, "depts": {"AI": ["AI융합전공", "AIConvergence&Entrepreneurship전공"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["전산전자공학부", "컴퓨터공학전공"]}}, "한림대학교": {"name": "한림대학교", "loc": "강원도", "topik_req": 2, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["인공지능융합학부"], "데이터사이언스": ["데이터사이언스학부"], "소프트웨어": ["소프트웨어학부"], "컴퓨터": []}}, "한서대학교": {"name": "한서대학교", "loc": "충청남도", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI·SW학부", "항공AI소프트웨어학과", "AI로보틱스학과", "AI모빌리티학과"], "데이터사이언스": [], "소프트웨어": ["항공AI소프트웨어학과"], "컴퓨터": []}}, "한성대학교": {"name": "한성대학교", "loc": "서울특별시", "topik_req": 3, "ielts_req": 5.5, "english_track": true, "depts": {"AI": ["AI응용학과"], "데이터사이언스": [], "소프트웨어": [], "컴퓨터": ["컴퓨터공학부"]}}, "협성대학교": {"name": "협성대학교", "loc": "경기도", "topik_req": null, "ielts_req": 5.5, "english_track": true, "depts": {"AI": [], "데이터사이언스": [], "소프트웨어": ["소프트웨어공학과"], "컴퓨터": ["컴퓨터공학과"]}}}}, "medical_reqs": {"의예과(의학과)": {"note": "면접(MMI) 중심 + 부모모두외국인 국적조건. TOPIK/영어 학교별 상이 — IELTS 인정 여부 확인.", "recruiting": [{"school": "연세대학교", "year": "2027", "dept": "의과대학 의예과, 치의예과, 간호대학, 약학대학", "lang": "TOPIK 5급 이상 필수 (영어 불인정)", "note": "의·치·간호·약학은 1차 원서접수 기간에만 지원 가능"}, {"school": "연세대학교(미래)", "year": "2027", "dept": "의예과, 간호학과", "lang": "TOPIK 5급 이상 (영어 불인정)", "note": "1차 원서접수 기간 중에만 접수 가능"}, {"school": "을지대학교", "year": "2027", "dept": "의예과(대전)", "quota": "제한 없음 (외국인 특별전형 비제한)", "lang": "TOEFL(IBT) 100점 이상 + TOPIK 3급 이상(또는 자체시험 3급/KIIP 3단계/세종학당 중급1)", "note": "TOPIK 2급이면 입학 후 300시간 한국어연수 조건부 가능"}, {"school": "인제대학교", "year": "2027", "dept": "의예과", "quota": "전기(3월 입학) 1차만 모집", "period": "원서접수 2026.9.7~9.11, 면접 2026.11.14", "eval": "1단계 서류 → 2단계 심층면접(인성+지성: 생명과학·화학 구술, MMI)", "fee": "전형료 ₩100,000", "lang": "TOPIK 3급 이상 (C형 기준)", "graduate": "졸업 TOPIK 4급 or IELTS 5.5"}, {"school": "가톨릭관동대학교", "year": "2027", "dept": "의학과(의예과)", "quota": "재외국민·외국인 2명 / 부모모두외국인 제한없음", "period": "원서접수 2026.7.6~7.10", "eval": "1단계 서류 100% → 2단계 서류 70%+면접 30%", "fee": "전형료 ₩185,000", "lang": "TOEFL IBT 또는 NEWTEPS 필수 (IELTS 불인정!) + TOPIK 증빙", "note": "공인영어성적 2024.8.28 이후 취득분만"}, {"school": "건양대학교", "year": "2026", "dept": "의학과 (6년제)", "quota": "입학정원 5% 이내", "eval": "1단계 서류 적·부 → 2단계 면접 100% (5배수)", "lang": "TOEIC 850 / TOEFL 98 / TEPS 336 중 택1 (영어 기반, TOPIK 불요)", "tuition": "₩5,245,000/학기 (2025 기준)"}, {"school": "중앙대학교", "year": "2026 & 2027", "dept": "의과대학 의학부", "lang": "TOPIK 6급 필수 (한국어만 인정)", "quota": null, "eval": "", "period": "", "note": "의학부는 신입학만 지원 가능(편입 X), 2지망 불가(의과대학·예술·체육은 1지망만). 서류평가 50% + 면접평가 50%. 의학부 입학생은 장학금 지급 대상 제외. 2026/2027 요강 모두 의학부 TOPIK 6급 요건 확인. medical_reqs에 누락."}, {"school": "서울대학교", "year": "2026 & 2027", "dept": "의과대학 의예과(2026) / 의학과 통합6년제(2027)", "lang": "한국어 또는 영어 선택: TOPIK(IBT) 3급 이상 또는 대학부설 어학당 4급 수료 / TOEFL iBT 80 (2026.1.21 이후 응시분은 4.0점대 기준 상향?) / IELTS Academic 6.0 / TEPS 269", "quota": "정원 외 선발, 별도 모집인원 없음", "eval": "", "period": "", "note": "글로벌인재특별전형(부모 모두 외국인). 의과대학은 서류+면접(제시문 사용 가능). 2027학년도부터 의과대학 통합 6년제(의학과)로 선발. medical_reqs에 누락."}, {"school": "고려대학교", "year": "2026 & 2027", "dept": "의과대학(의학과, 자연계열)", "lang": "한국어 또는 영어 공인성적 제출(TOPIK / TOEFL iBT / IELTS Academic 중 택1). 의과대학 별도 최소급수 미명시, 입학 후 TOPIK 급수별 한국어집중교육·전공수강제한 적용", "quota": null, "eval": "", "period": "", "note": "의과대학·간호대학은 전기 입학전형으로만 선발. 외국인전형Ⅰ 모집단위(자연/의과). 2026은 의과대학, 2027은 의학과로 표기. medical_reqs에 누락."}]}, "약학(Pharmacy)": {"note": "약학 외국인전형은 TOPIK 기반 (영어 불인정 대부분). 6년제.", "recruiting": [{"school": "서울대학교", "year": "2027", "dept": "약학계열(약학과 6년제, 제약학과 6년제)", "lang": "글로벌인재특별전형 공통: 한국어 또는 영어 언어능력 증빙서류 필수 — TOPIK 3급 이상 또는 국내 대학 어학당 4급 수료, 또는 영어(TOEFL iBT 80·IELTS 6.0·TEPS 269) ※ 약학계열 별도 상향 요건은 요강에 미명시(공통요건 적용)", "quota": "정원 외(별도 모집인원 없이 선발, 경쟁률 미공개)", "eval": "서류평가(제출서류 기반 정성평가) + 필요시 면접(면접시행대학에 약학대학 명시; 글로벌인재특별전형Ⅱ는 화상면접)", "period": "2027학년도 전기 글로벌인재특별전형(2026.9 접수·면접)", "note": "약학대학 약학계열이 외국인(글로벌인재특별전형) 모집단위로 명시되고 면접시행대학에 포함 → 실제 모집"}, {"school": "연세대학교", "year": "2027", "dept": "약학과, 첨단약과학과(2027 신설)", "lang": "약학대학(의과·치과·간호·약학대학 공통): 한국어능력시험(TOPIK) 5급 이상 성적 또는 연세대학교 한국어학당(KLI) 5급 이상 수료증명 필수 제출 [택1]", "quota": "약간 명(모집단위별)", "eval": "면접평가(현장대면, 신촌캠퍼스) — 의예과·치의예과·약학과 지원자에 한함", "period": "2027학년도 외국인전형(원서접수 약 2026.9)", "note": "약학대학 약학과가 외국인 모집단위로 명시, 2027 첨단약과학과 신설로 함께 모집. 전형료 230,000원(의·치·약대)"}, {"school": "인제대학교", "year": "2027", "dept": "약학과", "lang": "한국어트랙 지원(약학과 한국어트랙): TOPIK 성적 미소지자도 지원 가능(글로벌칼리지 외 일반학과 포함) ※ 졸업 전까지 TOPIK 4급 이상(또는 IELTS 5.5) 취득 요건", "quota": "신입학 모집인원: 제한 없음", "eval": "면접고사(의예과·약학과: 2026.11.14 김해캠퍼스) — 의예과·약학과는 1단계 합격자 발표 후 면접", "period": "2027학년도 1학기 외국인학부 신입학[1차](원서접수 2026.9.7~9.11)", "note": "약학대학 약학과가 외국인 모집단위에 등재되고 면접 실시(의예과·약학과 별도 일정) → 실제 모집"}, {"school": "고려대학교(세종)", "year": "2026", "dept": "약학과(약학대학), 첨단융합신약학과", "lang": "어학능력자격: TOPIK 성적 소유자(TOPIK iBT 정규 포함) / 고려대 세종 KLIP 또는 국내 4년제 대학 부설 한국어 정규과정 성적 소유자 / 세종학당 등 [한국어 기반] ※ 미취득 입학 시 졸업 전까지 TOPIK 4급 이상 취득 요건", "quota": "모집인원 제한 없음(수학능력 고려 정원 외 선발)", "eval": "약학과 면접(2025.11.29, 약학과 응시자만 해당, 한국 국내 대면 면접)", "period": "2026학년도 외국인 특별전형(원서접수 ~2025.11, 최종발표 2025.12.26)", "note": "약학대학 약학과가 외국인 모집단위(자연계열)로 등재되고 약학과 단독 면접 실시 → 실제 모집"}, {"school": "연세대학교", "year": "2026", "dept": "약학과", "lang": "의예·치의예·간호학·약학과 공통: 한국어능력시험(TOPIK) 5급 이상, 또는 연세대학교 한국어학당(KLI) 5급 이상 수료증명 필수 제출", "quota": "약간 명(모집단위별)", "eval": "면접평가(현장대면, 신촌캠퍼스 2025.11.1) — 의예과·치의예과·약학과 지원자에 한함", "period": "2026학년도 외국인전형(원서접수 2025.9.1~, 최종발표 2025.12.5)", "note": "약학대학 약학과 외국인 모집단위로 명시, TOPIK 5급/KLI 5급 요건 → 실제 모집"}, {"school": "인제대학교", "year": "2026", "dept": "약학과", "lang": "한국어트랙 지원(TOPIK 미소지자 지원 가능), 졸업 전까지 TOPIK 4급 이상 취득 요건", "quota": "신입학 모집인원: 제한 없음", "eval": "면접고사(의예과·약학과: 2025.11.15) — 의예과·약학과 1단계 합격자 발표 후 면접", "period": "2026학년도 1학기 외국인학부 신입학[1차](원서접수 2025.9.9~9.16)", "note": "약학대학 약학과 외국인 모집단위 등재 + 면접 실시 → 실제 모집"}, {"school": "성균관대학교", "year": "2026 & 2027", "dept": "약학과(6년제) / 바이오신약·규제과학과(4년제 신설)", "lang": "해당 없음 — 외국인 학부 모집단위에서 제외", "quota": "0명 (외국인 신입학 선발 대상 아님)", "eval": "-", "period": "-", "note": "성균관대 2026 후기/2027 외국인 신입학 특별전형 모집요강 확인: 자유전공계열 진입 제한에 '의·약학계열' 명시적 제외. 외국인 학부 모집단위 목록(한국어트랙/영어트랙)에도 약학과·바이오신약·규제과학과 없음 → 외국인 학부(학사) 약학 진학 불가. 약학대학은 대학원(일반대학원 약학과·바이오헬스규제과학과 외국인특별전형)으로만 외국인 모집. 약학대학 등록금 5,556,000원/학기(2026, 입학금 제외). 검증 2026-09-10."}], "tuition": {"note": "약학대학(6년제) 전용 등록금. 연세·고려세종 공식 명세표 파싱, 인제 대학알리미 공시, 서울대 국립대 추정. USD(1,400원/$) 환산 참고.", "updated": "2026-09-10", "schools": {"연세대학교": {"tuition": {"sem1": 6020000, "sem2_6": 5825000}, "source": "연세대 2026 학부 등록금 명세표 (yonsei.ac.kr/sites/sc/down/2026_fee1.pdf)", "note": "약학대학 1학년1학기 ₩6,020,000 / 이후~6학년 ₩5,825,000. 6년 총 약 ₩70,070,000."}, "서울대학교": {"tuition": {"sem": null, "admission": 169000, "sem_est": [4000000, 4700000]}, "source": "국립대 — 자연계열 최상위 추정", "note": "국립대학이라 사립보다 저렴. 참고: 제주대(국립) 약학 학기당 ₩4,183,000(2026), 서울대 대학원 약학 ₩4,686,000. 학부 약학대학 추정 학기 ₩4,000,000~4,700,000. 서울대 학부 등록금 일람표(대학원용만 공개)로 정확치 확인 필요."}, "인제대학교": {"tuition": {"sem": 5186500, "admission": 785000}, "source": "대학알리미 2025 등록금 공시 (phdkim.net, 약학과)", "note": "약학과 학기당 ₩5,186,500 + 입학금 ₩785,000. 6년 총 약 ₩62,238,000 + 입학금. (2026 2.96% 인상 예정 → 실납 확인)"}, "고려대학교(세종)": {"tuition": {"sem_all": 6291400}, "source": "고려대 세종 2026 대학 등록금 일람표(학부) (st.korea.ac.kr)", "note": "약학과 학기당 ₩6,291,400 (전 학년 동일, 인문사회/이학체육/공학 중 최고액). 6년 총 약 ₩75,496,800."}}, "reference_national": "제주대 약학 ₩4,183,000/학기(2026, ibsi.jejunu.ac.kr) — 국립대 약학 대표 수치"}, "foreigner_admission_full_check": {"note": "대한약사회 전국 37개 약학대학 전수검증 (2026-09-12, 공식 외국인 모집요강 기반). 외국인 약학 학부 모집 = 서울대·연세대·고려대(세종)·인제대·가천대. 계명대는 대학원만. 나머지는 전부 제외.", "updated": "2026-09-12", "schools": {"가천대학교": {"status": "YES", "detail": "TOPIK 6급 (일반 TOPIK3보다 높음). 2026 후기 학부 3차"}, "서울대학교": {"status": "YES", "detail": "TOPIK 3 or TOEFL80/IELTS6.0/TEPS269, 정원외"}, "연세대학교": {"status": "YES", "detail": "TOPIK 5급 필수 (영어 불인정), 약간 명"}, "고려대학교(세종)": {"status": "YES", "detail": "TOPIK 기반, 제한없음"}, "인제대학교": {"status": "YES", "detail": "TOPIK 미보유 가능, 졸업전 TOPIK4/IELTS5.5, 제한없음"}, "계명대학교": {"status": "GRAD_ONLY", "detail": "대학원 약학 YES (MA/PhD+English track). 학부 외국인 약학 미확인/미모집"}, "가톨릭대학교": {"status": "NO", "detail": "외국인 모집단위에서 약학대학 제외"}, "건국대학교": {"status": "NO", "detail": "2026 후기 외국인요강에 약학 없음"}, "경상국립대학교": {"status": "NO", "detail": "약학은 국내전형만"}, "경성대학교": {"status": "NO", "detail": "외국인 모집에 약학과 없음 (제약공학만)"}, "경희대학교": {"status": "NO", "detail": "2027-1 외국인요강에 약학과 제외"}, "광주대학교": {"status": "NO", "detail": "약학대학 없음"}, "국립강릉원주대학교": {"status": "NO", "detail": "약학대학 없음"}, "국립부경대학교": {"status": "NO", "detail": "약학대학 없음"}, "국립순천대학교": {"status": "NO", "detail": "순수외국인요강이 약학대학 명시 제외"}, "국립안동대학교": {"status": "NO", "detail": "약학대학 없음"}, "국립전남대학교": {"status": "NO", "detail": "외국인 모집단위에 약학대학 없음"}, "국립충남대학교": {"status": "NO", "detail": "CNU-ASIA 외국인요강이 약학대학 제외"}, "국립충북대학교": {"status": "NO", "detail": "외국인요강: 약학대학 전학과 선발 안함"}, "국립한국교통대학교": {"status": "NO", "detail": "약학대학 없음 (제약바이오전공만)"}, "동국대학교": {"status": "NO", "detail": "약학대학 존재하나 외국인 모집단위에 없음"}, "동덕여자대학교": {"status": "NO", "detail": "외국인 모집단위에 약학 없음"}, "부산대학교": {"status": "NO", "detail": "외국인 모집단위에 약학 없음"}, "삼육대학교": {"status": "NO", "detail": "약학과 외국인 모집 아님"}, "성균관대학교": {"status": "NO", "detail": "외국인 학부에서 의·약학계열 명시 제외"}, "숙명여자대학교": {"status": "NO", "detail": "2026 외국인요강: 약학부 전공선택 불가"}, "아주대학교": {"status": "NO", "detail": "학부외국인 모집학과에 약학대학 없음"}, "영남대학교": {"status": "NO", "detail": "2027 외국인요강에 약학과 없음"}, "우석대학교": {"status": "NO", "detail": "순수외국인 모집단위에 약학과 없음"}, "원광대학교": {"status": "NO", "detail": "2026 외국인 학부에 약학과 없음"}, "이화여자대학교": {"status": "NO", "detail": "2028 입학전형: 약학대학 명시 제외"}, "인하대학교": {"status": "NO", "detail": "2027 외국인요강 모집단위에 약학대학 없음"}, "전북대학교": {"status": "NO", "detail": "외국인요강: 약학대학 모집 제외"}, "조선대학교": {"status": "NO", "detail": "2026 외국인 모집단위에 약학 없음"}, "중앙대학교": {"status": "NO", "detail": "2027 순수외국인 모집단위표에 약학대학 없음"}, "충북대학교": {"status": "NO", "detail": "외국인요강: 약학대학 선발 안함"}, "한양대학교": {"status": "NO", "detail": "외국인요강에 약학대학 0회 언급"}}}}, "간호학과(Nursing)": {"note": "일부 학교 간호는 별도 어학(TOEFL/TOEIC/TOPIK4-5) 요구. 여대(성신·이화) 주의.", "recruiting": [{"school": "가톨릭관동대학교", "year": "2027", "dept": "간호학과", "lang": "공인영어성적 필수: 간호학과는 TOEFL IBT·NEWTEPS·TOEIC 중 1개 이상 (의학과·간호학과만 추가서류)", "quota": "의과대학 자연과학 간호학과(교직), 입학정원 120, 모집 2명(재외국민 및 외국인 등)", "eval": "1단계 서류 100%(1,000점) 5배수 → 2단계 1단계성적 70%+면접 30%", "period": "원서접수 2026.7.6~7.10, 1단계발표 2026.8.12, 면접 2026.8.21", "note": "간호학과를 정식 외국인 모집단위로 선발(의학과·간호학과만 2단계 서류+면접 전형, 별도 서류·전형료 적용)."}, {"school": "가톨릭관동대학교", "year": "2026", "dept": "간호학과", "lang": "공인영어성적(간호학과 추가서류) 등", "quota": "의과대학 자연과학 간호학과(교직), 입학정원 120, 모집 2명", "eval": "의학과·간호학과만 별도 전형(서류+면접)", "period": "원서접수 2025.7.7~7.11", "note": "간호학과를 정식 외국인 모집단위로 선발."}, {"school": "가톨릭꽃동네대학교", "year": "2026", "dept": "간호학과", "lang": "TOPIK 4급 이상", "quota": "간호학과 입학정원 78. 정원외: 재외국민 및 외국인(2%이내) 2명이내, 북한이탈주민/부모모두외국인/전교육과정 이수자 제한없음", "eval": "면접 100%(학생부교과 반영 없음)", "period": "원서접수 2025.9.8~9.12, 면접 2025.10.25", "note": "간호학과가 유일한 외국인 모집단위(자율전공학부와 함께). 어학기준 간호학과 4급 이상."}, {"school": "강원대학교", "year": "2026", "dept": "간호학과", "lang": "TOPIK 5급 이상만 지원 가능(영어 성적 제출 불가)", "quota": "보건과학대학 간호학과(삼척·도계캠퍼스), 신입학 O / 편입 2·3학년 O / 4학년 X", "eval": "전형방법 ①(서류)", "period": "", "note": "외국인 신입학·편입학 모집단위 표에 간호학과 포함(언어요건 참고표 ④ TOPIK5급 이상)."}, {"school": "건양대학교", "year": "2026", "dept": "간호학과", "lang": "최저학력기준: TOEIC 850점·TOEFL 98점·TEPS 336점 이상 중 택 1", "quota": "간호대학 간호학과(메디컬캠퍼스[대전]). '입학정원 2%이내'(총31명, 메디컬캠퍼스 19명 내) 및 '입학정원 무제한' 양 전형 모두에 포함", "eval": "1단계 TOEIC·TOEFL·TEPS 점수 중 택일 100% → 2단계 면접 100%", "period": "", "note": "간호학과가 정식 외국인 모집단위(의학과·간호학과·작업치료 등은 영어 어학성적 최저학력기준 적용)."}, {"school": "경동대학교", "year": "2027", "dept": "간호학과", "lang": "", "quota": "메디컬캠퍼스(원주문막) 간호학과, 2개캠퍼스 통합선발 총 31명 / 모집인원 제한없음", "eval": "", "period": "", "note": "모집단위 표에 간호학과(*교직)를 정식 모집단위로 명시."}, {"school": "경동대학교", "year": "2026", "dept": "간호학과", "lang": "", "quota": "메디컬캠퍼스(원주문막) 간호학과, 2개캠퍼스 통합선발 총 31명 / 모집인원 제한없음", "eval": "", "period": "", "note": "모집단위 표에 간호학과를 정식 모집단위로 명시."}, {"school": "경일대학교", "year": "2026", "dept": "간호학과", "lang": "", "quota": "입학정원 제한없이 모집(모집단위 간호대학 간호학과)", "eval": "", "period": "", "note": "외국인(전교육과정이수·부모모두외국인 등) 모집단위 및 전공 목록에 간호대학 간호학과 포함."}, {"school": "고려대학교", "year": "2027", "dept": "간호학과", "lang": "", "quota": "간호대학(자연계열) 간호학과, 모집인원 제한없음", "eval": "", "period": "", "note": "외국인 전형(Ⅰ) 모집단위 표에 간호학과를 정식 모집단위로 명시."}, {"school": "국립공주대학교", "year": "2027", "dept": "간호학과", "lang": "", "quota": "간호보건대학 자연계 간호학과, 입학정원 64, 모집인원 6명 이내", "eval": "", "period": "", "note": "모집단위 및 모집인원 표에 간호학과를 정식 모집단위로 명시."}, {"school": "국립창원대학교", "year": "2027", "dept": "간호학과", "lang": "", "quota": "자연과학 간호학과(신입학) 제한 없음(글로벌자율전공·자율전공학부에서만 간호학과 선택 제외)", "eval": "", "period": "", "note": "모집단위 표에 간호학과를 정식 모집단위로 명시(간호학과는 자율전공학부 선택 불가 학과로만 별도 언급)."}, {"school": "국립창원대학교", "year": "2026", "dept": "간호학과", "lang": "", "quota": "간호학과 신입학 O / 편입학 O (정원외, 입학정원 제한없음)", "eval": "", "period": "", "note": "모집단위 및 모집여부 표에서 간호학과 신입·편입 모두 모집(O)."}, {"school": "국립한국교통대학교", "year": "2027", "dept": "간호학과", "lang": "", "quota": "보건생명대학 간호학과(증평), 신입학·편입학 모두 모집인원 제한없음(정원외)", "eval": "", "period": "", "note": "간호교육인증(♣) 학과로 외국인 신입·편입학 모집단위에 명시."}, {"school": "국립한국교통대학교", "year": "2026", "dept": "간호학과", "lang": "", "quota": "보건생명대학 간호학과(증평), 신입학·편입학 모두 모집인원 제한없음(정원외)", "eval": "", "period": "", "note": "간호교육인증(♣) 학과로 외국인 신입·편입학 모집단위에 명시."}, {"school": "극동대학교", "year": "2026", "dept": "간호학과", "lang": "", "quota": "의료보건과학대학 간호학과, 모집인원 제한없음", "eval": "", "period": "", "note": "외국인 모집단위 및 모집인원 표에 간호학과를 정식 모집단위로 명시."}, {"school": "나사렛대학교", "year": "2027", "dept": "간호학과", "lang": "", "quota": "간호학과 모집단위 포함. 재외국민 총 10명(학과별 모집정원 10%이내), 순수외국인·북한이탈·전교육과정이수자 제한없음", "eval": "", "period": "", "note": "모집단위 표에 간호학과를 정식 모집단위로 명시."}, {"school": "나사렛대학교", "year": "2026", "dept": "간호학과", "lang": "", "quota": "간호학과 모집단위 포함. 재외국민 총 23명 이내(학과별 모집정원 10%이내), 순수외국인 등 제한없음", "eval": "", "period": "", "note": "모집단위 표에 간호학과를 정식 모집단위로 명시."}, {"school": "목포가톨릭대학교", "year": "2026", "dept": "간호학과", "lang": "간호학과는 TOPIK 4급 이상(일반 학과 TOPIK 3급)", "quota": "제한없음", "eval": "서류전형 100%", "period": "정시(가) 원서 2025.12.29~12.31, 서류 2026.1.16, 합격 2026.2.2", "note": "자연계열 모집단위로 간호학과 정식 모집(부모 모두 외국인인 외국인 대상). 어학능력은 간호학과에 한해 TOPIK 4급 이상 요구."}, {"school": "부산가톨릭대학교", "year": "2026", "dept": "간호학과", "lang": "TOPIK 성적 보유 또는 본교 국제교육원 한국어 1년 이상 이수 + 원장 추천", "quota": "제한 없음 (정원 외)", "eval": "서류전형 + 면접전형(자기소개·전공적합성 등 800/1000점 이상 합격)", "period": "모집 시기별 원서: 2025.09.16~09.30 / 2025.11.06~11.20 / 2026.01.02~", "note": "간호대학 간호학과를 외국인 모집단위로 정식 모집(제한없음, 정원외). Department of Nursing 명기."}, {"school": "부산대학교", "year": "2026", "dept": "간호학과", "lang": "모집단위별 상이(간호학과는 비교적 높은 한국어/영어 성적 그룹에 포함)", "quota": "모집단위별 정원(표에 모집단위로 포함)", "eval": "서류전형 등", "period": "원서 2025.10.1~10.24(부모 모두 외국인 전형)", "note": "부산대 외국인특별전형 모집단위에 간호대학 간호학과 포함(양산캠퍼스). 간호교육평가원 인증 안내 기재."}, {"school": "삼육대학교", "year": "2026", "dept": "간호학과", "lang": "간호학과 TOPIK 5급에 준하는 수준(한국어트랙)", "quota": "-", "eval": "서류 90% + 면접 10%", "period": "3월학기(2026학년도 순수외국인 신·편입학). 간호학과는 3월 학기에만 신입/편입 모집", "note": "간호대학 간호학과를 순수외국인 신입/편입 모집단위로 정식 모집. 간호·물리치료학과는 3월학기만 모집, 한국어트랙 TOPIK5 수준."}, {"school": "서울대학교", "year": "2027", "dept": "간호학과", "lang": "한국어 또는 영어 능력 증빙(간호대학 포함 전 모집단위, 모집단위별 기준)", "quota": "글로벌인재특별전형(Ⅰ·Ⅱ) 내 모집단위별 정원", "eval": "서류평가(전형별) — 간호대학 면접시행 포함", "period": "원서 2026.7.6~7.9(글로벌인재)", "note": "글로벌인재특별전형Ⅰ(부모 모두 외국인)/Ⅱ(전교육과정 해외이수) 모집단위에 간호대학 간호학과 포함. 간호대학은 한국간호교육평가원 인증 기재."}, {"school": "서울대학교", "year": "2026", "dept": "간호학과", "lang": "한국어 또는 영어 능력 증빙", "quota": "글로벌인재특별전형 모집단위별 정원", "eval": "서류평가 + 면접(간호대학 면접시행)", "period": "원서 2025.7.7~7.10(글로벌인재)", "note": "외국인 글로벌인재특별전형 모집단위에 간호대학 간호학과 포함."}, {"school": "선문대학교", "year": "2026", "dept": "간호학과", "lang": "한국어트랙 TOPIK 3급 또는 영어트랙(TOEFL/IELTS 등)", "quota": "본교 수용가능 범위 내 선발", "eval": "면접고사 100점(한국어 또는 영어능력 충족 필요)", "period": "원서 2025.10.20~10.24 / 2025.12.8~12.12 / 2026.6.8~6.12", "note": "2026학년도 외국인 모집단위(건강보건대학 간호학과)로 정식 모집. 다만 2027학년도부터는 외국인 선발 제한 예정."}, {"school": "성신여자대학교", "year": "2026", "dept": "간호학과", "lang": "TOPIK 3급 이상(한국어트랙) 또는 IELTS 5.5/TOEFL iBT 71 등(영어트랙)", "quota": "-", "eval": "서류전형(모집단위별)", "period": "원서 2025.10.15~10.29 등", "note": "간호대학 간호학과를 2026 외국인특별전형 모집단위로 정식 모집. 여자대학(외국인 여학생 대상)."}, {"school": "연세대학교", "year": "2027", "dept": "간호학과", "lang": "의예·치의예·간호·약학은 TOPIK 5급 이상 성적(연세 KLI 5급 수료) 필수", "quota": "외국인전형(부모 모두 외국인) 모집단위별", "eval": "서류평가(일반)/서류+면접(의예·간호·약학 등)", "period": "원서 2026.9.1~9.17, 서류 2026.9.30까지", "note": "간호대학 간호학과를 외국인전형 모집단위로 정식 모집. 일반모집단위와 달리 간호학과는 TOPIK5 필수."}, {"school": "연세대학교", "year": "2026", "dept": "간호학과", "lang": "의예/치의예/간호학/약학과는 TOPIK 5급 이상 성적 필수", "quota": "외국인전형(부모 모두 외국인) 모집단위별", "eval": "서류평가 100%(간호학과 포함 모집단위)", "period": "원서 2025.9.1~9.12", "note": "간호대학 간호학과를 외국인전형 모집단위로 정식 모집. 간호·약학·의·치의예 지원자는 TOPIK5 필수 제출."}, {"school": "연세대학교(미래)", "year": "2027", "dept": "간호학과", "lang": "의예과·간호학과 지원자는 1차 원서접수 필수, 어학능력 증빙(모집단위별)", "quota": "외국인전형(부모 모두 외국인) 모집단위별", "eval": "의예·간호학과: 1단계 서류 100% → 면접(비대면 녹화면접)", "period": "1차 원서 2026.8.14(간호학과는 1차만), 2차 2026.11.20", "note": "원주간호대학 간호학과를 외국인 모집단위로 정식 모집. 의예과와 함께 별도 1차 일정·면접 적용."}, {"school": "연세대학교(미래)", "year": "2026", "dept": "간호학과", "lang": "의예과·간호학과 지원자는 어학능력 증빙 필수", "quota": "외국인전형 모집단위별", "eval": "의예·간호학과: 서류(1단계 100%) → 면접", "period": "1차 원서 2025.8월 중(간호학과는 1차 접수기간 내 제출 필수)", "note": "원주간호대학 간호학과를 외국인 모집단위로 정식 모집. 의예과·간호학과는 별도 1차 일정·면접(제시문 숙지 후 대면면접) 적용."}, {"school": "영산대학교", "year": "2026", "dept": "간호학과", "lang": "TOPIK 또는 공인영어(TOEFL iBT 59/IELTS 5.5 등) 중 충족", "quota": "모집인원란 공란(정원외 수용범위)", "eval": "면접고사 100%(서류심사 후, 해외체류자는 유선면접)", "period": "원서 '25.09.01~10.02 / '25.11.03~'26.01.16(방문 또는 이메일)", "note": "외국인 신입학 모집단위 표(웰니스보건대학·양산캠퍼스, 자연과학)에 간호학과 포함. 계열·캠퍼스 기재, 모집인원은 별도."}, {"school": "우송대학교", "year": "2027", "dept": "간호학과", "lang": "간호학과: 한국어 TOPIK 5급 및 영어 TOEIC 701점(상당 국가공인영어) 모두 충족 필수", "quota": "외국인 특별전형(부모 모두 외국인) 내 수시/정시 모집단위", "eval": "학생부 성적 + 면접평가", "period": "외국인 특별전형(재외국민과 외국인)", "note": "간호학과(4년제)는 간호교육인증 5년 인증 학과로, 외국인 지원 시 TOPIK5+TOEIC701 양쪽 모두 충족 요구(타 학과보다 높은 어학기준). 모집단위 표에는 수시 정원외(부모모두외국인)란에 '-'이나 외국인 특별전형 대상으로 어학조건 별도 명시되어 모집 판단."}, {"school": "우송대학교", "year": "2026", "dept": "간호학과", "lang": "간호학과: TOPIK 5급 및 TOEIC 701점(또는 상당 국가공인영어) 모두 충족", "quota": "외국인 특별전형 내 모집단위", "eval": "학생부 성적 + 면접평가", "period": "수시/정시 외국인 특별전형(재외국민과 외국인)", "note": "간호학과(4년제) 간호교육인증 5년 학과. 수시 정원외 '부모 모두 외국인' 란은 대시(-)이나, 우송 외국인특별전형 어학요건 표에 간호학과 TOPIK5+TOEIC701을 명시해 모집 대상으로 봄. 어학 기준이 매우 높아 사실상 상위 어학 필요."}, {"school": "을지대학교", "year": "2027", "dept": "간호학과", "lang": "간호학과: TOEFL(IBT) 80점 이상(또는 IELTS 4.5) 또는 TOEIC 750점 이상(공인어학 필수) + 한국어(TOPIK 3급 이상/본교 한국어시험 등)", "quota": "외국인 특별전형(비제한) 모집단위에 간호학과(의정부)·간호학과(성남) 모집, 모집인원 제한없음(약간 명)", "eval": "간호대학: 서류기반 일반면접 100점(전형총점 1,000점), 면접 2026.9.19", "period": "원서 2026.9.7~9.11, 서류 ~9.18, 합격발표 2026.11.18", "note": "의과·간호대학 지원자는 공인어학성적 필수. 간호대학·보건과학대학 동일 선발기준."}, {"school": "을지대학교", "year": "2026", "dept": "간호학과", "lang": "간호대학: TOEFL(IBT) 80점 이상 또는 TOEIC 750점 이상(지정시험 필수) + 한국어 수업 가능(TOPIK 3급 등)", "quota": "재외국민과 외국인 전형 모집단위로 간호학과(의정부)·간호학과(성남) 모집(2% 제한 전형 정원, 비제한 전형은 제한없음)", "eval": "간호대학: 서류기반 일반면접 100점(전형총점 1,000점), 면접 2025.9.27", "period": "원서 2025.9.8~9.12, 합격발표 2025.11.21", "note": "의과·간호대학 공인어학성적 필수. 간호대학·보건과학대학 동일 선발기준."}, {"school": "인제대학교", "year": "2027", "dept": "간호학과", "lang": "일반 한국어계열(간호학과 포함): TOPIK 3급 이상, 인제대 한국어능력평가 합격 또는 글로벌어학교육원 중급(4반) 이상 수료 중 1개 (졸업 TOPIK 4급)", "quota": "간호대학 간호학과, 전기(3월 입학) 1차만 모집 / 신입학 모집인원 제한없음", "eval": "의예·약학과 제외 전체 모집단위: 서류 및 면접고사 100%", "period": "2027학년도 1학기 외국인학부 신입학 [1차], 원서 2026.9.7~9.11, 면접(의예·약학 제외 전학과) 2026.11.16~11.21", "note": "간호학과는 글로벌칼리지(외국인 전담) 아닌 일반 한국어트랙 학과로 외국인 모집."}, {"school": "인제대학교", "year": "2026", "dept": "간호학과", "lang": "일반 한국어계열(간호학과): TOPIK 3급 이상 등 어학능력자격", "quota": "간호대학 간호학과, 전기(3월 입학) 1차만 모집", "eval": "의예·약학과 외 전체 모집단위: 서류 및 면접고사 100%", "period": "원서 2025.9.9~9.16(의예·약학 제외), 면접(전체 모집단위) 2025.11.17~11.22, 최종합격 2025.12.12", "note": "간호학과는 전기(3월) 입학 1차 전형만 모집."}, {"school": "인하대학교", "year": "2027", "dept": "간호학과", "lang": "신입학 간호학과(한국어트랙): 한국어능력시험(TOPIK/TOPIK IBT) 3급 이상 등 어학요건(졸업 전 TOPIK 4급)", "quota": "학부 신입학 모집단위 간호학과: 적정인원(1학기만 모집)", "eval": "외국인 특별전형(신편입학) 전형요소(서류 등)에 따름", "period": "원서 2026.9.30~11.5, 서류제출 ~11.12", "note": "(재)한국간호교육평가원 ‘정부인정 간호교육인증평가’ 인증 대학. 간호학과는 1학기(신입학)만 모집."}, {"school": "인하대학교", "year": "2026", "dept": "간호학과", "lang": "신입학 간호학과(한국어트랙): 한국어능력시험(TOPIK/TOPIK IBT) 3급 이상 등 어학요건(졸업 전 TOPIK 4급)", "quota": "학부 신입학 모집단위 간호학과: 적정인원(1학기만 모집)", "eval": "외국인 특별전형(신편입학) 전형요소에 따름", "period": "원서 2025.9.29~11.6, 서류제출 ~11.13", "note": "(재)한국간호교육평가원 인증 대학. 간호학과는 1학기(신입학)만 모집."}, {"school": "전남대학교", "year": "2027", "dept": "간호학과", "lang": "한국어능력시험(TOPIK/TOPIK IBT) 3급 이상 또는 전남대 언어교육원 한국어 정규 3단계 이상 이수자 (또는 영어: TOEFL iBT 4.0 등 택1)", "quota": "모집단위(광주캠퍼스) 간호대학 간호학과 1학년(신입학) 모집, 정원외 외국인", "eval": "학과별 서류평가 100% 또는 서류평가+면접(학과별, 대면/비대면)", "period": "전기1차 원서 2026.10.1~10.14, 2차 10.15~10.23 / 후기1차 2027.4.1~4.16, 2차 4.26~5.14", "note": "순수외국인 학부 신입·편입 요강. 간호학과는 신입학(1학년)만 모집으로 표기."}, {"school": "제주대학교", "year": "2027", "dept": "간호학과", "lang": "신입학: TOPIK 3급 이상 소지자 등 / 편입 간호학과 추가요건: 전적대 생물계열 과목(해부·생리·병리 등) 20학점 이상 이수", "quota": "간호학과(전기 모집): 신입학 1학년 ○, 편입 2학년 ○, 3학년 편입 ×", "eval": "간호학과 서류평가 50% + 면접평가 50%", "period": "전기·후기 각 1·2차 모집(전형일정 참조)", "note": "간호학과는 외국인 글로벌자율전공의 전공선택 제외 대상이나, 일반 외국인 모집단위로는 직접 모집(전기). 편입 시 전적대 이수과목 필수."}, {"school": "제주대학교", "year": "2026", "dept": "간호학과", "lang": "신입학: 한국어능력시험(TOPIK) 3급 이상 등 / 편입 간호학과: 전적대 생물계열 과목 14학점 이상 이수", "quota": "간호학과(전기 모집): 신입학 1학년 ○, 편입 2학년 ○, 3학년 편입 ×", "eval": "간호학과 서류평가 50% + 면접평가 50%", "period": "전기1차 원서 2025.10.13~10.31(후기 등 추가 차수 있음)", "note": "간호학과는 외국인 글로벌자율전공 선택 제외 학과이나 일반 모집단위로는 외국인 직접 모집(전기). 간호대는 간호교육인증 프로그램 운영."}, {"school": "중원대학교", "year": "2027", "dept": "간호학과", "lang": "한국어능력: TOPIK 3급 이상(예체능 2급), 중원대 자체 한국어시험 2급 또는 한국어학당 3급 수료 등 중 1개", "quota": "모집단위(의료보건대학) 간호학과, 모집단위별 적정인원(정원외)", "eval": "서류심사 및 면접 등 외국인 특별전형 절차", "period": "2027학년도 외국인 특별전형(수시·정시 등 모집 회차별 접수)", "note": "의료보건대학 간호학과를 외국인 모집단위로 명시. (별도 글로벌생명과학과 간호학전공 관련 운영 언급 있음)"}, {"school": "창신대학교", "year": "2027", "dept": "간호학과", "lang": "일반학과(간호학과 포함): 한국어능력시험(TOPIK) 3급 이상, 창신대 부설 한국어교육원 3급 수료, 자체 한국어시험, 사회통합 3단계 등 중 1개 (졸업 전 TOPIK 4급)", "quota": "간호대학 간호학과(정원외 외국인), 모집인원 입학정원 제한 없이 선발", "eval": "서류 및 면접(구술) 전형", "period": "2027학년도 회차별: 수시(원서 2026.11~12), 정시(2027.2), 후기(2027.6~7) 등", "note": "간호학과는 일반학과(한국어트랙)로 모집(글로벌학부 영어트랙과 별개)."}, {"school": "창신대학교", "year": "2026", "dept": "간호학과", "lang": "간호학과·유아교육과: 한국어능력시험(TOPIK) 4급 이상 취득자만 지원 가능 (일반은 TOPIK 3급 또는 창신대 부설 한국어교육원 3급 수료)", "quota": "간호대학 간호학과(정원외 외국인 유학생), 모집인원 입학정원 제한 없이 선발", "eval": "서류 및 면접 전형", "period": "2026학년도 외국인 전형(모집요강 발표 시 일정 확정)", "note": "간호학과(및 유아교육과)는 일반 3급과 달리 TOPIK 4급 조건 적용."}, {"school": "초당대학교", "year": "2027", "dept": "간호학과", "lang": "일반학과: 한국어능력시험(TOPIK/TOPIK IBT) 3급 이상 또는 사회통합프로그램 3단계 이상 이수 등", "quota": "일반학과(간호학과) ● 모집 표기(정원외 외국인)", "eval": "서류심사 및 면접고사", "period": "2027학년도 회차별: 2026.10.12~10.23, 11.9~11.20, 12.14~2027.1.8, 1.18~2.19 등 접수차수", "note": "간호학과는 일반학과(한국어) 모집단위로 외국인 모집."}, {"school": "초당대학교", "year": "2026", "dept": "간호학과", "lang": "한국어능력시험(TOPIK) 3급(일부 4급 요구 조건) 이상 또는 사회통합프로그램 이수", "quota": "일반학과(간호학과) ● 모집 표기(정원외 외국인)", "eval": "서류심사 및 면접고사", "period": "2026학년도 회차별(원서 ~2026.2 등)", "note": "간호학과는 일반학과(한국어) 모집단위로 외국인 모집."}, {"school": "한국성서대학교", "year": "2026", "dept": "간호학과", "lang": "한국어능력: TOPIK 4급 이상 또는 본교 어학연수과정 4급 이상 이수 등 (순수외국인/재외국민별 조건)", "quota": "간호학과 외국인 정원: 모집단위별 최대 4명 이내(입학정원 45명의 10% 내), 재외국민 총 4명(2% 내). 순수외국인·부모 모두 외국인·북한이탈주민은 인원 제한 없이 선발", "eval": "재외국민: 서류 및 면접 / 순수외국인은 면접 없음", "period": "재외국민 원서 2025.9.8~9.12, 순수외국인 2025.9.8~10.17, 면접 2025.9.30~10.1", "note": "재외국민과 순수외국인·북한이탈주민 전형 모두 간호학과를 정원외로 모집."}, {"school": "한서대학교", "year": "2027", "dept": "간호학과", "lang": "한국어능력시험(TOPIK) 3급 이상(예·체능계 2급 이상) 등", "quota": "보건학부 자연과학계열 간호학과(모집학과), 정원외 외국인", "eval": "서류심사(필요 시 추가서류·면접 요구 가능)", "period": "2027학년도: 전기 원서 2026.12.14~12.18, 후기 2027.6.21~6.25 등", "note": "INTERNATIONAL ADMISSIONS GUIDE. 보건학부 내 간호학과를 외국인 모집학과로 안내."}, {"school": "한서대학교", "year": "2026", "dept": "간호학과", "lang": "한국어능력시험(TOPIK) 3급 이상(예·체능계 2급 이상); TOPIK 2급 이하·미취득자는 입학 후 1년간 300시간 한국어 연수 필수", "quota": "보건학부 자연과학계열 간호학과(모집학과), 정원외 외국인", "eval": "서류심사(추가서류·면접 요구 가능)", "period": "2026학년도: 전기(2025.12.15~), 후기(2026.6.22~) 회차별", "note": "보건학부 내 간호학과를 외국인 모집학과로 안내."}, {"school": "호남대학교", "year": "2026", "dept": "간호학과", "lang": "한국어능력시험(TOPIK) 3급 이상(예체능 2급, 물리치료학과는 4급) 또는 호남대 수학능력시험 합격자(간호학과는 TOPIK 3급 기준)", "quota": "보건과학대학 간호학과(신입·편입 모집단위), 모집단위별 수용 가능 범위 내 선발", "eval": "서류심사 등 외국인 특별전형 절차", "period": "지원서 및 서류접수 2025.11.18~ (신입·편입)", "note": "간호학과는 TOPIK 3급 기준(물리치료학과만 4급 별도)."}, {"school": "호원대학교", "year": "2026", "dept": "간호학과", "lang": "한국어능력 TOPIK 2급 이상 취득 등(입학 어학요건)", "quota": "신입학 모집단위 간호학과, 모집인원 제한없음(모집 학부·과별 정원 외 선발)", "eval": "서류평가 50% + 면접평가 50%(서류·면접 합산 60점 이상 선발)", "period": "2026학년도 전기 외국인 신입학(원서 ~2026.1, 등록 ~2026.2 등)", "note": "신입학 모집단위 표에 간호학과를 정원 외로 모집 명시."}]}, "치의/한의/수의": {"note": "치의예·한의예·수의예 외국인 모집은 매우 제한적.", "recruiting": [{"school": "연세대학교", "year": "2027", "dept": "치의예과", "lang": "TOPIK 5급 이상 또는 연세대 한국어학당 5급 이상 수료(의과대학·치과대학·간호대학·약학대학 공통)", "quota": "고정 인원 미명시(외국인전형 내 모집단위 포함 선발)", "eval": "서류평가 100% + 인성면접(P/F, 현장대면). 의·치·약 지원자는 전형료 200,000원(일반모집단위 150,000원)", "period": "2027학년도 외국인전형(수시, 원서접수→인성면접→합격자 발표·등록, 2026년 진행)", "note": "치과대학 치의예과가 외국인전형 모집단위에 명시되어 실제 외국인 모집. 의예과·치의예과·약학과 지원자만 인성면접 대상. 순수 외국인(부모 모두 외국인) 자격 적용."}, {"school": "연세대학교", "year": "2026", "dept": "치의예과", "lang": "TOPIK 5급 이상 또는 연세대 한국어학당 5급 이상 수료(의예·치의예·간호·약학과)", "quota": "고정 인원 미명시(외국인전형 내 모집단위 포함 선발)", "eval": "서류평가 100% + 인성면접(P/F, 현장대면). 의예·치의예·약학과 전형료 200,000원(일반 150,000원)", "period": "2026학년도 외국인전형(2025년 중 진행, 면접 2025.11.1, 합격자 발표 2025.12.5)", "note": "모집단위 표에 의과대학 의예과·치과대학 치의예과·약학대학 약학과 포함 → 외국인 실제 모집. 의·치·약 지원자만 인성면접 대상."}, {"school": "서울대학교", "year": "2027", "dept": "수의예과", "lang": "TOPIK/TOPIK IBT 3급 이상 또는 국내 대학 언어교육원·어학당 4급 이상 수료(한국어), 또는 TOEFL iBT 80·IELTS 6.0·TEPS 269 이상(영어) 등", "quota": "정원 외 선발(모집인원 미제시)", "eval": "글로벌인재특별전형Ⅰ 서류 기반 종합평가 + 필요 시 면접(의과대학·수의과대학은 제시문 사용 가능)", "period": "2027학년도 전기, 예비합격자 발표 2026.10.16, 합격자 등록 2026.12~2027.2", "note": "글로벌인재특별전형(부모 모두 외국인) 모집단위에 수의과대학 수의예과 포함 → 외국인 실제 모집. (사범대 등 일부 교원양성 기관만 10% 제한)"}, {"school": "서울대학교", "year": "2026", "dept": "수의예과", "lang": "TOPIK 3급 이상(한국어) 또는 TOEFL iBT 80·IELTS 6.0·TEPS 269(영어) 등 공인 어학 성적 기준 충족", "quota": "정원 외 선발(모집인원 미제시)", "eval": "글로벌인재특별전형 서류 기반 종합평가 + 필요 시 면접(의·수의 대학은 제시문 사용 가능)", "period": "2026학년도 전기, 지원~2025.7.10, 면접(해당) 2025.9.4", "note": "글로벌인재특별전형 모집단위 표(06)에 수의과대학 수의예과 포함 → 외국인 실제 모집. 수의예과(신입학), 수의학과 본과는 없음."}, {"school": "경상국립대학교", "year": "2026", "dept": "수의예과", "lang": "TOPIK 3급 이상(일반학과; 예체능 2급) 또는 세종학당 중급1·법무부 KIIP 3단계·국내 어학기관 이수 등 인정 확대", "quota": "수의과대학 수의예과(신입학) 모집단위 포함(코드 2370); 수의학과는 편입학(1학기 전용, 코드 2340)", "eval": "자격심사 후 학과심사(면접 포함)", "period": "2026학년도 전기 외국인 학부 특별전형, 지원서 접수~2025.11.27, 지원자격 심사 2025.11.28~12.4, 학과심사 12.8~24, 합격 2026.1.8", "note": "외국인 특별전형 모집단위 목록에 수의과대학 수의예과(신입학)·수의학과(편입학)가 명시. '기재되지 않은 모집단위는 선발하지 않음' → 수의예과는 외국인 신입학 실제 모집. 수의예과 2년+본과 4년 과정."}, {"school": "건국대학교", "year": "2026", "dept": "수의예과", "lang": "TOPIK 3급 이상 또는 건국대 자체 한국어시험·언어교육원 정규 3급·세종학당 중급1 등(일반모집단위 공통, 영어트랙 제외)", "quota": "수의예과 신입학만 ○(편입학 2·3학년 ×)", "eval": "서류 평가 기반 외국인전형(국적·학력·어학 증빙) + 수의예과는 '해당 학과장(학부장) 입학 허가서' 사전승인 요건", "period": "2026학년도 외국인 입학(원서접수 및 서류제출, 요강 일정)", "note": "모집단위 표에서 수의과대학 수의예과는 신입학 ○·편입 ×이며 '학과장 사전승인 취득자만 지원 가능'. 수의예과·체육교육과·음악교육과·KU자유전공학부는 학과장(학부장) 입학 허가서를 필수 제출서류로 요구 → 신입학 외국인 모집(단, 사전승인 조건부)."}]}}};
