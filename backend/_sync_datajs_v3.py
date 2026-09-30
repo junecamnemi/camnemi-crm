@@ -4,23 +4,22 @@
 - per-field guards (never clobber existing values)
 - junior branch included (was missing → 0% period/scholarship)
 - adds visa_restricted flag + window.UNIV_SPECIAL sections
+- PRESERVES window.UNIV_GUIDES verbatim; refuses to write unless all three
+  globals survive and the result passes `node --check` (see _datajs_safe.py)
 """
-import json, re, shutil, datetime, os
+import json, re, shutil, datetime, os, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _datajs_safe import parse_globals, render, write_safe
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(BASE, "data.js")
 KB   = os.path.join(BASE, "backend", "verified_kb.json")
 shutil.copy(DATA, DATA + f".bak_sync_{datetime.datetime.now():%Y%m%d_%H%M}")
 
-content = open(DATA, encoding="utf-8").read()
-s = content.find("["); d = 0
-for i in range(s, len(content)):
-    if content[i] == "[": d += 1
-    elif content[i] == "]":
-        d -= 1
-        if d == 0: end = i; break
-data = json.loads(content[s:end+1])
-tail = content[end+1:]
+# string-aware parse; raises if UNIV_KNOWLEDGE / UNIV_GUIDES / UNIV_SPECIAL is missing
+_gl = parse_globals(DATA)
+data = _gl["knowledge"]
 
 kb = json.load(open(KB, encoding="utf-8"))
 
@@ -124,15 +123,12 @@ special = {
     "medical_reqs": kb.get("medical_reqs", {}),
 }
 
-new = content[:s] + json.dumps(data, ensure_ascii=False, indent=1) + tail
-# append/replace UNIV_SPECIAL block
-new = re.sub(r"\n*// __UNIV_SPECIAL__\nwindow\.UNIV_SPECIAL = .*?;\n", "\n", new, flags=re.S)
-if "window.UNIV_SPECIAL" in new:
-    new = re.sub(r"window\.UNIV_SPECIAL = .*?;\n", "", new, flags=re.S)
-new = new.rstrip() + "\n\nwindow.UNIV_SPECIAL = " + json.dumps(special, ensure_ascii=False) + ";\n"
-
-open(DATA, "w", encoding="utf-8").write(new)
-print("data.js 동기화:")
+new = render(_gl["prefix"], data, _gl["guides"], special, knowledge_indent=1)
+have = write_safe(DATA, new,
+                  expect={"UNIV_KNOWLEDGE": len(_gl["knowledge"]),
+                          "UNIV_GUIDES": len(_gl["guides"]),
+                          "UNIV_SPECIAL": len(_gl["special"])})
+print("data.js 동기화 (레코드 수):", have)
 for b in upd:
     print(f"  [{b}]", dict(sorted(upd[b].items(), key=lambda x: -x[1])))
 print("UNIV_SPECIAL 섹션 추가 완료")

@@ -2,29 +2,25 @@
 # -*- coding: utf-8 -*-
 """Safely sync lang_guide URLs into data.js for session D-4 language schools.
 ONLY fills lang_guide where currently empty. Backs up data.js first.
-Preserves UNIV_GUIDES and overall structure; rewrites UNIV_KNOWLEDGE minified."""
-import json, os, shutil, datetime
+PRESERVES window.UNIV_GUIDES and window.UNIV_SPECIAL verbatim; rewrites
+UNIV_KNOWLEDGE. Refuses to write unless all three globals survive and the
+result passes `node --check` (see _datajs_safe.py).
+"""
+import json, os, shutil, datetime, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _datajs_safe import parse_globals, render, write_safe
 
 DATA = r"C:\Users\wisew\camnemi-crm\data.js"
 bak = DATA.replace(".js", f"_bak_{datetime.date.today().isoformat()}.js")
 shutil.copy(DATA, bak)
 print("백업:", bak)
 
-content = open(DATA, encoding="utf-8").read()
-
-# --- locate UNIV_KNOWLEDGE array and UNIV_GUIDES start ---
-start = content.find("["); depth = 0; end = None
-for i in range(start, len(content)):
-    if content[i] == "[": depth += 1
-    elif content[i] == "]":
-        depth -= 1
-        if depth == 0: end = i; break
-pre = content[:start]
-arr = json.loads(content[start:end+1])
-# UNIV_GUIDES is after "];\n\nwindow.UNIV_GUIDES = {"
-guides_start = content.find("window.UNIV_GUIDES")
-guides_body = content[guides_start:] if guides_start >= 0 else ""
-print("UNIV_KNOWLEDGE 레코드:", len(arr), "| UNIV_GUIDES 존재:", guides_start >= 0)
+# string-aware parse; raises if UNIV_KNOWLEDGE / UNIV_GUIDES / UNIV_SPECIAL is missing
+_gl = parse_globals(DATA)
+arr = _gl["knowledge"]
+print("UNIV_KNOWLEDGE 레코드:", len(arr), "| UNIV_GUIDES 키:", len(_gl["guides"]),
+      "| UNIV_SPECIAL 키:", len(_gl["special"]))
 
 dn = {u.get("n"): u for u in arr}
 
@@ -58,23 +54,13 @@ for name, url in lang_urls.items():
     u["lang_guide"] = url
     filled += 1
 
-# rebuild minified: preserve pre + UNIV_KNOWLEDGE + the separator to UNIV_GUIDES
-sep = content[end+1:guides_start] if guides_start >= 0 else content[end+1:]
-# ensure separator ends before guides; guides_body keeps original guides fully
-new_content = pre + json.dumps(arr, ensure_ascii=False, separators=(",", ":")) + sep + guides_body
-open(DATA, "w", encoding="utf-8").write(new_content)
+new_content = render(_gl["prefix"], arr, _gl["guides"], _gl["special"], knowledge_indent=1)
+have = write_safe(DATA, new_content,
+                  expect={"UNIV_KNOWLEDGE": len(arr),
+                          "UNIV_GUIDES": len(_gl["guides"]),
+                          "UNIV_SPECIAL": len(_gl["special"])})
 
-# verify
-v = open(DATA, encoding="utf-8").read()
-import re
-vstart=v.find("["); vd=0; vend=None
-for i in range(vstart,len(v)):
-    if v[i]=="[":vd+=1
-    elif v[i]=="]":
-        vd-=1
-        if vd==0: vend=i; break
-newarr=json.loads(v[vstart:vend+1])
 print(f"\nlang_guide 채움: {filled}개 | 이미 있던(스킵): {len(already)}: {already}")
-print(f"레코드 수: {len(arr)} → {len(newarr)}")
+print("레코드 수:", have)
 print(f"파일 크기: 원본 {os.path.getsize(bak)//1024}KB → 새 {os.path.getsize(DATA)//1024}KB")
 print("저장 완료:", DATA)

@@ -6,7 +6,10 @@ For each school in the curation outputs, sync:
   - period (KB 'period' field) — data.js entries may lack it; add 'period' field
 Writes data.js back (preserving window.UNIV_KNOWLEDGE = [...] wrapper).
 """
-import json, re, os
+import json, re, os, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _datajs_safe import parse_globals, render, write_safe
 
 DATA = r"C:\Users\wisew\camnemi-crm\data.js"
 BASE = r"C:\Users\wisew\camnemi-crm\backend"
@@ -36,18 +39,9 @@ for cf in CURATION_FILES:
             "sch_types": e.get("scholarship_types") or [],
         })
 
-# read data.js
-content = open(DATA, encoding="utf-8").read()
-start = content.find("[")
-depth = 0
-for i in range(start, len(content)):
-    if content[i] == "[": depth += 1
-    elif content[i] == "]":
-        depth -= 1
-        if depth == 0:
-            end = i
-            break
-data = json.loads(content[start:end + 1])
+# read data.js (string-aware; raises if any of the 3 globals is missing)
+_gl = parse_globals(DATA)
+data = _gl["knowledge"]
 
 # map KB school name -> data.js entry (for MA schools, they exist under univ type too)
 dn = {u.get("n"): u for u in data}
@@ -116,8 +110,12 @@ for name, c in curated.items():
             u["scholarships"] = keep + new_sch
     updated.append(name)
 
-# write back
-content_out = content[:start] + json.dumps(data, ensure_ascii=False, indent=2) + content[end + 1:]
-open(DATA, "w", encoding="utf-8").write(content_out)
+# write back (preserves UNIV_GUIDES/UNIV_SPECIAL, validates node --check before replacing)
+content_out = render(_gl["prefix"], data, _gl["guides"], _gl["special"], knowledge_indent=1)
+have = write_safe(DATA, content_out,
+                  expect={"UNIV_KNOWLEDGE": len(_gl["knowledge"]),
+                          "UNIV_GUIDES": len(_gl["guides"]),
+                          "UNIV_SPECIAL": len(_gl["special"])})
 print(f"업데이트 {len(updated)}개 학교 | period 추가 {added_period}")
+print("레코드 수:", have)
 print("업데이트 목록:", updated)
