@@ -20,6 +20,9 @@ SRC = os.path.join(BASE, 'tuition_by_department.json')
 ENV = os.path.join(BASE, '..', '.env')
 
 LEVEL_MAP = {'BA': 'ba', 'MA': 'ma', '전문학사': 'junior'}
+# 전문학사 tuition exists in the source but these two have no current junior program in cat.*
+# (absent from verified_kb's junior section when cat.program was built). Operator: exclude.
+EXCLUDED_JUNIOR = {'농협대학교', '영남외국어대학'}
 ALIAS = {'포스텍': '포항공과대학교', '한국해양대학교': '국립한국해양대학교',
          '한국교통대학교': '국립한국교통대학교', '부경대학교': '국립부경대학교',
          '창원대학교': '국립창원대학교', '용인송담대학교': '용인예술과학대학교'}
@@ -78,6 +81,7 @@ def main():
     inserts = []   # (program_id, amount_krw, note)
     skipped_school = []
     skipped_prog = []
+    excluded = []
     n_rows = 0
     for name, lv in schools.items():
         if not isinstance(lv, dict):
@@ -86,6 +90,8 @@ def main():
             blk = lv.get(key)
             if not isinstance(blk, dict):
                 continue
+            if cat_lv == 'junior' and name in EXCLUDED_JUNIOR:
+                excluded.append(name); continue
             rows = blk.get('rows') or []
             sid = resolve(name, name_idx, ALIAS)
             if not sid:
@@ -124,6 +130,7 @@ def main():
     conn.close()
 
     print(f"tuition rows written={n_rows} (programs touched={len(prog_ids)}, cleared={cleared})")
+    print(f"excluded (operator): {len(excluded)} {sorted(set(excluded))}")
     print(f"skipped school (no cat.school match): {len(skipped_school)} {skipped_school[:10]}")
     print(f"skipped program (no current program): {len(skipped_prog)} {skipped_prog[:10]}")
     print(f"read-back cat.tuition total={total}")
