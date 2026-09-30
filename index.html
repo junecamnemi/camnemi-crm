@@ -35,7 +35,10 @@
     .pipe-item { background: rgba(255,255,255,.05); border-radius:12px; padding: .9rem 1rem; cursor: pointer; transition: all .2s; display: flex; justify-content: space-between; align-items: center; margin-bottom: .25rem; }
     .pipe-item:hover { background: rgba(255,255,255,.1); }
     .pipe-item.active { background: #3b82f6; }
-    .pipe-item .pipe-name { font-weight: 600; font-size:15px; }
+    .pipe-item .pipe-name { font-weight: 600; font-size:15px; display:flex; align-items:center; gap:8px; }
+    /* B6: SVG icon set (no emoji). Inherit currentColor so they match the row state. */
+    .nav-ic { width:16px; height:16px; flex:none; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .btn-ic { width:14px; height:14px; flex:none; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
     .pipe-flag { width: 18px; height: 13px; border-radius:2px; vertical-align: -2px; margin-right: 5px; box-shadow: 0 1px 2px rgba(0,0,0,.25); object-fit: cover; }
     .pipe-item .pipe-count { background: rgba(255,255,255,.2); padding: .1rem .55rem; border-radius:999px; font-size:12px; font-weight: 600; }
     .pipe-add { width: 26px; height: 26px; border: none; border-radius:6px; background: rgba(255,255,255,.25); color: #fff; font-size:18px; font-weight: 700; cursor: pointer; line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
@@ -443,61 +446,61 @@
       <span class="pipe-count" id="side-count-korea">0</span>
     </div>
     <div class="pipe-item" data-pipe="online" onclick="switchPipeline('online')">
-          <span class="pipe-name">🌐 Online</span>
+          <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Online</span>
           <span class="pipe-count" id="side-count-online">0</span>
         </div>
         <div class="pipe-item" data-pipe="consulting" onclick="switchPipeline('consulting')">
-          <span class="pipe-name">💬 D2D4 in Consulting</span>
+          <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>D2D4 in Consulting</span>
           <span class="pipe-count" id="side-count-consulting">0</span>
         </div>
 
     <div class="sidebar-section-label">Our Knowledge</div>
     <div class="pipe-item" id="nav-universities" onclick="openUniversities()">
-      <span class="pipe-name">🏛️ Universities</span>
+      <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>Universities</span>
       <span class="pipe-count" id="side-count-univ">0</span>
     </div>
     <div class="pipe-item" id="nav-wiki" onclick="openWiki()">
-          <span class="pipe-name">📚 Wiki</span>
+          <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Wiki</span>
           <span class="pipe-count" id="side-count-wiki">0</span>
         </div>
         <div class="pipe-item" id="nav-gks" onclick="openGks()">
-          <span class="pipe-name">🎓 GKS / Scholarships</span>
+          <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>GKS / Scholarships</span>
           <span class="pipe-count" id="side-count-gks">0</span>
         </div>
         <div class="pipe-item" id="nav-marketing" onclick="openMarketing()">
-          <span class="pipe-name">📣 Marketing</span>
+          <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>Marketing</span>
           <span class="pipe-count" id="side-count-marketing">0</span>
         </div>
         <div class="pipe-item" id="nav-koreaLife" onclick="openKoreaLife()">
-          <span class="pipe-name">🇰🇷 Korea Life</span>
+          <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>Korea Life</span>
           <span class="pipe-count" id="side-count-koreaLife">0</span>
         </div>
 
         <div class="sidebar-section-label">Camnemi Calendar</div>
         <div class="pipe-item" id="nav-todo" onclick="openTasks('all')">
-          <span class="pipe-name">✅ To-Do & Events</span>
+          <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>To-Do & Events</span>
           <span class="pipe-count" id="side-count-todo">0</span>
         </div>
     <div class="pipe-item" id="nav-profit" onclick="openProfit()">
-      <span class="pipe-name">💰 Income / Expense</span>
+      <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>Income / Expense</span>
       <span class="pipe-count" id="side-count-profit">0</span>
     </div>
 
     <div class="sidebar-section-label">Our Policy</div>
     <div class="pipe-item" id="nav-agencies" onclick="openAgencies()">
-      <span class="pipe-name">🏢 Agencies</span>
+      <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>Agencies</span>
       <span class="pipe-count" id="side-count-agencies">0</span>
     </div>
     <div class="pipe-item" id="nav-servicefees" onclick="openServiceFees()">
-          <span class="pipe-name">💰 Service Fee</span>
+          <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg>Service Fee</span>
           <span class="pipe-count" id="side-count-fees">0</span>
         </div>
         <div class="pipe-item" id="nav-partners" onclick="openPartners()">
-          <span class="pipe-name">🤝 Partner Schools</span>
+          <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Partner Schools</span>
           <span class="pipe-count" id="side-count-partners">0</span>
         </div>
         <div class="pipe-item" id="nav-recommendation" onclick="openRecommendation()">
-          <span class="pipe-name">💡 Recommendation</span>
+          <span class="pipe-name"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>Recommendation</span>
           <span class="pipe-count" id="side-count-recommendation">0</span>
         </div>
   </div>
@@ -507,12 +510,12 @@
       <button id="sidebar-hamburger" onclick="toggleSidebar()" aria-label="Menu" style="display:none;background:#1e293b;color:#fff;border:none;border-radius:8px;font-size:1.4rem;padding:.3rem .6rem;cursor:pointer;line-height:1;">☰</button>
       <h1 id="main-title">D2D4 in Process</h1>
       <div class="view-toggle" id="view-toggle">
-              <button class="active" id="toggle-kanban" onclick="setView('kanban')">📋 Kanban</button>
-              <button id="toggle-list" onclick="setView('list')">📄 List View</button>
-              <button id="columns-btn" onclick="openListSettings()" title="Column settings (hide, order, add)" style="background:#eef2ff;color:#4f46e5;border:1px solid #c7d2fe;border-radius:8px;padding:.4rem .6rem;cursor:pointer;font-size:.85rem;">⚙ Columns</button>
+              <button class="active" id="toggle-kanban" onclick="setView('kanban')" aria-label="Kanban view"><svg class="btn-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg>Kanban</button>
+                            <button id="toggle-list" onclick="setView('list')" aria-label="List view"><svg class="btn-ic" viewBox="0 0 24 24" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>List View</button>
+                            <button id="columns-btn" onclick="openListSettings()" title="Column settings (hide, order, add)" aria-label="Column settings" style="background:#eef2ff;color:#4f46e5;border:1px solid #c7d2fe;border-radius:8px;padding:.4rem .6rem;cursor:pointer;font-size:13px;display:inline-flex;align-items:center;gap:.35rem;"><svg class="btn-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Columns</button>
             </div>
       <div style="margin-left:auto;display:flex;align-items:center;gap:.5rem;">
-        <button id="view-log-btn" class="btn btn-note" onclick="toggleActivityPanel()" style="font-size:.75rem;padding:.35rem .7rem;white-space:nowrap;">📜 View Log</button>
+        <button id="view-log-btn" class="btn btn-note" onclick="toggleActivityPanel()" aria-label="View activity log" style="font-size:12px;padding:.35rem .7rem;white-space:nowrap;display:inline-flex;align-items:center;gap:.35rem;"><svg class="btn-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l4 2"/></svg>View Log</button>
         <span id="auth-badge" style="display:none;align-items:center;gap:.45rem;background:#fff;border:1px solid #e2e8f0;border-radius:999px;padding:.35rem .7rem;font-size:.75rem;font-weight:600;color:#334155;">
           <span style="width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;"></span>
           <span id="auth-badge-name">@camnemi.com</span>
