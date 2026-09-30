@@ -38,12 +38,15 @@ def main():
     for name, lvs in doc["schools"].items():
         # school type: junior-section membership means 전문대
         jr = name in SEC["전문학사"]
-        # A hollow junior record does not make a school a 전문대: 한국농수산대학교 is 4년제 (BA
-        # majors=18) that merely carries a 전문학사 row. Type follows where the school's own majors are.
-        jr_real = jr and not (majors("BA", name) > 0 or majors("MA", name) > 0)
-        is4 = name in SEC["BA"] or name in SEC["MA"]
-        stype = ("전문대" if (jr_real and not is4)
-                 else ("전문대(전공심화 있음)" if jr_real else "4년제"))
+        # Section membership is the primary signal: 김포대학교 IS a 전문대, and its BA record holds
+        # 전공심화(학사) majors — so "BA majors exist" cannot demote it to 4년제. The one correction
+        # needed is a 4년제 that merely carries a hollow junior row.
+        FOUR_YEAR_OVERRIDE = {"한국농수산대학교"}
+        base = "4년제" if (name in FOUR_YEAR_OVERRIDE or not jr) else "전문대"
+        # 전공심화: a 전문대 that also runs a 학사(전공심화) program
+        jr_has_degree = base == "전문대" and (majors("BA", name) > 0 or majors("MA", name) > 0
+                                              or bool((lvs.get("BA") or {}).get("rows")))
+        stype = "전문대(전공심화 있음)" if jr_has_degree else base
         for lv, e in list(lvs.items()):
             if not isinstance(e, dict):
                 continue
