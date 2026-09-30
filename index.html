@@ -15,45 +15,53 @@
   <link rel="dns-prefetch" href="https://zjdvzpylxazfbazioxto.supabase.co">
   <link rel="dns-prefetch" href="https://drive.google.com">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+      /* ===== B3: design tokens — 4px spacing grid + 5-step type scale =====
+         Reference scale for future edits. Spacing multiples of 4px (2px hairline
+         allowed); type sizes 11 / 12 / 13 / 15 / 18px. */
+      :root {
+        --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px; --sp-6: 24px;
+        --fs-xs: 11px; --fs-sm: 12px; --fs-md: 13px; --fs-lg: 15px; --fs-xl: 18px;
+        --r-sm: 6px; --r-md: 8px; --r-lg: 12px; --r-pill: 999px;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
     html { overflow-y: scroll; }
     body { font-family: 'Inter', -apple-system, sans-serif; background: #eef2f7; min-height: 100vh; color: #374151; overflow-y: scroll; }
 
     /* ===== Sidebar ===== */
     .service-sidebar { position: fixed; left: 0; top: 0; height: 100vh; width: 300px; background: #1e293b; color: #fff; padding: 1.5rem; overflow-y: auto; z-index: 5; }
-    .sidebar-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 1.2rem; }
-    .sidebar-section-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; color: #94a3b8; margin: 1rem 0 .5rem; }
+    .sidebar-title { font-size:18px; font-weight: 700; margin-bottom: 1.2rem; }
+    .sidebar-section-label { font-size:11px; text-transform: uppercase; letter-spacing: .05em; color: #94a3b8; margin: 1rem 0 .5rem; }
     .pipe-item.disabled { opacity:.4; cursor:not-allowed; pointer-events:none; }
-    .pipe-item { background: rgba(255,255,255,.05); border-radius: .75rem; padding: .9rem 1rem; cursor: pointer; transition: all .2s; display: flex; justify-content: space-between; align-items: center; margin-bottom: .25rem; }
+    .pipe-item { background: rgba(255,255,255,.05); border-radius:12px; padding: .9rem 1rem; cursor: pointer; transition: all .2s; display: flex; justify-content: space-between; align-items: center; margin-bottom: .25rem; }
     .pipe-item:hover { background: rgba(255,255,255,.1); }
     .pipe-item.active { background: #3b82f6; }
-    .pipe-item .pipe-name { font-weight: 600; font-size: .95rem; }
-    .pipe-flag { width: 18px; height: 13px; border-radius: 2px; vertical-align: -2px; margin-right: 5px; box-shadow: 0 1px 2px rgba(0,0,0,.25); object-fit: cover; }
-    .pipe-item .pipe-count { background: rgba(255,255,255,.2); padding: .1rem .55rem; border-radius: 999px; font-size: .75rem; font-weight: 600; }
-    .pipe-add { width: 26px; height: 26px; border: none; border-radius: 6px; background: rgba(255,255,255,.25); color: #fff; font-size: 1.1rem; font-weight: 700; cursor: pointer; line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
+    .pipe-item .pipe-name { font-weight: 600; font-size:15px; }
+    .pipe-flag { width: 18px; height: 13px; border-radius:2px; vertical-align: -2px; margin-right: 5px; box-shadow: 0 1px 2px rgba(0,0,0,.25); object-fit: cover; }
+    .pipe-item .pipe-count { background: rgba(255,255,255,.2); padding: .1rem .55rem; border-radius:999px; font-size:12px; font-weight: 600; }
+    .pipe-add { width: 26px; height: 26px; border: none; border-radius:6px; background: rgba(255,255,255,.25); color: #fff; font-size:18px; font-weight: 700; cursor: pointer; line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
     .pipe-add:hover { background: rgba(255,255,255,.45); }
 
     .main-content { margin-left: 300px; padding: 1.5rem; min-height: 100vh; }
 
     /* ===== Header / stats / toggle ===== */
     .topbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
-    .topbar h1 { font-size: 1.4rem; font-weight: 700; color: #111827; }
-    .view-toggle { display: inline-flex; background: #e4e9f0; border-radius: .5rem; padding: .2rem; }
-    .view-toggle button { padding: .5rem 1rem; border: none; border-radius: .375rem; font-size: .8rem; font-weight: 600; cursor: pointer; background: transparent; color: #475569; }
+    .topbar h1 { font-size:1.4rem; font-weight: 700; color: #111827; }
+    .view-toggle { display: inline-flex; background: #e4e9f0; border-radius:8px; padding: .2rem; }
+    .view-toggle button { padding: .5rem 1rem; border: none; border-radius:6px; font-size:13px; font-weight: 600; cursor: pointer; background: transparent; color: #475569; }
     .view-toggle button.active { background: #fff; color: #111827; box-shadow: 0 1px 3px rgba(0,0,0,.15); }
 
     /* clickable filter pills — B1: single fixed height so emoji/non-emoji pills align */
-        .click-filter { display:inline-flex; align-items:center; height:28px; line-height:1; padding:0 .7rem; border:1.5px solid #e2e8f0; border-radius:999px; font-size:.75rem; font-weight:600; color:#475569; background:#fff; cursor:pointer; user-select:none; transition:all .15s; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+        .click-filter { display:inline-flex; align-items:center; height:28px; line-height:1; padding:0 .7rem; border:1.5px solid #e2e8f0; border-radius:999px; font-size:12px; font-weight:600; color:#475569; background:#fff; cursor:pointer; user-select:none; transition:all .15s; box-shadow:0 1px 2px rgba(0,0,0,.04); }
     .click-filter:hover { border-color:#93c5fd; color:#2563eb; background:#eff6ff; transform:translateY(-1px); }
     .click-filter.active { background:linear-gradient(135deg,#3b82f6,#2563eb); color:#fff; border-color:#2563eb; box-shadow:0 2px 6px rgba(37,99,235,.35); }
     /* filter bar container */
     .filter-bar { background:#fff; border:1px solid #eef0f4; border-radius:12px; padding:.9rem 1rem; box-shadow:0 2px 10px rgba(0,0,0,.05); margin-bottom:1.2rem; }
     .filter-row { display:flex; align-items:center; gap:.45rem; flex-wrap:wrap; padding:.25rem 0; min-height:28px; }
         .filter-row + .filter-row { border-top:1px dashed #eef0f4; margin-top:.4rem; padding-top:.6rem; }
-        .filter-label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:#94a3b8; width:110px; flex-shrink:0; display:inline-flex; align-items:center; height:28px; }
+        .filter-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:#94a3b8; width:110px; flex-shrink:0; display:inline-flex; align-items:center; height:28px; }
         /* B1: same 28px baseline for selects / text inputs that sit next to labels in a filter row */
         .filter-row select, .filter-row input[type="text"] { height:28px; box-sizing:border-box; }
-        .filter-clear { margin-left:auto; padding:.3rem .7rem; border:1px solid #e2e8f0; border-radius:999px; font-size:.72rem; font-weight:600; color:#64748b; background:#f8fafc; cursor:pointer; }
+        .filter-clear { margin-left:auto; padding:.3rem .7rem; border:1px solid #e2e8f0; border-radius:999px; font-size:12px; font-weight:600; color:#64748b; background:#f8fafc; cursor:pointer; }
         .filter-clear:hover { background:#f1f5f9; color:#ef4444; border-color:#fecaca; }
         .filter-pills { display: inline-flex; flex-wrap: wrap; gap: .3rem; align-items: center; min-height:28px; }
         .filter-toggle-row { display: none; }
@@ -61,55 +69,55 @@
         /* ===== B2: unified control size scale (3 sizes: 32 / 28 / 16) =====
            Replaces the ad-hoc inline padding/font sizes that fragmented inputs,
            selects and labels into 8+ shapes. Layout-neutral: only sizing. */
-        .ctl { height:32px; padding:0 .6rem; border:1px solid #d1d5db; border-radius:.5rem; font-size:.8125rem; line-height:1; background:#fff; color:#111827; box-sizing:border-box; font-family:inherit; }
-        .ctl-sm { height:28px; padding:0 .5rem; border:1px solid #d1d5db; border-radius:.4rem; font-size:.8125rem; line-height:1; background:#fff; color:#111827; box-sizing:border-box; font-family:inherit; }
-        .ctl-label { display:inline-flex; align-items:center; gap:.3rem; height:28px; font-size:.8125rem; font-weight:600; color:#475569; white-space:nowrap; cursor:pointer; }
+        .ctl { height:32px; padding:0 .6rem; border:1px solid #d1d5db; border-radius:8px; font-size:13px; line-height:1; background:#fff; color:#111827; box-sizing:border-box; font-family:inherit; }
+        .ctl-sm { height:28px; padding:0 .5rem; border:1px solid #d1d5db; border-radius:6px; font-size:13px; line-height:1; background:#fff; color:#111827; box-sizing:border-box; font-family:inherit; }
+        .ctl-label { display:inline-flex; align-items:center; gap:.3rem; height:28px; font-size:13px; font-weight:600; color:#475569; white-space:nowrap; cursor:pointer; }
         .ctl-check { width:16px; height:16px; accent-color:#3b82f6; flex:none; }
 
     .list-table th.sortable { cursor:pointer; user-select:none; white-space:nowrap; }
     .list-table th.sortable:hover { color:#2563eb; }
-    .sort-ic { font-size:.65rem; color:#3b82f6; }
+    .sort-ic { font-size:11px; color:#3b82f6; }
     .stats-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: .75rem; margin-bottom: 1.5rem; }
-    .stat { background: #fff; border-radius: .75rem; padding: .9rem .5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
-    .stat .num { font-size: 1.6rem; font-weight: 800; color: #3b82f6; }
-    .stat .lbl { font-size: .72rem; color: #6b7280; text-transform: capitalize; }
+    .stat { background: #fff; border-radius:12px; padding: .9rem .5rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .stat .num { font-size:1.6rem; font-weight: 800; color: #3b82f6; }
+    .stat .lbl { font-size:12px; color: #6b7280; text-transform: capitalize; }
 
     /* ===== Kanban ===== */
     .pipeline { display: flex; gap: 1rem; overflow-x: scroll; padding-bottom: 1rem; align-items: stretch; }
-    .stage { flex: 0 0 240px; background: #e4e9f0; border-radius: .75rem; padding: .7rem .6rem; display: flex; flex-direction: column; height: calc(100vh - 380px); min-height: 320px; position: relative; }
-    .stage-header { display: flex; justify-content: space-between; align-items: center; gap: .35rem; padding: .35rem .2rem .6rem; font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #475569; }
-    .stage-name { font-size: .72rem; }
+    .stage { flex: 0 0 240px; background: #e4e9f0; border-radius:12px; padding: .7rem .6rem; display: flex; flex-direction: column; height: calc(100vh - 380px); min-height: 320px; position: relative; }
+    .stage-header { display: flex; justify-content: space-between; align-items: center; gap: .35rem; padding: .35rem .2rem .6rem; font-weight: 700; font-size:12px; text-transform: uppercase; letter-spacing: .04em; color: #475569; }
+    .stage-name { font-size:12px; }
     .stage.stage-empty { opacity: .45; }
     .stage.stage-collapsed { flex: 0 0 44px; min-height: 0; height: calc(100vh - 380px); cursor: pointer; }
     .stage.stage-collapsed .cards, .stage.stage-collapsed .stage-count { display: none; }
-    .stage.stage-collapsed .stage-header { writing-mode: horizontal-tb; transform: none; font-size: .72rem; padding: .6rem .2rem; }
-    .stage-count { background: #3b82f6; color: #fff; padding: .15rem .6rem; border-radius: 999px; font-size: .75rem; font-weight: 600; }
+    .stage.stage-collapsed .stage-header { writing-mode: horizontal-tb; transform: none; font-size:12px; padding: .6rem .2rem; }
+    .stage-count { background: #3b82f6; color: #fff; padding: .15rem .6rem; border-radius:999px; font-size:12px; font-weight: 600; }
     .stage .cards { flex: 1; overflow-y: auto; }
-    .contact-add-fab { position: absolute; bottom: 12px; left: 12px; right: 12px; width: auto; padding: .7rem 1.2rem; background: linear-gradient(135deg,#3b82f6,#2563eb); color: #fff; border: none; border-radius: .9rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .4rem; box-shadow: 0 4px 14px rgba(59,130,246,.4); transition: transform .15s, box-shadow .15s; z-index: 40; }
+    .contact-add-fab { position: absolute; bottom: 12px; left: 12px; right: 12px; width: auto; padding: .7rem 1.2rem; background: linear-gradient(135deg,#3b82f6,#2563eb); color: #fff; border: none; border-radius:14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .4rem; box-shadow: 0 4px 14px rgba(59,130,246,.4); transition: transform .15s, box-shadow .15s; z-index: 40; }
     .contact-add-fab:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(59,130,246,.5); }
     .contact-add-fab:active { transform: translateY(0); }
 
     .cards { display: flex; flex-direction: column; gap: .75rem; overflow-y: auto; padding: .25rem .25rem 1rem; min-height: 60px; flex: 1; }
-    .cards.drop-target { background: #c9d4e4; border-radius: .5rem; }
+    .cards.drop-target { background: #c9d4e4; border-radius:8px; }
 
     /* ===== Card ===== */
-    .customer-card { background: #fff; border-radius: .5rem; padding: .7rem .85rem; border-left: 4px solid #94a3b8; box-shadow: 0 1px 3px rgba(0,0,0,.12); cursor: pointer; user-select: none; touch-action: none; display: flex; flex-direction: column; overflow: hidden; position: relative; flex-shrink: 0; }
+    .customer-card { background: #fff; border-radius:8px; padding: .7rem .85rem; border-left: 4px solid #94a3b8; box-shadow: 0 1px 3px rgba(0,0,0,.12); cursor: pointer; user-select: none; touch-action: none; display: flex; flex-direction: column; overflow: hidden; position: relative; flex-shrink: 0; }
     .customer-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.15); }
     .customer-card.dragging { opacity: .35; }
     .customer-card.selected { outline: 2px solid #3b82f6; outline-offset: -2px; box-shadow: 0 4px 12px rgba(59,130,246,.3); }
     .card-select { position: absolute; top: .5rem; right: .5rem; width: 16px; height: 16px; accent-color: #3b82f6; cursor: pointer; z-index: 3; }
     .customer-card .name-row { display: flex; align-items: center; gap: .35rem; }
-    .customer-card h4 { font-size: .92rem; color: #111827; text-transform: uppercase; letter-spacing: .02em; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; min-width: 0; }
-    .customer-card .card-photo { width: 44px; height: 56px; object-fit: cover; border-radius: .4rem; border: 1px solid #e2e8f0; flex: none; background: #f1f5f9; }
-    .customer-card .card-photo-placeholder { display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #cbd5e1; background: #f8fafc; }
+    .customer-card h4 { font-size:15px; color: #111827; text-transform: uppercase; letter-spacing: .02em; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; min-width: 0; }
+    .customer-card .card-photo { width: 44px; height: 56px; object-fit: cover; border-radius:6px; border: 1px solid #e2e8f0; flex: none; background: #f1f5f9; }
+    .customer-card .card-photo-placeholder { display: flex; align-items: center; justify-content: center; font-size:1.5rem; color: #cbd5e1; background: #f8fafc; }
     .customer-card .card-badges { display: flex; flex-wrap: nowrap; gap: .3rem; margin-top: .3rem; overflow: hidden; }
-    .customer-card .card-badge { display: inline-flex; align-items: center; gap: .25rem; padding: .1rem .5rem; border-radius: 999px; font-size: .66rem; font-weight: 700; white-space: nowrap; }
+    .customer-card .card-badge { display: inline-flex; align-items: center; gap: .25rem; padding: .1rem .5rem; border-radius:999px; font-size:11px; font-weight: 700; white-space: nowrap; }
     .customer-card .badge-school { background: #eef2ff; color: #4338ca; }
     .customer-card .badge-prog { background: #ecfdf5; color: #047857; }
     .customer-card .camid-badge { background: #fff7ed; color: #9a3412; border: 1px solid #fdba74; }
-    .customer-card .badge-logo { width: 14px; height: 14px; object-fit: contain; border-radius: 3px; background: #fff; vertical-align: middle; }
+    .customer-card .badge-logo { width: 14px; height: 14px; object-fit: contain; border-radius:2px; background: #fff; vertical-align: middle; }
     .tag-row { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .5rem; }
-    .tag { padding: .12rem .55rem; border-radius: 999px; font-size: .7rem; font-weight: 600; }
+    .tag { padding: .12rem .55rem; border-radius:999px; font-size:11px; font-weight: 600; }
     .tag-agency { background: #f3e8ff; color: #6b21a8; }
     .tag-program { background: #dcfce7; color: #166534; }
     .tag-school { background: #fef3c7; color: #92400e; }
@@ -121,104 +129,104 @@
     .tag-ielts { background: #e0f2fe; color: #0c4a6e; }
     .tag-illegal { background: #7f1d1d; color: #fff; }
     .tag-noqr { background: #111827; color: #fff; }
-    .customer-card .note { background: #f9fafb; border-radius: .375rem; padding: .5rem; font-size: .8rem; color: #4b5563; margin-top: .5rem; line-height: 1.4; }
-    .customer-card .hint { font-size: .7rem; color: #9ca3af; margin-top: .4rem; text-align: right; }
+    .customer-card .note { background: #f9fafb; border-radius:6px; padding: .5rem; font-size:13px; color: #4b5563; margin-top: .5rem; line-height: 1.4; }
+    .customer-card .hint { font-size:11px; color: #9ca3af; margin-top: .4rem; text-align: right; }
 
     /* Collapsed upload section (bottom of card, click to expand) */
     .card-uploads { margin-top: auto; border-top: 1px dashed #e2e8f0; padding-top: .4rem; }
-    .card-uploads-toggle { font-size: .75rem; color: #3b82f6; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: .3rem; }
+    .card-uploads-toggle { font-size:12px; color: #3b82f6; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: .3rem; }
     .card-uploads-toggle:hover { text-decoration: underline; }
     .card-uploads-body { display: none; margin-top: .4rem; }
     .card-uploads.open .card-uploads-body { display: block; }
-    .cu-zone { border: 1.5px dashed #cbd5e1; border-radius: .4rem; padding: .4rem; margin-top: .4rem; font-size: .72rem; background: #f8fafc; cursor: pointer; }
+    .cu-zone { border: 1.5px dashed #cbd5e1; border-radius:6px; padding: .4rem; margin-top: .4rem; font-size:12px; background: #f8fafc; cursor: pointer; }
     .cu-zone.over { border-color: #3b82f6; background: #eff6ff; }
     .cu-zone .cu-head { font-weight: 600; color: #334155; }
     .cu-zone .cu-list { margin-top: .2rem; }
     .cu-zone .cu-list a { color: #2563eb; text-decoration: underline; margin-right: .5rem; }
-    .cu-zone .cu-list .rm { border: none; background: #fee2e2; color: #991b1b; border-radius: .3rem; padding: 0 .4rem; cursor: pointer; font-size: .7rem; }
+    .cu-zone .cu-list .rm { border: none; background: #fee2e2; color: #991b1b; border-radius:4px; padding: 0 .4rem; cursor: pointer; font-size:11px; }
 
     /* resize handle */
     .card-resize { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; cursor: ns-resize; z-index: 5; }
-    .card-resize::after { content: ''; position: absolute; left: 50%; bottom: 1px; transform: translateX(-50%); width: 28px; height: 4px; border-radius: 2px; background: #cbd5e1; }
+    .card-resize::after { content: ''; position: absolute; left: 50%; bottom: 1px; transform: translateX(-50%); width: 28px; height: 4px; border-radius:2px; background: #cbd5e1; }
 
-    .drag-ghost { position: fixed; z-index: 99999; pointer-events: none; opacity: .85; width: 260px; background: #fff; border-radius: .5rem; padding: .85rem; border-left: 4px solid #94a3b8; box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+    .drag-ghost { position: fixed; z-index: 99999; pointer-events: none; opacity: .85; width: 260px; background: #fff; border-radius:8px; padding: .85rem; border-left: 4px solid #94a3b8; box-shadow: 0 12px 30px rgba(0,0,0,.25); }
 
     /* ===== Modals ===== */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; z-index: 99999; }
-    .modal { background: #fff; border-radius: 1rem; padding: 1.5rem; max-width: 460px; width: 92%; box-shadow: 0 20px 50px rgba(0,0,0,.3); max-height: 90vh; display: flex; flex-direction: column; position: relative; overflow-y: auto; }
-    .m-close { position: absolute; top: .6rem; right: .6rem; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: #f1f5f9; color: #475569; font-size: 1rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; transition: background .15s, color .15s; }
+    .modal { background: #fff; border-radius:16px; padding: 1.5rem; max-width: 460px; width: 92%; box-shadow: 0 20px 50px rgba(0,0,0,.3); max-height: 90vh; display: flex; flex-direction: column; position: relative; overflow-y: auto; }
+    .m-close { position: absolute; top: .6rem; right: .6rem; width: 2rem; height: 2rem; border: none; border-radius:50%; background: #f1f5f9; color: #475569; font-size:15px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; transition: background .15s, color .15s; }
     .m-close:hover { background: #fee2e2; color: #dc2626; }
     .modal-scroll { overflow-y: auto; flex: 1 1 auto; min-height: 0; }
     .modal-actions { flex: 0 0 auto; display: flex; gap: .5rem; justify-content: flex-end; padding-top: .9rem; margin-top: .4rem; border-top: 1px solid #e2e8f0; position: sticky; bottom: 0; background: #fff; padding-bottom: .2rem; z-index: 5; }
-    .modal h2 { font-size: 1.2rem; color: #111827; margin-bottom: 1rem; text-transform: uppercase; }
-    .modal-section { border:1px solid #eef0f4; border-radius:.75rem; padding:.85rem 1rem; margin-bottom:.9rem; background:#fbfbfd; }
-    .modal-section-title { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#64748b; margin-bottom:.6rem; display:flex; align-items:center; gap:.4rem; cursor:pointer; user-select:none; }
+    .modal h2 { font-size:1.2rem; color: #111827; margin-bottom: 1rem; text-transform: uppercase; }
+    .modal-section { border:1px solid #eef0f4; border-radius:12px; padding:.85rem 1rem; margin-bottom:.9rem; background:#fbfbfd; }
+    .modal-section-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#64748b; margin-bottom:.6rem; display:flex; align-items:center; gap:.4rem; cursor:pointer; user-select:none; }
     .modal-section-title:hover { color:#3b82f6; }
-    .modal-section-title .fold-ic { transition:transform .15s; font-size:.7rem; }
+    .modal-section-title .fold-ic { transition:transform .15s; font-size:11px; }
     .modal-section.closed .fold-ic { transform:rotate(-90deg); }
     .modal-section.closed .modal-section-body { display:none; }
     .modal-section .field { margin-bottom:.6rem; }
     .modal-section .field:last-child { margin-bottom:0; }
     .field { margin-bottom: 1rem; }
-    .field label { display: block; font-size: .75rem; color: #6b7280; text-transform: uppercase; letter-spacing: .03em; margin-bottom: .3rem; }
-    .field input, .field select, .field textarea { width: 100%; border: 1px solid #d1d5db; border-radius: .5rem; padding: .6rem; font-size: .9rem; font-family: inherit; background: #fff; }
+    .field label { display: block; font-size:12px; color: #6b7280; text-transform: uppercase; letter-spacing: .03em; margin-bottom: .3rem; }
+    .field input, .field select, .field textarea { width: 100%; border: 1px solid #d1d5db; border-radius:8px; padding: .6rem; font-size:15px; font-family: inherit; background: #fff; }
     .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
     .field textarea { min-height: 90px; resize: vertical; }
-    .modal .history { max-height: 130px; overflow-y: auto; background: #f9fafb; border-radius: .5rem; padding: .5rem; margin-bottom: 1rem; }
-    .modal .history div { font-size: .8rem; color: #4b5563; padding: .3rem 0; border-bottom: 1px dashed #e5e7eb; }
+    .modal .history { max-height: 130px; overflow-y: auto; background: #f9fafb; border-radius:8px; padding: .5rem; margin-bottom: 1rem; }
+    .modal .history div { font-size:13px; color: #4b5563; padding: .3rem 0; border-bottom: 1px dashed #e5e7eb; }
     .modal .actions { display: flex; gap: .5rem; justify-content: flex-end; }
-    .modal .actions .btn, .modal-actions .btn { padding: .55rem 1.05rem; border: none; border-radius: .6rem; font-size: .82rem; font-weight: 600; cursor: pointer; transition: all .18s; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+    .modal .actions .btn, .modal-actions .btn { padding: .55rem 1.05rem; border: none; border-radius:10px; font-size:13px; font-weight: 600; cursor: pointer; transition: all .18s; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
     .btn-save { background: linear-gradient(135deg,#3b82f6,#2563eb); color: #fff; box-shadow: 0 2px 6px rgba(59,130,246,.35); }
     .btn-save:hover { filter: brightness(1.05); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(59,130,246,.4); }
     .btn-cancel { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
     .btn-cancel:hover { background: #e2e8f0; color: #1e293b; }
-    .btn-nav { background:#eef2ff; color:#4338ca; border:1px solid #c7d2fe; font-weight:700; cursor:pointer; border-radius:.5rem; }
+    .btn-nav { background:#eef2ff; color:#4338ca; border:1px solid #c7d2fe; font-weight:700; cursor:pointer; border-radius:8px; }
     .btn-nav:hover { background:#e0e7ff; }
     .btn-danger { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; margin-right: auto; }
     .btn-danger:hover { background: #fee2e2; }
     .btn-archive { background: #eef2ff; color: #4f46e5; border: 1px solid #c7d2fe; margin-right: auto; }
     .btn-archive:hover { background: #e0e7ff; }
-    .btn-note { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; padding: .3rem .65rem; font-size: .78rem; border-radius: .5rem; }
+    .btn-note { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; padding: .3rem .65rem; font-size:12px; border-radius:8px; }
     .btn-note:hover { background: #dbeafe; }
     .btn-add { background: linear-gradient(135deg,#10b981,#059669); color: #fff; box-shadow: 0 2px 6px rgba(16,185,129,.3); }
     .btn-add:hover { filter: brightness(1.05); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(16,185,129,.35); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; line-height: 1; min-height: 32px; border-radius: .5rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; line-height: 1; min-height: 32px; border-radius:8px; }
     /* B2: small inline icon/action buttons converge on 28px */
     .btn-note, .btn-danger, .btn-archive { min-height: 28px; }
     .btn:active { transform: translateY(1px); }
     .btn:disabled { opacity: .5; cursor: not-allowed; }
-    .lst-stage { font-size: .78rem; color: #64748b; font-weight: 600; }
+    .lst-stage { font-size:12px; color: #64748b; font-weight: 600; }
     .icon-row { display: inline-flex; align-items: center; gap: .35rem; }
     .btn svg, .btn img { vertical-align: middle; }
-    .ki { width: 100%; padding: .35rem .45rem; border: 1px solid #d1d5db; border-radius: .4rem; font-size: .72rem; color: #111827; background: #fff; box-sizing: border-box; }
+    .ki { width: 100%; padding: .35rem .45rem; border: 1px solid #d1d5db; border-radius:6px; font-size:12px; color: #111827; background: #fff; box-sizing: border-box; }
     .korea-preview { cursor: pointer; display: flex; flex-direction: column; gap: .22rem; padding: .1rem 0; }
-    .kp-name { font-size: .86rem; font-weight: 700; color: #111827; text-transform: uppercase; letter-spacing: .02em; }
-    .kp-row { font-size: .74rem; color: #374151; display: flex; align-items: center; gap: .25rem; }
-    .kp-lbl { font-size: .72rem; }
-    .kp-note { font-size: .72rem; color: #6b7280; background: #f9fafb; border-radius: .35rem; padding: .3rem .45rem; margin-top: .1rem; }
-    .kp-hint { font-size: .66rem; color: #3b82f6; margin-top: .15rem; font-weight: 600; }
+    .kp-name { font-size:13px; font-weight: 700; color: #111827; text-transform: uppercase; letter-spacing: .02em; }
+    .kp-row { font-size:12px; color: #374151; display: flex; align-items: center; gap: .25rem; }
+    .kp-lbl { font-size:12px; }
+    .kp-note { font-size:12px; color: #6b7280; background: #f9fafb; border-radius:6px; padding: .3rem .45rem; margin-top: .1rem; }
+    .kp-hint { font-size:11px; color: #3b82f6; margin-top: .15rem; font-weight: 600; }
     .korea-preview:hover .kp-hint { text-decoration: underline; }
     .ki:focus { outline: 2px solid #3b82f655; border-color: #3b82f6; }
     .ki-name { font-weight: 600; text-transform: uppercase; }
 
     /* Drag & drop zones */
-    .drop-zone { border: 2px dashed #cbd5e1; border-radius: .5rem; padding: .6rem; margin-bottom: .5rem; cursor: pointer; background: #f8fafc; transition: border-color .2s, background .2s; }
+    .drop-zone { border: 2px dashed #cbd5e1; border-radius:8px; padding: .6rem; margin-bottom: .5rem; cursor: pointer; background: #f8fafc; transition: border-color .2s, background .2s; }
     .drop-zone.over { border-color: #3b82f6; background: #eff6ff; }
-    .drop-zone .dz-head { font-size: .85rem; font-weight: 600; color: #334155; margin-bottom: .15rem; }
-    .drop-zone .dz-req { font-size: .68rem; font-weight: 400; color: #94a3b8; }
-    .drop-zone .dz-hint { font-size: .72rem; color: #94a3b8; margin-bottom: .3rem; }
-    .drop-zone .dz-list { font-size: .78rem; }
+    .drop-zone .dz-head { font-size:13px; font-weight: 600; color: #334155; margin-bottom: .15rem; }
+    .drop-zone .dz-req { font-size:11px; font-weight: 400; color: #94a3b8; }
+    .drop-zone .dz-hint { font-size:12px; color: #94a3b8; margin-bottom: .3rem; }
+    .drop-zone .dz-list { font-size:12px; }
     .drop-zone .dz-list > div { padding: .2rem 0; display: flex; justify-content: space-between; align-items: center; }
     .drop-zone .dz-list a { color: #2563eb; text-decoration: underline; margin-right: .5rem; }
-    .drop-zone .dz-list .rm { border: none; background: #fee2e2; color: #991b1b; border-radius: .3rem; padding: .1rem .45rem; cursor: pointer; font-size: .75rem; }
-    .dz-step { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: #64748b; margin: .6rem 0 .3rem; }
-    .doc-fold-toggle { font-size: .9rem; font-weight: 600; color: #334155; cursor: pointer; display: flex; align-items: center; gap: .4rem; padding: .4rem 0; border-bottom: 1px solid #eef0f4; }
+    .drop-zone .dz-list .rm { border: none; background: #fee2e2; color: #991b1b; border-radius:4px; padding: .1rem .45rem; cursor: pointer; font-size:12px; }
+    .dz-step { font-size:12px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: #64748b; margin: .6rem 0 .3rem; }
+    .doc-fold-toggle { font-size:15px; font-weight: 600; color: #334155; cursor: pointer; display: flex; align-items: center; gap: .4rem; padding: .4rem 0; border-bottom: 1px solid #eef0f4; }
     .doc-fold-toggle:hover { color: #3b82f6; }
 
     /* ===== List view ===== */
-    .list-view { display: none; background: #fff; border-radius: .75rem; box-shadow: 0 2px 8px rgba(0,0,0,.08); overflow: auto; }
-    .list-table { width: 100%; border-collapse: collapse; font-size: .85rem; table-layout: fixed; min-width: 900px; }
-    .list-table thead th { background: #f1f5f9; color: #334155; text-align: left; padding: .7rem .9rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .03em; border-bottom: 1px solid #e2e8f0; overflow: hidden; white-space: nowrap; }
+    .list-view { display: none; background: #fff; border-radius:12px; box-shadow: 0 2px 8px rgba(0,0,0,.08); overflow: auto; }
+    .list-table { width: 100%; border-collapse: collapse; font-size:13px; table-layout: fixed; min-width: 900px; }
+    .list-table thead th { background: #f1f5f9; color: #334155; text-align: left; padding: .7rem .9rem; font-size:12px; text-transform: uppercase; letter-spacing: .03em; border-bottom: 1px solid #e2e8f0; overflow: hidden; white-space: nowrap; }
     .list-table tbody td { padding: .6rem .9rem; border-bottom: 1px solid #eef0f4; color: #374151; vertical-align: middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .list-table tbody tr { cursor: pointer; }
     .list-table tbody tr:hover { background: #f8fafc; }
@@ -233,7 +241,7 @@
     .archive-section {
       margin-top: 1.2rem;
       background: #fff;
-      border-radius: .75rem;
+      border-radius:12px;
       padding: .8rem 1rem;
       box-shadow: 0 -2px 12px rgba(0,0,0,.08);
       position: relative;
@@ -250,39 +258,39 @@
     /* ===== Wiki (Notion-style) ===== */
     .wiki-layout { display:flex; min-height: calc(100vh - 60px); background:#fff; }
     .wiki-sidebar { width:260px; flex-shrink:0; background:#fbfbfa; border-right:1px solid #eef0f4; padding:.9rem .7rem; overflow-y:auto; }
-    .wiki-sidebar-head { font-weight:800; color:#111827; font-size:.95rem; padding:.2rem .4rem .6rem; }
-    .wiki-new-btn { width:100%; padding:.5rem; margin-bottom:.7rem; border:1px dashed #cbd5e1; border-radius:.5rem; background:#fff; color:#475569; font-size:.8rem; font-weight:600; cursor:pointer; }
+    .wiki-sidebar-head { font-weight:800; color:#111827; font-size:15px; padding:.2rem .4rem .6rem; }
+    .wiki-new-btn { width:100%; padding:.5rem; margin-bottom:.7rem; border:1px dashed #cbd5e1; border-radius:8px; background:#fff; color:#475569; font-size:13px; font-weight:600; cursor:pointer; }
     .wiki-new-btn:hover { border-color:#3b82f6; color:#2563eb; }
-    .wiki-cat { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:.4rem .55rem; border-radius:.45rem; margin:.5rem .1rem .25rem; }
+    .wiki-cat { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:.4rem .55rem; border-radius:8px; margin:.5rem .1rem .25rem; }
     .wiki-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:7px; flex-shrink:0; }
-    .wiki-search { width:100%; box-sizing:border-box; padding:.45rem .6rem; border:1px solid #e2e8f0; border-radius:.5rem; font-size:.8rem; margin:.3rem 0; }
+    .wiki-search { width:100%; box-sizing:border-box; padding:.45rem .6rem; border:1px solid #e2e8f0; border-radius:8px; font-size:13px; margin:.3rem 0; }
     .wiki-search:focus { outline:none; border-color:#3b82f6; box-shadow:0 0 0 2px rgba(59,130,246,.15); }
     .wiki-cat button { font-size:.55rem; padding:0 .15rem; }
-    .wiki-cat-new { padding:.3rem .5rem; margin:.1rem 0 .4rem 1rem; font-size:.78rem; color:#3b82f6; cursor:pointer; border-radius:.4rem; }
+    .wiki-cat-new { padding:.3rem .5rem; margin:.1rem 0 .4rem 1rem; font-size:12px; color:#3b82f6; cursor:pointer; border-radius:6px; }
     .wiki-cat-new:hover { background:#eff6ff; color:#2563eb; }
-    .wiki-tree-item { padding:.42rem .5rem; border-radius:.4rem; font-size:.82rem; color:#374151; cursor:pointer; display:flex; align-items:center; gap:.3rem; }
+    .wiki-tree-item { padding:.42rem .5rem; border-radius:6px; font-size:13px; color:#374151; cursor:pointer; display:flex; align-items:center; gap:.3rem; }
     .wiki-tree-item:hover { background:#f1f5f9; }
     .wiki-tree-item-active { background:transparent; color:#111827; font-weight:800; }
     .wiki-rp { background:#3b82f6; color:#fff; font-size:.62rem; border-radius:999px; padding:.05rem .4rem; margin-left:auto; }
-    .wiki-tree-empty { font-size:.75rem; color:#cbd5e1; padding:.2rem .5rem; }
+    .wiki-tree-empty { font-size:12px; color:#cbd5e1; padding:.2rem .5rem; }
     .wiki-content { flex:1; padding:2rem 2.5rem; overflow-y:auto; max-width:860px; }
     .wiki-page-head { display:flex; justify-content:space-between; align-items:center; gap:.5rem; margin-bottom:.5rem; }
-    .wiki-page-cat { font-size:.72rem; font-weight:700; color:#3b82f6; }
+    .wiki-page-cat { font-size:12px; font-weight:700; color:#3b82f6; }
     .wiki-page-actions { display:flex; gap:.3rem; }
     .wiki-page-title { font-size:1.9rem; font-weight:800; color:#111827; outline:none; padding:.3rem 0; line-height:1.2; }
-    .wiki-page-body { font-size:.95rem; color:#374151; line-height:1.7; outline:none; padding:.4rem 0; white-space:pre-wrap; }
-    .wiki-page-title:focus, .wiki-page-body:focus { border-radius:.4rem; box-shadow:0 0 0 2px #3b82f6; }
-    .wiki-replies-head { font-size:.8rem; font-weight:700; color:#334155; margin:.6rem 0 .4rem; padding-top:.8rem; border-top:1px solid #eef0f4; }
-    .wiki-reply { background:#f8fafc; border-radius:.5rem; padding:.5rem .7rem; margin-bottom:.4rem; }
-    .wiki-reply-text { font-size:.82rem; color:#334155; }
-    .wiki-reply-meta { font-size:.68rem; color:#94a3b8; margin-top:.25rem; }
-    .wiki-doc { display:flex; justify-content:space-between; align-items:center; background:#f8fafc; border-radius:.4rem; padding:.4rem .7rem; margin-bottom:.3rem; font-size:.8rem; color:#334155; }
+    .wiki-page-body { font-size:15px; color:#374151; line-height:1.7; outline:none; padding:.4rem 0; white-space:pre-wrap; }
+    .wiki-page-title:focus, .wiki-page-body:focus { border-radius:6px; box-shadow:0 0 0 2px #3b82f6; }
+    .wiki-replies-head { font-size:13px; font-weight:700; color:#334155; margin:.6rem 0 .4rem; padding-top:.8rem; border-top:1px solid #eef0f4; }
+    .wiki-reply { background:#f8fafc; border-radius:8px; padding:.5rem .7rem; margin-bottom:.4rem; }
+    .wiki-reply-text { font-size:13px; color:#334155; }
+    .wiki-reply-meta { font-size:11px; color:#94a3b8; margin-top:.25rem; }
+    .wiki-doc { display:flex; justify-content:space-between; align-items:center; background:#f8fafc; border-radius:6px; padding:.4rem .7rem; margin-bottom:.3rem; font-size:13px; color:#334155; }
 
     /* Activity Log slide-in panel */
     .activity-panel { position: fixed; top: 0; right: 0; width: 340px; max-width: 90vw; height: 100vh; background: #fff; box-shadow: -4px 0 20px rgba(0,0,0,.12); z-index: 100000; flex-direction: column; }
     .activity-panel-head { display: flex; justify-content: space-between; align-items: center; padding: .8rem 1rem; border-bottom: 1px solid #eef0f4; }
     .activity-panel-list { flex: 1; overflow-y: auto; padding: .6rem; }
-    .activity-item { border: 1px solid #eef0f4; border-radius: .5rem; padding: .5rem .7rem; margin-bottom: .5rem; background: #fbfbfd; }
+    .activity-item { border: 1px solid #eef0f4; border-radius:8px; padding: .5rem .7rem; margin-bottom: .5rem; background: #fbfbfd; }
 
     /* ===== MOBILE / RESPONSIVE ===== */
     #sidebar-backdrop { display:none; }
@@ -296,19 +304,19 @@
       .pipeline { flex-wrap: nowrap; overflow-x: auto; gap: .6rem; padding-bottom: .5rem; }
       .stage { flex: 0 0 200px; height: calc(100vh - 340px); }
       .customer-card { min-height: 130px; }
-      .filter-bar { font-size: .8rem; }
+      .filter-bar { font-size:13px; }
       .filter-row { flex-wrap: wrap; }
       .filter-label { width: 90px; }
-      .view-toggle button { font-size: .75rem; padding: .35rem .5rem; }
+      .view-toggle button { font-size:12px; padding: .35rem .5rem; }
       .modal { width: 95%; max-height: 92vh; }
-      .list-table { font-size: .72rem; }
+      .list-table { font-size:12px; }
       .btn, button { min-height: 34px; }
       /* NEW: mobile-friendly extras */
       .filter-toggle-row { display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: .15rem .1rem .45rem; user-select: none; }
       .filter-bar.collapsed .filter-scroll { display: none; }
       .filter-bar.collapsed #filter-toggle-chev { transform: rotate(-90deg); }
       .stats-row { grid-template-columns: repeat(3, 1fr); gap: .5rem; margin-bottom: 1rem; }
-      .stat .num { font-size: 1.25rem; }
+      .stat .num { font-size:1.25rem; }
       .stat { padding: .7rem .4rem; }
       .filter-bar { padding: .6rem .7rem; }
       .filter-scroll { max-height: 150px !important; }
@@ -316,36 +324,36 @@
       .view-toggle button { flex: 1; }
       .view-toggle button:last-child { background: transparent !important; color: #475569 !important; border: none !important; }
       .card-select { top: .35rem; right: .35rem; }
-      .camid-badge { font-size: .56rem; padding: .08rem .35rem; max-width: 88px; overflow: hidden; text-overflow: ellipsis; }
-      .card-assign-chip { min-height: 28px; font-size: .64rem; }
+      .camid-badge { font-size:.56rem; padding: .08rem .35rem; max-width: 88px; overflow: hidden; text-overflow: ellipsis; }
+      .card-assign-chip { min-height: 28px; font-size:11px; }
       .list-view { overflow-x: auto; -webkit-overflow-scrolling: touch; }
       .list-table { min-width: 520px; }
-      .contact-add-fab { padding: .65rem 1rem; font-size: .85rem; }
+      .contact-add-fab { padding: .65rem 1rem; font-size:13px; }
     }
     @media (max-width: 520px) {
       .stage { flex: 0 0 175px; }
       .customer-card { padding: .7rem; }
       .customer-card { border-left-width: 3px !important; }
-      .topbar h1 { font-size: 1rem; }
+      .topbar h1 { font-size:15px; }
       /* NEW: small-phone extras */
       .stats-row { grid-template-columns: repeat(2, 1fr); gap: .4rem; }
-      .stat .num { font-size: 1.1rem; }
-      .filter-label { width: 62px; font-size: .62rem; }
+      .stat .num { font-size:18px; }
+      .filter-label { width: 62px; font-size:.62rem; }
       .filter-scroll { max-height: 132px !important; }
-      .click-filter { padding: .32rem .6rem; font-size: .72rem; }
+      .click-filter { padding: .32rem .6rem; font-size:12px; }
       .topbar { gap: .3rem; }
-      #auth-badge { padding: .28rem .5rem; font-size: .68rem; }
-      #view-log-btn { font-size: .7rem; padding: .3rem .55rem; }
+      #auth-badge { padding: .28rem .5rem; font-size:11px; }
+      #view-log-btn { font-size:11px; padding: .3rem .55rem; }
       .card-assign-chip { min-height: 32px; }
-      .camid-badge { max-width: none; overflow: visible; text-overflow: clip; white-space: nowrap; font-size: .6rem; }
+      .camid-badge { max-width: none; overflow: visible; text-overflow: clip; white-space: nowrap; font-size:.6rem; }
       .stage-name { white-space: normal; line-height: 1.15; }
-      .modal { width: 100%; border-radius: 1rem 1rem 0 0; max-height: 94vh; }
+      .modal { width: 100%; border-radius:16px 16px 0 0; max-height: 94vh; }
       .modal-overlay { align-items: flex-end; }
       .modal-actions button { flex: 1; }
       .name-row { flex-wrap: wrap; row-gap: .15rem; }
-      .customer-card h4 { font-size: .85rem; }
+      .customer-card h4 { font-size:13px; }
       .customer-card .card-photo { width: 40px; height: 52px; }
-      .customer-card .note { font-size: .75rem; }
+      .customer-card .note { font-size:12px; }
       .activity-panel { width: 100%; max-width: 100%; }
       .stage { height: calc(100vh - 300px); }
       .pipeline { gap: .5rem; }
@@ -353,9 +361,9 @@
     @media (max-width: 380px) {
       .stage { flex: 0 0 165px; }
       .filter-label { width: 100%; margin-bottom: .15rem; }
-      .click-filter { font-size: .68rem; padding: .28rem .5rem; }
-      .topbar h1 { font-size: .9rem; }
-      .view-toggle button { font-size: .68rem; padding: .3rem .3rem; }
+      .click-filter { font-size:11px; padding: .28rem .5rem; }
+      .topbar h1 { font-size:15px; }
+      .view-toggle button { font-size:11px; padding: .3rem .3rem; }
     }
 </style>
 </head>
@@ -409,7 +417,7 @@
   </script>
   <!-- Login overlay: gates the whole app behind @camnemi.com Google sign-in -->
   <div id="login-overlay" style="position:fixed;inset:0;background:#0f172a;z-index:99999;display:flex;align-items:center;justify-content:center;">
-    <div style="background:#fff;border-radius:1.2rem;padding:2.5rem 2.8rem;width:360px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4);">
+    <div style="background:#fff;border-radius:20px;padding:2.5rem 2.8rem;width:360px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4);">
       <div style="font-size:2.6rem;">🔐</div>
       <h1 style="margin:.6rem 0 .2rem;font-size:1.4rem;color:#111827;">Camnemi CRM</h1>
       <div style="font-size:.85rem;color:#64748b;margin-bottom:1.6rem;">Sign in with your <b>@camnemi.com</b> Google account to continue.</div>
@@ -496,12 +504,12 @@
 
   <main class="main-content">
     <div class="topbar">
-      <button id="sidebar-hamburger" onclick="toggleSidebar()" aria-label="Menu" style="display:none;background:#1e293b;color:#fff;border:none;border-radius:.5rem;font-size:1.4rem;padding:.3rem .6rem;cursor:pointer;line-height:1;">☰</button>
+      <button id="sidebar-hamburger" onclick="toggleSidebar()" aria-label="Menu" style="display:none;background:#1e293b;color:#fff;border:none;border-radius:8px;font-size:1.4rem;padding:.3rem .6rem;cursor:pointer;line-height:1;">☰</button>
       <h1 id="main-title">D2D4 in Process</h1>
       <div class="view-toggle" id="view-toggle">
               <button class="active" id="toggle-kanban" onclick="setView('kanban')">📋 Kanban</button>
               <button id="toggle-list" onclick="setView('list')">📄 List View</button>
-              <button id="columns-btn" onclick="openListSettings()" title="Column settings (hide, order, add)" style="background:#eef2ff;color:#4f46e5;border:1px solid #c7d2fe;border-radius:.5rem;padding:.4rem .6rem;cursor:pointer;font-size:.85rem;">⚙ Columns</button>
+              <button id="columns-btn" onclick="openListSettings()" title="Column settings (hide, order, add)" style="background:#eef2ff;color:#4f46e5;border:1px solid #c7d2fe;border-radius:8px;padding:.4rem .6rem;cursor:pointer;font-size:.85rem;">⚙ Columns</button>
             </div>
       <div style="margin-left:auto;display:flex;align-items:center;gap:.5rem;">
         <button id="view-log-btn" class="btn btn-note" onclick="toggleActivityPanel()" style="font-size:.75rem;padding:.35rem .7rem;white-space:nowrap;">📜 View Log</button>
@@ -520,7 +528,7 @@
         <span id="filter-toggle-chev" style="font-size:.7rem;color:#94a3b8;transition:transform .2s;">▾</span>
       </div>
                         <!-- Filter pills: Stage, School, Program+AppDate, Agency -->
-      <div class="filter-scroll" style="max-height:200px;overflow-y:auto;padding-right:4px;margin-bottom:.5rem;border:1px solid #eef0f4;border-radius:.6rem;padding:.5rem .6rem;">
+      <div class="filter-scroll" style="max-height:200px;overflow-y:auto;padding-right:4px;margin-bottom:.5rem;border:1px solid #eef0f4;border-radius:10px;padding:.5rem .6rem;">
         <div class="filter-row">
           <span class="filter-label">📋 Stage</span>
           <span id="filter-stage-pills" class="filter-pills"></span>
@@ -550,7 +558,7 @@
         </div>
         <div class="filter-row" style="flex-wrap:wrap;">
           <span class="filter-label">👤 Assigned</span>
-          <select id="filter-assigned" onchange="toggleAssignedFilter(this.value)" style="padding:.45rem .8rem;border:1.5px solid #e2e8f0;border-radius:.6rem;font-size:.82rem;outline:none;background:#fff;color:#111827;max-width:220px;">
+          <select id="filter-assigned" onchange="toggleAssignedFilter(this.value)" style="padding:.45rem .8rem;border:1.5px solid #e2e8f0;border-radius:10px;font-size:.82rem;outline:none;background:#fff;color:#111827;max-width:220px;">
             <option value="">All</option>
             <option value="__unassigned__">🚫 Unassigned</option>
           </select>
@@ -559,7 +567,7 @@
       <!-- Name search + Flags in one row -->
       <div class="filter-row" style="display:flex;align-items:center;gap:.45rem;margin-bottom:.5rem;flex-wrap:wrap;">
         <span class="filter-label">🔍 Name</span>
-        <input id="filter-search" type="text" placeholder="Search by student name..." style="flex:1;min-width:180px;padding:.45rem .8rem;border:1.5px solid #e2e8f0;border-radius:.6rem;font-size:.82rem;outline:none;" oninput="applyFilter()">
+        <input id="filter-search" type="text" placeholder="Search by student name..." style="flex:1;min-width:180px;padding:.45rem .8rem;border:1.5px solid #e2e8f0;border-radius:10px;font-size:.82rem;outline:none;" oninput="applyFilter()">
       </div>
     </div>
 <!-- Batch action bar (appears when cards are selected) -->
@@ -717,7 +725,7 @@
       <div class="stage" data-stage="${stageKey}">
         <div class="stage-header"><span class="stage-name">${STAGE_LABELS[stageKey]}</span><span class="stage-count" data-count="${stageKey}">0</span></div>
         <div class="cards" data-cards="${stageKey}"></div>
-        <div class="stage-empty-hint" data-empty-hint="${stageKey}" style="display:none;font-size:.75rem;color:#cbd5e1;text-align:center;padding:.6rem .3rem;border:1px dashed #eef0f4;border-radius:.5rem;margin:.35rem .1rem;">No students here</div>
+        <div class="stage-empty-hint" data-empty-hint="${stageKey}" style="display:none;font-size:.75rem;color:#cbd5e1;text-align:center;padding:.6rem .3rem;border:1px dashed #eef0f4;border-radius:8px;margin:.35rem .1rem;">No students here</div>
         ${quickAdd}
       </div>`;
   }
@@ -1103,7 +1111,7 @@
       const inKorea = countFor(an, 'korea');
       const total = inProcess + inKorea;
       return `
-        <div style="background:#fff;border:1px solid #eef0f4;border-radius:.7rem;padding:.9rem 1rem;margin-bottom:.6rem;">
+        <div style="background:#fff;border:1px solid #eef0f4;border-radius:12px;padding:.9rem 1rem;margin-bottom:.6rem;">
           <div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap;">
             <div style="font-weight:700;color:#111827;font-size:.92rem;">🏢 ${escapeHtml(an)}</div>
             <div style="display:flex;gap:.3rem;">
@@ -1355,7 +1363,7 @@
       const pills = schools.map(s=>{
         const u = UNIV_KNOWLEDGE.find(x=>x.en===s || x.n===s || x.ek===s);
         const enVal = u ? (u.en || u.es || s) : (koreaSchoolEn(s) || s);
-        const logo = u && u.logo ? `<img src="${escapeHtml(u.logo)}" onerror="this.style.display='none'" style="width:15px;height:15px;object-fit:contain;border-radius:3px;background:#fff;vertical-align:middle;margin-right:3px;">` : '';
+        const logo = u && u.logo ? `<img src="${escapeHtml(u.logo)}" onerror="this.style.display='none'" style="width:15px;height:15px;object-fit:contain;border-radius:2px;background:#fff;vertical-align:middle;margin-right:3px;">` : '';
         return `<span class="click-filter" data-ftype="school" data-fval="${escapeHtml(enVal)}" onclick="toggleClickFilter(this)">${logo}${escapeHtml(u?u.es||enVal:enVal)}</span>`;
       }).join('');
       schPills.innerHTML = `<span class="click-filter ${anyActive('school')}" data-ftype="school" data-fval="" onclick="toggleClickFilter(this)">Any</span>` + pills +
@@ -1424,7 +1432,7 @@
           <div style="font-size:1.1rem;font-weight:700;color:#111827;">💰 Service Fees (${FEES.length})</div>
           <button class="btn btn-add" onclick="openFeeForm()">+ Add Fee</button>
         </div>
-        <table class="list-table" style="font-size:.85rem;background:#fff;border:1px solid #eef0f4;border-radius:.6rem;overflow:hidden;">
+        <table class="list-table" style="font-size:.85rem;background:#fff;border:1px solid #eef0f4;border-radius:10px;overflow:hidden;">
           <thead><tr><th>Fee Item</th><th>Amount</th><th>Policy</th><th></th></tr></thead>
           <tbody id="fees-body">
             ${FEES.map((f, i) => `<tr>
@@ -1515,7 +1523,7 @@
           <div style="font-size:1.1rem;font-weight:700;color:#111827;">🤝 Partner Schools (${PARTNERS.length})</div>
           <button class="btn btn-add" onclick="openPartnerForm()">+ Add Partner</button>
         </div>
-        <table class="list-table" style="font-size:.85rem;background:#fff;border:1px solid #eef0f4;border-radius:.6rem;overflow:hidden;">
+        <table class="list-table" style="font-size:.85rem;background:#fff;border:1px solid #eef0f4;border-radius:10px;overflow:hidden;">
           <thead><tr><th>School</th><th>Type</th><th>English</th><th>Status</th><th>Note</th><th></th></tr></thead>
           <tbody id="partners-body">
             ${PARTNERS.map((p,i) => `<tr>
@@ -1771,7 +1779,7 @@ let UNIV_KNOWLEDGE = [];
       const dInc = dayTrans.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
       const dExp = dayTrans.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
       const isToday = ds===todayStr;
-      let taskChips = dayTasks.slice(0,2).map(t=>`<div title="${escapeHtml(t.title)}" style="font-size:.7rem;padding:1px 3px;border-radius:3px;margin-top:1px;color:#fff;background:${typeColor[t.type]};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${typeIcon[t.type]} ${escapeHtml(t.title)}</div>`).join('');
+      let taskChips = dayTasks.slice(0,2).map(t=>`<div title="${escapeHtml(t.title)}" style="font-size:.7rem;padding:1px 3px;border-radius:2px;margin-top:1px;color:#fff;background:${typeColor[t.type]};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${typeIcon[t.type]} ${escapeHtml(t.title)}</div>`).join('');
             if(dayTasks.length>2) taskChips+=`<div style="font-size:.7rem;color:#94a3b8;">+${dayTasks.length-2} more</div>`;
       let moneyHtml = '';
       if(dInc) moneyHtml+=`<div style="font-size:.7rem;color:#059669;font-weight:700;margin-top:1px;">▲ ${fmt(dInc)}</div>`;
@@ -1802,7 +1810,7 @@ let UNIV_KNOWLEDGE = [];
       </tr>`)
     ].join('');
     const chips = ['all','todo','events'].map(f=>`<span class="click-filter ${TASKS_FILTER===f?'active':''}" onclick="setTaskFilter('${f}')">${f==='all'?'All':(f==='todo'?'✅ To-Do':(f==='events'?'📅 Events':''))}</span>`).join(' ');
-    const stat = (label,val,color)=>`<div style="background:${color}22;border:1px solid ${color}44;border-radius:.7rem;padding:.6rem .9rem;"><div style="font-size:.7rem;color:#64748b;">${label}</div><div style="font-size:1.05rem;font-weight:700;color:${color};">${val}</div></div>`;
+    const stat = (label,val,color)=>`<div style="background:${color}22;border:1px solid ${color}44;border-radius:12px;padding:.6rem .9rem;"><div style="font-size:.7rem;color:#64748b;">${label}</div><div style="font-size:1.05rem;font-weight:700;color:${color};">${val}</div></div>`;
     const tv = document.getElementById('tasks-view');
     tv.innerHTML = `
       ${knowledgeHeader('📅', 'Camnemi Calendar', 'Schedule tasks & events, and track income/expense on the calendar. Click a date to add.', '<b>'+TASKS.length+'</b> tasks · <b>'+TRANS.length+'</b> transactions')}
@@ -1830,7 +1838,7 @@ let UNIV_KNOWLEDGE = [];
             <button class="btn btn-add" onclick="openDayDetail('')">+ Add</button>
           </div>
           <div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.6rem;">${chips}</div>
-          <div style="max-height:calc(100vh - 360px);overflow:auto;border:1px solid #eef0f4;border-radius:.5rem;">
+          <div style="max-height:calc(100vh - 360px);overflow:auto;border:1px solid #eef0f4;border-radius:8px;">
             <table class="list-table" style="font-size:.75rem;margin:0;">
               <thead><tr><th>Type</th><th>Title/Cat</th><th>Note</th><th>Date</th><th>Amount</th><th></th></tr></thead>
               <tbody>${listHtml||'<tr><td colspan="6" style="color:#94a3b8;text-align:center;padding:.8rem">Nothing yet.</td></tr>'}</tbody>
@@ -1846,7 +1854,7 @@ let UNIV_KNOWLEDGE = [];
     const dayTasks = TASKS.filter(t=>t.date===date);
     const dayTrans = TRANS.filter(t=>t.date===date);
     const fmt=(n)=>'₩'+n.toLocaleString();
-    const taskRows = dayTasks.map(t=>`<div style="padding:.3rem 0;border-bottom:1px dashed #eef0f4;font-size:.8rem;"><span style="background:${t.type==='events'?'#2563eb':'#059669'};color:#fff;border-radius:3px;padding:.05rem .35rem;font-size:.7rem;">${t.type==='events'?'📅':'✅'}</span> <b>${escapeHtml(t.title)}</b> <span style="color:#94a3b8">${escapeHtml(t.note||'')}</span></div>`).join('')||'<div style="color:#94a3b8;font-size:.78rem;">No tasks.</div>';
+    const taskRows = dayTasks.map(t=>`<div style="padding:.3rem 0;border-bottom:1px dashed #eef0f4;font-size:.8rem;"><span style="background:${t.type==='events'?'#2563eb':'#059669'};color:#fff;border-radius:2px;padding:.05rem .35rem;font-size:.7rem;">${t.type==='events'?'📅':'✅'}</span> <b>${escapeHtml(t.title)}</b> <span style="color:#94a3b8">${escapeHtml(t.note||'')}</span></div>`).join('')||'<div style="color:#94a3b8;font-size:.78rem;">No tasks.</div>';
     const transRows = dayTrans.map(t=>`<div style="padding:.3rem 0;border-bottom:1px dashed #eef0f4;font-size:.8rem;"><span style="color:${t.type==='income'?'#059669':'#dc2626'};font-weight:700;">${t.type==='income'?'+':'-'}${fmt(t.amount)}</span> <b>${escapeHtml(t.cat)}</b> <span style="color:#94a3b8">${escapeHtml(t.note||'')}</span></div>`).join('')||'<div style="color:#94a3b8;font-size:.78rem;">No transactions.</div>';
     overlay.innerHTML=`
       <div class="modal">
@@ -2132,7 +2140,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     const totIncome = monthTrans.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
     const totExpense = monthTrans.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
     const profit = totIncome - totExpense;
-    const stat = (label, val, color) => `<div style="background:${color}22;border:1px solid ${color}44;border-radius:.7rem;padding:.7rem .9rem;"><div style="font-size:.72rem;color:#64748b;">${label}</div><div style="font-size:1.15rem;font-weight:700;color:${color};">${val}</div></div>`;
+    const stat = (label, val, color) => `<div style="background:${color}22;border:1px solid ${color}44;border-radius:12px;padding:.7rem .9rem;"><div style="font-size:.72rem;color:#64748b;">${label}</div><div style="font-size:1.15rem;font-weight:700;color:${color};">${val}</div></div>`;
     // calendar cells
     let cells='';
     for(let i=0;i<startDow;i++) cells+='<div style="min-height:86px;"></div>';
@@ -2191,7 +2199,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
             <button class="btn btn-add" onclick="openTransForm('expense')">+ Expense</button>
           </div>
         </div>
-        <div style="max-height:calc(100vh - 380px);overflow:auto;border:1px solid #eef0f4;border-radius:.5rem;">
+        <div style="max-height:calc(100vh - 380px);overflow:auto;border:1px solid #eef0f4;border-radius:8px;">
           <table class="list-table" style="font-size:.8rem;margin:0;">
             <thead><tr><th>Type</th><th>Category</th><th>Note</th><th>Date</th><th>Amount</th><th></th></tr></thead>
             <tbody>${rows||'<tr><td colspan="6" style="color:#94a3b8;text-align:center;padding:.8rem">No transactions yet.</td></tr>'}</tbody>
@@ -2486,7 +2494,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
         e.preventDefault();
         const reader = new FileReader();
         reader.onload = (ev) => {
-          const img = `<img src="${ev.target.result}" style="max-width:100%;max-height:280px;border-radius:.4rem;margin:.4rem 0;display:block;">`;
+          const img = `<img src="${ev.target.result}" style="max-width:100%;max-height:280px;border-radius:6px;margin:.4rem 0;display:block;">`;
           // insert at cursor
           const sel = window.getSelection();
           if (sel && sel.rangeCount) {
@@ -2584,7 +2592,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
         </div>
         <div class="field" id="wn-newcat-wrap" style="display:none;"><label>New category name</label><input id="wn-newcat" placeholder="e.g. Accommodation"></div>
         <div class="field"><label>Page title</label><input id="wn-subj" value="${escapeHtml(n.subj)}" placeholder="e.g. Required documents for D-4"></div>
-        <div class="field"><label>Content</label><textarea id="wn-body" rows="9" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;box-sizing:border-box;">${escapeHtml(n.body)}</textarea></div>
+        <div class="field"><label>Content</label><textarea id="wn-body" rows="9" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.82rem;box-sizing:border-box;">${escapeHtml(n.body)}</textarea></div>
         <div class="modal-actions">
           <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
           <button class="btn btn-save" onclick="saveWikiNote('${isEdit?n.id:''}')">Save</button>
@@ -2628,7 +2636,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
       <div class="modal">
         <h2>💬 Add reply</h2>
         <div class="field"><label>Your name</label><input id="wr-name" value="${escapeHtml(currentUserName())}"></div>
-        <div class="field"><label>Reply</label><textarea id="wr-text" rows="4" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;box-sizing:border-box;" placeholder="Type your reply..."></textarea></div>
+        <div class="field"><label>Reply</label><textarea id="wr-text" rows="4" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.82rem;box-sizing:border-box;" placeholder="Type your reply..."></textarea></div>
         <div class="modal-actions">
           <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
           <button class="btn btn-save" onclick="saveWikiReply('${noteId}')">Reply</button>
@@ -2690,14 +2698,14 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   function renderGKS() {
     const univs = UNIV_KNOWLEDGE.filter(u => (u.type||'univ')!=='junior' && u.scholarships && u.scholarships.length);
     const v = document.getElementById('gks-view');
-    const card = (label, val) => `<div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:.6rem;padding:.55rem .8rem;"><div style="font-size:.7rem;color:#64748b;">${label}</div><div style="font-size:.88rem;font-weight:600;color:#111827;margin-top:.15rem;">${val}</div></div>`;
+    const card = (label, val) => `<div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:10px;padding:.55rem .8rem;"><div style="font-size:.7rem;color:#64748b;">${label}</div><div style="font-size:.88rem;font-weight:600;color:#111827;margin-top:.15rem;">${val}</div></div>`;
     const section = (label, items) => `<div style="margin-bottom:.9rem;"><div style="font-weight:700;font-size:.88rem;color:#111827;margin-bottom:.4rem;">${label}</div>${items}</div>`;
     const prog = (title, color, body) => `
       <div style="border:1px solid ${color};border-radius:12px;overflow:hidden;margin-bottom:1.2rem;">
         <div style="background:${color};color:#fff;padding:.7rem 1rem;font-weight:700;font-size:1rem;">${title}</div>
         <div style="padding:1rem;background:#fff;">${body}</div>
       </div>`;
-    const dlbtn = (href,label,bg) => `<a href="${href}" target="_blank" style="padding:.5rem .9rem;background:${bg};color:#fff;border-radius:.5rem;font-size:.8rem;font-weight:600;text-decoration:none;display:inline-block;">${label}</a>`;
+    const dlbtn = (href,label,bg) => `<a href="${href}" target="_blank" style="padding:.5rem .9rem;background:${bg};color:#fff;border-radius:8px;font-size:.8rem;font-weight:600;text-decoration:none;display:inline-block;">${label}</a>`;
 
     // Map Korean univ names -> our knowledge base (English + logo). Only show those we have.
     const univChip = (kr) => {
@@ -2741,8 +2749,8 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
       </div>
       <div style="background:#fff;border:1px solid #eef0f4;border-radius:14px;padding:1.2rem;box-shadow:0 2px 10px rgba(0,0,0,.05);">
         <div style="font-size:.9rem;font-weight:700;color:#111827;margin-bottom:.4rem;">🏫 Universities offering scholarships (${univs.length})</div>
-        <input id="gks-search" oninput="renderGKSRows(this.value)" placeholder="🔍 Search university... " style="width:100%;padding:.6rem;border:1px solid #d1d5db;border-radius:.5rem;font-size:.9rem;margin-bottom:.6rem;">
-        <div style="max-height:calc(100vh - 400px);overflow:auto;border:1px solid #eef0f4;border-radius:.6rem;">
+        <input id="gks-search" oninput="renderGKSRows(this.value)" placeholder="🔍 Search university... " style="width:100%;padding:.6rem;border:1px solid #d1d5db;border-radius:8px;font-size:.9rem;margin-bottom:.6rem;">
+        <div style="max-height:calc(100vh - 400px);overflow:auto;border:1px solid #eef0f4;border-radius:10px;">
           <table class="list-table" style="font-size:.8rem;margin:0;">
             <thead><tr><th>University</th><th>Enrollment (입학)</th><th>Existing (재학)</th><th>Highlight</th></tr></thead>
             <tbody id="gks-body">${renderGKSRowsHTML('')}</tbody>
@@ -2788,12 +2796,12 @@ function renderGKSRows(q){
         ${knowledgeHeader('📣', 'Marketing', 'Strategies and channels to attract & convert international students — social media, agency networks, webinars, message templates, and KPIs.')}
 
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.7rem;">
-          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:.4rem;">📢 Social Media</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Facebook / Instagram / TikTok / Telegram ads targeting Cambodian & international students. Show real program photos, alumni testimonials, and scholarship success.</div></div>
-          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:.4rem;">🤝 Agency Network</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Partner with local education agencies (Sunrise Edu, Global Study, EduBridge). Offer agency commission tiers on successful admissions.</div></div>
-          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:.4rem;">🎤 Webinars & Fairs</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Host online info sessions and attend international education fairs to introduce programs, fees, scholarships, and D-2 visa process.</div></div>
-          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:.4rem;">💬 Follow-up</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Track every lead in the CRM pipeline (Contact → ... → VISA). Regular follow-ups via WhatsApp/Telegram to convert prospects.</div></div>
-          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:.4rem;">✉️ Message Templates</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Welcome message, scholarship notification, application reminders, and visa-process updates — ready-to-use scripts.</div></div>
-          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:.4rem;">📊 KPIs</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Track leads, conversion by stage, agency performance, and cost-per-admission to focus marketing spend.</div></div>
+          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:.4rem;">📢 Social Media</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Facebook / Instagram / TikTok / Telegram ads targeting Cambodian & international students. Show real program photos, alumni testimonials, and scholarship success.</div></div>
+          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:.4rem;">🤝 Agency Network</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Partner with local education agencies (Sunrise Edu, Global Study, EduBridge). Offer agency commission tiers on successful admissions.</div></div>
+          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:.4rem;">🎤 Webinars & Fairs</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Host online info sessions and attend international education fairs to introduce programs, fees, scholarships, and D-2 visa process.</div></div>
+          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:.4rem;">💬 Follow-up</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Track every lead in the CRM pipeline (Contact → ... → VISA). Regular follow-ups via WhatsApp/Telegram to convert prospects.</div></div>
+          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:.4rem;">✉️ Message Templates</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Welcome message, scholarship notification, application reminders, and visa-process updates — ready-to-use scripts.</div></div>
+          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:.4rem;">📊 KPIs</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Track leads, conversion by stage, agency performance, and cost-per-admission to focus marketing spend.</div></div>
         </div>
       </div>`;
   }
@@ -2807,14 +2815,14 @@ function renderGKSRows(q){
         ${knowledgeHeader('🇰🇷', 'Korea Life', 'Practical living guide for international students in Korea — cost of living, housing, D-2 visa, banking, insurance, transport, and emergency numbers.')}
 
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.7rem;">
-          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#166534;margin-bottom:.4rem;">🏠 Cost of Living</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Monthly: rent ₩300k-600k, food ₩250k-400k, transport ₩60k, insurance ₩70k, misc ₩100k. Total ~₩800k-1.2M/month outside Seoul.</div></div>
-          <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#1e40af;margin-bottom:.4rem;">🏢 Housing</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">University dormitories (₩300k-500k/sem) are cheapest; then goshiwon (₩300k-450k/mo) and one-room apartments (₩400k-600k/mo).</div></div>
-          <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#991b1b;margin-bottom:.4rem;">🗓️ Visa (D-2)</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Degree students hold D-2 visa. Must report change of address within 14 days to immigration; part-time work allowed (permit required).</div></div>
-          <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#92400e;margin-bottom:.4rem;">💳 Banking & SIM</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Open a bank account with passport + ARC (외국인등록증). Get a Korean SIM/eSIM at airports or telecom shops.</div></div>
-          <div style="background:#f5f3ff;border:1px solid #ddd6fe;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#5b21b6;margin-bottom:.4rem;">🏥 Health Insurance</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">International students join NHIS (국민건강보험). Mandatory; monthly ~₩70k. Covers clinics, hospitals, prescriptions.</div></div>
-          <div style="background:#ecfeff;border:1px solid #a5f3fc;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#155e75;margin-bottom:.4rem;">🚇 Getting Around</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Use T-money transportation card for subway/bus. Kakao T for taxis, KTX for intercity trains. Student discounts available.</div></div>
-          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#166534;margin-bottom:.4rem;">🍜 Food & Daily</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Budget meals ₩6k-10k. Use Coupang, Gmarket for delivery; convenience stores (GS25, CU) open 24h.</div></div>
-          <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:.7rem;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#1e40af;margin-bottom:.4rem;">🆘 Emergency</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Emergency: 112 (police), 119 (fire/ambulance), 1339 (medical). 1345 (immigration hotline, multi-language).</div></div>
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#166534;margin-bottom:.4rem;">🏠 Cost of Living</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Monthly: rent ₩300k-600k, food ₩250k-400k, transport ₩60k, insurance ₩70k, misc ₩100k. Total ~₩800k-1.2M/month outside Seoul.</div></div>
+          <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#1e40af;margin-bottom:.4rem;">🏢 Housing</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">University dormitories (₩300k-500k/sem) are cheapest; then goshiwon (₩300k-450k/mo) and one-room apartments (₩400k-600k/mo).</div></div>
+          <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#991b1b;margin-bottom:.4rem;">🗓️ Visa (D-2)</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Degree students hold D-2 visa. Must report change of address within 14 days to immigration; part-time work allowed (permit required).</div></div>
+          <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#92400e;margin-bottom:.4rem;">💳 Banking & SIM</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Open a bank account with passport + ARC (외국인등록증). Get a Korean SIM/eSIM at airports or telecom shops.</div></div>
+          <div style="background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#5b21b6;margin-bottom:.4rem;">🏥 Health Insurance</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">International students join NHIS (국민건강보험). Mandatory; monthly ~₩70k. Covers clinics, hospitals, prescriptions.</div></div>
+          <div style="background:#ecfeff;border:1px solid #a5f3fc;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#155e75;margin-bottom:.4rem;">🚇 Getting Around</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Use T-money transportation card for subway/bus. Kakao T for taxis, KTX for intercity trains. Student discounts available.</div></div>
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#166534;margin-bottom:.4rem;">🍜 Food & Daily</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Budget meals ₩6k-10k. Use Coupang, Gmarket for delivery; convenience stores (GS25, CU) open 24h.</div></div>
+          <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:.8rem;"><div style="font-weight:700;font-size:.9rem;color:#1e40af;margin-bottom:.4rem;">🆘 Emergency</div><div style="font-size:.8rem;color:#475569;line-height:1.6;">Emergency: 112 (police), 119 (fire/ambulance), 1339 (medical). 1345 (immigration hotline, multi-language).</div></div>
         </div>
       </div>`;
   }
@@ -2840,7 +2848,7 @@ function renderGKSRows(q){
             <option value="junior">Junior College</option>
           </select>
           <label class="ctl-label"><input type="checkbox" class="ctl-check" id="univ-over2k" checked onchange="renderUnivRows(document.getElementById('univ-search').value)"> &gt;2000 students</label>
-                    <label class="ctl-label" style="color:#0f766e;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:.5rem;padding:0 .55rem;"><input type="checkbox" class="ctl-check" id="univ-guide2027" onchange="renderUnivRows(document.getElementById('univ-search').value)"> 2027 guide</label>
+                    <label class="ctl-label" style="color:#0f766e;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:8px;padding:0 .55rem;"><input type="checkbox" class="ctl-check" id="univ-guide2027" onchange="renderUnivRows(document.getElementById('univ-search').value)"> 2027 guide</label>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:.8rem;">
           <label class="ctl-label" style="font-weight:700;">📍 Location
@@ -2876,7 +2884,7 @@ function renderGKSRows(q){
                     <label class="ctl-label" title="우수 인증대학"><input type="checkbox" class="ctl-check" id="univ-cert-exc" onchange="renderUnivRows(document.getElementById('univ-search').value)"> ⭐ Excellent-Certified</label>
         </div>
         <div style="font-size:.78rem;color:#64748b;margin-bottom:.5rem;"><span id="univ-count">${list.length} universities</span> · click a column header to sort</div>
-        <div style="max-height:calc(100vh - 260px);overflow:auto;border:1px solid #eef0f4;border-radius:.6rem;">
+        <div style="max-height:calc(100vh - 260px);overflow:auto;border:1px solid #eef0f4;border-radius:10px;">
           <table class="list-table" style="font-size:.82rem;margin:0;">
             <thead><tr>
               <th style="cursor:pointer;user-select:none" onclick="sortUniv('n')">University (KR) <span class="sort-ic" data-sort="n"></span></th>
@@ -3051,7 +3059,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     let rows = items.map(([ic,lb]) => `<div><span style="font-size:1rem">${ic}</span> <b>${escapeHtml(lb)}</b></div>`).join('');
     if (!rows) rows = '<div style="color:#94a3b8">No language requirements specified.</div>';
     let noteHtml = '';
-    if (u.req_note) noteHtml = `<div style="margin-top:.5rem;padding:.5rem .6rem;background:#fff7ed;border:1px solid #fed7aa;border-radius:.5rem;font-size:.8rem;color:#9a3412;">⚠️ ${escapeHtml(u.req_note)}</div>`;
+    if (u.req_note) noteHtml = `<div style="margin-top:.5rem;padding:.5rem .6rem;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;font-size:.8rem;color:#9a3412;">⚠️ ${escapeHtml(u.req_note)}</div>`;
     return `<div class="modal-section"><div class="modal-section-title">📚 Requirements</div><div style="font-size:.85rem;line-height:1.8;">${rows}</div>${noteHtml}</div>`;
   }
   function renderMajorsSections(u) {
@@ -3113,7 +3121,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
           html += '<div style="display:flex;justify-content:space-between;gap:.6rem;font-size:.78rem;padding:.18rem 0;border-bottom:1px dashed #f1f5f9;">'
             + '<span>' + escapeHtml(String(major))
             + (college ? ' <span style="color:#94a3b8;">· ' + escapeHtml(String(college)) + '</span>' : '')
-            + (d.eng ? ' <span style="font-size:.62rem;background:#eff6ff;color:#1e40af;border-radius:3px;padding:.05rem .3rem;">ENG</span>' : '')
+            + (d.eng ? ' <span style="font-size:.62rem;background:#eff6ff;color:#1e40af;border-radius:2px;padding:.05rem .3rem;">ENG</span>' : '')
             + '</span><span style="font-weight:600;white-space:nowrap;">' + (fee ? fee.toLocaleString('ko-KR') + '원' : '—') + '</span></div>';
         });
       }
@@ -3123,7 +3131,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
           html += '<div style="font-size:.78rem;padding:.2rem 0;border-bottom:1px dashed #f1f5f9;">'
             + '<b>' + escapeHtml(String(d.name || '')) + '</b>'
             + (d.en ? ' <span style="color:#94a3b8;">' + escapeHtml(String(d.en)) + '</span>' : '')
-            + (d.required ? ' <span style="font-size:.62rem;background:#fee2e2;color:#991b1b;border-radius:3px;padding:.05rem .3rem;">필수</span>' : '')
+            + (d.required ? ' <span style="font-size:.62rem;background:#fee2e2;color:#991b1b;border-radius:2px;padding:.05rem .3rem;">필수</span>' : '')
             + (d.note ? '<div style="color:#64748b;font-size:.72rem;">' + escapeHtml(String(d.note)) + '</div>' : '')
             + (d.country_specific ? '<div style="color:#b45309;font-size:.72rem;">국가별: ' + escapeHtml(String(d.country_specific)) + '</div>' : '')
             + '</div>';
@@ -3139,7 +3147,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     if (!u) return;
     const isJunior = (u.type||'univ') === 'junior';
     const g = univGuides()[name] || {};
-    const linkBtn = (href, label, color) => `<a href="${href}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;border-radius:.5rem;font-size:.82rem;font-weight:600;color:#fff;text-decoration:none;${color}">${label}</a>`;
+    const linkBtn = (href, label, color) => `<a href="${href}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;border-radius:8px;font-size:.82rem;font-weight:600;color:#fff;text-decoration:none;${color}">${label}</a>`;
     let guideRow = '';
     if (isJunior) {
       guideRow = `
@@ -3156,7 +3164,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       const hasBa = !!currentGuide(name,'ba'), hasMa = !!currentGuide(name,'ma'), hasLang = !!currentGuide(name,'lang');
       const baG = currentGuide(name,'ba'), maG = currentGuide(name,'ma'), langG = currentGuide(name,'lang');
       const yrBadge = (y) => y ? `<span style="font-size:.62rem;font-weight:700;background:#0d9488;color:#fff;border-radius:999px;padding:.1rem .45rem;margin-left:.3rem;">${y}</span>` : '';
-      const guideBox = (href, label, color, g) => `<a href="${href}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;border-radius:.5rem;font-size:.82rem;font-weight:600;color:#fff;text-decoration:none;${color}">${label}${yrBadge(g?g.year:'')}</a>`;
+      const guideBox = (href, label, color, g) => `<a href="${href}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .9rem;border-radius:8px;font-size:.82rem;font-weight:600;color:#fff;text-decoration:none;${color}">${label}${yrBadge(g?g.year:'')}</a>`;
       guideRow = `
         <div class="modal-section">
           <div class="modal-section-title">📥 Admission Guide ${hasGuideYear(name,'2027') ? '<span style="font-size:.7rem;font-weight:700;color:#0d9488;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;padding:.15rem .6rem;margin-left:.4rem;">✅ 2027 guide available</span>' : '<span style="font-size:.7rem;color:#94a3b8;margin-left:.4rem;">latest shown</span>'}</div>
@@ -3200,9 +3208,9 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
           <button onclick="closeModal()" style="background:none;border:none;font-size:1.5rem;cursor:pointer;color:#64748b;">✕</button>
         </div>
         <div style="display:flex;gap:.6rem;flex-wrap:wrap;padding:.8rem 1.4rem 0;">
-          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:.5rem;padding:.4rem .8rem;"><div style="font-size:.68rem;color:#94a3b8">Location</div><div style="font-size:.85rem;font-weight:600">${escapeHtml(u.loc?locEn(u.loc):'—')}</div></div>
-          ${!isJunior ? `<div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:.5rem;padding:.4rem .8rem;"><div style="font-size:.68rem;color:#94a3b8">Rank</div><div style="font-size:.85rem;font-weight:600">${u.rk ? '#'+u.rk : '—'}</div></div>
-          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:.5rem;padding:.4rem .8rem;"><div style="font-size:.68rem;color:#94a3b8">Students</div><div style="font-size:.85rem;font-weight:600">${u.stu ? Number(u.stu).toLocaleString() : '—'}</div></div>` : ''}
+          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:8px;padding:.4rem .8rem;"><div style="font-size:.68rem;color:#94a3b8">Location</div><div style="font-size:.85rem;font-weight:600">${escapeHtml(u.loc?locEn(u.loc):'—')}</div></div>
+          ${!isJunior ? `<div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:8px;padding:.4rem .8rem;"><div style="font-size:.68rem;color:#94a3b8">Rank</div><div style="font-size:.85rem;font-weight:600">${u.rk ? '#'+u.rk : '—'}</div></div>
+          <div style="background:#f8fafc;border:1px solid #eef0f4;border-radius:8px;padding:.4rem .8rem;"><div style="font-size:.68rem;color:#94a3b8">Students</div><div style="font-size:.85rem;font-weight:600">${u.stu ? Number(u.stu).toLocaleString() : '—'}</div></div>` : ''}
         </div>
         <div style="padding:1rem 1.4rem 1.2rem;overflow-y:auto;max-height:70vh;">
           ${guideRow}
@@ -3879,7 +3887,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     try { notesArr = JSON.parse(card.dataset.notes||'[]'); if(!Array.isArray(notesArr)) notesArr=[]; } catch(e){ notesArr = card.dataset.notes ? [{text:String(card.dataset.notes),time:''}] : []; }
     let pp = { name:'', num:'', dob:'', exp:'', sex:'' };
     try { if (card.dataset.passport) pp = Object.assign(pp, JSON.parse(card.dataset.passport)); } catch(e){}
-    const notesHtml = notesArr.length ? notesArr.map((n,i)=>`<div class="knote" style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:.4rem;margin-bottom:.35rem;background:#f8fafc;"><div class="knote-text" style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><div style="display:flex;align-items:center;gap:.25rem;flex:none;"><button onclick="editKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#6b7280;font-size:.72rem;" title="Edit note">✏️</button><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button></div><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
+    const notesHtml = notesArr.length ? notesArr.map((n,i)=>`<div class="knote" style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:6px;margin-bottom:.35rem;background:#f8fafc;"><div class="knote-text" style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><div style="display:flex;align-items:center;gap:.25rem;flex:none;"><button onclick="editKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#6b7280;font-size:.72rem;" title="Edit note">✏️</button><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button></div><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
     const cardPipe = card.dataset.pipe || 'korea';
     const pipe = PIPELINES[cardPipe] || PIPELINES['korea'];
     // Stage dropdown maps the card's pipeline stages exactly
@@ -3887,7 +3895,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     const stageOpts = stageList.map(s => `<option value="${s}" ${card.dataset.stage===s?'selected':''}>${STAGE_LABELS[s]}</option>`).join('');
     // Stage as clickable buttons (better than dropdown)
     const curStage = card.dataset.stage;
-    const stageBtns = stageList.map(s => `<button type="button" class="kstage-btn ${curStage===s?'active':''}" data-stage="${s}" onclick="selectKStage(this)" style="padding:.4rem .7rem;border-radius:.5rem;border:1.5px solid ${curStage===s?'#2563eb':'#e2e8f0'};background:${curStage===s?'#eff6ff':'#fff'};color:${curStage===s?'#2563eb':'#334155'};font-size:.72rem;font-weight:600;cursor:pointer;">${STAGE_LABELS[s]}</button>`).join('');
+    const stageBtns = stageList.map(s => `<button type="button" class="kstage-btn ${curStage===s?'active':''}" data-stage="${s}" onclick="selectKStage(this)" style="padding:.4rem .7rem;border-radius:8px;border:1.5px solid ${curStage===s?'#2563eb':'#e2e8f0'};background:${curStage===s?'#eff6ff':'#fff'};color:${curStage===s?'#2563eb':'#334155'};font-size:.72rem;font-weight:600;cursor:pointer;">${STAGE_LABELS[s]}</button>`).join('');
     // current stage as hidden value for saveKoreaEdit compatibility
     const curStageHidden = curStage;
     const agencyOpts = AGENCIES.map(a=>`<option value="${escapeHtml(a.name)}" ${a.name===agency?'selected':''}>${escapeHtml(a.name)}</option>`).join('');
@@ -3936,8 +3944,8 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       }
     } catch(e){}
     const hdrPhotoHtml = hdrPhotoUrl
-      ? `<img src="${escapeHtml(hdrPhotoUrl)}" loading="lazy" decoding="async" onerror="this.style.display='none'" alt="photo" referrerpolicy="no-referrer" style="width:56px;height:72px;object-fit:cover;border-radius:.5rem;border:1px solid #e2e8f0;flex:none;background:#f1f5f9;">`
-      : `<div style="width:56px;height:72px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#cbd5e1;background:#f8fafc;border-radius:.5rem;flex:none;">👤</div>`;
+      ? `<img src="${escapeHtml(hdrPhotoUrl)}" loading="lazy" decoding="async" onerror="this.style.display='none'" alt="photo" referrerpolicy="no-referrer" style="width:56px;height:72px;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;flex:none;background:#f1f5f9;">`
+      : `<div style="width:56px;height:72px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#cbd5e1;background:#f8fafc;border-radius:8px;flex:none;">👤</div>`;
     // TOPIK / IELTS select options
     const TOPIK_OPTS = ['','TOPIK 1','TOPIK 2','TOPIK 3','TOPIK 4','TOPIK 5','TOPIK 6']
       .map(v=>`<option value="${v}" ${topik===v?'selected':''}>${v||'— None —'}</option>`).join('');
@@ -3967,10 +3975,10 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         </div>
         <div style="overflow-y:auto;max-height:calc(90vh - 7rem);padding:1.1rem 1.25rem;">
         <input type="hidden" id="k-name" value="${escapeHtml(name)}">
-        ${(cardPipe==='new' && card.dataset.stage==='visa') ? `<div style="margin-bottom:.9rem;padding:.9rem;border-radius:.75rem;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;">
+        ${(cardPipe==='new' && card.dataset.stage==='visa') ? `<div style="margin-bottom:.9rem;padding:.9rem;border-radius:12px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;">
           <div style="font-size:.8rem;font-weight:700;color:#15803d;margin-bottom:.55rem;">🛂 VISA Process — Approved?</div>
-          <button class="btn" onclick="visaApproved()" style="width:100%;padding:.65rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(22,163,74,.35);">✅ VISA Approved — Move to Korea 🇰🇷</button>
-          <button class="btn" onclick="visaDenied()" style="width:100%;margin-top:.45rem;padding:.65rem;border:none;border-radius:.55rem;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(220,38,38,.35);">❌ VISA Denied — Archive</button>
+          <button class="btn" onclick="visaApproved()" style="width:100%;padding:.65rem;border:none;border-radius:8px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(22,163,74,.35);">✅ VISA Approved — Move to Korea 🇰🇷</button>
+          <button class="btn" onclick="visaDenied()" style="width:100%;margin-top:.45rem;padding:.65rem;border:none;border-radius:8px;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(220,38,38,.35);">❌ VISA Denied — Archive</button>
         </div>` : ''}
 
         <!-- TWO-COLUMN LAYOUT -->
@@ -3987,8 +3995,8 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
           <div class="field"><label>👤 Assigned to</label><select id="k-assigned">${assignedOpts}</select></div>
           <div class="field"><label>🏫 School *</label>
             <div style="position:relative;">
-              <input id="k-school-search" value="${escapeHtml(schoolDisplay)}" placeholder="🔍 대학교 검색 (예: 전북대학교 JBNU)..." oninput="filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;outline:none;box-sizing:border-box;">
-              <div id="k-school-list" style="position:absolute;top:100%;left:0;right:0;z-index:50;background:#fff;border:1px solid #e2e8f0;border-radius:.5rem;max-height:200px;overflow:auto;display:none;box-shadow:0 8px 20px rgba(0,0,0,.12);"></div>
+              <input id="k-school-search" value="${escapeHtml(schoolDisplay)}" placeholder="🔍 대학교 검색 (예: 전북대학교 JBNU)..." oninput="filterKoreaSchools(this.value)" autocomplete="off" style="width:100%;padding:.55rem .6rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.82rem;outline:none;box-sizing:border-box;">
+              <div id="k-school-list" style="position:absolute;top:100%;left:0;right:0;z-index:50;background:#fff;border:1px solid #e2e8f0;border-radius:8px;max-height:200px;overflow:auto;display:none;box-shadow:0 8px 20px rgba(0,0,0,.12);"></div>
               <input type="hidden" id="k-school" value="${escapeHtml(school)}">
             </div>
           </div>
@@ -4037,11 +4045,11 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         <!-- 4. PAYMENT -->
         <div class="modal-section">
           <div class="modal-section-title" onclick="this.parentElement.classList.toggle('closed')"><span class="fold-ic">▼</span>💰 Payment</div>
-          <div id="k-payments" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:140px;overflow:auto;font-size:.78rem;background:#f8fafc;margin-bottom:.4rem;">${renderPaymentsList(card.dataset.payments)}</div>
+          <div id="k-payments" style="border:1px dashed #e2e8f0;border-radius:8px;padding:.5rem;max-height:140px;overflow:auto;font-size:.78rem;background:#f8fafc;margin-bottom:.4rem;">${renderPaymentsList(card.dataset.payments)}</div>
           <div style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;">
-            <input id="k-pay-amount" placeholder="Amount ($)" oninput="this.value=this.value.replace(/[^0-9.,]/g,'')" style="flex:1;min-width:90px;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
-            <input id="k-pay-date" placeholder="Date" value="${escapeHtml(todayStr())}" style="width:105px;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
-            <input id="k-pay-reason" placeholder="Reason" style="flex:1;min-width:90px;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
+            <input id="k-pay-amount" placeholder="Amount ($)" oninput="this.value=this.value.replace(/[^0-9.,]/g,'')" style="flex:1;min-width:90px;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.8rem;outline:none;">
+            <input id="k-pay-date" placeholder="Date" value="${escapeHtml(todayStr())}" style="width:105px;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.8rem;outline:none;">
+            <input id="k-pay-reason" placeholder="Reason" style="flex:1;min-width:90px;padding:.4rem .6rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.8rem;outline:none;">
             <button class="btn btn-note" onclick="addKPayment()" style="font-size:.75rem;padding:.3rem .7rem;">➕ Add</button>
           </div>
         </div>
@@ -4050,7 +4058,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         <div class="modal-section">
           <div class="modal-section-title" onclick="this.parentElement.classList.toggle('closed')"><span class="fold-ic">▼</span>📄 Application Documents</div>
           <div id="k-appdocs-rows" style="display:flex;flex-direction:column;gap:.35rem;"></div>
-          <div id="k-docs" style="border:1px dashed #e2e8f0;border-radius:.5rem;padding:.5rem;max-height:120px;overflow:auto;font-size:.78rem;background:#f8fafc;color:#94a3b8;margin-top:.6rem;">Loading documents...</div>
+          <div id="k-docs" style="border:1px dashed #e2e8f0;border-radius:8px;padding:.5rem;max-height:120px;overflow:auto;font-size:.78rem;background:#f8fafc;color:#94a3b8;margin-top:.6rem;">Loading documents...</div>
           <div style="display:flex;gap:.4rem;margin-top:.4rem;">
             <button class="btn btn-note" onclick="refreshKoreaDocs(true)" style="font-size:.72rem;padding:.25rem .6rem;">🔄 Refresh</button>
             <button class="btn btn-note" onclick="openStudentFolder(document.getElementById('korea-edit-modal')._card)" style="font-size:.72rem;padding:.25rem .6rem;background:#e0f2fe;color:#0c4a6e;">📁 ${card.dataset.folderUrl ? 'Open folder' : 'Create & open folder'}</button>
@@ -4068,23 +4076,23 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
           <div class="modal-section-title" onclick="this.parentElement.classList.toggle('closed')"><span class="fold-ic">▼</span>📝 Final Note</div>
           <div id="k-notes-list" style="max-height:140px;overflow:auto;">${notesHtml}</div>
           <div style="display:flex;gap:.4rem;margin-top:.4rem;">
-            <input id="k-note" placeholder="Add a note..." onkeydown="if(event.key==='Enter'){event.preventDefault();addKoreaNote();}" style="flex:1;padding:.45rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.8rem;outline:none;">
+            <input id="k-note" placeholder="Add a note..." onkeydown="if(event.key==='Enter'){event.preventDefault();addKoreaNote();}" style="flex:1;padding:.45rem .6rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.8rem;outline:none;">
             <button class="btn btn-note" onclick="addKoreaNote()" style="font-size:.75rem;padding:.3rem .7rem;">➕ Add</button>
           </div>
         </div>
 
         <!-- Passport info (folded) -->
         <div class="field">
-          <div onclick="toggleKPassport()" style="display:flex;align-items:center;gap:.4rem;cursor:pointer;user-select:none;"><span id="kpp-fold-ic">▶</span><label style="cursor:pointer;margin:0;">🛂 여권정보 (Passport Info)</label><button onclick="event.stopPropagation();autoParsePassportFromFolder()" style="margin-left:auto;background:#e0f2fe;color:#0c4a6e;border:none;border-radius:.4rem;padding:.2rem .55rem;font-size:.7rem;font-weight:600;cursor:pointer;">🔄 Parse</button></div>
-          <div id="k-passport-fields" style="display:none;border:1px solid #e2e8f0;border-radius:.5rem;padding:.5rem;background:#f8fafc;margin-top:.4rem;">
+          <div onclick="toggleKPassport()" style="display:flex;align-items:center;gap:.4rem;cursor:pointer;user-select:none;"><span id="kpp-fold-ic">▶</span><label style="cursor:pointer;margin:0;">🛂 여권정보 (Passport Info)</label><button onclick="event.stopPropagation();autoParsePassportFromFolder()" style="margin-left:auto;background:#e0f2fe;color:#0c4a6e;border:none;border-radius:6px;padding:.2rem .55rem;font-size:.7rem;font-weight:600;cursor:pointer;">🔄 Parse</button></div>
+          <div id="k-passport-fields" style="display:none;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem;background:#f8fafc;margin-top:.4rem;">
             <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem;">
-              <div style="flex:1;min-width:120px;"><label style="font-size:.68rem;color:#6b7280;">Name on passport</label><input id="kpp-name" value="${escapeHtml(pp.name)}" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;text-transform:uppercase;"></div>
-              <div style="flex:1;min-width:120px;"><label style="font-size:.68rem;color:#6b7280;">Passport Number</label><input id="kpp-num" value="${escapeHtml(pp.num)}" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;text-transform:uppercase;"></div>
+              <div style="flex:1;min-width:120px;"><label style="font-size:.68rem;color:#6b7280;">Name on passport</label><input id="kpp-name" value="${escapeHtml(pp.name)}" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:6px;font-size:.78rem;box-sizing:border-box;text-transform:uppercase;"></div>
+              <div style="flex:1;min-width:120px;"><label style="font-size:.68rem;color:#6b7280;">Passport Number</label><input id="kpp-num" value="${escapeHtml(pp.num)}" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:6px;font-size:.78rem;box-sizing:border-box;text-transform:uppercase;"></div>
             </div>
             <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem;">
-              <div style="flex:1;min-width:110px;"><label style="font-size:.68rem;color:#6b7280;">Birth-Date</label><input id="kpp-dob" value="${escapeHtml(pp.dob)}" placeholder="YYYY-MM-DD" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;"></div>
-              <div style="flex:1;min-width:110px;"><label style="font-size:.68rem;color:#6b7280;">Expiration Date</label><input id="kpp-exp" value="${escapeHtml(pp.exp)}" placeholder="YYYY-MM-DD" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;"></div>
-              <div style="flex:1;min-width:80px;"><label style="font-size:.68rem;color:#6b7280;">Sex</label><select id="kpp-sex" style="width:100%;padding:.35rem .4rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.78rem;box-sizing:border-box;"><option value="">—</option><option value="M" ${pp.sex==='M'?'selected':''}>M</option><option value="F" ${pp.sex==='F'?'selected':''}>F</option></select></div>
+              <div style="flex:1;min-width:110px;"><label style="font-size:.68rem;color:#6b7280;">Birth-Date</label><input id="kpp-dob" value="${escapeHtml(pp.dob)}" placeholder="YYYY-MM-DD" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:6px;font-size:.78rem;box-sizing:border-box;"></div>
+              <div style="flex:1;min-width:110px;"><label style="font-size:.68rem;color:#6b7280;">Expiration Date</label><input id="kpp-exp" value="${escapeHtml(pp.exp)}" placeholder="YYYY-MM-DD" style="width:100%;padding:.35rem .5rem;border:1px solid #d1d5db;border-radius:6px;font-size:.78rem;box-sizing:border-box;"></div>
+              <div style="flex:1;min-width:80px;"><label style="font-size:.68rem;color:#6b7280;">Sex</label><select id="kpp-sex" style="width:100%;padding:.35rem .4rem;border:1px solid #d1d5db;border-radius:6px;font-size:.78rem;box-sizing:border-box;"><option value="">—</option><option value="M" ${pp.sex==='M'?'selected':''}>M</option><option value="F" ${pp.sex==='F'?'selected':''}>F</option></select></div>
             </div>
             <div id="kpp-status" style="font-size:.68rem;color:#94a3b8;"></div>
           </div>
@@ -4396,11 +4404,11 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
               <div class="dz-list" id="dz-passport"></div>
               <div id="passport-fields" style="margin-top:.5rem;">
                 <div style="font-size:.72rem;color:#6b7280;font-weight:600;margin-bottom:.3rem;">🛂 Passport info (auto-filled by OCR if possible, or enter manually)</div>
-                <div style="margin-bottom:.3rem;"><label style="font-size:.7rem;color:#6b7280;">Name</label><input id="pp-name" style="width:100%;padding:.3rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.8rem;"></div>
-                <div style="margin-bottom:.3rem;"><label style="font-size:.7rem;color:#6b7280;">Passport Number</label><input id="pp-num" style="width:100%;padding:.3rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.8rem;"></div>
-                <div style="margin-bottom:.3rem;"><label style="font-size:.7rem;color:#6b7280;">Birth Date</label><input id="pp-dob" style="width:100%;padding:.3rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.8rem;"></div>
-                <div style="margin-bottom:.3rem;"><label style="font-size:.7rem;color:#6b7280;">Expiration Date</label><input id="pp-exp" style="width:100%;padding:.3rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.8rem;"></div>
-                <div style="margin-bottom:.3rem;"><label style="font-size:.7rem;color:#6b7280;">Sex</label><input id="pp-sex" style="width:100%;padding:.3rem .5rem;border:1px solid #d1d5db;border-radius:.4rem;font-size:.8rem;" placeholder="M / F"></div>
+                <div style="margin-bottom:.3rem;"><label style="font-size:.7rem;color:#6b7280;">Name</label><input id="pp-name" style="width:100%;padding:.3rem .5rem;border:1px solid #d1d5db;border-radius:6px;font-size:.8rem;"></div>
+                <div style="margin-bottom:.3rem;"><label style="font-size:.7rem;color:#6b7280;">Passport Number</label><input id="pp-num" style="width:100%;padding:.3rem .5rem;border:1px solid #d1d5db;border-radius:6px;font-size:.8rem;"></div>
+                <div style="margin-bottom:.3rem;"><label style="font-size:.7rem;color:#6b7280;">Birth Date</label><input id="pp-dob" style="width:100%;padding:.3rem .5rem;border:1px solid #d1d5db;border-radius:6px;font-size:.8rem;"></div>
+                <div style="margin-bottom:.3rem;"><label style="font-size:.7rem;color:#6b7280;">Expiration Date</label><input id="pp-exp" style="width:100%;padding:.3rem .5rem;border:1px solid #d1d5db;border-radius:6px;font-size:.8rem;"></div>
+                <div style="margin-bottom:.3rem;"><label style="font-size:.7rem;color:#6b7280;">Sex</label><input id="pp-sex" style="width:100%;padding:.3rem .5rem;border:1px solid #d1d5db;border-radius:6px;font-size:.8rem;" placeholder="M / F"></div>
               </div>
             </div>
             <div class="dz-step">🎓 Step 5 · Admission</div>
@@ -4432,7 +4440,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
             <div id="e-drive-docs" style="font-size:.75rem;color:#6b7280;">
               ${card.dataset.folderId
                 ? `<div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
-                     <button onclick="openStudentFolder(overlay._card)" style="display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .8rem;background:#e0f2fe;color:#0c4a6e;border-radius:.5rem;font-size:.78rem;font-weight:600;border:none;cursor:pointer;">📁 Open folder</button>
+                     <button onclick="openStudentFolder(overlay._card)" style="display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .8rem;background:#e0f2fe;color:#0c4a6e;border-radius:8px;font-size:.78rem;font-weight:600;border:none;cursor:pointer;">📁 Open folder</button>
                      <button class="btn btn-save" onclick="uploadCustomerDoc(overlay._card)">⬆ Upload files</button>
                    </div>`
                 : `<div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
@@ -5046,7 +5054,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     const cur = listCustomValue(card, key);
     const input = document.createElement('input');
     input.value = cur;
-    input.style.cssText='width:100%;border:1px solid #6366f1;border-radius:.3rem;padding:.15rem .3rem;font-size:.75rem;';
+    input.style.cssText='width:100%;border:1px solid #6366f1;border-radius:4px;padding:.15rem .3rem;font-size:.75rem;';
     td.textContent='';
     td.appendChild(input);
     input.focus();
@@ -5103,8 +5111,8 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         <div id="list-settings-cols"></div>
       </div>
       <div style="padding:.8rem 1.2rem;border-top:1px solid #eef0f4;display:flex;gap:.5rem;">
-        <button onclick="addListColumn()" style="flex:1;padding:.5rem;background:#e0e7ff;color:#3730a3;border:none;border-radius:.5rem;font-weight:600;cursor:pointer;">➕ Add field</button>
-        <button onclick="closeListSettings()" style="flex:1;padding:.5rem;background:#f3f4f6;color:#374151;border:none;border-radius:.5rem;font-weight:600;cursor:pointer;">Done</button>
+        <button onclick="addListColumn()" style="flex:1;padding:.5rem;background:#e0e7ff;color:#3730a3;border:none;border-radius:8px;font-weight:600;cursor:pointer;">➕ Add field</button>
+        <button onclick="closeListSettings()" style="flex:1;padding:.5rem;background:#f3f4f6;color:#374151;border:none;border-radius:8px;font-weight:600;cursor:pointer;">Done</button>
       </div>
     </div>`;
     renderListSettings();
@@ -5126,7 +5134,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       const isBase = !key.startsWith('custom:');
       const label = isBase ? (LIST_BASE_COLS.find(c=>c.key===key)||{}).label || key : key.replace('custom:','');
       const hidden = HIDDEN_LIST_COLS.includes(key);
-      html += `<div draggable="true" ondragstart="listColDragStart(this)" ondragover="event.preventDefault()" ondrop="listColDrop(this)" data-colkey="${key}" style="display:flex;align-items:center;gap:.5rem;padding:.45rem .5rem;border:1px solid #eef0f4;border-radius:.5rem;margin-bottom:.35rem;background:#f8fafc;cursor:grab;">
+      html += `<div draggable="true" ondragstart="listColDragStart(this)" ondragover="event.preventDefault()" ondrop="listColDrop(this)" data-colkey="${key}" style="display:flex;align-items:center;gap:.5rem;padding:.45rem .5rem;border:1px solid #eef0f4;border-radius:8px;margin-bottom:.35rem;background:#f8fafc;cursor:grab;">
         <span style="color:#94a3b8;">⠿</span>
         <label style="display:flex;align-items:center;gap:.4rem;flex:1;cursor:pointer;">
           <input type="checkbox" ${hidden?'':'checked'} onchange="listColCheck('${key}', this.checked)" style="accent-color:#4f46e5;width:15px;height:15px;">
@@ -5229,7 +5237,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         html += `<th data-listcol="${key}" onclick="sortList('${col}')" style="position:relative;cursor:pointer;${listColWidth(key)}" title="Click to sort">${col}<span class="col-resize" data-col="${key}" onclick="event.stopPropagation()" title="Drag to resize"></span></th>`;
       });
       // keep the + button as the last header
-      headerRow.innerHTML = html + `<th style="width:40px;text-align:center;"><button onclick="openListSettings()" title="Column settings" style="background:#eef2ff;color:#4f46e5;border:none;border-radius:.3rem;cursor:pointer;font-size:.8rem;padding:.15rem .4rem;">⚙</button></th>`;
+      headerRow.innerHTML = html + `<th style="width:40px;text-align:center;"><button onclick="openListSettings()" title="Column settings" style="background:#eef2ff;color:#4f46e5;border:none;border-radius:4px;cursor:pointer;font-size:.8rem;padding:.15rem .4rem;">⚙</button></th>`;
     }
     const { stage, program, school, agency, appdate } = filterState;
     const arrMatch=(a,v)=>((!Array.isArray(a)||a.length===0)||a.includes(v));
@@ -6087,7 +6095,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         o.innerHTML = `<div class="modal" style="max-width:520px;">
           <h2>📊 Your Google Sheet</h2>
           <div style="font-size:.85rem;color:#374151;margin:.8rem 0;">Open and edit your data in Google Sheets:</div>
-          <a href="${info.sheetUrl}" target="_blank" rel="noopener" style="display:block;padding:.8rem;background:#e0f2fe;color:#0c4a6e;border-radius:.5rem;font-weight:600;text-decoration:none;word-break:break-all;">📊 ${info.name} — open in Sheets</a>
+          <a href="${info.sheetUrl}" target="_blank" rel="noopener" style="display:block;padding:.8rem;background:#e0f2fe;color:#0c4a6e;border-radius:8px;font-weight:600;text-decoration:none;word-break:break-all;">📊 ${info.name} — open in Sheets</a>
           <div style="font-size:.75rem;color:#64748b;margin-top:.6rem;">Edit cells, then click <b>Pull from Google Sheet</b> in the app to load changes.</div>
           <div class="actions" style="margin-top:1rem;"><button class="btn btn-save" onclick="closeModal()">OK</button></div>
         </div>`;
@@ -6382,8 +6390,8 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         <label style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:#334155;cursor:pointer;"><input type="checkbox" id="f-denied" ${f('denied')?'checked':''} style="accent-color:#dc2626;width:18px;height:18px;"> ❌ Denied</label>
       </div>
       <div style="padding:1rem 1.2rem;border-top:1px solid #eef0f4;display:flex;gap:.5rem;">
-        <button onclick="saveFlagModal(this.closest('.modal').querySelector('#flag-modal')||this.closest('.modal'))" style="flex:1;padding:.5rem;background:#4f46e5;color:#fff;border:none;border-radius:.5rem;font-weight:600;cursor:pointer;">Save Flags</button>
-        <button onclick="this.closest('.modal-overlay').style.display='none'" style="flex:1;padding:.5rem;background:#f3f4f6;color:#374151;border:none;border-radius:.5rem;font-weight:600;cursor:pointer;">Cancel</button>
+        <button onclick="saveFlagModal(this.closest('.modal').querySelector('#flag-modal')||this.closest('.modal'))" style="flex:1;padding:.5rem;background:#4f46e5;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;">Save Flags</button>
+        <button onclick="this.closest('.modal-overlay').style.display='none'" style="flex:1;padding:.5rem;background:#f3f4f6;color:#374151;border:none;border-radius:8px;font-weight:600;cursor:pointer;">Cancel</button>
       </div>
     </div>`;
     m._card = card;
@@ -6445,7 +6453,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     const input = document.createElement('input');
     input.value = notes[idx].text || '';
     input.className = 'knote-edit';
-    input.style.cssText = 'flex:1;padding:.3rem .5rem;border:1.5px solid #6366f1;border-radius:.4rem;font-size:.8rem;outline:none;';
+    input.style.cssText = 'flex:1;padding:.3rem .5rem;border:1.5px solid #6366f1;border-radius:6px;font-size:.8rem;outline:none;';
     textEl.replaceWith(input);
     input.focus();
     input.select();
@@ -6472,7 +6480,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
   function renderKoreaNotes(overlay, notes){
     const listEl = overlay.querySelector('#k-notes-list');
     if(!listEl) return;
-    listEl.innerHTML = notes.length ? notes.map((n,i)=>`<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:.4rem;margin-bottom:.35rem;background:#f8fafc;"><div class="knote-text" style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><div style="display:flex;align-items:center;gap:.25rem;flex:none;"><button onclick="editKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#6b7280;font-size:.72rem;" title="Edit note">✏️</button><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button></div><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
+    listEl.innerHTML = notes.length ? notes.map((n,i)=>`<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.4rem;padding:.4rem;border:1px solid #eef0f4;border-radius:6px;margin-bottom:.35rem;background:#f8fafc;"><div class="knote-text" style="flex:1;font-size:.8rem;color:#374151;">${escapeHtml(n.text||'')}</div><div style="display:flex;align-items:center;gap:.25rem;flex:none;"><button onclick="editKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#6b7280;font-size:.72rem;" title="Edit note">✏️</button><button onclick="deleteKoreaNote(${i})" style="background:none;border:none;cursor:pointer;color:#dc2626;font-size:.75rem;" title="Delete note">🗑</button></div><div style="font-size:.62rem;color:#94a3b8;white-space:nowrap;">${escapeHtml(n.time||'')}</div></div>`).join('') : '<div style="font-size:.78rem;color:#94a3b8;">No notes yet</div>';
   }
 
   // Searchable school picker for the korea modal
@@ -6545,10 +6553,10 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       const filesHtml = matched.length
         ? matched.map(f=>`<a href="${escapeHtml(f.url||'#')}" target="_blank" rel="noopener" style="font-size:.72rem;color:#059669;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${escapeHtml(f.name||'')}">✓ ${escapeHtml(f.name||'')}</a>`).join('<br>')
         : `<span style="font-size:.72rem;color:#94a3b8;">— not uploaded —</span>`;
-      return `<div style="display:flex;align-items:flex-start;gap:.5rem;padding:.35rem .5rem;border:1px solid #eef0f4;border-radius:.5rem;background:#fff;">
+      return `<div style="display:flex;align-items:flex-start;gap:.5rem;padding:.35rem .5rem;border:1px solid #eef0f4;border-radius:8px;background:#fff;">
         <span style="flex:1;font-size:.8rem;font-weight:600;color:#334155;min-width:0;padding-top:.1rem;">📄 ${escapeHtml(dt)}${matched.length?` <span style="color:#059669;font-weight:700;">(${matched.length})</span>`:''}</span>
         <span style="flex:1.2;min-width:0;text-align:right;">${filesHtml}</span>
-        <button onclick="uploadAppDoc('${escapeHtml(dt)}')" style="padding:.28rem .6rem;border:none;border-radius:.45rem;background:#2563eb;color:#fff;font-size:.72rem;font-weight:600;cursor:pointer;flex:none;">⬆ Upload</button>
+        <button onclick="uploadAppDoc('${escapeHtml(dt)}')" style="padding:.28rem .6rem;border:none;border-radius:8px;background:#2563eb;color:#fff;font-size:.72rem;font-weight:600;cursor:pointer;flex:none;">⬆ Upload</button>
       </div>`;
     }).join('');
   }
@@ -6817,7 +6825,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     if (!el) return;
     el.innerHTML = card.dataset.folderId
       ? `<div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
-           <a href="${card.dataset.folderUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .8rem;background:#e0f2fe;color:#0c4a6e;border-radius:.5rem;font-size:.78rem;font-weight:600;text-decoration:none;">📁 Open folder</a>
+           <a href="${card.dataset.folderUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .8rem;background:#e0f2fe;color:#0c4a6e;border-radius:8px;font-size:.78rem;font-weight:600;text-decoration:none;">📁 Open folder</a>
            <button class="btn btn-save" onclick="uploadCustomerDoc(document.getElementById('${card.id}'))">⬆ Upload files</button>
          </div>`
       : `<div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
@@ -6935,7 +6943,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
           <button class="btn btn-danger" onclick="clearActivityLog()" style="font-size:.72rem;padding:.3rem .6rem;">Clear</button>
         </div>
         <div style="font-size:.75rem;color:#64748b;margin-bottom:.6rem;">Who did what to which student — used as a backup record. Stored locally + synced to Google Drive.</div>
-        <div style="max-height:60vh;overflow:auto;border:1px solid #eef0f4;border-radius:.5rem;">
+        <div style="max-height:60vh;overflow:auto;border:1px solid #eef0f4;border-radius:8px;">
           <table class="list-table" style="font-size:.9rem;">
             <thead><tr><th>Time</th><th>User</th><th>Student</th><th>Action</th></tr></thead>
             <tbody>${rows}</tbody>
@@ -7295,7 +7303,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       const _existing=document.getElementById('data-tools-modal'); if(_existing) _existing.remove();
       setKnowledgeTopbar('💾 Data & Google Sheets');
       const d=exportAllData();
-    const btn=(label,fn,color)=>`<button onclick="${fn}" style="width:100%;padding:.7rem;background:${color};color:#fff;border:none;border-radius:.6rem;font-weight:600;cursor:pointer;text-align:left;">${label}</button>`;
+    const btn=(label,fn,color)=>`<button onclick="${fn}" style="width:100%;padding:.7rem;background:${color};color:#fff;border:none;border-radius:10px;font-weight:600;cursor:pointer;text-align:left;">${label}</button>`;
     const overlay=document.createElement('div');
     overlay.className='modal-overlay'; overlay.id='data-tools-modal';
     overlay.innerHTML=`
@@ -7323,13 +7331,13 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         </div>
         <div style="font-size:.78rem;font-weight:700;color:#111827;margin-top:.5rem;">⚡ Supabase (recommended)</div>
         <div style="font-size:.72rem;color:#64748b;margin-bottom:.3rem;">Fast Postgres backend. Paste Project URL + anon key from supabase.com → Project Settings → API. GitHub Pages stays the website.</div>
-        <input id="supabase-url-input" type="text" placeholder="https://xxxx.supabase.co" value="${supabaseUrl()}" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.78rem;margin-bottom:.3rem;box-sizing:border-box;">
-        <input id="supabase-key-input" type="password" placeholder="anon public key (eyJ...)" value="${supabaseKey()}" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.78rem;margin-bottom:.4rem;box-sizing:border-box;">
+        <input id="supabase-url-input" type="text" placeholder="https://xxxx.supabase.co" value="${supabaseUrl()}" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.78rem;margin-bottom:.3rem;box-sizing:border-box;">
+        <input id="supabase-key-input" type="password" placeholder="anon public key (eyJ...)" value="${supabaseKey()}" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.78rem;margin-bottom:.4rem;box-sizing:border-box;">
         <button class="btn btn-save" onclick="saveSupabaseSettings()" style="width:100%;margin-bottom:.3rem;">💾 Save Supabase &amp; Sync</button>
         <div style="font-size:.72rem;color:#94a3b8;margin-bottom:.6rem;">Status: ${useSupabase() ? 'Supabase ON — Sheet is fallback only.' : 'Supabase not set — still using Google Apps Script (slow).'}</div>
         <div style="font-size:.78rem;font-weight:700;color:#111827;margin-top:.5rem;">☁️ Google Drive Backend (legacy)</div>
         <div style="font-size:.72rem;color:#64748b;margin-bottom:.3rem;">Old Apps Script / Sheet. Keep until Supabase import is verified.</div>
-        <input id="backend-url-input" type="text" placeholder="https://script.google.com/macros/s/..." value="${backendUrl()}" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.78rem;margin-bottom:.4rem;box-sizing:border-box;">
+        <input id="backend-url-input" type="text" placeholder="https://script.google.com/macros/s/..." value="${backendUrl()}" style="width:100%;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.78rem;margin-bottom:.4rem;box-sizing:border-box;">
         <button class="btn btn-save" onclick="saveBackendUrl()" style="width:100%;margin-bottom:.3rem;">💾 Save & Sync</button>
         <div style="font-size:.72rem;color:#94a3b8;">Status: ${backendUrl() ? 'Backend configured. Data will sync on save.' : 'No backend yet — data stays in this browser only.'}</div>
         <button class="btn btn-note" onclick="getSheetLink()" style="width:100%;margin-bottom:.3rem;">🔗 Open / find my Google Sheet</button>
@@ -7503,15 +7511,15 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     const members = getTeamMembers();
     const cur = card.dataset.assigned || '';
     let html = '<div style="font-size:.7rem;color:#94a3b8;padding:.3rem .55rem;font-weight:600;">Assign to</div>';
-    html += `<button class="assign-opt" onclick="assignByIndex(-1)" style="display:block;width:100%;text-align:left;background:none;border:none;padding:.42rem .55rem;border-radius:.4rem;cursor:pointer;font-size:.82rem;color:#334155;">${cur ? '↩ Unassign' : '👤 Unassigned'}</button>`;
+    html += `<button class="assign-opt" onclick="assignByIndex(-1)" style="display:block;width:100%;text-align:left;background:none;border:none;padding:.42rem .55rem;border-radius:6px;cursor:pointer;font-size:.82rem;color:#334155;">${cur ? '↩ Unassign' : '👤 Unassigned'}</button>`;
     members.forEach((m,i)=>{
-      html += `<button class="assign-opt" onclick="assignByIndex(${i})" style="display:block;width:100%;text-align:left;background:none;border:none;padding:.42rem .55rem;border-radius:.4rem;cursor:pointer;font-size:.82rem;color:#334155;">${m===cur?'✓ ':''}${escapeHtml(m)}</button>`;
+      html += `<button class="assign-opt" onclick="assignByIndex(${i})" style="display:block;width:100%;text-align:left;background:none;border:none;padding:.42rem .55rem;border-radius:6px;cursor:pointer;font-size:.82rem;color:#334155;">${m===cur?'✓ ':''}${escapeHtml(m)}</button>`;
     });
     html += '<div style="border-top:1px solid #eef0f4;margin:.3rem 0;"></div>';
-    html += '<button class="assign-opt" onclick="openTeamManager()" style="display:block;width:100%;text-align:left;background:none;border:none;padding:.42rem .55rem;border-radius:.4rem;cursor:pointer;font-size:.82rem;color:#2563eb;font-weight:600;">✏️ Manage team…</button>';
+    html += '<button class="assign-opt" onclick="openTeamManager()" style="display:block;width:100%;text-align:left;background:none;border:none;padding:.42rem .55rem;border-radius:6px;cursor:pointer;font-size:.82rem;color:#2563eb;font-weight:600;">✏️ Manage team…</button>';
     const menu = document.createElement('div');
     menu.id = 'assign-menu';
-    menu.style.cssText = 'position:fixed;z-index:9999;background:#fff;border:1px solid #e2e8f0;border-radius:.6rem;box-shadow:0 10px 30px rgba(0,0,0,.18);min-width:200px;max-height:340px;overflow:auto;padding:.3rem;';
+    menu.style.cssText = 'position:fixed;z-index:9999;background:#fff;border:1px solid #e2e8f0;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.18);min-width:200px;max-height:340px;overflow:auto;padding:.3rem;';
     menu.innerHTML = html;
     menu.addEventListener('mouseenter',()=>{ menu._hover=true; });
     menu.addEventListener('mouseleave',()=>{ menu._hover=false; });
@@ -7538,10 +7546,10 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         <h2 style="margin:0 0 .7rem;">👥 Team members (@camnemi.com)</h2>
         <div style="font-size:.76rem;color:#64748b;margin-bottom:.9rem;">These names are offered when you assign a student. People who sign in are collected automatically.</div>
         <div id="team-list" style="max-height:260px;overflow:auto;margin-bottom:.8rem;">
-          ${members.map((m,i)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:.4rem .55rem;border:1px solid #eef0f4;border-radius:.45rem;margin-bottom:.3rem;"><span style="font-size:.86rem;font-weight:600;color:#111827;">${escapeHtml(m)}</span><button class="btn btn-danger" onclick="removeTeamMemberByIndex(${i});openTeamManager()" style="font-size:.72rem;padding:.22rem .55rem;">Remove</button></div>`).join('') || '<div style="color:#94a3b8;font-size:.82rem;padding:.4rem;">No members yet.</div>'}
+          ${members.map((m,i)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:.4rem .55rem;border:1px solid #eef0f4;border-radius:8px;margin-bottom:.3rem;"><span style="font-size:.86rem;font-weight:600;color:#111827;">${escapeHtml(m)}</span><button class="btn btn-danger" onclick="removeTeamMemberByIndex(${i});openTeamManager()" style="font-size:.72rem;padding:.22rem .55rem;">Remove</button></div>`).join('') || '<div style="color:#94a3b8;font-size:.82rem;padding:.4rem;">No members yet.</div>'}
         </div>
         <div style="display:flex;gap:.4rem;margin-bottom:.9rem;">
-          <input id="team-new-name" placeholder="Name (e.g. Sreylin)" style="flex:1;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:.5rem;font-size:.82rem;box-sizing:border-box;">
+          <input id="team-new-name" placeholder="Name (e.g. Sreylin)" style="flex:1;padding:.5rem .6rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.82rem;box-sizing:border-box;">
           <button class="btn btn-save" onclick="addTeamMemberFromInput()" style="font-size:.82rem;white-space:nowrap;">＋ Add</button>
         </div>
         <div class="modal-actions"><button class="btn btn-save" onclick="closeModal()">Done</button></div>
