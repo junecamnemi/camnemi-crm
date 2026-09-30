@@ -2096,7 +2096,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     document.getElementById('tasks-view').style.display='none';
     document.getElementById('recommendation-view').style.display='none';
     const fb=document.querySelector('.filter-bar'); if(fb) fb.style.display='none';
-    setKnowledgeTopbar('💰 Profit & Expense');
+    setKnowledgeTopbar('💰 Income / Expense');
     document.getElementById('profit-view').style.display='block';
     renderProfit();
   }
@@ -7275,9 +7275,14 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
 
   // ---- Data Tools (Save / Google Sheets Export / Import) ----
   function openDataTools(){
-    currentSection='other'; updateLogButton();
-    goHash('data');
-    const d=exportAllData();
+      currentSection='other'; updateLogButton();
+      goHash('data');
+      // A3: openDataTools runs twice (direct call + hashchange -> routeFromHash),
+      // which stacked two modal overlays and duplicated the "Data & Google Sheets"
+      // heading. Drop any existing instance first so exactly one modal is shown.
+      const _existing=document.getElementById('data-tools-modal'); if(_existing) _existing.remove();
+      setKnowledgeTopbar('💾 Data & Google Sheets');
+      const d=exportAllData();
     const btn=(label,fn,color)=>`<button onclick="${fn}" style="width:100%;padding:.7rem;background:${color};color:#fff;border:none;border-radius:.6rem;font-weight:600;cursor:pointer;text-align:left;">${label}</button>`;
     const overlay=document.createElement('div');
     overlay.className='modal-overlay'; overlay.id='data-tools-modal';
