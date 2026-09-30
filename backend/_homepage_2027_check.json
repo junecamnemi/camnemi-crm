@@ -1,5 +1,5 @@
 {
- "date": "2026-09-25",
+ "date": "2026-09-30",
  "ba": [
   {
    "school": "강원대학교",
@@ -118,6 +118,7 @@
     "모집요강",
     "외국인",
     "재외국민",
+    "신입학",
     "전형"
    ],
    "probe": "http:200"
@@ -201,19 +202,6 @@
     "모집요강",
     "외국인",
     "신입학",
-    "전형"
-   ],
-   "probe": "http:200"
-  },
-  {
-   "school": "대신대학교",
-   "status_prev": "2026_or_older",
-   "url": "http://www.daeshin.ac.kr/html/02_admission/01_5.php",
-   "reachable": true,
-   "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인",
     "전형"
    ],
    "probe": "http:200"
@@ -324,14 +312,10 @@
    "school": "서울한영대학교",
    "status_prev": "2026_or_older",
    "url": "https://ipsi.shyu.ac.kr/fro_end/html/dep_04/4000.php",
-   "reachable": true,
+   "reachable": false,
    "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인",
-    "전형"
-   ],
-   "probe": "http:200"
+   "keywords": [],
+   "probe": "error:ConnectTimeout"
   },
   {
    "school": "서원대학교",
@@ -505,11 +489,7 @@
    "url": "https://www3.chosun.ac.kr/bbs/global/424/276714/artclView.do",
    "reachable": true,
    "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인",
-    "전형"
-   ],
+   "keywords": [],
    "probe": "http:200"
   },
   {
@@ -937,14 +917,10 @@
    "school": "국립금오공과대학교",
    "status_prev": "2026_or_older",
    "url": "https://www.kumoh.ac.kr/cam/sub030103.do",
-   "reachable": true,
+   "reachable": false,
    "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인",
-    "전형"
-   ],
-   "probe": "http:200"
+   "keywords": [],
+   "probe": "error:ConnectionError"
   },
   {
    "school": "국립목포대학교",
@@ -1027,10 +1003,13 @@
    "school": "국립한밭대학교",
    "status_prev": "2026_or_older",
    "url": "https://www.hanbat.ac.kr/bbs/BBSMSTR_000000000476/view.do?nttId=B000000166489Ro2jC1u&mno=s",
-   "reachable": false,
+   "reachable": true,
    "has_2027": false,
-   "keywords": [],
-   "probe": "error:ConnectTimeout"
+   "keywords": [
+    "모집요강",
+    "외국인"
+   ],
+   "probe": "http:200"
   },
   {
    "school": "국민대학교",
@@ -1073,13 +1052,10 @@
    "school": "김천대학교",
    "status_prev": "2026_or_older",
    "url": "https://acceptgrad.gimcheon.ac.kr/ipsi/ipsi00101.do",
-   "reachable": true,
+   "reachable": false,
    "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "전형"
-   ],
-   "probe": "http:200"
+   "keywords": [],
+   "probe": "http:404"
   },
   {
    "school": "나사렛대학교",
@@ -1089,18 +1065,6 @@
    "has_2027": false,
    "keywords": [
     "신입학"
-   ],
-   "probe": "http:200"
-  },
-  {
-   "school": "남부대학교",
-   "status_prev": "2026_or_older",
-   "url": "https://global.nambu.ac.kr/board/GLOBAL_BOARD_0006/boardList.do?menuCd=dept_globa002003002",
-   "reachable": true,
-   "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인"
    ],
    "probe": "http:200"
   },
@@ -1179,6 +1143,7 @@
    "reachable": true,
    "has_2027": false,
    "keywords": [
+    "모집요강",
     "2027",
     "외국인"
    ],
@@ -1278,19 +1243,6 @@
    "probe": "http:200"
   },
   {
-   "school": "동서대학교",
-   "status_prev": "2026_or_older",
-   "url": "https://uni.dongseo.ac.kr/iec/index.php?pCode=admission",
-   "reachable": true,
-   "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인",
-    "전형"
-   ],
-   "probe": "http:200"
-  },
-  {
    "school": "동신대학교",
    "status_prev": "unknown_year",
    "url": "https://graduate.dsu.ac.kr/graduate/?pCode=notice",
@@ -1371,6 +1323,7 @@
    "has_2027": false,
    "keywords": [
     "모집요강",
+    "2027",
     "외국인",
     "전형"
    ],
@@ -1475,6 +1428,7 @@
    "has_2027": false,
    "keywords": [
     "모집요강",
+    "2027",
     "재외국민",
     "전형"
    ],
@@ -1532,16 +1486,10 @@
    "school": "서울한영대학교",
    "status_prev": "2026_or_older",
    "url": "https://grad.shyu.ac.kr/fro_end/html/dep_03/3200.php",
-   "reachable": true,
+   "reachable": false,
    "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인",
-    "재외국민",
-    "신입학",
-    "전형"
-   ],
-   "probe": "http:200"
+   "keywords": [],
+   "probe": "error:ConnectTimeout"
   },
   {
    "school": "서원대학교",
@@ -1699,6 +1647,7 @@
    "keywords": [
     "모집요강",
     "2027",
+    "외국인",
     "전형"
    ],
    "probe": "http:200"
@@ -1841,14 +1790,10 @@
    "school": "우석대학교",
    "status_prev": "unknown_year",
    "url": "http://grad.woosuk.ac.kr/main/",
-   "reachable": true,
+   "reachable": false,
    "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "2027",
-    "전형"
-   ],
-   "probe": "http:200"
+   "keywords": [],
+   "probe": "error:SSLError"
   },
   {
    "school": "우송대학교",
@@ -1858,19 +1803,6 @@
    "has_2027": false,
    "keywords": [
     "외국인"
-   ],
-   "probe": "http:200"
-  },
-  {
-   "school": "울산대학교",
-   "status_prev": "2026_or_older",
-   "url": "https://grad.ulsan.ac.kr/grad/3334",
-   "reachable": true,
-   "has_2027": false,
-   "keywords": [
-    "모집요강",
-    "외국인",
-    "전형"
    ],
    "probe": "http:200"
   },
@@ -1966,6 +1898,7 @@
    "has_2027": false,
    "keywords": [
     "모집요강",
+    "2027",
     "외국인",
     "전형"
    ],
@@ -2047,7 +1980,9 @@
    "url": "https://cha.ac.kr",
    "reachable": true,
    "has_2027": false,
-   "keywords": [],
+   "keywords": [
+    "2027"
+   ],
    "probe": "http:200"
   },
   {
@@ -2066,6 +2001,7 @@
    "reachable": true,
    "has_2027": false,
    "keywords": [
+    "2027",
     "외국인"
    ],
    "probe": "http:200"
@@ -2196,6 +2132,8 @@
    "reachable": true,
    "has_2027": false,
    "keywords": [
+    "모집요강",
+    "2027",
     "신입학",
     "전형"
    ],

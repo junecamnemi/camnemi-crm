@@ -1,6 +1,6 @@
 #!/bin/bash
 # Runner that re-does batches whose output has NO structured content ("type":).
-cd /c/Users/USER/camnemi-crm
+cd /c/Users/wisew/camnemi-crm
 export PROMPT_FILE=backend/_bypass_prompt.md
 export OUTDIR="$LOCALAPPDATA/Temp/bypass_mis"
 mkdir -p "$OUTDIR"

@@ -277,7 +277,7 @@ def parse_krw(s):
         return int(s), int(s)
     txt = str(s)
     nums = re.findall(r"[\d,]+", txt)
-    nums = [int(n.replace(",", "")) for n in nums]
+    nums = [int(n.replace(",", "")) for n in nums if n.replace(",", "").strip()]
     if not nums:
         return None, None
     # annual->semester pattern: .../년 ... /학기 -> use the semester number
@@ -287,7 +287,7 @@ def parse_krw(s):
             # the number closest to the '학기' token
             idx = txt.rfind("학기")
             seg = txt[max(0, idx - 20):idx]
-            seg_nums = [int(n.replace(",", "")) for n in re.findall(r"[\d,]+", seg)]
+            seg_nums = [int(n.replace(",", "")) for n in re.findall(r"[\d,]+", seg) if n.replace(",", "").strip()]
             if seg_nums:
                 v = seg_nums[-1]
                 return v, v

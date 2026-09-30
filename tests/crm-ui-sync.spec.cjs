@@ -23,7 +23,7 @@ const crypto = require('node:crypto');
 const { execFileSync } = require('node:child_process');
 const assert = require('node:assert/strict');
 const repo = path.resolve(__dirname, '..');
-const modulePath = process.env.PLAYWRIGHT_MODULE || 'C:/Users/USER/AppData/Local/Temp/crm-sync-test/node_modules/playwright';
+const modulePath = process.env.PLAYWRIGHT_MODULE || 'C:/Users/wisew/AppData/Local/Temp/crm-sync-test/node_modules/playwright';
 let playwright;
 try { playwright = require(modulePath); } catch { playwright = require('playwright'); }
 const baseline = process.argv.includes('--baseline');
@@ -34,9 +34,9 @@ const source = baseline ? 'git HEAD:index.html' : (sourceArg ? sourceArg.slice(9
 const clone = x => JSON.parse(JSON.stringify(x));
 const fixtures = [
   { id: 'fixture_process', name: 'SYNTHETIC ALPHA', pipe: 'new', stage: 'registration' },
-  { id: 'fixture_archive', name: 'SYNTHETIC BETA', pipe: 'consulting', stage: 'archived' },
+  { id: 'fixture_archive', name: 'SYNTHETIC BETA', pipe: 'new', stage: 'visa' },
   { id: 'fixture_korea', name: 'SYNTHETIC GAMMA', pipe: 'korea', stage: 'stay' },
-  { id: 'fixture_consult', name: 'SYNTHETIC DELTA', pipe: 'consulting', stage: 'consult' }
+  { id: 'fixture_consult', name: 'SYNTHETIC DELTA', pipe: 'new', stage: 'registration' }
 ].map(c => ({ ...c, school: 'SYNTHETIC UNIVERSITY', program: 'BA', age: '21', agency: '', contact: '', notes: [], payments: [], docs: [], recent: '1000', hidden: '' }));
 function makeDB() {
   return { customers: clone(fixtures), universities: [{ id: 'fixture_school', name: 'SYNTHETIC UNIVERSITY', name_en: 'SYNTHETIC UNIVERSITY' }], agency_submissions: [] };
@@ -161,16 +161,13 @@ async function main() {
     check('stage survives reload/pull', await stageOf(page, 'fixture_process') === 'visa');
     await list(page); check('list stage survives reload', /VISA/.test(await page.locator('#list-body tr').filter({ hasText: 'SYNTHETIC ALPHA' }).innerText()));
   });
-  await scenario('Archived Delete button -> list absence -> cloud deletion -> reload', async ({ page, db, check, result }) => {
-    await openPipe(page, 'consulting'); await list(page);
-    await page.locator('#list-body tr').filter({ hasText: 'SYNTHETIC BETA' }).click();
-    await page.locator('#e-archive-btn').click(); await settle(page);
-    check('deleted row gone immediately from list', !(await rowPresent(page, 'SYNTHETIC BETA')));
-    check('fake cloud row actually deleted', !db.customers.some(c => c.id === 'fixture_archive'));
-    check('DELETE customers request was sent', result.requests.some(r => r.table === 'customers' && r.method === 'DELETE'));
-    await reload(page); await openPipe(page, 'consulting'); await list(page);
-    check('deleted row does not resurrect after reload', !(await rowPresent(page, 'SYNTHETIC BETA')));
-    check('unrelated customer retained', db.customers.some(c => c.id === 'fixture_consult'));
+  await scenario('VISA Denied archives the customer and persists through reload', async ({ page, db, check }) => {
+    await page.locator('#fixture_archive').click();
+    await page.locator('button[onclick="visaDenied()"]').click(); await settle(page);
+    check('customer moved to Archived', await stageOf(page, 'fixture_archive') === 'archived');
+    check('archive persisted to fake cloud', db.customers.find(c => c.id === 'fixture_archive')?.stage === 'archived');
+    await reload(page);
+    check('archived customer stays archived after reload', await stageOf(page, 'fixture_archive') === 'archived');
   });
   await scenario('Cloud deletion absent on pull in second preloaded tab', async ({ page, newPage, db, check }) => {
     const second = await newPage(); await list(second);
@@ -195,12 +192,13 @@ async function main() {
     check('hidden customer remains nonvisible after reload', !(await page.locator('#fixture_process').isVisible()));
     await list(page); check('hidden customer excluded from reloaded list', !(await rowPresent(page, 'SYNTHETIC ALPHA')));
   });
-  await scenario('Archive customer via modal explicitly persists and reloads', async ({ page, db, check }) => {
-    await openPipe(page, 'consulting'); await page.locator('#fixture_consult').click();
-    await page.locator('#e-archive-btn').click(); await settle(page);
-    check('archive persisted to fake DB', db.customers.find(c => c.id === 'fixture_consult')?.stage === 'archived');
-    await reload(page); await openPipe(page, 'consulting');
-    check('archive survives reload', await stageOf(page, 'fixture_consult') === 'archived');
+  await scenario('Customer modal stage edit persists to cloud and reload', async ({ page, db, check }) => {
+    await page.locator('#fixture_consult').click();
+    await page.locator('#korea-edit-modal .kstage-btn[data-stage="visa"]').click();
+    await page.locator('#korea-edit-modal button[onclick="saveKoreaEdit()"]').click(); await settle(page);
+    check('modal stage saved to cloud', db.customers.find(c => c.id === 'fixture_consult')?.stage === 'visa');
+    await reload(page);
+    check('modal stage survives reload', await stageOf(page, 'fixture_consult') === 'visa');
   });
   await scenario('Batch archive moves persist through reload', async ({ page, db, check }) => {
     await selectCard(page, 'fixture_process'); await page.locator('button[onclick="batchArchive()"]').click(); await settle(page);
@@ -214,16 +212,15 @@ async function main() {
     check('Korea customer not recreated in Process', await page.locator('.customer-card[data-name="SYNTHETIC GAMMA"][data-pipe="new"]').count() === 0);
     check('fake cloud retains Korea pipeline', db.customers.find(c => c.id === 'fixture_korea')?.pipe === 'korea');
   });
-  await scenario('Deleted customer is not recreated from retained agency submission', async ({ page, db, check }) => {
-    // Retained inbox row can outlive its corresponding archived customer.
+  await scenario('Retained agency submission does not duplicate an archived customer', async ({ page, db, check }) => {
     db.agency_submissions = [{ id: 'fixture_archive', name: 'SYNTHETIC BETA', program: 'BA', agency: '', contact: '', note: '' }];
-    await openPipe(page, 'consulting'); await page.locator('#fixture_archive').click();
-    await page.locator('#e-archive-btn').click(); await settle(page);
+    await page.locator('#fixture_archive').click();
+    await page.locator('button[onclick="visaDenied()"]').click(); await settle(page);
     await page.evaluate(() => autoPullAgencySubmissions()); await settle(page);
-    check('agency poll does not resurrect deleted customer', await page.locator('.customer-card[data-name="SYNTHETIC BETA"]').count() === 0);
-    check('fake cloud customer stays deleted', !db.customers.some(c => c.id === 'fixture_archive'));
+    check('agency poll keeps exactly one customer card', await page.locator('.customer-card[data-name="SYNTHETIC BETA"]').count() === 1);
+    check('archived stage remains unchanged', db.customers.find(c => c.id === 'fixture_archive')?.stage === 'archived');
     await reload(page); await page.evaluate(() => autoPullAgencySubmissions()); await settle(page);
-    check('agency poll after reload still cannot resurrect customer', await page.locator('.customer-card[data-name="SYNTHETIC BETA"]').count() === 0);
+    check('agency poll after reload still keeps one archived record', await page.locator('.customer-card[data-name="SYNTHETIC BETA"]').count() === 1 && db.customers.find(c => c.id === 'fixture_archive')?.stage === 'archived');
   });
   await scenario('Program Any filter stays active on boot, pipeline switch and reload', async ({ page, db, check }) => {
     const programAny = () => page.locator('.click-filter[data-ftype="program"][data-fval=""]').evaluate(el => el.classList.contains('active'));

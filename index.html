@@ -3048,6 +3048,76 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     if (ma.length) out += `<div class="modal-section"><div class="modal-section-title">🎓 Master Majors (${ma.length})</div><div style="display:flex;flex-wrap:wrap;gap:.35rem;">${ma.map(m=>chip(typeof m==='string'?{kr:m}:m)).join('')}</div></div>`;
     return out;
   }
+  // ---- Univ pipeline parsed columns (READ-ONLY) -------------------------------
+  // The Univ profile writes these; the CRM only reads. Never write them back.
+  //   programs  : { ba|ma|lang|junior (+ legacy BA|전문학사|어학연수) : {period, track_note, topik, ielts, departments:[...], scholarships:[...]} }
+  //   documents : { ba|ma|lang|junior : [{name, en, note, required, country_specific}] }
+  //   country_notes : plain TEXT (one note per school, not keyed by country)
+  // Legacy track keys are normalized ON READ — never by rewriting rows.
+  const UNIV_TRACK_ORDER = ['ba', 'ma', 'lang', 'junior'];
+  const UNIV_TRACK_LABEL = { ba: '학부 (BA)', ma: '대학원 (MA)', lang: '어학연수', junior: '전문학사 (Junior)' };
+  function univTrackKey(k) {
+    const s = String(k == null ? '' : k).trim().toLowerCase();
+    if (s === 'ba') return 'ba';
+    if (s === 'ma') return 'ma';
+    if (s === 'lang' || s === '어학연수') return 'lang';
+    if (s === 'junior' || s === '전문학사') return 'junior';
+    return '';
+  }
+  function univBucketByTrack(obj) {
+    const out = {};
+    if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return out;
+    Object.keys(obj).forEach(k => {
+      const t = univTrackKey(k);
+      if (!t || out[t] !== undefined) return; // first key for a track wins
+      out[t] = obj[k];
+    });
+    return out;
+  }
+  function renderUnivParsed(u) {
+    const prog = univBucketByTrack(u.programs);
+    const docs = univBucketByTrack(u.documents);
+    const notes = typeof u.country_notes === 'string' ? u.country_notes.trim() : '';
+    const tracks = UNIV_TRACK_ORDER.filter(t => prog[t] || (Array.isArray(docs[t]) && docs[t].length));
+    let html = '';
+    tracks.forEach(t => {
+      const p = prog[t] || {};
+      const deps = Array.isArray(p.departments) ? p.departments : [];
+      const dl = Array.isArray(docs[t]) ? docs[t] : [];
+      html += '<div class="modal-section"><div class="modal-section-title">' + escapeHtml(UNIV_TRACK_LABEL[t]) + ' 모집 정보</div>';
+      if (p.period) html += '<div style="font-size:.8rem;margin-bottom:.3rem;"><span style="color:#94a3b8;">모집시기</span> <b>' + escapeHtml(String(p.period)) + '</b></div>';
+      if (p.track_note) html += '<div style="font-size:.75rem;color:#64748b;margin-bottom:.4rem;">' + escapeHtml(String(p.track_note)) + '</div>';
+      if (p.topik != null || p.ielts != null) html += '<div style="font-size:.75rem;color:#475569;margin-bottom:.4rem;">트랙 요건 — TOPIK ' + escapeHtml(String(p.topik == null ? '—' : p.topik)) + ' · IELTS ' + escapeHtml(String(p.ielts == null ? '—' : p.ielts)) + '</div>';
+      if (deps.length) {
+        html += '<div style="font-size:.72rem;font-weight:700;color:#475569;margin:.4rem 0 .2rem;">학과 ' + deps.length + '</div>';
+        deps.forEach(d => {
+          const major = d.major || d.kr || '';
+          const college = (d.college && d.college !== '(미분류)') ? d.college : '';
+          const fee = Number(d.tuition_krw) || 0;
+          html += '<div style="display:flex;justify-content:space-between;gap:.6rem;font-size:.78rem;padding:.18rem 0;border-bottom:1px dashed #f1f5f9;">'
+            + '<span>' + escapeHtml(String(major))
+            + (college ? ' <span style="color:#94a3b8;">· ' + escapeHtml(String(college)) + '</span>' : '')
+            + (d.eng ? ' <span style="font-size:.62rem;background:#eff6ff;color:#1e40af;border-radius:3px;padding:.05rem .3rem;">ENG</span>' : '')
+            + '</span><span style="font-weight:600;white-space:nowrap;">' + (fee ? fee.toLocaleString('ko-KR') + '원' : '—') + '</span></div>';
+        });
+      }
+      if (dl.length) {
+        html += '<div style="font-size:.72rem;font-weight:700;color:#475569;margin:.5rem 0 .2rem;">제출서류 ' + dl.length + '</div>';
+        dl.forEach(d => {
+          html += '<div style="font-size:.78rem;padding:.2rem 0;border-bottom:1px dashed #f1f5f9;">'
+            + '<b>' + escapeHtml(String(d.name || '')) + '</b>'
+            + (d.en ? ' <span style="color:#94a3b8;">' + escapeHtml(String(d.en)) + '</span>' : '')
+            + (d.required ? ' <span style="font-size:.62rem;background:#fee2e2;color:#991b1b;border-radius:3px;padding:.05rem .3rem;">필수</span>' : '')
+            + (d.note ? '<div style="color:#64748b;font-size:.72rem;">' + escapeHtml(String(d.note)) + '</div>' : '')
+            + (d.country_specific ? '<div style="color:#b45309;font-size:.72rem;">국가별: ' + escapeHtml(String(d.country_specific)) + '</div>' : '')
+            + '</div>';
+        });
+      }
+      html += '</div>';
+    });
+    if (notes) html += '<div class="modal-section"><div class="modal-section-title">🌏 국가별 유의사항</div><div style="font-size:.78rem;color:#334155;line-height:1.6;white-space:pre-wrap;">' + escapeHtml(notes) + '</div></div>';
+    return html;
+  }
   function renderUnivDetail(name) {
     const u = UNIV_KNOWLEDGE.find(x => x.n === name);
     if (!u) return;
@@ -3120,7 +3190,8 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         </div>
         <div style="padding:1rem 1.4rem 1.2rem;overflow-y:auto;max-height:70vh;">
           ${guideRow}
-          ${detailSections}
+                    ${detailSections}
+                    ${renderUnivParsed(u)}
         </div>
       </div>`;
     document.body.appendChild(overlay);
@@ -5535,7 +5606,12 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       t: r.t != null ? r.t : ((r.req||{}).topik != null ? r.req.topik : null),
       i: r.i != null ? r.i : ((r.req||{}).ielts != null ? r.req.ielts : null),
       eng: r.eng || '', scholarships: r.scholarships || [],
-      req_note: r.req_note || '', website: r.website || '',
+            req_note: r.req_note || '', website: r.website || '',
+            // Parsed columns owned by the Univ pipeline. Read-only here: the CRM never
+            // writes them back (see references/backend-functional-test.md). `programs`
+            // and `documents` are jsonb keyed by track; `country_notes` is plain TEXT.
+            programs: r.programs || null, documents: r.documents || null,
+            country_notes: r.country_notes || '',
       majors: (r.majors_ba || []).map(m => (typeof m === 'string') ? m : (m.kr || '')).filter(Boolean)
     }, extra);
   }
@@ -5810,7 +5886,8 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       }
       if (Object.keys(changes).length) {
         const old = __customerOps.get(c.id);
-        __customerOps.set(c.id, {...old, kind:old?.kind || 'update', row:Object.assign({}, old && old.row, changes), revision:++__customerRevision});
+                __customerOps.set(c.id, {...old, kind:old?.kind || 'update', row:Object.assign({}, old && old.row, changes),
+                  baseRecent: (old && old.baseRecent) || previous.recent || '', revision:++__customerRevision});
         customerPersistOutbox();
         __customerObserved.set(c.id, row);
       }
@@ -5824,10 +5901,29 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
     for (const [key, value] of Object.entries(row)) result[aliases[key] || key] = value;
     return result;
   }
-  function customerMergePull(customers) {
-    customerLoadOutbox();
-    const merged = customers.filter(c => !customerIsDeleted(c.id) && __customerOps.get(c.id)?.kind !== 'delete')
-      .map(c => { const op = __customerOps.get(c.id); return op?.row ? customerApplyPatch(c, op.row) : c; });
+  // A pending op is STALE when the cloud row was edited after the op's baseline.
+    // `recent` is an epoch-ms TEXT column and is empty on some rows, so anything
+    // unparseable counts as "unknown" and the op is KEPT (never drop a real edit).
+    function customerOpIsStale(op, cloudRecent) {
+      if (!op || op.kind !== 'update' || !op.baseRecent) return false;
+      const base = Number(op.baseRecent), cloud = Number(cloudRecent);
+      if (!isFinite(base) || !isFinite(cloud) || !base || !cloud) return false;
+      return cloud > base;
+    }
+    function customerDropOp(id) {
+      __customerOps.delete(id);
+      customerPersistOutbox();
+    }
+    function customerMergePull(customers) {
+      customerLoadOutbox();
+      const merged = customers.filter(c => !customerIsDeleted(c.id) && __customerOps.get(c.id)?.kind !== 'delete')
+        .map(c => {
+          const op = __customerOps.get(c.id);
+          if (!op?.row) return c;
+          // Cloud newer than this device's pending edit -> the cloud wins.
+          if (customerOpIsStale(op, c.recent)) { customerDropOp(c.id); return c; }
+          return customerApplyPatch(c, op.row);
+        });
     const ids = new Set(customers.map(c => c.id));
     for (const [id, op] of __customerOps) {
       if (op.kind === 'insert' && !ids.has(id) && !customerIsDeleted(id)) merged.push(customerApplyPatch({}, op.row));
@@ -5866,9 +5962,16 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
         }
         if (!Array.isArray(rows) || !rows.some(r => r.id === id)) throw new Error('Customer insert was not confirmed: ' + id);
       } else {
-        const rows = await supabaseFetch('/rest/v1/customers?id=eq.' + encodeURIComponent(id), {
-          method:'PATCH', headers:{Prefer:'return=representation'}, body:JSON.stringify(op.row)
-        });
+              // Never overwrite a cloud row that moved on since this op's baseline.
+              const base = await sbSelect('customers', 'id=eq.' + encodeURIComponent(id) + '&select=id,recent');
+              if (customerOpIsStale(op, base.length ? base[0].recent : null)) {
+                customerDropOp(id);
+                console.warn('Dropped stale customer op (cloud is newer): ' + id);
+                continue;
+              }
+              const rows = await supabaseFetch('/rest/v1/customers?id=eq.' + encodeURIComponent(id), {
+                method:'PATCH', headers:{Prefer:'return=representation'}, body:JSON.stringify(op.row)
+              });
         if (!Array.isArray(rows) || !rows.some(r => r.id === id)) throw new Error('Customer no longer exists: ' + id);
       }
       const current = __customerOps.get(id);
@@ -7007,8 +7110,21 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
   }
   // Rebuild customer cards from serialized data (call after renderPipeline + seed)
   function restoreCustomers() {
-    const data = window.__RESTORE_CUSTOMERS__;
-    if (!Array.isArray(data)) { window.__RESTORE_CUSTOMERS__ = null; return; }
+      let data = window.__RESTORE_CUSTOMERS__;
+      if (!Array.isArray(data)) { window.__RESTORE_CUSTOMERS__ = null; return; }
+      // Collapse rows that are the SAME student duplicated (the stale-DOM re-push
+      // bug accumulates them under different ids). Rows only collapse when the name
+      // AND every identifying field match, so two genuinely different students who
+      // share a name are never merged; the newest `recent` wins. Display-only — no
+      // row is deleted and no write is issued.
+      (function dedupeSamePerson(rows) {
+        const key = c => [String(c.name||'').trim().toUpperCase(), c.program||'', c.school||'',
+                          c.appdate||'', c.agency||'', c.contact||'', c.camnemiId||''].join('|');
+        const rank = c => { const n = Number(c.recent); return isFinite(n) ? n : 0; };
+        const best = new Map();
+        rows.forEach(c => { const k = key(c), p = best.get(k); if (!p || rank(c) > rank(p)) best.set(k, c); });
+        for (let i = rows.length - 1; i >= 0; i--) if (best.get(key(rows[i])) !== rows[i]) rows.splice(i, 1);
+      })(data);
     // clear seeded cards
     document.querySelectorAll('.customer-card').forEach(c=>c.remove());
     // rebuild

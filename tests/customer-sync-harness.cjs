@@ -57,7 +57,7 @@ function fixture(initial = [], storage = new Map(), session = new Map()) {
     const DEFAULT_AGENCIES=[{name:'CAMNEMI'},{name:'COSTA'},{name:'Khema'},{name:'Kimsous'},{name:'Sen Chao'},{name:'JK'},{name:'Din Lina'}];`,context);
   const engine = html.match(/  \/\/ CUSTOMER SYNC OUTBOX START[^]*?  \/\/ CUSTOMER SYNC OUTBOX END/);
   if(engine) vm.runInContext(engine[0],context);
-  const names=['sbSelect','sbUpsert','sbDelete','supabaseReadTables','supabaseWriteTables','exportAllData','applyDbToState','restoreCustomers','deleteCustomer','saveNow','saveDatabase','scheduleSyncPush','flushPendingPush'];
+  const names=['sbSelect','sbUpsert','sbDelete','supabaseReadTables','supabaseWriteTables','exportAllData','applyDbToState','mergeTransactions','restoreCustomers','deleteCustomer','saveNow','saveDatabase','scheduleSyncPush','flushPendingPush'];
   vm.runInContext(names.map(sourceFunction).join('\n'),context);
   const syncStart=html.indexOf('  let __syncing = false;');
   vm.runInContext(html.slice(syncStart,html.indexOf('  // Pull data that was edited',syncStart)),context);

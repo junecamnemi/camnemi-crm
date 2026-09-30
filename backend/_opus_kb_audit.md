@@ -5,7 +5,7 @@
 사용자 의문: "KB 성능이 떨어진 것 같다. 등록금/장학금을 잘 분석했는데 봇/사이트에 반영이 안 된 것 같다."
 
 ## 작업 디렉터리
-C:\Users\USER\camnemi-crm  (backend\ 안에 json들, 루트에 data.js)
+C:\Users\wisew\camnemi-crm  (backend\ 안에 json들, 루트에 data.js)
 
 ## 조사 항목 (python3 대신 python 사용)
 1. backend\verified_kb.json 실제 스케일: 최상위 키 목록. schools(BA)/master.schools(MA)/junior.schools/lang_programs.schools 각 학교 수. medical_reqs, ai_departments, free_major_programs, visa_restricted_2026 섹션 존재와 규모.

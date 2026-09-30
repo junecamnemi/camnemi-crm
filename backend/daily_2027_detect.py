@@ -8,12 +8,13 @@ NEWLY-detected 2027 (not already-known). Skips schools that already have 2027.
 State: _guide_2027_detected.json  {school: {level, year, page_url, title, first_seen}}
 Output: prints NEW detections (cron delivers); silent if none.
 """
-import os, re, json, datetime
+import os, re, json, datetime, sys
 from collections import Counter
 
-BASE = r"C:\Users\wisew\camnemi-crm\backend"
-STATE = os.path.join(BASE, "_guide_2027_detected.json")
-YEAR_KW = re.compile(r"(20\d\d)")
+BASE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, BASE)
+import pipeline_paths as _pp  # ONE data home (_pipeline_data/state)
+STATE = str(_pp.state_file())
 
 def load_known_2027():
     """Schools already known to have a 2027 guide (from page-discovery results)."""
@@ -73,8 +74,9 @@ def main():
                 txt = pg.inner_text("body")[:4000]
                 # 2027 + recruiting keywords
                 if "2027" in txt and re.search(r"(모집|입학|요강|외국인|유학생)", txt):
-                    m = YEAR_KW.search(txt)
-                    year = m.group(1) if m else "2027"
+                    # This detector only accepts pages containing the target year, 2027;
+                    # unrelated first dates/years elsewhere in the page must not relabel it.
+                    year = "2027"
                     state[name] = {"level": level, "year": year, "page_url": url,
                                    "title": pg.title()[:80], "first_seen": today}
                     new_found.append((name, level, url))

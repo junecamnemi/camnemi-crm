@@ -8,9 +8,15 @@ import pymupdf, numpy as np
 from PIL import Image
 from rapidocr_onnxruntime import RapidOCR
 
-BASE = r"C:\Users\wisew\camnemi-crm\backend"
-UP = r"C:\Users\wisew\내 드라이브\02_Crawling_Sheet\University_Project"
-PARSED = os.path.join(BASE, "guides_llm_parsed.jsonl")
+BASE = os.path.dirname(os.path.abspath(__file__))
+import sys as _sys
+_sys.path.insert(0, BASE)
+import pipeline_paths as _pp  # ONE library root + ONE data home
+import parse_unparsed_pro as _pro  # hardened model path: 32k budget, nudge, safe_json, backoff
+UP = str(_pp.drive_root())
+# OCR records MUST land in the OCR file: the merge treats guides_llm_parsed.jsonl as
+# trusted only when the source PDF has >=1000 chars of text, which image-only PDFs do not.
+PARSED = str(_pp.path("parsed_ocr"))
 MODEL = "deepseek/deepseek-v4-pro"
 
 def _auth():
@@ -44,12 +50,22 @@ def school_from(f):
 
 def find_image_pdfs():
     """Find guide PDFs with no text layer (image-only) not yet parsed."""
-    parsed_schools = set()
-    if os.path.exists(PARSED):
-        for l in open(PARSED, encoding="utf-8"):
-            if l.strip():
-                try: parsed_schools.add(json.loads(l).get("school", ""))
-                except Exception: pass
+    # Dedupe by school + level + year, not school alone: an image-only 2027 guide must
+    # still be OCR-parsed when the same school already has a 2026 parse.
+    parsed_keys = set()
+    for _src in (PARSED, str(_pp.path("parsed")), str(_pp.path("parsed_real"))):
+        if not os.path.exists(_src):
+            continue
+        for l in open(_src, encoding="utf-8"):
+            if not l.strip():
+                continue
+            try:
+                row = json.loads(l)
+                parsed_keys.add((school_from(row.get("school", "")),
+                                 (row.get("_prog_hint") or row.get("program") or ""),
+                                 str(row.get("_year_hint") or row.get("year") or "")))
+            except Exception:
+                pass
     out = []
     for prog in ["ba", "ma", "junior", "lang"]:
         for y in ["2026", "2027"]:
@@ -58,7 +74,7 @@ def find_image_pdfs():
             for f in os.listdir(d):
                 if not f.endswith(".pdf"): continue
                 s = school_from(f)
-                if s in parsed_schools: continue
+                if (s, prog, y) in parsed_keys or (s, prog, "unknown") in parsed_keys: continue
                 path = os.path.join(d, f)
                 try:
                     doc = pymupdf.open(path)
@@ -83,15 +99,42 @@ def ocr_pdf(path, ocr):
     return "\n".join(texts)
 
 def call(text):
-    body = {"model": MODEL, "messages": [{"role": "user", "content": PROMPT + text[:14000]}],
-            "max_tokens": 4000, "temperature": 0}
-    req = urllib.request.Request(BASE_URL.rstrip("/") + "/chat/completions",
-                                 data=json.dumps(body).encode(),
-                                 headers={"Authorization": f"Bearer {KEY}", "Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=300) as r:
-        d = json.loads(r.read())
-    m = d["choices"][0]["message"]
-    return m.get("content") or m.get("reasoning") or ""
+    """Delegate to the hardened parser path in parse_unparsed_pro.
+
+    The local copy used max_tokens 4000 and parsed `reasoning` as the answer, so every
+    OCR run failed the same way (reasoning-only reply, invalid JSON) -- 2026-09-29.
+    """
+    return _pro.call(text, prompt=PROMPT)
+
+def verify_claims(d, text):
+    """Drop score claims that do not appear in the OCR text.
+
+    Garbled poster OCR leaves the model free to invent plausible numbers: 경민대 claimed
+    TOPIK 2 / IELTS 4.5 while its OCR text showed only "TOPIK ()" (2026-09-29). A claim is
+    kept only when the source text carries the number next to the requirement name.
+    """
+    dropped = []
+    for field, pat in (("topik", r"(?:TOPIK|토픽)[^0-9]{0,15}(\d)"),
+                       ("ielts", r"(?:IELTS|아이엘츠)[^0-9]{0,15}(\d+(?:\.\d+)?)"),
+                       ("toefl", r"(?:TOEFL|토플)[^0-9]{0,15}(\d+)")):
+        val = d.get(field)
+        if val in (None, "", 0):
+            continue
+        m = re.search(pat, text or "", re.I)
+        src = m.group(1) if m else None
+        ok = False
+        if src is not None:
+            try:
+                ok = abs(float(src) - float(val)) < 0.01
+            except (TypeError, ValueError):
+                ok = str(src) == str(val)
+        if not ok:
+            d[field] = None
+            dropped.append(field)
+    if dropped:
+        d["_unverified_dropped"] = dropped
+    return d
+
 
 def main():
     items = find_image_pdfs()
@@ -107,14 +150,21 @@ def main():
             try:
                 txt = ocr_pdf(path, ocr)
                 if len(txt.strip()) < 30:
-                    print(f"  SKIP(OCR부족): {school}")
+                    # Distinguish a broken file from an unreadable one so neither is
+                    # silently counted as "no text layer" (2026-09-29).
+                    try:
+                        _doc = pymupdf.open(path); _pages = _doc.page_count; _doc.close()
+                    except Exception:
+                        _pages = -1
+                    why = "BROKEN(0 pages)" if _pages <= 0 else "OCR부족"
+                    print(f"  SKIP({why}): {school}")
                     continue
                 resp = call(txt)
-                m = re.search(r'\{.*\}', resp, re.S)
-                if not m:
+                d = _pro.safe_json(resp)
+                if d is None:
                     print(f"  FAIL(no json): {school}")
                     continue
-                d = json.loads(m.group(0))
+                d = verify_claims(d, txt)
                 d["_file"] = os.path.basename(path)
                 d["_prog_hint"] = prog
                 d["_year_hint"] = year

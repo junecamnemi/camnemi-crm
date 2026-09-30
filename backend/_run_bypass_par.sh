@@ -1,6 +1,6 @@
 #!/bin/bash
 # Parallel runner: process bypass batches 01-16 through pro model, 4 concurrent.
-cd /c/Users/USER/camnemi-crm
+cd /c/Users/wisew/camnemi-crm
 export PROMPT_FILE=backend/_bypass_prompt.md
 export OUTDIR="$LOCALAPPDATA/Temp/bypass_pro"
 mkdir -p "$OUTDIR"

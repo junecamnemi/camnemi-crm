@@ -1,0 +1,414 @@
+{
+ "kind": {
+  "_scan_periods.py": "code",
+  "_apply_2027_downloads.py": "code",
+  "_merge_llm_into_kb.py": "code",
+  "_sync_datajs_v3.py": "code",
+  "_final_reviewed.py": "code",
+  "_job_pdf.py": "code",
+  "_build_consulting_db.py": "cron",
+  "_merge_ma_consulting.py": "cron",
+  "_sync_ma_kb.py": "cron",
+  "_sync_junior_foreign_datajs.py": "cron",
+  "_merge_junior_period.py": "cron",
+  "_deep_scan_junior_daily.py": "cron",
+  "_guide_pdf.py": "cron",
+  "_pdf_coverage.py": "doc",
+  "_count_by_bucket.py": "doc",
+  "_route_changed_guides.py": "doc",
+  "_lang_dedupe_merge.py": "doc",
+  "_pathfix_wisew.py": "doc",
+  "_final.py": "doc",
+  "_find_all_junior_codes.py": "doc",
+  "_pdf_clean_originals.py": "doc",
+  "_merge_master_links.py": "doc",
+  "_consolidate_guides.py": "doc",
+  "_pdf_compress.py": "doc",
+  "_pdf_ownsite_merge.py": "doc",
+  "_pdf_consolidate.py": "doc",
+  "_pdf_dedupe.py": "doc",
+  "_tuition_extract.py": "doc",
+  "_gap2.py": "doc",
+  "_save_guide_pages_to_kb.py": "doc",
+  "_find_ba_missing.py": "doc",
+  "_backfill_lang_url.py": "doc",
+  "_apply_opus_sch.py": "doc",
+  "_pdf_survey.py": "doc",
+  "_build_lang_url_map.py": "doc",
+  "_undo_library_dedupe.py": "doc",
+  "_opus_full_run.py": "doc",
+  "_compare_opus_pro.py": "doc",
+  "_family_invite_pro.py": "doc",
+  "_merge_fees_sch_kb.py": "doc",
+  "_extract_fees.py": "doc",
+  "_agg_apply_pro.py": "doc",
+  "_classify_apply_pro.py": "doc",
+  "_merge_curation.py": "doc",
+  "_count_wave2.py": "doc",
+  "_coverage_report.py": "doc",
+  "_verify2027capture.py": "doc",
+  "_analyze2027lang.py": "doc",
+  "_ctx2027.py": "doc",
+  "_sync_datajs_lang_guide.py": "doc",
+  "_sync_datajs_final.py": "doc",
+  "_merge_langtui.py": "doc",
+  "_sync_datajs_ma.py": "doc",
+  "_sync_datajs_curation.py": "doc",
+  "_deep_extract_v3.py": "doc",
+  "_merge_gap_results.py": "doc",
+  "_build_free_major.py": "doc",
+  "_parse_gksu_majors.py": "doc",
+  "_scan_gksu_biz.py": "doc",
+  "_dl_hikorea.py": "doc",
+  "_reparse_ocr_pro.py": "doc",
+  "_add_junior_kb.py": "doc",
+  "_fix_junior_tuition.py": "doc",
+  "_build_school_keys.py": "doc",
+  "_sync_consulting_db.py": "doc",
+  "_fix_lang_reqs.py": "doc",
+  "_finalize_pharm.py": "doc",
+  "_update_pharmacy_tuition.py": "doc",
+  "_update_pharmacy2.py": "doc",
+  "_apply_school_status.py": "doc",
+  "_apply_visa_restrict.py": "doc",
+  "_fix_hanyang.py": "doc",
+  "_apply_real_guides.py": "doc",
+  "_toefl80_query.py": "doc",
+  "_gen_job_manual_en.py": "doc",
+  "_gen_visa_job_manual.py": "doc",
+  "_gen_visa_en_detail.py": "doc",
+  "_flag_visa_restricted.py": "doc",
+  "_assess_llmparse_trust.py": "doc",
+  "_parse_real_pdfs.py": "doc",
+  "_validate_llmparse.py": "doc"
+ },
+ "refs": {
+  "_scan_periods.py": [
+   "C:/Users/wisew/camnemi-crm/backend\\auto_fill_periods.py"
+  ],
+  "_apply_2027_downloads.py": [
+   "C:/Users/wisew/camnemi-crm/backend\\run_guide_kb_pipeline.py",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\2027-daily-detect-pipeline.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-library-single-home.md"
+  ],
+  "_merge_llm_into_kb.py": [
+   "C:/Users/wisew/camnemi-crm/backend\\run_guide_kb_pipeline.py",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\SKILL.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-library-single-home.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-parsing-model-and-matching.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\pro-guide-parsing.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\parse-verify-architecture.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\verified-kb-merge-format-rules.md",
+   "C:/Users/wisew/camnemi-crm/ARCHITECTURE.md"
+  ],
+  "_sync_datajs_v3.py": [
+   "C:/Users/wisew/camnemi-crm/backend\\sync_3layer.py"
+  ],
+  "_final_reviewed.py": [
+   "C:/Users/wisew/camnemi-crm/backend\\_detail_analysis.py"
+  ],
+  "_job_pdf.py": [
+   "C:/Users/wisew/camnemi-crm/backend\\_patch_jobpdf.py"
+  ],
+  "_build_consulting_db.py": [
+   "C:/Users/wisew/camnemi-crm/backend\\_sync_consulting_db.py",
+   "C:/Users/wisew/camnemi-crm/backend\\_update_kb_lang.py",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-10T03-33-59Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-17T04-32-41Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-24T05-13-26Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\SKILL.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\gap-filler-accuracy.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\ieqas-and-per-dept-tuition-backfill.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\junior-kb-parsing.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\camnemi-pipeline-and-index.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\consulting-db-rebuild-danger.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\cron-monitor-data-pipeline.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\d4-lang-incheon-bucheon-december.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\data-pipeline-coverage-audit.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\data-source-of-truth.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\datajs-sync-and-fuzzy-match-pitfall.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\kb-builder-field-name-defects.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\online-gapfill-and-consulting-db.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\user-deliverable-preferences.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\verified-kb-merge-format-rules.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/cron/jobs.json"
+  ],
+  "_merge_ma_consulting.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-10T03-33-59Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-17T04-32-41Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-24T05-13-26Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\SKILL.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\camnemi-pipeline-and-index.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\cron-monitor-data-pipeline.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\datajs-sync-and-fuzzy-match-pitfall.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\online-gapfill-and-consulting-db.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/cron/jobs.json"
+  ],
+  "_sync_ma_kb.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-10T03-33-59Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-17T04-32-41Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-24T05-13-26Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\camnemi-pipeline-and-index.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\kiip-master-and-online-gap.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/cron/jobs.json"
+  ],
+  "_sync_junior_foreign_datajs.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-10T03-33-59Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\camnemi-pipeline-and-index.md"
+  ],
+  "_merge_junior_period.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-10T03-33-59Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-17T04-32-41Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-24T05-13-26Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\SKILL.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\junior-kb-parsing.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\camnemi-pipeline-and-index.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\cron-monitor-data-pipeline.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\datajs-sync-and-fuzzy-match-pitfall.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\online-gapfill-and-consulting-db.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/cron/jobs.json"
+  ],
+  "_deep_scan_junior_daily.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-10T03-33-59Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-17T04-32-41Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-24T05-13-26Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\camnemi-pipeline-and-index.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/cron/jobs.json"
+  ],
+  "_guide_pdf.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\.curator_backups\\2026-09-24T05-13-26Z\\cron-jobs.json",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\daily-guide-pdf-cron.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\daily-report-all-levels.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\direct-collection-and-guide-pages.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\junior-foreigner-guide-collection.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/cron/jobs.json"
+  ],
+  "_pdf_coverage.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-k-trend-cardnews\\references\\daily-news-card-pipeline-v4.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-library-single-folder-2026-09.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-pdf-library-cleanup.md"
+  ],
+  "_count_by_bucket.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\SKILL.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\one-guide-per-school-level.md"
+  ],
+  "_route_changed_guides.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\SKILL.md"
+  ],
+  "_lang_dedupe_merge.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\SKILL.md"
+  ],
+  "_pathfix_wisew.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\SKILL.md"
+  ],
+  "_final.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\SKILL.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\one-guide-per-school-level.md"
+  ],
+  "_find_all_junior_codes.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\adiga-unvcd-mobile.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\daily-report-all-levels.md"
+  ],
+  "_pdf_clean_originals.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\direct-collection-and-guide-pages.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-library-single-folder-2026-09.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-pdf-library-cleanup.md"
+  ],
+  "_merge_master_links.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\foreigner-guide-structuring.md"
+  ],
+  "_consolidate_guides.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-library-consolidation.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-library-single-home.md"
+  ],
+  "_pdf_compress.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-library-single-folder-2026-09.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-pdf-library-cleanup.md"
+  ],
+  "_pdf_ownsite_merge.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-library-single-folder-2026-09.md"
+  ],
+  "_pdf_consolidate.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-library-single-folder-2026-09.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-pdf-library-cleanup.md"
+  ],
+  "_pdf_dedupe.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-library-single-folder-2026-09.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-pdf-library-cleanup.md"
+  ],
+  "_tuition_extract.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-library-single-home.md"
+  ],
+  "_gap2.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-library-single-home.md"
+  ],
+  "_save_guide_pages_to_kb.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-page-backfill-and-2027-detect.md"
+  ],
+  "_find_ba_missing.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-page-backfill-and-2027-detect.md"
+  ],
+  "_backfill_lang_url.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-page-discovery-playwright.md"
+  ],
+  "_apply_opus_sch.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-parsing-completion-2026-09.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-parsing-model-and-matching.md"
+  ],
+  "_pdf_survey.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\guide-pdf-library-cleanup.md"
+  ],
+  "_build_lang_url_map.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\language-institute-url-discovery.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\app-fee-and-lang-school-urls.md"
+  ],
+  "_undo_library_dedupe.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\one-guide-per-school-level.md"
+  ],
+  "_opus_full_run.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\opus-full-run-source-selection.md"
+  ],
+  "_compare_opus_pro.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\camnemi-school-data-pipeline\\references\\opus-pro-audit-2026-09.md"
+  ],
+  "_family_invite_pro.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-immigration\\references\\llm-deep-parse-workflow.md"
+  ],
+  "_merge_fees_sch_kb.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\app-fee-and-lang-school-urls.md"
+  ],
+  "_extract_fees.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\app-fee-and-lang-school-urls.md"
+  ],
+  "_agg_apply_pro.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\application-systems-and-ownsite-scrape.md"
+  ],
+  "_classify_apply_pro.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\application-systems-and-ownsite-scrape.md"
+  ],
+  "_merge_curation.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\bulk-guide-curation.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\curation-wave-status.md"
+  ],
+  "_count_wave2.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\bulk-guide-curation.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\curation-wave-status.md"
+  ],
+  "_coverage_report.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\coverage-target-goal.md"
+  ],
+  "_verify2027capture.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\d4-lang-2027-guide-verification.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\d4-lang-advisory-routing.md"
+  ],
+  "_analyze2027lang.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\d4-lang-2027-guide-verification.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\d4-lang-advisory-routing.md"
+  ],
+  "_ctx2027.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\d4-lang-2027-guide-verification.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\d4-lang-advisory-routing.md"
+  ],
+  "_sync_datajs_lang_guide.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\d4-lang-incheon-bucheon-december.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\data-source-of-truth.md"
+  ],
+  "_sync_datajs_final.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\data-pipeline-coverage-audit.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\datajs-sync-and-fuzzy-match-pitfall.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\kb-builder-field-name-defects.md"
+  ],
+  "_merge_langtui.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\datajs-sync-and-fuzzy-match-pitfall.md"
+  ],
+  "_sync_datajs_ma.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\datajs-sync-and-fuzzy-match-pitfall.md"
+  ],
+  "_sync_datajs_curation.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\datajs-sync-and-fuzzy-match-pitfall.md"
+  ],
+  "_deep_extract_v3.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\deep-curation-batch.md"
+  ],
+  "_merge_gap_results.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\foreigner-filter-and-online-gap-filling.md"
+  ],
+  "_build_free_major.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\free-major-interdisciplinary.md"
+  ],
+  "_parse_gksu_majors.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\gksu-tracks-and-uic-departments.md"
+  ],
+  "_scan_gksu_biz.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\gksu-university-info-xlsx.md"
+  ],
+  "_dl_hikorea.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\hwp-and-hikorea-documents.md"
+  ],
+  "_reparse_ocr_pro.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\nous-inference-script-auth.md"
+  ],
+  "_add_junior_kb.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\own-test-kiip-junior-tuition.md"
+  ],
+  "_fix_junior_tuition.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\own-test-kiip-junior-tuition.md",
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\skill-stale-notes-2026-08-27.md"
+  ],
+  "_build_school_keys.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\ownsite-scrape-durable-techniques.md"
+  ],
+  "_sync_consulting_db.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\parse-verify-architecture.md",
+   "C:/Users/wisew/camnemi-crm/ARCHITECTURE.md"
+  ],
+  "_fix_lang_reqs.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\parse-verify-architecture.md"
+  ],
+  "_finalize_pharm.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\pharmacy-foreigner-admission-fullcheck.md"
+  ],
+  "_update_pharmacy_tuition.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\pharmacy-tuition-full-list.md"
+  ],
+  "_update_pharmacy2.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\pharmacy-tuition-full-list.md"
+  ],
+  "_apply_school_status.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\school-status-flags-and-engine-enforcement.md"
+  ],
+  "_apply_visa_restrict.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\school-status-flags-and-engine-enforcement.md"
+  ],
+  "_fix_hanyang.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\seoul-d4-winter-2026-and-fuzzy-match-pitfall.md"
+  ],
+  "_apply_real_guides.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\source-tier-precedence.md"
+  ],
+  "_toefl80_query.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\toefl-score-matching.md"
+  ],
+  "_gen_job_manual_en.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\visa-job-manual-pdfs.md"
+  ],
+  "_gen_visa_job_manual.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\visa-job-manual-pdfs.md"
+  ],
+  "_gen_visa_en_detail.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\visa-job-manual-pdfs.md"
+  ],
+  "_flag_visa_restricted.py": [
+   "C:/Users/wisew/AppData/Local/hermes/profiles/univ/skills\\education\\korean-university-advisor\\references\\visa-restricted-universities-2026.md"
+  ],
+  "_assess_llmparse_trust.py": [
+   "C:/Users/wisew/camnemi-crm/ARCHITECTURE.md"
+  ],
+  "_parse_real_pdfs.py": [
+   "C:/Users/wisew/camnemi-crm/ARCHITECTURE.md"
+  ],
+  "_validate_llmparse.py": [
+   "C:/Users/wisew/camnemi-crm/ARCHITECTURE.md"
+  ]
+ }
+}

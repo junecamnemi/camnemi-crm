@@ -50,8 +50,15 @@ def max_scholarship_pct(s):
     best = 0
     sc = s.get("scholarships_categorized") or []
     for x in sc:
-        for t in x.get("tiers", []):
-            amt = str(t.get("amount", ""))
+        # tolerate malformed records: item itself a string, tiers a string/list of strings
+        if isinstance(x, str):
+            tiers = [x]
+        else:
+            tiers = x.get("tiers", []) or []
+            if isinstance(tiers, str):
+                tiers = [tiers]
+        for t in tiers:
+            amt = str(t.get("amount", "")) if isinstance(t, dict) else str(t)
             m = re.search(r"(\d{2,3})\s*%", amt)
             if m:
                 v = int(m.group(1))
@@ -386,9 +393,26 @@ def main():
             print(f"   💰 Best scholarship: up to {pct}% tuition off")
         # categorized scholarships: enroll/existing × academic/language (preferred)
         sc = s.get("scholarships_categorized") or []
-        en = (s.get("scholarships") or {}).get("enroll") or []
-        ex = (s.get("scholarships") or {}).get("existing") or []
+        _sc_flat = s.get("scholarships") or {}
+        if not isinstance(_sc_flat, dict):
+            _sc_flat = {"enroll": _sc_flat}
+        en = _sc_flat.get("enroll") or []
+        ex = _sc_flat.get("existing") or []
         if sc:
+            # normalize heterogeneous shapes: dict keyed by category, or str items
+            if isinstance(sc, dict):
+                norm = []
+                for k, v in sc.items():
+                    items = v if isinstance(v, list) else [v]
+                    for it in items:
+                        if isinstance(it, dict):
+                            it.setdefault("category", k)
+                            norm.append(it)
+                        else:
+                            norm.append({"name": str(it), "category": k})
+                sc = norm
+            else:
+                sc = [x if isinstance(x, dict) else {"name": str(x)} for x in sc]
             # check if entries have type/category fields (BA/MA style) or just name/condition/benefit (junior style)
             has_type = any(x.get("type") for x in sc)
             if has_type:

@@ -9,10 +9,12 @@ verified_kb에서 필수필드(학비/어학/전공/장학)가 누락된 학교�
   - no_foreign : 외국인 요강 자체가 없음(확인됨) → 수집 불가(무요강)
 출력: _kb_gap_report.json + _kb_gap_queue.json (야간/주간 크론이 소비)
 """
-import json, os, re, datetime
+import json, os, re, sys, datetime
 from collections import Counter
 
-B = r"C:\Users\wisew\camnemi-crm\backend"
+B = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, B)
+import pipeline_paths as _pp  # ONE data home (_pipeline_data/reports)
 today = datetime.date.today().isoformat()
 
 def load(p, d=None):
@@ -111,9 +113,9 @@ queue = [r for r in all_report if r["action"] in ("reparse", "recollect", "colle
 json.dump({"generated": today, "summary": {"by_action": dict(by_action), "by_level": dict(by_level),
            "by_missing": dict(by_missing), "actionable": len(queue)},
            "gaps": all_report},
-          open(os.path.join(B, "_kb_gap_report.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+          open(_pp.path("gap_report"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 json.dump({"generated": today, "queue": queue},
-          open(os.path.join(B, "_kb_gap_queue.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+          open(_pp.path("gap_queue"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 print(f"=== KB 갭 감사 ({today}) ===")
 print(f"총 갭 학교: {len(all_report)} | 조치가능: {len(queue)}")

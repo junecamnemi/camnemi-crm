@@ -23,23 +23,40 @@ def first(*vals):
         if v: return v
     return None
 
+# Values that are placeholders, not a real schedule (never copy one into consulting_db).
+PLACEHOLDERS = {"미기재", "정보 없음", "정보없음", "미정", "-", "없음", "unknown", "",
+                "해당없음", "추후 안내", "미공개", "미상", "n/a", "null"}
+
 kb = json.load(open(KB, encoding="utf-8"))
 
 # ---------- 1. consulting_db (fill-only) ----------
 db = json.load(open(DB, encoding="utf-8"))
 shutil.copy(DB, DB.replace(".json", f"_bak_sync_{datetime.datetime.now():%Y%m%d_%H%M}.json"))
 
-idx = {}
+CAMPUS_RE = re.compile(r"[\(\[]\s*(ERICA|글로컬|GLOCAL|세종|제\d캠퍼스|분교|캠퍼스)")
+
+idx = {}          # loose key (suffix-stripped): the 본교 row wins over campus variants
+idx_exact = {}    # punctuation-stripped key: keeps (ERICA)/(글로컬)/(세종) apart
 for sec, lvl in [("schools","BA"),("master","MA"),("junior","전문학사"),("lang_programs","어학연수")]:
     node = kb.get(sec, {})
     sch = node.get("schools", node) if isinstance(node, dict) else {}
     for n, v in sch.items():
-        if isinstance(v, dict):
-            idx.setdefault(norm(n), {})[lvl] = v
+        if not isinstance(v, dict):
+            continue
+        idx_exact.setdefault(re.sub(r"[^가-힣A-Za-z0-9]", "", str(n)), {})[lvl] = v
+        k = norm(n)
+        cur = idx.setdefault(k, {})
+        if lvl in cur and CAMPUS_RE.search(str(n)):
+            # 한양대학교(ERICA)/건국대학교(글로컬)/고려대학교(세종) all collapse to the same
+            # loose key; without this guard whichever row iterates last silently supplies the
+            # 본교 node with another campus's data.
+            continue
+        cur[lvl] = v
 
 cdb_filled = {}
+cdb_period_refreshed = {}
 for name, s in db["schools"].items():
-    entry = idx.get(norm(name))
+    entry = idx_exact.get(re.sub(r"[^가-힣A-Za-z0-9]", "", str(name))) or idx.get(norm(name))
     if not entry: continue
     progs = s.get("programs", {})
     for lvl, v in entry.items():
@@ -73,6 +90,28 @@ for name, s in db["schools"].items():
         elif lvl == "어학연수":
             ch |= fill("period", v.get("period"))
             ch |= fill("tuition", v.get("tuition_range"))
+        # Year-aware refresh: fill-only can never correct a value that came from LAST year's
+        # guide, so 전북대 kept serving "2026 early term: Round 1 9.22~10.3 / Round 2 11.5~19"
+        # while the KB already held the 2027 dates. When the KB row was rebuilt from a newer
+        # guide year than this consulting node was synced from, refresh `period` only — and
+        # only when the new value is a real date range that does not move the schedule
+        # backwards. Curated fields (majors, scholarship, popular_majors, tuition, topik/ielts
+        # prose) are never overwritten by this path.
+        m_ky = re.search(r"(20\d\d)", str(v.get("guide_year") or ""))
+        kb_year = m_ky.group(1) if m_ky else ""
+        m_cy = re.search(r"(20\d\d)", str(p.get("guide_year") or ""))
+        cur_year = m_cy.group(1) if m_cy else ""
+        if kb_year and kb_year > cur_year:
+            newp = v.get("period")
+            oldp = p.get("period")
+            if isinstance(newp, str) and newp.strip() and newp.strip() not in PLACEHOLDERS:
+                ny = [int(y) for y in re.findall(r"(20\d\d)", newp)]
+                oy = [int(y) for y in re.findall(r"(20\d\d)", str(oldp or ""))]
+                if ny and oy and max(ny) >= max(oy) and oldp != newp:
+                    p["period"] = newp
+                    ch = True
+                    cdb_period_refreshed[lvl] = cdb_period_refreshed.get(lvl, 0) + 1
+            p["guide_year"] = kb_year
         if ch: cdb_filled[lvl] = cdb_filled.get(lvl, 0) + 1
     # school-level IEQAS 인증대 필드 (fill-only)
     for lvl, v in entry.items():
@@ -87,6 +126,7 @@ for name, s in db["schools"].items():
 with io.open(DB, "w", encoding="utf-8", newline="\n") as f:
     json.dump(db, f, ensure_ascii=False, indent=1)
 print("[consulting_db] filled:", cdb_filled)
+print("[consulting_db] period refreshed from newer guide year:", cdb_period_refreshed)
 
 # ---------- 2. data.js ----------
 rc = subprocess.call([sys.executable, os.path.join(BASE, "backend", "_sync_datajs_v3.py")])

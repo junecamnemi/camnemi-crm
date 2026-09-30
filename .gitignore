@@ -24,3 +24,26 @@ backend/*_bak_*.json
 backend/*.bak
 data.js.bak*
 backend/_acdmcp/
+
+# Chromium scratch cache (cdtest profile) — transient, never commit
+backend/_lang_tmp7/
+
+# Hermes agent internal (plans etc.) — not repo data
+.hermes/
+
+# student application packages / consulting output (PII — never commit)
+_out/
+
+# scratch / transient dirs
+_reskin/
+_qa/
+_new_guides/
+backend/_fees_dl/
+backend/_fees_dl2/
+backend/_fees_docs/
+backend/_tuition_ocr_text/
+backend/_pipeline_data/reports/
+
+# KB/consulting backup snapshots
+backend/*.bak*
+backend/*.pre_*

@@ -1,5 +1,5 @@
 BATCH 4 FOREIGNER-ONLY ADMISSION GUIDE — INVESTIGATION RESULT
-Deliverable folder: C:/Users/USER/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_전문대학_모집요강/
+Deliverable folder: C:/Users/wisew/내 드라이브/02_Crawling_Sheet/University_Project/adiga_2026_전문대학_모집요강/
 Naming convention (confirmed from sibling batch outputs): {school}_전문학사_외국인모집요강.pdf
 
 1) 부산예술대학교 (부산광역시)
