@@ -71,9 +71,17 @@ def main():
     print(f"  popular_majors 유지: {pm} (기대 364)")
 
     if a.write:
-        shutil.copy(CDB, CDB.replace(".json", f"_bak_sync_{datetime.date.today()}.json"))
-        open(CDB, "w", encoding="utf-8", newline="\n").write(json.dumps(cdb, ensure_ascii=False, indent=1) + "\n")
-        print("저장:", CDB)
+            shutil.copy(CDB, CDB.replace(".json", f"_bak_sync_{datetime.date.today()}.json"))
+            # stamp the live build date so the meta never reads as stale
+            cdb.setdefault("meta", {})
+            cdb["meta"]["note"] = ("통합 외국인 상담 DB. 학교 중심, "
+                                   "programs{BA,MA,전문학사,어학연수}.")
+            cdb["meta"]["schema_created"] = cdb["meta"].get("schema_created", "2026-09-06")
+            cdb["meta"]["source"] = "verified_kb.json"
+            cdb["meta"]["updated"] = datetime.date.today().isoformat()
+            cdb["meta"]["last_sync"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+            open(CDB, "w", encoding="utf-8", newline="\n").write(json.dumps(cdb, ensure_ascii=False, indent=1) + "\n")
+            print("저장:", CDB, "| meta.updated =", cdb["meta"]["updated"])
 
 if __name__ == "__main__":
     main()

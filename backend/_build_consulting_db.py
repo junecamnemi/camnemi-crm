@@ -2,7 +2,7 @@
 """Step 1: Build the unified consulting DB schema (schools_consulting) from the
 existing KB sections (schools=BA, master, junior, lang_programs).
 School-centric: each school has region/rank + programs{BA,MA,전문학사,어학연수}."""
-import json, re
+import json, re, datetime
 
 KB_PATH = r"C:\Users\wisew\camnemi-crm\backend\verified_kb.json"
 kb = json.load(open(KB_PATH, encoding="utf-8"))
@@ -105,7 +105,10 @@ for n, v in lang.items():
 # build result with meta
 result = {
     "meta": {
-        "note": "통합 외국인 상담 DB (2026-09-06). 학교 중심, programs{BA,MA,전문학사,어학연수}. 레벨별로 topik/ielts/tuition/scholarship/period/majors 포함.",
+        "note": "통합 외국인 상담 DB. 학교 중심, programs{BA,MA,전문학사,어학연수}. 레벨별로 topik/ielts/tuition/scholarship/period/majors 포함.",
+        "schema_created": "2026-09-06",
+        "updated": datetime.date.today().isoformat(),
+        "source": "verified_kb.json",
         "levels": ["BA","MA","전문학사","어학연수"],
     },
     "schools": schools,
