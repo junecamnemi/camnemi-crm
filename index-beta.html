@@ -2500,13 +2500,12 @@ let UNIV_KNOWLEDGE = [];
     const todayStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
     const typeColor = {todo:'#059669', events:'#2563eb'};
     const typeIcon = {todo:'✅', events:'📅'};
-    const fmt = (n)=>'₩'+n.toLocaleString();
     const mkey = `${TASKS_YEAR}-${String(TASKS_MONTH+1).padStart(2,'0')}`;
-    // monthly profit summary (transactions this month)
+    // monthly profit summary — grouped by currency, no FX
     const monthTrans = TRANS.filter(t=>t.date && t.date.startsWith(mkey));
-    const mIncome = monthTrans.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
-    const mExpense = monthTrans.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
-    const mProfit = mIncome - mExpense;
+    const mIncByCur = sumByCurrency(monthTrans.filter(t=>t.type==='income'));
+    const mExpByCur = sumByCurrency(monthTrans.filter(t=>t.type==='expense'));
+    const mProfitByCur = netByCurrency(mIncByCur, mExpByCur);
     // build calendar cells
     let cells='';
     for(let i=0;i<startDow;i++) cells+='<div style="min-height:88px;"></div>';
@@ -2514,14 +2513,14 @@ let UNIV_KNOWLEDGE = [];
       const ds = `${TASKS_YEAR}-${String(TASKS_MONTH+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
       const dayTasks = TASKS.filter(t=>t.date===ds && (TASKS_FILTER==='all'||t.type===TASKS_FILTER));
       const dayTrans = TRANS.filter(t=>t.date===ds);
-      const dInc = dayTrans.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
-      const dExp = dayTrans.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
+      const dInc = sumByCurrency(dayTrans.filter(t=>t.type==='income'));
+      const dExp = sumByCurrency(dayTrans.filter(t=>t.type==='expense'));
       const isToday = ds===todayStr;
       let taskChips = dayTasks.slice(0,2).map(t=>`<div title="${escapeHtml(t.title)}" style="font-size:.6rem;padding:1px 3px;border-radius:3px;margin-top:1px;color:#fff;background:${typeColor[t.type]};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${typeIcon[t.type]} ${escapeHtml(t.title)}</div>`).join('');
       if(dayTasks.length>2) taskChips+=`<div style="font-size:.58rem;color:#94a3b8;">+${dayTasks.length-2} more</div>`;
       let moneyHtml = '';
-      if(dInc) moneyHtml+=`<div style="font-size:.6rem;color:#059669;font-weight:700;margin-top:1px;">▲ ${fmt(dInc)}</div>`;
-      if(dExp) moneyHtml+=`<div style="font-size:.6rem;color:#dc2626;font-weight:700;margin-top:1px;">▼ ${fmt(dExp)}</div>`;
+      if(Object.keys(dInc).length) moneyHtml+=`<div style="font-size:.6rem;color:#059669;font-weight:700;margin-top:1px;">▲ ${fmtTotals(dInc)}</div>`;
+      if(Object.keys(dExp).length) moneyHtml+=`<div style="font-size:.6rem;color:#dc2626;font-weight:700;margin-top:1px;">▼ ${fmtTotals(dExp)}</div>`;
       cells += `<div onclick="openDayDetail('${ds}')" title="Add task / view day" style="min-height:88px;border:1px solid #eef0f4;border-radius:6px;padding:4px;background:${isToday?'#eff6ff':'#fff'};cursor:pointer;overflow:hidden;">
         <div style="font-size:.72rem;font-weight:700;color:${isToday?'#1e40af':'#64748b'};">${d}</div>
         ${taskChips}
@@ -2544,7 +2543,7 @@ let UNIV_KNOWLEDGE = [];
         <td style="font-weight:600">${escapeHtml(t.cat)}</td>
         <td style="color:#6b7280">${escapeHtml(t.note||'')}</td>
         <td style="color:#475569;white-space:nowrap">${escapeHtml(t.date)}</td>
-        <td style="white-space:nowrap;font-weight:600;color:${t.type==='income'?'#166534':'#991b1b'}">${t.type==='income'?'+':'-'}${fmt(t.amount)}</td>
+        <td style="white-space:nowrap;font-weight:600;color:${t.type==='income'?'#166534':'#991b1b'}">${t.type==='income'?'+':'−'}${fmtMoney(t.amount, t.currency)}</td>
       </tr>`)
     ].join('');
     const chips = ['all','todo','events'].map(f=>`<span class="click-filter ${TASKS_FILTER===f?'active':''}" onclick="setTaskFilter('${f}')">${f==='all'?'All':(f==='todo'?'✅ To-Do':(f==='events'?'📅 Events':''))}</span>`).join(' ');
@@ -2553,9 +2552,9 @@ let UNIV_KNOWLEDGE = [];
     tv.innerHTML = `
       ${knowledgeHeader('📅', 'Camnemi Calendar', 'Schedule tasks & events, and track income/expense on the calendar. Click a date to add.', '<b>'+TASKS.length+'</b> tasks · <b>'+TRANS.length+'</b> transactions')}
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1rem;">
-        ${stat('This Month Income','+'+fmt(mIncome),'#059669')}
-        ${stat('This Month Expense','-'+fmt(mExpense),'#dc2626')}
-        ${stat('This Month Profit',fmt(mProfit), mProfit>=0?'#2563eb':'#dc2626')}
+        ${stat('This Month Income', fmtTotals(mIncByCur, true),'#059669')}
+        ${stat('This Month Expense', fmtTotals(negMap(mExpByCur)),'#dc2626')}
+        ${stat('This Month Profit', fmtTotals(mProfitByCur), Object.keys(mProfitByCur).some(c=>mProfitByCur[c]<0)?'#dc2626':'#2563eb')}
       </div>
       <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:1rem;align-items:start;">
         <div style="background:#fff;border:1px solid #eef0f4;border-radius:14px;padding:1rem;box-shadow:0 2px 10px rgba(0,0,0,.05);">
@@ -2591,9 +2590,8 @@ let UNIV_KNOWLEDGE = [];
     overlay.className='modal-overlay'; overlay.id='day-detail-modal';
     const dayTasks = TASKS.filter(t=>t.date===date);
     const dayTrans = TRANS.filter(t=>t.date===date);
-    const fmt=(n)=>'₩'+n.toLocaleString();
     const taskRows = dayTasks.map(t=>`<div style="padding:.3rem 0;border-bottom:1px dashed #eef0f4;font-size:.8rem;"><span style="background:${t.type==='events'?'#2563eb':'#059669'};color:#fff;border-radius:3px;padding:.05rem .35rem;font-size:.68rem;">${t.type==='events'?'📅':'✅'}</span> <b>${escapeHtml(t.title)}</b> <span style="color:#94a3b8">${escapeHtml(t.note||'')}</span></div>`).join('')||'<div style="color:#94a3b8;font-size:.78rem;">No tasks.</div>';
-    const transRows = dayTrans.map(t=>`<div style="padding:.3rem 0;border-bottom:1px dashed #eef0f4;font-size:.8rem;"><span style="color:${t.type==='income'?'#059669':'#dc2626'};font-weight:700;">${t.type==='income'?'+':'-'}${fmt(t.amount)}</span> <b>${escapeHtml(t.cat)}</b> <span style="color:#94a3b8">${escapeHtml(t.note||'')}</span></div>`).join('')||'<div style="color:#94a3b8;font-size:.78rem;">No transactions.</div>';
+    const transRows = dayTrans.map(t=>`<div style="padding:.3rem 0;border-bottom:1px dashed #eef0f4;font-size:.8rem;"><span style="color:${t.type==='income'?'#059669':'#dc2626'};font-weight:700;">${t.type==='income'?'+':'−'}${fmtMoney(t.amount, t.currency)}</span> <b>${escapeHtml(t.cat)}</b> <span style="color:#94a3b8">${escapeHtml(t.note||'')}</span></div>`).join('')||'<div style="color:#94a3b8;font-size:.78rem;">No transactions.</div>';
     overlay.innerHTML=`
       <div class="modal">
         <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -2821,16 +2819,24 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   }
   function syncRecommendation(){ const c=document.getElementById('side-count-recommendation'); if(c) c.textContent=RECS.length; }
   // ======= PROFIT & EXPENSE =======
+  // ===== C1: ledger currency model (mirrors index.html) =====
+  const CUR_SYM = { KRW:'₩', USD:'$' };
+  function curSym(c){ return CUR_SYM[c] || '₩'; }
+  function fmtMoney(amount, c){ c = c || 'KRW'; return curSym(c) + Number(amount||0).toLocaleString(c==='USD' ? 'en-US' : undefined); }
+  function sumByCurrency(rows){ const m={}; rows.forEach(t=>{ const c=t.currency||'KRW'; m[c]=(m[c]||0)+Number(t.amount||0); }); return m; }
+  function netByCurrency(inc, exp){ const m=Object.assign({}, inc); for (const c of Object.keys(exp)) m[c]=(m[c]||0)-(exp[c]||0); return m; }
+  function negMap(m){ const o={}; for (const c of Object.keys(m)) o[c] = -m[c]; return o; }
+  function fmtTotals(m, forceSign){ const ks=Object.keys(m).sort(); if(!ks.length) return '₩0'; return ks.map(c => { const v=m[c]; const sign = v<0 ? '−' : (forceSign ? '+' : ''); return sign + fmtMoney(Math.abs(v), c); }).join('  ·  '); }
   let TRANS = [];
   function seedTrans() {
     if (TRANS.length) return;
     const d = (m,day) => `2026-${String(m).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
     TRANS = [
-      {date:d(8,1),  type:'income', cat:'Service Fee',  amount:5000000, note:'Application service fee - 2 students'},
-      {date:d(8,3),  type:'expense',cat:'Marketing',    amount:800000,  note:'Facebook ads'},
-      {date:d(8,5),  type:'income', cat:'Service Fee',  amount:2500000, note:'VISA processing - 1 student'},
-      {date:d(8,8),  type:'expense',cat:'Agency',       amount:1500000, note:'Agency commission'},
-      {date:d(8,12), type:'income', cat:'Consulting',   amount:1000000, note:'GKS consultation'},
+      {date:d(8,1),  type:'income', cat:'Service Fee',  amount:5000000, note:'Application service fee - 2 students', currency:'KRW'},
+      {date:d(8,3),  type:'expense',cat:'Marketing',    amount:800000,  note:'Facebook ads', currency:'KRW'},
+      {date:d(8,5),  type:'income', cat:'Service Fee',  amount:2500000, note:'VISA processing - 1 student', currency:'KRW'},
+      {date:d(8,8),  type:'expense',cat:'Agency',       amount:1500000, note:'Agency commission', currency:'KRW'},
+      {date:d(8,12), type:'income', cat:'Consulting',   amount:1000000, note:'GKS consultation', currency:'KRW'},
     ];
   }
   function openProfit() {
@@ -2862,7 +2868,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
   let PROFIT_YEAR = new Date().getFullYear();
   let __TRANS_SEQ = 1000;
   function ensureTransIds(){
-    TRANS.forEach(t=>{ if(!t._id) t._id = 'tr' + (__TRANS_SEQ++); });
+    TRANS.forEach(t=>{ if(!t._id) t._id = 'tr' + (__TRANS_SEQ++); if(!t.currency) t.currency = 'KRW'; });
   }
   function renderProfit() {
     ensureTransIds();
@@ -2872,12 +2878,11 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     const startDow = first.getDay();
     const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     const todayStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
-    const fmt = (n)=>'₩' + n.toLocaleString();
     const mkey = `${PROFIT_YEAR}-${String(PROFIT_MONTH+1).padStart(2,'0')}`;
     const monthTrans = TRANS.filter(t=>t.date && t.date.startsWith(mkey));
-    const totIncome = monthTrans.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
-    const totExpense = monthTrans.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
-    const profit = totIncome - totExpense;
+    const incByCur = sumByCurrency(monthTrans.filter(t=>t.type==='income'));
+    const expByCur = sumByCurrency(monthTrans.filter(t=>t.type==='expense'));
+    const profitByCur = netByCurrency(incByCur, expByCur);
     const stat = (label, val, color) => `<div style="background:${color}22;border:1px solid ${color}44;border-radius:.7rem;padding:.7rem .9rem;"><div style="font-size:.72rem;color:#64748b;">${label}</div><div style="font-size:1.15rem;font-weight:700;color:${color};">${val}</div></div>`;
     // calendar cells
     let cells='';
@@ -2885,13 +2890,13 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     for(let d=1; d<=daysInMonth; d++){
       const ds = `${PROFIT_YEAR}-${String(PROFIT_MONTH+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
       const dayTrans = TRANS.filter(t=>t.date===ds);
-      const dInc = dayTrans.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
-      const dExp = dayTrans.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
+      const dInc = sumByCurrency(dayTrans.filter(t=>t.type==='income'));
+      const dExp = sumByCurrency(dayTrans.filter(t=>t.type==='expense'));
       const isToday = ds===todayStr;
       let moneyHtml = '';
-      if(dInc) moneyHtml+=`<div style="font-size:.6rem;color:#059669;font-weight:700;margin-top:1px;">▲ ${fmt(dInc)}</div>`;
-      if(dExp) moneyHtml+=`<div style="font-size:.6rem;color:#dc2626;font-weight:700;margin-top:1px;">▼ ${fmt(dExp)}</div>`;
-      if(!dInc && !dExp) moneyHtml='<div style="font-size:.58rem;color:#cbd5e1;margin-top:1px;">—</div>';
+      if(Object.keys(dInc).length) moneyHtml+=`<div style="font-size:.6rem;color:#059669;font-weight:700;margin-top:1px;">▲ ${fmtTotals(dInc)}</div>`;
+      if(Object.keys(dExp).length) moneyHtml+=`<div style="font-size:.6rem;color:#dc2626;font-weight:700;margin-top:1px;">▼ ${fmtTotals(dExp)}</div>`;
+      if(!Object.keys(dInc).length && !Object.keys(dExp).length) moneyHtml='<div style="font-size:.58rem;color:#cbd5e1;margin-top:1px;">—</div>';
       const cnt = dayTrans.length;
       cells += `<div onclick="openProfitDay('${ds}')" title="Click to add / view income &amp; expense" style="min-height:86px;border:1px solid #eef0f4;border-radius:6px;padding:4px;background:${isToday?'#eff6ff':'#fff'};cursor:pointer;overflow:hidden;">
         <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -2906,16 +2911,16 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
       <td style="font-weight:600">${escapeHtml(t.cat)}</td>
       <td style="color:#6b7280">${escapeHtml(t.note||'')}</td>
       <td style="color:#475569;white-space:nowrap">${escapeHtml(t.date)}</td>
-      <td style="white-space:nowrap;font-weight:700;color:${t.type==='income'?'#059669':'#dc2626'}">${t.type==='income'?'+':'-'}${fmt(t.amount)}</td>
+      <td style="white-space:nowrap;font-weight:700;color:${t.type==='income'?'#059669':'#dc2626'}">${t.type==='income'?'+':'−'}${fmtMoney(t.amount, t.currency)}</td>
       <td style="white-space:nowrap;"><button class="btn btn-note" onclick="editTrans('${t._id}')">✏️</button><button class="btn btn-danger" onclick="deleteTrans('${t._id}')">🗑</button></td>
     </tr>`).join('');
     const v=document.getElementById('profit-view');
     v.innerHTML = `
       ${knowledgeHeader('💰','Income / Expense','Track income (service fees, commissions) and expenses (marketing, agency, admin) on the calendar. Click a date to add entries.','<b>'+TRANS.length+'</b> transactions')}
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1rem;">
-        ${stat('This Month Income','+'+fmt(totIncome),'#059669')}
-        ${stat('This Month Expense','-'+fmt(totExpense),'#dc2626')}
-        ${stat('Net Profit',fmt(profit), profit>=0?'#2563eb':'#dc2626')}
+        ${stat('This Month Income', fmtTotals(incByCur, true),'#059669')}
+        ${stat('This Month Expense', fmtTotals(negMap(expByCur)),'#dc2626')}
+        ${stat('Net Profit', fmtTotals(profitByCur), Object.keys(profitByCur).some(c=>profitByCur[c]<0)?'#dc2626':'#2563eb')}
       </div>
       <div style="background:#fff;border:1px solid #eef0f4;border-radius:14px;padding:1rem;box-shadow:0 2px 10px rgba(0,0,0,.05);margin-bottom:1rem;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;">
@@ -2951,9 +2956,8 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     const overlay=document.createElement('div');
     overlay.className='modal-overlay'; overlay.id='profit-day-modal';
     const dayTrans = TRANS.filter(t=>t.date===date);
-    const fmt=(n)=>'₩'+n.toLocaleString();
     const transRows = dayTrans.map(t=>`<div style="padding:.35rem 0;border-bottom:1px dashed #eef0f4;font-size:.82rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem;">
-      <div style="min-width:0;overflow:hidden;"><span style="color:${t.type==='income'?'#059669':'#dc2626'};font-weight:700;">${t.type==='income'?'+':'-'}${fmt(t.amount)}</span> <b>${escapeHtml(t.cat)}</b> <span style="color:#94a3b8">${escapeHtml(t.note||'')}</span></div>
+      <div style="min-width:0;overflow:hidden;"><span style="color:${t.type==='income'?'#059669':'#dc2626'};font-weight:700;">${t.type==='income'?'+':'−'}${fmtMoney(t.amount, t.currency)}</span> <b>${escapeHtml(t.cat)}</b> <span style="color:#94a3b8">${escapeHtml(t.note||'')}</span></div>
       <div style="white-space:nowrap;flex-shrink:0;"><button class="btn btn-note" onclick="editTrans('${t._id}')">✏️</button><button class="btn btn-danger" onclick="deleteTrans('${t._id}')">🗑</button></div>
     </div>`).join('')||'<div style="color:#94a3b8;font-size:.8rem;padding:.3rem 0;">No transactions this day.</div>';
     overlay.innerHTML=`
@@ -2982,7 +2986,8 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
         <h2>${type==='income'?'➕ Add Income':'➖ Add Expense'}</h2>
         <div class="field"><label>Type</label><select id="tr-type"><option value="income" ${type==='income'?'selected':''}>Income</option><option value="expense" ${type==='expense'?'selected':''}>Expense</option></select></div>
         <div class="field"><label>Category</label><select id="tr-cat">${type==='income'?`<option>Service Fee</option><option>Consulting</option><option>Commission</option><option>Other</option>`:`<option>Marketing</option><option>Agency</option><option>Admin</option><option>Other</option>`}</select></div>
-        <div class="field"><label>Amount (KRW)</label><input id="tr-amount" type="number" placeholder="e.g. 1000000"></div>
+        <div class="field"><label>Currency</label><select id="tr-currency" onchange="document.getElementById('tr-hint').textContent=(this.value==='USD'?'Entered in US dollars ($) — no conversion to KRW is applied.':'Entered in Korean won (₩).')"><option value="KRW" selected>KRW (₩) — Korean Won</option><option value="USD">USD ($) — US Dollar</option></select></div>
+        <div class="field"><label>Amount</label><input id="tr-amount" type="number" placeholder="e.g. 1000000"><div id="tr-hint" style="font-size:.72rem;color:#94a3b8;margin-top:.25rem;">Entered in Korean won (₩).</div></div>
         <div class="field"><label>Date</label><input id="tr-date" type="date" value="${escapeHtml(date||'')}"></div>
         <div class="field"><label>Note</label><textarea id="tr-note" placeholder="Details..."></textarea></div>
         <div class="actions">
@@ -3005,7 +3010,8 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
         <h2>✏️ Edit Transaction</h2>
         <div class="field"><label>Type</label><select id="tr-type"><option value="income" ${t.type==='income'?'selected':''}>Income</option><option value="expense" ${t.type==='expense'?'selected':''}>Expense</option></select></div>
         <div class="field"><label>Category</label><input id="tr-cat" value="${escapeHtml(t.cat)}"></div>
-        <div class="field"><label>Amount (KRW)</label><input id="tr-amount" type="number" value="${t.amount}"></div>
+        <div class="field"><label>Currency</label><select id="tr-currency"><option value="KRW" ${(t.currency||'KRW')==='KRW'?'selected':''}>KRW (₩) — Korean Won</option><option value="USD" ${t.currency==='USD'?'selected':''}>USD ($) — US Dollar</option></select></div>
+        <div class="field"><label>Amount</label><input id="tr-amount" type="number" value="${t.amount}"></div>
         <div class="field"><label>Date</label><input id="tr-date" type="date" value="${escapeHtml(t.date)}"></div>
         <div class="field"><label>Note</label><textarea id="tr-note">${escapeHtml(t.note||'')}</textarea></div>
         <div class="actions">
@@ -3021,11 +3027,12 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     const type=overlay.querySelector('#tr-type').value;
     const cat=overlay.querySelector('#tr-cat').value.trim();
     const amount=parseInt(overlay.querySelector('#tr-amount').value)||0;
+    const currency=(overlay.querySelector('#tr-currency')||{}).value || 'KRW';
     const date=overlay.querySelector('#tr-date').value;
     const note=overlay.querySelector('#tr-note').value.trim();
     if(!cat){alert('Category required.');return;}
     ensureTransIds();
-    const obj={type,cat,amount,date,note,_id: (id && TRANS.some(x=>x._id===id)) ? id : 'tr'+(__TRANS_SEQ++)};
+    const obj={type,cat,amount,currency,date,note,_id: (id && TRANS.some(x=>x._id===id)) ? id : 'tr'+(__TRANS_SEQ++)};
     if(id && TRANS.some(x=>x._id===id)){ const t=TRANS.find(x=>x._id===id); Object.assign(t, obj); }
     else TRANS.push(obj);
     closeModal(); renderProfit(); markDirty();
