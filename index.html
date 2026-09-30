@@ -486,11 +486,11 @@
     <div class="topbar">
       <button id="sidebar-hamburger" onclick="toggleSidebar()" aria-label="Menu" style="display:none;background:#1e293b;color:#fff;border:none;border-radius:.5rem;font-size:1.4rem;padding:.3rem .6rem;cursor:pointer;line-height:1;">☰</button>
       <h1 id="main-title">D2D4 in Process</h1>
-      <div class="view-toggle">
-        <button class="active" id="toggle-kanban" onclick="setView('kanban')">📋 Kanban</button>
-        <button id="toggle-list" onclick="setView('list')">📄 List View</button>
-        <button onclick="openListSettings()" title="Column settings (hide, order, add)" style="background:#eef2ff;color:#4f46e5;border:1px solid #c7d2fe;border-radius:.5rem;padding:.4rem .6rem;cursor:pointer;font-size:.85rem;">⚙ Columns</button>
-      </div>
+      <div class="view-toggle" id="view-toggle">
+              <button class="active" id="toggle-kanban" onclick="setView('kanban')">📋 Kanban</button>
+              <button id="toggle-list" onclick="setView('list')">📄 List View</button>
+              <button id="columns-btn" onclick="openListSettings()" title="Column settings (hide, order, add)" style="background:#eef2ff;color:#4f46e5;border:1px solid #c7d2fe;border-radius:.5rem;padding:.4rem .6rem;cursor:pointer;font-size:.85rem;">⚙ Columns</button>
+            </div>
       <div style="margin-left:auto;display:flex;align-items:center;gap:.5rem;">
         <button id="view-log-btn" class="btn btn-note" onclick="toggleActivityPanel()" style="font-size:.75rem;padding:.35rem .7rem;white-space:nowrap;">📜 View Log</button>
         <span id="auth-badge" style="display:none;align-items:center;gap:.45rem;background:#fff;border:1px solid #e2e8f0;border-radius:999px;padding:.35rem .7rem;font-size:.75rem;font-weight:600;color:#334155;">
@@ -1637,17 +1637,21 @@ let UNIV_KNOWLEDGE = [];
       </div>`;
   }
   function setKnowledgeTopbar(title) {
-    const t = document.getElementById('main-title');
-    if (t) t.textContent = title;
-    document.getElementById('toggle-kanban').style.display='none';
-    document.getElementById('toggle-list').style.display='none';
-  }
-  function restoreBoardTopbar(title) {
-    const t = document.getElementById('main-title');
-    if (t) t.textContent = title;
-    document.getElementById('toggle-kanban').style.display='';
-    document.getElementById('toggle-list').style.display='';
-  }
+      const t = document.getElementById('main-title');
+      if (t) t.textContent = title;
+      document.getElementById('toggle-kanban').style.display='none';
+      document.getElementById('toggle-list').style.display='none';
+      // A1: hide the whole Kanban/List/Columns cluster on non-student screens so the
+      // ⚙ Columns button (student-only) never dangles next to an empty container.
+      const vt = document.getElementById('view-toggle'); if (vt) vt.style.display='none';
+    }
+    function restoreBoardTopbar(title) {
+      const t = document.getElementById('main-title');
+      if (t) t.textContent = title;
+      document.getElementById('toggle-kanban').style.display='';
+      document.getElementById('toggle-list').style.display='';
+      const vt = document.getElementById('view-toggle'); if (vt) vt.style.display='';
+    }
   // ---- Shared: show a knowledge panel, hide pipeline views ----
   function showKnowledgePanel(panelId, navId, fn) {
     document.querySelectorAll('.pipe-item').forEach(el => el.classList.remove('active'));
