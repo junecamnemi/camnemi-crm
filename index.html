@@ -1096,7 +1096,7 @@
     currentSection='other'; updateLogButton();
     goHash('agencies');
     showKnowledgePanel('agencies-view','nav-agencies', renderAgencies);
-    setKnowledgeTopbar('🏢 Our Policy · Agencies');
+    setKnowledgeTopbar('Our Policy · Agencies');
   }
   function renderAgencies() {
     const v = document.getElementById('agencies-view');
@@ -1425,7 +1425,7 @@
     currentSection='other'; updateLogButton();
     goHash('fees');
     showKnowledgePanel('fees-view','nav-servicefees', renderFees);
-    setKnowledgeTopbar('💰 Our Policy · Service Fee');
+    setKnowledgeTopbar('Our Policy · Service Fee');
   }
   function renderFees() {
     const v = document.getElementById('fees-view');
@@ -1516,7 +1516,7 @@
     goHash('partners');
     initPartners();
     showKnowledgePanel('partners-view','nav-partners', renderPartners);
-    setKnowledgeTopbar('🤝 Our Policy · Partner Schools');
+    setKnowledgeTopbar('Our Policy · Partner Schools');
   }
   function renderPartners() {
     const v = document.getElementById('partners-view');
@@ -1624,7 +1624,7 @@ let UNIV_KNOWLEDGE = [];
     const uv = document.getElementById('univ-view');
     uv.style.display='block';
     const fbar = document.querySelector('.filter-bar'); if (fbar) fbar.style.display='none';
-    setKnowledgeTopbar('🏛️ Universities');
+    setKnowledgeTopbar('Universities');
     ['gks-view','marketing-view','koreaLife-view','tasks-view','recommendation-view','profit-view'].forEach(id=>{const el=document.getElementById(id); if(el) el.style.display='none';});
     renderUnivList('');
     // Re-render once university data finishes loading (fixes click-before-load blank view)
@@ -1703,7 +1703,7 @@ let UNIV_KNOWLEDGE = [];
     document.getElementById('profit-view').style.display='none';
     document.getElementById(panelId).style.display='block';
     const fbar = document.querySelector('.filter-bar'); if (fbar) fbar.style.display='none';
-    const titles = {'gks-view':'🎓 GKS / Scholarships','marketing-view':'📣 Marketing','koreaLife-view':'🇰🇷 Korea Life'};
+    const titles = {'gks-view':'GKS / Scholarships','marketing-view':'Marketing','koreaLife-view':'Korea Life'};
     if (titles[panelId]) setKnowledgeTopbar(titles[panelId]);
     fn();
   }
@@ -1735,7 +1735,7 @@ let UNIV_KNOWLEDGE = [];
     document.getElementById('recommendation-view').style.display='none';
     document.getElementById('profit-view').style.display='none';
     const fb=document.querySelector('.filter-bar'); if(fb) fb.style.display='none';
-    setKnowledgeTopbar('✅ To-Do & Events');
+    setKnowledgeTopbar('To-Do & Events');
     const tv=document.getElementById('tasks-view');
     tv.style.display='block';
     renderTasks();
@@ -1964,7 +1964,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     document.getElementById('koreaLife-view').style.display='none';
     document.getElementById('tasks-view').style.display='none';
     const fb=document.querySelector('.filter-bar'); if(fb) fb.style.display='none';
-    setKnowledgeTopbar('💡 Recommendation');
+    setKnowledgeTopbar('Recommendation');
     document.getElementById('profit-view').style.display='none';
     document.getElementById('recommendation-view').style.display='block';
     renderRecommendation();
@@ -2119,7 +2119,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     document.getElementById('tasks-view').style.display='none';
     document.getElementById('recommendation-view').style.display='none';
     const fb=document.querySelector('.filter-bar'); if(fb) fb.style.display='none';
-    setKnowledgeTopbar('💰 Income / Expense');
+    setKnowledgeTopbar('Income / Expense');
     document.getElementById('profit-view').style.display='block';
     renderProfit();
   }
@@ -2386,7 +2386,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
     goHash('wiki');
     wikiSel = wikiSel || (WIKI_NOTES[0] ? WIKI_NOTES[0].id : '');
     showKnowledgePanel('wiki-view','nav-wiki', renderWiki);
-    setKnowledgeTopbar('📚 Wiki');  // title in the top bar, like Universities
+    setKnowledgeTopbar('Wiki');  // title in the top bar, like Universities
   }
   function renderWiki() {
     const v = document.getElementById('wiki-view');
@@ -7304,7 +7304,7 @@ ${(u.cert&&u.cert.degree)?' <span title="교육부 학위과정 인증" style="b
       // which stacked two modal overlays and duplicated the "Data & Google Sheets"
       // heading. Drop any existing instance first so exactly one modal is shown.
       const _existing=document.getElementById('data-tools-modal'); if(_existing) _existing.remove();
-      setKnowledgeTopbar('💾 Data & Google Sheets');
+      setKnowledgeTopbar('Data & Google Sheets');
       const d=exportAllData();
     const btn=(label,fn,color)=>`<button onclick="${fn}" style="width:100%;padding:.7rem;background:${color};color:#fff;border:none;border-radius:10px;font-weight:600;cursor:pointer;text-align:left;">${label}</button>`;
     const overlay=document.createElement('div');
