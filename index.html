@@ -1771,11 +1771,11 @@ let UNIV_KNOWLEDGE = [];
       const dInc = dayTrans.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
       const dExp = dayTrans.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
       const isToday = ds===todayStr;
-      let taskChips = dayTasks.slice(0,2).map(t=>`<div title="${escapeHtml(t.title)}" style="font-size:.6rem;padding:1px 3px;border-radius:3px;margin-top:1px;color:#fff;background:${typeColor[t.type]};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${typeIcon[t.type]} ${escapeHtml(t.title)}</div>`).join('');
-      if(dayTasks.length>2) taskChips+=`<div style="font-size:.58rem;color:#94a3b8;">+${dayTasks.length-2} more</div>`;
+      let taskChips = dayTasks.slice(0,2).map(t=>`<div title="${escapeHtml(t.title)}" style="font-size:.7rem;padding:1px 3px;border-radius:3px;margin-top:1px;color:#fff;background:${typeColor[t.type]};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${typeIcon[t.type]} ${escapeHtml(t.title)}</div>`).join('');
+            if(dayTasks.length>2) taskChips+=`<div style="font-size:.7rem;color:#94a3b8;">+${dayTasks.length-2} more</div>`;
       let moneyHtml = '';
-      if(dInc) moneyHtml+=`<div style="font-size:.6rem;color:#059669;font-weight:700;margin-top:1px;">▲ ${fmt(dInc)}</div>`;
-      if(dExp) moneyHtml+=`<div style="font-size:.6rem;color:#dc2626;font-weight:700;margin-top:1px;">▼ ${fmt(dExp)}</div>`;
+      if(dInc) moneyHtml+=`<div style="font-size:.7rem;color:#059669;font-weight:700;margin-top:1px;">▲ ${fmt(dInc)}</div>`;
+      if(dExp) moneyHtml+=`<div style="font-size:.7rem;color:#dc2626;font-weight:700;margin-top:1px;">▼ ${fmt(dExp)}</div>`;
       cells += `<div onclick="openDayDetail('${ds}')" title="Add task / view day" style="min-height:88px;border:1px solid #eef0f4;border-radius:6px;padding:4px;background:${isToday?'#eff6ff':'#fff'};cursor:pointer;overflow:hidden;">
         <div style="font-size:.72rem;font-weight:700;color:${isToday?'#1e40af':'#64748b'};">${d}</div>
         ${taskChips}
@@ -1819,7 +1819,7 @@ let UNIV_KNOWLEDGE = [];
             <button class="btn btn-cancel" onclick="shiftMonth(1)">▶</button>
           </div>
           <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;">
-            ${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(x=>`<div style="font-size:.68rem;font-weight:700;color:#94a3b8;text-align:center;">${x}</div>`).join('')}
+            ${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(x=>`<div style="font-size:.7rem;font-weight:700;color:#94a3b8;text-align:center;">${x}</div>`).join('')}
           </div>
           <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;">${cells}</div>
           <div style="margin-top:.8rem;font-size:.72rem;color:#94a3b8;">Click a date to add tasks/events & income/expense. <span style="color:#059669">▲ income</span> · <span style="color:#dc2626">▼ expense</span> · <span style="color:#059669">✅ To-Do</span> · <span style="color:#2563eb">📅 Events</span></div>
@@ -1846,7 +1846,7 @@ let UNIV_KNOWLEDGE = [];
     const dayTasks = TASKS.filter(t=>t.date===date);
     const dayTrans = TRANS.filter(t=>t.date===date);
     const fmt=(n)=>'₩'+n.toLocaleString();
-    const taskRows = dayTasks.map(t=>`<div style="padding:.3rem 0;border-bottom:1px dashed #eef0f4;font-size:.8rem;"><span style="background:${t.type==='events'?'#2563eb':'#059669'};color:#fff;border-radius:3px;padding:.05rem .35rem;font-size:.68rem;">${t.type==='events'?'📅':'✅'}</span> <b>${escapeHtml(t.title)}</b> <span style="color:#94a3b8">${escapeHtml(t.note||'')}</span></div>`).join('')||'<div style="color:#94a3b8;font-size:.78rem;">No tasks.</div>';
+    const taskRows = dayTasks.map(t=>`<div style="padding:.3rem 0;border-bottom:1px dashed #eef0f4;font-size:.8rem;"><span style="background:${t.type==='events'?'#2563eb':'#059669'};color:#fff;border-radius:3px;padding:.05rem .35rem;font-size:.7rem;">${t.type==='events'?'📅':'✅'}</span> <b>${escapeHtml(t.title)}</b> <span style="color:#94a3b8">${escapeHtml(t.note||'')}</span></div>`).join('')||'<div style="color:#94a3b8;font-size:.78rem;">No tasks.</div>';
     const transRows = dayTrans.map(t=>`<div style="padding:.3rem 0;border-bottom:1px dashed #eef0f4;font-size:.8rem;"><span style="color:${t.type==='income'?'#059669':'#dc2626'};font-weight:700;">${t.type==='income'?'+':'-'}${fmt(t.amount)}</span> <b>${escapeHtml(t.cat)}</b> <span style="color:#94a3b8">${escapeHtml(t.note||'')}</span></div>`).join('')||'<div style="color:#94a3b8;font-size:.78rem;">No transactions.</div>';
     overlay.innerHTML=`
       <div class="modal">
@@ -2143,20 +2143,20 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
       const dExp = dayTrans.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
       const isToday = ds===todayStr;
       let moneyHtml = '';
-      if(dInc) moneyHtml+=`<div style="font-size:.6rem;color:#059669;font-weight:700;margin-top:1px;">▲ ${fmt(dInc)}</div>`;
-      if(dExp) moneyHtml+=`<div style="font-size:.6rem;color:#dc2626;font-weight:700;margin-top:1px;">▼ ${fmt(dExp)}</div>`;
-      if(!dInc && !dExp) moneyHtml='<div style="font-size:.58rem;color:#cbd5e1;margin-top:1px;">—</div>';
+      if(dInc) moneyHtml+=`<div style="font-size:.7rem;color:#059669;font-weight:700;margin-top:1px;">▲ ${fmt(dInc)}</div>`;
+      if(dExp) moneyHtml+=`<div style="font-size:.7rem;color:#dc2626;font-weight:700;margin-top:1px;">▼ ${fmt(dExp)}</div>`;
+      if(!dInc && !dExp) moneyHtml='<div style="font-size:.7rem;color:#cbd5e1;margin-top:1px;">—</div>';
       const cnt = dayTrans.length;
       cells += `<div onclick="openProfitDay('${ds}')" title="Click to add / view income &amp; expense" style="min-height:86px;border:1px solid #eef0f4;border-radius:6px;padding:4px;background:${isToday?'#eff6ff':'#fff'};cursor:pointer;overflow:hidden;">
         <div style="display:flex;justify-content:space-between;align-items:center;">
           <span style="font-size:.72rem;font-weight:700;color:${isToday?'#1e40af':'#64748b'};">${d}</span>
-          ${cnt?`<span style="font-size:.58rem;color:#94a3b8;">${cnt}건</span>`:''}
+          ${cnt?`<span style="font-size:.7rem;color:#94a3b8;">${cnt}건</span>`:''}
         </div>
         ${moneyHtml}
       </div>`;
     }
     const rows = TRANS.slice().sort((a,b)=>b.date.localeCompare(a.date)).map((t,i)=>`<tr>
-      <td>${t.type==='income'?'<span style="display:inline-flex;align-items:center;gap:.25rem;background:linear-gradient(135deg,#059669,#10b981);color:#fff;border-radius:999px;padding:.15rem .55rem;font-size:.68rem;font-weight:700;box-shadow:0 1px 3px rgba(5,150,105,.3)">▲ Income</span>':'<span style="display:inline-flex;align-items:center;gap:.25rem;background:linear-gradient(135deg,#dc2626,#f87171);color:#fff;border-radius:999px;padding:.15rem .55rem;font-size:.68rem;font-weight:700;box-shadow:0 1px 3px rgba(220,38,38,.3)">▼ Expense</span>'}</td>
+      <td>${t.type==='income'?'<span style="display:inline-flex;align-items:center;gap:.25rem;background:linear-gradient(135deg,#059669,#10b981);color:#fff;border-radius:999px;padding:.15rem .55rem;font-size:.7rem;font-weight:700;box-shadow:0 1px 3px rgba(5,150,105,.3)">▲ Income</span>':'<span style="display:inline-flex;align-items:center;gap:.25rem;background:linear-gradient(135deg,#dc2626,#f87171);color:#fff;border-radius:999px;padding:.15rem .55rem;font-size:.7rem;font-weight:700;box-shadow:0 1px 3px rgba(220,38,38,.3)">▼ Expense</span>'}</td>
       <td style="font-weight:600">${escapeHtml(t.cat)}</td>
       <td style="color:#6b7280">${escapeHtml(t.note||'')}</td>
       <td style="color:#475569;white-space:nowrap">${escapeHtml(t.date)}</td>
@@ -2178,7 +2178,7 @@ function shiftMonth(d){ TASKS_MONTH+=d; if(TASKS_MONTH<0){TASKS_MONTH=11;TASKS_Y
           <button class="btn btn-cancel" onclick="shiftProfitMonth(1)" style="font-size:.95rem;font-weight:700;padding:.4rem .85rem;min-width:2.4rem;">▶</button>
         </div>
         <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;">
-          ${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(x=>`<div style="font-size:.68rem;font-weight:700;color:#94a3b8;text-align:center;">${x}</div>`).join('')}
+          ${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(x=>`<div style="font-size:.7rem;font-weight:700;color:#94a3b8;text-align:center;">${x}</div>`).join('')}
         </div>
         <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;">${cells}</div>
         <div style="margin-top:.6rem;font-size:.72rem;color:#94a3b8;">Click a date to add income / expense. <span style="color:#059669">▲ income</span> · <span style="color:#dc2626">▼ expense</span></div>
