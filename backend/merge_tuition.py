@@ -37,7 +37,7 @@ def _get(key, path):
 
 def _patch(key, uid, body):
     r = urllib.request.Request(
-        "https://zjdvzpylxazfbazioxto.supabase.co/rest/v1/universities?id=eq." + urllib.parse.quote(uid),
+        "https://zjdvzpylxazfbazioxto.supabase.co/rest/v1/universities_blob?id=eq." + urllib.parse.quote(uid),
         data=json.dumps(body, ensure_ascii=False).encode(), method='PATCH',
         headers={'apikey': key, 'Authorization': 'Bearer ' + key,
                  'Content-Type': 'application/json', 'Prefer': 'return=minimal'})
@@ -45,7 +45,7 @@ def _patch(key, uid, body):
 
 def merge(records):
     key = _key()
-    univs = {u['id']: u for u in _get(key, 'universities?select=id,tuition&limit=500')}
+    univs = {u['id']: u for u in _get(key, 'universities_blob?select=id,tuition&limit=500')}
 
     def resolve(s):
         s = (s or '').strip()

@@ -70,7 +70,7 @@ def main():
         if not progs:
             continue
         # match by name_kr (exact or normalized)
-        cur.execute("select name_kr from universities")
+        cur.execute("select name_kr from universities_blob")
         names = [x[0] for x in cur.fetchall()]
         m = None
         for n in names:
@@ -80,7 +80,7 @@ def main():
                 break
         if not m:
             continue
-        cur.execute("update universities set programs=%s::jsonb where name_kr=%s",
+        cur.execute("update universities_blob set programs=%s::jsonb where name_kr=%s",
                     (json.dumps(progs, ensure_ascii=False), m))
         upd += 1
     conn.commit()
