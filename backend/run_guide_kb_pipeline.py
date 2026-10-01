@@ -64,6 +64,16 @@ def _load_counts() -> tuple[dict, dict, dict]:
 
 
 def _acquire_lock() -> None:
+    # ONE shared lock across every university-data entry point (this pipeline, the direct
+    # collectors, the canonical publisher): a second runner must be refused instead of
+    # interleaving writes into verified_kb.json / consulting_db.json / the guide library.
+    # Raises SystemExit(9) when another run holds it.
+    try:
+        from univ_data_lock import acquire as _acquire_shared
+    except ImportError:
+        print("WARN: univ_data_lock unavailable; running without the shared university-data lock")
+    else:
+        _acquire_shared()
     payload = json.dumps({"pid": os.getpid(), "started": dt.datetime.now().astimezone().isoformat()})
     for attempt in range(2):
         try:
@@ -84,6 +94,12 @@ def _release_lock() -> None:
         LOCK.unlink()
     except FileNotFoundError:
         pass
+    try:
+        from univ_data_lock import release as _release_shared
+    except ImportError:
+        pass
+    else:
+        _release_shared()
 
 
 def _preflight() -> list[str]:
@@ -201,6 +217,15 @@ def main() -> int:
     ap.add_argument("--collect-junior-lang", action="store_true",
                     help="Collect missing 전문대 어학연수 guides from the unvcd_index lang URL map")
     ap.add_argument("--collect-targets", help="Collect from an explicit targets JSON ({school, level, url, dest})")
+    # --- the direct school-URL collectors (previously the separate 06:00 'Camnemi 모집요강
+    # 데일리 체크' job) run inside THIS pipeline so a guide collected at night is parsed and
+    # merged in the same pass instead of waiting ~22h for the next 04:00 run. ---
+    ap.add_argument("--collect-direct", action="store_true",
+                    help="Run the direct school-URL collectors (BA/MA/lang scraper + homepage 2027 check + junior direct) first")
+    # --- the canonical → Supabase publish tail (previously the separate 08:00 'Camnemi 데이터
+    # 파이프라인' job) runs at the END of this pipeline, on the KB this run just refreshed. ---
+    ap.add_argument("--publish-canonical", action="store_true",
+                    help="Publish the tail: build/enrich/validate canonical → Supabase + KB/consulting DB")
     ap.add_argument("--census", action="store_true", help="Print the 모집요강 보유현황 census (real guides only) and exit")
     args = ap.parse_args()
 
@@ -238,6 +263,7 @@ def main() -> int:
     parsed_count = 0
     detected_output = ""
     download_output = ""
+    publish_outputs: list[tuple[str, str]] = []
     try:
         if args.curate:
             _run("Curate the guide library (keep only the current year active)",
@@ -245,6 +271,17 @@ def main() -> int:
         if args.ingest_library:
             _run("Consolidate all scattered 모집요강 PDFs into the single library",
                  [str(BACKEND / "guide_library.py"), "--apply"], timeout=7200)
+        # Direct school-URL collection (BA/MA/lang scraper + homepage 2027 check + junior
+        # direct). Previously a separate 06:00 cron; running it HERE means everything it
+        # downloads is parsed and merged into the KB in this same pass. Non-fatal: some
+        # schools simply have no collectable guide and must not abort the night's run.
+        if args.collect_direct:
+            for label, script, timeout in (
+                ("Collect BA/MA/lang guides directly from school URLs", "daily_guide_scraper.py", 3600),
+                ("Detect 2027 notices on school homepages", "daily_homepage_2027_check.py", 3600),
+                ("Collect 전문대 foreign guides directly from school URLs", "daily_junior_direct.py", 3600),
+            ):
+                _run(label, [str(BACKEND / script)], timeout=timeout, fatal=False)
         # Page-URL collection: the ONE collector module (guide_page_collect.py). Runs before the
         # parse stage so anything collected here is parsed in the same run.
         if args.repair_html_only:
@@ -277,6 +314,10 @@ def main() -> int:
             # Do not stop on [SILENT]: prior detected notices may still be waiting to download.
             download_output = "" if args.url else _run("Download pending 2027 guides (verify %PDF)",
                                                        [str(BACKEND / "daily_2027_download.py")], timeout=3600)
+            # Supabase 2027 guide rows (was the tail of the separate 06:00 job): runs after
+            # detection/download so the rows reflect this run's collected guides. Non-fatal.
+            _run("Upsert 2027 guide rows → Supabase university_guides",
+                 [str(BACKEND / "upsert_2027_guides.py")], timeout=1800, fatal=False)
             # Parse every unparsed CURRENT-YEAR guide in the library, not just the ones this
             # run downloaded: a collected-but-unparsed 2027 guide otherwise keeps serving 2026
             # facts forever (121 files were in that state on 2026-09-28).
@@ -293,14 +334,16 @@ def main() -> int:
         # Broken file guard: a 0-page/corrupt PDF must never count as a school's current
         # guide, or it looks covered while nothing can be parsed from it. Feeds the
         # watch list (_invalid_pdfs.json) and is report-only here.
+        # fatal=False: a single bad PDF must NOT fail the whole run — the guard already
+        # records it in _invalid_pdfs.json + stdout; the operator quarantines it explicitly.
         _run("Validate current-year PDFs (0-page/corrupt guard)",
-             [str(BACKEND / "guide_library.py"), "--validate"], timeout=1800)
+             [str(BACKEND / "guide_library.py"), "--validate"], timeout=1800, fatal=False)
         # Reference integrity: if a guide was moved/renamed, KB + published tables must be
         # repointed or the links silently rot. Report-only here; the fix is explicit.
         refs = _run("Guide reference integrity check (KB + published tables)",
-                    [str(BACKEND / "repoint_guide_paths.py"), "--quiet"], timeout=1800)
+                    [str(BACKEND / "repoint_guide_paths.py"), "--quiet"], timeout=1800, fatal=False)
         refs_pub = _run("Guide reference integrity check (consulting_db + data.js)",
-                        [str(BACKEND / "repoint_published.py")], timeout=1800)
+                        [str(BACKEND / "repoint_published.py")], timeout=1800, fatal=False)
         for label, out in (("KB", refs), ("published", refs_pub)):
             m = re.search(r'"repointed":\s*(\d+)', out) or re.search(r'"repointable":\s*(\d+)', out)
             if m and int(m.group(1)):
@@ -321,6 +364,21 @@ def main() -> int:
         watch_output = _run("Current-year guide watch list (2026-only schools stay watched)",
                             [str(BACKEND / "guide_watchlist.py"), "--year", args.current], timeout=1800)
         pp.build_index()
+
+        # Publish tail (was the separate 08:00 'Camnemi 데이터 파이프라인' job). Canonical is
+        # rebuilt from the KB/consulting DB THIS run just refreshed, validated, then published
+        # to Supabase and merged back into the KB. Non-fatal by design: a publish hiccup must
+        # never discard the night's collection/parse work — each stage is reported below.
+        if args.publish_canonical:
+            for label, script, timeout in (
+                ("Build canonical 정본 (schools.jsonl)", "build_canonical.py", 3600),
+                ("Enrich canonical", "enrich_canonical.py", 3600),
+                ("Validate canonical (publish gate)", "validate_canonical.py", 1800),
+                ("Publish canonical → Supabase universities.programs", "publish_all.py", 3600),
+                ("Publish canonical → verified_kb + consulting_db", "publish_kb.py", 1800),
+            ):
+                publish_outputs.append((label, _run(label, [str(BACKEND / script)],
+                                                    timeout=timeout, fatal=False)))
 
         kb_after, db_after, downloaded_after = _counts()
         elapsed = int(time.monotonic() - started)
@@ -343,6 +401,11 @@ def main() -> int:
             print(f"Guide year {args.current}: current={cur} | watched(older-only)={watching} | "
                   f"needs_url={needs_url} | no_guide={no_guide}")
         print(f"Coverage guard: PASS | Elapsed: {elapsed}s | Log: {LOG}")
+        if publish_outputs:
+            print("PUBLISH TAIL (canonical → Supabase + KB):")
+            for label, out in publish_outputs:
+                tail = [ln for ln in (out or "").splitlines() if ln.strip()][-2:]
+                print(f"  · {label}: " + (" | ".join(tail) if tail else "no output"))
         _log(f"PIPELINE VERIFIED detected={detected_n} downloaded={new_download_n} parsed={parsed_count} kb_ba={kb_before}->{kb_after} consulting_schools={db_before}->{db_after} elapsed={elapsed}s")
         return 0
     except Exception as exc:
