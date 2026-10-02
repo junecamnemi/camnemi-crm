@@ -6,12 +6,17 @@
 ④ programs[].req 없으면 KB lang_req에서 추출
 canonical/schools.jsonl 을 in-place 갱신.
 """
-import json, os, re, math
+import json, os, re, math, sys
 from collections import Counter
 
 BE = r'C:\Users\wisew\camnemi-crm\backend'
+sys.path.insert(0, BE)
+import pipeline_paths as _pp  # ONE path layer for the corpus root
+
 CANON = os.path.join(BE, 'canonical', 'schools.jsonl')
-ACAD = r'C:\Users\wisew\_tuition_acad.jsonl'
+_ACAD_CANDIDATES = [os.path.join(str(_pp.drive_root()), '_tuition_acad.jsonl'),
+                    r'C:\Users\wisew\_tuition_acad.jsonl']
+ACAD = next((p for p in _ACAD_CANDIDATES if os.path.exists(p)), _ACAD_CANDIDATES[0])
 KB = os.path.join(BE, 'verified_kb.json')
 
 
@@ -26,9 +31,13 @@ def load_lines(p):
 def main():
     canon = load_lines(CANON)
     acad = {}
-    for r in load_lines(ACAD):
-        if r.get('n'):
-            acad[norm(r['univ'])] = r
+    if not os.path.exists(ACAD):
+        print(f"WARN: 대학알리미 enrichment source missing ({ACAD}) — skipping the 대학알리미 pass "
+              f"(the KB 계열별 fallback below still runs)")
+    else:
+        for r in load_lines(ACAD):
+            if r.get('n'):
+                acad[norm(r['univ'])] = r
     kb = json.load(open(KB, encoding='utf-8')).get('schools', {})
 
     t_fill = t_kb = req_fill = 0
