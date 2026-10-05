@@ -115,6 +115,11 @@ def main() -> int:
             run("라이브러리 백로그 파싱 (파일 단위 미파싱분, DeepSeek Pro)",
                 [PY, B / "_parse_library_batch.py", "--run", "--workers", args.workers],
                 timeout=21600, fatal=False)
+            # ⚠️ 배치는 backend/_parse_library.jsonl 에 쓰는데 병합 J4 는
+            #    _pipeline_data/parsed/guides_llm_parsed_library.jsonl 을 읽는다.
+            #    이 연결이 없으면 파싱 결과가 KB에 영원히 반영되지 않는다(2026-10-05 발견).
+            run("파싱 스토어 연결 (_parse_library.jsonl → 병합 J4)",
+                [PY, B / "_libparse_store_sync.py"], timeout=600, fatal=False)
 
         run("KB 병합 (fill-only + 연도 승격)",
             [PY, B / "_merge_llm_into_kb.py", "--write", "--upgrade-years"], timeout=3600, fatal=False)
