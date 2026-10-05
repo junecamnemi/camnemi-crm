@@ -27,6 +27,14 @@ jun_collected = {e["name"]: e for e in jun_col.get("collected", [])}
 jun_missing = {e["name"]: e for e in jun_col.get("missing", [])}
 jun_page = {e["name"]: e for e in jun_col.get("page_guide", [])}
 
+# 섹션 맵 — 교차섹션 중복(같은 학교가 BA/junior 양쪽에) 검사에 쓴다.
+SECTIONS = {
+    "BA": kb.get("schools", {}),
+    "junior": kb["junior"]["schools"],
+    "MA": kb.get("master", {}).get("schools", {}) if isinstance(kb.get("master"), dict) else {},
+    "lang": kb.get("lang_programs", {}).get("schools", {}) if isinstance(kb.get("lang_programs"), dict) else {},
+}
+
 CRITICAL = ["tuition", "lang", "major", "scholarship"]
 
 # 추천 제외 규칙(운영자): 신학대·교육대는 수집 대상에서 제외. 학생수<2000 예외와 동일하게
@@ -93,6 +101,21 @@ def missing_fields(e, level=None):
     return m
 
 
+def cross_section_present(nm, level, mf):
+    """같은 학교가 다른 섹션(BA/junior/MA/lang)에 데이터와 함께 존재하면 그 행은 갭이 아니다.
+    실측 2026-10-05: BA 갭 20교 중 17교가 전문대학 — BA 스텁 행만 비어 있고 실제 데이터는
+    junior 섹션에 있었다(수집 폴더 = `_prog_hint` 라우팅)."""
+    for lvl, schools in SECTIONS.items():
+        if lvl == level:
+            continue
+        e = schools.get(nm)
+        if not isinstance(e, dict):
+            continue
+        if not (set(mf) & set(missing_fields(e, lvl))):
+            return lvl
+    return None
+
+
 def audit(level, schools, collected_map, missing_map, page_map):
     report = []
     for nm, e in schools.items():
@@ -109,10 +132,11 @@ def audit(level, schools, collected_map, missing_map, page_map):
         if action in ("reparse", "recollect", "collect"):
             doc = documented_missing(e, mf)
             twin = alias_twin(nm, schools, level)
+            xsec = cross_section_present(nm, level, mf)
             if len(doc) == len(mf):
                 action = "documented"   # note에 부재 근거 기록됨 → 수집해도 안 채워짐
-            elif twin:
-                action = "dedupe"       # 별칭키 중복 → 키 병합으로 해결
+            elif twin or xsec:
+                action = "dedupe"       # 별칭키/교차섹션 중복 → 키 병합으로 해결
         if action in ("reparse", "recollect", "collect", "dedupe") and is_excluded(nm):
             action = "excluded"          # 신학대·교육대 = 추천 제외 규칙 대상 (수집 불필요)
         report.append({"school": nm, "level": level, "missing": mf, "action": action})
