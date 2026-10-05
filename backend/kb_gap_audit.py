@@ -29,11 +29,23 @@ jun_page = {e["name"]: e for e in jun_col.get("page_guide", [])}
 
 CRITICAL = ["tuition", "lang", "major", "scholarship"]
 
+# 추천 제외 규칙(운영자): 신학대·교육대는 수집 대상에서 제외. 학생수<2000 예외와 동일하게
+# 한국기술교육대는 유지한다. (2026-10-05: 갭 큐에 신학대 9교가 섞여 수집 대상으로 잡히던 문제)
+EXCLUDE_NAME_TOKENS = ("신학대", "신학교", "장신대", "교육대")
+EXCLUDE_KEEP = ("한국기술교육대",)
+
+
+def is_excluded(nm: str) -> bool:
+    if any(k in nm for k in EXCLUDE_KEEP):
+        return False
+    return any(t in nm for t in EXCLUDE_NAME_TOKENS)
+
+
 # 자가감사 정확성 보강(2026-09-28): 아래 두 경우를 '수집 필요'로 오분류하지 않는다.
 #  1) documented : 필드 옆 note에 부재 근거가 이미 기록된 경우 → 재파싱해도 안 채워짐(요강에 미기재).
 #  2) dedupe    : lang레벨에서 표준키/단축 별칭키가 동시에 존재해 데이터가 쪼개진 경우 → 수집이 아니라 키 병합.
 DOC_TOKENS = ("need=", "미공개", "미확인", "미명시", "미기재", "내부규정", "확인 불가", "없음")
-NOTE_FOR = {"tuition": ("tuition_note", "note"), "scholarship": ("scholarship_note",),
+NOTE_FOR = {"tuition": ("tuition_note", "note"), "scholarship": ("scholarship_note", "note"),
             "lang": ("lang_note", "note"), "major": ("major_note", "note"),
             "program": ("program_note", "note")}
 
@@ -57,11 +69,14 @@ def alias_twin(nm, schools, level):
             return cand
     return None
 
+
 def missing_fields(e, level=None):
     m = []
     if level == "lang":
         if not (e.get("tuition_note") or e.get("tuition_semester") or e.get("tuition_min")): m.append("tuition")
-        if not (e.get("programs") or e.get("levels") or e.get("duration")): m.append("program")
+        # 어학 과정 정보는 실제로는 `structure`(per_term/total_hours/per_day)에 들어있다.
+        # `programs`/`levels`/`duration`만 보면 137교가 오탐(2026-10-05 실측: 194교가 structure 보유).
+        if not (e.get("programs") or e.get("levels") or e.get("duration") or e.get("structure")): m.append("program")
         if not (e.get("scholarship_note") or e.get("scholarships_categorized")): m.append("scholarship")
         return m
     if not e.get("tuition_min") and not e.get("tuition_semester"): m.append("tuition")
@@ -69,6 +84,7 @@ def missing_fields(e, level=None):
     if not (e.get("majors_full") or e.get("majors_ba") or e.get("majors_sample") or e.get("majors_ma")): m.append("major")
     if not (e.get("scholarships_categorized") or e.get("scholarships")): m.append("scholarship")
     return m
+
 
 def audit(level, schools, collected_map, missing_map, page_map):
     report = []
@@ -90,6 +106,8 @@ def audit(level, schools, collected_map, missing_map, page_map):
                 action = "documented"   # note에 부재 근거 기록됨 → 수집해도 안 채워짐
             elif twin:
                 action = "dedupe"       # 별칭키 중복 → 키 병합으로 해결
+        if action in ("reparse", "recollect", "collect", "dedupe") and is_excluded(nm):
+            action = "excluded"          # 신학대·교육대 = 추천 제외 규칙 대상 (수집 불필요)
         report.append({"school": nm, "level": level, "missing": mf, "action": action})
     return report
 
@@ -107,7 +125,7 @@ by_missing = Counter()
 for r in all_report:
     for m in r["missing"]: by_missing[m] += 1
 
-# actionable queue (exclude no_foreign / documented)
+# actionable queue (exclude no_foreign / documented / excluded)
 queue = [r for r in all_report if r["action"] in ("reparse", "recollect", "collect", "dedupe")]
 
 json.dump({"generated": today, "summary": {"by_action": dict(by_action), "by_level": dict(by_level),
