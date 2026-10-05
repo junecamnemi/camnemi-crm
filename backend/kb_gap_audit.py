@@ -44,10 +44,17 @@ def is_excluded(nm: str) -> bool:
 # 자가감사 정확성 보강(2026-09-28): 아래 두 경우를 '수집 필요'로 오분류하지 않는다.
 #  1) documented : 필드 옆 note에 부재 근거가 이미 기록된 경우 → 재파싱해도 안 채워짐(요강에 미기재).
 #  2) dedupe    : lang레벨에서 표준키/단축 별칭키가 동시에 존재해 데이터가 쪼개진 경우 → 수집이 아니라 키 병합.
-DOC_TOKENS = ("need=", "미공개", "미확인", "미명시", "미기재", "내부규정", "확인 불가", "없음")
-NOTE_FOR = {"tuition": ("tuition_note", "note"), "scholarship": ("scholarship_note", "note"),
-            "lang": ("lang_note", "note"), "major": ("major_note", "note"),
-            "program": ("program_note", "note")}
+DOC_TOKENS = ("need=", "미공개", "미확인", "미명시", "미기재", "내부규정", "확인 불가", "없음",
+              "명시되어 있지 않", "추후 공지", "공개되지 않", "정해지지 않")
+# ⚠️ 부재 근거는 해당 필드 note에만 적히지 않는다. 병합기가 "need=등록금..." 처럼
+#    반대편 note에 적어두는 경우가 많아(예: 재능대 tuition 부재근거가 scholarship_note에),
+#    모든 note 필드를 함께 본다. (2026-10-05 실측: junior 10교가 reparse로 오분류)
+_ALL_NOTES = ("tuition_note", "scholarship_note", "lang_note", "major_note", "program_note", "note")
+NOTE_FOR = {f: _ALL_NOTES for f in ("tuition", "scholarship", "lang", "major", "program")}
+# note에 실제 금액이 적혀 있으면 그 필드는 '데이터 보유'로 본다(구조화 필드가 비어도).
+AMT_RE = re.compile(r"\d{1,3}(?:,\d{3})+|\d[\d,]{3,}")
+# 장학 note에 혜택(전액/비율/금액/감면)이 적혀 있으면 장학 데이터 보유로 본다.
+SCH_DATA_RE = re.compile(r"전액|%|만원|감면|면제|지급|장려금")
 
 
 def documented_missing(e, mf):
@@ -79,10 +86,10 @@ def missing_fields(e, level=None):
         if not (e.get("programs") or e.get("levels") or e.get("duration") or e.get("structure")): m.append("program")
         if not (e.get("scholarship_note") or e.get("scholarships_categorized")): m.append("scholarship")
         return m
-    if not e.get("tuition_min") and not e.get("tuition_semester"): m.append("tuition")
+    if not e.get("tuition_min") and not e.get("tuition_semester") and not (e.get("tuition_note") and AMT_RE.search(str(e.get("tuition_note")))): m.append("tuition")
     if e.get("topik_req") is None and e.get("ielts_req") is None and not e.get("lang_req"): m.append("lang")
     if not (e.get("majors_full") or e.get("majors_ba") or e.get("majors_sample") or e.get("majors_ma")): m.append("major")
-    if not (e.get("scholarships_categorized") or e.get("scholarships")): m.append("scholarship")
+    if not (e.get("scholarships_categorized") or e.get("scholarships") or (e.get("scholarship_note") and SCH_DATA_RE.search(str(e.get("scholarship_note"))))): m.append("scholarship")
     return m
 
 
