@@ -12,6 +12,8 @@ guessed. Logo/image assets are a separate build step, so `logo` is null for new 
 """
 from __future__ import annotations
 
+from region_norm import canonical_or_none   # 지역 정식명 강제(파생 저장소 보호)
+
 import argparse
 import json
 import pathlib
@@ -221,7 +223,7 @@ def datajs_entry(name: str, levels: list, entries: dict, kb: dict) -> dict:
     sch = scholarships_flat(ba or ma or pri)
     return {
         "n": name,
-        "loc": pri.get("region"),
+        "loc": canonical_or_none(pri.get("region")),
         "t": (ba or ma).get("topik_req"),
         "i": (ba or ma).get("ielts_req"),
         "eng": "",

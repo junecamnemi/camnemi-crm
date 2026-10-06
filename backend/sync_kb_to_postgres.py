@@ -13,6 +13,8 @@ Design notes
 """
 from __future__ import annotations
 
+from region_norm import canonical_or_none   # 지역 정식명 강제(요강DB 정본 보호)
+
 import argparse
 import hashlib
 import json
@@ -622,8 +624,8 @@ def build(kb: dict) -> dict:
                 data["schools"][sid] = dict(
                     id=sid, name_kr=cname,
                     name_en=entry.get("name_en") or name_en,
-                    region=entry.get("region") or c_region,
-                    loc=entry.get("loc"), category="junior_college" if level == "junior" else
+                    region=canonical_or_none(entry.get("region") or c_region),
+                    loc=canonical_or_none(entry.get("loc")), category="junior_college" if level == "junior" else
                     ("language" if level == "lang" else "university"),
                     type=entry.get("type") or c_type,
                     rank=num(entry.get("rank")), students=num(entry.get("student_count")),

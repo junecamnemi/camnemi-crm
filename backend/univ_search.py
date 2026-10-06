@@ -15,19 +15,11 @@ import json, re, os, sys, argparse
 
 DATA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data.js")
 
-REGIONS = {
-    "서울": "서울", "경기": "경기", "인천": "인천", "강원": "강원",
-    "충북": "충북", "충남": "충남", "대전": "대전", "세종": "세종",
-    "전북": "전북", "전남": "전남", "광주": "광주",
-    "경북": "경북", "경남": "경남", "대구": "대구", "부산": "부산", "울산": "울산", "제주": "제주",
-}
-REGION_ALIAS = {
-    "서울특별시": "서울", "서울시": "서울", "경기도": "경기", "인천광역시": "인천",
-    "강원도": "강원", "강원특별자치도": "강원", "충청북도": "충북", "충청남도": "충남",
-    "대전광역시": "대전", "세종특별자치시": "세종", "전라북도": "전북", "전라남도": "전남",
-    "광주광역시": "광주", "경상북도": "경북", "경상남도": "경남", "대구광역시": "대구",
-    "부산광역시": "부산", "울산광역시": "울산", "제주도": "제주", "제주특별자치도": "제주",
-}
+from region_norm import SHORT_KR, canonical_kr   # 지역 단일 정본(2026-10-06)
+
+# 필터 매칭용 약칭 — region_norm 에서 파생(중복 정의 금지).
+REGIONS = {v: v for v in sorted(set(SHORT_KR.values()))}
+REGION_ALIAS = dict(SHORT_KR)
 
 
 def load_universities():
@@ -38,15 +30,10 @@ def load_universities():
 
 
 def normalize_region(loc):
+    """지역 → 필터 매칭용 약칭(예: 경기도/경기(안산) → 경기). 단일 정본 사용."""
     if not loc:
         return ""
-    for k, v in REGION_ALIAS.items():
-        if k in loc:
-            return v
-    for k in REGIONS:
-        if k in loc:
-            return k
-    return ""
+    return SHORT_KR.get(canonical_kr(loc), "")
 
 
 def parse_tuition_num(s):

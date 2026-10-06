@@ -20,11 +20,7 @@ B = os.path.dirname(os.path.abspath(__file__))
 KB = json.load(open(os.path.join(B, "verified_kb.json"), encoding="utf-8"))
 NO_SCORE = os.path.join(B, "no_language_score_admission_clean.json")
 
-LOC = {"경기도": "Gyeonggi", "서울특별시": "Seoul", "대구광역시": "Daegu", "대전광역시": "Daejeon",
-       "부산광역시": "Busan", "충청북도": "Chungbuk", "전라북도": "Jeonbuk", "전북특별자치도": "Jeonbuk",
-       "경상남도": "Gyeongnam", "경상북도": "Gyeongbuk", "충청남도": "Chungnam", "광주광역시": "Gwangju",
-       "전라남도": "Jeonnam", "강원도": "Gangwon", "인천광역시": "Incheon", "제주특별자치도": "Jeju",
-       "경기(안산)": "Gyeonggi"}
+from region_norm import to_en_short as _loc_en    # 지역 단일 정본(2026-10-06)
 SKIP = ("대학원", "학과간", "의학", "약학", "한의", "치의", "수의")
 
 
@@ -120,7 +116,8 @@ def rows(level, names):
                 print(f"{n} | NOT IN KB")
                 continue
             n, v = hit[0], src[hit[0]]
-        print(f"{n}\t{LOC.get(v.get('region') or v.get('loc'), v.get('region') or v.get('loc') or '?')}"
+        _lc = v.get('region') or v.get('loc') or ''
+        print(f"{n}\t{_loc_en(_lc) or '?'}"
               f"\t{requirement(v)}\t{tuition(v)}\t{scholarship(v)}")
 
 

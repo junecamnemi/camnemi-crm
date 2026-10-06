@@ -123,54 +123,12 @@ def en_major(kr):
 
 
 # --- region ---------------------------------------------------------------------
-_REGION_EN = {
-    "서울특별시": "Seoul",
-    "서울": "Seoul",
-    "경기도": "Gyeonggi",
-    "경기": "Gyeonggi",
-    "인천광역시": "Incheon",
-    "인천": "Incheon",
-    "부산광역시": "Busan",
-    "부산": "Busan",
-    "대구광역시": "Daegu",
-    "대구": "Daegu",
-    "대전광역시": "Daejeon",
-    "대전": "Daejeon",
-    "광주광역시": "Gwangju",
-    "광주": "Gwangju",
-    "울산광역시": "Ulsan",
-    "울산": "Ulsan",
-    "세종특별자치시": "Sejong",
-    "세종": "Sejong",
-    "강원도": "Gangwon",
-    "강원": "Gangwon",
-    "충청북도": "Chungbuk",
-    "충북": "Chungbuk",
-    "충청남도": "Chungnam",
-    "충남": "Chungnam",
-    "전라북도": "Jeonbuk",
-    "전북특별자치도": "Jeonbuk",
-    "전북": "Jeonbuk",
-    "전라남도": "Jeonnam",
-    "전남": "Jeonnam",
-    "경상북도": "Gyeongbuk",
-    "경북": "Gyeongbuk",
-    "경상남도": "Gyeongnam",
-    "경남": "Gyeongnam",
-    "제주특별자치도": "Jeju",
-    "제주": "Jeju",
-}
-
-
+# 단일 정본(region_norm)에서 가져온다. UI/봇/시트가 서로 다른 사전을 들고 있다가
+# 지역이 한글로 새던 문제(2026-10-06)를 없애기 위해 여기서만 정의하지 않는다.
 def en_region(kr):
-    if not kr:
-        return ""
-    kr = kr.strip()
-    base = re.sub(r"\([^)]*\)", "", kr).strip()  # strip city suffix like (안동)
-    out = _REGION_EN.get(base) or _REGION_EN.get(kr)
-    if out:
-        return out
-    return kr
+    from region_norm import to_en_short
+    return to_en_short(kr)
+
 
 
 # --- scholarship translation ------------------------------------------------------

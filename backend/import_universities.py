@@ -1,5 +1,7 @@
 """Regenerate backend/import_universities.sql from data.js."""
 import json, pathlib
+
+from region_norm import canonical_or_none   # 지역 정식명 강제
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 text = (ROOT / "data.js").read_text(encoding="utf-8")
 
@@ -51,7 +53,7 @@ for u in univs:
         "insert into universities (id,name_kr,name_en,short_en,loc,type,logo,students,rank,tuition,req,cert,majors_ba,majors_ma,extra) values ("
         + ",".join([
             esc(uid), esc(u.get("n") or ""), esc(u.get("en") or ""), esc(u.get("es") or ""),
-            esc(u.get("loc") or ""), esc(u.get("type") or "univ"), esc(u.get("logo") or ""),
+            esc(canonical_or_none(u.get("loc")) or ""), esc(u.get("type") or "univ"), esc(u.get("logo") or ""),
             num(u.get("stu")), num(u.get("rk")),
             lit(u.get("tuition") or {}), lit(u.get("req") or {}), lit(u.get("cert") or {}),
             lit(u.get("majors_ba") or []), lit(u.get("majors_ma") or []), lit(extra),
